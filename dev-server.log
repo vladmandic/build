@@ -1,0 +1,338 @@
+2021-09-04 17:42:11 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:42:11 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:42:11 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:42:11 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:42:11 [35mSTATE:[39m HTTP2 server listening: 8001 
+2021-09-04 17:42:11 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:42:24 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:42:24 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:42:24 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:42:24 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:42:24 [35mSTATE:[39m HTTP2 server listening: 8001 
+2021-09-04 17:42:24 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:44:20 [36mINFO: [39m Watch: modify config.json 
+2021-09-04 17:46:33 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:46:33 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:46:33 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:46:33 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 17:46:33 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:46:33 [35mSTATE:[39m HTTP2 server listening: 8001 
+2021-09-04 17:46:33 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:49:34 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:49:34 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:49:34 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:49:34 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:49:34 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:49:34 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 17:49:34 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:54:06 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:54:06 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:54:06 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:54:06 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:54:06 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:54:06 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 17:54:06 [36mINFO: [39m Build: {"type":"production"} 
+2021-09-04 17:54:06 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:56:16 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:56:16 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:56:16 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:56:16 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:56:16 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:56:16 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 17:56:16 [36mINFO: [39m Build: {"type":"production"} 
+2021-09-04 17:56:16 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 17:59:29 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 17:59:29 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 17:59:29 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 17:59:29 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:59:29 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 17:59:29 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 17:59:29 [36mINFO: [39m Build: {"type":"production"} 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 17:59:29 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 17:59:29 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:00:02 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:00:02 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:00:02 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:00:02 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:02 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:02 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: browser input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 18:00:02 [36mINFO: [39m Build: type: [object Object] target: node input: undefined 
+2021-09-04 18:00:02 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:00:22 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:00:22 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:00:22 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:00:22 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:22 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:22 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:00:22 [36mINFO: [39m Build: type: [object Object] target: browser input: test/src/index.ts 
+2021-09-04 18:00:22 [36mINFO: [39m Build: type: [object Object] target: node input: test/src/index.ts 
+2021-09-04 18:00:22 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:00:58 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:00:58 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:00:58 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:00:58 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:58 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:00:58 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:00:58 [36mINFO: [39m Build: type: [object Object] target: browser input: test/src/index.ts 
+2021-09-04 18:00:58 [36mINFO: [39m Build: type: [object Object] target: node input: test/src/index.ts 
+2021-09-04 18:00:58 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:01:11 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:01:11 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:01:11 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:01:11 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:01:11 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:01:11 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:01:11 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:01:11 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:01:11 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:03:21 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:03:21 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:03:21 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:03:21 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:03:21 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:03:21 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:03:21 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:03:21 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"}} 
+2021-09-04 18:03:21 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:03:21 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"}} 
+2021-09-04 18:03:21 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:04:01 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:04:01 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:04:01 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:04:01 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:04:01 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:04:01 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:04:01 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:04:01 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"}} 
+2021-09-04 18:04:01 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:04:01 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"}} 
+2021-09-04 18:04:01 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:05:31 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:05:31 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:05:31 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:05:31 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:05:31 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:05:31 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:05:31 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:05:31 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true} 
+2021-09-04 18:05:31 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:05:31 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true} 
+2021-09-04 18:05:31 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:06:46 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:06:46 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:06:46 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:06:46 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:06:46 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:06:46 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:06:46 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:06:46 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true} 
+2021-09-04 18:06:46 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:06:46 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true} 
+2021-09-04 18:06:46 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:08:02 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:08:02 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:08:02 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:08:02 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:08:02 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:08:02 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:08:02 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:08:02 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:08:02 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:08:02 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:08:02 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:31:21 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:31:21 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:31:21 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:31:21 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:31:21 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:31:21 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:31:21 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:31:21 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:31:21 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:31:21 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"log":"build.log","tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:31:21 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:32:18 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:32:18 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:32:18 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:32:18 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:32:18 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:32:18 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:32:18 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:32:18 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:32:18 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:32:18 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:32:18 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:32:42 [36mINFO: [39m Watch: modify test/src/index.ts 
+2021-09-04 18:32:42 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:42 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:43 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:43 [36mINFO: [39m Watch: modify test/src/index.ts 
+2021-09-04 18:32:43 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:43 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:43 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:44 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:44 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:44 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:44 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:45 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:45 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:45 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:45 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:46 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:46 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:46 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:46 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:47 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:47 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:47 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:47 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:48 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:48 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:48 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:48 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:49 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:49 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:49 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:49 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:50 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:50 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:50 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:50 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:51 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:51 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:51 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:51 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:52 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:52 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:32:53 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:32:53 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:32:53 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:32:53 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:32:53 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:32:53 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:32:54 [36mINFO: [39m Build: type: production target: browser input: test/src/index.ts 
+2021-09-04 18:32:54 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:32:54 [36mINFO: [39m Build: type: production target: node input: test/src/index.ts 
+2021-09-04 18:32:54 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":"test/src/index.ts","outFile":"test/dist/index.js"} 
+2021-09-04 18:32:54 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:34:01 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:34:01 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:34:01 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:34:01 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:34:01 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:34:01 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:34:59 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:34:59 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:34:59 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:34:59 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:34:59 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:34:59 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:34:59 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"outputFiles":""} 
+2021-09-04 18:34:59 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:34:59 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"outputFiles":""} 
+2021-09-04 18:35:39 [36mINFO: [39m Watch: modify config.json 
+2021-09-04 18:35:39 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:35:40 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:35:40 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:35:41 [35mSTATE:[39m Build: busy... 
+2021-09-04 18:35:42 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:35:42 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:35:42 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:35:42 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:35:42 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:35:42 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:35:42 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"outputFiles":""} 
+2021-09-04 18:35:42 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"outputFiles":""} 
+2021-09-04 18:35:42 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:36:23 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:36:23 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:36:23 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:36:23 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:36:23 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:36:23 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:36:23 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryNames":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:36:48 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:36:48 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:36:48 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:36:48 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:36:48 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:36:48 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:36:48 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:36:48 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":87,"outputFiles":"test/dist/index.esm.js"} 
+2021-09-04 18:36:48 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.node.js"} 
+2021-09-04 18:36:48 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:36:48 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":88,"outputFiles":"test/dist/index.node.js"} 
+2021-09-04 18:45:48 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:45:48 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:45:48 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:45:48 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:45:48 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:45:48 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:45:48 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:45:48 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":87,"outputFiles":"test/dist/index.esm.js"} 
+2021-09-04 18:45:48 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.node.js"} 
+2021-09-04 18:45:48 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:45:48 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":88,"outputFiles":"test/dist/index.node.js"} 
+2021-09-04 18:49:00 [36mINFO: [39m Watch: modify config.json 
+2021-09-04 18:51:12 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:51:12 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:51:12 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:51:12 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:12 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:12 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:51:12 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:51:12 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":87,"outputFiles":"test/dist/index.esm.js"} 
+2021-09-04 18:51:12 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.node.js"} 
+2021-09-04 18:51:12 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:51:44 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:51:44 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:51:44 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:51:44 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:44 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:44 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:51:44 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:51:44 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":87,"outputFiles":"test/dist/index.esm.js"} 
+2021-09-04 18:51:44 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.node.js"} 
+2021-09-04 18:51:44 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:51:44 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"imports":1,"importBytes":21,"outputBytes":88,"outputFiles":"test/dist/index.node.js"} 
+2021-09-04 18:51:44 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-04 18:51:45 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 1 
+2021-09-04 18:51:45 [33mWARN: [39m [0m[0m
+[0m[4m/home/vlado/dev/dev-server/test/src/index.ts[24m[0m
+[0m  [2m1:1[22m  [33mwarning[39m  Unexpected console statement  [2mno-console[22m[0m
+[0m[0m
+[0m[33m[1m✖ 1 problem (0 errors, 1 warning)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m 
+2021-09-04 18:51:59 [36mINFO: [39m dev-server version 0.0.1 
+2021-09-04 18:51:59 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-04 18:51:59 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-04 18:51:59 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:59 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-04 18:51:59 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-04 18:51:59 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.esm.js"} 
+2021-09-04 18:51:59 [35mSTATE:[39m Build: type: production target: browser input: test/src/index.ts, stats {"imports":1,"importBytes":60,"outputBytes":87,"outputFiles":"test/dist/index.esm.js"} 
+2021-09-04 18:51:59 [32mDATA: [39m {"logLevel":"error","bundle":true,"banner":{"js":"\n  /*\n  TBD\n  */"},"tsconfig":"./tsconfig.json","target":"es2018","sourcemap":true,"metafile":true,"minifyWhitespace":true,"minifyIdentifiers":true,"minifySyntax":true,"entryPoints":["test/src/index.ts"],"outfile":"test/dist/index.node.js"} 
+2021-09-04 18:51:59 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-04 18:51:59 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"imports":1,"importBytes":60,"outputBytes":88,"outputFiles":"test/dist/index.node.js"} 
+2021-09-04 18:51:59 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-04 18:52:00 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
