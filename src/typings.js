@@ -1,17 +1,50 @@
 const ts = require('typescript');
+const path = require('path');
 const log = require('@vladmandic/pilogger');
 
 const version = ts.version;
 
-async function typings(entryPoint) {
+const defaults = {
+  module: 'es2020',
+  target: 'es2020',
+  typeRoots: ['node_modules/@types'],
+  lib: ['lib.esnext.d.ts', 'lib.dom.d.ts', 'lib.webworker.d.ts'],
+  baseUrl: './',
+  paths: { tslib: ['node_modules/tslib/tslib.d.ts'] },
+  sourceMap: true,
+  noEmitOnError: false,
+  emitDeclarationOnly: true,
+  declaration: true,
+  allowJs: true,
+  allowSyntheticDefaultImports: true,
+  importHelpers: true,
+  pretty: true,
+  removeComments: false,
+  skipLibCheck: true,
+};
+
+async function typings(config, entry) {
   const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json') || '';
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
-  const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
-  // add explicitly to avoid generating compiled js files
-  compilerOptions.options.emitDeclarationOnly = true;
-  log.info('Generate Typings:', entryPoint, 'outDir:', [compilerOptions.options.outDir]);
+  const tsconfig = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
+  const compilerOptions = {
+    ...tsconfig,
+    options: {
+      ...config,
+      ...defaults,
+      emitDeclarationOnly: true,
+      declaration: true,
+      outDir: entry.typings,
+    },
+    include: [path.dirname(entry.input)],
+    exclude: ['node_modules/'],
+    errors: [],
+  };
+  log.state('Typings:', { input: entry.input, output: compilerOptions.options.outDir });
+  // @ts-ignore
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
-  const program = ts.createProgram(entryPoint, compilerOptions.options, compilerHost);
+  // @ts-ignore
+  const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
   const emit = program.emit();
   const diag = ts
     .getPreEmitDiagnostics(program)
@@ -28,10 +61,5 @@ async function typings(entryPoint) {
   }
 }
 
-if (require.main === module) {
-  log.header();
-  typings(['src/human.ts']); // generate typedoc
-} else {
-  exports.run = typings;
-  exports.version = version;
-}
+exports.run = typings;
+exports.version = version;

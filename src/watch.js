@@ -1,21 +1,24 @@
 const chokidar = require('chokidar');
 const log = require('@vladmandic/pilogger');
-const build = require('./build.js');
+const compile = require('./compile.js');
 
-const minElapsed = 2;
+const minElapsed = 2000;
 let lastBuilt = Date.now();
 
-async function buildAll(evt, msg) {
+async function build(evt, msg, options) {
   const now = Date.now();
-  log.info('Watch:', msg, evt);
-  if ((now - lastBuilt) > minElapsed) build.build(evt, true);
-  else log.state('Build: merge event file', msg, evt);
+  if ((now - lastBuilt) > minElapsed) {
+    log.info('Watch:', { event: msg, input: evt });
+    compile.build(options, { type: 'development' });
+  } else {
+    log.info('Watch:', { event: msg, input: evt, skip: true });
+  }
   lastBuilt = now;
 }
 
 // watch filesystem for any changes and notify build when needed
 async function watch(options) {
-  const watcher = chokidar.watch(options.locations, {
+  const watcher = chokidar.watch(options.watch.locations, {
     persistent: true,
     ignorePermissionErrors: false,
     alwaysStat: false,
@@ -26,12 +29,20 @@ async function watch(options) {
     atomic: true,
   });
   // single event handler for file add/change/delete
-  watcher
-    .on('add', (evt) => buildAll(evt, 'add'))
-    .on('change', (evt) => buildAll(evt, 'modify'))
-    .on('unlink', (evt) => buildAll(evt, 'remove'))
-    .on('error', (err) => log.error(`Client watcher error: ${err}`))
-    .on('ready', () => log.state('Watching:', options.locations));
+  return new Promise((resolve) => {
+    watcher
+      .on('add', (evt) => build(evt, 'add', options))
+      .on('change', (evt) => build(evt, 'modify', options))
+      .on('unlink', (evt) => build(evt, 'remove', options))
+      .on('error', (err) => {
+        log.error(`Client watcher error: ${err}`);
+        resolve(false);
+      })
+      .on('ready', () => {
+        log.state('Watch:', { locations: options.watch.locations });
+        resolve(true);
+      });
+  });
 }
 
 exports.start = watch;

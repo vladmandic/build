@@ -37,12 +37,8 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true
   },
-  "formatCodeOptions": {
-    "indentSize": 2,
-    "tabSize": 2
-  },
-  "exclude": ["node_modules/", "types/", "tfjs/", "dist/"],
-  "include": ["src"],
+  "exclude": ["node_modules/"],
+  "include": ["test"],
   "typedocOptions": {
     "excludePrivate": true,
     "excludeExternals": true,

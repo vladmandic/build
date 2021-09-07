@@ -1,0 +1,85 @@
+{
+  "log": {
+    "enabled": false,
+    "file": "dev-server.log"
+  },
+  "clean": {
+    "enabled": true,
+    "locations": ["test/dist/*", "test/types/*", "test/typedoc/*"]
+  },
+  "lint": {
+    "enabled": true,
+    "locations": [ "test/src/*.ts" ],
+    "rules": { }
+  },
+  "changelog": {
+    "enabled": true,
+    "log": "CHANGELOG.md"
+  },
+  "serve": {
+    "enabled": true,
+    "sslKey": "cert/https.key",
+    "sslCrt": "cert/https.crt",
+    "httpPort": 8000,
+    "httpsPort": 8001,
+    "documentRoot": ".",
+    "defaultFolder": "test",
+    "defaultFile": "index.html"
+    },
+  "build": {
+    "enabled": true,
+    "global": {
+      "target": "es2018",
+      "sourcemap": true
+    },
+    "production": {
+      "minify": true
+    },
+    "development": {
+      "minify": false
+    },
+    "targets": {
+      "browser": [
+        {
+          "input": "test/src/index.ts",
+          "output": "test/dist/index.esm.js",
+          "external": []
+        }
+      ],
+      "node": [
+        {
+          "input": "test/src/index.ts",
+          "output": "test/dist/index.node.js",
+          "external": [],
+          "typings": "test/typings"
+        }
+      ]
+    }
+  },
+  "watch": {
+    "enabled": true,
+    "locations": [ "test/src/**" ]
+  },
+  "typescript": {
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedIndexedAccess": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
+  }
+}

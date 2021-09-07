@@ -25,11 +25,7 @@
     "plugin:promise/recommended"
   ],
   "ignorePatterns": [
-    "assets",
-    "demo/helpers",
     "dist",
-    "media",
-    "models",
     "node_modules"
   ],
   "rules": {

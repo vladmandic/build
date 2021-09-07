@@ -1,34 +1,36 @@
 {
-  "name": "dev-server",
+  "name": "build",
   "version": "0.0.1",
-  "description": "Dev-Server: Integrated HTTP/HTTPS server with a build platform and file watcher",
-  "main": "src/index.js",
+  "description": "Build: Integrated Dev/Prod CI Environment",
+  "main": "src/build.js",
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
-    "dev": "node --trace-warnings --unhandled-rejections=strict --trace-uncaught src/index.js",
-    "lint": "eslint src server"
+    "dev": "node src/build.js",
+    "lint": "eslint src test"
   },
   "author": "Vladimir Mandic <mandic00@live.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vladmandic/dev-server/issues"
+    "url": "https://github.com/vladmandic/build/issues"
   },
   "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vladmandic/dev-server.git"
+    "url": "git+https://github.com/vladmandic/build.git"
   },
   "keywords": [],
   "dependencies": {
     "@vladmandic/pilogger": "^0.2.18",
     "chokidar": "^3.5.2",
+    "commander": "^8.1.0",
     "dayjs": "^1.10.6",
     "esbuild": "^0.12.25",
     "eslint": "^7.32.0",
     "rimraf": "^3.0.2",
     "simple-git": "^2.45.1",
+    "tslib": "^2.3.1",
     "typedoc": "^0.21.9",
     "typescript": "^4.4.2"
   },

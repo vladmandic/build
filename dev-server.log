@@ -336,3 +336,126 @@
 2021-09-04 18:51:59 [35mSTATE:[39m Build: type: production target: node input: test/src/index.ts, stats {"imports":1,"importBytes":60,"outputBytes":88,"outputFiles":"test/dist/index.node.js"} 
 2021-09-04 18:51:59 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
 2021-09-04 18:52:00 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:43:10 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:43:10 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:43:10 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:43:10 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:43:11 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:43:11 [36mINFO: [39m Clean: ["test/dist/*","test/types/*","test/typedoc/*"] 
+2021-09-07 08:43:11 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-07 08:43:11 [35mSTATE:[39m HTTP server listening: 8000 
+2021-09-07 08:43:11 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-07 08:43:11 [35mSTATE:[39m Watching: ["package.json","config.json","test/src/*"] 
+2021-09-07 08:46:51 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:46:51 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:46:51 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:46:51 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:46:52 [32mDATA: [39m {"config":"build.json"} 
+2021-09-07 08:46:52 [36mINFO: [39m Config file: build.json 
+2021-09-07 08:46:52 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:49:24 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:49:24 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:49:24 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:49:24 [32mDATA: [39m {} 
+2021-09-07 08:49:29 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:49:29 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:49:29 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:49:29 [32mDATA: [39m {"config":"build.json"} 
+2021-09-07 08:49:29 [36mINFO: [39m Config file: build.json 
+2021-09-07 08:49:38 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:49:38 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:49:38 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:49:38 [32mDATA: [39m {"config":"build.json"} 
+2021-09-07 08:49:38 [36mINFO: [39m Config file: build.json 
+2021-09-07 08:51:49 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:51:49 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:51:49 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:51:49 [32mDATA: [39m {"config":"blaa"} 
+2021-09-07 08:51:49 [31mERROR:[39m Config file does not exist: blaa 
+2021-09-07 08:52:00 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:52:00 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:52:00 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:52:00 [32mDATA: [39m {"config":"build.json"} 
+2021-09-07 08:52:00 [36mINFO: [39m Config file: build.json 
+2021-09-07 08:54:37 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:54:37 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:54:37 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:54:37 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:54:37 [32mDATA: [39m {"config":"package.json"} 
+2021-09-07 08:54:37 [36mINFO: [39m Config file: package.json 
+2021-09-07 08:54:37 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:55:13 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:55:13 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:55:13 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:55:13 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:55:14 [32mDATA: [39m {"config":"README.md"} 
+2021-09-07 08:55:14 [36mINFO: [39m Config file: README.md 
+2021-09-07 08:55:14 [31mERROR:[39m Error parsing config file: README.md 
+2021-09-07 08:55:14 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:55:33 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:55:33 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:55:33 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:55:33 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:55:34 [32mDATA: [39m {"config":"README.md"} 
+2021-09-07 08:55:34 [31mERROR:[39m Error parsing config file: README.md 
+2021-09-07 08:55:34 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 08:55:40 [36mINFO: [39m build version 0.0.1 
+2021-09-07 08:55:40 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 08:55:40 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 08:55:40 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 08:55:41 [32mDATA: [39m {"config":"package.json"} 
+2021-09-07 08:55:41 [36mINFO: [39m Parsed config file: package.json 
+2021-09-07 08:55:41 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 09:00:44 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:00:44 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:00:44 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:00:44 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 09:00:45 [36mINFO: [39m Parsed config file: package.json 
+2021-09-07 09:00:45 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 09:01:20 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:01:20 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:01:20 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:01:20 [36mINFO: [39m Running Linter: ["test/src/*.ts"] 
+2021-09-07 09:01:21 [36mINFO: [39m Parsed config file: package.json 
+2021-09-07 09:01:21 [36mINFO: [39m Linter complete: files: 1 errors: 0 warnings: 0 
+2021-09-07 09:01:21 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:02:31 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:02:31 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:02:31 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:02:32 [36mINFO: [39m Parsed config file: package.json 
+2021-09-07 09:02:32 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:02:32 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:02:55 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:02:55 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:02:55 [36mINFO: [39m Toolchain:  {"typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:02:56 [36mINFO: [39m Parsed config file: build.json 
+2021-09-07 09:02:56 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:02:56 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*","test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:03:13 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:03:13 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:03:13 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:03:14 [36mINFO: [39m Parsed config file: build.json 
+2021-09-07 09:03:14 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:03:14 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*","test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:03:33 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:03:33 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:03:33 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:03:33 [36mINFO: [39m Parsed config file: build.json 
+2021-09-07 09:03:33 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:03:33 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*","test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:03:51 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:03:51 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:03:51 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:03:52 [36mINFO: [39m Parsed config file: package.json 
+2021-09-07 09:03:52 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:03:52 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:03:54 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:03:54 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:03:54 [36mINFO: [39m Toolchain:  {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:03:55 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:03:55 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*"]} 
+2021-09-07 09:04:32 [36mINFO: [39m build version 0.0.1 
+2021-09-07 09:04:32 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.8.0 
+2021-09-07 09:04:32 [36mINFO: [39m Toolchain: {"esbuild":"0.12.25","typescript":"4.4.2","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-07 09:04:32 [36mINFO: [39m Lint: {"locations":["test/src/*.ts"],"files":1,"errors":0,"warnings":0} 
+2021-09-07 09:04:32 [36mINFO: [39m Clean: {"locations":["test/dist/*","test/types/*","test/typedoc/*"]} 

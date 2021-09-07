@@ -1,79 +1,70 @@
-/**
- * Implements Human build process
- * Used to generate prod builds for releases or by dev server to generate on-the-fly debug builds
- */
-
+const fs = require('fs');
+const commander = require('commander').program;
 const log = require('@vladmandic/pilogger');
-const esbuild = require('esbuild');
-const changelog = require('./changelog.js');
+const compile = require('./compile.js');
+const watch = require('./watch.js');
+const serve = require('./serve.js');
 const lint = require('./lint.js');
 const typedoc = require('./typedoc.js');
 const typings = require('./typings.js');
 const helpers = require('./helpers');
+const defaults = require('../build.json');
+const clean = require('./clean.js');
+const changelog = require('./changelog.js');
 
-let busy = false;
+function main(userConfig) {
+  let config = helpers.merge(defaults, userConfig || {});
+  if (config.log.enabled) log.logFile(config.log.file);
 
-const defaults = {
-  logLevel: 'error',
-  bundle: true,
-  banner: { js: `
-  /*
-  TBD
-  */` },
-};
+  log.header();
+  const tsconfig = fs.existsSync('tsconfig.json');
+  const eslintrc = fs.existsSync('.eslintrc.json');
+  const git = fs.existsSync('.git') && fs.existsSync('.git/config');
+  log.info('Toolchain:', { esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version });
+  if (tsconfig) config.build.global.tsconfig = 'tsconfig.json';
 
-async function getStats(json) {
-  const stats = {};
-  if (json && json.metafile?.inputs && json.metafile?.outputs) {
-    for (const [key, val] of Object.entries(json.metafile.inputs)) {
-      if (key.startsWith('node_modules')) {
-        stats.modules = (stats.modules || 0) + 1;
-        stats.moduleBytes = (stats.moduleBytes || 0) + val.bytes;
-      } else {
-        stats.imports = (stats.imports || 0) + 1;
-        stats.importBytes = (stats.importBytes || 0) + val.bytes;
-      }
-    }
-    const files = [];
-    for (const [key, val] of Object.entries(json.metafile.outputs)) {
-      if (!key.endsWith('.map')) {
-        files.push(key);
-        stats.outputBytes = (stats.outputBytes || 0) + val.bytes;
-      }
-    }
-    stats.outputFiles = files.join(', ');
+  if (!fs.existsSync('package.json')) {
+    log.error('Package definition not found:', 'package.json');
+    process.exit(1);
   }
-  return stats;
-}
 
-// rebuild on file change
-async function build(config, type) {
-  if (busy) {
-    log.state('Build: busy...');
-    setTimeout(() => build(config, type), 500);
-    return;
-  }
-  busy = true;
-  for (const target of Object.keys(config.targets)) {
-    for (const entry of config.targets[target]) {
+  commander.option('-c, --config <file>', 'specify config file: default build.json');
+  commander.command('development')
+    .description('start development ci')
+    .action(async () => {
+      log.info('Environment:', { profile: 'development', tsconfig, eslintrc, git });
+      if (config.serve.enabled) await serve.start(config.serve);
+      if (config.watch.enabled) await watch.start(config);
+      if (config.build.enabled) await compile.build(config, { type: 'development' });
+    });
+  commander.command('production')
+    .description('start production build')
+    .action(async () => {
+      log.info('Environment:', { profile: 'production', tsconfig, eslintrc, git });
+      if (config.lint.enabled) await lint.run(config.lint);
+      if (config.clean.enabled) await clean.start(config.clean);
+      if (config.build.enabled) await compile.build(config, { type: 'production' });
+      // if (config.typings.enabled) await typings.run(config.typings, entry.input); // triggered from compile.build
+      // if (config.typedoc.enabled) await typedoc.run(config.typedoc, entry.input); // triggered from compile.build
+      if (config.changelog.enabled && git) await changelog.update(config.changelog); // generate changelog
+      log.info('Profile production done');
+    });
+  commander.parse(process.argv);
+  const options = commander.opts();
+  if (options.config) {
+    if (fs.existsSync(options.config)) {
+      const data = fs.readFileSync(options.config);
       try {
-        const options = helpers.merge(defaults, config.global);
-        options.minifyWhitespace = config[type.type].minify === true;
-        options.minifyIdentifiers = config[type.type].minify === true;
-        options.minifySyntax = config[type.type].minify === true;
-        options.entryPoints = [entry.input];
-        options.outfile = entry.output;
-        log.data(options);
-        const meta = await esbuild.build(options);
-        const stats = await getStats(meta);
-        log.state(`Build: type: ${type.type} target: ${target} input: ${entry.input}, stats`, stats);
-      } catch (err) {
-        log.error('Build error', JSON.stringify(err.errors || err, null, 2));
-        if (require.main === module) process.exit(1);
+        const json = JSON.parse(data.toString());
+        config = helpers.merge(config, json);
+        log.info('Parsed config file:', options.config);
+      } catch {
+        log.error('Error parsing config file:', options.config);
       }
+    } else {
+      log.error('Config file does not exist:', options.config);
     }
   }
-  busy = false;
 }
 
-exports.build = build;
+main();

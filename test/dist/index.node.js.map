@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": ["../src/index.ts"],
-  "sourcesContent": ["// eslint-disable-next-line no-console\nconsole.log('test');\n"],
-  "mappings": ";;;;MACA,QAAQ,IAAI",
+  "sourcesContent": ["export async function main(msg: string): Promise<void> {\n  // eslint-disable-next-line no-console\n  console.log('test', msg);\n}\n\nmain('message');\n"],
+  "mappings": ";;;;;;AAAA,sBAA2B,KAA4B;AAErD,YAAQ,IAAI,QAAQ;AAAA;AAGtB,OAAK;",
   "names": []
 }

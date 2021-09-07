@@ -1,6 +1,6 @@
 const log = require('@vladmandic/pilogger');
 const TypeDoc = require('typedoc');
-const tsconfig = require('../tsconfig.json');
+// const tsconfig = require('../tsconfig.json');
 
 let td = null;
 
@@ -18,7 +18,7 @@ async function typedoc(entryPoints) {
     td.logger.log = log.info;
     // td.converter = converter;
   }
-  log.info('Generate TypeDocs:', entryPoints, 'outDir:', [tsconfig.typedocOptions.out]);
+  // log.info('Generate TypeDocs:', entryPoints, 'outDir:', [tsconfig.typedocOptions.out]);
   const project = td.convert();
   if (!project) log.warn('TypeDoc: convert returned empty project');
   if (td.logger.hasErrors() || td.logger.hasWarnings()) log.warn('TypeDoc:', 'errors:', td.logger.errorCount, 'warnings:', td.logger.warningCount);
@@ -26,10 +26,5 @@ async function typedoc(entryPoints) {
   if (result) log.warn('TypeDoc:', result);
 }
 
-if (require.main === module) {
-  log.header();
-  typedoc(['src/human.ts']); // generate typedoc
-} else {
-  exports.run = typedoc;
-  exports.version = version;
-}
+exports.run = typedoc;
+exports.version = version;
