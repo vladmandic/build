@@ -67,6 +67,7 @@ function handle(url) {
     else if (checkFile(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile))) resolve(result);
     else if (checkFolder(path.join(process.cwd(), options.documentRoot, url))) resolve(result);
     else if (checkFolder(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url))) resolve(result);
+    else if (checkFolder(path.join(path.dirname(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile), url)))) resolve(result);
     else resolve(result);
   });
 }

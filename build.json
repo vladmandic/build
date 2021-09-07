@@ -30,7 +30,8 @@
     "enabled": true,
     "global": {
       "target": "es2018",
-      "sourcemap": true
+      "sourcemap": true,
+      "banner": { "js": "/*\n  Build Test  \n*/\n" }
     },
     "production": {
       "minify": true
@@ -50,8 +51,9 @@
         {
           "input": "test/src/index.ts",
           "output": "test/dist/index.node.js",
-          "external": [],
-          "typings": "test/typings"
+          "typings": "test/typings",
+          "typedoc": "test/typedoc",
+          "external": []
         }
       ]
     }

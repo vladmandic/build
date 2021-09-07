@@ -21,6 +21,7 @@ const defaults = {
   pretty: true,
   removeComments: false,
   skipLibCheck: true,
+  listEmittedFiles: true,
 };
 
 async function typings(config, entry) {
@@ -40,7 +41,6 @@ async function typings(config, entry) {
     exclude: ['node_modules/'],
     errors: [],
   };
-  log.state('Typings:', { input: entry.input, output: compilerOptions.options.outDir });
   // @ts-ignore
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
   // @ts-ignore
@@ -49,6 +49,8 @@ async function typings(config, entry) {
   const diag = ts
     .getPreEmitDiagnostics(program)
     .concat(emit.diagnostics);
+  log.state('Typings:', { input: entry.input, output: compilerOptions.options.outDir, files: emit.emittedFiles?.length });
+  // log.data('TSC Diag', { nodes: program.getNodeCount(), identifiers: program.getIdentifierCount(), symbols: program.getSymbolCount(), types: program.getTypeCount(), instances: program.getInstantiationCount() });
   for (const info of diag) {
     const msg = info.messageText['messageText'] || info.messageText;
     if (msg.includes('package.json')) continue;

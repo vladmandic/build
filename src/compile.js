@@ -11,10 +11,6 @@ let busy = false;
 const defaults = {
   logLevel: 'error',
   bundle: true,
-  banner: { js: `
-  /*
-  TBD
-  */` },
 };
 
 async function getStats(json) {
@@ -61,13 +57,13 @@ async function build(config, type) {
         options.metafile = true;
         const meta = await esbuild.build(options);
         const stats = await getStats(meta);
-        log.state('Build:', { type: type.type, target, input: entry.input }, 'stats:', stats);
+        log.state('Build:', { type: type.type, target, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
       } catch (err) {
         log.error('Build error', JSON.stringify(err.errors || err, null, 2));
         if (require.main === module) process.exit(1);
       }
       if (type.type === 'production' && entry.typings) await typings.run(config.typescript, entry);
-      // if (type.type === 'production' && config.typedoc.enabled) await typedoc.run(config.typedoc, entry.input);
+      if (type.type === 'production' && entry.typedoc) await typedoc.run(config.typedoc, entry);
     }
   }
   busy = false;

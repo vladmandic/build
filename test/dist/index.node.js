@@ -1,12 +1,6 @@
+/*
+  Build Test  
+*/
 
-  /*
-  TBD
-  */
-(() => {
-  // test/src/index.ts
-  async function main(msg) {
-    console.log("test", msg);
-  }
-  main("message");
-})();
+(()=>{async function e(o){return console.log("inside module:",o),!0}async function t(){}async function n(o){console.log("test",o)}async function r(){e("test module")}n("message");})();
 //# sourceMappingURL=index.node.js.map
