@@ -108,9 +108,3 @@ Example: `npm run build development`
 
 - Generate documentation using `typedoc`
   using settings from optional `tsconfig.json:typedocOptions` or `typedoc.json`
-
-<br><hr><br>
-
-## Todo
-
-- build banner

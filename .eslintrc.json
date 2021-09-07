@@ -25,8 +25,9 @@
     "plugin:promise/recommended"
   ],
   "ignorePatterns": [
-    "dist",
-    "node_modules"
+    "**/dist/**",
+    "**/typedoc/**",
+    "node_modules/**"
   ],
   "rules": {
     "@typescript-eslint/ban-ts-comment": "off",
