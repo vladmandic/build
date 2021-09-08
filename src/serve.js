@@ -129,39 +129,52 @@ async function httpRequest(req, res) {
 async function start(config) {
   options = {
     insecureHTTPParser: false,
-    key: fs.existsSync(config.sslCrt) ? fs.readFileSync(config.sslKey) : null,
-    cert: fs.existsSync(config.sslCrt) ? fs.readFileSync(config.sslCrt) : null,
     ...config,
+    // documentRoot: path.join(process.cwd(), config.documentRoot),
   };
+
+  if (fs.existsSync(options.sslKey) && fs.existsSync(options.sslCrt)) {
+    options.key = fs.readFileSync(options.sslKey);
+    options.cert = fs.readFileSync(options.sslCrt);
+  } else {
+    try {
+      // eslint-disable-next-line node/no-missing-require
+      const home = require.resolve('@vladmandic/build');
+      options.sslKey = path.join(path.dirname(home), '..', options.sslKey);
+      options.sslCrt = path.join(path.dirname(home), '..', options.sslCrt);
+      options.key = fs.existsSync(options.sslKey) ? fs.readFileSync(options.sslKey) : null;
+      options.cert = fs.existsSync(options.sslCrt) ? fs.readFileSync(options.sslCrt) : null;
+    } catch { /**/ }
+  }
   if (!options.key || !options.cert) log.warn('Cannot read SSL certificate');
 
-  process.chdir(path.join(__dirname, '..'));
-  if (config.httpPort && config.httpPort > 0) {
+  // process.chdir(path.join(__dirname, '..'));
+  if (options.httpPort && options.httpPort > 0) {
     await new Promise((resolve) => {
       const server1 = http.createServer(options, httpRequest);
       server1.on('listening', () => {
-        log.state('WebServer:', { ssl: false, port: config.httpPort, root: config.documentRoot });
+        log.state('WebServer:', { ssl: false, port: options.httpPort, root: options.documentRoot });
         resolve(true);
       });
       server1.on('error', (err) => {
         log.error('HTTP server:', err.message || err);
         resolve(false);
       });
-      server1.listen(config.httpPort);
+      server1.listen(options.httpPort);
     });
   }
-  if (config.httpsPort && config.httpsPort > 0 && options.key && options.cert) {
+  if (options.httpsPort && options.httpsPort > 0 && options.key && options.cert) {
     await new Promise((resolve) => {
-      const server2 = http2.createSecureServer(config, httpRequest);
+      const server2 = http2.createSecureServer(options, httpRequest);
       server2.on('listening', () => {
-        log.state('WebServer:', { ssl: true, port: config.httpsPort, root: config.documentRoot, sslKey: config.sslKey, sslCrt: config.sslCrt });
+        log.state('WebServer:', { ssl: true, port: options.httpsPort, root: options.documentRoot, sslKey: options.sslKey, sslCrt: options.sslCrt });
         resolve(true);
       });
       server2.on('error', (err) => {
         log.error('HTTPS server:', err.message || err);
         resolve(false);
       });
-      server2.listen(config.httpsPort);
+      server2.listen(options.httpsPort);
     });
   }
 }

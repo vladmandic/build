@@ -39,24 +39,24 @@
     "development": {
       "minify": false
     },
-    "targets": {
-      "browser": [
-        {
-          "input": "test/src/index.ts",
-          "output": "test/dist/index.esm.js",
-          "external": []
-        }
-      ],
-      "node": [
-        {
-          "input": "test/src/index.ts",
-          "output": "test/dist/index.node.js",
-          "typings": "test/typings",
-          "typedoc": "test/typedoc",
-          "external": []
-        }
-      ]
-    }
+    "targets": [
+      {
+        "input": "test/src/index.ts",
+        "output": "test/dist/index.esm.js",
+        "platform": "browser",
+        "format": "esm",
+        "external": []
+      },
+      {
+        "input": "test/src/index.ts",
+        "output": "test/dist/index.node.js",
+        "typings": "test/typings",
+        "typedoc": "test/typedoc",
+        "platform": "node",
+        "format": "cjs",
+        "external": []
+      }
+    ]
   },
   "watch": {
     "enabled": true,

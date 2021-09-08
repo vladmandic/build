@@ -1,8 +1,8 @@
+const path = require('path');
 const process = require('process');
 const log = require('@vladmandic/pilogger');
 const TypeDoc = require('typedoc');
 
-const td = new TypeDoc.Application();
 const version = TypeDoc.Application.VERSION;
 
 const defaults = {
@@ -20,10 +20,10 @@ const defaults = {
   externalPattern: ['node_modules/'],
   logLevel: 'Verbose',
   logger: 'none',
-  theme: 'typedoc-theme',
 };
 
 async function typedoc(options, entry) {
+  const td = new TypeDoc.Application();
   td.options.addReader(new TypeDoc.TypeDocReader());
   td.options.addReader(new TypeDoc.TSConfigReader());
   td.bootstrap({ entryPoints: [entry.input] });
@@ -31,22 +31,32 @@ async function typedoc(options, entry) {
   td.options.setValue('entryPoints', [entry.input]);
   td.options.setValue('out', entry.typedoc);
 
+  try {
+    // eslint-disable-next-line node/no-missing-require
+    let theme = require.resolve('@vladmandic/build');
+    theme = path.join(path.dirname(theme), '../typedoc-theme');
+    td.options.setValue('theme', theme);
+  } catch {
+    td.options.setValue('theme', 'typedoc-theme');
+  }
+
   // log.data(td.options);
   td.logger.warn = log.warn;
   td.logger.error = log.error;
   td.logger.verbose = () => { /***/ }; // remove extra logging
   // td.logger.verbose = log.data;
-  td.logger.log = () => { /***/ }; // remove extra logging
-  // td.logger.log = log.info;
+
+  td.logger.log = log.error; // converter writes errors to stdout
   const project = td.convert();
   if (!project) {
     log.error('TypeDoc: convert returned empty project');
     return;
   }
   if (td.logger.hasErrors() || td.logger.hasWarnings()) log.warn('TypeDoc:', { errors: td.logger.errorCount, warnings: td.logger.warningCount });
+  td.logger.log = () => { /***/ }; // remove extra logging
 
   const stdout = process.stdout.write;
-  process.stdout.write = () => { /**/ };
+  process.stdout.write = () => { /**/ }; // hide progress bar
   const result = project ? await td.generateDocs(project, entry.typedoc) : null;
   process.stdout.write = stdout;
 

@@ -45,27 +45,33 @@ async function build(config, type) {
     return;
   }
   busy = true;
-  for (const target of Object.keys(config.build.targets)) {
-    for (const entry of config.build.targets[target]) {
-      try {
-        const options = helpers.merge(defaults, config.build.global);
-        options.minifyWhitespace = config.build[type.type].minify === true;
-        options.minifyIdentifiers = config.build[type.type].minify === true;
-        options.minifySyntax = config.build[type.type].minify === true;
-        options.entryPoints = [entry.input];
-        options.outfile = entry.output;
-        options.metafile = true;
-        options.platform = target === 'node' ? 'node' : 'browser';
-        const meta = await esbuild.build(options);
-        const stats = await getStats(meta);
-        log.state('Build:', { type: type.type, target, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
-      } catch (err) {
-        log.error('Build error', JSON.stringify(err.errors || err, null, 2));
-        if (require.main === module) process.exit(1);
-      }
-      if (type.type === 'production' && entry.typings) await typings.run(config.typescript, entry);
-      if (type.type === 'production' && entry.typedoc) await typedoc.run(config.typedoc, entry);
+  for (const entry of config.build.targets) {
+    if (!entry.input || !entry.output || !entry.format) {
+      log.error('Build incomplete configuration:', { type: type.type, format: entry.format, input: entry.input, output: entry.output });
+      continue;
     }
+    const options = helpers.merge(defaults, config.build.global);
+    options.minifyWhitespace = config.build[type.type].minify === true;
+    options.minifyIdentifiers = config.build[type.type].minify === true;
+    options.minifySyntax = config.build[type.type].minify === true;
+    options.entryPoints = [entry.input];
+    options.outfile = entry.output;
+    options.metafile = true;
+    options.format = entry.format;
+    if (entry.platform) options.platform = entry.platform;
+    else options.platform = entry.format === 'cjs' ? 'node' : 'browser';
+    if (entry.external) options.external = entry.external;
+    // log.data('ESBuild:', { target, entry, options });
+    try {
+      const meta = await esbuild.build(options);
+      const stats = await getStats(meta);
+      log.state('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
+    } catch (err) {
+      log.error('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
+      if (require.main === module) process.exit(1);
+    }
+    if (type.type === 'production' && entry.typings) await typings.run(config.typescript, entry);
+    if (type.type === 'production' && entry.typedoc) await typedoc.run(config.typedoc, entry);
   }
   busy = false;
 }

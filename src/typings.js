@@ -27,23 +27,21 @@ const defaults = {
 async function typings(config, entry) {
   const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json') || '';
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
-  const tsconfig = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
-  const compilerOptions = {
-    ...tsconfig,
-    options: {
-      ...config,
-      ...defaults,
-      emitDeclarationOnly: true,
-      declaration: true,
-      outDir: entry.typings,
-    },
-    include: [path.dirname(entry.input)],
-    exclude: ['node_modules/'],
-    errors: [],
+  const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
+  // const compilerOptions = tsconfig;
+  compilerOptions.options = {
+    ...defaults,
+    ...compilerOptions.options,
+    ...config,
+    emitDeclarationOnly: true,
+    declaration: true,
+    outDir: entry.typings,
   };
-  // @ts-ignore
+  compilerOptions.include = [path.dirname(entry.input)];
+  compilerOptions.exclude = ['node_modules/', 'dist/'];
+  compilerOptions.errors = [];
+  // log.data('Typings compilerOptions', compilerOptions, config);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
-  // @ts-ignore
   const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
   const emit = program.emit();
   const diag = ts

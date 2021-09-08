@@ -1,5 +1,5 @@
 {
-  "name": "build",
+  "name": "@vladmandic/build",
   "version": "0.1.1",
   "description": "Build: Integrated Dev/Prod CI Environment",
   "main": "src/build.js",
@@ -9,6 +9,9 @@
   "scripts": {
     "build": "node src/build.js",
     "lint": "eslint src test"
+  },
+  "bin": {
+    "build": "./src/build.js"
   },
   "author": "Vladimir Mandic <mandic00@live.com>",
   "license": "MIT",

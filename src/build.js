@@ -14,6 +14,7 @@ const clean = require('./clean.js');
 const changelog = require('./changelog.js');
 
 let config;
+const configFile = 'build.json';
 
 process.on('SIGINT', () => {
   log.info('Build exiting...');
@@ -34,27 +35,43 @@ const package = () => {
   return json;
 };
 
-const info = () => {
+const printInfo = (type) => {
   const app = package();
   log.info('Application:', { name: app.name, version: app.version });
-  log.info('Environment:', { profile: 'development', tsconfig, eslintrc, git });
+  log.info('Environment:', { profile: type.type, config: configFile, tsconfig, eslintrc, git });
   log.info('Toolchain:', { esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version });
+  // log.data('Configuration:', config);
+};
+
+const updateConfig = (userConfig) => {
+  if (userConfig) config = helpers.merge(config, userConfig);
+  if (fs.existsSync(configFile)) {
+    const data = fs.readFileSync(configFile);
+    config.clean.locations = [];
+    config.lint.locations = [];
+    config.watch.locatinos = [];
+    config.build.targets = [];
+    config = helpers.merge(config, JSON.parse(data.toString()));
+  } else {
+    log.error('Config file missing:', configFile);
+    process.exit(1);
+  }
 };
 
 async function development(userConfig) {
-  if (userConfig) config = helpers.merge(config, userConfig);
-  info();
+  updateConfig(userConfig);
+  printInfo({ type: 'development' });
   if (config.serve.enabled) await serve.start(config.serve);
   if (config.watch.enabled) await watch.start(config);
   if (config.build.enabled) await compile.build(config, { type: 'development' });
 }
 
 async function production(userConfig) {
-  if (userConfig) config = helpers.merge(config, userConfig);
-  info();
-  if (config.lint.enabled) await lint.run(config.lint);
+  updateConfig(userConfig);
+  printInfo({ type: 'production' });
   if (config.clean.enabled) await clean.start(config.clean);
   if (config.build.enabled) await compile.build(config, { type: 'production' });
+  if (config.lint.enabled) await lint.run(config.lint);
   // if (config.typings.enabled) await typings.run(config.typings, entry.input); // triggered from compile.build
   // if (config.typedoc.enabled) await typedoc.run(config.typedoc, entry.input); // triggered from compile.build
   if (config.changelog.enabled && git) await changelog.update(config.changelog, package()); // generate changelog
@@ -72,7 +89,7 @@ function cli(userConfig) {
   log.header();
   if (tsconfig) config.build.global.tsconfig = 'tsconfig.json';
 
-  commander.option('-c, --config <file>', 'specify config file: default build.json');
+  commander.option('-c, --config <file>', 'specify config file');
   commander.command('development')
     .description('start development ci')
     .action(async () => development());
