@@ -1,7 +1,7 @@
 {
   "name": "@vladmandic/build",
   "version": "0.2.1",
-  "description": "Build: Integrated Dev/Prod CI Environment",
+  "description": "Build: Automated CI Platform",
   "main": "src/build.js",
   "engines": {
     "node": ">=14.0.0"
