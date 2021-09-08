@@ -29,6 +29,7 @@ async function update(f, package) {
   const gitLog = await git.log();
   const gitRemote = await git.listRemote(['--get-url']) || '';
   const gitUrl = gitRemote.replace('\n', '');
+  const branch = await git.branchLocal();
   const entries = [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
   let previous = '';
@@ -52,7 +53,7 @@ async function update(f, package) {
   }
 
   fs.writeFileSync(f.log, text);
-  log.state('ChangeLog:', { repository: gitUrl, output: f.log });
+  log.state('ChangeLog:', { repository: gitUrl, branch: branch.current, output: f.log });
 }
 
 exports.update = update;

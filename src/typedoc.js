@@ -2,6 +2,9 @@ const path = require('path');
 const process = require('process');
 const log = require('@vladmandic/pilogger');
 const TypeDoc = require('typedoc');
+const simpleGit = require('simple-git/promise');
+
+const git = simpleGit();
 
 const version = TypeDoc.Application.VERSION;
 
@@ -23,6 +26,11 @@ const defaults = {
 };
 
 async function typedoc(options, entry) {
+  try {
+    const branch = await git.branchLocal();
+    if (branch && branch.current) defaults.gitRevision = branch.current;
+  } catch { /**/ }
+
   const td = new TypeDoc.Application();
   td.options.addReader(new TypeDoc.TypeDocReader());
   td.options.addReader(new TypeDoc.TSConfigReader());
