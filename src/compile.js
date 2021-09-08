@@ -55,6 +55,7 @@ async function build(config, type) {
         options.entryPoints = [entry.input];
         options.outfile = entry.output;
         options.metafile = true;
+        options.platform = target === 'node' ? 'node' : 'browser';
         const meta = await esbuild.build(options);
         const stats = await getStats(meta);
         log.state('Build:', { type: type.type, target, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });

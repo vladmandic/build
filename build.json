@@ -34,7 +34,7 @@
       "banner": { "js": "/*\n  Build Test  \n*/\n" }
     },
     "production": {
-      "minify": true
+      "minify": false
     },
     "development": {
       "minify": false

@@ -2,6 +2,6 @@
   "version": 3,
   "sources": ["../src/module.ts", "../src/index.ts"],
   "sourcesContent": ["export async function call(msg: string): Promise<boolean> {\n  // eslint-disable-next-line no-console\n  console.log('inside module:', msg);\n  return true;\n}\n", "import * as module from './module';\n\nexport async function idle(): Promise<void> {\n  // this function does nothing\n}\n\nexport async function first(msg: string): Promise<void> {\n  // eslint-disable-next-line no-console\n  console.log('test', msg);\n}\n\nexport async function second(): Promise<void> {\n  module.call('test module');\n}\n\nfirst('message');\n"],
-  "mappings": ";;;;MAAA,iBAA2B,EAA+B,CAExD,eAAQ,IAAI,iBAAkB,GACvB,GCDT,kBAA4C,EAI5C,iBAA4B,EAA4B,CAEtD,QAAQ,IAAI,OAAQ,GAGtB,kBAA8C,CAC5C,AAAO,EAAK,eAGd,EAAM",
+  "mappings": ";;;;;;AAAA,sBAA2B,KAA+B;AAExD,YAAQ,IAAI,kBAAkB;AAC9B,WAAO;AAAA;;;ACDT,wBAA4C;AAAA;AAI5C,uBAA4B,KAA4B;AAEtD,YAAQ,IAAI,QAAQ;AAAA;AAGtB,0BAA8C;AAC5C,IAAO,KAAK;AAAA;AAGd,QAAM;",
   "names": []
 }

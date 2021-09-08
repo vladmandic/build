@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "sources": ["../src/module.ts", "../src/index.ts"],
-  "sourcesContent": ["export async function call(msg: string): Promise<boolean> {\n  // eslint-disable-next-line no-console\n  console.log('inside module:', msg);\n  return true;\n}\n", "import * as module from './module';\n\nexport async function idle(): Promise<void> {\n  // this function does nothing\n}\n\nexport async function first(msg: string): Promise<void> {\n  // eslint-disable-next-line no-console\n  console.log('test', msg);\n}\n\nexport async function second(): Promise<void> {\n  module.call('test module');\n}\n\nfirst('message');\n"],
-  "mappings": ";;;;MAAA,iBAA2B,EAA+B,CAExD,eAAQ,IAAI,iBAAkB,GACvB,GCDT,kBAA4C,EAI5C,iBAA4B,EAA4B,CAEtD,QAAQ,IAAI,OAAQ,GAGtB,kBAA8C,CAC5C,AAAO,EAAK,eAGd,EAAM",
+  "sources": ["../src/index.ts", "../src/module.ts"],
+  "sourcesContent": ["import * as module from './module';\n\nexport async function idle(): Promise<void> {\n  // this function does nothing\n}\n\nexport async function first(msg: string): Promise<void> {\n  // eslint-disable-next-line no-console\n  console.log('test', msg);\n}\n\nexport async function second(): Promise<void> {\n  module.call('test module');\n}\n\nfirst('message');\n", "export async function call(msg: string): Promise<boolean> {\n  // eslint-disable-next-line no-console\n  console.log('inside module:', msg);\n  return true;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;;;ACAA,oBAA2B,KAA+B;AAExD,UAAQ,IAAI,kBAAkB;AAC9B,SAAO;AAAA;;;ADDT,sBAA4C;AAAA;AAI5C,qBAA4B,KAA4B;AAEtD,UAAQ,IAAI,QAAQ;AAAA;AAGtB,wBAA8C;AAC5C,EAAO,KAAK;AAAA;AAGd,MAAM;",
   "names": []
 }

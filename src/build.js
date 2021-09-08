@@ -24,9 +24,26 @@ const tsconfig = fs.existsSync('tsconfig.json');
 const eslintrc = fs.existsSync('.eslintrc.json');
 const git = fs.existsSync('.git') && fs.existsSync('.git/config');
 
+const package = () => {
+  if (!fs.existsSync('package.json')) {
+    log.error('Package definition not found:', 'package.json');
+    process.exit(1);
+  }
+  const data = fs.readFileSync('package.json');
+  const json = JSON.parse(data);
+  return json;
+};
+
+const info = () => {
+  const app = package();
+  log.info('Application:', { name: app.name, version: app.version });
+  log.info('Environment:', { profile: 'development', tsconfig, eslintrc, git });
+  log.info('Toolchain:', { esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version });
+};
+
 async function development(userConfig) {
   if (userConfig) config = helpers.merge(config, userConfig);
-  log.info('Environment:', { profile: 'development', tsconfig, eslintrc, git });
+  info();
   if (config.serve.enabled) await serve.start(config.serve);
   if (config.watch.enabled) await watch.start(config);
   if (config.build.enabled) await compile.build(config, { type: 'development' });
@@ -34,13 +51,13 @@ async function development(userConfig) {
 
 async function production(userConfig) {
   if (userConfig) config = helpers.merge(config, userConfig);
-  log.info('Environment:', { profile: 'production', tsconfig, eslintrc, git });
+  info();
   if (config.lint.enabled) await lint.run(config.lint);
   if (config.clean.enabled) await clean.start(config.clean);
   if (config.build.enabled) await compile.build(config, { type: 'production' });
   // if (config.typings.enabled) await typings.run(config.typings, entry.input); // triggered from compile.build
   // if (config.typedoc.enabled) await typedoc.run(config.typedoc, entry.input); // triggered from compile.build
-  if (config.changelog.enabled && git) await changelog.update(config.changelog); // generate changelog
+  if (config.changelog.enabled && git) await changelog.update(config.changelog, package()); // generate changelog
   log.info('Profile production done');
 }
 
@@ -53,13 +70,7 @@ function cli(userConfig) {
   if (config.log.enabled) log.logFile(config.log.file);
 
   log.header();
-  log.info('Toolchain:', { esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version });
   if (tsconfig) config.build.global.tsconfig = 'tsconfig.json';
-
-  if (!fs.existsSync('package.json')) {
-    log.error('Package definition not found:', 'package.json');
-    process.exit(1);
-  }
 
   commander.option('-c, --config <file>', 'specify config file: default build.json');
   commander.command('development')

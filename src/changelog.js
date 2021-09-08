@@ -7,33 +7,32 @@ const dayjs = require('dayjs');
 const simpleGit = require('simple-git/promise');
 const log = require('@vladmandic/pilogger');
 
-const data = fs.readFileSync('package.json');
-const app = JSON.parse(data);
-
 const git = simpleGit();
 
-let text = `# ${app.name}  
+const header = (app, url) => `# ${app.name}  
 
-Version: **${app.version}**  
-Description: **${app.description}**  
-
-Author: **${app.author}**  
-License: **${app.license}** </LICENSE>  
-Repository: **<${app.repository.url}>**  
-
+  Version: **${app.version}**  
+  Description: **${app.description}**  
+  
+  Author: **${app.author}**  
+  License: **${app.license}**  
+  Repository: **<${url}>**  
+  
 ## Changelog
-`;
+  `;
 
-async function update(f) {
+async function update(f, package) {
   if (!fs.existsSync('.git')) {
     log.warn('No valid git repository:', '.git');
     return;
   }
   const gitLog = await git.log();
-  const gitUrl = await git.listRemote(['--get-url']);
+  const gitRemote = await git.listRemote(['--get-url']) || '';
+  const gitUrl = gitRemote.replace('\n', '');
   const entries = [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
   let previous = '';
+  let text = header(package, gitUrl);
   const headings = [];
   for (const l of entries) {
     const msg = l.message.toLowerCase();
@@ -53,7 +52,7 @@ async function update(f) {
   }
 
   fs.writeFileSync(f.log, text);
-  log.state('ChangeLog:', { repository: gitUrl.replace('\n', ''), output: f.log });
+  log.state('ChangeLog:', { repository: gitUrl, output: f.log });
 }
 
 exports.update = update;
