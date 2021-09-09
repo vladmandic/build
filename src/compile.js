@@ -61,17 +61,18 @@ async function build(config, type) {
     if (entry.platform) options.platform = entry.platform;
     else options.platform = entry.format === 'cjs' ? 'node' : 'browser';
     if (entry.external) options.external = entry.external;
-    // log.data('ESBuild:', { target, entry, options });
+    if (config.debug) log.data('ESBuild Options:', options);
     try {
       const meta = await esbuild.build(options);
+      if (config.debug) log.data('ESBuild Metadata:', meta);
       const stats = await getStats(meta);
       log.state('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
       log.error('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
       if (require.main === module) process.exit(1);
     }
-    if (type.type === 'production' && entry.typings) await typings.run(config.typescript, entry);
-    if (type.type === 'production' && entry.typedoc) await typedoc.run(config.typedoc, entry);
+    if (type.type === 'production' && entry.typings && entry.typings !== '') await typings.run(config, entry);
+    if (type.type === 'production' && entry.typedoc && entry.typedoc !== '') await typedoc.run(config, entry);
   }
   busy = false;
 }

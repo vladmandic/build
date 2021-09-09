@@ -32,7 +32,7 @@ async function typings(config, entry) {
   compilerOptions.options = {
     ...defaults,
     ...compilerOptions.options,
-    ...config,
+    ...config.typescript,
     emitDeclarationOnly: true,
     declaration: true,
     outDir: entry.typings,
@@ -40,7 +40,7 @@ async function typings(config, entry) {
   compilerOptions.include = [path.dirname(entry.input)];
   compilerOptions.exclude = ['node_modules/', 'dist/'];
   compilerOptions.errors = [];
-  // log.data('Typings compilerOptions', compilerOptions, config);
+  if (config.debug) log.data('TypeScript Options:', compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
   const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
   const emit = program.emit();
@@ -48,7 +48,7 @@ async function typings(config, entry) {
     .getPreEmitDiagnostics(program)
     .concat(emit.diagnostics);
   log.state('Typings:', { input: entry.input, output: compilerOptions.options.outDir, files: emit.emittedFiles?.length });
-  // log.data('TSC Diag', { nodes: program.getNodeCount(), identifiers: program.getIdentifierCount(), symbols: program.getSymbolCount(), types: program.getTypeCount(), instances: program.getInstantiationCount() });
+  if (config.debug) log.data('TypeScript Diag', { nodes: program.getNodeCount(), identifiers: program.getIdentifierCount(), symbols: program.getSymbolCount(), types: program.getTypeCount(), instances: program.getInstantiationCount() });
   for (const info of diag) {
     const msg = info.messageText['messageText'] || info.messageText;
     if (msg.includes('package.json')) continue;

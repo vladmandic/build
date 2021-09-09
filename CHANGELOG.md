@@ -1,7 +1,7 @@
 # @vladmandic/build  
 
-  Version: **0.2.1**  
-  Description: **Build: Integrated Dev/Prod CI Environment**  
+  Version: **0.3.1**  
+  Description: **Build: Automated CI Platform**  
   
   Author: **Vladimir Mandic <mandic00@live.com>**  
   License: **MIT**  
@@ -9,10 +9,14 @@
   
 ## Changelog
   
-### **0.2.1** 2021/09/08 mandic00@live.com
+### **0.3.1** 2021/09/09 mandic00@live.com
 
 
 ### **origin/main** 2021/09/08 mandic00@live.com
+
+- stable release
+
+### **0.2.1** 2021/09/08 mandic00@live.com
 
 
 ### **0.1.1** 2021/09/07 mandic00@live.com

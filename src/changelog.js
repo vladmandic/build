@@ -21,7 +21,7 @@ const header = (app, url) => `# ${app.name}
 ## Changelog
   `;
 
-async function update(f, package) {
+async function update(config, package) {
   if (!fs.existsSync('.git')) {
     log.warn('No valid git repository:', '.git');
     return;
@@ -31,6 +31,7 @@ async function update(f, package) {
   const gitUrl = gitRemote.replace('\n', '');
   const branch = await git.branchLocal();
   const entries = [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
+  if (config.debug) log.data('Git Log:', entries);
 
   let previous = '';
   let text = header(package, gitUrl);
@@ -52,8 +53,8 @@ async function update(f, package) {
     }
   }
 
-  fs.writeFileSync(f.log, text);
-  log.state('ChangeLog:', { repository: gitUrl, branch: branch.current, output: f.log });
+  fs.writeFileSync(config.changelog.output, text);
+  log.state('ChangeLog:', { repository: gitUrl, branch: branch.current, output: config.changelog.output });
 }
 
 exports.update = update;

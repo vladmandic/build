@@ -25,7 +25,7 @@ const defaults = {
   logger: 'none',
 };
 
-async function typedoc(options, entry) {
+async function typedoc(config, entry) {
   try {
     const branch = await git.branchLocal();
     if (branch && branch.current) defaults.gitRevision = branch.current;
@@ -47,12 +47,12 @@ async function typedoc(options, entry) {
   } catch {
     td.options.setValue('theme', 'typedoc-theme');
   }
+  if (config.debug) log.data('TypeDoc Options:', td.options);
 
   // log.data(td.options);
   td.logger.warn = log.warn;
   td.logger.error = log.error;
-  td.logger.verbose = () => { /***/ }; // remove extra logging
-  // td.logger.verbose = log.data;
+  td.logger.verbose = config.debug ? log.data : () => { /***/ }; // remove extra logging
 
   td.logger.log = log.error; // converter writes errors to stdout
   const project = td.convert();
