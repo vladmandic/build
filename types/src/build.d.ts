@@ -86,7 +86,46 @@ export class Build {
         lint: {
             enabled: boolean;
             locations: string[];
-            rules: {};
+            env: {
+                browser: boolean;
+                commonjs: boolean;
+                node: boolean;
+                es2020: boolean;
+            };
+            parser: string;
+            parserOptions: {
+                ecmaVersion: number;
+            };
+            plugins: string[];
+            extends: string[];
+            ignorePatterns: string[];
+            rules: {
+                "@typescript-eslint/ban-ts-comment": string;
+                "@typescript-eslint/explicit-module-boundary-types": string;
+                "@typescript-eslint/no-shadow": string;
+                "@typescript-eslint/no-var-requires": string;
+                "dot-notation": string;
+                "func-names": string;
+                "guard-for-in": string;
+                "import/extensions": string;
+                "import/no-named-as-default": string;
+                "import/prefer-default-export": string;
+                "lines-between-class-members": string;
+                "max-len": number[];
+                "newline-per-chained-call": string;
+                "no-async-promise-executor": string;
+                "no-await-in-loop": string;
+                "no-bitwise": string;
+                "no-case-declarations": string;
+                "no-continue": string;
+                "no-plusplus": string;
+                "object-curly-newline": string;
+                "prefer-destructuring": string;
+                "prefer-template": string;
+                "promise/always-return": string;
+                "promise/catch-or-return": string;
+                radix: string;
+            };
         };
         changelog: {
             enabled: boolean;
@@ -144,7 +183,18 @@ export class Build {
             target: string;
             typeRoots: string[];
             lib: string[];
-            baseUrl: string;
+            baseUrl: string; /**
+             * Contains currently active build configuration
+             *
+             * Configuration is combined from:
+             * - Build defaults
+             * - Parsing mandatory `build.json`
+             * - Parsing optional `tsconfig.json`
+             * - Parsing optional `eslintrc.json`
+             * - Parsing optional `typedoc.json`
+             * @typedef {object} Config
+             * @type {Config}
+             */
             paths: {
                 tslib: string[];
             };
@@ -218,4 +268,3 @@ export class Build {
      */
     cli(): void;
 }
-export { version };

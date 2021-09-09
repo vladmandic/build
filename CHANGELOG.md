@@ -1,7 +1,7 @@
 # @vladmandic/build  
 
   Version: **0.3.1**  
-  Description: **Build: Automated CI Platform**  
+  Description: **Build: Automated CI Platform for NodeJS**  
   
   Author: **Vladimir Mandic <mandic00@live.com>**  
   License: **MIT**  
@@ -11,6 +11,7 @@
   
 ### **HEAD -> main** 2021/09/09 mandic00@live.com
 
+- add types and typedocs
 
 ### **0.3.1** 2021/09/09 mandic00@live.com
 

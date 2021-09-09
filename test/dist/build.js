@@ -10,7 +10,10 @@ var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __commonJS = (cb, mod) => function __require() {
+var __require = typeof require !== "undefined" ? require : (x) => {
+  throw new Error('Dynamic require of "' + x + '" is not supported');
+};
+var __commonJS = (cb, mod) => function __require2() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __reExport = (target, module2, desc) => {
@@ -1454,7 +1457,7 @@ var require_commander = __commonJS({
 // node_modules/.pnpm/@vladmandic+pilogger@0.2.18/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
   "node_modules/.pnpm/@vladmandic+pilogger@0.2.18/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports2, module2) {
-    var __commonJS2 = (cb, mod) => function __require() {
+    var __commonJS2 = (cb, mod) => function __require2() {
       return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
     var require_color_name = __commonJS2({
@@ -13344,12 +13347,23 @@ var require_lint = __commonJS({
     var fs2 = require("fs");
     var log2 = require_pilogger();
     var { ESLint } = require("eslint");
-    var eslint;
     var version = ESLint.version;
     async function lint2(config) {
       const json = fs2.existsSync(".eslintrc.json") ? JSON.parse(fs2.readFileSync(".eslintrc.json").toString()) : {};
-      if (!eslint)
-        eslint = new ESLint({ useEslintrc: true, overrideConfig: { ...json, rules: { ...json.rules, ...config.lint.rules } } });
+      const options = {
+        ...json,
+        globals: { ...json.globals },
+        rules: { ...config.lint.rules, ...json.rules },
+        env: { ...config.lint.env, ...json.env },
+        parser: json.parser || config.lint.parser,
+        parserOptions: { ...config.lint.parserOptions, ...json.parserOptions },
+        plugins: [...new Set([...config.lint.plugins, ...json.plugins || []])],
+        extends: [...new Set([...config.lint.extends, ...json.extends || []])],
+        ignorePatterns: [...new Set([...config.lint.ignorePatterns, ...json.ignorePatterns || []])]
+      };
+      const eslint = new ESLint({ overrideConfig: options });
+      if (config.debug)
+        log2.data("ESLint Options", options, config.lint.locations);
       const results = await eslint.lintFiles(config.lint.locations);
       const errors = results.reduce((prev, curr) => prev += curr.errorCount, 0);
       const warnings = results.reduce((prev, curr) => prev += curr.warningCount, 0);
@@ -13383,7 +13397,45 @@ var require_build = __commonJS({
       lint: {
         enabled: true,
         locations: ["src/*", "test/src/*"],
-        rules: {}
+        env: { browser: true, commonjs: true, node: true, es2020: true },
+        parser: "@typescript-eslint/parser",
+        parserOptions: {
+          ecmaVersion: 2020
+        },
+        plugins: ["@typescript-eslint"],
+        extends: [
+          "eslint:recommended",
+          "plugin:@typescript-eslint/eslint-recommended",
+          "plugin:@typescript-eslint/recommended"
+        ],
+        ignorePatterns: ["**/dist/**", "**/typedoc/**", "**/types/**", "**/node_modules/**"],
+        rules: {
+          "@typescript-eslint/ban-ts-comment": "off",
+          "@typescript-eslint/explicit-module-boundary-types": "off",
+          "@typescript-eslint/no-shadow": "error",
+          "@typescript-eslint/no-var-requires": "off",
+          "dot-notation": "off",
+          "func-names": "off",
+          "guard-for-in": "off",
+          "import/extensions": "off",
+          "import/no-named-as-default": "off",
+          "import/prefer-default-export": "off",
+          "lines-between-class-members": "off",
+          "max-len": [1, 100, 3],
+          "newline-per-chained-call": "off",
+          "no-async-promise-executor": "off",
+          "no-await-in-loop": "off",
+          "no-bitwise": "off",
+          "no-case-declarations": "off",
+          "no-continue": "off",
+          "no-plusplus": "off",
+          "object-curly-newline": "off",
+          "prefer-destructuring": "off",
+          "prefer-template": "off",
+          "promise/always-return": "off",
+          "promise/catch-or-return": "off",
+          radix: "off"
+        }
       },
       changelog: {
         enabled: true,
@@ -16402,7 +16454,7 @@ var require_package = __commonJS({
     module2.exports = {
       name: "@vladmandic/build",
       version: "0.3.1",
-      description: "Build: Automated CI Platform",
+      description: "Build: Automated CI Platform for NodeJS",
       main: "src/build.js",
       types: "types/src/build.d.ts",
       engines: {
@@ -16436,10 +16488,7 @@ var require_package = __commonJS({
         esbuild: "^0.12.25",
         eslint: "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
-        "eslint-plugin-import": "^2.24.2",
-        "eslint-plugin-json": "^3.1.0",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-promise": "^5.1.0",
         rimraf: "^3.0.2",
         "simple-git": "^2.45.1",
         tslib: "^2.3.1",
@@ -16599,7 +16648,6 @@ var Build = class {
   }
 };
 exports.Build = Build;
-exports.version = app.version;
 if (require.main === module) {
   const build = new Build();
   build.cli();

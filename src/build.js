@@ -230,7 +230,6 @@ class Build {
 }
 
 exports.Build = Build;
-exports.version = app.version;
 
 if (require.main === module) {
   const build = new Build();

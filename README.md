@@ -95,7 +95,7 @@ Modify your `package.json` to include:
 - Clean locations
 - Build JS bundles from TS or JS sources with multiple profiles and targets
 - Run Linter
-- Generate .d.ts typings
+- Generate .d.ts typings using TypeScript
 - Generate TypeDoc documentation
 - Generate ChangeLog from Git commits
 
@@ -151,7 +151,13 @@ Example: `npm run build development`
 
 ### Lint
 
-- Uses `ESLint` with default configuration found in `.eslintrc.json` plus overrride found in `config.lint.rules`
+- Uses `ESLint` with default configuration found in `config.lint` section plus overrides from local `.eslintrc.json`
+
+Modules required by default configuration:
+
+```shell
+npm install eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-node
+```
 
 ### ChangeLog
 

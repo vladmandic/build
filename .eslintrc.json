@@ -14,15 +14,10 @@
     "@typescript-eslint"
   ],
   "extends": [
-    "airbnb-base",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:json/recommended-with-comments",
-    "plugin:node/recommended",
-    "plugin:promise/recommended"
+    "plugin:node/recommended"
   ],
   "ignorePatterns": [
     "**/dist/**",
