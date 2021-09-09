@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const process = require('process');
 const log = require('@vladmandic/pilogger');
@@ -32,21 +33,21 @@ async function typedoc(config, entry) {
   } catch { /**/ }
 
   const td = new TypeDoc.Application();
-  td.options.addReader(new TypeDoc.TypeDocReader());
   td.options.addReader(new TypeDoc.TSConfigReader());
-  td.bootstrap({ entryPoints: [entry.input] });
-  for (const [key, val] of Object.entries(defaults)) td.options.setValue(key, val);
+  td.options.addReader(new TypeDoc.TypeDocReader());
+  td.bootstrap({ entryPoints: [entry.input] }); // initialize td.options with default values
+  const localTSdefaults = { ...config.typescript };
+  if (localTSdefaults.emitDeclarationOnly) delete localTSdefaults.emitDeclarationOnly;
+  for (const [key, val] of Object.entries(localTSdefaults)) td.options._compilerOptions[key] = val; // override TypeDoc TS compileOptions
+  for (const [key, val] of Object.entries(defaults)) td.options.setValue(key, val); // override TypeDoc options
   td.options.setValue('entryPoints', [entry.input]);
   td.options.setValue('out', entry.typedoc);
+  if (td.options._fileNames.length === 0) td.options._fileNames = [entry.input]; // normally its an expanded list based on tsconfig.json:inputs
 
-  try {
-    // eslint-disable-next-line node/no-missing-require
-    let theme = require.resolve('@vladmandic/build');
-    theme = path.join(path.dirname(theme), '../typedoc-theme');
-    td.options.setValue('theme', theme);
-  } catch {
-    td.options.setValue('theme', 'typedoc-theme');
-  }
+  // let theme = require.resolve('@vladmandic/build');
+  // theme = path.join(path.dirname(theme), '../typedoc-theme');
+  const theme = path.join(__dirname, '../typedoc-theme');
+  td.options.setValue('theme', fs.existsSync(theme) ? theme : 'typedoc-theme');
   if (config.debug) log.data('TypeDoc Options:', td.options);
 
   // log.data(td.options);
@@ -69,7 +70,8 @@ async function typedoc(config, entry) {
   process.stdout.write = stdout;
 
   if (result) log.warn('TypeDoc:', result);
-  else log.state('TypeDoc:', { input: entry.input, output: entry.typedoc, objects: project.children?.length });
+  else log.state('TypeDoc:', { input: entry.input, output: entry.typedoc, objects: project.children?.length, index: fs.existsSync(path.join(entry.typedoc), 'index.html') });
+  if (typeof project.children === 'undefined') log.warn('TypeDoc:', 'no output generated');
 }
 
 exports.run = typedoc;

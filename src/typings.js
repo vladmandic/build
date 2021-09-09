@@ -4,35 +4,14 @@ const log = require('@vladmandic/pilogger');
 
 const version = ts.version;
 
-const defaults = {
-  module: 'es2020',
-  target: 'es2020',
-  typeRoots: ['node_modules/@types'],
-  lib: ['lib.esnext.d.ts', 'lib.dom.d.ts', 'lib.webworker.d.ts'],
-  baseUrl: './',
-  paths: { tslib: ['node_modules/tslib/tslib.d.ts'] },
-  sourceMap: true,
-  noEmitOnError: false,
-  emitDeclarationOnly: true,
-  declaration: true,
-  allowJs: true,
-  allowSyntheticDefaultImports: true,
-  importHelpers: true,
-  pretty: true,
-  removeComments: false,
-  skipLibCheck: true,
-  listEmittedFiles: true,
-};
-
 async function typings(config, entry) {
   const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json') || '';
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
   const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
   // const compilerOptions = tsconfig;
   compilerOptions.options = {
-    ...defaults,
-    ...compilerOptions.options,
     ...config.typescript,
+    ...compilerOptions.options,
     emitDeclarationOnly: true,
     declaration: true,
     outDir: entry.typings,

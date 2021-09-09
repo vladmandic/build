@@ -45,6 +45,9 @@ async function build(config, type) {
     return;
   }
   busy = true;
+  if (!config || !config.build || !config.build.targets || config.build.targets.length === 0) {
+    log.warn('Build: no targets');
+  }
   for (const entry of config.build.targets) {
     if (!entry.input || !entry.output || !entry.format) {
       log.error('Build incomplete configuration:', { type: type.type, format: entry.format, input: entry.input, output: entry.output });

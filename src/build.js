@@ -29,22 +29,19 @@ const packageJson = () => {
   return json;
 };
 
-const updateConfig = (options, config) => {
+const updateConfig = (config, options) => {
   // set defaults
-  let local = helpers.merge(config, options);
-  if (fs.existsSync('build.json')) {
-    // reset defaults to emtpy project
-    local.clean.locations = [];
-    local.lint.locations = [];
-    local.watch.locatinos = [];
-    local.build.targets = [];
-    // and now add them from parsed build.json
+  let local = helpers.merge(config);
+  // reset defaults to emtpy project
+  local.clean.locations = [];
+  local.lint.locations = [];
+  local.watch.locatinos = [];
+  local.build.targets = [];
+  if (fs.existsSync('build.json')) { // add options from parsed build.json
     const data = fs.readFileSync('build.json');
     local = helpers.merge(local, JSON.parse(data.toString()));
-  } else {
-    log.error('Config file missing:', 'build.json');
-    process.exit(1);
   }
+  if (Object.keys(options).length) local = helpers.merge(local, options);
   return local;
 };
 
@@ -64,13 +61,14 @@ class Build {
   /**
    * Contains version strings of all build tools
    * @typedef {object} Toolchain
+   * @property {string} build semver version string
    * @property {string} esbuild semver version string
    * @property {string} typescript semver version string
    * @property {string} typedoc semver version string
    * @property {string} eslint semver version string
    * @type {Toolchain}
    */
-  toolchain = { esbuild: 'version', typescript: 'version', typedoc: 'version', eslint: 'version' };
+  toolchain = { build: 'version', esbuild: 'version', typescript: 'version', typedoc: 'version', eslint: 'version' };
 
   /**
    * Contains detected available configuration
@@ -119,12 +117,12 @@ class Build {
    * @param options  Optional configuration options overrides
    */
   constructor(options = {}) {
-    this.config = updateConfig(options, helpers.merge(defaults));
+    this.config = updateConfig(helpers.merge(defaults), options);
     const tsconfig = fs.existsSync('tsconfig.json');
     const eslintrc = fs.existsSync('.eslintrc.json');
     const git = fs.existsSync('.git') && fs.existsSync('.git/config');
     this.package = packageJson();
-    this.toolchain = { esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version };
+    this.toolchain = { build: app.version, esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version };
     this.environment = { config: 'build.json', tsconfig, eslintrc, git };
     this.application = { name: this.package.name, version: this.package.version };
   }
@@ -135,7 +133,7 @@ class Build {
    * @param options  optional configuration options overrides
    */
   async development(options = {}) {
-    if (Object.keys(options).length) this.config = updateConfig(options, this.config);
+    if (Object.keys(options).length) this.config = updateConfig(this.config, options);
     printInfo('development', this.application, this.environment, this.toolchain);
     if (this.config.debug) log.data('Configuration:', this.config);
     if (this.config.serve.enabled) await serve.start(this.config.serve);
@@ -149,7 +147,7 @@ class Build {
    * @param options  optional configuration options overrides
    */
   async production(options = {}) {
-    if (Object.keys(options).length) this.config = updateConfig(options, this.config);
+    if (Object.keys(options).length) this.config = updateConfig(this.config, options);
     printInfo('production', this.application, this.environment, this.toolchain);
     if (this.config.debug) log.data('Configuration:', this.config);
     if (this.config.clean.enabled) await clean.start(this.config.clean);
@@ -234,5 +232,7 @@ class Build {
 exports.Build = Build;
 exports.version = app.version;
 
-const build = new Build();
-build.cli();
+if (require.main === module) {
+  const build = new Build();
+  build.cli();
+}

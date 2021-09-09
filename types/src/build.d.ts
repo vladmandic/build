@@ -15,6 +15,7 @@ export class Build {
     /**
      * Contains version strings of all build tools
      * @typedef {object} Toolchain
+     * @property {string} build semver version string
      * @property {string} esbuild semver version string
      * @property {string} typescript semver version string
      * @property {string} typedoc semver version string
@@ -22,6 +23,7 @@ export class Build {
      * @type {Toolchain}
      */
     toolchain: {
+        build: string;
         esbuild: string;
         typescript: string;
         typedoc: string;
@@ -138,6 +140,25 @@ export class Build {
             locations: string[];
         };
         typescript: {
+            module: string;
+            target: string;
+            typeRoots: string[];
+            lib: string[];
+            baseUrl: string;
+            paths: {
+                tslib: string[];
+            };
+            sourceMap: boolean;
+            noEmitOnError: boolean;
+            emitDeclarationOnly: boolean;
+            declaration: boolean;
+            allowJs: boolean;
+            allowSyntheticDefaultImports: boolean;
+            importHelpers: boolean;
+            pretty: boolean;
+            removeComments: boolean;
+            skipLibCheck: boolean;
+            listEmittedFiles: boolean;
             allowUnreachableCode: boolean;
             allowUnusedLabels: boolean;
             alwaysStrict: boolean;
