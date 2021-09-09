@@ -1,8 +1,9 @@
 {
   "name": "@vladmandic/build",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "Build: Automated CI Platform",
   "main": "src/build.js",
+  "types": "types/build.d.ts",
   "engines": {
     "node": ">=14.0.0"
   },
