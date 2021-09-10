@@ -1,3 +1,4 @@
+const fs = require('fs');
 const ts = require('typescript');
 const path = require('path');
 const log = require('@vladmandic/pilogger');
@@ -8,7 +9,6 @@ async function typings(config, entry) {
   const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json') || '';
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
   const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
-  // const compilerOptions = tsconfig;
   compilerOptions.options = {
     ...config.typescript,
     ...compilerOptions.options,
@@ -22,6 +22,19 @@ async function typings(config, entry) {
   if (config.debug) log.data('TypeScript Options:', compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
   const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
+
+  if (config.generate) {
+    if (fs.existsSync('tsconfig.json')) log.warn('Generate config file exists:', ['tsconfig.json']);
+    else {
+      const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions.include, exclude: compilerOptions.exclude };
+      delete tsconfig.compilerOptions.emitDeclarationOnly;
+      delete tsconfig.compilerOptions.resolveJsonModule;
+      tsconfig.compilerOptions.lib = tsconfig.compilerOptions.lib.map((lib) => lib.replace('lib.', '').replace('.d.ts', ''));
+      fs.writeFileSync('tsconfig.json', JSON.stringify(tsconfig, null, 2));
+      log.info('Generate config file:', ['tsconfig.json']);
+    }
+  }
+
   const emit = program.emit();
   const diag = ts
     .getPreEmitDiagnostics(program)

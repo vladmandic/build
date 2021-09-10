@@ -51,7 +51,8 @@ console.log('Environment', build.environment);
 console.log('Application', build.application);
 console.log('Configuration', build.config);
 
-await build.production();
+const result = await build.production();
+console.log('Build results:', result);
 ```
 
 <br>
@@ -66,6 +67,7 @@ Usage: build [options] [command]
 Options:
   -c, --config <file>  specify config file
   -d, --debug          enable debug output
+  -g, --generate       generate config files from templates
   -h, --help           display help for command
 
 Commands:
@@ -195,6 +197,13 @@ npm install eslint typescript @typescript-eslint/parser @typescript-eslint/eslin
 - Generate documentation using `typedoc`
   using settings from optional `tsconfig.json:typedocOptions` or `typedoc.json`
 - Runs for each target entry that has `typedoc` field pointing to `output` directory
+
+## Generate
+
+- Generates templates for `tsconfig.json`, `.eslintrc.json` and `typedoc.json`
+- Only available when combined with `production` profile
+- If files already exists, it will not overwrite them
+- *WARNING*: Check and edit as needed before using
 
 ## Todo
 

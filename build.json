@@ -2,6 +2,7 @@
   "debug": false,
   "log": {
     "enabled": false,
+    "console": true,
     "output": "build.log"
   },
   "clean": {
@@ -141,7 +142,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
-    "resolveJsonModule": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,

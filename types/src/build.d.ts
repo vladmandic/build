@@ -2,7 +2,7 @@ export class Build {
     /**
      * Initializes Build class with all parsed configurations
      *
-     * @param options  Optional configuration options overrides
+     * @param options  `<object>` Optional configuration options overrides
      */
     constructor(options?: {});
     /**
@@ -77,6 +77,7 @@ export class Build {
         debug: boolean;
         log: {
             enabled: boolean;
+            console: boolean;
             output: string;
         };
         clean: {
@@ -183,18 +184,7 @@ export class Build {
             target: string;
             typeRoots: string[];
             lib: string[];
-            baseUrl: string; /**
-             * Contains currently active build configuration
-             *
-             * Configuration is combined from:
-             * - Build defaults
-             * - Parsing mandatory `build.json`
-             * - Parsing optional `tsconfig.json`
-             * - Parsing optional `eslintrc.json`
-             * - Parsing optional `typedoc.json`
-             * @typedef {object} Config
-             * @type {Config}
-             */
+            baseUrl: string;
             paths: {
                 tslib: string[];
             };
@@ -224,7 +214,6 @@ export class Build {
             noUnusedLocals: boolean;
             noUnusedParameters: boolean;
             preserveConstEnums: boolean;
-            resolveJsonModule: boolean;
             strictBindCallApply: boolean;
             strictFunctionTypes: boolean;
             strictNullChecks: boolean;
@@ -234,37 +223,23 @@ export class Build {
     /**
      * Runs build pipeline for development profile
      *
-     * @param options  optional configuration options overrides
+     * @param options  `<object>` Optional configuration options overrides
+     * @returns  `array<object>` Containing all messages
      */
-    development(options?: {}): Promise<void>;
+    development(options?: {}): Promise<any[]>;
     /**
      * Runs build pipeline for production profile
      *
-     * @param options  optional configuration options overrides
+     * @param options  `<object>` Optional configuration options overrides
+     * @returns  `array<object>` Containing all messages
      */
-    production(options?: {}): Promise<void>;
+    production(options?: {}): Promise<any[]>;
     /**
      * Runs build pipeline for specified profile
      *
-     * @param profile  profile type: <"production" | "development">
-     * @param options  optional configuration options overrides
+     * @param profile  `string` Profile type: "production" | "development"
+     * @param options  `object` Optional configuration options overrides
+     * @returns  `array<object>` Containing all messages
      */
-    build(profile?: string, options?: {}): void;
-    /**
-     * Runs build in cli mode
-     *
-     * Usage: build [options] [command]
-     *
-     * **Options:**
-     * - `-c`, `--config` `<file>`  specify alternative config file
-     * - `-d`, `--debug`            enable debug output
-     * - `-h`, `--help`             display help for command
-     *
-     * **Commands:**
-     * - `development`          start development ci
-     * - `production`           start production build
-     * - `config`               show active configuration and exit
-     * - `help [command]`       display help for command
-     */
-    cli(): void;
+    build(profile?: string, options?: {}): Promise<any[]>;
 }

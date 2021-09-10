@@ -50,6 +50,14 @@ async function typedoc(config, entry) {
   td.options.setValue('theme', fs.existsSync(theme) ? theme : 'typedoc-theme');
   if (config.debug) log.data('TypeDoc Options:', td.options);
 
+  if (config.generate) {
+    if (fs.existsSync('typedoc.json')) log.warn('Generate config file exists:', ['typedoc.json']);
+    else {
+      fs.writeFileSync('typedoc.json', JSON.stringify(td.options._values, null, 2));
+      log.info('Generate config file:', ['typedoc.json']);
+    }
+  }
+
   // log.data(td.options);
   td.logger.warn = log.warn;
   td.logger.error = log.error;

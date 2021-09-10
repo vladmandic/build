@@ -11,6 +11,7 @@
   
 ### **HEAD -> main** 2021/09/09 mandic00@live.com
 
+- added defaults for all config options
 - add types and typedocs
 
 ### **0.3.1** 2021/09/09 mandic00@live.com

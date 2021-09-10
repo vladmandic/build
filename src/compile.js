@@ -63,7 +63,8 @@ async function build(config, type) {
     options.format = entry.format;
     if (entry.platform) options.platform = entry.platform;
     else options.platform = entry.format === 'cjs' ? 'node' : 'browser';
-    if (entry.external) options.external = entry.external;
+    options.external = entry.external || [];
+    if (!options.external.includes('@vladmandic/build')) options.external.push('@vladmandic/build');
     if (config.debug) log.data('ESBuild Options:', options);
     try {
       const meta = await esbuild.build(options);

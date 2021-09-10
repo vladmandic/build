@@ -19,6 +19,14 @@ async function lint(config) {
   };
   const eslint = new ESLint({ overrideConfig: options });
   if (config.debug) log.data('ESLint Options', options, config.lint.locations);
+
+  if (config.generate) {
+    if (fs.existsSync('.eslintrc.json')) log.warn('Generate config file exists:', ['.eslintrc.json']);
+    else {
+      fs.writeFileSync('.eslintrc.json', JSON.stringify(options, null, 2));
+      log.info('Generate config file:', ['.eslintrc.json']);
+    }
+  }
   const results = await eslint.lintFiles(config.lint.locations);
   const errors = results.reduce((prev, curr) => prev += curr.errorCount, 0);
   const warnings = results.reduce((prev, curr) => prev += curr.warningCount, 0);
