@@ -31,7 +31,7 @@ async function update(config, package) {
   const gitUrl = gitRemote.replace('\n', '');
   const branch = await git.branchLocal();
   const entries = [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
-  if (config.debug) log.data('Git Log:', entries);
+  if (config.log.debug) log.data('Git Log:', entries);
 
   let previous = '';
   let text = header(package, gitUrl);

@@ -65,10 +65,10 @@ async function build(config, type) {
     else options.platform = entry.format === 'cjs' ? 'node' : 'browser';
     options.external = entry.external || [];
     if (!options.external.includes('@vladmandic/build')) options.external.push('@vladmandic/build');
-    if (config.debug) log.data('ESBuild Options:', options);
+    if (config.log.debug) log.data('ESBuild Options:', options);
     try {
       const meta = await esbuild.build(options);
-      if (config.debug) log.data('ESBuild Metadata:', meta);
+      if (config.log.debug) log.data('ESBuild Metadata:', meta);
       const stats = await getStats(meta);
       log.state('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {

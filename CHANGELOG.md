@@ -1,6 +1,6 @@
 # @vladmandic/build  
 
-  Version: **0.3.2**  
+  Version: **0.3.3**  
   Description: **Build: Automated CI Platform for NodeJS**  
   
   Author: **Vladimir Mandic <mandic00@live.com>**  
@@ -9,12 +9,16 @@
   
 ## Changelog
   
-### **0.3.2** 2021/09/09 mandic00@live.com
+### **0.3.3** 2021/09/10 mandic00@live.com
 
-- added results parser
 
 ### **origin/main** 2021/09/09 mandic00@live.com
 
+
+### **0.3.2** 2021/09/09 mandic00@live.com
+
+- added results parser
+- create default eslint rules
 - added defaults for all config options
 - add types and typedocs
 

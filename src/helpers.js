@@ -29,8 +29,13 @@ const results = () => {
   const res = [];
   let facility = '';
   for (const line of log.ring) {
-    const obj = line.msg.match(/{(.*)}/);
-    const json = obj && obj.length > 0 ? JSON.parse(line.msg.match(/{(.*)}/)[0]) : { msg: line.msg };
+    let json = {};
+    try {
+      const obj = line.msg.match(/{(.*)}/);
+      json = JSON.parse(obj[0]);
+    } catch {
+      json = { msg: line.msg };
+    }
     if (json.msg) json.msg = json.msg.replace(ansiRegex(), '');
     const facilityStr = line.msg.match(/(.*): /);
     const facilityExists = facilityStr && facilityStr.length > 1 ? facilityStr[1] : null;

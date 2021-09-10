@@ -100,6 +100,14 @@ class Build {
    * - Parsing optional `eslintrc.json`
    * - Parsing optional `typedoc.json`
    * @typedef {object} Config
+   * @property {object} log control build logging
+   * @property {object} clean control location cleaning at the beggining of build process
+   * @property {object} lint configuration for project linting
+   * @property {object} changelog configuration for changelog generation
+   * @property {object} build configuration for project build step and all individual targets which includes: **build**, **bundle**, **typedoc**, **typings**
+   * @property {object} serve configuration for http/https web server used in dev build profile
+   * @property {object} watch configuration for file/folder watcher used in dev build profile
+   * @property {object} typescript override compiler configuration for typescript
    * @type {Config}
    */
   config = { ...defaults };
@@ -119,6 +127,7 @@ class Build {
     this.environment = { config: 'build.json', tsconfig, eslintrc, git };
     this.application = { name: this.package.name, version: this.package.version };
     log.ringLength = 1000; // increase log ring buffer
+    log.options.console = this.config.log.console;
   }
 
   /**
@@ -130,7 +139,7 @@ class Build {
   async development(options = {}) {
     if (Object.keys(options).length) this.config = updateConfig(this.config, options);
     helpers.info('development', this.application, this.environment, this.toolchain);
-    if (this.config.debug) log.data('Configuration:', this.config);
+    if (this.config.log.debug) log.data('Configuration:', this.config);
     if (this.config.serve.enabled) await serve.start(this.config.serve);
     if (this.config.watch.enabled) await watch.start(this.config);
     if (this.config.build.enabled) await compile.build(this.config, { type: 'development' });
@@ -146,7 +155,7 @@ class Build {
   async production(options = {}) {
     if (Object.keys(options).length) this.config = updateConfig(this.config, options);
     helpers.info('production', this.application, this.environment, this.toolchain);
-    if (this.config.debug) log.data('Configuration:', this.config);
+    if (this.config.log.debug) log.data('Configuration:', this.config);
     if (this.config.clean.enabled) await clean.start(this.config.clean);
     if (this.config.build.enabled) await compile.build(this.config, { type: 'production' });
     if (this.config.lint.enabled) await lint.run(this.config);

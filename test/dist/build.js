@@ -32,10 +32,13 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.2.18/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.3.1/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.2.18/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
-    var __commonJS2 = (cb, mod) => function __require2() {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.3.1/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports) {
+    var __require2 = typeof require !== "undefined" ? require : (x) => {
+      throw new Error('Dynamic require of "' + x + '" is not supported');
+    };
+    var __commonJS2 = (cb, mod) => function __require22() {
       return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
     var require_color_name = __commonJS2({
@@ -1236,7 +1239,7 @@ var require_pilogger = __commonJS({
       }
     });
     var require_util2 = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.1/node_modules/chalk/source/util.js"(exports2, module22) {
+      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/util.js"(exports2, module22) {
         "use strict";
         var stringReplaceAll = (string, substring, replacer) => {
           let index = string.indexOf(substring);
@@ -1273,7 +1276,7 @@ var require_pilogger = __commonJS({
       }
     });
     var require_templates = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.1/node_modules/chalk/source/templates.js"(exports2, module22) {
+      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/templates.js"(exports2, module22) {
         "use strict";
         var TEMPLATE_REGEX = /(?:\\(u(?:[a-f\d]{4}|\{[a-f\d]{1,6}\})|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
         var STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
@@ -1385,7 +1388,7 @@ var require_pilogger = __commonJS({
       }
     });
     var require_source = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.1/node_modules/chalk/source/index.js"(exports2, module22) {
+      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/index.js"(exports2, module22) {
         "use strict";
         var ansiStyles = require_ansi_styles();
         var { stdout: stdoutColor, stderr: stderrColor } = require_supports_color2();
@@ -1401,21 +1404,21 @@ var require_pilogger = __commonJS({
           "ansi16m"
         ];
         var styles = Object.create(null);
-        var applyOptions = (object, options = {}) => {
-          if (options.level && !(Number.isInteger(options.level) && options.level >= 0 && options.level <= 3)) {
+        var applyOptions = (object, options2 = {}) => {
+          if (options2.level && !(Number.isInteger(options2.level) && options2.level >= 0 && options2.level <= 3)) {
             throw new Error("The `level` option should be an integer from 0 to 3");
           }
           const colorLevel = stdoutColor ? stdoutColor.level : 0;
-          object.level = options.level === void 0 ? colorLevel : options.level;
+          object.level = options2.level === void 0 ? colorLevel : options2.level;
         };
         var ChalkClass = class {
-          constructor(options) {
-            return chalkFactory(options);
+          constructor(options2) {
+            return chalkFactory(options2);
           }
         };
-        var chalkFactory = (options) => {
+        var chalkFactory = (options2) => {
           const chalk3 = {};
-          applyOptions(chalk3, options);
+          applyOptions(chalk3, options2);
           chalk3.template = (...arguments_) => chalkTag(chalk3.template, ...arguments_);
           Object.setPrototypeOf(chalk3, Chalk.prototype);
           Object.setPrototypeOf(chalk3.template, chalk3);
@@ -1425,8 +1428,8 @@ var require_pilogger = __commonJS({
           chalk3.template.Instance = ChalkClass;
           return chalk3.template;
         };
-        function Chalk(options) {
-          return chalkFactory(options);
+        function Chalk(options2) {
+          return chalkFactory(options2);
         }
         for (const [styleName, style] of Object.entries(ansiStyles)) {
           styles[styleName] = {
@@ -1558,7 +1561,7 @@ var require_pilogger = __commonJS({
       }
     });
     var require_dayjs_min2 = __commonJS2({
-      "node_modules/.pnpm/dayjs@1.10.6/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
+      "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
           typeof exports2 == "object" && typeof module22 != "undefined" ? module22.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
         }(exports2, function() {
@@ -1768,17 +1771,16 @@ var require_pilogger = __commonJS({
     var { Console } = require("console");
     var ctx = new chalk.Instance({ level: 2 });
     var ring = [];
-    var dateFormat = "YYYY-MM-DD HH:mm:ss";
-    var ringLength = 100;
-    var logStream = null;
-    var logFile = null;
-    var logFileOK = false;
-    var accessStream = null;
-    var accessFile = null;
-    var accessFileOK = false;
-    var clientStream = null;
-    var clientFile = null;
-    var clientFileOK = false;
+    var options = {
+      dateFormat: "YYYY-MM-DD HH:mm:ss",
+      ringLength: 100,
+      console: true
+    };
+    var streams = {
+      logFile: false,
+      accessFile: false,
+      clientFile: false
+    };
     var tags = {
       blank: "",
       continue: ":     ",
@@ -1788,7 +1790,9 @@ var require_pilogger = __commonJS({
       error: ctx.red("ERROR:"),
       fatal: ctx.bold.red("FATAL:"),
       timed: ctx.magentaBright("TIMED:"),
-      state: ctx.magenta("STATE:")
+      state: ctx.magenta("STATE:"),
+      verbose: ctx.bgGray.yellowBright("VERB: "),
+      debug: ctx.bgGray.redBright("DEBUG:")
     };
     var inspectOptions = {
       showHidden: true,
@@ -1809,10 +1813,10 @@ var require_pilogger = __commonJS({
       inspectOptions
     });
     function setDateFormat(dt) {
-      dateFormat = dt;
+      options.dateFormat = dt;
     }
     function setRingLength() {
-      ringLength = 100;
+      options.ringLength = 100;
     }
     function combineMessages(...messages) {
       let msg = "";
@@ -1823,35 +1827,45 @@ var require_pilogger = __commonJS({
       return msg;
     }
     function print(...messages) {
-      const time = dayjs(Date.now()).format(dateFormat);
-      logger.log(time, ...messages);
+      const time = dayjs(Date.now()).format(options.dateFormat);
+      if (options.console)
+        logger.log(time, ...messages);
     }
     function setLogFile(file) {
-      logFile = file;
-      logFileOK = true;
-      logStream = fs.createWriteStream(path.resolve(logFile), { flags: "a" });
-      logStream.on("error", (e) => {
-        print(tags.error, "Cannot open application log", `${logFile}: ${e.code}`);
-        logFileOK = false;
-      });
+      if (typeof file !== "string")
+        return;
+      options.logFile = file;
+      streams.logFile = true;
+      streams.logStream = fs.createWriteStream(path.resolve(options.logFile || ""), { flags: "a" });
+      if (streams.logStream)
+        streams.logStream.on("error", (e) => {
+          print(tags.error, "Cannot open application log", `${options.logFile}: ${e.code}`);
+          streams.logFile = false;
+        });
     }
     function setAccessFile(file) {
-      accessFile = file;
-      accessFileOK = true;
-      accessStream = fs.createWriteStream(path.resolve(accessFile), { flags: "a" });
-      accessStream.on("error", (e) => {
-        print(tags.error, "Cannot open application log", `${logFile}: ${e.code}`);
-        accessFileOK = false;
-      });
+      if (typeof file !== "string")
+        return;
+      options.accessFile = file;
+      streams.accessFile = true;
+      streams.accessStream = fs.createWriteStream(path.resolve(options.accessFile), { flags: "a" });
+      if (streams.accessStream)
+        streams.accessStream.on("error", (e) => {
+          print(tags.error, "Cannot open application log", `${options.logFile}: ${e.code}`);
+          streams.accessFile = false;
+        });
     }
     function setClientFile(file) {
-      clientFile = file;
-      clientFileOK = true;
-      clientStream = fs.createWriteStream(path.resolve(clientFile), { flags: "a" });
-      clientStream.on("error", (e) => {
-        print(tags.error, "Cannot open application log", `${logFile}: ${e.code}`);
-        clientFileOK = false;
-      });
+      if (typeof file !== "string")
+        return;
+      options.clientFile = file;
+      streams.clientFile = true;
+      streams.clientStream = fs.createWriteStream(path.resolve(options.clientFile), { flags: "a" });
+      if (streams.clientStream)
+        streams.clientStream.on("error", (e) => {
+          print(tags.error, "Cannot open application log", `${options.logFile}: ${e.code}`);
+          streams.clientFile = false;
+        });
     }
     async function timed(t0, ...messages) {
       if (arguments.length < 2) {
@@ -1865,52 +1879,53 @@ var require_pilogger = __commonJS({
       } catch (e) {
       }
       elapsed = Math.round(elapsed / 1e6);
-      const time = dayjs(Date.now()).format(dateFormat);
-      logger.log(time, tags.timed, `${elapsed.toLocaleString()} ms`, ...messages);
-      if (logFileOK)
-        logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
+      const time = dayjs(Date.now()).format(options.dateFormat);
+      if (options.console)
+        logger.log(time, tags.timed, `${elapsed.toLocaleString()} ms`, ...messages);
+      if (streams.logFile)
+        streams.logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
 `);
     }
     async function log(tag, ...messages) {
-      const time = dayjs(Date.now()).format(dateFormat);
+      const time = dayjs(Date.now()).format(options.dateFormat);
       if (tags[tag])
         print(tags[tag], ...messages);
       else
         print(...messages);
-      if (logFileOK)
-        logStream.write(`${time} ${tags[tag]} ${combineMessages(...messages)}
+      if (streams.logFile && streams.logStream)
+        streams.logStream.write(`${time} ${tags[tag]} ${combineMessages(...messages)}
 `);
       ring.push({ tag, time, msg: combineMessages(...messages) });
-      if (ring.length > ringLength)
+      if (ring.length > options.ringLength)
         ring.shift();
     }
     async function access(...messages) {
-      const time = dayjs(Date.now()).format(dateFormat);
-      if (accessFileOK)
-        accessStream.write(`${time} ${combineMessages(...messages)}
+      const time = dayjs(Date.now()).format(options.dateFormat);
+      if (streams.accessFile && streams.accessStream)
+        streams.accessStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
     async function client(...messages) {
-      const time = dayjs(Date.now()).format(dateFormat);
-      if (clientFileOK)
-        clientStream.write(`${time} ${combineMessages(...messages)}
+      const time = dayjs(Date.now()).format(options.dateFormat);
+      if (streams.clientFile && streams.clientStream)
+        streams.clientStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
-    function configure(options) {
-      if (!options)
+    function configure(userOptions) {
+      if (!userOptions)
         return;
-      if (options.dateFormat)
-        dateFormat = options.dateFormat;
-      if (options.ringLength)
-        ringLength = options.ringLength;
-      if (options.logFile)
+      if (userOptions.dateFormat)
+        options.dateFormat = options.dateFormat;
+      if (userOptions.ringLength)
+        options.ringLength = options.ringLength;
+      if (userOptions.logFile)
         setLogFile(options.logFile);
-      if (options.accessFile)
+      if (userOptions.accessFile)
         setAccessFile(options.accessFile);
-      if (options.clientFile)
+      if (userOptions.clientFile)
         setClientFile(options.clientFile);
-      if (options.inspect)
-        inspectOptions = { ...inspectOptions, ...options.inspect };
+      if (userOptions.inspect)
+        inspectOptions = { ...inspectOptions, ...userOptions.inspect };
       logger = new Console({
         stdout: process.stdout,
         stderr: process.stderr,
@@ -1926,40 +1941,36 @@ var require_pilogger = __commonJS({
       process.title = node.name;
       log("info", node.name, "version", node.version);
       log("info", "User:", os.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
-      if (logFile && logFileOK)
-        print(tags.state, "Application log:", path.resolve(logFile));
-      if (accessFile && accessFileOK)
-        print(tags.state, "Access log:", path.resolve(logFile));
-      if (clientFile && clientFileOK)
-        print(tags.state, "Client log:", path.resolve(logFile));
+      if (options.logFile && streams.logFile)
+        print(tags.state, "Application log:", path.resolve(options.logFile));
+      if (options.accessFile && streams.accessFile)
+        print(tags.state, "Access log:", path.resolve(options.logFile));
+      if (options.clientFile && streams.clientFile)
+        print(tags.state, "Client log:", path.resolve(options.logFile));
     }
-    function test() {
-      header();
-      const t0 = process.hrtime.bigint();
-      log("info", "Color support:", chalk.supportsColor);
-      setTimeout(() => timed(t0, "Test function execution"), 1e3);
-      const node = JSON.parse(fs.readFileSync("./package.json").toString());
-      logger.log(node);
-      log("blank", "test blank");
-      log("continue", "test continue");
-      log("info", "test info");
-      log("state", "test state");
-      log("data", "test data");
-      log("warn", "test warn");
-      log("error", "test error");
-      log("fatal", "test fatal");
-    }
-    try {
-      if (require.main === module2)
-        test();
-    } catch (e) {
+    function headerJson() {
+      const f = "./package.json";
+      if (!fs.existsSync(f))
+        return;
+      const node = JSON.parse(fs.readFileSync(f).toString());
+      process.title = node.name;
+      log("info", { application: node.name, version: node.version });
+      log("info", { user: os.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
+      if (options.logFile || options.accessFile || options.clientFile)
+        print(tags.state, { log: path.resolve(options.logFile || ""), access: path.resolve(options.accessFile || ""), client: path.resolve(options.clientFile || "") });
     }
     exports.ring = ring;
+    exports.header = header;
+    exports.headerJson = headerJson;
     exports.ringLength = setRingLength;
     exports.dateFormat = setDateFormat;
+    exports.logFile = setLogFile;
+    exports.accessFile = setAccessFile;
+    exports.clientFile = setClientFile;
+    exports.configure = configure;
+    exports.options = options;
     exports.console = print;
     exports.timed = timed;
-    exports.logFile = setLogFile;
     exports.blank = (...message) => log(...message);
     exports.info = (...message) => log("info", ...message);
     exports.state = (...message) => log("state", ...message);
@@ -1967,12 +1978,10 @@ var require_pilogger = __commonJS({
     exports.warn = (...message) => log("warn", ...message);
     exports.error = (...message) => log("error", ...message);
     exports.fatal = (...message) => log("fatal", ...message);
-    exports.accessFile = setAccessFile;
+    exports.verbose = (...message) => log("verbose", ...message);
+    exports.debug = (...message) => log("debug", ...message);
     exports.access = (...message) => access(...message);
-    exports.clientFile = setClientFile;
     exports.client = (...message) => client(...message);
-    exports.configure = configure;
-    exports.header = header;
   }
 });
 
@@ -2009,8 +2018,13 @@ var require_helpers = __commonJS({
       const res = [];
       let facility = "";
       for (const line of log.ring) {
-        const obj = line.msg.match(/{(.*)}/);
-        const json = obj && obj.length > 0 ? JSON.parse(line.msg.match(/{(.*)}/)[0]) : { msg: line.msg };
+        let json = {};
+        try {
+          const obj = line.msg.match(/{(.*)}/);
+          json = JSON.parse(obj[0]);
+        } catch (e) {
+          json = { msg: line.msg };
+        }
         if (json.msg)
           json.msg = json.msg.replace(ansiRegex(), "");
         const facilityStr = line.msg.match(/(.*): /);
@@ -6808,7 +6822,7 @@ var require_typedoc = __commonJS({
         td.options._fileNames = [entry.input];
       const theme = path.join(__dirname, "../typedoc-theme");
       td.options.setValue("theme", fs.existsSync(theme) ? theme : "typedoc-theme");
-      if (config.debug)
+      if (config.log.debug)
         log.data("TypeDoc Options:", td.options);
       if (config.generate) {
         if (fs.existsSync("typedoc.json"))
@@ -6820,7 +6834,7 @@ var require_typedoc = __commonJS({
       }
       td.logger.warn = log.warn;
       td.logger.error = log.error;
-      td.logger.verbose = config.debug ? log.data : () => {
+      td.logger.verbose = config.log.debug ? log.data : () => {
       };
       td.logger.log = log.error;
       const project = td.convert();
@@ -6872,7 +6886,7 @@ var require_typings = __commonJS({
       compilerOptions.include = [path.dirname(entry.input)];
       compilerOptions.exclude = ["node_modules/", "dist/"];
       compilerOptions.errors = [];
-      if (config.debug)
+      if (config.log.debug)
         log.data("TypeScript Options:", compilerOptions);
       const compilerHost = ts.createCompilerHost(compilerOptions.options);
       const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
@@ -6891,7 +6905,7 @@ var require_typings = __commonJS({
       const emit = program.emit();
       const diag = ts.getPreEmitDiagnostics(program).concat(emit.diagnostics);
       log.state("Typings:", { input: entry.input, output: compilerOptions.options.outDir, files: (_a = emit.emittedFiles) == null ? void 0 : _a.length });
-      if (config.debug)
+      if (config.log.debug)
         log.data("TypeScript Diag", { nodes: program.getNodeCount(), identifiers: program.getIdentifierCount(), symbols: program.getSymbolCount(), types: program.getTypeCount(), instances: program.getInstantiationCount() });
       for (const info of diag) {
         const msg = info.messageText["messageText"] || info.messageText;
@@ -6978,11 +6992,11 @@ var require_compile = __commonJS({
         options.external = entry.external || [];
         if (!options.external.includes("@vladmandic/build"))
           options.external.push("@vladmandic/build");
-        if (config.debug)
+        if (config.log.debug)
           log.data("ESBuild Options:", options);
         try {
           const meta = await esbuild.build(options);
-          if (config.debug)
+          if (config.log.debug)
             log.data("ESBuild Metadata:", meta);
           const stats = await getStats(meta);
           log.state("Build:", { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
@@ -11989,7 +12003,7 @@ var require_lint = __commonJS({
         ignorePatterns: [...new Set([...config.lint.ignorePatterns, ...json.ignorePatterns || []])]
       };
       const eslint = new ESLint({ overrideConfig: options });
-      if (config.debug)
+      if (config.log.debug)
         log.data("ESLint Options", options, config.lint.locations);
       if (config.generate) {
         if (fs.existsSync(".eslintrc.json"))
@@ -12002,7 +12016,7 @@ var require_lint = __commonJS({
       const results = await eslint.lintFiles(config.lint.locations);
       const errors = results.reduce((prev, curr) => prev += curr.errorCount, 0);
       const warnings = results.reduce((prev, curr) => prev += curr.warningCount, 0);
-      if (config.debug)
+      if (config.log.debug)
         log.data("Lint Results:", results);
       log.state("Lint:", { locations: config.lint.locations, files: results.length, errors, warnings });
       if (errors > 0 || warnings > 0) {
@@ -12020,9 +12034,9 @@ var require_lint = __commonJS({
 var require_build = __commonJS({
   "build.json"(exports, module2) {
     module2.exports = {
-      debug: false,
       log: {
         enabled: false,
+        debug: false,
         console: true,
         output: "build.log"
       },
@@ -14817,9 +14831,9 @@ var require_clean2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.10.6/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.10.6/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -15051,7 +15065,7 @@ var require_changelog = __commonJS({
       const gitUrl = gitRemote.replace("\n", "");
       const branch = await git.branchLocal();
       const entries = [...gitLog.all].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      if (config.debug)
+      if (config.log.debug)
         log.data("Git Log:", entries);
       let previous = "";
       let text = header(package2, gitUrl);
@@ -15083,9 +15097,9 @@ var require_changelog = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/error.js"(exports) {
     var CommanderError = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
@@ -15108,9 +15122,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/argument.js"(exports) {
     var { InvalidArgumentError } = require_error();
     var Argument = class {
       constructor(name, description) {
@@ -15188,9 +15202,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
     var Help = class {
       constructor() {
@@ -15295,15 +15309,15 @@ var require_help = __commonJS({
         return cmd.description();
       }
       optionDescription(option) {
-        if (option.negate) {
-          return option.description;
-        }
         const extraInfo = [];
-        if (option.argChoices) {
+        if (option.argChoices && !option.negate) {
           extraInfo.push(`choices: ${option.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`);
         }
-        if (option.defaultValue !== void 0) {
+        if (option.defaultValue !== void 0 && !option.negate) {
           extraInfo.push(`default: ${option.defaultValueDescription || JSON.stringify(option.defaultValue)}`);
+        }
+        if (option.envVar !== void 0) {
+          extraInfo.push(`env: ${option.envVar}`);
         }
         if (extraInfo.length > 0) {
           return `${option.description} (${extraInfo.join(", ")})`;
@@ -15394,9 +15408,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/option.js"(exports) {
     var { InvalidArgumentError } = require_error();
     var Option = class {
       constructor(flags, description) {
@@ -15415,6 +15429,7 @@ var require_option = __commonJS({
         }
         this.defaultValue = void 0;
         this.defaultValueDescription = void 0;
+        this.envVar = void 0;
         this.parseArg = void 0;
         this.hidden = false;
         this.argChoices = void 0;
@@ -15422,6 +15437,10 @@ var require_option = __commonJS({
       default(value, description) {
         this.defaultValue = value;
         this.defaultValueDescription = description;
+        return this;
+      }
+      env(name) {
+        this.envVar = name;
         return this;
       }
       argParser(fn) {
@@ -15491,9 +15510,84 @@ var require_option = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/suggestSimilar.js
+var require_suggestSimilar = __commonJS({
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+    var maxDistance = 3;
+    function editDistance(a, b) {
+      if (Math.abs(a.length - b.length) > maxDistance)
+        return Math.max(a.length, b.length);
+      const d = [];
+      for (let i = 0; i <= a.length; i++) {
+        d[i] = [i];
+      }
+      for (let j = 0; j <= b.length; j++) {
+        d[0][j] = j;
+      }
+      for (let j = 1; j <= b.length; j++) {
+        for (let i = 1; i <= a.length; i++) {
+          let cost = 1;
+          if (a[i - 1] === b[j - 1]) {
+            cost = 0;
+          } else {
+            cost = 1;
+          }
+          d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+          if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
+            d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+          }
+        }
+      }
+      return d[a.length][b.length];
+    }
+    function suggestSimilar(word, candidates) {
+      if (!candidates || candidates.length === 0)
+        return "";
+      candidates = Array.from(new Set(candidates));
+      const searchingOptions = word.startsWith("--");
+      if (searchingOptions) {
+        word = word.slice(2);
+        candidates = candidates.map((candidate) => candidate.slice(2));
+      }
+      let similar = [];
+      let bestDistance = maxDistance;
+      const minSimilarity = 0.4;
+      candidates.forEach((candidate) => {
+        if (candidate.length <= 1)
+          return;
+        const distance = editDistance(word, candidate);
+        const length = Math.max(word.length, candidate.length);
+        const similarity = (length - distance) / length;
+        if (similarity > minSimilarity) {
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            similar = [candidate];
+          } else if (distance === bestDistance) {
+            similar.push(candidate);
+          }
+        }
+      });
+      similar.sort((a, b) => a.localeCompare(b));
+      if (searchingOptions) {
+        similar = similar.map((candidate) => `--${candidate}`);
+      }
+      if (similar.length > 1) {
+        return `
+(Did you mean one of ${similar.join(", ")}?)`;
+      }
+      if (similar.length === 1) {
+        return `
+(Did you mean ${similar[0]}?)`;
+      }
+      return "";
+    }
+    exports.suggestSimilar = suggestSimilar;
+  }
+});
+
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = require("events").EventEmitter;
     var childProcess = require("child_process");
     var path = require("path");
@@ -15502,6 +15596,7 @@ var require_command = __commonJS({
     var { CommanderError } = require_error();
     var { Help } = require_help();
     var { Option, splitOptionFlags } = require_option();
+    var { suggestSimilar } = require_suggestSimilar();
     var Command = class extends EventEmitter {
       constructor(name) {
         super();
@@ -15517,6 +15612,7 @@ var require_command = __commonJS({
         this._scriptPath = null;
         this._name = name || "";
         this._optionValues = {};
+        this._optionValueSources = {};
         this._storeOptionsAsProperties = false;
         this._actionHandler = null;
         this._executableHandler = false;
@@ -15531,6 +15627,7 @@ var require_command = __commonJS({
         this._passThroughOptions = false;
         this._lifeCycleHooks = {};
         this._showHelpAfterError = false;
+        this._showSuggestionAfterError = false;
         this._outputConfiguration = {
           writeOut: (str) => process.stdout.write(str),
           writeErr: (str) => process.stderr.write(str),
@@ -15567,6 +15664,7 @@ var require_command = __commonJS({
         this._allowExcessArguments = sourceCommand._allowExcessArguments;
         this._enablePositionalOptions = sourceCommand._enablePositionalOptions;
         this._showHelpAfterError = sourceCommand._showHelpAfterError;
+        this._showSuggestionAfterError = sourceCommand._showSuggestionAfterError;
         return this;
       }
       command(nameAndArgs, actionOptsOrExecDesc, execOpts) {
@@ -15618,6 +15716,10 @@ var require_command = __commonJS({
         if (typeof displayHelp !== "string")
           displayHelp = !!displayHelp;
         this._showHelpAfterError = displayHelp;
+        return this;
+      }
+      showSuggestionAfterError(displaySuggestion = true) {
+        this._showSuggestionAfterError = !!displaySuggestion;
         return this;
       }
       addCommand(cmd, opts) {
@@ -15750,18 +15852,18 @@ Expecting one of '${allowedValues.join("', '")}'`);
             defaultValue = this._findOption(positiveLongFlag) ? this.getOptionValue(name) : true;
           }
           if (defaultValue !== void 0) {
-            this.setOptionValue(name, defaultValue);
+            this._setOptionValueWithSource(name, defaultValue, "default");
           }
         }
         this.options.push(option);
-        this.on("option:" + oname, (val) => {
+        const handleOptionValue = (val, invalidValueMessage, valueSource) => {
           const oldValue = this.getOptionValue(name);
           if (val !== null && option.parseArg) {
             try {
               val = option.parseArg(val, oldValue === void 0 ? defaultValue : oldValue);
             } catch (err) {
               if (err.code === "commander.invalidArgument") {
-                const message = `error: option '${option.flags}' argument '${val}' is invalid. ${err.message}`;
+                const message = `${invalidValueMessage} ${err.message}`;
                 this._displayError(err.exitCode, err.code, message);
               }
               throw err;
@@ -15771,14 +15873,24 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
           if (typeof oldValue === "boolean" || typeof oldValue === "undefined") {
             if (val == null) {
-              this.setOptionValue(name, option.negate ? false : defaultValue || true);
+              this._setOptionValueWithSource(name, option.negate ? false : defaultValue || true, valueSource);
             } else {
-              this.setOptionValue(name, val);
+              this._setOptionValueWithSource(name, val, valueSource);
             }
           } else if (val !== null) {
-            this.setOptionValue(name, option.negate ? false : val);
+            this._setOptionValueWithSource(name, option.negate ? false : val, valueSource);
           }
+        };
+        this.on("option:" + oname, (val) => {
+          const invalidValueMessage = `error: option '${option.flags}' argument '${val}' is invalid.`;
+          handleOptionValue(val, invalidValueMessage, "cli");
         });
+        if (option.envVar) {
+          this.on("optionEnv:" + oname, (val) => {
+            const invalidValueMessage = `error: option '${option.flags}' value '${val}' from env '${option.envVar}' is invalid.`;
+            handleOptionValue(val, invalidValueMessage, "env");
+          });
+        }
         return this;
       }
       _optionEx(config, flags, description, fn, defaultValue) {
@@ -15847,6 +15959,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
           this._optionValues[key] = value;
         }
         return this;
+      }
+      _setOptionValueWithSource(key, value, source) {
+        this.setOptionValue(key, value);
+        this._optionValueSources[key] = source;
       }
       _prepareUserArgs(argv, parseOptions) {
         if (argv !== void 0 && !Array.isArray(argv)) {
@@ -16067,6 +16183,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       _parseCommand(operands, unknown) {
         const parsed = this.parseOptions(unknown);
+        this._parseOptionsEnv();
         operands = operands.concat(parsed.operands);
         unknown = parsed.unknown;
         this.args = operands.concat(unknown);
@@ -16122,6 +16239,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             this._processArguments();
           }
         } else if (this.commands.length) {
+          checkForUnknownOptions();
           this.help({ error: true });
         } else {
           checkForUnknownOptions();
@@ -16263,6 +16381,20 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         this._exit(exitCode, code, message);
       }
+      _parseOptionsEnv() {
+        this.options.forEach((option) => {
+          if (option.envVar && option.envVar in process.env) {
+            const optionKey = option.attributeName();
+            if (this.getOptionValue(optionKey) === void 0 || this._optionValueSources[optionKey] === "default") {
+              if (option.required || option.optional) {
+                this.emit(`optionEnv:${option.name()}`, process.env[option.envVar]);
+              } else {
+                this.emit(`optionEnv:${option.name()}`);
+              }
+            }
+          }
+        });
+      }
       missingArgument(name) {
         const message = `error: missing required argument '${name}'`;
         this._displayError(1, "commander.missingArgument", message);
@@ -16278,7 +16410,18 @@ Expecting one of '${allowedValues.join("', '")}'`);
       unknownOption(flag) {
         if (this._allowUnknownOption)
           return;
-        const message = `error: unknown option '${flag}'`;
+        let suggestion = "";
+        if (flag.startsWith("--") && this._showSuggestionAfterError) {
+          let candidateFlags = [];
+          let command = this;
+          do {
+            const moreFlags = command.createHelp().visibleOptions(command).filter((option) => option.long).map((option) => option.long);
+            candidateFlags = candidateFlags.concat(moreFlags);
+            command = command.parent;
+          } while (command && !command._enablePositionalOptions);
+          suggestion = suggestSimilar(flag, candidateFlags);
+        }
+        const message = `error: unknown option '${flag}'${suggestion}`;
         this._displayError(1, "commander.unknownOption", message);
       }
       _excessArguments(receivedArgs) {
@@ -16291,7 +16434,18 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this._displayError(1, "commander.excessArguments", message);
       }
       unknownCommand() {
-        const message = `error: unknown command '${this.args[0]}'`;
+        const unknownName = this.args[0];
+        let suggestion = "";
+        if (this._showSuggestionAfterError) {
+          const candidateNames = [];
+          this.createHelp().visibleCommands(this).forEach((command) => {
+            candidateNames.push(command.name());
+            if (command.alias())
+              candidateNames.push(command.alias());
+          });
+          suggestion = suggestSimilar(unknownName, candidateNames);
+        }
+        const message = `error: unknown command '${unknownName}'${suggestion}`;
         this._displayError(1, "commander.unknownCommand", message);
       }
       version(str, flags, description) {
@@ -16485,9 +16639,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@8.1.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@8.2.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@8.1.0/node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/index.js"(exports, module2) {
     var { Argument } = require_argument();
     var { Command } = require_command();
     var { CommanderError, InvalidArgumentError } = require_error();
@@ -16531,7 +16685,7 @@ var require_cli = __commonJS({
       params = { ...params, ...commander.opts() };
       if (params.debug) {
         log.info("Debug output:", params.debug);
-        build.config.debug = true;
+        build.config.log.debug = true;
       }
       if (params.generate) {
         log.info("Generate config files:", params.generate);
@@ -16574,7 +16728,7 @@ var require_package = __commonJS({
   "package.json"(exports, module2) {
     module2.exports = {
       name: "@vladmandic/build",
-      version: "0.3.2",
+      version: "0.3.3",
       description: "Build: Automated CI Platform for NodeJS",
       main: "src/build.js",
       types: "types/src/build.d.ts",
@@ -16602,11 +16756,11 @@ var require_package = __commonJS({
       dependencies: {
         "@typescript-eslint/eslint-plugin": "^4.31.0",
         "@typescript-eslint/parser": "^4.31.0",
-        "@vladmandic/pilogger": "^0.2.18",
+        "@vladmandic/pilogger": "^0.3.1",
         chokidar: "^3.5.2",
-        commander: "^8.1.0",
-        dayjs: "^1.10.6",
-        esbuild: "^0.12.25",
+        commander: "^8.2.0",
+        dayjs: "^1.10.7",
+        esbuild: "^0.12.26",
         eslint: "^7.32.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-plugin-import": "^2.24.2",
@@ -16683,12 +16837,13 @@ var require_build2 = __commonJS({
         this.environment = { config: "build.json", tsconfig, eslintrc, git };
         this.application = { name: this.package.name, version: this.package.version };
         log.ringLength = 1e3;
+        log.options.console = this.config.log.console;
       }
       async development(options = {}) {
         if (Object.keys(options).length)
           this.config = updateConfig(this.config, options);
         helpers.info("development", this.application, this.environment, this.toolchain);
-        if (this.config.debug)
+        if (this.config.log.debug)
           log.data("Configuration:", this.config);
         if (this.config.serve.enabled)
           await serve.start(this.config.serve);
@@ -16702,7 +16857,7 @@ var require_build2 = __commonJS({
         if (Object.keys(options).length)
           this.config = updateConfig(this.config, options);
         helpers.info("production", this.application, this.environment, this.toolchain);
-        if (this.config.debug)
+        if (this.config.log.debug)
           log.data("Configuration:", this.config);
         if (this.config.clean.enabled)
           await clean.start(this.config.clean);

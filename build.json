@@ -1,7 +1,7 @@
 {
-  "debug": false,
   "log": {
     "enabled": false,
+    "debug": false,
     "console": true,
     "output": "build.log"
   },

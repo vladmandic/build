@@ -71,12 +71,20 @@ export class Build {
      * - Parsing optional `eslintrc.json`
      * - Parsing optional `typedoc.json`
      * @typedef {object} Config
+     * @property {object} log control build logging
+     * @property {object} clean control location cleaning at the beggining of build process
+     * @property {object} lint configuration for project linting
+     * @property {object} changelog configuration for changelog generation
+     * @property {object} build configuration for project build step and all individual targets which includes: **build**, **bundle**, **typedoc**, **typings**
+     * @property {object} serve configuration for http/https web server used in dev build profile
+     * @property {object} watch configuration for file/folder watcher used in dev build profile
+     * @property {object} typescript override compiler configuration for typescript
      * @type {Config}
      */
     config: {
-        debug: boolean;
         log: {
             enabled: boolean;
+            debug: boolean;
             console: boolean;
             output: string;
         };
@@ -226,14 +234,22 @@ export class Build {
      * @param options  `<object>` Optional configuration options overrides
      * @returns  `array<object>` Containing all messages
      */
-    development(options?: {}): Promise<any[]>;
+    development(options?: {}): Promise<{
+        msg: any;
+        facility: string;
+        level: any;
+    }[]>;
     /**
      * Runs build pipeline for production profile
      *
      * @param options  `<object>` Optional configuration options overrides
      * @returns  `array<object>` Containing all messages
      */
-    production(options?: {}): Promise<any[]>;
+    production(options?: {}): Promise<{
+        msg: any;
+        facility: string;
+        level: any;
+    }[]>;
     /**
      * Runs build pipeline for specified profile
      *

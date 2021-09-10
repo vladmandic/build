@@ -18,7 +18,7 @@ async function lint(config) {
     ignorePatterns: [...new Set([...config.lint.ignorePatterns, ...(json.ignorePatterns || [])])],
   };
   const eslint = new ESLint({ overrideConfig: options });
-  if (config.debug) log.data('ESLint Options', options, config.lint.locations);
+  if (config.log.debug) log.data('ESLint Options', options, config.lint.locations);
 
   if (config.generate) {
     if (fs.existsSync('.eslintrc.json')) log.warn('Generate config file exists:', ['.eslintrc.json']);
@@ -30,7 +30,7 @@ async function lint(config) {
   const results = await eslint.lintFiles(config.lint.locations);
   const errors = results.reduce((prev, curr) => prev += curr.errorCount, 0);
   const warnings = results.reduce((prev, curr) => prev += curr.warningCount, 0);
-  if (config.debug) log.data('Lint Results:', results);
+  if (config.log.debug) log.data('Lint Results:', results);
   log.state('Lint:', { locations: config.lint.locations, files: results.length, errors, warnings });
   if (errors > 0 || warnings > 0) {
     const formatter = await eslint.loadFormatter('stylish');

@@ -48,7 +48,7 @@ async function typedoc(config, entry) {
   // theme = path.join(path.dirname(theme), '../typedoc-theme');
   const theme = path.join(__dirname, '../typedoc-theme');
   td.options.setValue('theme', fs.existsSync(theme) ? theme : 'typedoc-theme');
-  if (config.debug) log.data('TypeDoc Options:', td.options);
+  if (config.log.debug) log.data('TypeDoc Options:', td.options);
 
   if (config.generate) {
     if (fs.existsSync('typedoc.json')) log.warn('Generate config file exists:', ['typedoc.json']);
@@ -61,7 +61,7 @@ async function typedoc(config, entry) {
   // log.data(td.options);
   td.logger.warn = log.warn;
   td.logger.error = log.error;
-  td.logger.verbose = config.debug ? log.data : () => { /***/ }; // remove extra logging
+  td.logger.verbose = config.log.debug ? log.data : () => { /***/ }; // remove extra logging
 
   td.logger.log = log.error; // converter writes errors to stdout
   const project = td.convert();

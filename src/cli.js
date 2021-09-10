@@ -38,7 +38,7 @@ function run() {
   params = { ...params, ...commander.opts() };
   if (params.debug) {
     log.info('Debug output:', params.debug);
-    build.config.debug = true;
+    build.config.log.debug = true;
   }
   if (params.generate) {
     log.info('Generate config files:', params.generate);

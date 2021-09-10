@@ -40,7 +40,7 @@ const Build = require('@vladmandic/build').Build;
 const config = {
   build: {
     targets: [ // minimum configuration requires at least one target
-      { input: "test.js", output: "test-out.js", platform: "node", format: "cjs", typedoc: 'typedoc', typings: 'types' }
+      { input: "src/test.ts", output: "dist/test.js", platform: "node", format: "cjs", typedoc: 'typedoc', typings: 'types' }
     ]
   }
 }
@@ -204,8 +204,3 @@ npm install eslint typescript @typescript-eslint/parser @typescript-eslint/eslin
 - Only available when combined with `production` profile
 - If files already exists, it will not overwrite them
 - *WARNING*: Check and edit as needed before using
-
-## Todo
-
-- Optional console output
-- Return results object
