@@ -16574,7 +16574,7 @@ var require_package = __commonJS({
   "package.json"(exports, module2) {
     module2.exports = {
       name: "@vladmandic/build",
-      version: "0.3.1",
+      version: "0.3.2",
       description: "Build: Automated CI Platform for NodeJS",
       main: "src/build.js",
       types: "types/src/build.d.ts",
