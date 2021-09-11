@@ -91,64 +91,10 @@ export class Build {
         profiles: {
             production: string[];
             development: string[];
+            all: string[];
         };
         clean: {
             locations: string[];
-        };
-        lint: {
-            locations: string[];
-            env: {
-                browser: boolean;
-                commonjs: boolean;
-                node: boolean;
-                es2020: boolean;
-            };
-            parser: string;
-            parserOptions: {
-                ecmaVersion: number;
-            };
-            plugins: string[];
-            extends: string[];
-            ignorePatterns: string[];
-            rules: {
-                "@typescript-eslint/ban-ts-comment": string;
-                "@typescript-eslint/explicit-module-boundary-types": string;
-                "@typescript-eslint/no-shadow": string;
-                "@typescript-eslint/no-var-requires": string;
-                "dot-notation": string;
-                "func-names": string;
-                "guard-for-in": string;
-                "import/extensions": string;
-                "import/no-named-as-default": string;
-                "import/prefer-default-export": string;
-                "lines-between-class-members": string;
-                "max-len": number[];
-                "newline-per-chained-call": string;
-                "no-async-promise-executor": string;
-                "no-await-in-loop": string;
-                "no-bitwise": string;
-                "no-case-declarations": string;
-                "no-continue": string;
-                "no-plusplus": string;
-                "object-curly-newline": string;
-                "prefer-destructuring": string;
-                "prefer-template": string;
-                "promise/always-return": string;
-                "promise/catch-or-return": string; /**
-                 * Contains version strings of all build tools
-                 * @typedef {object} Toolchain
-                 * @property {string} build semver version string
-                 * @property {string} esbuild semver version string
-                 * @property {string} typescript semver version string
-                 * @property {string} typedoc semver version string
-                 * @property {string} eslint semver version string
-                 * @type {Toolchain}
-                 */
-                radix: string;
-                "no-underscore-dangle": string;
-                "no-restricted-syntax": string;
-                "no-return-assign": string;
-            };
         };
         changelog: {
             output: string;
@@ -239,6 +185,52 @@ export class Build {
             strictNullChecks: boolean;
             strictPropertyInitialization: boolean;
             "no-restricted-syntax": string;
+        };
+        lint: {
+            locations: string[];
+            env: {
+                browser: boolean;
+                commonjs: boolean;
+                node: boolean;
+                es2020: boolean;
+            };
+            parser: string;
+            parserOptions: {
+                ecmaVersion: number;
+            };
+            plugins: string[];
+            extends: string[];
+            ignorePatterns: string[];
+            rules: {
+                "@typescript-eslint/ban-ts-comment": string;
+                "@typescript-eslint/explicit-module-boundary-types": string;
+                "@typescript-eslint/no-shadow": string;
+                "@typescript-eslint/no-var-requires": string;
+                "dot-notation": string;
+                "func-names": string;
+                "guard-for-in": string;
+                "import/extensions": string;
+                "import/no-named-as-default": string;
+                "import/prefer-default-export": string;
+                "lines-between-class-members": string;
+                "max-len": number[];
+                "newline-per-chained-call": string;
+                "no-async-promise-executor": string;
+                "no-await-in-loop": string;
+                "no-bitwise": string;
+                "no-case-declarations": string;
+                "no-continue": string;
+                "no-plusplus": string;
+                "object-curly-newline": string;
+                "prefer-destructuring": string;
+                "prefer-template": string;
+                "promise/always-return": string;
+                "promise/catch-or-return": string;
+                radix: string;
+                "no-underscore-dangle": string;
+                "no-restricted-syntax": string;
+                "no-return-assign": string;
+            };
         };
     };
     /**

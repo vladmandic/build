@@ -7,10 +7,11 @@
   },
   "profiles": {
     "production": ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
-    "development": ["serve", "watch", "compile"]
+    "development": ["serve", "watch", "compile"],
+    "all": ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
   },
   "clean": {
-    "locations": ["test/dist/*", "types/*", "typedoc/*"]
+    "locations": ["types/*", "typedoc/*"]
   },
   "changelog": {
     "output": "CHANGELOG.md"
@@ -21,7 +22,7 @@
     "httpPort": 8000,
     "httpsPort": 8001,
     "documentRoot": ".",
-    "defaultFolder": "test",
+    "defaultFolder": ".",
     "defaultFile": "index.html"
     },
   "build": {
@@ -58,7 +59,7 @@
     ]
   },
   "watch": {
-    "locations": [ "test/src/**" ]
+    "locations": [ "src/**" ]
   },
   "typescript": {
     "module": "es2020",

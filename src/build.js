@@ -19,6 +19,16 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
+process.on('unhandledRejection', (err) => {
+  log.fatal('Rejection', err?.message || err || 'no error message');
+  process.exit(1);
+});
+
+process.on('uncaughtException', (err) => {
+  log.fatal('Exception', err?.message || err || 'no error message');
+  process.exit(1);
+});
+
 const packageJson = () => {
   if (!fs.existsSync('package.json')) {
     log.error('Package definition not found:', 'package.json');
@@ -144,7 +154,7 @@ class Build {
     if (Object.keys(options).length) this.config = updateConfig(this.config, options);
     helpers.info(profile, this.application, this.environment, this.toolchain);
     const steps = Object.values(this.config.profiles[profile]);
-    log.info('Build', { profile, steps });
+    log.info('Build:', { profile, steps });
     if (this.config.log.debug) log.data('Configuration:', this.config);
     for (const step of steps) {
       switch (step) {
@@ -153,7 +163,7 @@ class Build {
         case 'lint': await lint.run(this.config); break;
         case 'changelog': await changelog.run(this.config, packageJson); break;
         case 'serve': await serve.start(this.config); break;
-        case 'watch': await watch.start(this.config); break;
+        case 'watch': await watch.start(this.config, steps); break;
         case 'typings': break; // triggered as compile step per target
         case 'typedoc': break; // triggered as compile step per target
         default: log.warn('Build: unknown step', step);

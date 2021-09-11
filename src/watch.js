@@ -5,11 +5,11 @@ const compile = require('./compile.js');
 const minElapsed = 2000;
 let lastBuilt = Date.now();
 
-async function build(evt, msg, options) {
+async function build(evt, msg, options, steps) {
   const now = Date.now();
   if ((now - lastBuilt) > minElapsed) {
     log.info('Watch:', { event: msg, input: evt });
-    compile.build(options, { type: 'development' });
+    compile.run(options, steps);
   } else {
     log.info('Watch:', { event: msg, input: evt, skip: true });
   }
@@ -17,7 +17,7 @@ async function build(evt, msg, options) {
 }
 
 // watch filesystem for any changes and notify build when needed
-async function start(options) {
+async function start(options, steps) {
   const watcher = chokidar.watch(options.watch.locations, {
     persistent: true,
     ignorePermissionErrors: false,
@@ -31,9 +31,9 @@ async function start(options) {
   // single event handler for file add/change/delete
   return new Promise((resolve) => {
     watcher
-      .on('add', (evt) => build(evt, 'add', options))
-      .on('change', (evt) => build(evt, 'modify', options))
-      .on('unlink', (evt) => build(evt, 'remove', options))
+      .on('add', (evt) => build(evt, 'add', options, steps))
+      .on('change', (evt) => build(evt, 'modify', options, steps))
+      .on('unlink', (evt) => build(evt, 'remove', options, steps))
       .on('error', (err) => {
         log.error(`Client watcher error: ${err}`);
         resolve(false);

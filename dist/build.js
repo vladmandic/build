@@ -11785,17 +11785,17 @@ var require_watch = __commonJS({
     var compile = require_compile();
     var minElapsed = 2e3;
     var lastBuilt = Date.now();
-    async function build(evt, msg, options) {
+    async function build(evt, msg, options, steps) {
       const now = Date.now();
       if (now - lastBuilt > minElapsed) {
         log.info("Watch:", { event: msg, input: evt });
-        compile.build(options, { type: "development" });
+        compile.run(options, steps);
       } else {
         log.info("Watch:", { event: msg, input: evt, skip: true });
       }
       lastBuilt = now;
     }
-    async function start(options) {
+    async function start(options, steps) {
       const watcher = chokidar.watch(options.watch.locations, {
         persistent: true,
         ignorePermissionErrors: false,
@@ -11807,7 +11807,7 @@ var require_watch = __commonJS({
         atomic: true
       });
       return new Promise((resolve) => {
-        watcher.on("add", (evt) => build(evt, "add", options)).on("change", (evt) => build(evt, "modify", options)).on("unlink", (evt) => build(evt, "remove", options)).on("error", (err) => {
+        watcher.on("add", (evt) => build(evt, "add", options, steps)).on("change", (evt) => build(evt, "modify", options, steps)).on("unlink", (evt) => build(evt, "remove", options, steps)).on("error", (err) => {
           log.error(`Client watcher error: ${err}`);
           resolve(false);
         }).on("ready", () => {
@@ -11892,17 +11892,19 @@ var require_serve = __commonJS({
       });
     }
     async function httpRequest(req, res) {
-      handle(decodeURI(req.url)).then((result) => {
-        var _a, _b;
+      const url = decodeURI(req.url);
+      handle(url).then((result) => {
+        var _a, _b, _c;
         const forwarded = (req.headers["forwarded"] || "").match(/for="\[(.*)\]:/);
-        const ip = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers["x-forwarded-for"] || req.ip || req.socket.remoteAddress;
+        const remote = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers["x-forwarded-for"] || req.ip || req.socket.remoteAddress;
+        const protocol = ((_a = req.headers[":scheme"]) == null ? void 0 : _a.toUpperCase()) || "HTTP";
         if (!result || !result.ok || !result.stat) {
           res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
           res.end("Error 404: Not Found\n", "utf-8");
-          log.warn(`${req.method}/${req.httpVersion}`, res.statusCode, decodeURI(req.url), ip);
+          log.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
         } else {
           const input = encodeURIComponent(result.file).replace(/\*/g, "").replace(/\?/g, "").replace(/%2F/g, "/").replace(/%40/g, "@").replace(/%20/g, " ");
-          if ((_a = result == null ? void 0 : result.stat) == null ? void 0 : _a.isFile()) {
+          if ((_b = result == null ? void 0 : result.stat) == null ? void 0 : _b.isFile()) {
             const ext = String(path.extname(input)).toLowerCase();
             const contentType = mime[ext] || "application/octet-stream";
             const accept = req.headers["accept-encoding"] ? req.headers["accept-encoding"].includes("br") : false;
@@ -11923,14 +11925,14 @@ var require_serve = __commonJS({
               stream.pipe(res);
             else
               stream.pipe(compress).pipe(res);
-            log.data(`${req.method}/${req.httpVersion}`, res.statusCode, contentType, result.stat.size, req.url, ip);
+            log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace("; charset=utf-8", ""), size: result.stat.size, url, remote });
           }
-          if ((_b = result == null ? void 0 : result.stat) == null ? void 0 : _b.isDirectory()) {
+          if ((_c = result == null ? void 0 : result.stat) == null ? void 0 : _c.isDirectory()) {
             res.writeHead(200, { "Content-Language": "en", "Content-Type": "application/json; charset=utf-8", "Last-Modified": result.stat.mtime, "Cache-Control": "no-cache", "X-Content-Type-Options": "nosniff" });
             let dir = fs.readdirSync(input);
             dir = dir.map((f) => path.join(decodeURI(req.url), f));
             res.end(JSON.stringify(dir), "utf-8");
-            log.data(`${req.method}/${req.httpVersion}`, res.statusCode, "directory/json", result.stat.size, req.url, ip);
+            log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: "directory/json", size: result.stat.size, url, remote });
           }
         }
       });
@@ -11963,7 +11965,7 @@ var require_serve = __commonJS({
             resolve(true);
           });
           server1.on("error", (err) => {
-            log.error("HTTP server:", err.message || err);
+            log.error("WebServer HTTP:", err.message || err);
             resolve(false);
           });
           server1.listen(options.httpPort);
@@ -11977,7 +11979,7 @@ var require_serve = __commonJS({
             resolve(true);
           });
           server2.on("error", (err) => {
-            log.error("HTTPS server:", err.message || err);
+            log.error("WebServer HTTPS:", err.message || err);
             resolve(false);
           });
           server2.listen(options.httpsPort);
@@ -12048,49 +12050,11 @@ var require_build = __commonJS({
       },
       profiles: {
         production: ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
-        development: ["serve", "watch", "compile"]
+        development: ["serve", "watch", "compile"],
+        all: ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
       },
       clean: {
-        locations: ["test/dist/*", "types/*", "typedoc/*"]
-      },
-      lint: {
-        locations: ["src/*.js"],
-        env: { browser: true, commonjs: true, node: true, es2020: true },
-        parser: "@typescript-eslint/parser",
-        parserOptions: { ecmaVersion: 2020 },
-        plugins: ["@typescript-eslint"],
-        extends: ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
-        ignorePatterns: ["**/dist/**", "**/typedoc/**", "**/types/**", "**/node_modules/**"],
-        rules: {
-          "@typescript-eslint/ban-ts-comment": "off",
-          "@typescript-eslint/explicit-module-boundary-types": "off",
-          "@typescript-eslint/no-shadow": "error",
-          "@typescript-eslint/no-var-requires": "off",
-          "dot-notation": "off",
-          "func-names": "off",
-          "guard-for-in": "off",
-          "import/extensions": "off",
-          "import/no-named-as-default": "off",
-          "import/prefer-default-export": "off",
-          "lines-between-class-members": "off",
-          "max-len": [1, 250, 3],
-          "newline-per-chained-call": "off",
-          "no-async-promise-executor": "off",
-          "no-await-in-loop": "off",
-          "no-bitwise": "off",
-          "no-case-declarations": "off",
-          "no-continue": "off",
-          "no-plusplus": "off",
-          "object-curly-newline": "off",
-          "prefer-destructuring": "off",
-          "prefer-template": "off",
-          "promise/always-return": "off",
-          "promise/catch-or-return": "off",
-          radix: "off",
-          "no-underscore-dangle": "off",
-          "no-restricted-syntax": "off",
-          "no-return-assign": "off"
-        }
+        locations: ["types/*", "typedoc/*"]
       },
       changelog: {
         output: "CHANGELOG.md"
@@ -12101,7 +12065,7 @@ var require_build = __commonJS({
         httpPort: 8e3,
         httpsPort: 8001,
         documentRoot: ".",
-        defaultFolder: "test",
+        defaultFolder: ".",
         defaultFile: "index.html"
       },
       build: {
@@ -12138,7 +12102,7 @@ var require_build = __commonJS({
         ]
       },
       watch: {
-        locations: ["test/src/**"]
+        locations: ["src/**"]
       },
       typescript: {
         module: "es2020",
@@ -12178,6 +12142,45 @@ var require_build = __commonJS({
         strictNullChecks: true,
         strictPropertyInitialization: true,
         "no-restricted-syntax": "off"
+      },
+      lint: {
+        locations: ["src/*.js"],
+        env: { browser: true, commonjs: true, node: true, es2020: true },
+        parser: "@typescript-eslint/parser",
+        parserOptions: { ecmaVersion: 2020 },
+        plugins: ["@typescript-eslint"],
+        extends: ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+        ignorePatterns: ["**/dist/**", "**/typedoc/**", "**/types/**", "**/node_modules/**"],
+        rules: {
+          "@typescript-eslint/ban-ts-comment": "off",
+          "@typescript-eslint/explicit-module-boundary-types": "off",
+          "@typescript-eslint/no-shadow": "error",
+          "@typescript-eslint/no-var-requires": "off",
+          "dot-notation": "off",
+          "func-names": "off",
+          "guard-for-in": "off",
+          "import/extensions": "off",
+          "import/no-named-as-default": "off",
+          "import/prefer-default-export": "off",
+          "lines-between-class-members": "off",
+          "max-len": [1, 250, 3],
+          "newline-per-chained-call": "off",
+          "no-async-promise-executor": "off",
+          "no-await-in-loop": "off",
+          "no-bitwise": "off",
+          "no-case-declarations": "off",
+          "no-continue": "off",
+          "no-plusplus": "off",
+          "object-curly-newline": "off",
+          "prefer-destructuring": "off",
+          "prefer-template": "off",
+          "promise/always-return": "off",
+          "promise/catch-or-return": "off",
+          radix: "off",
+          "no-underscore-dangle": "off",
+          "no-restricted-syntax": "off",
+          "no-return-assign": "off"
+        }
       }
     };
   }
@@ -16719,7 +16722,7 @@ var require_package = __commonJS({
   "package.json"(exports, module2) {
     module2.exports = {
       name: "@vladmandic/build",
-      version: "0.3.4",
+      version: "0.4.1",
       description: "Build: Automated CI Platform for NodeJS",
       main: "src/build.js",
       types: "types/src/build.d.ts",
@@ -16788,6 +16791,14 @@ var require_build2 = __commonJS({
       log.info("Build exiting...");
       process2.exit(0);
     });
+    process2.on("unhandledRejection", (err) => {
+      log.fatal("Rejection", (err == null ? void 0 : err.message) || err || "no error message");
+      process2.exit(1);
+    });
+    process2.on("uncaughtException", (err) => {
+      log.fatal("Exception", (err == null ? void 0 : err.message) || err || "no error message");
+      process2.exit(1);
+    });
     var packageJson = () => {
       if (!fs.existsSync("package.json")) {
         log.error("Package definition not found:", "package.json");
@@ -16840,7 +16851,7 @@ var require_build2 = __commonJS({
           this.config = updateConfig(this.config, options);
         helpers.info(profile, this.application, this.environment, this.toolchain);
         const steps = Object.values(this.config.profiles[profile]);
-        log.info("Build", { profile, steps });
+        log.info("Build:", { profile, steps });
         if (this.config.log.debug)
           log.data("Configuration:", this.config);
         for (const step of steps) {
@@ -16861,7 +16872,7 @@ var require_build2 = __commonJS({
               await serve.start(this.config);
               break;
             case "watch":
-              await watch.start(this.config);
+              await watch.start(this.config, steps);
               break;
             case "typings":
               break;

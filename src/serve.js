@@ -75,14 +75,16 @@ function handle(url) {
 
 // process http requests
 async function httpRequest(req, res) {
-  handle(decodeURI(req.url)).then((result) => {
+  const url = decodeURI(req.url);
+  handle(url).then((result) => {
     // get original ip of requestor, regardless if it's behind proxy or not
     const forwarded = (req.headers['forwarded'] || '').match(/for="\[(.*)\]:/);
-    const ip = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers['x-forwarded-for'] || req.ip || req.socket.remoteAddress;
+    const remote = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers['x-forwarded-for'] || req.ip || req.socket.remoteAddress;
+    const protocol = req.headers[':scheme']?.toUpperCase() || 'HTTP';
     if (!result || !result.ok || !result.stat) {
       res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end('Error 404: Not Found\n', 'utf-8');
-      log.warn(`${req.method}/${req.httpVersion}`, res.statusCode, decodeURI(req.url), ip);
+      log.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
     } else {
       const input = encodeURIComponent(result.file).replace(/\*/g, '').replace(/\?/g, '').replace(/%2F/g, '/').replace(/%40/g, '@').replace(/%20/g, ' ');
       if (result?.stat?.isFile()) {
@@ -114,14 +116,14 @@ async function httpRequest(req, res) {
         // alternative #3 read entire file and send it as blob
         // const data = fs.readFileSync(result.file);
         // res.write(data);
-        log.data(`${req.method}/${req.httpVersion}`, res.statusCode, contentType, result.stat.size, req.url, ip);
+        log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace('; charset=utf-8', ''), size: result.stat.size, url, remote });
       }
       if (result?.stat?.isDirectory()) {
         res.writeHead(200, { 'Content-Language': 'en', 'Content-Type': 'application/json; charset=utf-8', 'Last-Modified': result.stat.mtime, 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });
         let dir = fs.readdirSync(input);
         dir = dir.map((f) => path.join(decodeURI(req.url), f));
         res.end(JSON.stringify(dir), 'utf-8');
-        log.data(`${req.method}/${req.httpVersion}`, res.statusCode, 'directory/json', result.stat.size, req.url, ip);
+        log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: 'directory/json', size: result.stat.size, url, remote });
       }
     }
   });
@@ -157,7 +159,7 @@ async function start(config) {
         resolve(true);
       });
       server1.on('error', (err) => {
-        log.error('HTTP server:', err.message || err);
+        log.error('WebServer HTTP:', err.message || err);
         resolve(false);
       });
       server1.listen(options.httpPort);
@@ -171,7 +173,7 @@ async function start(config) {
         resolve(true);
       });
       server2.on('error', (err) => {
-        log.error('HTTPS server:', err.message || err);
+        log.error('WebServer HTTPS:', err.message || err);
         resolve(false);
       });
       server2.listen(options.httpsPort);

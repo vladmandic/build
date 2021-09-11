@@ -14,7 +14,7 @@ To configure a pipeline, edit `build.json`
 ```json
   "profiles": {
     "production": ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
-    "development": ["serve", "watch", "compile"]
+    "development": ["serve", "watch", "compile"],
   },
 ```
 
@@ -145,3 +145,38 @@ Modify your `package.json` to include:
 And then start using `npm run dev` or `npm run prod`
 
 <br>
+
+## Example Output
+
+```js
+2021-09-11 10:08:52 INFO:  @vladmandic/build version 0.4.1
+2021-09-11 10:08:52 INFO:  User: vlado Platform: linux Arch: x64 Node: v16.5.0
+2021-09-11 10:08:52 STATE: Application log: /home/vlado/dev/build/build.log
+2021-09-11 10:08:52 INFO:  Application: { name: '@vladmandic/build', version: '0.4.1' }
+2021-09-11 10:08:52 INFO:  Environment: { profile: 'all', config: 'build.json', tsconfig: true, eslintrc: true, git: true }
+2021-09-11 10:08:52 INFO:  Toolchain: { build: '0.4.1', esbuild: '0.12.26', typescript: '4.4.3', typedoc: '0.21.9', eslint: '7.32.0' }
+2021-09-11 10:08:52 INFO:  Build: { profile: 'all', steps: ['clean','compile','typings','typedoc','lint','changelog','serve','watch' ] }
+2021-09-11 10:08:52 STATE: Clean: { locations: [ 'types/*', 'typedoc/*', [length]: 2 ] }
+2021-09-11 10:08:52 STATE: Compile: { name: 'build module', format: 'esm', platform: 'node', input: 'src/build.js', output: 'dist/build.esm.js', files: 13, inputBytes: 39928, outputBytes: 603792 }
+2021-09-11 10:08:52 STATE: Compile: { name: 'build module', format: 'cjs', platform: 'node', input: 'src/build.js', output: 'dist/build.js', files: 13, inputBytes: 39928, outputBytes: 604935 }
+2021-09-11 10:08:54 STATE: Typings: { input: 'src/build.js', output: 'types', files: 7 }
+2021-09-11 10:08:58 STATE: TypeDoc: { input: 'src/build.js', output: 'typedoc', objects: 1, index: true }
+2021-09-11 10:09:00 STATE: Lint: { locations: [ 'src/*.js', [length]: 1 ], files: 12, errors: 0, warnings: 0 }
+2021-09-11 10:09:00 STATE: ChangeLog: { repository: 'https://github.com/vladmandic/build', branch: 'main', output: 'CHANGELOG.md' }
+2021-09-11 10:09:00 STATE: WebServer: { ssl: false, port: 8000, root: '.' }
+2021-09-11 10:09:00 STATE: WebServer: { ssl: true, port: 8001, root: '.', sslKey: 'cert/https.key', sslCrt: 'cert/https.crt' }
+2021-09-11 10:09:00 STATE: Watch: { locations: [ 'src/**', 'src/**', [length]: 2 ] }
+2021-09-11 10:09:00 INFO:  Listening...
+...
+2021-09-11 10:09:11 INFO:  Watch: { event: 'modify', input: 'src/build.js' }
+2021-09-11 10:09:11 STATE: Compile: { name: 'build module', format: 'esm', platform: 'node', input: 'src/build.js', output: 'dist/build.esm.js', files: 13, inputBytes: 39928, outputBytes: 603792 }
+2021-09-11 10:09:11 STATE: Compile: { name: 'build module', format: 'cjs', platform: 'node', input: 'src/build.js', output: 'dist/build.js', files: 13, inputBytes: 39928, outputBytes: 604935 }
+2021-09-11 10:09:13 STATE: Typings: { input: 'src/build.js', output: 'types', files: 7 }
+2021-09-11 10:09:14 STATE: TypeDoc: { input: 'src/build.js', output: 'typedoc', objects: 1, index: true }
+...
+2021-09-11 10:09:17 DATA:  HTTPS: { method: 'GET', ver: '2.0', status: 200, mime: 'text/html', size: 3560, url: '/typedoc/index.html', remote: '::ffff:192.168.0.200' }
+2021-09-11 10:09:17 DATA:  HTTPS: { method: 'GET', ver: '2.0', status: 200, mime: 'text/css', size: 72023, url: '/typedoc/assets/css/main.css', remote: '::ffff:192.168.0.200' }
+2021-09-11 10:09:17 DATA:  HTTPS: { method: 'GET', ver: '2.0', status: 200, mime: 'text/javascript', size: 155546, url: '/typedoc/assets/js/main.js', remote: '::ffff:192.168.0.200' }
+...
+2021-09-11 10:09:22 INFO:  Build exiting...
+```

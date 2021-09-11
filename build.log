@@ -1257,3 +1257,485 @@
 2021-09-11 09:06:22 [36mINFO: [39m @vladmandic/build version 0.3.4 
 2021-09-11 09:06:22 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
 2021-09-11 09:06:22 [31mERROR:[39m Profile not specified 
+2021-09-11 09:30:21 [36mINFO: [39m @vladmandic/build version 0.3.4 
+2021-09-11 09:30:21 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:30:21 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.3.4"} 
+2021-09-11 09:30:21 [36mINFO: [39m Environment: {"profile":"production","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:30:21 [36mINFO: [39m Toolchain: {"build":"0.3.4","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:30:21 [36mINFO: [39m Build {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
+2021-09-11 09:30:21 [35mSTATE:[39m Clean: {"locations":["test/dist/*","types/*","typedoc/*"]} 
+2021-09-11 09:30:21 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39589,"outputBytes":603409} 
+2021-09-11 09:30:21 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39589,"outputBytes":604552} 
+2021-09-11 09:30:24 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:30:28 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:30:29 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:30:30 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:30:30 [36mINFO: [39m Done... 
+2021-09-11 09:30:48 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:30:48 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:30:48 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:30:48 [36mINFO: [39m Environment: {"profile":"production","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:30:48 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:30:48 [36mINFO: [39m Build {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
+2021-09-11 09:30:48 [35mSTATE:[39m Clean: {"locations":["test/dist/*","types/*","typedoc/*"]} 
+2021-09-11 09:30:48 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39589,"outputBytes":603409} 
+2021-09-11 09:30:48 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39589,"outputBytes":604552} 
+2021-09-11 09:30:50 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:30:54 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:30:56 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:30:56 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:30:56 [36mINFO: [39m Done... 
+2021-09-11 09:33:28 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:33:28 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:33:28 [31mERROR:[39m Profile not specified 
+2021-09-11 09:33:34 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:33:34 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:33:34 [31mERROR:[39m Profile not specified 
+2021-09-11 09:33:47 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:33:47 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:33:47 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:33:47 [36mINFO: [39m Environment: {"profile":"production","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:33:47 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:33:47 [36mINFO: [39m Build {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
+2021-09-11 09:33:47 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:33:47 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39574,"outputBytes":603394} 
+2021-09-11 09:33:47 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39574,"outputBytes":604537} 
+2021-09-11 09:33:49 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:33:54 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:33:56 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:33:56 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:33:56 [36mINFO: [39m Done... 
+2021-09-11 09:37:52 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:37:52 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:37:52 [31mERROR:[39m Profile not found: all 
+2021-09-11 09:38:21 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:38:21 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:38:21 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:38:21 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:38:21 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:38:21 [36mINFO: [39m Build {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 09:38:21 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:38:21 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39668,"outputBytes":603490} 
+2021-09-11 09:38:21 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39668,"outputBytes":604633} 
+2021-09-11 09:38:23 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:38:27 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:38:29 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:38:29 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:38:29 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:38:29 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:38:29 [35mSTATE:[39m Watch: {"locations":["test/src/**","test/src/**"]} 
+2021-09-11 09:38:29 [36mINFO: [39m Listening... 
+2021-09-11 09:38:29 [35mSTATE:[39m Watch: {"locations":["test/src/**","test/src/**"]} 
+2021-09-11 09:40:13 [36mINFO: [39m Build exiting... 
+2021-09-11 09:40:15 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:40:15 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:40:15 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:40:15 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:40:15 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:40:15 [36mINFO: [39m Build {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 09:40:15 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:40:15 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39660,"outputBytes":603482} 
+2021-09-11 09:40:15 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39660,"outputBytes":604625} 
+2021-09-11 09:40:17 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:40:21 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:40:23 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:40:23 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:40:23 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:40:23 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:40:23 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 09:40:23 [36mINFO: [39m Listening... 
+2021-09-11 09:40:39 [36mINFO: [39m Watch: {"event":"modify","input":"src/watch.js"} 
+2021-09-11 09:42:51 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:42:51 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:42:51 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:42:51 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:42:51 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:42:51 [36mINFO: [39m Build {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 09:42:51 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:42:51 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39690,"outputBytes":603512} 
+2021-09-11 09:42:51 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39690,"outputBytes":604655} 
+2021-09-11 09:42:53 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:42:57 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:42:59 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:42:59 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:42:59 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:42:59 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:42:59 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} undefined 
+2021-09-11 09:42:59 [36mINFO: [39m Listening... 
+2021-09-11 09:43:14 [36mINFO: [39m Watch: {"event":"modify","input":"src/watch.js"} 
+2021-09-11 09:43:14 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39682,"outputBytes":603504} 
+2021-09-11 09:43:14 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39682,"outputBytes":604647} 
+2021-09-11 09:43:29 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:43:29 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:43:29 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:43:29 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:43:29 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:43:29 [36mINFO: [39m Build {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 09:43:29 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:43:29 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39682,"outputBytes":603504} 
+2021-09-11 09:43:29 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39682,"outputBytes":604647} 
+2021-09-11 09:43:31 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:43:35 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:43:37 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:43:37 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:43:37 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:43:37 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:43:37 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 09:43:37 [36mINFO: [39m Listening... 
+2021-09-11 09:43:58 [36mINFO: [39m Watch: {"event":"modify","input":"src/build.js"} 
+2021-09-11 09:43:58 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39682,"outputBytes":603504} 
+2021-09-11 09:43:58 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39682,"outputBytes":604647} 
+2021-09-11 09:43:59 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:44:01 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:47:45 [36mINFO: [39m Build exiting... 
+2021-09-11 09:48:31 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:48:31 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:48:31 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:48:31 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:48:31 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:48:31 [36mINFO: [39m Build {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 09:48:31 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 09:48:31 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39682,"outputBytes":603504} 
+2021-09-11 09:48:31 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39682,"outputBytes":604647} 
+2021-09-11 09:48:33 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 09:48:37 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 09:48:39 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 09:48:39 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 09:48:39 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:48:39 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:48:39 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 09:48:39 [36mINFO: [39m Listening... 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 text/html; charset=utf-8 3560 /typedoc/index.html ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 text/css; charset=utf-8 72023 /typedoc/assets/css/main.css ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 text/javascript; charset=utf-8 50032 /typedoc/assets/js/search.js ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 text/javascript; charset=utf-8 155546 /typedoc/assets/js/main.js ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 image/png 855 /typedoc/assets/images/widgets@2x.png ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [32mDATA: [39m GET/2.0 200 image/png 28144 /typedoc/assets/images/icons@2x.png ::ffff:192.168.0.200 
+2021-09-11 09:48:58 [33mWARN: [39m GET/2.0 404 /favicon.ico ::ffff:192.168.0.200 
+2021-09-11 09:49:12 [36mINFO: [39m Build exiting... 
+2021-09-11 09:55:30 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:55:30 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:55:30 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:55:30 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:55:30 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:55:30 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 09:55:30 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:55:30 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:55:30 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 09:55:31 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39918,"outputBytes":603592} 
+2021-09-11 09:55:31 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39918,"outputBytes":604735} 
+2021-09-11 09:55:31 [36mINFO: [39m Listening... 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"ulr":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"ulr":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"ulr":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"ulr":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"ulr":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:55:35 [32mDATA: [39m undefined {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"ulr":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:56:05 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 09:56:05 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39918,"outputBytes":603592} 
+2021-09-11 09:56:05 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39918,"outputBytes":604735} 
+2021-09-11 09:58:05 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 09:58:05 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39921,"outputBytes":603599} 
+2021-09-11 09:58:05 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39921,"outputBytes":604742} 
+2021-09-11 09:58:17 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 09:58:17 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39938,"outputBytes":603620} 
+2021-09-11 09:58:17 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39938,"outputBytes":604763} 
+2021-09-11 09:58:19 [36mINFO: [39m Build exiting... 
+2021-09-11 09:58:20 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 09:58:20 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 09:58:20 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 09:58:20 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 09:58:20 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 09:58:20 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 09:58:20 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 09:58:20 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 09:58:20 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 09:58:20 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39938,"outputBytes":603620} 
+2021-09-11 09:58:20 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39938,"outputBytes":604763} 
+2021-09-11 09:58:20 [36mINFO: [39m Listening... 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"url":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"url":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"url":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"url":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"url":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:23 [32mDATA: [39m {"_readableState":{"objectMode":false,"highWaterMark":16384,"buffer":{"head":null,"tail":null,"length":0},"length":0,"pipes":[],"flowing":null,"ended":false,"endEmitted":false,"reading":false,"constructed":true,"sync":true,"needReadable":false,"emittedReadable":false,"readableListening":false,"resumeScheduled":false,"errorEmitted":false,"emitClose":true,"autoDestroy":false,"destroyed":false,"errored":null,"closed":false,"closeEmitted":false,"defaultEncoding":"utf8","awaitDrainWriters":null,"multiAwaitDrain":false,"readingMore":false,"decoder":null,"encoding":null},"_events":{},"_eventsCount":2} 
+2021-09-11 09:58:23 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"url":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 09:58:32 [33mWARN: [39m GET/2.0 404 /typedoc/index.htmla ::ffff:192.168.0.200 
+2021-09-11 10:00:37 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:00:37 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39963,"outputBytes":603645} 
+2021-09-11 10:00:37 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39963,"outputBytes":604788} 
+2021-09-11 10:00:42 [36mINFO: [39m Build exiting... 
+2021-09-11 10:00:43 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:00:43 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:00:43 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:00:43 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:00:43 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:00:43 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 10:00:43 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 10:00:43 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 10:00:43 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 10:00:44 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39963,"outputBytes":603645} 
+2021-09-11 10:00:44 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39963,"outputBytes":604788} 
+2021-09-11 10:00:44 [36mINFO: [39m Listening... 
+2021-09-11 10:00:46 [33mWARN: [39m GET/2.0 404 /typedoc/index.htmla ::ffff:192.168.0.200 
+2021-09-11 10:01:08 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:01:08 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39971,"outputBytes":603653} 
+2021-09-11 10:01:08 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39971,"outputBytes":604796} 
+2021-09-11 10:01:15 [36mINFO: [39m Build exiting... 
+2021-09-11 10:01:16 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:01:16 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:01:16 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:01:16 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:01:16 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:01:16 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 10:01:16 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 10:01:16 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 10:01:16 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 10:01:16 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39971,"outputBytes":603653} 
+2021-09-11 10:01:16 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39971,"outputBytes":604796} 
+2021-09-11 10:01:16 [36mINFO: [39m Listening... 
+2021-09-11 10:01:18 [33mWARN: [39m GET/2.0 404 /typedoc/index.htmla ::ffff:192.168.0.200 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/index.html","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","sec-ch-ua-mobile":"?0","sec-ch-ua-platform":"\"Windows\"","dnt":"1","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site":"none","sec-fetch-mode":"navigate","sec-fetch-user":"?1","sec-fetch-dest":"document","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"url":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/css/main.css","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"text/css,*/*;q=0.1","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"style","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"url":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/js/search.js","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"*/*","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"script","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"url":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/js/main.js","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"*/*","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"script","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"url":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/images/widgets@2x.png","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"image","referer":"https://wyse:8001/typedoc/assets/css/main.css","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"url":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:01:31 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/images/icons@2x.png","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"image","referer":"https://wyse:8001/typedoc/assets/css/main.css","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:01:31 [32mDATA: [39m http {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"url":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:01 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:02:01 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39972,"outputBytes":603654} 
+2021-09-11 10:02:01 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39972,"outputBytes":604797} 
+2021-09-11 10:02:34 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:02:35 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40021,"outputBytes":603742} 
+2021-09-11 10:02:35 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40021,"outputBytes":604885} 
+2021-09-11 10:02:42 [36mINFO: [39m Build exiting... 
+2021-09-11 10:02:43 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:02:43 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:02:43 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:02:43 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:02:43 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:02:43 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 10:02:43 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 10:02:44 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 10:02:44 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 10:02:44 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40021,"outputBytes":603742} 
+2021-09-11 10:02:44 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40021,"outputBytes":604885} 
+2021-09-11 10:02:44 [36mINFO: [39m Listening... 
+2021-09-11 10:02:53 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:02:53 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40022,"outputBytes":603742} 
+2021-09-11 10:02:53 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40022,"outputBytes":604885} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/index.html","cache-control":"max-age=0","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","sec-ch-ua-mobile":"?0","sec-ch-ua-platform":"\"Windows\"","dnt":"1","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site":"none","sec-fetch-mode":"navigate","sec-fetch-user":"?1","sec-fetch-dest":"document","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"url":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/css/main.css","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"text/css,*/*;q=0.1","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"style","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"url":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/js/main.js","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","if-modified-since":"Sat Sep 11 2021 09:48:37 GMT-0400 (Eastern Daylight Time)","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"*/*","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"script","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"url":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/js/search.js","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"*/*","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"script","referer":"https://wyse:8001/typedoc/index.html","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"url":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/images/widgets@2x.png","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","if-modified-since":"Sat Sep 11 2021 09:48:37 GMT-0400 (Eastern Daylight Time)","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"image","referer":"https://wyse:8001/typedoc/assets/css/main.css","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"url":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:02:57 [32mDATA: [39m {":method":"GET",":authority":"wyse:8001",":scheme":"https",":path":"/typedoc/assets/images/icons@2x.png","sec-ch-ua":"\"Microsoft Edge\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"","dnt":"1","if-modified-since":"Sat Sep 11 2021 09:48:37 GMT-0400 (Eastern Daylight Time)","sec-ch-ua-mobile":"?0","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.44","sec-ch-ua-platform":"\"Windows\"","accept":"image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8","sec-fetch-site":"same-origin","sec-fetch-mode":"no-cors","sec-fetch-dest":"image","referer":"https://wyse:8001/typedoc/assets/css/main.css","accept-encoding":"gzip, deflate, br","accept-language":"en-US,en;q=0.9,hr;q=0.8"} 
+2021-09-11 10:02:57 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"url":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:04:18 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:04:18 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39948,"outputBytes":603816} 
+2021-09-11 10:04:18 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39948,"outputBytes":604959} 
+2021-09-11 10:04:54 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:04:54 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39984,"outputBytes":603852} 
+2021-09-11 10:04:54 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39984,"outputBytes":604995} 
+2021-09-11 10:05:52 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:05:52 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39909,"outputBytes":603773} 
+2021-09-11 10:05:52 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39909,"outputBytes":604916} 
+2021-09-11 10:05:59 [36mINFO: [39m Watch: {"event":"modify","input":"src/serve.js"} 
+2021-09-11 10:05:59 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39909,"outputBytes":603773} 
+2021-09-11 10:05:59 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39909,"outputBytes":604916} 
+2021-09-11 10:06:00 [36mINFO: [39m Build exiting... 
+2021-09-11 10:06:01 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:06:01 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:06:01 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:06:01 [36mINFO: [39m Environment: {"profile":"development","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:06:01 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:06:01 [36mINFO: [39m Build {"profile":"development","steps":["serve","watch","compile"]} 
+2021-09-11 10:06:01 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 10:06:01 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 10:06:02 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 10:06:02 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39909,"outputBytes":603773} 
+2021-09-11 10:06:02 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39909,"outputBytes":604916} 
+2021-09-11 10:06:02 [36mINFO: [39m Listening... 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"url":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"url":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"url":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"url":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"url":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:11 [32mDATA: [39m HTTPS {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"url":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:06:29 [36mINFO: [39m Build exiting... 
+2021-09-11 10:08:52 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:08:52 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:08:52 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:08:52 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:08:52 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:08:52 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:08:52 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:08:52 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39928,"outputBytes":603792} 
+2021-09-11 10:08:52 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39928,"outputBytes":604935} 
+2021-09-11 10:08:54 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:08:58 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 10:09:00 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 10:09:00 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 10:09:00 [35mSTATE:[39m WebServer: {"ssl":false,"port":8000,"root":"."} 
+2021-09-11 10:09:00 [35mSTATE:[39m WebServer: {"ssl":true,"port":8001,"root":".","sslKey":"cert/https.key","sslCrt":"cert/https.crt"} 
+2021-09-11 10:09:00 [35mSTATE:[39m Watch: {"locations":["src/**","src/**"]} 
+2021-09-11 10:09:00 [36mINFO: [39m Listening... 
+2021-09-11 10:09:11 [36mINFO: [39m Watch: {"event":"modify","input":"src/build.js"} 
+2021-09-11 10:09:11 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":39928,"outputBytes":603792} 
+2021-09-11 10:09:11 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":39928,"outputBytes":604935} 
+2021-09-11 10:09:13 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:09:14 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"text/html","size":3560,"url":"/typedoc/index.html","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"text/css","size":72023,"url":"/typedoc/assets/css/main.css","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":155546,"url":"/typedoc/assets/js/main.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"text/javascript","size":50032,"url":"/typedoc/assets/js/search.js","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":855,"url":"/typedoc/assets/images/widgets@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:17 [32mDATA: [39m HTTPS: {"method":"GET","ver":"2.0","status":200,"mime":"image/png","size":28144,"url":"/typedoc/assets/images/icons@2x.png","remote":"::ffff:192.168.0.200"} 
+2021-09-11 10:09:22 [36mINFO: [39m Build exiting... 
+2021-09-11 10:16:16 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:16:16 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:16:16 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:16:16 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:16:16 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:16:16 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:16:16 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:16:16 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40052,"outputBytes":603957} 
+2021-09-11 10:16:17 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40052,"outputBytes":605100} 
+2021-09-11 10:16:34 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:16:34 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:16:34 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:16:34 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:16:34 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:16:34 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:16:34 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:16:34 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40052,"outputBytes":603957} 
+2021-09-11 10:16:34 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40052,"outputBytes":605100} 
+2021-09-11 10:16:36 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:18:30 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:18:30 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:18:30 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:18:30 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:18:30 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:18:30 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:18:30 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:18:30 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40175,"outputBytes":604121} 
+2021-09-11 10:18:30 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40175,"outputBytes":605264} 
+2021-09-11 10:19:24 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:19:24 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:19:24 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:19:24 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:19:24 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:19:24 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:19:24 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:19:25 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40201,"outputBytes":604147} 
+2021-09-11 10:19:25 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40201,"outputBytes":605290} 
+2021-09-11 10:19:27 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:19:29 [1m[31mFATAL:[39m[22m Exception write EPIPE 
+2021-09-11 10:19:31 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:19:31 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:19:31 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:19:31 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:19:31 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:19:31 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:19:31 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:19:32 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40201,"outputBytes":604147} 
+2021-09-11 10:19:32 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40201,"outputBytes":605290} 
+2021-09-11 10:19:47 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:19:47 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:19:47 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:19:47 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:19:47 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:19:47 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:19:47 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:19:47 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40206,"outputBytes":604152} 
+2021-09-11 10:19:47 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40206,"outputBytes":605295} 
+2021-09-11 10:20:31 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:20:31 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:20:31 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:20:31 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:20:31 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:20:31 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:20:31 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:20:31 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40212,"outputBytes":604158} 
+2021-09-11 10:20:31 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40212,"outputBytes":605301} 
+2021-09-11 10:20:33 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:20:35 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:20:35 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:20:35 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:20:35 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:20:35 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:20:35 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:20:35 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:20:35 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40212,"outputBytes":604158} 
+2021-09-11 10:20:35 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40212,"outputBytes":605301} 
+2021-09-11 10:20:37 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:20:39 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:20:39 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:20:39 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:20:39 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:20:39 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:20:39 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:20:39 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:20:39 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40212,"outputBytes":604158} 
+2021-09-11 10:20:39 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40212,"outputBytes":605301} 
+2021-09-11 10:20:41 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:20:43 [36mINFO: [39m Build exiting... 
+2021-09-11 10:20:48 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:20:48 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:20:48 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:20:48 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:20:48 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:20:48 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:20:48 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:20:48 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40212,"outputBytes":604158} 
+2021-09-11 10:20:48 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40212,"outputBytes":605301} 
+2021-09-11 10:20:50 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:20:53 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:20:53 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:20:53 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:20:53 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:20:53 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:20:53 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:20:53 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:20:53 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40212,"outputBytes":604158} 
+2021-09-11 10:20:53 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40212,"outputBytes":605301} 
+2021-09-11 10:20:55 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:21:05 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:21:05 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:21:05 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:21:05 [36mINFO: [39m Environment: {"profile":"all","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:21:05 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:21:05 [36mINFO: [39m Build: {"profile":"all","steps":["clean","compile","typings","typedoc","lint","changelog","serve","watch"]} 
+2021-09-11 10:21:05 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:21:05 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40201,"outputBytes":604147} 
+2021-09-11 10:21:05 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40201,"outputBytes":605290} 
+2021-09-11 10:21:08 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:21:45 [36mINFO: [39m @vladmandic/build version 0.4.1 
+2021-09-11 10:21:45 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v16.5.0 
+2021-09-11 10:21:45 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.4.1"} 
+2021-09-11 10:21:45 [36mINFO: [39m Environment: {"profile":"production","config":"build.json","tsconfig":true,"eslintrc":true,"git":true} 
+2021-09-11 10:21:45 [36mINFO: [39m Toolchain: {"build":"0.4.1","esbuild":"0.12.26","typescript":"4.4.3","typedoc":"0.21.9","eslint":"7.32.0"} 
+2021-09-11 10:21:45 [36mINFO: [39m Build: {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
+2021-09-11 10:21:45 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2021-09-11 10:21:45 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.js","output":"dist/build.esm.js","files":13,"inputBytes":40201,"outputBytes":604147} 
+2021-09-11 10:21:45 [35mSTATE:[39m Compile: {"name":"build module","format":"cjs","platform":"node","input":"src/build.js","output":"dist/build.js","files":13,"inputBytes":40201,"outputBytes":605290} 
+2021-09-11 10:21:47 [35mSTATE:[39m Typings: {"input":"src/build.js","output":"types","files":7} 
+2021-09-11 10:21:51 [35mSTATE:[39m TypeDoc: {"input":"src/build.js","output":"typedoc","objects":1,"index":true} 
+2021-09-11 10:21:53 [35mSTATE:[39m Lint: {"locations":["src/*.js"],"files":12,"errors":0,"warnings":0} 
+2021-09-11 10:21:53 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2021-09-11 10:21:53 [36mINFO: [39m Done... 
