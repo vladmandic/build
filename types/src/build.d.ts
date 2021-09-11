@@ -166,6 +166,7 @@ export class Build {
                 minify: boolean;
             };
             targets: ({
+                name: string;
                 input: string;
                 output: string;
                 platform: string;
@@ -174,6 +175,7 @@ export class Build {
                 typedoc: string;
                 external: string[];
             } | {
+                name: string;
                 input: string;
                 output: string;
                 platform: string;

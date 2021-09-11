@@ -126,6 +126,7 @@ class Build {
     this.toolchain = { build: app.version, esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version };
     this.environment = { config: 'build.json', tsconfig, eslintrc, git };
     this.application = { name: this.package.name, version: this.package.version };
+    log.configure({ inspect: { breakLength: 265 } });
     log.ringLength = 1000; // increase log ring buffer
     log.options.console = this.config.log.console;
   }

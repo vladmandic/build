@@ -61,18 +61,19 @@ async function build(config, type) {
     options.outfile = entry.output;
     options.metafile = true;
     options.format = entry.format;
-    if (entry.platform) options.platform = entry.platform;
-    else options.platform = entry.format === 'cjs' ? 'node' : 'browser';
+    if (typeof entry.sourcemap !== 'undefined') options.sourcemap = entry.sourcemap; // optional override sourcemap
+    if (entry.platform) options.platform = entry.platform; // optional override platform
+    else options.platform = entry.format === 'cjs' ? 'node' : 'browser'; // else autodetect platform
     options.external = entry.external || [];
-    if (!options.external.includes('@vladmandic/build')) options.external.push('@vladmandic/build');
+    if (!options.external.includes('@vladmandic/build')) options.external.push('@vladmandic/build'); // exclude build itself
     if (config.log.debug) log.data('ESBuild Options:', options);
     try {
       const meta = await esbuild.build(options);
       if (config.log.debug) log.data('ESBuild Metadata:', meta);
       const stats = await getStats(meta);
-      log.state('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
+      log.state('Build:', { name: entry.name || '', type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
-      log.error('Build:', { type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
+      log.error('Build:', { name: entry.name || '', type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
       if (require.main === module) process.exit(1);
     }
     if (type.type === 'production' && entry.typings && entry.typings !== '') await typings.run(config, entry);

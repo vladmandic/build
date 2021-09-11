@@ -6985,6 +6985,8 @@ var require_compile = __commonJS({
         options.outfile = entry.output;
         options.metafile = true;
         options.format = entry.format;
+        if (typeof entry.sourcemap !== "undefined")
+          options.sourcemap = entry.sourcemap;
         if (entry.platform)
           options.platform = entry.platform;
         else
@@ -6999,9 +7001,9 @@ var require_compile = __commonJS({
           if (config.log.debug)
             log.data("ESBuild Metadata:", meta);
           const stats = await getStats(meta);
-          log.state("Build:", { type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
+          log.state("Build:", { map: options.sourcemap, name: entry.name || "", type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
         } catch (err) {
-          log.error("Build:", { type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
+          log.error("Build:", { name: entry.name || "", type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
           if (require.main === module2)
             process.exit(1);
         }
@@ -12116,6 +12118,7 @@ var require_build = __commonJS({
         },
         targets: [
           {
+            name: "build module",
             input: "src/build.js",
             output: "test/dist/build.js",
             platform: "node",
@@ -12125,6 +12128,7 @@ var require_build = __commonJS({
             external: ["typedoc", "typescript", "eslint", "esbuild"]
           },
           {
+            name: "browser test",
             input: "test/src/index.ts",
             output: "test/dist/index.esm.js",
             platform: "browser",
@@ -12132,6 +12136,7 @@ var require_build = __commonJS({
             external: []
           },
           {
+            name: "nodejs test",
             input: "test/src/index.ts",
             output: "test/dist/index.node.js",
             platform: "node",
@@ -16836,6 +16841,7 @@ var require_build2 = __commonJS({
         this.toolchain = { build: app.version, esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version };
         this.environment = { config: "build.json", tsconfig, eslintrc, git };
         this.application = { name: this.package.name, version: this.package.version };
+        log.configure({ inspect: { breakLength: 265 } });
         log.ringLength = 1e3;
         log.options.console = this.config.log.console;
       }

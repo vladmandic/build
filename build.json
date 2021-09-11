@@ -81,6 +81,7 @@
     },
     "targets": [
       {
+        "name": "build module",
         "input": "src/build.js",
         "output": "test/dist/build.js",
         "platform": "node",
@@ -90,6 +91,7 @@
         "external": ["typedoc", "typescript", "eslint", "esbuild"]
       },
       {
+        "name": "browser test",
         "input": "test/src/index.ts",
         "output": "test/dist/index.esm.js",
         "platform": "browser",
@@ -97,6 +99,7 @@
         "external": []
       },
       {
+        "name": "nodejs test",
         "input": "test/src/index.ts",
         "output": "test/dist/index.node.js",
         "platform": "node",
