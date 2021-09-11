@@ -1,6 +1,6 @@
 # @vladmandic/build  
 
-  Version: **0.3.3**  
+  Version: **0.3.4**  
   Description: **Build: Automated CI Platform for NodeJS**  
   
   Author: **Vladimir Mandic <mandic00@live.com>**  
@@ -9,7 +9,10 @@
   
 ## Changelog
   
-### **HEAD -> main** 2021/09/10 mandic00@live.com
+### **0.3.4** 2021/09/10 mandic00@live.com
+
+
+### **origin/main** 2021/09/10 mandic00@live.com
 
 
 ### **0.3.3** 2021/09/10 mandic00@live.com

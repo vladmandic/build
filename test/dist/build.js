@@ -7001,7 +7001,7 @@ var require_compile = __commonJS({
           if (config.log.debug)
             log.data("ESBuild Metadata:", meta);
           const stats = await getStats(meta);
-          log.state("Build:", { map: options.sourcemap, name: entry.name || "", type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
+          log.state("Build:", { name: entry.name || "", type: type.type, format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
         } catch (err) {
           log.error("Build:", { name: entry.name || "", type: type.type, format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
           if (require.main === module2)
@@ -16733,7 +16733,7 @@ var require_package = __commonJS({
   "package.json"(exports, module2) {
     module2.exports = {
       name: "@vladmandic/build",
-      version: "0.3.3",
+      version: "0.3.4",
       description: "Build: Automated CI Platform for NodeJS",
       main: "src/build.js",
       types: "types/src/build.d.ts",
