@@ -1,2 +1,1 @@
-export { watch as start };
-declare function watch(options: any): Promise<any>;
+export function start(options: any): Promise<any>;

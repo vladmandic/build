@@ -1,1 +1,1 @@
-export function update(config: any, package: any): Promise<void>;
+export function run(config: any, packageJson: any): Promise<void>;

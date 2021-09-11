@@ -6,8 +6,11 @@ function merge(...objects) {
     Object.keys(obj || {}).forEach((key) => {
       const pVal = prev[key];
       const oVal = obj[key];
+      // eslint-disable-next-line no-param-reassign
       if (Array.isArray(pVal) && Array.isArray(oVal)) prev[key] = pVal.concat(...oVal);
+      // eslint-disable-next-line no-param-reassign
       else if (isObject(pVal) && isObject(oVal)) prev[key] = merge(pVal, oVal);
+      // eslint-disable-next-line no-param-reassign
       else prev[key] = oVal;
     });
     return prev;

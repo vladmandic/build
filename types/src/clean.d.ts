@@ -1,2 +1,1 @@
-export { clean as start };
-declare function clean(config: any): void;
+export function run(config: any): void;

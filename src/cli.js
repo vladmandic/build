@@ -24,16 +24,13 @@ const main = require('./build.js');
 function run() {
   const build = new main.Build();
 
-  if (build.config.log.enabled && build.config.log.output && build.config.log.output !== '') log.logFile(build.config.log.file);
   log.header();
   if (build.environment.tsconfig) build.config.build.global.tsconfig = 'tsconfig.json';
   let params = {};
   commander.option('-c, --config <file>', 'specify config file');
   commander.option('-d, --debug', 'enable debug output');
   commander.option('-g, --generate', 'generate config files from templates');
-  commander.command('development').description('start development ci').action(() => params.command = 'development');
-  commander.command('production').description('start production build').action(() => params.command = 'production');
-  commander.command('config').description('show active configuration and exit').action(() => params.command = 'config');
+  commander.option('-p, --profile <profile>', 'run build for specific profile');
   commander.parse(process.argv);
   params = { ...params, ...commander.opts() };
   if (params.debug) {
@@ -57,15 +54,14 @@ function run() {
       log.error('Config file does not exist:', params.config);
     }
   }
-  switch (params.command) {
-    case 'development': build.development(); break;
-    case 'production': build.production(); break;
-    case 'config': {
-      helpers.info('production', build.application, build.environment, build.toolchain);
-      log.data('Configuration:', build.config);
-      break;
-    }
-    default:
+  if (!params.profile) {
+    log.error('Profile not specified');
+  } else if (!build.config.profiles) {
+    log.error('Profiles not configured');
+  } else if (!Object.keys(build.config.profiles).includes(params.profile)) {
+    log.error('Profile not found:', params.profile);
+  } else {
+    build.run(params.profile);
   }
 }
 

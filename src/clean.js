@@ -1,9 +1,10 @@
 const log = require('@vladmandic/pilogger');
 const rimraf = require('rimraf');
 
-function clean(config) {
-  log.state('Clean:', { locations: config.locations });
-  for (const loc of config.locations) rimraf.sync(loc);
+function run(config) {
+  log.state('Clean:', { locations: config.clean.locations });
+  if (!config.clean.locations) log.warn('Clean called, but locations are not set');
+  else for (const loc of config.clean.locations) rimraf.sync(loc);
 }
 
-exports.start = clean;
+exports.run = run;

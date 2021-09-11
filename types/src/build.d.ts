@@ -88,12 +88,14 @@ export class Build {
             console: boolean;
             output: string;
         };
+        profiles: {
+            production: string[];
+            development: string[];
+        };
         clean: {
-            enabled: boolean;
             locations: string[];
         };
         lint: {
-            enabled: boolean;
             locations: string[];
             env: {
                 browser: boolean;
@@ -132,16 +134,26 @@ export class Build {
                 "prefer-destructuring": string;
                 "prefer-template": string;
                 "promise/always-return": string;
-                "promise/catch-or-return": string;
+                "promise/catch-or-return": string; /**
+                 * Contains version strings of all build tools
+                 * @typedef {object} Toolchain
+                 * @property {string} build semver version string
+                 * @property {string} esbuild semver version string
+                 * @property {string} typescript semver version string
+                 * @property {string} typedoc semver version string
+                 * @property {string} eslint semver version string
+                 * @type {Toolchain}
+                 */
                 radix: string;
+                "no-underscore-dangle": string;
+                "no-restricted-syntax": string;
+                "no-return-assign": string;
             };
         };
         changelog: {
-            enabled: boolean;
             output: string;
         };
         serve: {
-            enabled: boolean;
             sslKey: string;
             sslCrt: string;
             httpPort: number;
@@ -151,7 +163,6 @@ export class Build {
             defaultFile: string;
         };
         build: {
-            enabled: boolean;
             global: {
                 target: string;
                 sourcemap: boolean;
@@ -171,22 +182,21 @@ export class Build {
                 output: string;
                 platform: string;
                 format: string;
-                typings: string;
-                typedoc: string;
                 external: string[];
+                typings?: undefined;
+                typedoc?: undefined;
             } | {
                 name: string;
                 input: string;
                 output: string;
                 platform: string;
                 format: string;
-                external: never[];
-                typings?: undefined;
-                typedoc?: undefined;
+                typings: string;
+                typedoc: string;
+                external: string[];
             })[];
         };
         watch: {
-            enabled: boolean;
             locations: string[];
         };
         typescript: {
@@ -228,30 +238,9 @@ export class Build {
             strictFunctionTypes: boolean;
             strictNullChecks: boolean;
             strictPropertyInitialization: boolean;
+            "no-restricted-syntax": string;
         };
     };
-    /**
-     * Runs build pipeline for development profile
-     *
-     * @param options  `<object>` Optional configuration options overrides
-     * @returns  `array<object>` Containing all messages
-     */
-    development(options?: {}): Promise<{
-        msg: any;
-        facility: string;
-        level: any;
-    }[]>;
-    /**
-     * Runs build pipeline for production profile
-     *
-     * @param options  `<object>` Optional configuration options overrides
-     * @returns  `array<object>` Containing all messages
-     */
-    production(options?: {}): Promise<{
-        msg: any;
-        facility: string;
-        level: any;
-    }[]>;
     /**
      * Runs build pipeline for specified profile
      *
@@ -259,5 +248,9 @@ export class Build {
      * @param options  `object` Optional configuration options overrides
      * @returns  `array<object>` Containing all messages
      */
-    build(profile?: string, options?: {}): Promise<any[]>;
+    run(profile: any, options?: {}): Promise<{
+        msg: any;
+        facility: string;
+        level: any;
+    }[]>;
 }

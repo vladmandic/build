@@ -17,7 +17,7 @@ async function build(evt, msg, options) {
 }
 
 // watch filesystem for any changes and notify build when needed
-async function watch(options) {
+async function start(options) {
   const watcher = chokidar.watch(options.watch.locations, {
     persistent: true,
     ignorePermissionErrors: false,
@@ -45,4 +45,4 @@ async function watch(options) {
   });
 }
 
-exports.start = watch;
+exports.start = start;

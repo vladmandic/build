@@ -42,6 +42,7 @@ const updateConfig = (config, options) => {
     local = helpers.merge(local, JSON.parse(data.toString()));
   }
   if (Object.keys(options).length) local = helpers.merge(local, options);
+  for (const profile of Object.keys(local.profiles)) local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])]; // deduplicate profile steps
   return local;
 };
 
@@ -129,41 +130,7 @@ class Build {
     log.configure({ inspect: { breakLength: 265 } });
     log.ringLength = 1000; // increase log ring buffer
     log.options.console = this.config.log.console;
-  }
-
-  /**
-   * Runs build pipeline for development profile
-   *
-   * @param options  `<object>` Optional configuration options overrides
-   * @returns  `array<object>` Containing all messages
-   */
-  async development(options = {}) {
-    if (Object.keys(options).length) this.config = updateConfig(this.config, options);
-    helpers.info('development', this.application, this.environment, this.toolchain);
-    if (this.config.log.debug) log.data('Configuration:', this.config);
-    if (this.config.serve.enabled) await serve.start(this.config.serve);
-    if (this.config.watch.enabled) await watch.start(this.config);
-    if (this.config.build.enabled) await compile.build(this.config, { type: 'development' });
-    return helpers.results();
-  }
-
-  /**
-   * Runs build pipeline for production profile
-   *
-   * @param options  `<object>` Optional configuration options overrides
-   * @returns  `array<object>` Containing all messages
-   */
-  async production(options = {}) {
-    if (Object.keys(options).length) this.config = updateConfig(this.config, options);
-    helpers.info('production', this.application, this.environment, this.toolchain);
-    if (this.config.log.debug) log.data('Configuration:', this.config);
-    if (this.config.clean.enabled) await clean.start(this.config.clean);
-    if (this.config.build.enabled) await compile.build(this.config, { type: 'production' });
-    if (this.config.lint.enabled) await lint.run(this.config);
-    // if (config.typings.enabled) await typings.run(config.typings, entry.input); // triggered from compile.build
-    // if (config.typedoc.enabled) await typedoc.run(config.typedoc, entry.input); // triggered from compile.build
-    if (this.config.changelog.enabled && this.config.changelog.output && this.config.changelog.output !== '' && this.environment.git) await changelog.update(this.config, this.package); // generate changelog
-    return helpers.results();
+    if (this.config.log.enabled && this.config.log.output && this.config.log.output !== '') log.logFile(this.config.log.output);
   }
 
   /**
@@ -173,12 +140,28 @@ class Build {
    * @param options  `object` Optional configuration options overrides
    * @returns  `array<object>` Containing all messages
    */
-  async build(profile = '', options = {}) {
-    let res = [];
-    if (profile === 'production') res = await this.production(options);
-    else if (profile === 'development') res = await this.development(options);
-    else log.error('Build:', 'unknonwn profile');
-    return res;
+  async run(profile, options = {}) {
+    if (Object.keys(options).length) this.config = updateConfig(this.config, options);
+    helpers.info(profile, this.application, this.environment, this.toolchain);
+    const steps = Object.values(this.config.profiles[profile]);
+    log.info('Build', { profile, steps });
+    if (this.config.log.debug) log.data('Configuration:', this.config);
+    for (const step of steps) {
+      switch (step) {
+        case 'clean': await clean.run(this.config); break;
+        case 'compile': await compile.run(this.config, steps); break;
+        case 'lint': await lint.run(this.config); break;
+        case 'changelog': await changelog.run(this.config, packageJson); break;
+        case 'serve': await serve.start(this.config); break;
+        case 'watch': await watch.start(this.config); break;
+        case 'typings': break; // triggered as compile step per target
+        case 'typedoc': break; // triggered as compile step per target
+        default: log.warn('Build: unknown step', step);
+      }
+    }
+    if (steps.includes('serve')) log.info('Listening...');
+    else log.info('Done...');
+    return helpers.results();
   }
 }
 

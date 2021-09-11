@@ -28,7 +28,9 @@ async function lint(config) {
     }
   }
   const results = await eslint.lintFiles(config.lint.locations);
+  // eslint-disable-next-line no-param-reassign
   const errors = results.reduce((prev, curr) => prev += curr.errorCount, 0);
+  // eslint-disable-next-line no-param-reassign
   const warnings = results.reduce((prev, curr) => prev += curr.warningCount, 0);
   if (config.log.debug) log.data('Lint Results:', results);
   log.state('Lint:', { locations: config.lint.locations, files: results.length, errors, warnings });

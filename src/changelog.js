@@ -21,7 +21,7 @@ const header = (app, url) => `# ${app.name}
 ## Changelog
   `;
 
-async function update(config, package) {
+async function run(config, packageJson) {
   if (!fs.existsSync('.git')) {
     log.warn('No valid git repository:', '.git');
     return;
@@ -34,7 +34,7 @@ async function update(config, package) {
   if (config.log.debug) log.data('Git Log:', entries);
 
   let previous = '';
-  let text = header(package, gitUrl);
+  let text = header(packageJson, gitUrl);
   const headings = [];
   for (const l of entries) {
     const msg = l.message.toLowerCase();
@@ -57,4 +57,4 @@ async function update(config, package) {
   log.state('ChangeLog:', { repository: gitUrl, branch: branch.current, output: config.changelog.output });
 }
 
-exports.update = update;
+exports.run = run;

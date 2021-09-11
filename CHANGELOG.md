@@ -1,19 +1,20 @@
-# @vladmandic/build  
+# packageJson  
 
-  Version: **0.3.4**  
-  Description: **Build: Automated CI Platform for NodeJS**  
+  Version: **undefined**  
+  Description: **undefined**  
   
-  Author: **Vladimir Mandic <mandic00@live.com>**  
-  License: **MIT**  
+  Author: **undefined**  
+  License: **undefined**  
   Repository: **<https://github.com/vladmandic/build>**  
   
 ## Changelog
   
+### **HEAD -> main** 2021/09/10 mandic00@live.com
+
+
 ### **0.3.4** 2021/09/10 mandic00@live.com
 
-
-### **origin/main** 2021/09/10 mandic00@live.com
-
+- fix sourcemap generation
 
 ### **0.3.3** 2021/09/10 mandic00@live.com
 

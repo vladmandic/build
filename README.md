@@ -4,40 +4,94 @@
 
 <br>
 
-## Core Profiles
+## Profiles
 
-- **Production**: Runs production build and documentation
-- **Development**: Runs development build in watch mode
+Key feature is configurable multiple build profiles each executing specified build steps  
+To configure a pipeline, edit `build.json`  
 
-Each execution step of the profiles is configurable
+**Default profiles:**
+
+```json
+  "profiles": {
+    "production": ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
+    "development": ["serve", "watch", "compile"]
+  },
+```
+
+## Profile Steps
+
+- **`clean`**: clean locations specified in `config.clean.locations`
+
+- **`compile`**: compile and bundle sources for each target
+
+- **`typings`**: generate `.d.ts` typings  
+  runs for each target with `config.build.<target>.typings` set
+  saves to `config.build.<target>.typings` location  
+  all compiler parameters can also be overriden in `config.typescript` or in user's `tsconfig.json`  
+
+- **`typedoc`**: generate typedoc documentation typings  
+  runs for each target with `config.build.<target>.typedoc` set
+  saves to `config.build.<target>.typedoc` location  
+  uses same configuration parameters from `config.typescript` and user's `tsconfig.json`  
+  generator parameters can also be overriden in user's `typedoc.json`  
+
+- **`lint`**: lint locations specified in `config.lint.locations`  
+  all lint parameters can also be overriden in `config.lint` or in user's `.eslintrc.json`  
+  default configuration requires following peer dependencies:  
+  `eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-node`
+
+- **`changelog`**: generate changelog from git commit log  
+  requires that project is a valid git repository
+
+- **`serve`**: start http/https
+  starts HTTP/HTTPS server using configuration from `config.serve`  
+  server is native stream-based `NodeJS` solution without external dependencies  
+  server uses compression when supported by client and provides all requires http headers  
+  **SSL**: if user does not provide a valid ssl key/cert, default self-signed certificate will be used  
+  self-signed certificate was generated using:
+
+    ```shell
+    openssl req -x509 -newkey rsa:4096 -nodes -days 365 \
+    -keyout https.key -out https.crt \
+    -subj "/C=US/ST=Florida/L=Miami/O=@vladmandic"
+    ```
+
+- **`watch`**: start file watcher for location specified in `config.watch.locations`  
+  triggers `compile` step on create/modify/delete events
 
 <br>
 
 ## Configuration
 
-- Uses default values to minimize required configuration: no configuration files are needed  
-  Default configuration: <https://github.com/vladmandic/build/blob/main/build.json>
-- Inherits defaults from user's `tsconfig.json`, `typedoc.json`, `.eslintrc.json`
-- All configuration values can be overriden
-- Can be specified in `build.json` or as an object when using API
-- Configuration Documentation:  
+- most values have defaults to minimize required configuration  
+  default configuration: <https://github.com/vladmandic/build/blob/main/build.json>  
+  minimum required configuration is a single target `config.build.target`
+- inherits settings from user's configuration files if they exists  
+  `package.json`, `tsconfig.json`, `typedoc.json`, `.eslintrc.json`
+- any configuration item can be specified  
+  in a configuration file or as a configuration `config` object when using API  
+  default configuration file is `build.json` 
+- configuration Documentation:  
   <https://vladmandic.github.io/build/typedoc/classes/Build.html#config>
 
 <br>
 
 ## Usage
 
-### Using Developer API
+### 1. Using Developer API
 
 - TypeDoc API Documentation:  
   <https://vladmandic.github.io/build/typedoc/classes/Build.html>
 
-Example:
+*Example*:
 
 ```js
 const Build = require('@vladmandic/build').Build;
 
 const config = {
+  profiles: { // define profile 'production' with specific build steps
+    "production": ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
+  },
   build: {
     targets: [ // minimum configuration requires at least one target
       { input: "src/test.ts", output: "dist/test.js", platform: "node", format: "cjs", typedoc: 'typedoc', typings: 'types' }
@@ -51,156 +105,43 @@ console.log('Environment', build.environment);
 console.log('Application', build.application);
 console.log('Configuration', build.config);
 
-const result = await build.production();
+const result = await build.run('production');
 console.log('Build results:', result);
 ```
 
 <br>
 
-### Using Command Line Interface
+### 2. Using Command Line Interface
 
-Example: `npm run build`
+*Example*: `npm run build --help`
 
 ```log
-Usage: build [options] [command]
+Usage: build [options]
 
 Options:
-  -c, --config <file>  specify config file
-  -d, --debug          enable debug output
-  -g, --generate       generate config files from templates
-  -h, --help           display help for command
-
-Commands:
-  development          start development ci
-  production           start production build
-  config               show active configuration and exit
-  help [command]       display help for command
+  -c, --config <file>      specify config file
+  -d, --debug              enable debug output
+  -g, --generate           generate config files from templates
+  -p, --profile <profile>  run build for specific profile
+  -h, --help               display help for command
 ```
+
+*Example*: `npm run build --profile production`
+
 
 <br>
 
-### As a script within a project
+### 3. As a script within a project
 
 Modify your `package.json` to include:
 
 ```json
   "scripts": {
-    "dev": "build development",
-    "prod": "build production",
+    "dev": "build -p development",
+    "prod": "build -p production",
   }
 ```
 
+And then start using `npm run dev` or `npm run prod`
+
 <br>
-
-## Production Profile
-
-- Clean locations
-- Build JS bundles from TS or JS sources with multiple profiles and targets
-- Run Linter
-- Generate .d.ts typings using TypeScript
-- Generate TypeDoc documentation
-- Generate ChangeLog from Git commits
-
-Example: `npm run build production`
-
-```js
-2021-09-09 12:01:39 INFO:  @vladmandic/build version 0.3.1
-2021-09-09 12:01:39 INFO:  User: vlado Platform: linux Arch: x64 Node: v16.8.0
-2021-09-09 12:01:39 INFO:  Application: { name: '@vladmandic/build', version: '0.3.1' }
-2021-09-09 12:01:39 INFO:  Environment: { profile: 'production', config: 'build.json', tsconfig: true, eslintrc: true, git: true }
-2021-09-09 12:01:39 INFO:  Toolchain: { build: '0.3.1', esbuild: '0.12.25', typescript: '4.4.2', typedoc: '0.21.9', eslint: '7.32.0' }
-2021-09-09 12:01:39 STATE: Clean: { locations: [ 'test/dist/*', 'types/*', 'typedoc/*', [length]: 3 ] }
-2021-09-09 12:01:39 STATE: Build: { type: 'production', format: 'cjs', platform: 'node', input: 'src/build.js', output: 'test/dist/build.js', files: 12, inputBytes: 34587, outputBytes: 593571 }
-2021-09-09 12:01:40 STATE: Typings: { input: 'src/build.js', output: 'types', files: 7 }
-2021-09-09 12:01:45 STATE: TypeDoc: { input: 'src/build.js', output: 'typedoc', objects: 2, index: true }
-2021-09-09 12:01:45 STATE: Build: { type: 'production', format: 'esm', platform: 'browser', input: 'test/src/index.ts', output: 'test/dist/index.esm.js', files: 2, inputBytes: 503, outputBytes: 377 }
-2021-09-09 12:01:45 STATE: Build: { type: 'production', format: 'cjs', platform: 'node', input: 'test/src/index.ts', output: 'test/dist/index.node.js', files: 2, inputBytes: 503, outputBytes: 845 }
-2021-09-09 12:01:46 STATE: Lint: { locations: [ 'src/*', 'test/src/*', [length]: 2 ], files: 12, errors: 0, warnings: 0 }
-2021-09-09 12:01:46 STATE: ChangeLog: { repository: 'https://github.com/vladmandic/build', branch: 'main', output: 'CHANGELOG.md' }
-2021-09-09 12:01:46 INFO:  Profile production done
-```
-
-## Development Profile
-
-- Start HTTP and HTTPS web server
-- Run in file watch mode
-- Build JS bundles from TS or JS sources with multiple profiles and targets on demand
-
-Example: `npm run build development`
-
-```js
-2021-09-09 10:15:10 INFO:  @vladmandic/build version 0.3.1
-2021-09-09 10:15:10 INFO:  User: vlado Platform: linux Arch: x64 Node: v16.8.0
-2021-09-09 10:15:10 INFO:  Application: { name: '@vladmandic/build', version: '0.3.1' }
-2021-09-09 10:15:10 INFO:  Environment: { profile: 'development', config: 'build.json', tsconfig: true, eslintrc: true, git: true }
-2021-09-09 10:15:10 INFO:  Toolchain: { esbuild: '0.12.25', typescript: '4.4.2', typedoc: '0.21.9', eslint: '7.32.0' }
-2021-09-09 10:15:10 STATE: WebServer: { ssl: false, port: 8000, root: '.' }
-2021-09-09 10:15:10 STATE: WebServer: { ssl: true, port: 8001, root: '.', sslKey: 'cert/https.key', sslCrt: 'cert/https.crt' }
-2021-09-09 10:15:10 STATE: Watch: { locations: [ 'test/src/**', 'test/src/**', [length]: 2 ] }
-2021-09-09 10:15:10 STATE: Build: { type: 'development', format: 'cjs', platform: 'node', input: 'test/src/index.ts', output: 'test/dist/index.node.js', files: 2, inputBytes: 503, outputBytes: 845 }
-2021-09-09 10:15:24 INFO:  Watch: { event: 'modify', input: 'test/src/index.ts' }
-2021-09-09 10:15:24 STATE: Build: { type: 'development', format: 'cjs', platform: 'node', input: 'test/src/index.ts', output: 'test/dist/index.node.js', files: 2, inputBytes: 503, outputBytes: 845 }
-2021-09-09 10:15:31 INFO:  Build exiting...
-```
-
-<br><hr><br>
-
-## Modules
-
-### Clean
-
-- Cleans locations found in `config.clean.locations`
-
-### Lint
-
-- Uses `ESLint` with default configuration found in `config.lint` section plus overrides from local `.eslintrc.json`
-
-Modules required by default configuration:
-
-```shell
-npm install eslint typescript @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-node
-```
-
-### ChangeLog
-
-- Uses `Git` to generate application change log
-
-### WebServer
-
-- Run HTTP/HTTPS server from `config.documentRoot`
-- Web server is native stream-based `NodeJS` solution without external dependencies
-- SSL
-  - Some apps do not work without secure server since browsers enfoce ssl for access to navigator object
-  - You can provide your server key and certificate or use provided self-signed ones  
-    Self-signed certificate was generated using:
-
-    ```shell
-    openssl req -x509 -newkey rsa:4096 -nodes -keyout https.key -out https.crt -days 365 \
-    -subj "/C=US/ST=Florida/L=Miami/O=@vladmandic"
-    ```
-
-### Compile & Bundle
-
-- Run build & bundle using `ESLint`  
-  for all entries in `config.build.targets`
-  with settings combined from `config.build.global`, `config.build.<profile>` and `config.build.targets.<entry>`
-
-### Typings
-
-- Generate `d.ts` typings using `TSC`  
-  using settings from optional `tsconfig.json` merged with `config.typescript`
-- Note: This step serves as additional rules enforcement in addition to `Lint`
-- Runs for each target entry that has `typings` field pointing to `output` directory
-
-### TypeDoc
-
-- Generate documentation using `typedoc`
-  using settings from optional `tsconfig.json:typedocOptions` or `typedoc.json`
-- Runs for each target entry that has `typedoc` field pointing to `output` directory
-
-## Generate
-
-- Generates templates for `tsconfig.json`, `.eslintrc.json` and `typedoc.json`
-- Only available when combined with `production` profile
-- If files already exists, it will not overwrite them
-- *WARNING*: Check and edit as needed before using

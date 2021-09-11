@@ -36,6 +36,7 @@ const mime = {
 };
 
 function handle(url) {
+  // eslint-disable-next-line no-param-reassign
   url = url.split(/[?#]/)[0];
   const result = { ok: false, stat: {}, file: '' };
   const checkFile = (f) => {
@@ -129,7 +130,7 @@ async function httpRequest(req, res) {
 async function start(config) {
   options = {
     insecureHTTPParser: false,
-    ...config,
+    ...config.serve,
     // documentRoot: path.join(process.cwd(), config.documentRoot),
   };
 
@@ -138,7 +139,6 @@ async function start(config) {
     options.cert = fs.readFileSync(options.sslCrt);
   } else {
     try {
-      // eslint-disable-next-line node/no-missing-require
       const home = require.resolve('@vladmandic/build');
       options.sslKey = path.join(path.dirname(home), '..', options.sslKey);
       options.sslCrt = path.join(path.dirname(home), '..', options.sslCrt);
