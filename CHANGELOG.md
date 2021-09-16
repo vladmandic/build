@@ -9,11 +9,12 @@
   
 ## Changelog
   
+### **HEAD -> main** 2021/09/11 mandic00@live.com
+
+
 ### **0.4.1** 2021/09/11 mandic00@live.com
 
-
-### **origin/main** 2021/09/11 mandic00@live.com
-
+- switch from fixed to user-defined profiles
 - rebuild
 
 ### **0.3.4** 2021/09/10 mandic00@live.com

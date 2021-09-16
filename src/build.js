@@ -56,6 +56,10 @@ const updateConfig = (config, options) => {
   return local;
 };
 
+/**
+ * Class Build
+ * @params
+ */
 class Build {
   /**
    * Command line params when used in Cli mode

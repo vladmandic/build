@@ -180,3 +180,9 @@ And then start using `npm run dev` or `npm run prod`
 ...
 2021-09-11 10:09:22 INFO:  Build exiting...
 ```
+
+<br>
+
+## TypeDoc Documentation
+
+<https://vladmandic.github.io/build/typedoc/classes/Build.html>

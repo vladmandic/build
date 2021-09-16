@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "module": "es2020",
     "target": "es2020",
     "moduleResolution": "node",
@@ -28,14 +29,15 @@
     "noUnusedParameters": true,
     "preserveConstEnums": true,
     "pretty": true,
-    "removeComments": false,
+    "removeComments": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "forceConsistentCasingInFileNames": true
   },
   "exclude": ["node_modules/"],
   "include": ["src/*.js", "test/*.js"],

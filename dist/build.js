@@ -16730,7 +16730,7 @@ var require_package = __commonJS({
         node: ">=14.0.0"
       },
       scripts: {
-        build: "node src/build.js",
+        build: "node src/build.js --profile production",
         lint: "eslint src test"
       },
       bin: {
