@@ -1,10 +1,10 @@
-const log = require('@vladmandic/pilogger');
-const esbuild = require('esbuild');
-const helpers = require('./helpers');
-const typedoc = require('./typedoc.js');
-const typings = require('./typings.js');
+import * as log from '@vladmandic/pilogger';
+import * as esbuild from 'esbuild';
+import * as helpers from './helpers';
+import * as typedoc from './typedoc';
+import * as typings from './typings';
 
-const version = esbuild.version;
+export const version = esbuild.version;
 
 let busy = false;
 
@@ -14,22 +14,22 @@ const defaults = {
 };
 
 async function getStats(json) {
-  const stats = {};
+  const stats = { modules: 0, moduleBytes: 0, imports: 0, importBytes: 0, outputBytes: 0, outputFiles: '' };
   if (json && json.metafile?.inputs && json.metafile?.outputs) {
     for (const [key, val] of Object.entries(json.metafile.inputs)) {
       if (key.startsWith('node_modules')) {
-        stats.modules = (stats.modules || 0) + 1;
-        stats.moduleBytes = (stats.moduleBytes || 0) + val.bytes;
+        stats.modules += 1;
+        stats.moduleBytes += (val as Record<string, number>)['bytes'] as number;
       } else {
-        stats.imports = (stats.imports || 0) + 1;
-        stats.importBytes = (stats.importBytes || 0) + val.bytes;
+        stats.imports += 1;
+        stats.importBytes += (val as Record<string, number>)['bytes'];
       }
     }
-    const files = [];
+    const files: Array<string> = [];
     for (const [key, val] of Object.entries(json.metafile.outputs)) {
       if (!key.endsWith('.map')) {
         files.push(key);
-        stats.outputBytes = (stats.outputBytes || 0) + val.bytes;
+        stats.outputBytes += (val as Record<string, number>)['bytes'];
       }
     }
     stats.outputFiles = files.join(', ');
@@ -38,10 +38,10 @@ async function getStats(json) {
 }
 
 // rebuild on file change
-async function run(config, steps) {
+export async function run(config, steps) {
   if (busy) {
     log.state('Build:', { busy });
-    setTimeout(() => run(config), 1000);
+    setTimeout(() => run(config, steps), 1000);
     return;
   }
   busy = true;
@@ -78,7 +78,7 @@ async function run(config, steps) {
       const stats = await getStats(meta);
       log.state('Compile:', { name: entry.name || '', format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
-      log.error('Compile:', { name: entry.name || '', format: entry.format, platform: entry.platform, input: entry.input }, { errors: err.errors || err });
+      log.error('Compile:', { name: entry.name || '', format: entry.format, platform: entry.platform, input: entry.input }, { errors: (err as Record<string, string>)['errors'] || err });
       if (require.main === module) process.exit(1);
     }
     if (steps.includes('typings') && entry.typings && entry.typings !== '') await typings.run(config, entry);
@@ -86,6 +86,3 @@ async function run(config, steps) {
   }
   busy = false;
 }
-
-exports.run = run;
-exports.version = version;

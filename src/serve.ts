@@ -7,12 +7,12 @@
   - passthrough data compression
 */
 
-const fs = require('fs');
-const zlib = require('zlib');
-const http = require('http');
-const http2 = require('http2');
-const path = require('path');
-const log = require('@vladmandic/pilogger');
+import fs from 'fs';
+import * as zlib from 'zlib';
+import * as http from 'http';
+import * as http2 from 'http2';
+import * as path from 'path';
+import * as log from '@vladmandic/pilogger';
 
 let options;
 
@@ -35,7 +35,7 @@ const mime = {
   '.wasm': 'application/wasm',
 };
 
-function handle(url) {
+function handle(url): Promise<{ ok: boolean, stat: Record<string, unknown>, file: string }> {
   // eslint-disable-next-line no-param-reassign
   url = url.split(/[?#]/)[0];
   const result = { ok: false, stat: {}, file: '' };
@@ -43,7 +43,7 @@ function handle(url) {
     result.file = f;
     if (fs.existsSync(f)) {
       result.stat = fs.statSync(f);
-      if (result.stat.isFile()) {
+      if (result.stat['isFile']()) {
         result.ok = true;
         return true;
       }
@@ -54,7 +54,7 @@ function handle(url) {
     result.file = f;
     if (fs.existsSync(f)) {
       result.stat = fs.statSync(f);
-      if (result.stat.isDirectory()) {
+      if (result.stat['isDirectory']()) {
         result.ok = true;
         return true;
       }
@@ -68,7 +68,7 @@ function handle(url) {
     else if (checkFile(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile))) resolve(result);
     else if (checkFolder(path.join(process.cwd(), options.documentRoot, url))) resolve(result);
     else if (checkFolder(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url))) resolve(result);
-    else if (checkFolder(path.join(path.dirname(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile), url)))) resolve(result);
+    else if (checkFolder(path.join(path.dirname(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile, url))))) resolve(result);
     else resolve(result);
   });
 }
@@ -87,6 +87,7 @@ async function httpRequest(req, res) {
       log.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
     } else {
       const input = encodeURIComponent(result.file).replace(/\*/g, '').replace(/\?/g, '').replace(/%2F/g, '/').replace(/%40/g, '@').replace(/%20/g, ' ');
+      // @ts-ignore method on stat object
       if (result?.stat?.isFile()) {
         const ext = String(path.extname(input)).toLowerCase();
         const contentType = mime[ext] || 'application/octet-stream';
@@ -118,6 +119,7 @@ async function httpRequest(req, res) {
         // res.write(data);
         log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace('; charset=utf-8', ''), size: result.stat.size, url, remote });
       }
+      // @ts-ignore method on stat object
       if (result?.stat?.isDirectory()) {
         res.writeHead(200, { 'Content-Language': 'en', 'Content-Type': 'application/json; charset=utf-8', 'Last-Modified': result.stat.mtime, 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });
         let dir = fs.readdirSync(input);
@@ -129,7 +131,7 @@ async function httpRequest(req, res) {
   });
 }
 
-async function start(config) {
+export async function start(config) {
   options = {
     insecureHTTPParser: false,
     ...config.serve,
@@ -180,5 +182,3 @@ async function start(config) {
     });
   }
 }
-
-exports.start = start;

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "bootstrap": "esbuild --bundle --platform=node --format=cjs --target=es2018 --sourcemap --external:typescript --external:esbuild --external:eslint --external:typedoc --log-level=info --outfile=dist/build.js src/build.ts",
-    "build": "node dist/build.js --profile production",
+    "build": "rimraf build.log && node dist/build.js --profile production",
     "dev": "node dist/build.js --profile development",
     "lint": "node dist/build.js --profile lint"
   },

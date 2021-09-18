@@ -8,7 +8,11 @@
   "profiles": {
     "production": ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
     "development": ["serve", "watch", "compile"],
+    "lint": ["lint"],
     "all": ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
+  },
+  "watch": {
+    "locations": [ "src/**", "README.md" ]
   },
   "clean": {
     "locations": ["types/*", "typedoc/*"]
@@ -40,26 +44,15 @@
     "targets": [
       {
         "name": "build module",
-        "input": "src/build.js",
+        "input": "src/build.ts",
         "output": "dist/build.esm.js",
         "platform": "node",
         "format": "esm",
-        "external": ["typedoc", "typescript", "eslint", "esbuild"]
-      },
-      {
-        "name": "build module",
-        "input": "src/build.js",
-        "output": "dist/build.js",
-        "platform": "node",
-        "format": "cjs",
         "typings": "types",
         "typedoc": "typedoc",
         "external": ["typedoc", "typescript", "eslint", "esbuild"]
       }
     ]
-  },
-  "watch": {
-    "locations": [ "src/**" ]
   },
   "typescript": {
     "module": "es2020",
@@ -101,7 +94,7 @@
     "no-restricted-syntax": "off"
   },
   "lint": {
-    "locations": [ "src/*.js" ],
+    "locations": [ "src/*.ts" ],
     "env": { "browser": true, "commonjs": true, "node": true, "es2020": true },
     "parser": "@typescript-eslint/parser",
     "parserOptions": { "ecmaVersion": 2020 },

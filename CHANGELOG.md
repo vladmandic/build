@@ -9,8 +9,12 @@
   
 ## Changelog
   
-### **HEAD -> main** 2021/09/11 mandic00@live.com
+### **0.5.1** 2021/09/18 mandic00@live.com
 
+
+### **origin/main** 2021/09/16 mandic00@live.com
+
+- improve http module
 
 ### **0.4.1** 2021/09/11 mandic00@live.com
 

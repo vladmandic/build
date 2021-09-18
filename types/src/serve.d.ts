@@ -1,1 +1,1 @@
-export function start(config: any): Promise<void>;
+export declare function start(config: any): Promise<void>;

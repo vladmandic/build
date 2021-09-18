@@ -1,11 +1,11 @@
-const fs = require('fs');
-const ts = require('typescript');
-const path = require('path');
-const log = require('@vladmandic/pilogger');
+import * as fs from 'fs';
+import * as path from 'path';
+import * as ts from 'typescript';
+import * as log from '@vladmandic/pilogger';
 
-const version = ts.version;
+export const version = ts.version;
 
-async function typings(config, entry) {
+export async function run(config, entry) {
   const configFileName = ts.findConfigFile('./', ts.sys.fileExists, 'tsconfig.json') || '';
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
   const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, './');
@@ -16,8 +16,8 @@ async function typings(config, entry) {
     declaration: true,
     outDir: entry.typings,
   };
-  compilerOptions.include = [path.dirname(entry.input)];
-  compilerOptions.exclude = ['node_modules/', 'dist/'];
+  compilerOptions['include'] = [path.dirname(entry.input)];
+  compilerOptions['exclude'] = ['node_modules/', 'dist/'];
   compilerOptions.errors = [];
   if (config.log.debug) log.data('TypeScript Options:', compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
@@ -26,10 +26,10 @@ async function typings(config, entry) {
   if (config.generate) {
     if (fs.existsSync('tsconfig.json')) log.warn('Generate config file exists:', ['tsconfig.json']);
     else {
-      const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions.include, exclude: compilerOptions.exclude };
+      const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions['include'], exclude: compilerOptions['exclude'] };
       delete tsconfig.compilerOptions.emitDeclarationOnly;
       delete tsconfig.compilerOptions.resolveJsonModule;
-      tsconfig.compilerOptions.lib = tsconfig.compilerOptions.lib.map((lib) => lib.replace('lib.', '').replace('.d.ts', ''));
+      tsconfig.compilerOptions.lib = tsconfig.compilerOptions.lib?.map((lib) => lib.replace('lib.', '').replace('.d.ts', ''));
       fs.writeFileSync('tsconfig.json', JSON.stringify(tsconfig, null, 2));
       log.info('Generate config file:', ['tsconfig.json']);
     }
@@ -52,6 +52,3 @@ async function typings(config, entry) {
     }
   }
 }
-
-exports.run = typings;
-exports.version = version;

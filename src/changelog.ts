@@ -2,10 +2,10 @@
  * Creates changelog in markdown format from git log as part of the build process
  */
 
-const fs = require('fs');
-const dayjs = require('dayjs');
-const simpleGit = require('simple-git/promise');
-const log = require('@vladmandic/pilogger');
+import * as fs from 'fs';
+import * as log from '@vladmandic/pilogger';
+import dayjs from 'dayjs';
+import simpleGit from 'simple-git/promise';
 
 const git = simpleGit();
 
@@ -21,7 +21,7 @@ const header = (app, url) => `# ${app.name}
 ## Changelog
   `;
 
-async function run(config, packageJson) {
+export async function run(config, packageJson) {
   if (!fs.existsSync('.git')) {
     log.warn('No valid git repository:', '.git');
     return;
@@ -35,7 +35,7 @@ async function run(config, packageJson) {
 
   let previous = '';
   let text = header(packageJson, gitUrl);
-  const headings = [];
+  const headings: Array<string> = [];
   for (const l of entries) {
     const msg = l.message.toLowerCase();
     if ((l.refs !== '') || msg.match(/^[0-99].[0-99].[0-99]/)) {
@@ -56,5 +56,3 @@ async function run(config, packageJson) {
   fs.writeFileSync(config.changelog.output, text);
   log.state('ChangeLog:', { repository: gitUrl, branch: branch.current, output: config.changelog.output });
 }
-
-exports.run = run;

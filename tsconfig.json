@@ -9,6 +9,7 @@
     "baseUrl": "./",
     "paths": { "tslib": ["node_modules/tslib/tslib.d.ts"] },
     "noEmitOnError": false,
+    "esModuleInterop": true,
     "declaration": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -37,8 +38,9 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "downlevelIteration": true,
   },
   "exclude": ["node_modules/"],
-  "include": ["src/*.js", "test/*.js"],
+  "include": ["src/*.ts"],
 }

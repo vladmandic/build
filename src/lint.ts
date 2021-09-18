@@ -1,10 +1,10 @@
-const fs = require('fs');
-const log = require('@vladmandic/pilogger');
-const { ESLint } = require('eslint');
+import * as fs from 'fs';
+import * as log from '@vladmandic/pilogger';
+import { ESLint } from 'eslint';
 
-const version = ESLint.version;
+export const version = ESLint.version;
 
-async function lint(config) {
+export async function run(config) {
   const json = fs.existsSync('.eslintrc.json') ? JSON.parse(fs.readFileSync('.eslintrc.json').toString()) : {};
   const options = {
     ...json,
@@ -40,6 +40,3 @@ async function lint(config) {
     log.warn(text);
   }
 }
-
-exports.run = lint;
-exports.version = version;

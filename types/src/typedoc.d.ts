@@ -1,3 +1,2 @@
-declare function typedoc(config: any, entry: any): Promise<void>;
-export const version: string;
-export { typedoc as run };
+export declare const version: string;
+export declare function run(config: any, entry: any): Promise<void>;

@@ -1,6 +1,6 @@
-const chokidar = require('chokidar');
-const log = require('@vladmandic/pilogger');
-const compile = require('./compile.js');
+import * as chokidar from 'chokidar';
+import * as log from '@vladmandic/pilogger';
+import * as compile from './compile.js';
 
 const minElapsed = 2000;
 let lastBuilt = Date.now();
@@ -17,7 +17,7 @@ async function build(evt, msg, options, steps) {
 }
 
 // watch filesystem for any changes and notify build when needed
-async function start(options, steps) {
+export async function start(options, steps) {
   const watcher = chokidar.watch(options.watch.locations, {
     persistent: true,
     ignorePermissionErrors: false,
@@ -44,5 +44,3 @@ async function start(options, steps) {
       });
   });
 }
-
-exports.start = start;

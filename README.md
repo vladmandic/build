@@ -115,7 +115,7 @@ console.log('Build results:', result);
 
 *Example*: `npm run build --help`
 
-```log
+```text
 Usage: build [options]
 
 Options:
@@ -183,6 +183,11 @@ And then start using `npm run dev` or `npm run prod`
 
 <br>
 
+## Rebuilding Build Module
+
+Since `Build` is written in TypeScript, it needs to be bootstrapped into JavaScript bundle before it can be used  
+Simply run `npm run bootstrap` which will create `dist/build.js`
+
 ## TypeDoc Documentation
 
-<https://vladmandic.github.io/build/typedoc/classes/Build.html>
+<https://vladmandic.github.io/build/typedoc/index.html>

@@ -1,3 +1,2 @@
-declare function lint(config: any): Promise<void>;
-export const version: any;
-export { lint as run };
+export declare const version: any;
+export declare function run(config: any): Promise<void>;

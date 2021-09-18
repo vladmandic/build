@@ -22,6 +22,7 @@
     "import/extensions": "off",
     "import/no-named-as-default": "off",
     "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
     "lines-between-class-members": "off",
     "max-len": [1, 250, 3],
     "newline-per-chained-call": "off",
@@ -39,6 +40,7 @@
     "radix": "off",
     "no-underscore-dangle": "off",
     "no-restricted-syntax": "off",
-    "no-return-assign": "off"
+    "no-return-assign": "off",
+    "no-control-regex": "off"
   }
 }

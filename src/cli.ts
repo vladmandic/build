@@ -1,8 +1,8 @@
-const fs = require('fs');
-const commander = require('commander').program;
-const log = require('@vladmandic/pilogger');
-const helpers = require('./helpers');
-const main = require('./build.js');
+import * as fs from 'fs';
+import * as log from '@vladmandic/pilogger';
+import { program as commander } from 'commander';
+import * as helpers from './helpers';
+import * as main from './build';
 
 /**
  * Runs build in cli mode
@@ -21,47 +21,47 @@ const main = require('./build.js');
  * - `config`               show active configuration and exit
  * - `help [command]`       display help for command
  */
-function run() {
+export function run() {
   const build = new main.Build();
 
   log.header();
-  if (build.environment.tsconfig) build.config.build.global.tsconfig = 'tsconfig.json';
-  let params = {};
+  if (build.environment.tsconfig) (build.config.build.global as Record<string, unknown>)['tsconfig'] = 'tsconfig.json';
+  // let params: Record<string, unknown> = {};
   commander.option('-c, --config <file>', 'specify config file');
   commander.option('-d, --debug', 'enable debug output');
   commander.option('-g, --generate', 'generate config files from templates');
   commander.option('-p, --profile <profile>', 'run build for specific profile');
   commander.parse(process.argv);
-  params = { ...params, ...commander.opts() };
-  if (params.debug) {
-    log.info('Debug output:', params.debug);
+  build.params = { ...build.params, ...commander.opts() };
+  if (build.params.debug) {
+    log.info('Debug output:', build.params.debug);
     build.config.log.debug = true;
   }
-  if (params.generate) {
-    log.info('Generate config files:', params.generate);
-    build.config.generate = true;
+  if (build.params.generate) {
+    log.info('Generate config files:', build.params.generate);
+    build.config['generate'] = true;
   }
-  if (params.config && params.config !== '') {
-    if (fs.existsSync(params.config)) {
-      const data = fs.readFileSync(params.config);
+  if (build.params.config && build.params.config !== '') {
+    if (fs.existsSync(build.params.config as string)) {
+      const data = fs.readFileSync(build.params.config as string);
       try {
         build.config = helpers.merge(build.config, JSON.parse(data.toString()));
-        log.info('Parsed config file:', params.config, build.config);
+        log.info('Parsed config file:', build.params.config, build.config);
       } catch {
-        log.error('Error parsing config file:', params.config);
+        log.error('Error parsing config file:', build.params.config);
       }
     } else {
-      log.error('Config file does not exist:', params.config);
+      log.error('Config file does not exist:', build.params.config);
     }
   }
-  if (!params.profile) {
+  if (!build.params.profile) {
     log.error('Profile not specified');
   } else if (!build.config.profiles) {
     log.error('Profiles not configured');
-  } else if (!Object.keys(build.config.profiles).includes(params.profile)) {
-    log.error('Profile not found:', params.profile);
+  } else if (!Object.keys(build.config.profiles).includes(build.params.profile as string)) {
+    log.error('Profile not found:', build.params.profile);
   } else {
-    build.run(params.profile);
+    build.run(build.params.profile as string);
   }
 }
 
