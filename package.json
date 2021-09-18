@@ -1,18 +1,20 @@
 {
   "name": "@vladmandic/build",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "description": "Build: Automated CI Platform for NodeJS",
-  "main": "src/build.js",
+  "main": "dist/build.js",
   "types": "types/src/build.d.ts",
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
-    "build": "node src/build.js --profile production",
-    "lint": "eslint src test"
+    "bootstrap": "esbuild --bundle --platform=node --format=cjs --target=es2018 --sourcemap --external:typescript --external:esbuild --external:eslint --external:typedoc --log-level=info --outfile=dist/build.js src/build.ts",
+    "build": "node dist/build.js --profile production",
+    "dev": "node dist/build.js --profile development",
+    "lint": "node dist/build.js --profile lint"
   },
   "bin": {
-    "build": "./src/build.js"
+    "build": "./dist/build.js"
   },
   "author": "Vladimir Mandic <mandic00@live.com>",
   "license": "MIT",
@@ -41,6 +43,9 @@
     "simple-git": "^2.45.1",
     "tslib": "^2.3.1",
     "typedoc": "^0.22.3",
-    "typescript": "^4.4.3"
-  }
+    "typescript": "^4.4.3",
+    "@types/node": "^16.9.2",
+    "ts-node": "^10.2.1"
+  },
+  "devDependencies": {}
 }
