@@ -16167,6 +16167,7 @@ async function run3(config, steps) {
       options3.external.push("@vladmandic/build");
     if (config.log.debug)
       log4.data("ESBuild Options:", options3);
+    let ok = true;
     try {
       const meta = await build(options3);
       if (config.log.debug)
@@ -16175,12 +16176,11 @@ async function run3(config, steps) {
       log4.state("Compile:", { name: entry.name || "", format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
       log4.error("Compile:", { name: entry.name || "", format: entry.format, platform: entry.platform, input: entry.input }, { errors: err["errors"] || err });
-      if (__require.main === module)
-        process.exit(1);
+      ok = false;
     }
-    if (steps.includes("typings") && entry.typings && entry.typings !== "")
+    if (ok && steps.includes("typings") && entry.typings && entry.typings !== "")
       await run2(config, entry);
-    if (steps.includes("typedoc") && entry.typedoc && entry.typedoc !== "")
+    if (ok && steps.includes("typedoc") && entry.typedoc && entry.typedoc !== "")
       await run(config, entry);
   }
   busy = false;
@@ -16727,7 +16727,7 @@ function run7() {
 exports.run = run7;
 
 // package.json
-var version7 = "0.5.1";
+var version7 = "0.5.2";
 
 // src/build.ts
 var packageJson = () => {

@@ -22,7 +22,9 @@ To configure a pipeline, edit `build.json`
 
 - **`clean`**: clean locations specified in `config.clean.locations`
 
-- **`compile`**: compile and bundle sources for each target
+- **`compile`**: compile and bundle sources for each target  
+  compile treats errors as non-fatal so when running with `watch` it retries once error is corrected
+  optional steps `typings` and `typedoc` are skipped on unsucessful compile
 
 - **`typings`**: generate `.d.ts` typings  
   runs for each target with `config.build.<target>.typings` set

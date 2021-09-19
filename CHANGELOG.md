@@ -9,10 +9,14 @@
   
 ## Changelog
   
+### **0.5.2** 2021/09/19 mandic00@live.com
+
+
+### **origin/main** 2021/09/18 mandic00@live.com
+
+- full rewrite in typescript
+
 ### **0.5.1** 2021/09/18 mandic00@live.com
-
-
-### **origin/main** 2021/09/16 mandic00@live.com
 
 - improve http module
 

@@ -72,6 +72,7 @@ export async function run(config, steps) {
     if (!options.external) options.external = entry.external || []; // set external if not existing
     if (!options.external.includes('@vladmandic/build')) options.external.push('@vladmandic/build'); // exclude build itself
     if (config.log.debug) log.data('ESBuild Options:', options);
+    let ok = true;
     try {
       const meta = await esbuild.build(options);
       if (config.log.debug) log.data('ESBuild Metadata:', meta);
@@ -79,10 +80,10 @@ export async function run(config, steps) {
       log.state('Compile:', { name: entry.name || '', format: entry.format, platform: entry.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
       log.error('Compile:', { name: entry.name || '', format: entry.format, platform: entry.platform, input: entry.input }, { errors: (err as Record<string, string>)['errors'] || err });
-      if (require.main === module) process.exit(1);
+      ok = false;
     }
-    if (steps.includes('typings') && entry.typings && entry.typings !== '') await typings.run(config, entry);
-    if (steps.includes('typedoc') && entry.typedoc && entry.typedoc !== '') await typedoc.run(config, entry);
+    if (ok && steps.includes('typings') && entry.typings && entry.typings !== '') await typings.run(config, entry);
+    if (ok && steps.includes('typedoc') && entry.typedoc && entry.typedoc !== '') await typedoc.run(config, entry);
   }
   busy = false;
 }
