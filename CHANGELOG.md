@@ -9,11 +9,15 @@
   
 ## Changelog
   
+### **0.5.3** 2021/09/22 mandic00@live.com
+
+
+### **origin/main** 2021/09/19 mandic00@live.com
+
+
 ### **0.5.2** 2021/09/19 mandic00@live.com
 
-
-### **origin/main** 2021/09/18 mandic00@live.com
-
+- remove old theme
 - full rewrite in typescript
 
 ### **0.5.1** 2021/09/18 mandic00@live.com

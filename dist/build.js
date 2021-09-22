@@ -5,10 +5,7 @@ var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __require = typeof require !== "undefined" ? require : (x) => {
-  throw new Error('Dynamic require of "' + x + '" is not supported');
-};
-var __commonJS = (cb, mod) => function __require2() {
+var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __export = (target, all) => {
@@ -28,13 +25,10 @@ var __toModule = (module2) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.3.2/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.3.3/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.3.2/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports2) {
-    var __require2 = typeof require !== "undefined" ? require : (x) => {
-      throw new Error('Dynamic require of "' + x + '" is not supported');
-    };
-    var __commonJS2 = (cb, mod) => function __require22() {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.3.3/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports2) {
+    var __commonJS2 = (cb, mod) => function __require2() {
       return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
     var require_color_name = __commonJS2({
@@ -1785,6 +1779,7 @@ var require_pilogger = __commonJS({
       data: ctx.green("DATA: "),
       error: ctx.red("ERROR:"),
       fatal: ctx.bold.red("FATAL:"),
+      assert: ctx.italic.bold.red("ASSERT:"),
       timed: ctx.magentaBright("TIMED:"),
       state: ctx.magenta("STATE:"),
       verbose: ctx.bgGray.yellowBright("VERB: "),
@@ -1862,6 +1857,10 @@ var require_pilogger = __commonJS({
           print(tags.error, "Cannot open application log", `${options3.logFile}: ${e.code}`);
           streams.clientFile = false;
         });
+    }
+    async function assert(res, exp, ...messages) {
+      if (res !== exp)
+        log13("assert", ...messages, { res, exp });
     }
     async function timed(t0, ...messages) {
       if (arguments.length < 2) {
@@ -1967,6 +1966,7 @@ var require_pilogger = __commonJS({
     exports2.options = options3;
     exports2.console = print;
     exports2.timed = timed;
+    exports2.assert = assert;
     exports2.blank = (...message) => log13(...message);
     exports2.info = (...message) => log13("info", ...message);
     exports2.state = (...message) => log13("state", ...message);
@@ -16679,7 +16679,7 @@ function run7() {
 exports.run = run7;
 
 // package.json
-var version7 = "0.5.2";
+var version7 = "0.5.3";
 
 // src/build.ts
 var packageJson = () => {
