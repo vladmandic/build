@@ -54,14 +54,15 @@ export function run() {
       log.error('Config file does not exist:', build.params.config);
     }
   }
-  if (!build.params.profile) {
-    log.error('Profile not specified');
+  const profile = build.params.profile || build.config.default;
+  if (!profile) {
+    log.error('Profile not specified and no Default profile configured');
   } else if (!build.config.profiles) {
     log.error('Profiles not configured');
-  } else if (!Object.keys(build.config.profiles).includes(build.params.profile as string)) {
-    log.error('Profile not found:', build.params.profile);
+  } else if (!Object.keys(build.config.profiles).includes(profile as string)) {
+    log.error('Profile not found:', profile);
   } else {
-    build.run(build.params.profile as string);
+    build.run(profile as string);
   }
 }
 

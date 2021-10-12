@@ -10,6 +10,7 @@ export interface Targets {
 export interface Config {
   log: { enabled: boolean, console: boolean, output: string, debug: boolean },
   profiles: Record<string, Array<Steps>>,
+  default: string,
   watch: { locations: string[] },
   clean: { locations: string[] },
   changelog: { output: string },

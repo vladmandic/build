@@ -23,7 +23,7 @@ const mime = {
   '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
   '.png': 'image/png',
-  '.jpg': 'image/jpg',
+  '.jpg': 'image/jpeg',
   '.gif': 'image/gif',
   '.ico': 'image/x-icon',
   '.svg': 'image/svg+xml',
@@ -33,6 +33,7 @@ const mime = {
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf',
   '.wasm': 'application/wasm',
+  '.webmanifest': 'application/manifest+json',
 };
 
 function handle(url): Promise<{ ok: boolean, stat: Record<string, unknown>, file: string }> {

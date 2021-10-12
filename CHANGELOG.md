@@ -9,11 +9,12 @@
   
 ## Changelog
   
+### **HEAD -> main** 2021/09/22 mandic00@live.com
+
+
 ### **0.5.3** 2021/09/22 mandic00@live.com
 
-
-### **origin/main** 2021/09/19 mandic00@live.com
-
+- treat compile errors as retriable
 
 ### **0.5.2** 2021/09/19 mandic00@live.com
 

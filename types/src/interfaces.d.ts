@@ -13,6 +13,7 @@ export interface Config {
         debug: boolean;
     };
     profiles: Record<string, Array<Steps>>;
+    default: string;
     watch: {
         locations: string[];
     };
