@@ -1,4 +1,4 @@
-# packageJson  
+#   
 
   Version: **undefined**  
   Description: **undefined**  
@@ -9,8 +9,12 @@
   
 ## Changelog
   
-### **HEAD -> main** 2021/09/22 mandic00@live.com
+### **0.6.1** 2021/10/17 mandic00@live.com
 
+
+### **origin/main** 2021/10/12 mandic00@live.com
+
+- new esbuild
 
 ### **0.5.3** 2021/09/22 mandic00@live.com
 

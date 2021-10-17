@@ -1,6 +1,5 @@
 import { Config, Targets, Steps } from './interfaces';
 export { Config, Targets, Steps } from './interfaces';
-declare const packageJson: () => any;
 export declare class Build {
     params: {
         debug: boolean;
@@ -16,7 +15,8 @@ export declare class Build {
         eslint: string;
     };
     environment: {
-        config: string;
+        config: string | undefined;
+        package: string | undefined;
         tsconfig: boolean;
         eslintrc: boolean;
         git: boolean;
@@ -25,9 +25,11 @@ export declare class Build {
         name: string;
         version: string;
     };
-    package: typeof packageJson;
+    package: Record<string, unknown>;
     config: Config;
     constructor(config?: Partial<Config>);
+    updateConfig: (config: any, options?: {}) => any;
+    packageJson: () => any;
     run(profile: string, config?: Partial<Config>): Promise<Record<string, unknown>[]>;
     clean(): Promise<void>;
     lint(): Promise<void>;

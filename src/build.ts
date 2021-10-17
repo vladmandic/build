@@ -7,7 +7,7 @@ import * as lint from './lint';
 import * as typedoc from './typedoc';
 import * as typings from './typings';
 import * as helpers from './helpers';
-import * as defaults from '../build.json';
+import { defaults } from './defaults';
 import * as clean from './clean';
 import * as changelog from './changelog';
 import * as cli from './cli';
@@ -33,33 +33,6 @@ process.on('uncaughtException', (err) => {
   process.exit(1);
 });
 */
-
-const packageJson = () => {
-  if (!fs.existsSync('package.json')) {
-    log.error('Package definition not found:', 'package.json');
-    process.exit(1);
-  }
-  const data = fs.readFileSync('package.json');
-  const json = JSON.parse(data.toString());
-  return json;
-};
-
-const updateConfig = (config, options = {}) => {
-  // set defaults
-  let local = helpers.merge(config);
-  // reset defaults to emtpy project
-  local.clean.locations = [];
-  local.lint.locations = [];
-  local.watch.locatinos = [];
-  local.build.targets = [];
-  if (fs.existsSync('build.json')) { // add options from parsed build.json
-    const data = fs.readFileSync('build.json');
-    local = helpers.merge(local, JSON.parse(data.toString()));
-  }
-  if (Object.keys(options).length) local = helpers.merge(local, options);
-  for (const profile of Object.keys(local.profiles)) local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])]; // deduplicate profile steps
-  return local;
-};
 
 /**
  * Class Build
@@ -87,7 +60,7 @@ export class Build {
    * @property `eslintrc` is `eslintrc.json` present?
    * @property `git` is this a valid git repository?
    */
-  environment = { config: '', tsconfig: false, eslintrc: false, git: false };
+  environment = { config: <string | undefined>undefined, package: <string | undefined>undefined, tsconfig: <boolean>false, eslintrc: <boolean>false, git: <boolean>false };
 
   /**
    * Contains detected application information
@@ -99,7 +72,7 @@ export class Build {
   /**
    * Contains parsed application package.json file
    */
-  package: typeof packageJson;
+  package: Record<string, unknown>;
 
   /**
    * Contains currently active build configuration
@@ -129,19 +102,53 @@ export class Build {
    * @param config {@link Config} Optional configuration options overrides
    */
   constructor(config?: Partial<Config>) {
-    this.config = updateConfig(helpers.merge(defaults), config);
+    this.config = this.updateConfig(helpers.merge(defaults), config);
     const tsconfig = fs.existsSync('tsconfig.json');
     const eslintrc = fs.existsSync('.eslintrc.json');
     const git = fs.existsSync('.git') && fs.existsSync('.git/config');
-    this.package = packageJson();
+    this.package = this.packageJson();
     this.toolchain = { build: app.version, esbuild: compile.version, typescript: typings.version, typedoc: typedoc.version, eslint: lint.version };
-    this.environment = { config: 'build.json', tsconfig, eslintrc, git };
-    this.application = { name: this.package['name'], version: this.package['version'] };
+    this.environment = { ...this.environment, tsconfig, eslintrc, git };
+    this.application = { name: this.package['name'] as string, version: this.package['version'] as string };
     log.configure({ inspect: { breakLength: 265 } });
     // log.ringLength = 1000; // increase log ring buffer
     log.options.console = this.config.log.console;
     if (this.config.log.enabled && this.config.log.output && this.config.log.output !== '') log.logFile(this.config.log.output);
   }
+
+  updateConfig = (config, options = {}) => {
+    // set defaults
+    let local = helpers.merge(config);
+    // reset defaults to emtpy project
+    local.clean.locations = [];
+    local.lint.locations = [];
+    local.watch.locatinos = [];
+    local.build.targets = [];
+    if (fs.existsSync('.build.json')) { // add options from parsed build.json
+      const data = fs.readFileSync('.build.json');
+      local = helpers.merge(local, JSON.parse(data.toString()));
+      this.environment.config = '.build.json';
+    }
+    if (fs.existsSync('build.json')) { // add options from parsed build.json
+      const data = fs.readFileSync('build.json');
+      local = helpers.merge(local, JSON.parse(data.toString()));
+      this.environment.config = 'build.json';
+    }
+    if (Object.keys(options).length) local = helpers.merge(local, options);
+    for (const profile of Object.keys(local.profiles)) local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])]; // deduplicate profile steps
+    return local;
+  };
+
+  packageJson = () => {
+    if (!fs.existsSync('package.json')) {
+      log.error('Package definition not found:', 'package.json');
+      process.exit(1);
+    }
+    const data = fs.readFileSync('package.json');
+    const json = JSON.parse(data.toString());
+    this.environment.package = 'package.json';
+    return json;
+  };
 
   /**
    * Runs build pipeline for specified profile
@@ -151,7 +158,7 @@ export class Build {
    * @returns Object containing all messages
    */
   async run(profile: string, config?: Partial<Config>) {
-    if (config && Object.keys(config).length) this.config = updateConfig(this.config, config);
+    if (config && Object.keys(config).length) this.config = this.updateConfig(this.config, config);
     helpers.info(profile, this.application, this.environment, this.toolchain);
     const steps = Object.values(this.config.profiles[profile]);
     log.info('Build:', { profile, steps });
@@ -161,7 +168,7 @@ export class Build {
         case 'clean': await clean.run(this.config); break;
         case 'compile': await compile.run(this.config, steps); break;
         case 'lint': await lint.run(this.config); break;
-        case 'changelog': await changelog.run(this.config, packageJson); break;
+        case 'changelog': await changelog.run(this.config, this.packageJson); break;
         case 'serve': await serve.start(this.config); break;
         case 'watch': await watch.start(this.config, steps); break;
         case 'typings': break; // triggered as compile step per target
@@ -176,7 +183,7 @@ export class Build {
 
   async clean() { return clean.run(this.config); }
   async lint() { return lint.run(this.config); }
-  async changelog() { return changelog.run(this.config, packageJson); }
+  async changelog() { return changelog.run(this.config, this.packageJson); }
   async serve() { return serve.start(this.config); }
   async compile(steps: Array<Steps>) { return compile.run(this.config, steps); }
   async watch(steps: Array<Steps>) { return watch.start(this.config, steps); }

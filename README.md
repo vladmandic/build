@@ -7,7 +7,7 @@
 ## Profiles
 
 Key feature is configurable multiple build profiles each executing specified build steps  
-To configure a pipeline, edit `build.json`  
+To configure a pipeline, edit `build.json` or `.build.json`  
 
 **Default profiles:**
 

@@ -1860,7 +1860,7 @@ var require_pilogger = __commonJS({
     }
     async function assert(res, exp, ...messages) {
       if (res !== exp)
-        log13("assert", ...messages, { res, exp });
+        log12("assert", ...messages, { res, exp });
     }
     async function timed(t0, ...messages) {
       if (arguments.length < 2) {
@@ -1881,7 +1881,7 @@ var require_pilogger = __commonJS({
         streams.logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
 `);
     }
-    async function log13(tag, ...messages) {
+    async function log12(tag, ...messages) {
       const time = dayjs2(Date.now()).format(options3.dateFormat);
       if (tags[tag])
         print(tags[tag], ...messages);
@@ -1934,8 +1934,8 @@ var require_pilogger = __commonJS({
         return;
       const node = JSON.parse(fs8.readFileSync(f).toString());
       process.title = node.name;
-      log13("info", node.name, "version", node.version);
-      log13("info", "User:", os.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
+      log12("info", node.name, "version", node.version);
+      log12("info", "User:", os.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
       if (options3.logFile && streams.logFile)
         print(tags.state, "Application log:", path4.resolve(options3.logFile));
       if (options3.accessFile && streams.accessFile)
@@ -1949,8 +1949,8 @@ var require_pilogger = __commonJS({
         return;
       const node = JSON.parse(fs8.readFileSync(f).toString());
       process.title = node.name;
-      log13("info", { application: node.name, version: node.version });
-      log13("info", { user: os.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
+      log12("info", { application: node.name, version: node.version });
+      log12("info", { user: os.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
       if (options3.logFile || options3.accessFile || options3.clientFile)
         print(tags.state, { log: path4.resolve(options3.logFile || ""), access: path4.resolve(options3.accessFile || ""), client: path4.resolve(options3.clientFile || "") });
     }
@@ -1967,15 +1967,15 @@ var require_pilogger = __commonJS({
     exports2.console = print;
     exports2.timed = timed;
     exports2.assert = assert;
-    exports2.blank = (...message) => log13(...message);
-    exports2.info = (...message) => log13("info", ...message);
-    exports2.state = (...message) => log13("state", ...message);
-    exports2.data = (...message) => log13("data", ...message);
-    exports2.warn = (...message) => log13("warn", ...message);
-    exports2.error = (...message) => log13("error", ...message);
-    exports2.fatal = (...message) => log13("fatal", ...message);
-    exports2.verbose = (...message) => log13("verbose", ...message);
-    exports2.debug = (...message) => log13("debug", ...message);
+    exports2.blank = (...message) => log12(...message);
+    exports2.info = (...message) => log12("info", ...message);
+    exports2.state = (...message) => log12("state", ...message);
+    exports2.data = (...message) => log12("data", ...message);
+    exports2.warn = (...message) => log12("warn", ...message);
+    exports2.error = (...message) => log12("error", ...message);
+    exports2.fatal = (...message) => log12("fatal", ...message);
+    exports2.verbose = (...message) => log12("verbose", ...message);
+    exports2.debug = (...message) => log12("debug", ...message);
     exports2.access = (...message) => access(...message);
     exports2.client = (...message) => client(...message);
   }
@@ -2628,7 +2628,7 @@ var require_node = __commonJS({
     var tty = require("tty");
     var util = require("util");
     exports2.init = init;
-    exports2.log = log13;
+    exports2.log = log12;
     exports2.formatArgs = formatArgs;
     exports2.save = save;
     exports2.load = load;
@@ -2760,7 +2760,7 @@ var require_node = __commonJS({
       }
       return new Date().toISOString() + " ";
     }
-    function log13(...args) {
+    function log12(...args) {
       return process.stderr.write(util.format(...args) + "\n");
     }
     function save(namespaces) {
@@ -2814,27 +2814,27 @@ var require_src2 = __commonJS({
     Object.defineProperty(exports2, "__esModule", { value: true });
     var fs_1 = require("fs");
     var debug_1 = __importDefault(require_src());
-    var log13 = debug_1.default("@kwsites/file-exists");
+    var log12 = debug_1.default("@kwsites/file-exists");
     function check(path4, isFile, isDirectory) {
-      log13(`checking %s`, path4);
+      log12(`checking %s`, path4);
       try {
         const stat = fs_1.statSync(path4);
         if (stat.isFile() && isFile) {
-          log13(`[OK] path represents a file`);
+          log12(`[OK] path represents a file`);
           return true;
         }
         if (stat.isDirectory() && isDirectory) {
-          log13(`[OK] path represents a directory`);
+          log12(`[OK] path represents a directory`);
           return true;
         }
-        log13(`[FAIL] path represents something other than a file or directory`);
+        log12(`[FAIL] path represents something other than a file or directory`);
         return false;
       } catch (e) {
         if (e.code === "ENOENT") {
-          log13(`[FAIL] path is not accessible: %o`, e);
+          log12(`[FAIL] path is not accessible: %o`, e);
           return false;
         }
-        log13(`[FATAL] %o`, e);
+        log12(`[FATAL] %o`, e);
         throw e;
       }
     }
@@ -4555,9 +4555,9 @@ var require_task_callback = __commonJS({
     }
     exports2.taskCallback = taskCallback;
     function addDeprecationNoticeToError(err) {
-      let log13 = (name) => {
+      let log12 = (name) => {
         console.warn(`simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`);
-        log13 = utils_1.NOOP;
+        log12 = utils_1.NOOP;
       };
       return Object.create(err, Object.getOwnPropertyNames(err.git).reduce(descriptorReducer, {}));
       function descriptorReducer(all, name) {
@@ -4568,7 +4568,7 @@ var require_task_callback = __commonJS({
           enumerable: false,
           configurable: false,
           get() {
-            log13(name);
+            log12(name);
             return err.git[name];
           }
         };
@@ -11649,12 +11649,12 @@ var require_chokidar = __commonJS({
       }
     };
     exports2.FSWatcher = FSWatcher;
-    var watch4 = (paths, options3) => {
+    var watch3 = (paths, options3) => {
       const watcher = new FSWatcher(options3);
       watcher.add(paths);
       return watcher;
     };
-    exports2.watch = watch4;
+    exports2.watch = watch3;
   }
 });
 
@@ -14025,7 +14025,7 @@ var require_rimraf = __commonJS({
     };
     var timeout = 0;
     var isWindows = process.platform === "win32";
-    var defaults3 = (options3) => {
+    var defaults4 = (options3) => {
       const methods = [
         "unlink",
         "chmod",
@@ -14060,7 +14060,7 @@ var require_rimraf = __commonJS({
       assert.equal(typeof cb, "function", "rimraf: callback function required");
       assert(options3, "rimraf: invalid options argument provided");
       assert.equal(typeof options3, "object", "rimraf: options should be object");
-      defaults3(options3);
+      defaults4(options3);
       let busyTries = 0;
       let errState = null;
       let n = 0;
@@ -14207,7 +14207,7 @@ var require_rimraf = __commonJS({
     };
     var rimrafSync = (p, options3) => {
       options3 = options3 || {};
-      defaults3(options3);
+      defaults4(options3);
       assert(p, "rimraf: missing path");
       assert.equal(typeof p, "string", "rimraf: path should be a string");
       assert(options3, "rimraf: missing options");
@@ -16061,7 +16061,7 @@ __export(exports, {
   Build: () => Build
 });
 var fs7 = __toModule(require("fs"));
-var log12 = __toModule(require_pilogger());
+var log11 = __toModule(require_pilogger());
 
 // src/compile.ts
 var log4 = __toModule(require_pilogger());
@@ -16596,172 +16596,150 @@ async function run4(config) {
   }
 }
 
-// build.json
-var build_exports = {};
-__export(build_exports, {
-  build: () => build3,
-  changelog: () => changelog,
-  clean: () => clean,
-  default: () => build_default,
-  lint: () => lint,
-  log: () => log8,
-  profiles: () => profiles,
-  serve: () => serve,
-  typescript: () => typescript,
-  watch: () => watch2
-});
-var log8 = {
-  enabled: true,
-  debug: false,
-  console: true,
-  output: "build.log"
-};
-var profiles = {
-  production: ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
-  development: ["serve", "watch", "compile"],
-  lint: ["lint"],
-  all: ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
-};
-var watch2 = {
-  locations: ["src/**", "README.md"]
-};
-var clean = {
-  locations: ["types/*", "typedoc/*"]
-};
-var changelog = {
-  output: "CHANGELOG.md"
-};
-var serve = {
-  sslKey: "cert/https.key",
-  sslCrt: "cert/https.crt",
-  httpPort: 8e3,
-  httpsPort: 8001,
-  documentRoot: ".",
-  defaultFolder: ".",
-  defaultFile: "index.html"
-};
-var build3 = {
-  global: {
-    target: "es2018",
-    sourcemap: true,
-    banner: { js: "/*\n  generated by @vladmandic/build  \n*/\n" }
+// src/defaults.ts
+var defaults3 = {
+  log: {
+    enabled: true,
+    debug: false,
+    console: true,
+    output: "build.log"
   },
-  production: {
-    minify: false
+  profiles: {
+    production: ["clean", "compile", "typings", "typedoc", "lint", "changelog"],
+    development: ["serve", "watch", "compile"],
+    lint: ["lint"],
+    all: ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
   },
-  development: {
-    minify: false
+  watch: {
+    locations: ["src/**", "README.md"]
   },
-  targets: [
-    {
-      name: "build module",
-      input: "src/build.ts",
-      output: "dist/build.esm.js",
-      platform: "node",
-      format: "esm",
-      typings: "types",
-      typedoc: "typedoc",
-      external: ["typedoc", "typescript", "eslint", "esbuild"]
+  clean: {
+    locations: ["types/*", "typedoc/*"]
+  },
+  changelog: {
+    output: "CHANGELOG.md"
+  },
+  serve: {
+    sslKey: "cert/https.key",
+    sslCrt: "cert/https.crt",
+    httpPort: 8e3,
+    httpsPort: 8001,
+    documentRoot: ".",
+    defaultFolder: ".",
+    defaultFile: "index.html"
+  },
+  build: {
+    global: {
+      target: "es2018",
+      sourcemap: true,
+      banner: { js: "/*\n  generated by @vladmandic/build  \n*/\n" }
+    },
+    production: {
+      minify: false
+    },
+    development: {
+      minify: false
+    },
+    targets: [
+      {
+        name: "build module",
+        input: "src/build.ts",
+        output: "dist/build.esm.js",
+        platform: "node",
+        format: "esm",
+        typings: "types",
+        typedoc: "typedoc",
+        external: ["typedoc", "typescript", "eslint", "esbuild"]
+      }
+    ]
+  },
+  typescript: {
+    module: "es2020",
+    target: "es2020",
+    typeRoots: ["node_modules/@types"],
+    lib: ["lib.esnext.d.ts", "lib.dom.d.ts", "lib.webworker.d.ts"],
+    baseUrl: "./",
+    paths: { tslib: ["node_modules/tslib/tslib.d.ts"] },
+    sourceMap: true,
+    noEmitOnError: false,
+    emitDeclarationOnly: true,
+    declaration: true,
+    allowJs: true,
+    allowSyntheticDefaultImports: true,
+    importHelpers: true,
+    pretty: true,
+    removeComments: false,
+    skipLibCheck: true,
+    listEmittedFiles: true,
+    allowUnreachableCode: false,
+    allowUnusedLabels: false,
+    alwaysStrict: true,
+    emitDecoratorMetadata: true,
+    experimentalDecorators: true,
+    noFallthroughCasesInSwitch: true,
+    noImplicitAny: false,
+    noImplicitOverride: true,
+    noImplicitReturns: true,
+    noImplicitThis: true,
+    noPropertyAccessFromIndexSignature: false,
+    noUncheckedIndexedAccess: false,
+    noUnusedLocals: false,
+    noUnusedParameters: true,
+    preserveConstEnums: true,
+    strictBindCallApply: true,
+    strictFunctionTypes: true,
+    strictNullChecks: true,
+    strictPropertyInitialization: true,
+    "no-restricted-syntax": "off"
+  },
+  lint: {
+    locations: ["src/*.ts"],
+    env: { browser: true, commonjs: true, node: true, es2020: true },
+    parser: "@typescript-eslint/parser",
+    parserOptions: { ecmaVersion: 2020 },
+    plugins: ["@typescript-eslint"],
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+    ignorePatterns: ["**/dist/**", "**/typedoc/**", "**/types/**", "**/node_modules/**"],
+    rules: {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-shadow": "error",
+      "@typescript-eslint/no-var-requires": "off",
+      "dot-notation": "off",
+      "func-names": "off",
+      "guard-for-in": "off",
+      "import/extensions": "off",
+      "import/no-named-as-default": "off",
+      "import/prefer-default-export": "off",
+      "lines-between-class-members": "off",
+      "max-len": [1, 250, 3],
+      "newline-per-chained-call": "off",
+      "no-async-promise-executor": "off",
+      "no-await-in-loop": "off",
+      "no-bitwise": "off",
+      "no-case-declarations": "off",
+      "no-continue": "off",
+      "no-plusplus": "off",
+      "object-curly-newline": "off",
+      "prefer-destructuring": "off",
+      "prefer-template": "off",
+      "promise/always-return": "off",
+      "promise/catch-or-return": "off",
+      radix: "off",
+      "no-underscore-dangle": "off",
+      "no-restricted-syntax": "off",
+      "no-return-assign": "off"
     }
-  ]
-};
-var typescript = {
-  module: "es2020",
-  target: "es2020",
-  typeRoots: ["node_modules/@types"],
-  lib: ["lib.esnext.d.ts", "lib.dom.d.ts", "lib.webworker.d.ts"],
-  baseUrl: "./",
-  paths: { tslib: ["node_modules/tslib/tslib.d.ts"] },
-  sourceMap: true,
-  noEmitOnError: false,
-  emitDeclarationOnly: true,
-  declaration: true,
-  allowJs: true,
-  allowSyntheticDefaultImports: true,
-  importHelpers: true,
-  pretty: true,
-  removeComments: false,
-  skipLibCheck: true,
-  listEmittedFiles: true,
-  allowUnreachableCode: false,
-  allowUnusedLabels: false,
-  alwaysStrict: true,
-  emitDecoratorMetadata: true,
-  experimentalDecorators: true,
-  noFallthroughCasesInSwitch: true,
-  noImplicitAny: false,
-  noImplicitOverride: true,
-  noImplicitReturns: true,
-  noImplicitThis: true,
-  noPropertyAccessFromIndexSignature: false,
-  noUncheckedIndexedAccess: false,
-  noUnusedLocals: false,
-  noUnusedParameters: true,
-  preserveConstEnums: true,
-  strictBindCallApply: true,
-  strictFunctionTypes: true,
-  strictNullChecks: true,
-  strictPropertyInitialization: true,
-  "no-restricted-syntax": "off"
-};
-var lint = {
-  locations: ["src/*.ts"],
-  env: { browser: true, commonjs: true, node: true, es2020: true },
-  parser: "@typescript-eslint/parser",
-  parserOptions: { ecmaVersion: 2020 },
-  plugins: ["@typescript-eslint"],
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
-  ignorePatterns: ["**/dist/**", "**/typedoc/**", "**/types/**", "**/node_modules/**"],
-  rules: {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-var-requires": "off",
-    "dot-notation": "off",
-    "func-names": "off",
-    "guard-for-in": "off",
-    "import/extensions": "off",
-    "import/no-named-as-default": "off",
-    "import/prefer-default-export": "off",
-    "lines-between-class-members": "off",
-    "max-len": [1, 250, 3],
-    "newline-per-chained-call": "off",
-    "no-async-promise-executor": "off",
-    "no-await-in-loop": "off",
-    "no-bitwise": "off",
-    "no-case-declarations": "off",
-    "no-continue": "off",
-    "no-plusplus": "off",
-    "object-curly-newline": "off",
-    "prefer-destructuring": "off",
-    "prefer-template": "off",
-    "promise/always-return": "off",
-    "promise/catch-or-return": "off",
-    radix: "off",
-    "no-underscore-dangle": "off",
-    "no-restricted-syntax": "off",
-    "no-return-assign": "off"
   }
-};
-var build_default = {
-  log: log8,
-  profiles,
-  watch: watch2,
-  clean,
-  changelog,
-  serve,
-  build: build3,
-  typescript,
-  lint
 };
 
 // src/clean.ts
-var log9 = __toModule(require_pilogger());
+var log8 = __toModule(require_pilogger());
 var rimraf = __toModule(require_rimraf());
 function run5(config) {
-  log9.state("Clean:", { locations: config.clean.locations });
+  log8.state("Clean:", { locations: config.clean.locations });
   if (!config.clean.locations)
-    log9.warn("Clean called, but locations are not set");
+    log8.warn("Clean called, but locations are not set");
   else
     for (const loc of config.clean.locations)
       rimraf.sync(loc);
@@ -16769,7 +16747,7 @@ function run5(config) {
 
 // src/changelog.ts
 var fs5 = __toModule(require("fs"));
-var log10 = __toModule(require_pilogger());
+var log9 = __toModule(require_pilogger());
 var import_dayjs = __toModule(require_dayjs_min());
 var import_promise2 = __toModule(require_promise());
 var git2 = (0, import_promise2.default)();
@@ -16784,9 +16762,9 @@ var header = (app2, url) => `# ${app2.name}
   
 ## Changelog
   `;
-async function run6(config, packageJson2) {
+async function run6(config, packageJson) {
   if (!fs5.existsSync(".git")) {
-    log10.warn("No valid git repository:", ".git");
+    log9.warn("No valid git repository:", ".git");
     return;
   }
   const gitLog = await git2.log();
@@ -16795,9 +16773,9 @@ async function run6(config, packageJson2) {
   const branch = await git2.branchLocal();
   const entries = [...gitLog.all].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   if (config.log.debug)
-    log10.data("Git Log:", entries);
+    log9.data("Git Log:", entries);
   let previous = "";
-  let text = header(packageJson2, gitUrl);
+  let text = header(packageJson, gitUrl);
   const headings = [];
   for (const l of entries) {
     const msg = l.message.toLowerCase();
@@ -16820,115 +16798,122 @@ async function run6(config, packageJson2) {
     }
   }
   fs5.writeFileSync(config.changelog.output, text);
-  log10.state("ChangeLog:", { repository: gitUrl, branch: branch.current, output: config.changelog.output });
+  log9.state("ChangeLog:", { repository: gitUrl, branch: branch.current, output: config.changelog.output });
 }
 
 // src/cli.ts
 var fs6 = __toModule(require("fs"));
-var log11 = __toModule(require_pilogger());
+var log10 = __toModule(require_pilogger());
 var import_commander = __toModule(require_commander());
 function run7() {
-  const build4 = new Build();
-  log11.header();
-  if (build4.environment.tsconfig)
-    build4.config.build.global["tsconfig"] = "tsconfig.json";
+  const build3 = new Build();
+  log10.header();
+  if (build3.environment.tsconfig)
+    build3.config.build.global["tsconfig"] = "tsconfig.json";
   import_commander.program.option("-c, --config <file>", "specify config file");
   import_commander.program.option("-d, --debug", "enable debug output");
   import_commander.program.option("-g, --generate", "generate config files from templates");
   import_commander.program.option("-p, --profile <profile>", "run build for specific profile");
   import_commander.program.parse(process.argv);
-  build4.params = { ...build4.params, ...import_commander.program.opts() };
-  if (build4.params.debug) {
-    log11.info("Debug output:", build4.params.debug);
-    build4.config.log.debug = true;
+  build3.params = { ...build3.params, ...import_commander.program.opts() };
+  if (build3.params.debug) {
+    log10.info("Debug output:", build3.params.debug);
+    build3.config.log.debug = true;
   }
-  if (build4.params.generate) {
-    log11.info("Generate config files:", build4.params.generate);
-    build4.config["generate"] = true;
+  if (build3.params.generate) {
+    log10.info("Generate config files:", build3.params.generate);
+    build3.config["generate"] = true;
   }
-  if (build4.params.config && build4.params.config !== "") {
-    if (fs6.existsSync(build4.params.config)) {
-      const data8 = fs6.readFileSync(build4.params.config);
+  if (build3.params.config && build3.params.config !== "") {
+    if (fs6.existsSync(build3.params.config)) {
+      const data8 = fs6.readFileSync(build3.params.config);
       try {
-        build4.config = merge(build4.config, JSON.parse(data8.toString()));
-        log11.info("Parsed config file:", build4.params.config, build4.config);
+        build3.config = merge(build3.config, JSON.parse(data8.toString()));
+        log10.info("Parsed config file:", build3.params.config, build3.config);
       } catch (e) {
-        log11.error("Error parsing config file:", build4.params.config);
+        log10.error("Error parsing config file:", build3.params.config);
       }
     } else {
-      log11.error("Config file does not exist:", build4.params.config);
+      log10.error("Config file does not exist:", build3.params.config);
     }
   }
-  const profile = build4.params.profile || build4.config.default;
+  const profile = build3.params.profile || build3.config.default;
   if (!profile) {
-    log11.error("Profile not specified and no Default profile configured");
-  } else if (!build4.config.profiles) {
-    log11.error("Profiles not configured");
-  } else if (!Object.keys(build4.config.profiles).includes(profile)) {
-    log11.error("Profile not found:", profile);
+    log10.error("Profile not specified and no Default profile configured");
+  } else if (!build3.config.profiles) {
+    log10.error("Profiles not configured");
+  } else if (!Object.keys(build3.config.profiles).includes(profile)) {
+    log10.error("Profile not found:", profile);
   } else {
-    build4.run(profile);
+    build3.run(profile);
   }
 }
 exports.run = run7;
 
 // package.json
-var version7 = "0.6.0";
+var version7 = "0.6.1";
 
 // src/build.ts
-var packageJson = () => {
-  if (!fs7.existsSync("package.json")) {
-    log12.error("Package definition not found:", "package.json");
-    process.exit(1);
-  }
-  const data8 = fs7.readFileSync("package.json");
-  const json = JSON.parse(data8.toString());
-  return json;
-};
-var updateConfig = (config, options3 = {}) => {
-  let local = merge(config);
-  local.clean.locations = [];
-  local.lint.locations = [];
-  local.watch.locatinos = [];
-  local.build.targets = [];
-  if (fs7.existsSync("build.json")) {
-    const data8 = fs7.readFileSync("build.json");
-    local = merge(local, JSON.parse(data8.toString()));
-  }
-  if (Object.keys(options3).length)
-    local = merge(local, options3);
-  for (const profile of Object.keys(local.profiles))
-    local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])];
-  return local;
-};
 var Build = class {
   constructor(config) {
     this.params = { debug: false, config: "", generate: false, profile: "" };
     this.toolchain = { build: "version", esbuild: "version", typescript: "version", typedoc: "version", eslint: "version" };
-    this.environment = { config: "", tsconfig: false, eslintrc: false, git: false };
+    this.environment = { config: void 0, package: void 0, tsconfig: false, eslintrc: false, git: false };
     this.application = { name: "", version: "" };
-    this.config = { ...build_exports };
-    this.config = updateConfig(merge(build_exports), config);
+    this.config = { ...defaults3 };
+    this.updateConfig = (config, options3 = {}) => {
+      let local = merge(config);
+      local.clean.locations = [];
+      local.lint.locations = [];
+      local.watch.locatinos = [];
+      local.build.targets = [];
+      if (fs7.existsSync(".build.json")) {
+        const data8 = fs7.readFileSync(".build.json");
+        local = merge(local, JSON.parse(data8.toString()));
+        this.environment.config = ".build.json";
+      }
+      if (fs7.existsSync("build.json")) {
+        const data8 = fs7.readFileSync("build.json");
+        local = merge(local, JSON.parse(data8.toString()));
+        this.environment.config = "build.json";
+      }
+      if (Object.keys(options3).length)
+        local = merge(local, options3);
+      for (const profile of Object.keys(local.profiles))
+        local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])];
+      return local;
+    };
+    this.packageJson = () => {
+      if (!fs7.existsSync("package.json")) {
+        log11.error("Package definition not found:", "package.json");
+        process.exit(1);
+      }
+      const data8 = fs7.readFileSync("package.json");
+      const json = JSON.parse(data8.toString());
+      this.environment.package = "package.json";
+      return json;
+    };
+    this.config = this.updateConfig(merge(defaults3), config);
     const tsconfig = fs7.existsSync("tsconfig.json");
     const eslintrc = fs7.existsSync(".eslintrc.json");
     const git3 = fs7.existsSync(".git") && fs7.existsSync(".git/config");
-    this.package = packageJson();
+    this.package = this.packageJson();
     this.toolchain = { build: version7, esbuild: version5, typescript: version3, typedoc: version, eslint: version6 };
-    this.environment = { config: "build.json", tsconfig, eslintrc, git: git3 };
+    this.environment = { ...this.environment, tsconfig, eslintrc, git: git3 };
     this.application = { name: this.package["name"], version: this.package["version"] };
-    log12.configure({ inspect: { breakLength: 265 } });
-    log12.options.console = this.config.log.console;
+    log11.configure({ inspect: { breakLength: 265 } });
+    log11.options.console = this.config.log.console;
     if (this.config.log.enabled && this.config.log.output && this.config.log.output !== "")
-      log12.logFile(this.config.log.output);
+      log11.logFile(this.config.log.output);
   }
   async run(profile, config) {
     if (config && Object.keys(config).length)
-      this.config = updateConfig(this.config, config);
+      this.config = this.updateConfig(this.config, config);
     info2(profile, this.application, this.environment, this.toolchain);
     const steps = Object.values(this.config.profiles[profile]);
-    log12.info("Build:", { profile, steps });
+    log11.info("Build:", { profile, steps });
     if (this.config.log.debug)
-      log12.data("Configuration:", this.config);
+      log11.data("Configuration:", this.config);
     for (const step of steps) {
       switch (step) {
         case "clean":
@@ -16941,7 +16926,7 @@ var Build = class {
           await run4(this.config);
           break;
         case "changelog":
-          await run6(this.config, packageJson);
+          await run6(this.config, this.packageJson);
           break;
         case "serve":
           await start2(this.config);
@@ -16954,13 +16939,13 @@ var Build = class {
         case "typedoc":
           break;
         default:
-          log12.warn("Build: unknown step", step);
+          log11.warn("Build: unknown step", step);
       }
     }
     if (steps.includes("serve"))
-      log12.info("Listening...");
+      log11.info("Listening...");
     else
-      log12.info("Done...");
+      log11.info("Done...");
     return results();
   }
   async clean() {
@@ -16970,7 +16955,7 @@ var Build = class {
     return run4(this.config);
   }
   async changelog() {
-    return run6(this.config, packageJson);
+    return run6(this.config, this.packageJson);
   }
   async serve() {
     return start2(this.config);
