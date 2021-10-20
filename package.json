@@ -1,6 +1,6 @@
 {
   "name": "@vladmandic/build",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Build: Automated CI Platform for NodeJS",
   "main": "dist/build.js",
   "types": "types/src/build.d.ts",
@@ -8,7 +8,7 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "bootstrap": "esbuild --bundle --platform=node --format=cjs --target=es2018 --sourcemap --external:typescript --external:esbuild --external:eslint --external:typedoc --log-level=info --outfile=dist/build.js src/build.ts",
+    "bootstrap": "esbuild --bundle --platform=node --format=cjs --target=es2018 --sourcemap --external:typescript --external:esbuild --external:eslint --external:typedoc --log-level=info --banner:js='#!/usr/bin/env node' --outfile=dist/build.js src/build.ts",
     "build": "rimraf build.log && node dist/build.js --profile production",
     "dev": "node dist/build.js --profile development",
     "lint": "node dist/build.js --profile lint"
