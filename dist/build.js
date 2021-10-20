@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -1981,9 +1982,9 @@ var require_pilogger = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-error.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-error.js
 var require_git_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-error.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitError = void 0;
@@ -1998,9 +1999,9 @@ var require_git_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-construct-error.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-construct-error.js
 var require_git_construct_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-construct-error.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-construct-error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitConstructError = void 0;
@@ -2015,9 +2016,9 @@ var require_git_construct_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js
 var require_git_plugin_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitPluginError = void 0;
@@ -2034,9 +2035,9 @@ var require_git_plugin_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-response-error.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-response-error.js
 var require_git_response_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/git-response-error.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-response-error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitResponseError = void 0;
@@ -2051,9 +2052,9 @@ var require_git_response_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js
 var require_task_configuration_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TaskConfigurationError = void 0;
@@ -2862,13 +2863,14 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/util.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/util.js
 var require_util = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/util.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/util.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
-    exports2.delay = exports2.pick = exports2.bufferToString = exports2.prefixedArray = exports2.asNumber = exports2.asStringArray = exports2.asArray = exports2.objectToString = exports2.remove = exports2.including = exports2.append = exports2.folderExists = exports2.forEachLineWithContent = exports2.toLinesWithContent = exports2.last = exports2.first = exports2.splitOn = exports2.isUserFunction = exports2.asFunction = exports2.NOOP = void 0;
+    exports2.delay = exports2.pick = exports2.bufferToString = exports2.prefixedArray = exports2.asNumber = exports2.asStringArray = exports2.asArray = exports2.objectToString = exports2.remove = exports2.including = exports2.append = exports2.folderExists = exports2.forEachLineWithContent = exports2.toLinesWithContent = exports2.last = exports2.first = exports2.splitOn = exports2.isUserFunction = exports2.asFunction = exports2.NOOP = exports2.NULL = void 0;
     var file_exists_1 = require_dist();
+    exports2.NULL = "\0";
     var NOOP = () => {
     };
     exports2.NOOP = NOOP;
@@ -2992,9 +2994,9 @@ var require_util = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/argument-filters.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/argument-filters.js
 var require_argument_filters = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/argument-filters.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/argument-filters.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.filterHasLength = exports2.filterFunction = exports2.filterPlainObject = exports2.filterStringOrStringArray = exports2.filterStringArray = exports2.filterString = exports2.filterPrimitives = exports2.filterArray = exports2.filterType = void 0;
@@ -3044,9 +3046,9 @@ var require_argument_filters = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/exit-codes.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/exit-codes.js
 var require_exit_codes = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/exit-codes.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/exit-codes.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.ExitCodes = void 0;
@@ -3059,9 +3061,9 @@ var require_exit_codes = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/git-output-streams.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/git-output-streams.js
 var require_git_output_streams = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/git-output-streams.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/git-output-streams.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitOutputStreams = void 0;
@@ -3078,9 +3080,9 @@ var require_git_output_streams = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/line-parser.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/line-parser.js
 var require_line_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/line-parser.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/line-parser.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RemoteLineParser = exports2.LineParser = void 0;
@@ -3134,9 +3136,9 @@ var require_line_parser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/simple-git-options.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/simple-git-options.js
 var require_simple_git_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/simple-git-options.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/simple-git-options.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createInstanceConfig = void 0;
@@ -3155,9 +3157,9 @@ var require_simple_git_options = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/task-options.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-options.js
 var require_task_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/task-options.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-options.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.trailingFunctionArgument = exports2.trailingOptionsArgument = exports2.getTrailingOptions = exports2.appendTaskOptions = void 0;
@@ -3209,9 +3211,9 @@ var require_task_options = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/task-parser.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-parser.js
 var require_task_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/task-parser.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-parser.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseStringResponse = exports2.callTaskParser = void 0;
@@ -3238,9 +3240,9 @@ var require_task_parser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/index.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/index.js
 var require_utils = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/utils/index.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -3270,9 +3272,9 @@ var require_utils = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js
 var require_check_is_repo = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.checkIsBareRepoTask = exports2.checkIsRepoRootTask = exports2.checkIsRepoTask = exports2.CheckRepoActions = void 0;
@@ -3336,9 +3338,9 @@ var require_check_is_repo = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/CleanSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CleanSummary.js
 var require_CleanSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/CleanSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CleanSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.cleanSummaryParser = exports2.CleanResponse = void 0;
@@ -3369,9 +3371,9 @@ var require_CleanSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/task.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/task.js
 var require_task = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/task.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/task.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isEmptyTask = exports2.isBufferTask = exports2.straightThroughBufferTask = exports2.straightThroughStringTask = exports2.configurationErrorTask = exports2.adhocExecTask = exports2.EMPTY_COMMANDS = void 0;
@@ -3426,9 +3428,9 @@ var require_task = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/clean.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clean.js
 var require_clean = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/clean.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clean.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isCleanOptionsArray = exports2.cleanTask = exports2.cleanWithOptionsTask = exports2.CleanOptions = exports2.CONFIG_ERROR_UNKNOWN_OPTION = exports2.CONFIG_ERROR_MODE_REQUIRED = exports2.CONFIG_ERROR_INTERACTIVE_MODE = void 0;
@@ -3512,9 +3514,9 @@ var require_clean = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/ConfigList.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/ConfigList.js
 var require_ConfigList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/ConfigList.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/ConfigList.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.configGetParser = exports2.configListParser = exports2.ConfigList = void 0;
@@ -3604,9 +3606,9 @@ var require_ConfigList = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/config.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/config.js
 var require_config = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/config.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/config.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitConfigScope = void 0;
@@ -3682,9 +3684,87 @@ var require_config = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/reset.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/grep.js
+var require_grep = __commonJS({
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/grep.js"(exports2) {
+    "use strict";
+    var _a;
+    Object.defineProperty(exports2, "__esModule", { value: true });
+    exports2.grepQueryBuilder = void 0;
+    var utils_1 = require_utils();
+    var task_1 = require_task();
+    var disallowedOptions = ["-h"];
+    var Query = Symbol("grepQuery");
+    var GrepQuery = class {
+      constructor() {
+        this[_a] = [];
+      }
+      *[(_a = Query, Symbol.iterator)]() {
+        for (const query of this[Query]) {
+          yield query;
+        }
+      }
+      and(...and) {
+        and.length && this[Query].push("--and", "(", ...utils_1.prefixedArray(and, "-e"), ")");
+        return this;
+      }
+      param(...param) {
+        this[Query].push(...utils_1.prefixedArray(param, "-e"));
+        return this;
+      }
+    };
+    function grepQueryBuilder(...params) {
+      return new GrepQuery().param(...params);
+    }
+    exports2.grepQueryBuilder = grepQueryBuilder;
+    function parseGrep(grep) {
+      const paths = new Set();
+      const results2 = {};
+      utils_1.forEachLineWithContent(grep, (input) => {
+        const [path4, line, preview] = input.split(utils_1.NULL);
+        paths.add(path4);
+        (results2[path4] = results2[path4] || []).push({
+          line: utils_1.asNumber(line),
+          path: path4,
+          preview
+        });
+      });
+      return {
+        paths,
+        results: results2
+      };
+    }
+    function default_1() {
+      return {
+        grep(searchTerm) {
+          const then = utils_1.trailingFunctionArgument(arguments);
+          const options3 = utils_1.getTrailingOptions(arguments);
+          for (const option of disallowedOptions) {
+            if (options3.includes(option)) {
+              return this._runTask(task_1.configurationErrorTask(`git.grep: use of "${option}" is not supported.`), then);
+            }
+          }
+          if (typeof searchTerm === "string") {
+            searchTerm = grepQueryBuilder().param(searchTerm);
+          }
+          const commands = ["grep", "--null", "-n", "--full-name", ...options3, ...searchTerm];
+          return this._runTask({
+            commands,
+            format: "utf-8",
+            parser(stdOut) {
+              return parseGrep(stdOut);
+            }
+          }, then);
+        }
+      };
+    }
+    exports2.default = default_1;
+  }
+});
+
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/reset.js
 var require_reset = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/reset.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/reset.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.getResetMode = exports2.resetTask = exports2.ResetMode = void 0;
@@ -3725,9 +3805,9 @@ var require_reset = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/api.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/api.js
 var require_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/api.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/api.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     var git_construct_error_1 = require_git_construct_error();
@@ -3738,6 +3818,7 @@ var require_api = __commonJS({
     var check_is_repo_1 = require_check_is_repo();
     var clean_1 = require_clean();
     var config_1 = require_config();
+    var grep_1 = require_grep();
     var reset_1 = require_reset();
     var api = {
       CheckRepoActions: check_is_repo_1.CheckRepoActions,
@@ -3748,15 +3829,16 @@ var require_api = __commonJS({
       GitPluginError: git_plugin_error_1.GitPluginError,
       GitResponseError: git_response_error_1.GitResponseError,
       ResetMode: reset_1.ResetMode,
-      TaskConfigurationError: task_configuration_error_1.TaskConfigurationError
+      TaskConfigurationError: task_configuration_error_1.TaskConfigurationError,
+      grepQueryBuilder: grep_1.grepQueryBuilder
     };
     exports2.default = api;
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js
 var require_command_config_prefixing_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.commandConfigPrefixingPlugin = void 0;
@@ -3765,8 +3847,8 @@ var require_command_config_prefixing_plugin = __commonJS({
       const prefix = utils_1.prefixedArray(configuration, "-c");
       return {
         type: "spawn.args",
-        action(data8) {
-          return [...prefix, ...data8];
+        action(data9) {
+          return [...prefix, ...data9];
         }
       };
     }
@@ -3816,9 +3898,9 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js
 var require_completion_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js"(exports2) {
     "use strict";
     var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -3918,9 +4000,9 @@ var require_completion_detection_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js
 var require_error_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.errorDetectionPlugin = exports2.errorDetectionHandler = void 0;
@@ -3943,8 +4025,8 @@ var require_error_detection_plugin = __commonJS({
     function errorDetectionPlugin(config) {
       return {
         type: "task.error",
-        action(data8, context) {
-          const error8 = config(data8.error, {
+        action(data9, context) {
+          const error8 = config(data9.error, {
             stdErr: context.stdErr,
             stdOut: context.stdOut,
             exitCode: context.exitCode
@@ -3962,9 +4044,9 @@ var require_error_detection_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/plugin-store.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/plugin-store.js
 var require_plugin_store = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/plugin-store.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/plugin-store.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PluginStore = void 0;
@@ -3980,8 +4062,8 @@ var require_plugin_store = __commonJS({
           plugins.forEach((plugin2) => this.plugins.delete(plugin2));
         };
       }
-      exec(type, data8, context) {
-        let output = data8;
+      exec(type, data9, context) {
+        let output = data9;
         const contextual = Object.freeze(Object.create(context));
         for (const plugin of this.plugins) {
           if (plugin.type === type) {
@@ -3995,9 +4077,9 @@ var require_plugin_store = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js
 var require_progress_monitor_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.progressMonitorPlugin = void 0;
@@ -4045,17 +4127,17 @@ var require_progress_monitor_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js
 var require_simple_git_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js
 var require_spawn_options_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.spawnOptionsPlugin = void 0;
@@ -4064,8 +4146,8 @@ var require_spawn_options_plugin = __commonJS({
       const options3 = utils_1.pick(spawnOptions, ["uid", "gid"]);
       return {
         type: "spawn.options",
-        action(data8) {
-          return Object.assign(Object.assign({}, options3), data8);
+        action(data9) {
+          return Object.assign(Object.assign({}, options3), data9);
         }
       };
     }
@@ -4073,9 +4155,9 @@ var require_spawn_options_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js
 var require_timout_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.timeoutPlugin = void 0;
@@ -4115,9 +4197,9 @@ var require_timout_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/index.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/index.js
 var require_plugins = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/plugins/index.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/index.js"(exports2) {
     "use strict";
     var __createBinding = exports2 && exports2.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -4147,9 +4229,9 @@ var require_plugins = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/git-logger.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-logger.js
 var require_git_logger = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/git-logger.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-logger.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitLogger = exports2.createLogger = void 0;
@@ -4245,9 +4327,9 @@ var require_git_logger = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js
 var require_tasks_pending_queue = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.TasksPendingQueue = void 0;
@@ -4313,9 +4395,9 @@ var require_tasks_pending_queue = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js
 var require_git_executor_chain = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js"(exports2) {
     "use strict";
     var __awaiter = exports2 && exports2.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -4508,9 +4590,9 @@ var require_git_executor_chain = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/git-executor.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor.js
 var require_git_executor = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/git-executor.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.GitExecutor = void 0;
@@ -4534,17 +4616,17 @@ var require_git_executor = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/task-callback.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/task-callback.js
 var require_task_callback = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/task-callback.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/task-callback.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.taskCallback = void 0;
     var git_response_error_1 = require_git_response_error();
     var utils_1 = require_utils();
     function taskCallback(task, response, callback = utils_1.NOOP) {
-      const onSuccess = (data8) => {
-        callback(null, data8);
+      const onSuccess = (data9) => {
+        callback(null, data9);
       };
       const onError = (err) => {
         if ((err === null || err === void 0 ? void 0 : err.task) === task) {
@@ -4578,9 +4660,9 @@ var require_task_callback = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js
 var require_change_working_directory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.changeWorkingDirectoryTask = void 0;
@@ -4598,9 +4680,9 @@ var require_change_working_directory = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/hash-object.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/hash-object.js
 var require_hash_object = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/hash-object.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/hash-object.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.hashObjectTask = void 0;
@@ -4616,9 +4698,9 @@ var require_hash_object = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/InitSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/InitSummary.js
 var require_InitSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/InitSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/InitSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseInit = exports2.InitSummary = void 0;
@@ -4657,9 +4739,9 @@ var require_InitSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/init.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/init.js
 var require_init = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/init.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/init.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.initTask = void 0;
@@ -4685,9 +4767,9 @@ var require_init = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/DiffSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/DiffSummary.js
 var require_DiffSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/DiffSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/DiffSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.DiffSummary = void 0;
@@ -4703,9 +4785,9 @@ var require_DiffSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js
 var require_parse_diff_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseDiffResult = void 0;
@@ -4779,9 +4861,9 @@ var require_parse_diff_summary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js
 var require_parse_list_log_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.createListLogSummaryParser = exports2.SPLITTER = exports2.COMMIT_BOUNDARY = exports2.START_BOUNDARY = void 0;
@@ -4818,9 +4900,9 @@ var require_parse_list_log_summary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/log.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/log.js
 var require_log = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/log.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/log.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.logTask = exports2.parseLogOptions = void 0;
@@ -4930,9 +5012,9 @@ var require_log = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/MergeSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/MergeSummary.js
 var require_MergeSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/MergeSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/MergeSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.MergeSummaryDetail = exports2.MergeSummaryConflict = void 0;
@@ -4970,9 +5052,9 @@ var require_MergeSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/PullSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/PullSummary.js
 var require_PullSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/PullSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/PullSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.PullSummary = void 0;
@@ -4997,9 +5079,9 @@ var require_PullSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js
 var require_parse_remote_objects = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.remoteMessagesObjectParsers = void 0;
@@ -5043,9 +5125,9 @@ var require_parse_remote_objects = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js
 var require_parse_remote_messages = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.RemoteMessageSummary = exports2.parseRemoteMessages = void 0;
@@ -5081,9 +5163,9 @@ var require_parse_remote_messages = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-pull.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-pull.js
 var require_parse_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-pull.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-pull.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parsePullResult = exports2.parsePullDetail = void 0;
@@ -5128,9 +5210,9 @@ var require_parse_pull = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-merge.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-merge.js
 var require_parse_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-merge.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-merge.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseMergeDetail = exports2.parseMergeResult = void 0;
@@ -5165,9 +5247,9 @@ var require_parse_merge = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/merge.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/merge.js
 var require_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/merge.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/merge.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.mergeTask = void 0;
@@ -5194,9 +5276,9 @@ var require_merge = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-push.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-push.js
 var require_parse_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-push.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-push.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parsePushDetail = exports2.parsePushResult = void 0;
@@ -5259,9 +5341,9 @@ var require_parse_push = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/push.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/push.js
 var require_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/push.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/push.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.pushTask = exports2.pushTagsTask = void 0;
@@ -5293,9 +5375,9 @@ var require_push = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js
 var require_FileStatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.FileStatusSummary = exports2.fromPathRegex = void 0;
@@ -5316,9 +5398,9 @@ var require_FileStatusSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/StatusSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/StatusSummary.js
 var require_StatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/StatusSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/StatusSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseStatusSummary = exports2.StatusSummary = void 0;
@@ -5428,13 +5510,13 @@ var require_StatusSummary = __commonJS({
       const trimmed = lineStr.trim();
       switch (" ") {
         case trimmed.charAt(2):
-          return data8(trimmed.charAt(0), trimmed.charAt(1), trimmed.substr(3));
+          return data9(trimmed.charAt(0), trimmed.charAt(1), trimmed.substr(3));
         case trimmed.charAt(1):
-          return data8(PorcelainFileStatus.NONE, trimmed.charAt(0), trimmed.substr(2));
+          return data9(PorcelainFileStatus.NONE, trimmed.charAt(0), trimmed.substr(2));
         default:
           return;
       }
-      function data8(index, workingDir, path4) {
+      function data9(index, workingDir, path4) {
         const raw = `${index}${workingDir}`;
         const handler = parsers.get(raw);
         if (handler) {
@@ -5448,9 +5530,9 @@ var require_StatusSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/status.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/status.js
 var require_status = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/status.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/status.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.statusTask = void 0;
@@ -5468,15 +5550,16 @@ var require_status = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/simple-git-api.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/simple-git-api.js
 var require_simple_git_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/simple-git-api.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/simple-git-api.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.SimpleGitApi = void 0;
     var task_callback_1 = require_task_callback();
     var change_working_directory_1 = require_change_working_directory();
     var config_1 = require_config();
+    var grep_1 = require_grep();
     var hash_object_1 = require_hash_object();
     var init_1 = require_init();
     var log_1 = require_log();
@@ -5548,13 +5631,13 @@ var require_simple_git_api = __commonJS({
       }
     };
     exports2.SimpleGitApi = SimpleGitApi;
-    Object.assign(SimpleGitApi.prototype, config_1.default(), log_1.default());
+    Object.assign(SimpleGitApi.prototype, config_1.default(), grep_1.default(), log_1.default());
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/scheduler.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/scheduler.js
 var require_scheduler = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/scheduler.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/scheduler.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.Scheduler = void 0;
@@ -5605,9 +5688,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/apply-patch.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/apply-patch.js
 var require_apply_patch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/apply-patch.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/apply-patch.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.applyPatchTask = void 0;
@@ -5619,9 +5702,9 @@ var require_apply_patch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js
 var require_BranchDeleteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.isSingleBranchDeleteFailure = exports2.branchDeletionFailure = exports2.branchDeletionSuccess = exports2.BranchDeletionBatch = void 0;
@@ -5659,9 +5742,9 @@ var require_BranchDeleteSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js
 var require_parse_branch_delete = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.hasBranchDeletionError = exports2.parseBranchDeletions = void 0;
@@ -5686,16 +5769,16 @@ var require_parse_branch_delete = __commonJS({
       return utils_1.parseStringResponse(new BranchDeleteSummary_1.BranchDeletionBatch(), parsers, stdOut, stdErr);
     };
     exports2.parseBranchDeletions = parseBranchDeletions;
-    function hasBranchDeletionError(data8, processExitCode) {
-      return processExitCode === utils_1.ExitCodes.ERROR && deleteErrorRegex.test(data8);
+    function hasBranchDeletionError(data9, processExitCode) {
+      return processExitCode === utils_1.ExitCodes.ERROR && deleteErrorRegex.test(data9);
     }
     exports2.hasBranchDeletionError = hasBranchDeletionError;
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/BranchSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchSummary.js
 var require_BranchSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/BranchSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.BranchSummaryResult = void 0;
@@ -5724,9 +5807,9 @@ var require_BranchSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-branch.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch.js
 var require_parse_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-branch.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseBranchSummary = void 0;
@@ -5747,9 +5830,9 @@ var require_parse_branch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/branch.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/branch.js
 var require_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/branch.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/branch.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.deleteBranchTask = exports2.deleteBranchesTask = exports2.branchLocalTask = exports2.branchTask = exports2.containsDeleteBranchCommand = void 0;
@@ -5828,9 +5911,9 @@ var require_branch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js
 var require_CheckIgnore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseCheckIgnore = void 0;
@@ -5841,9 +5924,9 @@ var require_CheckIgnore = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/check-ignore.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-ignore.js
 var require_check_ignore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/check-ignore.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-ignore.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.checkIgnoreTask = void 0;
@@ -5859,9 +5942,9 @@ var require_check_ignore = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/clone.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clone.js
 var require_clone = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/clone.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clone.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.cloneMirrorTask = exports2.cloneTask = void 0;
@@ -5886,9 +5969,9 @@ var require_clone = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-commit.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-commit.js
 var require_parse_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-commit.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-commit.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseCommitResult = void 0;
@@ -5943,9 +6026,9 @@ var require_parse_commit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/commit.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/commit.js
 var require_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/commit.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/commit.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.commitTask = void 0;
@@ -5964,9 +6047,9 @@ var require_commit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/diff.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/diff.js
 var require_diff = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/diff.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/diff.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.diffSummaryTask = void 0;
@@ -5984,9 +6067,9 @@ var require_diff = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js
 var require_parse_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseFetchResult = void 0;
@@ -6021,9 +6104,9 @@ var require_parse_fetch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/fetch.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/fetch.js
 var require_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/fetch.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/fetch.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.fetchTask = void 0;
@@ -6043,9 +6126,9 @@ var require_fetch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-move.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-move.js
 var require_parse_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/parsers/parse-move.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-move.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseMoveResult = void 0;
@@ -6062,9 +6145,9 @@ var require_parse_move = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/move.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/move.js
 var require_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/move.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/move.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.moveTask = void 0;
@@ -6081,9 +6164,9 @@ var require_move = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/pull.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/pull.js
 var require_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/pull.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/pull.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.pullTask = void 0;
@@ -6105,9 +6188,9 @@ var require_pull = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js
 var require_GetRemoteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseGetRemotesVerbose = exports2.parseGetRemotes = void 0;
@@ -6140,9 +6223,9 @@ var require_GetRemoteSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/remote.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/remote.js
 var require_remote = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/remote.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/remote.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.removeRemoteTask = exports2.remoteTask = exports2.listRemotesTask = exports2.getRemotesTask = exports2.addRemoteTask = void 0;
@@ -6187,9 +6270,9 @@ var require_remote = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/stash-list.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/stash-list.js
 var require_stash_list = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/stash-list.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/stash-list.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.stashListTask = void 0;
@@ -6208,9 +6291,9 @@ var require_stash_list = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/sub-module.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/sub-module.js
 var require_sub_module = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/sub-module.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/sub-module.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.updateSubModuleTask = exports2.subModuleTask = exports2.initSubModuleTask = exports2.addSubModuleTask = void 0;
@@ -6238,9 +6321,9 @@ var require_sub_module = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/TagList.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/TagList.js
 var require_TagList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/responses/TagList.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/TagList.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.parseTagList = exports2.TagList = void 0;
@@ -6251,8 +6334,8 @@ var require_TagList = __commonJS({
       }
     };
     exports2.TagList = TagList;
-    var parseTagList = function(data8, customSort = false) {
-      const tags = data8.split("\n").map(trimmed).filter(Boolean);
+    var parseTagList = function(data9, customSort = false) {
+      const tags = data9.split("\n").map(trimmed).filter(Boolean);
       if (!customSort) {
         tags.sort(function(tagA, tagB) {
           const partsA = tagA.split(".");
@@ -6296,9 +6379,9 @@ var require_TagList = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/tag.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/tag.js
 var require_tag = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/tasks/tag.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/tag.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.addAnnotatedTagTask = exports2.addTagTask = exports2.tagListTask = void 0;
@@ -6337,9 +6420,9 @@ var require_tag = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/git.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/git.js
 var require_git = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/git.js"(exports2, module2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/git.js"(exports2, module2) {
     var { GitExecutor } = require_git_executor();
     var { SimpleGitApi } = require_simple_git_api();
     var { Scheduler } = require_scheduler();
@@ -6619,9 +6702,9 @@ var require_git = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/git-factory.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-factory.js
 var require_git_factory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/git-factory.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-factory.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.gitInstanceFactory = exports2.gitExportFactory = exports2.esModuleFactory = void 0;
@@ -6663,9 +6746,9 @@ var require_git_factory = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js
 var require_promise_wrapped = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js"(exports2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js"(exports2) {
     "use strict";
     Object.defineProperty(exports2, "__esModule", { value: true });
     exports2.gitP = void 0;
@@ -6802,9 +6885,9 @@ var require_promise_wrapped = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/promise.js
+// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/promise.js
 var require_promise = __commonJS({
-  "node_modules/.pnpm/simple-git@2.46.0/node_modules/simple-git/promise.js"(exports2, module2) {
+  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/promise.js"(exports2, module2) {
     var { esModuleFactory, gitExportFactory } = require_git_factory();
     var { gitP } = require_promise_wrapped();
     module2.exports = esModuleFactory(gitExportFactory(gitP));
@@ -16813,6 +16896,7 @@ function run7() {
   import_commander.program.option("-c, --config <file>", "specify config file");
   import_commander.program.option("-d, --debug", "enable debug output");
   import_commander.program.option("-g, --generate", "generate config files from templates");
+  import_commander.program.option("-l, --list", "list configured build profiles");
   import_commander.program.option("-p, --profile <profile>", "run build for specific profile");
   import_commander.program.parse(process.argv);
   build3.params = { ...build3.params, ...import_commander.program.opts() };
@@ -16826,9 +16910,9 @@ function run7() {
   }
   if (build3.params.config && build3.params.config !== "") {
     if (fs6.existsSync(build3.params.config)) {
-      const data8 = fs6.readFileSync(build3.params.config);
+      const data9 = fs6.readFileSync(build3.params.config);
       try {
-        build3.config = merge(build3.config, JSON.parse(data8.toString()));
+        build3.config = merge(build3.config, JSON.parse(data9.toString()));
         log10.info("Parsed config file:", build3.params.config, build3.config);
       } catch (e) {
         log10.error("Error parsing config file:", build3.params.config);
@@ -16836,6 +16920,11 @@ function run7() {
     } else {
       log10.error("Config file does not exist:", build3.params.config);
     }
+  }
+  if (import_commander.program.opts().list) {
+    log10.info("Configured build profiles:");
+    log10.data(build3.config.profiles);
+    process.exit();
   }
   const profile = build3.params.profile || build3.config.default;
   if (!profile) {
@@ -16851,7 +16940,7 @@ function run7() {
 exports.run = run7;
 
 // package.json
-var version7 = "0.6.1";
+var version7 = "0.6.2";
 
 // src/build.ts
 var Build = class {
@@ -16868,13 +16957,13 @@ var Build = class {
       local.watch.locatinos = [];
       local.build.targets = [];
       if (fs7.existsSync(".build.json")) {
-        const data8 = fs7.readFileSync(".build.json");
-        local = merge(local, JSON.parse(data8.toString()));
+        const data9 = fs7.readFileSync(".build.json");
+        local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = ".build.json";
       }
       if (fs7.existsSync("build.json")) {
-        const data8 = fs7.readFileSync("build.json");
-        local = merge(local, JSON.parse(data8.toString()));
+        const data9 = fs7.readFileSync("build.json");
+        local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = "build.json";
       }
       if (Object.keys(options3).length)
@@ -16888,8 +16977,8 @@ var Build = class {
         log11.error("Package definition not found:", "package.json");
         process.exit(1);
       }
-      const data8 = fs7.readFileSync("package.json");
-      const json = JSON.parse(data8.toString());
+      const data9 = fs7.readFileSync("package.json");
+      const json = JSON.parse(data9.toString());
       this.environment.package = "package.json";
       return json;
     };
