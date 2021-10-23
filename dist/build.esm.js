@@ -14582,9 +14582,9 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/error.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/error.js"(exports2) {
     var CommanderError = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
@@ -14607,9 +14607,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/argument.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/argument.js"(exports2) {
     var { InvalidArgumentError } = require_error();
     var Argument = class {
       constructor(name, description) {
@@ -14687,9 +14687,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/help.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/help.js"(exports2) {
     var { humanReadableArgName } = require_argument();
     var Help = class {
       constructor() {
@@ -14893,9 +14893,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/option.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/option.js"(exports2) {
     var { InvalidArgumentError } = require_error();
     var Option = class {
       constructor(flags, description) {
@@ -14995,9 +14995,9 @@ var require_option = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/suggestSimilar.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/suggestSimilar.js"(exports2) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -15070,9 +15070,9 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/lib/command.js"(exports2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/command.js"(exports2) {
     var EventEmitter = __require("events").EventEmitter;
     var childProcess = __require("child_process");
     var path4 = __require("path");
@@ -15337,7 +15337,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             defaultValue = this._findOption(positiveLongFlag) ? this.getOptionValue(name) : true;
           }
           if (defaultValue !== void 0) {
-            this._setOptionValueWithSource(name, defaultValue, "default");
+            this.setOptionValueWithSource(name, defaultValue, "default");
           }
         }
         this.options.push(option);
@@ -15358,12 +15358,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
           if (typeof oldValue === "boolean" || typeof oldValue === "undefined") {
             if (val == null) {
-              this._setOptionValueWithSource(name, option.negate ? false : defaultValue || true, valueSource);
+              this.setOptionValueWithSource(name, option.negate ? false : defaultValue || true, valueSource);
             } else {
-              this._setOptionValueWithSource(name, val, valueSource);
+              this.setOptionValueWithSource(name, val, valueSource);
             }
           } else if (val !== null) {
-            this._setOptionValueWithSource(name, option.negate ? false : val, valueSource);
+            this.setOptionValueWithSource(name, option.negate ? false : val, valueSource);
           }
         };
         this.on("option:" + oname, (val) => {
@@ -15445,9 +15445,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
-      _setOptionValueWithSource(key, value, source) {
+      setOptionValueWithSource(key, value, source) {
         this.setOptionValue(key, value);
         this._optionValueSources[key] = source;
+        return this;
+      }
+      getOptionValueSource(key) {
+        return this._optionValueSources[key];
       }
       _prepareUserArgs(argv, parseOptions) {
         if (argv !== void 0 && !Array.isArray(argv)) {
@@ -15870,7 +15874,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this.options.forEach((option) => {
           if (option.envVar && option.envVar in process.env) {
             const optionKey = option.attributeName();
-            if (this.getOptionValue(optionKey) === void 0 || this._optionValueSources[optionKey] === "default") {
+            if (this.getOptionValue(optionKey) === void 0 || ["default", "config", "env"].includes(this.getOptionValueSource(optionKey))) {
               if (option.required || option.optional) {
                 this.emit(`optionEnv:${option.name()}`, process.env[option.envVar]);
               } else {
@@ -16124,9 +16128,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@8.2.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@8.3.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@8.2.0/node_modules/commander/index.js"(exports2, module2) {
+  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/index.js"(exports2, module2) {
     var { Argument } = require_argument();
     var { Command } = require_command();
     var { CommanderError, InvalidArgumentError } = require_error();
@@ -16595,7 +16599,7 @@ async function httpRequest(req, res) {
       res.end("Error 404: Not Found\n", "utf-8");
       log6.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
     } else {
-      const input = encodeURIComponent(result.file).replace(/\*/g, "").replace(/\?/g, "").replace(/%2F/g, "/").replace(/%40/g, "@").replace(/%20/g, " ");
+      const input = encodeURIComponent(result.file).replace(/\*/g, "").replace(/\?/g, "").replace(/%2F/g, "/").replace(/%40/g, "@").replace(/%20/g, " ").replace(/%3A/g, ":").replace(/%5C/g, "\\");
       if ((_b = result == null ? void 0 : result.stat) == null ? void 0 : _b.isFile()) {
         const ext = String(extname(input)).toLowerCase();
         const contentType = mime[ext] || "application/octet-stream";
@@ -16992,7 +16996,7 @@ function run7() {
 exports.run = run7;
 
 // package.json
-var version7 = "0.6.2";
+var version7 = "0.6.3";
 
 // src/build.ts
 var Build = class {

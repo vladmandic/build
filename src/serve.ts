@@ -87,7 +87,7 @@ async function httpRequest(req, res) {
       res.end('Error 404: Not Found\n', 'utf-8');
       log.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
     } else {
-      const input = encodeURIComponent(result.file).replace(/\*/g, '').replace(/\?/g, '').replace(/%2F/g, '/').replace(/%40/g, '@').replace(/%20/g, ' ');
+      const input = encodeURIComponent(result.file).replace(/\*/g, '').replace(/\?/g, '').replace(/%2F/g, '/').replace(/%40/g, '@').replace(/%20/g, ' ').replace(/%3A/g, ':').replace(/%5C/g, '\\');
       // @ts-ignore method on stat object
       if (result?.stat?.isFile()) {
         const ext = String(path.extname(input)).toLowerCase();
