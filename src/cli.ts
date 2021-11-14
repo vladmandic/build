@@ -67,5 +67,3 @@ export function run() {
     build.run(profile as string);
   }
 }
-
-exports.run = run;

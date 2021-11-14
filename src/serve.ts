@@ -36,10 +36,12 @@ const mime = {
   '.webmanifest': 'application/manifest+json',
 };
 
-function handle(url): Promise<{ ok: boolean, stat: Record<string, unknown>, file: string }> {
+type Result = { ok: boolean, stat: fs.Stats | null, file: string, redirect: string | null }
+
+function handle(url): Promise<Result> {
   // eslint-disable-next-line no-param-reassign
   url = url.split(/[?#]/)[0];
-  const result = { ok: false, stat: {}, file: '' };
+  const result: Result = { ok: false, stat: null, file: '', redirect: null };
   const checkFile = (f) => {
     result.file = f;
     if (fs.existsSync(f)) {
@@ -63,7 +65,10 @@ function handle(url): Promise<{ ok: boolean, stat: Record<string, unknown>, file
     return false;
   };
   return new Promise((resolve) => {
-    if (checkFile(path.join(process.cwd(), options.documentRoot, url))) resolve(result);
+    if (checkFolder(path.join(process.cwd(), options.documentRoot, url)) && (checkFile(path.join(process.cwd(), options.documentRoot, url, options.defaultFile)))) {
+      result.redirect = path.join(url, options.defaultFile);
+      resolve(result);
+    } else if (checkFile(path.join(process.cwd(), options.documentRoot, url))) resolve(result);
     else if (checkFile(path.join(process.cwd(), options.documentRoot, url, options.defaultFile))) resolve(result);
     else if (checkFile(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url))) resolve(result);
     else if (checkFile(path.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile))) resolve(result);
@@ -86,6 +91,10 @@ async function httpRequest(req, res) {
       res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end('Error 404: Not Found\n', 'utf-8');
       log.warn(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, remote });
+    } else if (result.redirect) {
+      res.writeHead(301, { Location: result.redirect });
+      res.end();
+      log.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, redirect: result.redirect, remote });
     } else {
       const input = encodeURIComponent(result.file).replace(/\*/g, '').replace(/\?/g, '').replace(/%2F/g, '/').replace(/%40/g, '@').replace(/%20/g, ' ').replace(/%3A/g, ':').replace(/%5C/g, '\\');
       // @ts-ignore method on stat object
