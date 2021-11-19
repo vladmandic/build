@@ -9,11 +9,15 @@
   
 ## Changelog
   
+### **0.6.5** 2021/11/19 mandic00@live.com
+
+
+### **origin/main** 2021/11/14 mandic00@live.com
+
+
 ### **0.6.4** 2021/11/14 mandic00@live.com
 
-
-### **origin/main** 2021/10/23 mandic00@live.com
-
+- fix windows path compatibility
 
 ### **0.6.3** 2021/10/23 mandic00@live.com
 

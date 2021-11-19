@@ -16615,25 +16615,36 @@ async function httpRequest(req, res) {
       if ((_b = result == null ? void 0 : result.stat) == null ? void 0 : _b.isFile()) {
         const ext = String(extname(input)).toLowerCase();
         const contentType = mime[ext] || "application/octet-stream";
-        const accept = req.headers["accept-encoding"] ? req.headers["accept-encoding"].includes("br") : false;
-        res.writeHead(200, {
+        const rangeRequest = req.headers["range"];
+        const range = (rangeRequest == null ? void 0 : rangeRequest.replace("bytes=", "").split("-")) || [0, result.stat.size - 1];
+        const rangeStart = parseInt(range[0] || 0);
+        const rangeEnd = parseInt(range[1] || result.stat.size - 1);
+        const acceptBrotli = req.headers["accept-encoding"] ? req.headers["accept-encoding"].includes("br") : false;
+        const rangeHeader = !rangeRequest ? {} : {
+          "Content-Range": "bytes " + rangeStart + "-" + rangeEnd + "/" + result.stat.size,
+          "Accept-Ranges": "bytes",
+          "Content-Length": rangeEnd - rangeStart + 1
+        };
+        res.writeHead(rangeRequest ? 206 : 200, {
           "Content-Language": "en",
           "Content-Type": contentType,
-          "Content-Encoding": accept ? "br" : "",
+          "Content-Encoding": acceptBrotli && !rangeRequest ? "br" : "",
           "Last-Modified": result.stat.mtime,
           "Cache-Control": "no-cache",
           "X-Content-Type-Options": "nosniff",
           "Cross-Origin-Embedder-Policy": "require-corp",
           "Cross-Origin-Opener-Policy": "same-origin",
-          "Content-Security-Policy": "media-src 'self' http: https: data:"
+          "Content-Security-Policy": "media-src 'self' http: https: data:",
+          ...rangeHeader
         });
         const compress = createBrotliCompress({ params: { [constants.BROTLI_PARAM_QUALITY]: 5 } });
-        const stream = fs3.createReadStream(input);
-        if (!accept)
+        const stream = !rangeRequest ? fs3.createReadStream(input) : fs3.createReadStream(input, { start: rangeStart, end: rangeEnd });
+        if (!acceptBrotli || rangeRequest)
           stream.pipe(res);
         else
           stream.pipe(compress).pipe(res);
-        log6.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace("; charset=utf-8", ""), size: result.stat.size, url, remote });
+        const rangeJSON = rangeRequest ? { range: { start: rangeStart, end: rangeEnd, size: rangeEnd - rangeStart + 1 } } : {};
+        log6.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace("; charset=utf-8", ""), size: result.stat.size, ...rangeJSON, url, remote });
       }
       if ((_c = result == null ? void 0 : result.stat) == null ? void 0 : _c.isDirectory()) {
         res.writeHead(200, { "Content-Language": "en", "Content-Type": "application/json; charset=utf-8", "Last-Modified": result.stat.mtime, "Cache-Control": "no-cache", "X-Content-Type-Options": "nosniff" });
@@ -17007,7 +17018,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.6.4";
+var version7 = "0.6.5";
 
 // src/build.ts
 var Build = class {
