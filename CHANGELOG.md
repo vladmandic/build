@@ -9,11 +9,15 @@
   
 ## Changelog
   
+### **0.6.6** 2021/11/23 mandic00@live.com
+
+
+### **origin/main** 2021/11/19 mandic00@live.com
+
+
 ### **0.6.5** 2021/11/19 mandic00@live.com
 
-
-### **origin/main** 2021/11/14 mandic00@live.com
-
+- add base path redirects
 
 ### **0.6.4** 2021/11/14 mandic00@live.com
 

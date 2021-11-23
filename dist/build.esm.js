@@ -17018,7 +17018,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.6.5";
+var version7 = "0.6.6";
 
 // src/build.ts
 var Build = class {
@@ -17030,6 +17030,7 @@ var Build = class {
     this.config = { ...defaults3 };
     this.updateConfig = (config, options3 = {}) => {
       let local = merge(config);
+      local.profiles = {};
       local.clean.locations = [];
       local.lint.locations = [];
       local.watch.locatinos = [];
@@ -17073,9 +17074,8 @@ var Build = class {
     if (this.config.log.enabled && this.config.log.output && this.config.log.output !== "")
       log11.logFile(this.config.log.output);
   }
-  async run(profile, config) {
-    if (config && Object.keys(config).length)
-      this.config = this.updateConfig(this.config, config);
+  async run(profile, config = {}) {
+    this.config = this.updateConfig(this.config, config);
     info2(profile, this.application, this.environment, this.toolchain);
     const steps = Object.values(this.config.profiles[profile]);
     log11.info("Build:", { profile, steps });

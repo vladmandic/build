@@ -120,6 +120,7 @@ export class Build {
     // set defaults
     let local = helpers.merge(config);
     // reset defaults to emtpy project
+    local.profiles = {};
     local.clean.locations = [];
     local.lint.locations = [];
     local.watch.locatinos = [];
@@ -157,8 +158,8 @@ export class Build {
    * @param config {@link Config} Optional configuration options overrides
    * @returns Object containing all messages
    */
-  async run(profile: string, config?: Partial<Config>) {
-    if (config && Object.keys(config).length) this.config = this.updateConfig(this.config, config);
+  async run(profile: string, config: Partial<Config> = {}) {
+    this.config = this.updateConfig(this.config, config);
     helpers.info(profile, this.application, this.environment, this.toolchain);
     const steps = Object.values(this.config.profiles[profile]);
     log.info('Build:', { profile, steps });
