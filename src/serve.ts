@@ -116,7 +116,7 @@ async function httpRequest(req, res) {
           'Content-Language': 'en',
           'Content-Type': contentType,
           'Content-Encoding': (acceptBrotli && !rangeRequest) ? 'br' : '',
-          'Last-Modified': result.stat.mtime,
+          'Last-Modified': result.stat.mtime.toUTCString(),
           'Cache-Control': 'no-cache',
           'X-Content-Type-Options': 'nosniff',
           'Cross-Origin-Embedder-Policy': 'require-corp',

@@ -35,7 +35,7 @@ export const results = () => {
     let json: Record<string, unknown> = {};
     try {
       const obj = line.msg.match(/{(.*)}/);
-      json = JSON.parse(obj[0]);
+      json = obj ? JSON.parse(obj[0]) : { msg: line.msg };
     } catch {
       json = { msg: line.msg };
     }

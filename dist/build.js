@@ -7,1550 +7,58 @@ var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __commonJS = (cb, mod) => function __require() {
-  return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __export = (target, all) => {
-  __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module2, desc) => {
+var __reExport = (target, module2, copyDefault, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
     for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
+      if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
         __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
   }
   return target;
 };
-var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+var __toESM = (module2, isNodeMode) => {
+  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
 };
+var __toCommonJS = /* @__PURE__ */ ((cache) => {
+  return (module2, temp) => {
+    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.3.5/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.2/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.3.5/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.2/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports) {
+    var __create2 = Object.create;
+    var __defProp2 = Object.defineProperty;
+    var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
+    var __getOwnPropNames2 = Object.getOwnPropertyNames;
+    var __getProtoOf2 = Object.getPrototypeOf;
+    var __hasOwnProp2 = Object.prototype.hasOwnProperty;
+    var __markAsModule2 = (target) => __defProp2(target, "__esModule", { value: true });
     var __commonJS2 = (cb, mod) => function __require() {
       return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
-    var require_color_name = __commonJS2({
-      "node_modules/.pnpm/color-name@1.1.4/node_modules/color-name/index.js"(exports2, module22) {
-        "use strict";
-        module22.exports = {
-          "aliceblue": [240, 248, 255],
-          "antiquewhite": [250, 235, 215],
-          "aqua": [0, 255, 255],
-          "aquamarine": [127, 255, 212],
-          "azure": [240, 255, 255],
-          "beige": [245, 245, 220],
-          "bisque": [255, 228, 196],
-          "black": [0, 0, 0],
-          "blanchedalmond": [255, 235, 205],
-          "blue": [0, 0, 255],
-          "blueviolet": [138, 43, 226],
-          "brown": [165, 42, 42],
-          "burlywood": [222, 184, 135],
-          "cadetblue": [95, 158, 160],
-          "chartreuse": [127, 255, 0],
-          "chocolate": [210, 105, 30],
-          "coral": [255, 127, 80],
-          "cornflowerblue": [100, 149, 237],
-          "cornsilk": [255, 248, 220],
-          "crimson": [220, 20, 60],
-          "cyan": [0, 255, 255],
-          "darkblue": [0, 0, 139],
-          "darkcyan": [0, 139, 139],
-          "darkgoldenrod": [184, 134, 11],
-          "darkgray": [169, 169, 169],
-          "darkgreen": [0, 100, 0],
-          "darkgrey": [169, 169, 169],
-          "darkkhaki": [189, 183, 107],
-          "darkmagenta": [139, 0, 139],
-          "darkolivegreen": [85, 107, 47],
-          "darkorange": [255, 140, 0],
-          "darkorchid": [153, 50, 204],
-          "darkred": [139, 0, 0],
-          "darksalmon": [233, 150, 122],
-          "darkseagreen": [143, 188, 143],
-          "darkslateblue": [72, 61, 139],
-          "darkslategray": [47, 79, 79],
-          "darkslategrey": [47, 79, 79],
-          "darkturquoise": [0, 206, 209],
-          "darkviolet": [148, 0, 211],
-          "deeppink": [255, 20, 147],
-          "deepskyblue": [0, 191, 255],
-          "dimgray": [105, 105, 105],
-          "dimgrey": [105, 105, 105],
-          "dodgerblue": [30, 144, 255],
-          "firebrick": [178, 34, 34],
-          "floralwhite": [255, 250, 240],
-          "forestgreen": [34, 139, 34],
-          "fuchsia": [255, 0, 255],
-          "gainsboro": [220, 220, 220],
-          "ghostwhite": [248, 248, 255],
-          "gold": [255, 215, 0],
-          "goldenrod": [218, 165, 32],
-          "gray": [128, 128, 128],
-          "green": [0, 128, 0],
-          "greenyellow": [173, 255, 47],
-          "grey": [128, 128, 128],
-          "honeydew": [240, 255, 240],
-          "hotpink": [255, 105, 180],
-          "indianred": [205, 92, 92],
-          "indigo": [75, 0, 130],
-          "ivory": [255, 255, 240],
-          "khaki": [240, 230, 140],
-          "lavender": [230, 230, 250],
-          "lavenderblush": [255, 240, 245],
-          "lawngreen": [124, 252, 0],
-          "lemonchiffon": [255, 250, 205],
-          "lightblue": [173, 216, 230],
-          "lightcoral": [240, 128, 128],
-          "lightcyan": [224, 255, 255],
-          "lightgoldenrodyellow": [250, 250, 210],
-          "lightgray": [211, 211, 211],
-          "lightgreen": [144, 238, 144],
-          "lightgrey": [211, 211, 211],
-          "lightpink": [255, 182, 193],
-          "lightsalmon": [255, 160, 122],
-          "lightseagreen": [32, 178, 170],
-          "lightskyblue": [135, 206, 250],
-          "lightslategray": [119, 136, 153],
-          "lightslategrey": [119, 136, 153],
-          "lightsteelblue": [176, 196, 222],
-          "lightyellow": [255, 255, 224],
-          "lime": [0, 255, 0],
-          "limegreen": [50, 205, 50],
-          "linen": [250, 240, 230],
-          "magenta": [255, 0, 255],
-          "maroon": [128, 0, 0],
-          "mediumaquamarine": [102, 205, 170],
-          "mediumblue": [0, 0, 205],
-          "mediumorchid": [186, 85, 211],
-          "mediumpurple": [147, 112, 219],
-          "mediumseagreen": [60, 179, 113],
-          "mediumslateblue": [123, 104, 238],
-          "mediumspringgreen": [0, 250, 154],
-          "mediumturquoise": [72, 209, 204],
-          "mediumvioletred": [199, 21, 133],
-          "midnightblue": [25, 25, 112],
-          "mintcream": [245, 255, 250],
-          "mistyrose": [255, 228, 225],
-          "moccasin": [255, 228, 181],
-          "navajowhite": [255, 222, 173],
-          "navy": [0, 0, 128],
-          "oldlace": [253, 245, 230],
-          "olive": [128, 128, 0],
-          "olivedrab": [107, 142, 35],
-          "orange": [255, 165, 0],
-          "orangered": [255, 69, 0],
-          "orchid": [218, 112, 214],
-          "palegoldenrod": [238, 232, 170],
-          "palegreen": [152, 251, 152],
-          "paleturquoise": [175, 238, 238],
-          "palevioletred": [219, 112, 147],
-          "papayawhip": [255, 239, 213],
-          "peachpuff": [255, 218, 185],
-          "peru": [205, 133, 63],
-          "pink": [255, 192, 203],
-          "plum": [221, 160, 221],
-          "powderblue": [176, 224, 230],
-          "purple": [128, 0, 128],
-          "rebeccapurple": [102, 51, 153],
-          "red": [255, 0, 0],
-          "rosybrown": [188, 143, 143],
-          "royalblue": [65, 105, 225],
-          "saddlebrown": [139, 69, 19],
-          "salmon": [250, 128, 114],
-          "sandybrown": [244, 164, 96],
-          "seagreen": [46, 139, 87],
-          "seashell": [255, 245, 238],
-          "sienna": [160, 82, 45],
-          "silver": [192, 192, 192],
-          "skyblue": [135, 206, 235],
-          "slateblue": [106, 90, 205],
-          "slategray": [112, 128, 144],
-          "slategrey": [112, 128, 144],
-          "snow": [255, 250, 250],
-          "springgreen": [0, 255, 127],
-          "steelblue": [70, 130, 180],
-          "tan": [210, 180, 140],
-          "teal": [0, 128, 128],
-          "thistle": [216, 191, 216],
-          "tomato": [255, 99, 71],
-          "turquoise": [64, 224, 208],
-          "violet": [238, 130, 238],
-          "wheat": [245, 222, 179],
-          "white": [255, 255, 255],
-          "whitesmoke": [245, 245, 245],
-          "yellow": [255, 255, 0],
-          "yellowgreen": [154, 205, 50]
-        };
+    var __export2 = (target, all) => {
+      __markAsModule2(target);
+      for (var name in all)
+        __defProp2(target, name, { get: all[name], enumerable: true });
+    };
+    var __reExport2 = (target, module22, desc) => {
+      if (module22 && typeof module22 === "object" || typeof module22 === "function") {
+        for (let key of __getOwnPropNames2(module22))
+          if (!__hasOwnProp2.call(target, key) && key !== "default")
+            __defProp2(target, key, { get: () => module22[key], enumerable: !(desc = __getOwnPropDesc2(module22, key)) || desc.enumerable });
       }
-    });
-    var require_conversions = __commonJS2({
-      "node_modules/.pnpm/color-convert@2.0.1/node_modules/color-convert/conversions.js"(exports2, module22) {
-        var cssKeywords = require_color_name();
-        var reverseKeywords = {};
-        for (const key of Object.keys(cssKeywords)) {
-          reverseKeywords[cssKeywords[key]] = key;
-        }
-        var convert = {
-          rgb: { channels: 3, labels: "rgb" },
-          hsl: { channels: 3, labels: "hsl" },
-          hsv: { channels: 3, labels: "hsv" },
-          hwb: { channels: 3, labels: "hwb" },
-          cmyk: { channels: 4, labels: "cmyk" },
-          xyz: { channels: 3, labels: "xyz" },
-          lab: { channels: 3, labels: "lab" },
-          lch: { channels: 3, labels: "lch" },
-          hex: { channels: 1, labels: ["hex"] },
-          keyword: { channels: 1, labels: ["keyword"] },
-          ansi16: { channels: 1, labels: ["ansi16"] },
-          ansi256: { channels: 1, labels: ["ansi256"] },
-          hcg: { channels: 3, labels: ["h", "c", "g"] },
-          apple: { channels: 3, labels: ["r16", "g16", "b16"] },
-          gray: { channels: 1, labels: ["gray"] }
-        };
-        module22.exports = convert;
-        for (const model of Object.keys(convert)) {
-          if (!("channels" in convert[model])) {
-            throw new Error("missing channels property: " + model);
-          }
-          if (!("labels" in convert[model])) {
-            throw new Error("missing channel labels property: " + model);
-          }
-          if (convert[model].labels.length !== convert[model].channels) {
-            throw new Error("channel and label counts mismatch: " + model);
-          }
-          const { channels, labels } = convert[model];
-          delete convert[model].channels;
-          delete convert[model].labels;
-          Object.defineProperty(convert[model], "channels", { value: channels });
-          Object.defineProperty(convert[model], "labels", { value: labels });
-        }
-        convert.rgb.hsl = function(rgb) {
-          const r = rgb[0] / 255;
-          const g = rgb[1] / 255;
-          const b = rgb[2] / 255;
-          const min = Math.min(r, g, b);
-          const max = Math.max(r, g, b);
-          const delta = max - min;
-          let h;
-          let s;
-          if (max === min) {
-            h = 0;
-          } else if (r === max) {
-            h = (g - b) / delta;
-          } else if (g === max) {
-            h = 2 + (b - r) / delta;
-          } else if (b === max) {
-            h = 4 + (r - g) / delta;
-          }
-          h = Math.min(h * 60, 360);
-          if (h < 0) {
-            h += 360;
-          }
-          const l = (min + max) / 2;
-          if (max === min) {
-            s = 0;
-          } else if (l <= 0.5) {
-            s = delta / (max + min);
-          } else {
-            s = delta / (2 - max - min);
-          }
-          return [h, s * 100, l * 100];
-        };
-        convert.rgb.hsv = function(rgb) {
-          let rdif;
-          let gdif;
-          let bdif;
-          let h;
-          let s;
-          const r = rgb[0] / 255;
-          const g = rgb[1] / 255;
-          const b = rgb[2] / 255;
-          const v = Math.max(r, g, b);
-          const diff = v - Math.min(r, g, b);
-          const diffc = function(c) {
-            return (v - c) / 6 / diff + 1 / 2;
-          };
-          if (diff === 0) {
-            h = 0;
-            s = 0;
-          } else {
-            s = diff / v;
-            rdif = diffc(r);
-            gdif = diffc(g);
-            bdif = diffc(b);
-            if (r === v) {
-              h = bdif - gdif;
-            } else if (g === v) {
-              h = 1 / 3 + rdif - bdif;
-            } else if (b === v) {
-              h = 2 / 3 + gdif - rdif;
-            }
-            if (h < 0) {
-              h += 1;
-            } else if (h > 1) {
-              h -= 1;
-            }
-          }
-          return [
-            h * 360,
-            s * 100,
-            v * 100
-          ];
-        };
-        convert.rgb.hwb = function(rgb) {
-          const r = rgb[0];
-          const g = rgb[1];
-          let b = rgb[2];
-          const h = convert.rgb.hsl(rgb)[0];
-          const w = 1 / 255 * Math.min(r, Math.min(g, b));
-          b = 1 - 1 / 255 * Math.max(r, Math.max(g, b));
-          return [h, w * 100, b * 100];
-        };
-        convert.rgb.cmyk = function(rgb) {
-          const r = rgb[0] / 255;
-          const g = rgb[1] / 255;
-          const b = rgb[2] / 255;
-          const k = Math.min(1 - r, 1 - g, 1 - b);
-          const c = (1 - r - k) / (1 - k) || 0;
-          const m = (1 - g - k) / (1 - k) || 0;
-          const y = (1 - b - k) / (1 - k) || 0;
-          return [c * 100, m * 100, y * 100, k * 100];
-        };
-        function comparativeDistance(x, y) {
-          return (x[0] - y[0]) ** 2 + (x[1] - y[1]) ** 2 + (x[2] - y[2]) ** 2;
-        }
-        convert.rgb.keyword = function(rgb) {
-          const reversed = reverseKeywords[rgb];
-          if (reversed) {
-            return reversed;
-          }
-          let currentClosestDistance = Infinity;
-          let currentClosestKeyword;
-          for (const keyword of Object.keys(cssKeywords)) {
-            const value = cssKeywords[keyword];
-            const distance = comparativeDistance(rgb, value);
-            if (distance < currentClosestDistance) {
-              currentClosestDistance = distance;
-              currentClosestKeyword = keyword;
-            }
-          }
-          return currentClosestKeyword;
-        };
-        convert.keyword.rgb = function(keyword) {
-          return cssKeywords[keyword];
-        };
-        convert.rgb.xyz = function(rgb) {
-          let r = rgb[0] / 255;
-          let g = rgb[1] / 255;
-          let b = rgb[2] / 255;
-          r = r > 0.04045 ? ((r + 0.055) / 1.055) ** 2.4 : r / 12.92;
-          g = g > 0.04045 ? ((g + 0.055) / 1.055) ** 2.4 : g / 12.92;
-          b = b > 0.04045 ? ((b + 0.055) / 1.055) ** 2.4 : b / 12.92;
-          const x = r * 0.4124 + g * 0.3576 + b * 0.1805;
-          const y = r * 0.2126 + g * 0.7152 + b * 0.0722;
-          const z = r * 0.0193 + g * 0.1192 + b * 0.9505;
-          return [x * 100, y * 100, z * 100];
-        };
-        convert.rgb.lab = function(rgb) {
-          const xyz = convert.rgb.xyz(rgb);
-          let x = xyz[0];
-          let y = xyz[1];
-          let z = xyz[2];
-          x /= 95.047;
-          y /= 100;
-          z /= 108.883;
-          x = x > 8856e-6 ? x ** (1 / 3) : 7.787 * x + 16 / 116;
-          y = y > 8856e-6 ? y ** (1 / 3) : 7.787 * y + 16 / 116;
-          z = z > 8856e-6 ? z ** (1 / 3) : 7.787 * z + 16 / 116;
-          const l = 116 * y - 16;
-          const a = 500 * (x - y);
-          const b = 200 * (y - z);
-          return [l, a, b];
-        };
-        convert.hsl.rgb = function(hsl) {
-          const h = hsl[0] / 360;
-          const s = hsl[1] / 100;
-          const l = hsl[2] / 100;
-          let t2;
-          let t3;
-          let val;
-          if (s === 0) {
-            val = l * 255;
-            return [val, val, val];
-          }
-          if (l < 0.5) {
-            t2 = l * (1 + s);
-          } else {
-            t2 = l + s - l * s;
-          }
-          const t1 = 2 * l - t2;
-          const rgb = [0, 0, 0];
-          for (let i = 0; i < 3; i++) {
-            t3 = h + 1 / 3 * -(i - 1);
-            if (t3 < 0) {
-              t3++;
-            }
-            if (t3 > 1) {
-              t3--;
-            }
-            if (6 * t3 < 1) {
-              val = t1 + (t2 - t1) * 6 * t3;
-            } else if (2 * t3 < 1) {
-              val = t2;
-            } else if (3 * t3 < 2) {
-              val = t1 + (t2 - t1) * (2 / 3 - t3) * 6;
-            } else {
-              val = t1;
-            }
-            rgb[i] = val * 255;
-          }
-          return rgb;
-        };
-        convert.hsl.hsv = function(hsl) {
-          const h = hsl[0];
-          let s = hsl[1] / 100;
-          let l = hsl[2] / 100;
-          let smin = s;
-          const lmin = Math.max(l, 0.01);
-          l *= 2;
-          s *= l <= 1 ? l : 2 - l;
-          smin *= lmin <= 1 ? lmin : 2 - lmin;
-          const v = (l + s) / 2;
-          const sv = l === 0 ? 2 * smin / (lmin + smin) : 2 * s / (l + s);
-          return [h, sv * 100, v * 100];
-        };
-        convert.hsv.rgb = function(hsv) {
-          const h = hsv[0] / 60;
-          const s = hsv[1] / 100;
-          let v = hsv[2] / 100;
-          const hi = Math.floor(h) % 6;
-          const f = h - Math.floor(h);
-          const p = 255 * v * (1 - s);
-          const q = 255 * v * (1 - s * f);
-          const t = 255 * v * (1 - s * (1 - f));
-          v *= 255;
-          switch (hi) {
-            case 0:
-              return [v, t, p];
-            case 1:
-              return [q, v, p];
-            case 2:
-              return [p, v, t];
-            case 3:
-              return [p, q, v];
-            case 4:
-              return [t, p, v];
-            case 5:
-              return [v, p, q];
-          }
-        };
-        convert.hsv.hsl = function(hsv) {
-          const h = hsv[0];
-          const s = hsv[1] / 100;
-          const v = hsv[2] / 100;
-          const vmin = Math.max(v, 0.01);
-          let sl;
-          let l;
-          l = (2 - s) * v;
-          const lmin = (2 - s) * vmin;
-          sl = s * vmin;
-          sl /= lmin <= 1 ? lmin : 2 - lmin;
-          sl = sl || 0;
-          l /= 2;
-          return [h, sl * 100, l * 100];
-        };
-        convert.hwb.rgb = function(hwb) {
-          const h = hwb[0] / 360;
-          let wh = hwb[1] / 100;
-          let bl = hwb[2] / 100;
-          const ratio = wh + bl;
-          let f;
-          if (ratio > 1) {
-            wh /= ratio;
-            bl /= ratio;
-          }
-          const i = Math.floor(6 * h);
-          const v = 1 - bl;
-          f = 6 * h - i;
-          if ((i & 1) !== 0) {
-            f = 1 - f;
-          }
-          const n = wh + f * (v - wh);
-          let r;
-          let g;
-          let b;
-          switch (i) {
-            default:
-            case 6:
-            case 0:
-              r = v;
-              g = n;
-              b = wh;
-              break;
-            case 1:
-              r = n;
-              g = v;
-              b = wh;
-              break;
-            case 2:
-              r = wh;
-              g = v;
-              b = n;
-              break;
-            case 3:
-              r = wh;
-              g = n;
-              b = v;
-              break;
-            case 4:
-              r = n;
-              g = wh;
-              b = v;
-              break;
-            case 5:
-              r = v;
-              g = wh;
-              b = n;
-              break;
-          }
-          return [r * 255, g * 255, b * 255];
-        };
-        convert.cmyk.rgb = function(cmyk) {
-          const c = cmyk[0] / 100;
-          const m = cmyk[1] / 100;
-          const y = cmyk[2] / 100;
-          const k = cmyk[3] / 100;
-          const r = 1 - Math.min(1, c * (1 - k) + k);
-          const g = 1 - Math.min(1, m * (1 - k) + k);
-          const b = 1 - Math.min(1, y * (1 - k) + k);
-          return [r * 255, g * 255, b * 255];
-        };
-        convert.xyz.rgb = function(xyz) {
-          const x = xyz[0] / 100;
-          const y = xyz[1] / 100;
-          const z = xyz[2] / 100;
-          let r;
-          let g;
-          let b;
-          r = x * 3.2406 + y * -1.5372 + z * -0.4986;
-          g = x * -0.9689 + y * 1.8758 + z * 0.0415;
-          b = x * 0.0557 + y * -0.204 + z * 1.057;
-          r = r > 31308e-7 ? 1.055 * r ** (1 / 2.4) - 0.055 : r * 12.92;
-          g = g > 31308e-7 ? 1.055 * g ** (1 / 2.4) - 0.055 : g * 12.92;
-          b = b > 31308e-7 ? 1.055 * b ** (1 / 2.4) - 0.055 : b * 12.92;
-          r = Math.min(Math.max(0, r), 1);
-          g = Math.min(Math.max(0, g), 1);
-          b = Math.min(Math.max(0, b), 1);
-          return [r * 255, g * 255, b * 255];
-        };
-        convert.xyz.lab = function(xyz) {
-          let x = xyz[0];
-          let y = xyz[1];
-          let z = xyz[2];
-          x /= 95.047;
-          y /= 100;
-          z /= 108.883;
-          x = x > 8856e-6 ? x ** (1 / 3) : 7.787 * x + 16 / 116;
-          y = y > 8856e-6 ? y ** (1 / 3) : 7.787 * y + 16 / 116;
-          z = z > 8856e-6 ? z ** (1 / 3) : 7.787 * z + 16 / 116;
-          const l = 116 * y - 16;
-          const a = 500 * (x - y);
-          const b = 200 * (y - z);
-          return [l, a, b];
-        };
-        convert.lab.xyz = function(lab) {
-          const l = lab[0];
-          const a = lab[1];
-          const b = lab[2];
-          let x;
-          let y;
-          let z;
-          y = (l + 16) / 116;
-          x = a / 500 + y;
-          z = y - b / 200;
-          const y2 = y ** 3;
-          const x2 = x ** 3;
-          const z2 = z ** 3;
-          y = y2 > 8856e-6 ? y2 : (y - 16 / 116) / 7.787;
-          x = x2 > 8856e-6 ? x2 : (x - 16 / 116) / 7.787;
-          z = z2 > 8856e-6 ? z2 : (z - 16 / 116) / 7.787;
-          x *= 95.047;
-          y *= 100;
-          z *= 108.883;
-          return [x, y, z];
-        };
-        convert.lab.lch = function(lab) {
-          const l = lab[0];
-          const a = lab[1];
-          const b = lab[2];
-          let h;
-          const hr = Math.atan2(b, a);
-          h = hr * 360 / 2 / Math.PI;
-          if (h < 0) {
-            h += 360;
-          }
-          const c = Math.sqrt(a * a + b * b);
-          return [l, c, h];
-        };
-        convert.lch.lab = function(lch) {
-          const l = lch[0];
-          const c = lch[1];
-          const h = lch[2];
-          const hr = h / 360 * 2 * Math.PI;
-          const a = c * Math.cos(hr);
-          const b = c * Math.sin(hr);
-          return [l, a, b];
-        };
-        convert.rgb.ansi16 = function(args, saturation = null) {
-          const [r, g, b] = args;
-          let value = saturation === null ? convert.rgb.hsv(args)[2] : saturation;
-          value = Math.round(value / 50);
-          if (value === 0) {
-            return 30;
-          }
-          let ansi = 30 + (Math.round(b / 255) << 2 | Math.round(g / 255) << 1 | Math.round(r / 255));
-          if (value === 2) {
-            ansi += 60;
-          }
-          return ansi;
-        };
-        convert.hsv.ansi16 = function(args) {
-          return convert.rgb.ansi16(convert.hsv.rgb(args), args[2]);
-        };
-        convert.rgb.ansi256 = function(args) {
-          const r = args[0];
-          const g = args[1];
-          const b = args[2];
-          if (r === g && g === b) {
-            if (r < 8) {
-              return 16;
-            }
-            if (r > 248) {
-              return 231;
-            }
-            return Math.round((r - 8) / 247 * 24) + 232;
-          }
-          const ansi = 16 + 36 * Math.round(r / 255 * 5) + 6 * Math.round(g / 255 * 5) + Math.round(b / 255 * 5);
-          return ansi;
-        };
-        convert.ansi16.rgb = function(args) {
-          let color = args % 10;
-          if (color === 0 || color === 7) {
-            if (args > 50) {
-              color += 3.5;
-            }
-            color = color / 10.5 * 255;
-            return [color, color, color];
-          }
-          const mult = (~~(args > 50) + 1) * 0.5;
-          const r = (color & 1) * mult * 255;
-          const g = (color >> 1 & 1) * mult * 255;
-          const b = (color >> 2 & 1) * mult * 255;
-          return [r, g, b];
-        };
-        convert.ansi256.rgb = function(args) {
-          if (args >= 232) {
-            const c = (args - 232) * 10 + 8;
-            return [c, c, c];
-          }
-          args -= 16;
-          let rem;
-          const r = Math.floor(args / 36) / 5 * 255;
-          const g = Math.floor((rem = args % 36) / 6) / 5 * 255;
-          const b = rem % 6 / 5 * 255;
-          return [r, g, b];
-        };
-        convert.rgb.hex = function(args) {
-          const integer = ((Math.round(args[0]) & 255) << 16) + ((Math.round(args[1]) & 255) << 8) + (Math.round(args[2]) & 255);
-          const string = integer.toString(16).toUpperCase();
-          return "000000".substring(string.length) + string;
-        };
-        convert.hex.rgb = function(args) {
-          const match = args.toString(16).match(/[a-f0-9]{6}|[a-f0-9]{3}/i);
-          if (!match) {
-            return [0, 0, 0];
-          }
-          let colorString = match[0];
-          if (match[0].length === 3) {
-            colorString = colorString.split("").map((char) => {
-              return char + char;
-            }).join("");
-          }
-          const integer = parseInt(colorString, 16);
-          const r = integer >> 16 & 255;
-          const g = integer >> 8 & 255;
-          const b = integer & 255;
-          return [r, g, b];
-        };
-        convert.rgb.hcg = function(rgb) {
-          const r = rgb[0] / 255;
-          const g = rgb[1] / 255;
-          const b = rgb[2] / 255;
-          const max = Math.max(Math.max(r, g), b);
-          const min = Math.min(Math.min(r, g), b);
-          const chroma = max - min;
-          let grayscale;
-          let hue;
-          if (chroma < 1) {
-            grayscale = min / (1 - chroma);
-          } else {
-            grayscale = 0;
-          }
-          if (chroma <= 0) {
-            hue = 0;
-          } else if (max === r) {
-            hue = (g - b) / chroma % 6;
-          } else if (max === g) {
-            hue = 2 + (b - r) / chroma;
-          } else {
-            hue = 4 + (r - g) / chroma;
-          }
-          hue /= 6;
-          hue %= 1;
-          return [hue * 360, chroma * 100, grayscale * 100];
-        };
-        convert.hsl.hcg = function(hsl) {
-          const s = hsl[1] / 100;
-          const l = hsl[2] / 100;
-          const c = l < 0.5 ? 2 * s * l : 2 * s * (1 - l);
-          let f = 0;
-          if (c < 1) {
-            f = (l - 0.5 * c) / (1 - c);
-          }
-          return [hsl[0], c * 100, f * 100];
-        };
-        convert.hsv.hcg = function(hsv) {
-          const s = hsv[1] / 100;
-          const v = hsv[2] / 100;
-          const c = s * v;
-          let f = 0;
-          if (c < 1) {
-            f = (v - c) / (1 - c);
-          }
-          return [hsv[0], c * 100, f * 100];
-        };
-        convert.hcg.rgb = function(hcg) {
-          const h = hcg[0] / 360;
-          const c = hcg[1] / 100;
-          const g = hcg[2] / 100;
-          if (c === 0) {
-            return [g * 255, g * 255, g * 255];
-          }
-          const pure = [0, 0, 0];
-          const hi = h % 1 * 6;
-          const v = hi % 1;
-          const w = 1 - v;
-          let mg = 0;
-          switch (Math.floor(hi)) {
-            case 0:
-              pure[0] = 1;
-              pure[1] = v;
-              pure[2] = 0;
-              break;
-            case 1:
-              pure[0] = w;
-              pure[1] = 1;
-              pure[2] = 0;
-              break;
-            case 2:
-              pure[0] = 0;
-              pure[1] = 1;
-              pure[2] = v;
-              break;
-            case 3:
-              pure[0] = 0;
-              pure[1] = w;
-              pure[2] = 1;
-              break;
-            case 4:
-              pure[0] = v;
-              pure[1] = 0;
-              pure[2] = 1;
-              break;
-            default:
-              pure[0] = 1;
-              pure[1] = 0;
-              pure[2] = w;
-          }
-          mg = (1 - c) * g;
-          return [
-            (c * pure[0] + mg) * 255,
-            (c * pure[1] + mg) * 255,
-            (c * pure[2] + mg) * 255
-          ];
-        };
-        convert.hcg.hsv = function(hcg) {
-          const c = hcg[1] / 100;
-          const g = hcg[2] / 100;
-          const v = c + g * (1 - c);
-          let f = 0;
-          if (v > 0) {
-            f = c / v;
-          }
-          return [hcg[0], f * 100, v * 100];
-        };
-        convert.hcg.hsl = function(hcg) {
-          const c = hcg[1] / 100;
-          const g = hcg[2] / 100;
-          const l = g * (1 - c) + 0.5 * c;
-          let s = 0;
-          if (l > 0 && l < 0.5) {
-            s = c / (2 * l);
-          } else if (l >= 0.5 && l < 1) {
-            s = c / (2 * (1 - l));
-          }
-          return [hcg[0], s * 100, l * 100];
-        };
-        convert.hcg.hwb = function(hcg) {
-          const c = hcg[1] / 100;
-          const g = hcg[2] / 100;
-          const v = c + g * (1 - c);
-          return [hcg[0], (v - c) * 100, (1 - v) * 100];
-        };
-        convert.hwb.hcg = function(hwb) {
-          const w = hwb[1] / 100;
-          const b = hwb[2] / 100;
-          const v = 1 - b;
-          const c = v - w;
-          let g = 0;
-          if (c < 1) {
-            g = (v - c) / (1 - c);
-          }
-          return [hwb[0], c * 100, g * 100];
-        };
-        convert.apple.rgb = function(apple) {
-          return [apple[0] / 65535 * 255, apple[1] / 65535 * 255, apple[2] / 65535 * 255];
-        };
-        convert.rgb.apple = function(rgb) {
-          return [rgb[0] / 255 * 65535, rgb[1] / 255 * 65535, rgb[2] / 255 * 65535];
-        };
-        convert.gray.rgb = function(args) {
-          return [args[0] / 100 * 255, args[0] / 100 * 255, args[0] / 100 * 255];
-        };
-        convert.gray.hsl = function(args) {
-          return [0, 0, args[0]];
-        };
-        convert.gray.hsv = convert.gray.hsl;
-        convert.gray.hwb = function(gray) {
-          return [0, 100, gray[0]];
-        };
-        convert.gray.cmyk = function(gray) {
-          return [0, 0, 0, gray[0]];
-        };
-        convert.gray.lab = function(gray) {
-          return [gray[0], 0, 0];
-        };
-        convert.gray.hex = function(gray) {
-          const val = Math.round(gray[0] / 100 * 255) & 255;
-          const integer = (val << 16) + (val << 8) + val;
-          const string = integer.toString(16).toUpperCase();
-          return "000000".substring(string.length) + string;
-        };
-        convert.rgb.gray = function(rgb) {
-          const val = (rgb[0] + rgb[1] + rgb[2]) / 3;
-          return [val / 255 * 100];
-        };
-      }
-    });
-    var require_route = __commonJS2({
-      "node_modules/.pnpm/color-convert@2.0.1/node_modules/color-convert/route.js"(exports2, module22) {
-        var conversions = require_conversions();
-        function buildGraph() {
-          const graph = {};
-          const models = Object.keys(conversions);
-          for (let len = models.length, i = 0; i < len; i++) {
-            graph[models[i]] = {
-              distance: -1,
-              parent: null
-            };
-          }
-          return graph;
-        }
-        function deriveBFS(fromModel) {
-          const graph = buildGraph();
-          const queue = [fromModel];
-          graph[fromModel].distance = 0;
-          while (queue.length) {
-            const current = queue.pop();
-            const adjacents = Object.keys(conversions[current]);
-            for (let len = adjacents.length, i = 0; i < len; i++) {
-              const adjacent = adjacents[i];
-              const node = graph[adjacent];
-              if (node.distance === -1) {
-                node.distance = graph[current].distance + 1;
-                node.parent = current;
-                queue.unshift(adjacent);
-              }
-            }
-          }
-          return graph;
-        }
-        function link(from, to) {
-          return function(args) {
-            return to(from(args));
-          };
-        }
-        function wrapConversion(toModel, graph) {
-          const path22 = [graph[toModel].parent, toModel];
-          let fn = conversions[graph[toModel].parent][toModel];
-          let cur = graph[toModel].parent;
-          while (graph[cur].parent) {
-            path22.unshift(graph[cur].parent);
-            fn = link(conversions[graph[cur].parent][cur], fn);
-            cur = graph[cur].parent;
-          }
-          fn.conversion = path22;
-          return fn;
-        }
-        module22.exports = function(fromModel) {
-          const graph = deriveBFS(fromModel);
-          const conversion = {};
-          const models = Object.keys(graph);
-          for (let len = models.length, i = 0; i < len; i++) {
-            const toModel = models[i];
-            const node = graph[toModel];
-            if (node.parent === null) {
-              continue;
-            }
-            conversion[toModel] = wrapConversion(toModel, graph);
-          }
-          return conversion;
-        };
-      }
-    });
-    var require_color_convert = __commonJS2({
-      "node_modules/.pnpm/color-convert@2.0.1/node_modules/color-convert/index.js"(exports2, module22) {
-        var conversions = require_conversions();
-        var route = require_route();
-        var convert = {};
-        var models = Object.keys(conversions);
-        function wrapRaw(fn) {
-          const wrappedFn = function(...args) {
-            const arg0 = args[0];
-            if (arg0 === void 0 || arg0 === null) {
-              return arg0;
-            }
-            if (arg0.length > 1) {
-              args = arg0;
-            }
-            return fn(args);
-          };
-          if ("conversion" in fn) {
-            wrappedFn.conversion = fn.conversion;
-          }
-          return wrappedFn;
-        }
-        function wrapRounded(fn) {
-          const wrappedFn = function(...args) {
-            const arg0 = args[0];
-            if (arg0 === void 0 || arg0 === null) {
-              return arg0;
-            }
-            if (arg0.length > 1) {
-              args = arg0;
-            }
-            const result = fn(args);
-            if (typeof result === "object") {
-              for (let len = result.length, i = 0; i < len; i++) {
-                result[i] = Math.round(result[i]);
-              }
-            }
-            return result;
-          };
-          if ("conversion" in fn) {
-            wrappedFn.conversion = fn.conversion;
-          }
-          return wrappedFn;
-        }
-        models.forEach((fromModel) => {
-          convert[fromModel] = {};
-          Object.defineProperty(convert[fromModel], "channels", { value: conversions[fromModel].channels });
-          Object.defineProperty(convert[fromModel], "labels", { value: conversions[fromModel].labels });
-          const routes = route(fromModel);
-          const routeModels = Object.keys(routes);
-          routeModels.forEach((toModel) => {
-            const fn = routes[toModel];
-            convert[fromModel][toModel] = wrapRounded(fn);
-            convert[fromModel][toModel].raw = wrapRaw(fn);
-          });
-        });
-        module22.exports = convert;
-      }
-    });
-    var require_ansi_styles = __commonJS2({
-      "node_modules/.pnpm/ansi-styles@4.3.0/node_modules/ansi-styles/index.js"(exports2, module22) {
-        "use strict";
-        var wrapAnsi16 = (fn, offset) => (...args) => {
-          const code = fn(...args);
-          return `[${code + offset}m`;
-        };
-        var wrapAnsi256 = (fn, offset) => (...args) => {
-          const code = fn(...args);
-          return `[${38 + offset};5;${code}m`;
-        };
-        var wrapAnsi16m = (fn, offset) => (...args) => {
-          const rgb = fn(...args);
-          return `[${38 + offset};2;${rgb[0]};${rgb[1]};${rgb[2]}m`;
-        };
-        var ansi2ansi = (n) => n;
-        var rgb2rgb = (r, g, b) => [r, g, b];
-        var setLazyProperty = (object, property, get) => {
-          Object.defineProperty(object, property, {
-            get: () => {
-              const value = get();
-              Object.defineProperty(object, property, {
-                value,
-                enumerable: true,
-                configurable: true
-              });
-              return value;
-            },
-            enumerable: true,
-            configurable: true
-          });
-        };
-        var colorConvert;
-        var makeDynamicStyles = (wrap, targetSpace, identity, isBackground) => {
-          if (colorConvert === void 0) {
-            colorConvert = require_color_convert();
-          }
-          const offset = isBackground ? 10 : 0;
-          const styles = {};
-          for (const [sourceSpace, suite] of Object.entries(colorConvert)) {
-            const name = sourceSpace === "ansi16" ? "ansi" : sourceSpace;
-            if (sourceSpace === targetSpace) {
-              styles[name] = wrap(identity, offset);
-            } else if (typeof suite === "object") {
-              styles[name] = wrap(suite[targetSpace], offset);
-            }
-          }
-          return styles;
-        };
-        function assembleStyles() {
-          const codes = new Map();
-          const styles = {
-            modifier: {
-              reset: [0, 0],
-              bold: [1, 22],
-              dim: [2, 22],
-              italic: [3, 23],
-              underline: [4, 24],
-              inverse: [7, 27],
-              hidden: [8, 28],
-              strikethrough: [9, 29]
-            },
-            color: {
-              black: [30, 39],
-              red: [31, 39],
-              green: [32, 39],
-              yellow: [33, 39],
-              blue: [34, 39],
-              magenta: [35, 39],
-              cyan: [36, 39],
-              white: [37, 39],
-              blackBright: [90, 39],
-              redBright: [91, 39],
-              greenBright: [92, 39],
-              yellowBright: [93, 39],
-              blueBright: [94, 39],
-              magentaBright: [95, 39],
-              cyanBright: [96, 39],
-              whiteBright: [97, 39]
-            },
-            bgColor: {
-              bgBlack: [40, 49],
-              bgRed: [41, 49],
-              bgGreen: [42, 49],
-              bgYellow: [43, 49],
-              bgBlue: [44, 49],
-              bgMagenta: [45, 49],
-              bgCyan: [46, 49],
-              bgWhite: [47, 49],
-              bgBlackBright: [100, 49],
-              bgRedBright: [101, 49],
-              bgGreenBright: [102, 49],
-              bgYellowBright: [103, 49],
-              bgBlueBright: [104, 49],
-              bgMagentaBright: [105, 49],
-              bgCyanBright: [106, 49],
-              bgWhiteBright: [107, 49]
-            }
-          };
-          styles.color.gray = styles.color.blackBright;
-          styles.bgColor.bgGray = styles.bgColor.bgBlackBright;
-          styles.color.grey = styles.color.blackBright;
-          styles.bgColor.bgGrey = styles.bgColor.bgBlackBright;
-          for (const [groupName, group] of Object.entries(styles)) {
-            for (const [styleName, style] of Object.entries(group)) {
-              styles[styleName] = {
-                open: `[${style[0]}m`,
-                close: `[${style[1]}m`
-              };
-              group[styleName] = styles[styleName];
-              codes.set(style[0], style[1]);
-            }
-            Object.defineProperty(styles, groupName, {
-              value: group,
-              enumerable: false
-            });
-          }
-          Object.defineProperty(styles, "codes", {
-            value: codes,
-            enumerable: false
-          });
-          styles.color.close = "[39m";
-          styles.bgColor.close = "[49m";
-          setLazyProperty(styles.color, "ansi", () => makeDynamicStyles(wrapAnsi16, "ansi16", ansi2ansi, false));
-          setLazyProperty(styles.color, "ansi256", () => makeDynamicStyles(wrapAnsi256, "ansi256", ansi2ansi, false));
-          setLazyProperty(styles.color, "ansi16m", () => makeDynamicStyles(wrapAnsi16m, "rgb", rgb2rgb, false));
-          setLazyProperty(styles.bgColor, "ansi", () => makeDynamicStyles(wrapAnsi16, "ansi16", ansi2ansi, true));
-          setLazyProperty(styles.bgColor, "ansi256", () => makeDynamicStyles(wrapAnsi256, "ansi256", ansi2ansi, true));
-          setLazyProperty(styles.bgColor, "ansi16m", () => makeDynamicStyles(wrapAnsi16m, "rgb", rgb2rgb, true));
-          return styles;
-        }
-        Object.defineProperty(module22, "exports", {
-          enumerable: true,
-          get: assembleStyles
-        });
-      }
-    });
-    var require_has_flag2 = __commonJS2({
-      "node_modules/.pnpm/has-flag@4.0.0/node_modules/has-flag/index.js"(exports2, module22) {
-        "use strict";
-        module22.exports = (flag, argv = process.argv) => {
-          const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
-          const position = argv.indexOf(prefix + flag);
-          const terminatorPosition = argv.indexOf("--");
-          return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
-        };
-      }
-    });
-    var require_supports_color2 = __commonJS2({
-      "node_modules/.pnpm/supports-color@7.2.0/node_modules/supports-color/index.js"(exports2, module22) {
-        "use strict";
-        var os2 = require("os");
-        var tty = require("tty");
-        var hasFlag = require_has_flag2();
-        var { env } = process;
-        var forceColor;
-        if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false") || hasFlag("color=never")) {
-          forceColor = 0;
-        } else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) {
-          forceColor = 1;
-        }
-        if ("FORCE_COLOR" in env) {
-          if (env.FORCE_COLOR === "true") {
-            forceColor = 1;
-          } else if (env.FORCE_COLOR === "false") {
-            forceColor = 0;
-          } else {
-            forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
-          }
-        }
-        function translateLevel(level) {
-          if (level === 0) {
-            return false;
-          }
-          return {
-            level,
-            hasBasic: true,
-            has256: level >= 2,
-            has16m: level >= 3
-          };
-        }
-        function supportsColor(haveStream, streamIsTTY) {
-          if (forceColor === 0) {
-            return 0;
-          }
-          if (hasFlag("color=16m") || hasFlag("color=full") || hasFlag("color=truecolor")) {
-            return 3;
-          }
-          if (hasFlag("color=256")) {
-            return 2;
-          }
-          if (haveStream && !streamIsTTY && forceColor === void 0) {
-            return 0;
-          }
-          const min = forceColor || 0;
-          if (env.TERM === "dumb") {
-            return min;
-          }
-          if (process.platform === "win32") {
-            const osRelease = os2.release().split(".");
-            if (Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
-              return Number(osRelease[2]) >= 14931 ? 3 : 2;
-            }
-            return 1;
-          }
-          if ("CI" in env) {
-            if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "GITHUB_ACTIONS", "BUILDKITE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
-              return 1;
-            }
-            return min;
-          }
-          if ("TEAMCITY_VERSION" in env) {
-            return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
-          }
-          if (env.COLORTERM === "truecolor") {
-            return 3;
-          }
-          if ("TERM_PROGRAM" in env) {
-            const version8 = parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
-            switch (env.TERM_PROGRAM) {
-              case "iTerm.app":
-                return version8 >= 3 ? 3 : 2;
-              case "Apple_Terminal":
-                return 2;
-            }
-          }
-          if (/-256(color)?$/i.test(env.TERM)) {
-            return 2;
-          }
-          if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
-            return 1;
-          }
-          if ("COLORTERM" in env) {
-            return 1;
-          }
-          return min;
-        }
-        function getSupportLevel(stream) {
-          const level = supportsColor(stream, stream && stream.isTTY);
-          return translateLevel(level);
-        }
-        module22.exports = {
-          supportsColor: getSupportLevel,
-          stdout: translateLevel(supportsColor(true, tty.isatty(1))),
-          stderr: translateLevel(supportsColor(true, tty.isatty(2)))
-        };
-      }
-    });
-    var require_util2 = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/util.js"(exports2, module22) {
-        "use strict";
-        var stringReplaceAll = (string, substring, replacer) => {
-          let index = string.indexOf(substring);
-          if (index === -1) {
-            return string;
-          }
-          const substringLength = substring.length;
-          let endIndex = 0;
-          let returnValue = "";
-          do {
-            returnValue += string.substr(endIndex, index - endIndex) + substring + replacer;
-            endIndex = index + substringLength;
-            index = string.indexOf(substring, endIndex);
-          } while (index !== -1);
-          returnValue += string.substr(endIndex);
-          return returnValue;
-        };
-        var stringEncaseCRLFWithFirstIndex = (string, prefix, postfix, index) => {
-          let endIndex = 0;
-          let returnValue = "";
-          do {
-            const gotCR = string[index - 1] === "\r";
-            returnValue += string.substr(endIndex, (gotCR ? index - 1 : index) - endIndex) + prefix + (gotCR ? "\r\n" : "\n") + postfix;
-            endIndex = index + 1;
-            index = string.indexOf("\n", endIndex);
-          } while (index !== -1);
-          returnValue += string.substr(endIndex);
-          return returnValue;
-        };
-        module22.exports = {
-          stringReplaceAll,
-          stringEncaseCRLFWithFirstIndex
-        };
-      }
-    });
-    var require_templates = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/templates.js"(exports2, module22) {
-        "use strict";
-        var TEMPLATE_REGEX = /(?:\\(u(?:[a-f\d]{4}|\{[a-f\d]{1,6}\})|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
-        var STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
-        var STRING_REGEX = /^(['"])((?:\\.|(?!\1)[^\\])*)\1$/;
-        var ESCAPE_REGEX = /\\(u(?:[a-f\d]{4}|{[a-f\d]{1,6}})|x[a-f\d]{2}|.)|([^\\])/gi;
-        var ESCAPES = new Map([
-          ["n", "\n"],
-          ["r", "\r"],
-          ["t", "	"],
-          ["b", "\b"],
-          ["f", "\f"],
-          ["v", "\v"],
-          ["0", "\0"],
-          ["\\", "\\"],
-          ["e", ""],
-          ["a", "\x07"]
-        ]);
-        function unescape(c) {
-          const u = c[0] === "u";
-          const bracket = c[1] === "{";
-          if (u && !bracket && c.length === 5 || c[0] === "x" && c.length === 3) {
-            return String.fromCharCode(parseInt(c.slice(1), 16));
-          }
-          if (u && bracket) {
-            return String.fromCodePoint(parseInt(c.slice(2, -1), 16));
-          }
-          return ESCAPES.get(c) || c;
-        }
-        function parseArguments(name, arguments_) {
-          const results2 = [];
-          const chunks = arguments_.trim().split(/\s*,\s*/g);
-          let matches;
-          for (const chunk of chunks) {
-            const number = Number(chunk);
-            if (!Number.isNaN(number)) {
-              results2.push(number);
-            } else if (matches = chunk.match(STRING_REGEX)) {
-              results2.push(matches[2].replace(ESCAPE_REGEX, (m, escape, character) => escape ? unescape(escape) : character));
-            } else {
-              throw new Error(`Invalid Chalk template style argument: ${chunk} (in style '${name}')`);
-            }
-          }
-          return results2;
-        }
-        function parseStyle(style) {
-          STYLE_REGEX.lastIndex = 0;
-          const results2 = [];
-          let matches;
-          while ((matches = STYLE_REGEX.exec(style)) !== null) {
-            const name = matches[1];
-            if (matches[2]) {
-              const args = parseArguments(name, matches[2]);
-              results2.push([name].concat(args));
-            } else {
-              results2.push([name]);
-            }
-          }
-          return results2;
-        }
-        function buildStyle(chalk2, styles) {
-          const enabled = {};
-          for (const layer of styles) {
-            for (const style of layer.styles) {
-              enabled[style[0]] = layer.inverse ? null : style.slice(1);
-            }
-          }
-          let current = chalk2;
-          for (const [styleName, styles2] of Object.entries(enabled)) {
-            if (!Array.isArray(styles2)) {
-              continue;
-            }
-            if (!(styleName in current)) {
-              throw new Error(`Unknown Chalk style: ${styleName}`);
-            }
-            current = styles2.length > 0 ? current[styleName](...styles2) : current[styleName];
-          }
-          return current;
-        }
-        module22.exports = (chalk2, temporary) => {
-          const styles = [];
-          const chunks = [];
-          let chunk = [];
-          temporary.replace(TEMPLATE_REGEX, (m, escapeCharacter, inverse, style, close, character) => {
-            if (escapeCharacter) {
-              chunk.push(unescape(escapeCharacter));
-            } else if (style) {
-              const string = chunk.join("");
-              chunk = [];
-              chunks.push(styles.length === 0 ? string : buildStyle(chalk2, styles)(string));
-              styles.push({ inverse, styles: parseStyle(style) });
-            } else if (close) {
-              if (styles.length === 0) {
-                throw new Error("Found extraneous } in Chalk template literal");
-              }
-              chunks.push(buildStyle(chalk2, styles)(chunk.join("")));
-              chunk = [];
-              styles.pop();
-            } else {
-              chunk.push(character);
-            }
-          });
-          chunks.push(chunk.join(""));
-          if (styles.length > 0) {
-            const errMessage = `Chalk template literal is missing ${styles.length} closing bracket${styles.length === 1 ? "" : "s"} (\`}\`)`;
-            throw new Error(errMessage);
-          }
-          return chunks.join("");
-        };
-      }
-    });
-    var require_source = __commonJS2({
-      "node_modules/.pnpm/chalk@4.1.2/node_modules/chalk/source/index.js"(exports2, module22) {
-        "use strict";
-        var ansiStyles = require_ansi_styles();
-        var { stdout: stdoutColor, stderr: stderrColor } = require_supports_color2();
-        var {
-          stringReplaceAll,
-          stringEncaseCRLFWithFirstIndex
-        } = require_util2();
-        var { isArray } = Array;
-        var levelMapping = [
-          "ansi",
-          "ansi",
-          "ansi256",
-          "ansi16m"
-        ];
-        var styles = Object.create(null);
-        var applyOptions = (object, options22 = {}) => {
-          if (options22.level && !(Number.isInteger(options22.level) && options22.level >= 0 && options22.level <= 3)) {
-            throw new Error("The `level` option should be an integer from 0 to 3");
-          }
-          const colorLevel = stdoutColor ? stdoutColor.level : 0;
-          object.level = options22.level === void 0 ? colorLevel : options22.level;
-        };
-        var ChalkClass = class {
-          constructor(options22) {
-            return chalkFactory(options22);
-          }
-        };
-        var chalkFactory = (options22) => {
-          const chalk3 = {};
-          applyOptions(chalk3, options22);
-          chalk3.template = (...arguments_) => chalkTag(chalk3.template, ...arguments_);
-          Object.setPrototypeOf(chalk3, Chalk.prototype);
-          Object.setPrototypeOf(chalk3.template, chalk3);
-          chalk3.template.constructor = () => {
-            throw new Error("`chalk.constructor()` is deprecated. Use `new chalk.Instance()` instead.");
-          };
-          chalk3.template.Instance = ChalkClass;
-          return chalk3.template;
-        };
-        function Chalk(options22) {
-          return chalkFactory(options22);
-        }
-        for (const [styleName, style] of Object.entries(ansiStyles)) {
-          styles[styleName] = {
-            get() {
-              const builder = createBuilder(this, createStyler(style.open, style.close, this._styler), this._isEmpty);
-              Object.defineProperty(this, styleName, { value: builder });
-              return builder;
-            }
-          };
-        }
-        styles.visible = {
-          get() {
-            const builder = createBuilder(this, this._styler, true);
-            Object.defineProperty(this, "visible", { value: builder });
-            return builder;
-          }
-        };
-        var usedModels = ["rgb", "hex", "keyword", "hsl", "hsv", "hwb", "ansi", "ansi256"];
-        for (const model of usedModels) {
-          styles[model] = {
-            get() {
-              const { level } = this;
-              return function(...arguments_) {
-                const styler = createStyler(ansiStyles.color[levelMapping[level]][model](...arguments_), ansiStyles.color.close, this._styler);
-                return createBuilder(this, styler, this._isEmpty);
-              };
-            }
-          };
-        }
-        for (const model of usedModels) {
-          const bgModel = "bg" + model[0].toUpperCase() + model.slice(1);
-          styles[bgModel] = {
-            get() {
-              const { level } = this;
-              return function(...arguments_) {
-                const styler = createStyler(ansiStyles.bgColor[levelMapping[level]][model](...arguments_), ansiStyles.bgColor.close, this._styler);
-                return createBuilder(this, styler, this._isEmpty);
-              };
-            }
-          };
-        }
-        var proto = Object.defineProperties(() => {
-        }, {
-          ...styles,
-          level: {
-            enumerable: true,
-            get() {
-              return this._generator.level;
-            },
-            set(level) {
-              this._generator.level = level;
-            }
-          }
-        });
-        var createStyler = (open, close, parent) => {
-          let openAll;
-          let closeAll;
-          if (parent === void 0) {
-            openAll = open;
-            closeAll = close;
-          } else {
-            openAll = parent.openAll + open;
-            closeAll = close + parent.closeAll;
-          }
-          return {
-            open,
-            close,
-            openAll,
-            closeAll,
-            parent
-          };
-        };
-        var createBuilder = (self2, _styler, _isEmpty) => {
-          const builder = (...arguments_) => {
-            if (isArray(arguments_[0]) && isArray(arguments_[0].raw)) {
-              return applyStyle(builder, chalkTag(builder, ...arguments_));
-            }
-            return applyStyle(builder, arguments_.length === 1 ? "" + arguments_[0] : arguments_.join(" "));
-          };
-          Object.setPrototypeOf(builder, proto);
-          builder._generator = self2;
-          builder._styler = _styler;
-          builder._isEmpty = _isEmpty;
-          return builder;
-        };
-        var applyStyle = (self2, string) => {
-          if (self2.level <= 0 || !string) {
-            return self2._isEmpty ? "" : string;
-          }
-          let styler = self2._styler;
-          if (styler === void 0) {
-            return string;
-          }
-          const { openAll, closeAll } = styler;
-          if (string.indexOf("") !== -1) {
-            while (styler !== void 0) {
-              string = stringReplaceAll(string, styler.close, styler.open);
-              styler = styler.parent;
-            }
-          }
-          const lfIndex = string.indexOf("\n");
-          if (lfIndex !== -1) {
-            string = stringEncaseCRLFWithFirstIndex(string, closeAll, openAll, lfIndex);
-          }
-          return openAll + string + closeAll;
-        };
-        var template;
-        var chalkTag = (chalk3, ...strings) => {
-          const [firstString] = strings;
-          if (!isArray(firstString) || !isArray(firstString.raw)) {
-            return strings.join(" ");
-          }
-          const arguments_ = strings.slice(1);
-          const parts = [firstString.raw[0]];
-          for (let i = 1; i < firstString.length; i++) {
-            parts.push(String(arguments_[i - 1]).replace(/[{}\\]/g, "\\$&"), String(firstString.raw[i]));
-          }
-          if (template === void 0) {
-            template = require_templates();
-          }
-          return template(chalk3, parts.join(""));
-        };
-        Object.defineProperties(Chalk.prototype, styles);
-        var chalk2 = Chalk();
-        chalk2.supportsColor = stdoutColor;
-        chalk2.stderr = Chalk({ level: stderrColor ? stderrColor.level : 0 });
-        chalk2.stderr.supportsColor = stderrColor;
-        module22.exports = chalk2;
-      }
-    });
+      return target;
+    };
+    var __toModule = (module22) => {
+      return __reExport2(__markAsModule2(__defProp2(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
+    };
     var require_dayjs_min2 = __commonJS2({
       "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
@@ -1754,13 +262,503 @@ var require_pilogger = __commonJS({
         });
       }
     });
-    var os = require("os");
-    var fs8 = require("fs");
-    var path4 = require("path");
-    var chalk = require_source();
-    var dayjs2 = require_dayjs_min2();
-    var { Console } = require("console");
-    var ctx = new chalk.Instance({ level: 2 });
+    __export2(exports, {
+      access: () => access,
+      accessFile: () => accessFile,
+      assert: () => assert,
+      blank: () => blank,
+      client: () => client,
+      clientFile: () => clientFile,
+      configure: () => configure2,
+      data: () => data9,
+      dateFormat: () => dateFormat,
+      debug: () => debug,
+      error: () => error8,
+      fatal: () => fatal,
+      header: () => header3,
+      headerJson: () => headerJson,
+      info: () => info9,
+      logFile: () => logFile2,
+      options: () => options3,
+      print: () => print,
+      ring: () => ring2,
+      ringLength: () => ringLength,
+      state: () => state9,
+      tags: () => tags,
+      timed: () => timed,
+      verbose: () => verbose,
+      warn: () => warn9
+    });
+    var os2 = __toModule(require("os"));
+    var fs8 = __toModule(require("fs"));
+    var path4 = __toModule(require("path"));
+    var import_dayjs2 = __toModule(require_dayjs_min2());
+    var ANSI_BACKGROUND_OFFSET = 10;
+    var wrapAnsi16 = (offset = 0) => (code) => `\x1B[${code + offset}m`;
+    var wrapAnsi256 = (offset = 0) => (code) => `\x1B[${38 + offset};5;${code}m`;
+    var wrapAnsi16m = (offset = 0) => (red, green, blue) => `\x1B[${38 + offset};2;${red};${green};${blue}m`;
+    function assembleStyles() {
+      const codes = /* @__PURE__ */ new Map();
+      const styles2 = {
+        modifier: {
+          reset: [0, 0],
+          bold: [1, 22],
+          dim: [2, 22],
+          italic: [3, 23],
+          underline: [4, 24],
+          overline: [53, 55],
+          inverse: [7, 27],
+          hidden: [8, 28],
+          strikethrough: [9, 29]
+        },
+        color: {
+          black: [30, 39],
+          red: [31, 39],
+          green: [32, 39],
+          yellow: [33, 39],
+          blue: [34, 39],
+          magenta: [35, 39],
+          cyan: [36, 39],
+          white: [37, 39],
+          blackBright: [90, 39],
+          redBright: [91, 39],
+          greenBright: [92, 39],
+          yellowBright: [93, 39],
+          blueBright: [94, 39],
+          magentaBright: [95, 39],
+          cyanBright: [96, 39],
+          whiteBright: [97, 39]
+        },
+        bgColor: {
+          bgBlack: [40, 49],
+          bgRed: [41, 49],
+          bgGreen: [42, 49],
+          bgYellow: [43, 49],
+          bgBlue: [44, 49],
+          bgMagenta: [45, 49],
+          bgCyan: [46, 49],
+          bgWhite: [47, 49],
+          bgBlackBright: [100, 49],
+          bgRedBright: [101, 49],
+          bgGreenBright: [102, 49],
+          bgYellowBright: [103, 49],
+          bgBlueBright: [104, 49],
+          bgMagentaBright: [105, 49],
+          bgCyanBright: [106, 49],
+          bgWhiteBright: [107, 49]
+        }
+      };
+      styles2.color.gray = styles2.color.blackBright;
+      styles2.bgColor.bgGray = styles2.bgColor.bgBlackBright;
+      styles2.color.grey = styles2.color.blackBright;
+      styles2.bgColor.bgGrey = styles2.bgColor.bgBlackBright;
+      for (const [groupName, group] of Object.entries(styles2)) {
+        for (const [styleName, style] of Object.entries(group)) {
+          styles2[styleName] = {
+            open: `\x1B[${style[0]}m`,
+            close: `\x1B[${style[1]}m`
+          };
+          group[styleName] = styles2[styleName];
+          codes.set(style[0], style[1]);
+        }
+        Object.defineProperty(styles2, groupName, {
+          value: group,
+          enumerable: false
+        });
+      }
+      Object.defineProperty(styles2, "codes", {
+        value: codes,
+        enumerable: false
+      });
+      styles2.color.close = "\x1B[39m";
+      styles2.bgColor.close = "\x1B[49m";
+      styles2.color.ansi = wrapAnsi16();
+      styles2.color.ansi256 = wrapAnsi256();
+      styles2.color.ansi16m = wrapAnsi16m();
+      styles2.bgColor.ansi = wrapAnsi16(ANSI_BACKGROUND_OFFSET);
+      styles2.bgColor.ansi256 = wrapAnsi256(ANSI_BACKGROUND_OFFSET);
+      styles2.bgColor.ansi16m = wrapAnsi16m(ANSI_BACKGROUND_OFFSET);
+      Object.defineProperties(styles2, {
+        rgbToAnsi256: {
+          value: (red, green, blue) => {
+            if (red === green && green === blue) {
+              if (red < 8) {
+                return 16;
+              }
+              if (red > 248) {
+                return 231;
+              }
+              return Math.round((red - 8) / 247 * 24) + 232;
+            }
+            return 16 + 36 * Math.round(red / 255 * 5) + 6 * Math.round(green / 255 * 5) + Math.round(blue / 255 * 5);
+          },
+          enumerable: false
+        },
+        hexToRgb: {
+          value: (hex) => {
+            const matches = /(?<colorString>[a-f\d]{6}|[a-f\d]{3})/i.exec(hex.toString(16));
+            if (!matches) {
+              return [0, 0, 0];
+            }
+            let { colorString } = matches.groups;
+            if (colorString.length === 3) {
+              colorString = [...colorString].map((character) => character + character).join("");
+            }
+            const integer = Number.parseInt(colorString, 16);
+            return [
+              integer >> 16 & 255,
+              integer >> 8 & 255,
+              integer & 255
+            ];
+          },
+          enumerable: false
+        },
+        hexToAnsi256: {
+          value: (hex) => styles2.rgbToAnsi256(...styles2.hexToRgb(hex)),
+          enumerable: false
+        },
+        ansi256ToAnsi: {
+          value: (code) => {
+            if (code < 8) {
+              return 30 + code;
+            }
+            if (code < 16) {
+              return 90 + (code - 8);
+            }
+            let red;
+            let green;
+            let blue;
+            if (code >= 232) {
+              red = ((code - 232) * 10 + 8) / 255;
+              green = red;
+              blue = red;
+            } else {
+              code -= 16;
+              const remainder = code % 36;
+              red = Math.floor(code / 36) / 5;
+              green = Math.floor(remainder / 6) / 5;
+              blue = remainder % 6 / 5;
+            }
+            const value = Math.max(red, green, blue) * 2;
+            if (value === 0) {
+              return 30;
+            }
+            let result = 30 + (Math.round(blue) << 2 | Math.round(green) << 1 | Math.round(red));
+            if (value === 2) {
+              result += 60;
+            }
+            return result;
+          },
+          enumerable: false
+        },
+        rgbToAnsi: {
+          value: (red, green, blue) => styles2.ansi256ToAnsi(styles2.rgbToAnsi256(red, green, blue)),
+          enumerable: false
+        },
+        hexToAnsi: {
+          value: (hex) => styles2.ansi256ToAnsi(styles2.hexToAnsi256(hex)),
+          enumerable: false
+        }
+      });
+      return styles2;
+    }
+    var ansiStyles = assembleStyles();
+    var ansi_styles_default = ansiStyles;
+    var import_node_process = __toModule(require("process"));
+    var import_node_os = __toModule(require("os"));
+    var import_node_tty = __toModule(require("tty"));
+    function hasFlag(flag, argv = import_node_process.default.argv) {
+      const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
+      const position = argv.indexOf(prefix + flag);
+      const terminatorPosition = argv.indexOf("--");
+      return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
+    }
+    var { env } = import_node_process.default;
+    var flagForceColor;
+    if (hasFlag("no-color") || hasFlag("no-colors") || hasFlag("color=false") || hasFlag("color=never")) {
+      flagForceColor = 0;
+    } else if (hasFlag("color") || hasFlag("colors") || hasFlag("color=true") || hasFlag("color=always")) {
+      flagForceColor = 1;
+    }
+    function envForceColor() {
+      if ("FORCE_COLOR" in env) {
+        if (env.FORCE_COLOR === "true") {
+          return 1;
+        }
+        if (env.FORCE_COLOR === "false") {
+          return 0;
+        }
+        return env.FORCE_COLOR.length === 0 ? 1 : Math.min(Number.parseInt(env.FORCE_COLOR, 10), 3);
+      }
+    }
+    function translateLevel(level) {
+      if (level === 0) {
+        return false;
+      }
+      return {
+        level,
+        hasBasic: true,
+        has256: level >= 2,
+        has16m: level >= 3
+      };
+    }
+    function _supportsColor(haveStream, { streamIsTTY, sniffFlags = true } = {}) {
+      const noFlagForceColor = envForceColor();
+      if (noFlagForceColor !== void 0) {
+        flagForceColor = noFlagForceColor;
+      }
+      const forceColor = sniffFlags ? flagForceColor : noFlagForceColor;
+      if (forceColor === 0) {
+        return 0;
+      }
+      if (sniffFlags) {
+        if (hasFlag("color=16m") || hasFlag("color=full") || hasFlag("color=truecolor")) {
+          return 3;
+        }
+        if (hasFlag("color=256")) {
+          return 2;
+        }
+      }
+      if (haveStream && !streamIsTTY && forceColor === void 0) {
+        return 0;
+      }
+      const min = forceColor || 0;
+      if (env.TERM === "dumb") {
+        return min;
+      }
+      if (import_node_process.default.platform === "win32") {
+        const osRelease = import_node_os.default.release().split(".");
+        if (Number(osRelease[0]) >= 10 && Number(osRelease[2]) >= 10586) {
+          return Number(osRelease[2]) >= 14931 ? 3 : 2;
+        }
+        return 1;
+      }
+      if ("CI" in env) {
+        if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "GITHUB_ACTIONS", "BUILDKITE", "DRONE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
+          return 1;
+        }
+        return min;
+      }
+      if ("TEAMCITY_VERSION" in env) {
+        return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
+      }
+      if ("TF_BUILD" in env && "AGENT_NAME" in env) {
+        return 1;
+      }
+      if (env.COLORTERM === "truecolor") {
+        return 3;
+      }
+      if ("TERM_PROGRAM" in env) {
+        const version8 = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        switch (env.TERM_PROGRAM) {
+          case "iTerm.app":
+            return version8 >= 3 ? 3 : 2;
+          case "Apple_Terminal":
+            return 2;
+        }
+      }
+      if (/-256(color)?$/i.test(env.TERM)) {
+        return 2;
+      }
+      if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+        return 1;
+      }
+      if ("COLORTERM" in env) {
+        return 1;
+      }
+      return min;
+    }
+    function createSupportsColor(stream, options22 = {}) {
+      const level = _supportsColor(stream, {
+        streamIsTTY: stream && stream.isTTY,
+        ...options22
+      });
+      return translateLevel(level);
+    }
+    var supportsColor = {
+      stdout: createSupportsColor({ isTTY: import_node_tty.default.isatty(1) }),
+      stderr: createSupportsColor({ isTTY: import_node_tty.default.isatty(2) })
+    };
+    var supports_color_default = supportsColor;
+    function stringReplaceAll(string, substring, replacer) {
+      let index = string.indexOf(substring);
+      if (index === -1) {
+        return string;
+      }
+      const substringLength = substring.length;
+      let endIndex = 0;
+      let returnValue = "";
+      do {
+        returnValue += string.substr(endIndex, index - endIndex) + substring + replacer;
+        endIndex = index + substringLength;
+        index = string.indexOf(substring, endIndex);
+      } while (index !== -1);
+      returnValue += string.slice(endIndex);
+      return returnValue;
+    }
+    function stringEncaseCRLFWithFirstIndex(string, prefix, postfix, index) {
+      let endIndex = 0;
+      let returnValue = "";
+      do {
+        const gotCR = string[index - 1] === "\r";
+        returnValue += string.substr(endIndex, (gotCR ? index - 1 : index) - endIndex) + prefix + (gotCR ? "\r\n" : "\n") + postfix;
+        endIndex = index + 1;
+        index = string.indexOf("\n", endIndex);
+      } while (index !== -1);
+      returnValue += string.slice(endIndex);
+      return returnValue;
+    }
+    var { stdout: stdoutColor, stderr: stderrColor } = supports_color_default;
+    var GENERATOR = Symbol("GENERATOR");
+    var STYLER = Symbol("STYLER");
+    var IS_EMPTY = Symbol("IS_EMPTY");
+    var levelMapping = [
+      "ansi",
+      "ansi",
+      "ansi256",
+      "ansi16m"
+    ];
+    var styles = /* @__PURE__ */ Object.create(null);
+    var applyOptions = (object, options22 = {}) => {
+      if (options22.level && !(Number.isInteger(options22.level) && options22.level >= 0 && options22.level <= 3)) {
+        throw new Error("The `level` option should be an integer from 0 to 3");
+      }
+      const colorLevel = stdoutColor ? stdoutColor.level : 0;
+      object.level = options22.level === void 0 ? colorLevel : options22.level;
+    };
+    var Chalk = class {
+      constructor(options22) {
+        return chalkFactory(options22);
+      }
+    };
+    var chalkFactory = (options22) => {
+      const chalk3 = (...strings) => strings.join(" ");
+      applyOptions(chalk3, options22);
+      Object.setPrototypeOf(chalk3, createChalk.prototype);
+      return chalk3;
+    };
+    function createChalk(options22) {
+      return chalkFactory(options22);
+    }
+    Object.setPrototypeOf(createChalk.prototype, Function.prototype);
+    for (const [styleName, style] of Object.entries(ansi_styles_default)) {
+      styles[styleName] = {
+        get() {
+          const builder = createBuilder(this, createStyler(style.open, style.close, this[STYLER]), this[IS_EMPTY]);
+          Object.defineProperty(this, styleName, { value: builder });
+          return builder;
+        }
+      };
+    }
+    styles.visible = {
+      get() {
+        const builder = createBuilder(this, this[STYLER], true);
+        Object.defineProperty(this, "visible", { value: builder });
+        return builder;
+      }
+    };
+    var getModelAnsi = (model, level, type, ...arguments_) => {
+      if (model === "rgb") {
+        if (level === "ansi16m") {
+          return ansi_styles_default[type].ansi16m(...arguments_);
+        }
+        if (level === "ansi256") {
+          return ansi_styles_default[type].ansi256(ansi_styles_default.rgbToAnsi256(...arguments_));
+        }
+        return ansi_styles_default[type].ansi(ansi_styles_default.rgbToAnsi(...arguments_));
+      }
+      if (model === "hex") {
+        return getModelAnsi("rgb", level, type, ...ansi_styles_default.hexToRgb(...arguments_));
+      }
+      return ansi_styles_default[type][model](...arguments_);
+    };
+    var usedModels = ["rgb", "hex", "ansi256"];
+    for (const model of usedModels) {
+      styles[model] = {
+        get() {
+          const { level } = this;
+          return function(...arguments_) {
+            const styler = createStyler(getModelAnsi(model, levelMapping[level], "color", ...arguments_), ansi_styles_default.color.close, this[STYLER]);
+            return createBuilder(this, styler, this[IS_EMPTY]);
+          };
+        }
+      };
+      const bgModel = "bg" + model[0].toUpperCase() + model.slice(1);
+      styles[bgModel] = {
+        get() {
+          const { level } = this;
+          return function(...arguments_) {
+            const styler = createStyler(getModelAnsi(model, levelMapping[level], "bgColor", ...arguments_), ansi_styles_default.bgColor.close, this[STYLER]);
+            return createBuilder(this, styler, this[IS_EMPTY]);
+          };
+        }
+      };
+    }
+    var proto = Object.defineProperties(() => {
+    }, {
+      ...styles,
+      level: {
+        enumerable: true,
+        get() {
+          return this[GENERATOR].level;
+        },
+        set(level) {
+          this[GENERATOR].level = level;
+        }
+      }
+    });
+    var createStyler = (open, close, parent) => {
+      let openAll;
+      let closeAll;
+      if (parent === void 0) {
+        openAll = open;
+        closeAll = close;
+      } else {
+        openAll = parent.openAll + open;
+        closeAll = close + parent.closeAll;
+      }
+      return {
+        open,
+        close,
+        openAll,
+        closeAll,
+        parent
+      };
+    };
+    var createBuilder = (self2, _styler, _isEmpty) => {
+      const builder = (...arguments_) => applyStyle(builder, arguments_.length === 1 ? "" + arguments_[0] : arguments_.join(" "));
+      Object.setPrototypeOf(builder, proto);
+      builder[GENERATOR] = self2;
+      builder[STYLER] = _styler;
+      builder[IS_EMPTY] = _isEmpty;
+      return builder;
+    };
+    var applyStyle = (self2, string) => {
+      if (self2.level <= 0 || !string) {
+        return self2[IS_EMPTY] ? "" : string;
+      }
+      let styler = self2[STYLER];
+      if (styler === void 0) {
+        return string;
+      }
+      const { openAll, closeAll } = styler;
+      if (string.includes("\x1B")) {
+        while (styler !== void 0) {
+          string = stringReplaceAll(string, styler.close, styler.open);
+          styler = styler.parent;
+        }
+      }
+      const lfIndex = string.indexOf("\n");
+      if (lfIndex !== -1) {
+        string = stringEncaseCRLFWithFirstIndex(string, closeAll, openAll, lfIndex);
+      }
+      return openAll + string + closeAll;
+    };
+    Object.defineProperties(createChalk.prototype, styles);
+    var chalk = createChalk();
+    var chalkStderr = createChalk({ level: stderrColor ? stderrColor.level : 0 });
+    var import_console = __toModule(require("console"));
+    var chalk2 = new Chalk({ level: 2 });
     var ring2 = [];
     var options3 = {
       dateFormat: "YYYY-MM-DD HH:mm:ss",
@@ -1771,21 +769,24 @@ var require_pilogger = __commonJS({
     var streams = {
       logFile: false,
       accessFile: false,
-      clientFile: false
+      clientFile: false,
+      logStream: void 0,
+      accessStream: void 0,
+      clientStream: void 0
     };
     var tags = {
       blank: "",
       continue: ":     ",
-      info: ctx.cyan("INFO: "),
-      warn: ctx.yellow("WARN: "),
-      data: ctx.green("DATA: "),
-      error: ctx.red("ERROR:"),
-      fatal: ctx.bold.red("FATAL:"),
-      assert: ctx.italic.bold.red("ASSERT:"),
-      timed: ctx.magentaBright("TIMED:"),
-      state: ctx.magenta("STATE:"),
-      verbose: ctx.bgGray.yellowBright("VERB: "),
-      debug: ctx.bgGray.redBright("DEBUG:")
+      info: chalk2.cyan("INFO: "),
+      warn: chalk2.yellow("WARN: "),
+      data: chalk2.green("DATA: "),
+      error: chalk2.red("ERROR:"),
+      fatal: chalk2.bold.red("FATAL:"),
+      assert: chalk2.italic.bold.red("ASSERT:"),
+      timed: chalk2.magentaBright("TIMED:"),
+      state: chalk2.magenta("STATE:"),
+      verbose: chalk2.bgGray.yellowBright("VERB: "),
+      debug: chalk2.bgGray.redBright("DEBUG:")
     };
     var inspectOptions = {
       showHidden: false,
@@ -1799,16 +800,16 @@ var require_pilogger = __commonJS({
       sorted: false,
       getters: false
     };
-    var logger = new Console({
+    var logger = new import_console.Console({
       stdout: process.stdout,
       stderr: process.stderr,
       ignoreErrors: true,
       inspectOptions
     });
-    function setDateFormat(dt) {
+    function dateFormat(dt) {
       options3.dateFormat = dt;
     }
-    function setRingLength() {
+    function ringLength() {
       options3.ringLength = 100;
     }
     function combineMessages(...messages) {
@@ -1820,7 +821,7 @@ var require_pilogger = __commonJS({
       return msg;
     }
     function print(...messages) {
-      const time = dayjs2(Date.now()).format(options3.dateFormat);
+      const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (options3.console) {
         if (options3.timeStamp)
           logger.log(time, ...messages);
@@ -1828,7 +829,7 @@ var require_pilogger = __commonJS({
           logger.log(...messages);
       }
     }
-    function setLogFile(file) {
+    function logFile2(file) {
       if (typeof file !== "string")
         return;
       options3.logFile = file;
@@ -1836,11 +837,11 @@ var require_pilogger = __commonJS({
       streams.logStream = fs8.createWriteStream(path4.resolve(options3.logFile || ""), { flags: "a" });
       if (streams.logStream)
         streams.logStream.on("error", (e) => {
-          print(tags.error, "Cannot open application log", `${options3.logFile}: ${e.code}`);
+          print(tags.error, "Cannot open application log", options3.logFile, e);
           streams.logFile = false;
         });
     }
-    function setAccessFile(file) {
+    function accessFile(file) {
       if (typeof file !== "string")
         return;
       options3.accessFile = file;
@@ -1848,11 +849,11 @@ var require_pilogger = __commonJS({
       streams.accessStream = fs8.createWriteStream(path4.resolve(options3.accessFile), { flags: "a" });
       if (streams.accessStream)
         streams.accessStream.on("error", (e) => {
-          print(tags.error, "Cannot open application log", `${options3.logFile}: ${e.code}`);
+          print(tags.error, "Cannot open application log", options3.accessFile, e);
           streams.accessFile = false;
         });
     }
-    function setClientFile(file) {
+    function clientFile(file) {
       if (typeof file !== "string")
         return;
       options3.clientFile = file;
@@ -1860,7 +861,7 @@ var require_pilogger = __commonJS({
       streams.clientStream = fs8.createWriteStream(path4.resolve(options3.clientFile), { flags: "a" });
       if (streams.clientStream)
         streams.clientStream.on("error", (e) => {
-          print(tags.error, "Cannot open application log", `${options3.logFile}: ${e.code}`);
+          print(tags.error, "Cannot open application log", options3.clientFile, e);
           streams.clientFile = false;
         });
     }
@@ -1880,15 +881,15 @@ var require_pilogger = __commonJS({
       } catch (e) {
       }
       elapsed = Math.round(elapsed / 1e6);
-      const time = dayjs2(Date.now()).format(options3.dateFormat);
+      const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (options3.console)
         logger.log(time, tags.timed, `${elapsed.toLocaleString()} ms`, ...messages);
-      if (streams.logFile)
+      if (streams.logFile && streams.logStream)
         streams.logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
 `);
     }
     async function log12(tag, ...messages) {
-      const time = dayjs2(Date.now()).format(options3.dateFormat);
+      const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (tags[tag])
         print(tags[tag], ...messages);
       else
@@ -1901,13 +902,13 @@ var require_pilogger = __commonJS({
         ring2.shift();
     }
     async function access(...messages) {
-      const time = dayjs2(Date.now()).format(options3.dateFormat);
+      const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (streams.accessFile && streams.accessStream)
         streams.accessStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
     async function client(...messages) {
-      const time = dayjs2(Date.now()).format(options3.dateFormat);
+      const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (streams.clientFile && streams.clientStream)
         streams.clientStream.write(`${time} ${combineMessages(...messages)}
 `);
@@ -1916,18 +917,18 @@ var require_pilogger = __commonJS({
       if (!userOptions)
         return;
       if (userOptions.dateFormat)
-        options3.dateFormat = options3.dateFormat;
+        options3.dateFormat = userOptions.dateFormat;
       if (userOptions.ringLength)
-        options3.ringLength = options3.ringLength;
+        options3.ringLength = userOptions.ringLength;
       if (userOptions.logFile)
-        setLogFile(options3.logFile);
+        logFile2(userOptions.logFile);
       if (userOptions.accessFile)
-        setAccessFile(options3.accessFile);
+        accessFile(userOptions.accessFile);
       if (userOptions.clientFile)
-        setClientFile(options3.clientFile);
+        clientFile(userOptions.clientFile);
       if (userOptions.inspect)
         inspectOptions = { ...inspectOptions, ...userOptions.inspect };
-      logger = new Console({
+      logger = new import_console.Console({
         stdout: process.stdout,
         stderr: process.stderr,
         ignoreErrors: true,
@@ -1941,13 +942,13 @@ var require_pilogger = __commonJS({
       const node = JSON.parse(fs8.readFileSync(f).toString());
       process.title = node.name;
       log12("info", node.name, "version", node.version);
-      log12("info", "User:", os.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
+      log12("info", "User:", os2.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
       if (options3.logFile && streams.logFile)
         print(tags.state, "Application log:", path4.resolve(options3.logFile));
       if (options3.accessFile && streams.accessFile)
-        print(tags.state, "Access log:", path4.resolve(options3.logFile));
+        print(tags.state, "Access log:", path4.resolve(options3.accessFile));
       if (options3.clientFile && streams.clientFile)
-        print(tags.state, "Client log:", path4.resolve(options3.logFile));
+        print(tags.state, "Client log:", path4.resolve(options3.clientFile));
     }
     function headerJson() {
       const f = "./package.json";
@@ -1956,40 +957,25 @@ var require_pilogger = __commonJS({
       const node = JSON.parse(fs8.readFileSync(f).toString());
       process.title = node.name;
       log12("info", { application: node.name, version: node.version });
-      log12("info", { user: os.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
+      log12("info", { user: os2.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
       if (options3.logFile || options3.accessFile || options3.clientFile)
         print(tags.state, { log: path4.resolve(options3.logFile || ""), access: path4.resolve(options3.accessFile || ""), client: path4.resolve(options3.clientFile || "") });
     }
-    exports.ring = ring2;
-    exports.header = header3;
-    exports.headerJson = headerJson;
-    exports.ringLength = setRingLength;
-    exports.dateFormat = setDateFormat;
-    exports.logFile = setLogFile;
-    exports.accessFile = setAccessFile;
-    exports.clientFile = setClientFile;
-    exports.configure = configure2;
-    exports.options = options3;
-    exports.console = print;
-    exports.timed = timed;
-    exports.assert = assert;
-    exports.blank = (...message) => log12("", ...message);
-    exports.info = (...message) => log12("info", ...message);
-    exports.state = (...message) => log12("state", ...message);
-    exports.data = (...message) => log12("data", ...message);
-    exports.warn = (...message) => log12("warn", ...message);
-    exports.error = (...message) => log12("error", ...message);
-    exports.fatal = (...message) => log12("fatal", ...message);
-    exports.verbose = (...message) => log12("verbose", ...message);
-    exports.debug = (...message) => log12("debug", ...message);
-    exports.access = (...message) => access(...message);
-    exports.client = (...message) => client(...message);
+    var blank = (...message) => log12("blank", ...message);
+    var info9 = (...message) => log12("info", ...message);
+    var state9 = (...message) => log12("state", ...message);
+    var data9 = (...message) => log12("data", ...message);
+    var warn9 = (...message) => log12("warn", ...message);
+    var error8 = (...message) => log12("error", ...message);
+    var fatal = (...message) => log12("fatal", ...message);
+    var verbose = (...message) => log12("verbose", ...message);
+    var debug = (...message) => log12("debug", ...message);
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-error.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-error.js
 var require_git_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-error.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-error.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitError = void 0;
@@ -2004,9 +990,9 @@ var require_git_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-construct-error.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-construct-error.js
 var require_git_construct_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-construct-error.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-construct-error.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitConstructError = void 0;
@@ -2021,9 +1007,9 @@ var require_git_construct_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js
 var require_git_plugin_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitPluginError = void 0;
@@ -2040,9 +1026,9 @@ var require_git_plugin_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-response-error.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-response-error.js
 var require_git_response_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/git-response-error.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-response-error.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitResponseError = void 0;
@@ -2057,9 +1043,9 @@ var require_git_response_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js
 var require_task_configuration_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TaskConfigurationError = void 0;
@@ -2185,9 +1171,9 @@ var require_ms = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/common.js
+// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/common.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/common.js"(exports, module2) {
     function setup(env) {
       createDebug.debug = createDebug;
       createDebug.default = createDebug;
@@ -2348,9 +1334,9 @@ var require_common = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/browser.js
+// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/browser.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/browser.js"(exports, module2) {
     exports.formatArgs = formatArgs;
     exports.save = save;
     exports.load = load;
@@ -2628,9 +1614,9 @@ var require_supports_color = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/node.js
+// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/node.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/node.js"(exports, module2) {
     var tty = require("tty");
     var util = require("util");
     exports.init = init;
@@ -2752,10 +1738,10 @@ var require_node = __commonJS({
       const { namespace: name, useColors: useColors2 } = this;
       if (useColors2) {
         const c = this.color;
-        const colorCode = "[3" + (c < 8 ? c : "8;5;" + c);
-        const prefix = `  ${colorCode};1m${name} [0m`;
+        const colorCode = "\x1B[3" + (c < 8 ? c : "8;5;" + c);
+        const prefix = `  ${colorCode};1m${name} \x1B[0m`;
         args[0] = prefix + args[0].split("\n").join("\n" + prefix);
-        args.push(colorCode + "m+" + module2.exports.humanize(this.diff) + "[0m");
+        args.push(colorCode + "m+" + module2.exports.humanize(this.diff) + "\x1B[0m");
       } else {
         args[0] = getDate() + name + " " + args[0];
       }
@@ -2799,9 +1785,9 @@ var require_node = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/index.js
+// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/.pnpm/debug@4.3.2/node_modules/debug/src/index.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/index.js"(exports, module2) {
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
     } else {
@@ -2868,9 +1854,9 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/util.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/util.js
 var require_util = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/util.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/util.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.delay = exports.pick = exports.bufferToString = exports.prefixedArray = exports.asNumber = exports.asStringArray = exports.asArray = exports.objectToString = exports.remove = exports.including = exports.append = exports.folderExists = exports.forEachLineWithContent = exports.toLinesWithContent = exports.last = exports.first = exports.splitOn = exports.isUserFunction = exports.asFunction = exports.NOOP = exports.NULL = void 0;
@@ -2999,9 +1985,9 @@ var require_util = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/argument-filters.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/argument-filters.js
 var require_argument_filters = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/argument-filters.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/argument-filters.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.filterHasLength = exports.filterFunction = exports.filterPlainObject = exports.filterStringOrStringArray = exports.filterStringArray = exports.filterString = exports.filterPrimitives = exports.filterArray = exports.filterType = void 0;
@@ -3051,9 +2037,9 @@ var require_argument_filters = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/exit-codes.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/exit-codes.js
 var require_exit_codes = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/exit-codes.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/exit-codes.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ExitCodes = void 0;
@@ -3066,9 +2052,9 @@ var require_exit_codes = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/git-output-streams.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/git-output-streams.js
 var require_git_output_streams = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/git-output-streams.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/git-output-streams.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitOutputStreams = void 0;
@@ -3085,9 +2071,9 @@ var require_git_output_streams = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/line-parser.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/line-parser.js
 var require_line_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/line-parser.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/line-parser.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RemoteLineParser = exports.LineParser = void 0;
@@ -3141,9 +2127,9 @@ var require_line_parser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/simple-git-options.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/simple-git-options.js
 var require_simple_git_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/simple-git-options.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/simple-git-options.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createInstanceConfig = void 0;
@@ -3162,9 +2148,9 @@ var require_simple_git_options = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-options.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-options.js
 var require_task_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-options.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-options.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.trailingFunctionArgument = exports.trailingOptionsArgument = exports.getTrailingOptions = exports.appendTaskOptions = void 0;
@@ -3216,9 +2202,9 @@ var require_task_options = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-parser.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-parser.js
 var require_task_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/task-parser.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-parser.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseStringResponse = exports.callTaskParser = void 0;
@@ -3245,9 +2231,9 @@ var require_task_parser = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/index.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/index.js
 var require_utils = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/utils/index.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/index.js"(exports) {
     "use strict";
     var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -3277,9 +2263,9 @@ var require_utils = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js
 var require_check_is_repo = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.checkIsBareRepoTask = exports.checkIsRepoRootTask = exports.checkIsRepoTask = exports.CheckRepoActions = void 0;
@@ -3343,9 +2329,9 @@ var require_check_is_repo = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CleanSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CleanSummary.js
 var require_CleanSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CleanSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CleanSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.cleanSummaryParser = exports.CleanResponse = void 0;
@@ -3376,9 +2362,9 @@ var require_CleanSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/task.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/task.js
 var require_task = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/task.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/task.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.isEmptyTask = exports.isBufferTask = exports.straightThroughBufferTask = exports.straightThroughStringTask = exports.configurationErrorTask = exports.adhocExecTask = exports.EMPTY_COMMANDS = void 0;
@@ -3433,9 +2419,9 @@ var require_task = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clean.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clean.js
 var require_clean = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clean.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clean.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.isCleanOptionsArray = exports.cleanTask = exports.cleanWithOptionsTask = exports.CleanOptions = exports.CONFIG_ERROR_UNKNOWN_OPTION = exports.CONFIG_ERROR_MODE_REQUIRED = exports.CONFIG_ERROR_INTERACTIVE_MODE = void 0;
@@ -3455,7 +2441,7 @@ var require_clean = __commonJS({
       CleanOptions2["QUIET"] = "q";
       CleanOptions2["RECURSIVE"] = "d";
     })(CleanOptions = exports.CleanOptions || (exports.CleanOptions = {}));
-    var CleanOptionValues = new Set(["i", ...utils_1.asStringArray(Object.values(CleanOptions))]);
+    var CleanOptionValues = /* @__PURE__ */ new Set(["i", ...utils_1.asStringArray(Object.values(CleanOptions))]);
     function cleanWithOptionsTask(mode, customArgs) {
       const { cleanMode, options: options3, valid } = getCleanOptions(mode);
       if (!cleanMode) {
@@ -3519,9 +2505,9 @@ var require_clean = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/ConfigList.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/ConfigList.js
 var require_ConfigList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/ConfigList.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/ConfigList.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.configGetParser = exports.configListParser = exports.ConfigList = void 0;
@@ -3529,7 +2515,7 @@ var require_ConfigList = __commonJS({
     var ConfigList = class {
       constructor() {
         this.files = [];
-        this.values = Object.create(null);
+        this.values = /* @__PURE__ */ Object.create(null);
       }
       get all() {
         if (!this._all) {
@@ -3571,7 +2557,7 @@ var require_ConfigList = __commonJS({
     function configGetParser(text, key) {
       let value = null;
       const values = [];
-      const scopes = new Map();
+      const scopes = /* @__PURE__ */ new Map();
       for (const item of configParser(text, key)) {
         if (item.key !== key) {
           continue;
@@ -3611,9 +2597,9 @@ var require_ConfigList = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/config.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/config.js
 var require_config = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/config.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/config.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitConfigScope = void 0;
@@ -3689,9 +2675,9 @@ var require_config = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/grep.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/grep.js
 var require_grep = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/grep.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/grep.js"(exports) {
     "use strict";
     var _a;
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -3723,7 +2709,7 @@ var require_grep = __commonJS({
     }
     exports.grepQueryBuilder = grepQueryBuilder;
     function parseGrep(grep) {
-      const paths = new Set();
+      const paths = /* @__PURE__ */ new Set();
       const results2 = {};
       utils_1.forEachLineWithContent(grep, (input) => {
         const [path4, line, preview] = input.split(utils_1.NULL);
@@ -3767,9 +2753,9 @@ var require_grep = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/reset.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/reset.js
 var require_reset = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/reset.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/reset.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getResetMode = exports.resetTask = exports.ResetMode = void 0;
@@ -3810,9 +2796,9 @@ var require_reset = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/api.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/api.js
 var require_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/api.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/api.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var git_construct_error_1 = require_git_construct_error();
@@ -3841,9 +2827,9 @@ var require_api = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js
 var require_command_config_prefixing_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.commandConfigPrefixingPlugin = void 0;
@@ -3903,9 +2889,9 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js
 var require_completion_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js"(exports) {
     "use strict";
     var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -4005,9 +2991,9 @@ var require_completion_detection_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js
 var require_error_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.errorDetectionPlugin = exports.errorDetectionHandler = void 0;
@@ -4049,16 +3035,16 @@ var require_error_detection_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/plugin-store.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/plugin-store.js
 var require_plugin_store = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/plugin-store.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/plugin-store.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PluginStore = void 0;
     var utils_1 = require_utils();
     var PluginStore = class {
       constructor() {
-        this.plugins = new Set();
+        this.plugins = /* @__PURE__ */ new Set();
       }
       add(plugin) {
         const plugins = [];
@@ -4082,9 +3068,9 @@ var require_plugin_store = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js
 var require_progress_monitor_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.progressMonitorPlugin = void 0;
@@ -4132,17 +3118,17 @@ var require_progress_monitor_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js
 var require_simple_git_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js
 var require_spawn_options_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.spawnOptionsPlugin = void 0;
@@ -4160,9 +3146,9 @@ var require_spawn_options_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js
 var require_timout_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.timeoutPlugin = void 0;
@@ -4202,9 +3188,9 @@ var require_timout_plugin = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/index.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/index.js
 var require_plugins = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/plugins/index.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/index.js"(exports) {
     "use strict";
     var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -4234,9 +3220,9 @@ var require_plugins = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-logger.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-logger.js
 var require_git_logger = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-logger.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-logger.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitLogger = exports.createLogger = void 0;
@@ -4332,9 +3318,9 @@ var require_git_logger = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js
 var require_tasks_pending_queue = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TasksPendingQueue = void 0;
@@ -4343,7 +3329,7 @@ var require_tasks_pending_queue = __commonJS({
     var TasksPendingQueue = class {
       constructor(logLabel = "GitExecutor") {
         this.logLabel = logLabel;
-        this._queue = new Map();
+        this._queue = /* @__PURE__ */ new Map();
       }
       withProgress(task) {
         return this._queue.get(task);
@@ -4400,9 +3386,9 @@ var require_tasks_pending_queue = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js
 var require_git_executor_chain = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js"(exports) {
     "use strict";
     var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -4595,9 +3581,9 @@ var require_git_executor_chain = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor.js
 var require_git_executor = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/git-executor.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.GitExecutor = void 0;
@@ -4621,9 +3607,9 @@ var require_git_executor = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/task-callback.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/task-callback.js
 var require_task_callback = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/task-callback.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/task-callback.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.taskCallback = void 0;
@@ -4665,9 +3651,9 @@ var require_task_callback = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js
 var require_change_working_directory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.changeWorkingDirectoryTask = void 0;
@@ -4685,9 +3671,9 @@ var require_change_working_directory = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/hash-object.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/hash-object.js
 var require_hash_object = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/hash-object.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/hash-object.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.hashObjectTask = void 0;
@@ -4703,9 +3689,9 @@ var require_hash_object = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/InitSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/InitSummary.js
 var require_InitSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/InitSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/InitSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseInit = exports.InitSummary = void 0;
@@ -4744,9 +3730,9 @@ var require_InitSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/init.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/init.js
 var require_init = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/init.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/init.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.initTask = void 0;
@@ -4772,9 +3758,9 @@ var require_init = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/DiffSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/DiffSummary.js
 var require_DiffSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/DiffSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/DiffSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.DiffSummary = void 0;
@@ -4790,9 +3776,9 @@ var require_DiffSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js
 var require_parse_diff_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseDiffResult = void 0;
@@ -4866,9 +3852,9 @@ var require_parse_diff_summary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js
 var require_parse_list_log_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createListLogSummaryParser = exports.SPLITTER = exports.COMMIT_BOUNDARY = exports.START_BOUNDARY = void 0;
@@ -4882,7 +3868,7 @@ var require_parse_list_log_summary = __commonJS({
       return fields.reduce((line, field, index) => {
         line[field] = tokens[index] || "";
         return line;
-      }, Object.create({ diff: null }));
+      }, /* @__PURE__ */ Object.create({ diff: null }));
     }
     function createListLogSummaryParser(splitter = exports.SPLITTER, fields = defaultFieldNames) {
       return function(stdOut) {
@@ -4905,9 +3891,9 @@ var require_parse_list_log_summary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/log.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/log.js
 var require_log = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/log.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/log.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.logTask = exports.parseLogOptions = void 0;
@@ -5017,9 +4003,9 @@ var require_log = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/MergeSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/MergeSummary.js
 var require_MergeSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/MergeSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/MergeSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MergeSummaryDetail = exports.MergeSummaryConflict = void 0;
@@ -5057,9 +4043,9 @@ var require_MergeSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/PullSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/PullSummary.js
 var require_PullSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/PullSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/PullSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PullSummary = void 0;
@@ -5084,9 +4070,9 @@ var require_PullSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js
 var require_parse_remote_objects = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.remoteMessagesObjectParsers = void 0;
@@ -5130,9 +4116,9 @@ var require_parse_remote_objects = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js
 var require_parse_remote_messages = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RemoteMessageSummary = exports.parseRemoteMessages = void 0;
@@ -5168,9 +4154,9 @@ var require_parse_remote_messages = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-pull.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-pull.js
 var require_parse_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-pull.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-pull.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parsePullResult = exports.parsePullDetail = void 0;
@@ -5215,9 +4201,9 @@ var require_parse_pull = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-merge.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-merge.js
 var require_parse_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-merge.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-merge.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseMergeDetail = exports.parseMergeResult = void 0;
@@ -5252,9 +4238,9 @@ var require_parse_merge = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/merge.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/merge.js
 var require_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/merge.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/merge.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.mergeTask = void 0;
@@ -5281,9 +4267,9 @@ var require_merge = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-push.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-push.js
 var require_parse_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-push.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-push.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parsePushDetail = exports.parsePushResult = void 0;
@@ -5346,9 +4332,9 @@ var require_parse_push = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/push.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/push.js
 var require_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/push.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/push.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.pushTask = exports.pushTagsTask = void 0;
@@ -5380,9 +4366,9 @@ var require_push = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js
 var require_FileStatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.FileStatusSummary = exports.fromPathRegex = void 0;
@@ -5403,9 +4389,9 @@ var require_FileStatusSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/StatusSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/StatusSummary.js
 var require_StatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/StatusSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/StatusSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseStatusSummary = exports.StatusSummary = void 0;
@@ -5425,6 +4411,7 @@ var require_StatusSummary = __commonJS({
         this.behind = 0;
         this.current = null;
         this.tracking = null;
+        this.detached = false;
       }
       isClean() {
         return !this.files.length;
@@ -5500,6 +4487,7 @@ var require_StatusSummary = __commonJS({
         result.tracking = regexResult && regexResult[1];
         regexResult = onEmptyBranchReg.exec(line);
         result.current = regexResult && regexResult[1] || result.current;
+        result.detached = /\(no branch\)/.test(line);
       }]
     ]);
     var parseStatusSummary = function(text) {
@@ -5535,9 +4523,9 @@ var require_StatusSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/status.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/status.js
 var require_status = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/status.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/status.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.statusTask = void 0;
@@ -5555,9 +4543,9 @@ var require_status = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/simple-git-api.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/simple-git-api.js
 var require_simple_git_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/simple-git-api.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/simple-git-api.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.SimpleGitApi = void 0;
@@ -5640,9 +4628,9 @@ var require_simple_git_api = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/scheduler.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/scheduler.js
 var require_scheduler = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/scheduler.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/scheduler.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Scheduler = void 0;
@@ -5693,9 +4681,9 @@ var require_scheduler = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/apply-patch.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/apply-patch.js
 var require_apply_patch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/apply-patch.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/apply-patch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.applyPatchTask = void 0;
@@ -5707,9 +4695,9 @@ var require_apply_patch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js
 var require_BranchDeleteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.isSingleBranchDeleteFailure = exports.branchDeletionFailure = exports.branchDeletionSuccess = exports.BranchDeletionBatch = void 0;
@@ -5747,9 +4735,9 @@ var require_BranchDeleteSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js
 var require_parse_branch_delete = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.hasBranchDeletionError = exports.parseBranchDeletions = void 0;
@@ -5781,9 +4769,9 @@ var require_parse_branch_delete = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchSummary.js
 var require_BranchSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/BranchSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.BranchSummaryResult = void 0;
@@ -5812,9 +4800,9 @@ var require_BranchSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch.js
 var require_parse_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-branch.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseBranchSummary = void 0;
@@ -5835,9 +4823,9 @@ var require_parse_branch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/branch.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/branch.js
 var require_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/branch.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/branch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.deleteBranchTask = exports.deleteBranchesTask = exports.branchLocalTask = exports.branchTask = exports.containsDeleteBranchCommand = void 0;
@@ -5916,9 +4904,9 @@ var require_branch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js
 var require_CheckIgnore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseCheckIgnore = void 0;
@@ -5929,9 +4917,9 @@ var require_CheckIgnore = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-ignore.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-ignore.js
 var require_check_ignore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/check-ignore.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-ignore.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.checkIgnoreTask = void 0;
@@ -5947,9 +4935,9 @@ var require_check_ignore = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clone.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clone.js
 var require_clone = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/clone.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clone.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.cloneMirrorTask = exports.cloneTask = void 0;
@@ -5974,9 +4962,9 @@ var require_clone = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-commit.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-commit.js
 var require_parse_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-commit.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-commit.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseCommitResult = void 0;
@@ -6031,9 +5019,9 @@ var require_parse_commit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/commit.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/commit.js
 var require_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/commit.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/commit.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.commitTask = void 0;
@@ -6052,9 +5040,9 @@ var require_commit = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/diff.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/diff.js
 var require_diff = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/diff.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/diff.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.diffSummaryTask = void 0;
@@ -6072,9 +5060,9 @@ var require_diff = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js
 var require_parse_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseFetchResult = void 0;
@@ -6109,9 +5097,9 @@ var require_parse_fetch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/fetch.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/fetch.js
 var require_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/fetch.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/fetch.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.fetchTask = void 0;
@@ -6131,9 +5119,9 @@ var require_fetch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-move.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-move.js
 var require_parse_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/parsers/parse-move.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-move.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseMoveResult = void 0;
@@ -6150,9 +5138,9 @@ var require_parse_move = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/move.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/move.js
 var require_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/move.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/move.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.moveTask = void 0;
@@ -6169,9 +5157,9 @@ var require_move = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/pull.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/pull.js
 var require_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/pull.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/pull.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.pullTask = void 0;
@@ -6193,9 +5181,9 @@ var require_pull = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js
 var require_GetRemoteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseGetRemotesVerbose = exports.parseGetRemotes = void 0;
@@ -6228,9 +5216,9 @@ var require_GetRemoteSummary = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/remote.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/remote.js
 var require_remote = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/remote.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/remote.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.removeRemoteTask = exports.remoteTask = exports.listRemotesTask = exports.getRemotesTask = exports.addRemoteTask = void 0;
@@ -6275,9 +5263,9 @@ var require_remote = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/stash-list.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/stash-list.js
 var require_stash_list = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/stash-list.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/stash-list.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.stashListTask = void 0;
@@ -6296,9 +5284,9 @@ var require_stash_list = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/sub-module.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/sub-module.js
 var require_sub_module = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/sub-module.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/sub-module.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.updateSubModuleTask = exports.subModuleTask = exports.initSubModuleTask = exports.addSubModuleTask = void 0;
@@ -6326,9 +5314,9 @@ var require_sub_module = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/TagList.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/TagList.js
 var require_TagList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/responses/TagList.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/TagList.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.parseTagList = exports.TagList = void 0;
@@ -6384,9 +5372,9 @@ var require_TagList = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/tag.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/tag.js
 var require_tag = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/tasks/tag.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/tag.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.addAnnotatedTagTask = exports.addTagTask = exports.tagListTask = void 0;
@@ -6425,9 +5413,9 @@ var require_tag = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/git.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/git.js
 var require_git = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/git.js"(exports, module2) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/git.js"(exports, module2) {
     var { GitExecutor } = require_git_executor();
     var { SimpleGitApi } = require_simple_git_api();
     var { Scheduler } = require_scheduler();
@@ -6707,9 +5695,9 @@ var require_git = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-factory.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-factory.js
 var require_git_factory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/git-factory.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-factory.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.gitInstanceFactory = exports.gitExportFactory = exports.esModuleFactory = void 0;
@@ -6751,9 +5739,9 @@ var require_git_factory = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js
 var require_promise_wrapped = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js"(exports) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.gitP = void 0;
@@ -6890,18 +5878,18 @@ var require_promise_wrapped = __commonJS({
   }
 });
 
-// node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/promise.js
+// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/promise.js
 var require_promise = __commonJS({
-  "node_modules/.pnpm/simple-git@2.47.0/node_modules/simple-git/promise.js"(exports, module2) {
+  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/promise.js"(exports, module2) {
     var { esModuleFactory, gitExportFactory } = require_git_factory();
     var { gitP } = require_promise_wrapped();
     module2.exports = esModuleFactory(gitExportFactory(gitP));
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/constants.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js
 var require_constants = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/constants.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js"(exports, module2) {
     "use strict";
     var path4 = require("path");
     var WIN_SLASH = "\\\\/";
@@ -7042,9 +6030,9 @@ var require_constants = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/utils.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js
 var require_utils2 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/utils.js"(exports) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js"(exports) {
     "use strict";
     var path4 = require("path");
     var win32 = process.platform === "win32";
@@ -7105,9 +6093,9 @@ var require_utils2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/scan.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js
 var require_scan = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/scan.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js"(exports, module2) {
     "use strict";
     var utils = require_utils2();
     var {
@@ -7423,9 +6411,9 @@ var require_scan = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/parse.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js
 var require_parse = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/parse.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports, module2) {
     "use strict";
     var constants2 = require_constants();
     var utils = require_utils2();
@@ -7602,7 +6590,8 @@ var require_parse = __commonJS({
             output = token.close = `)$))${extglobStar}`;
           }
           if (token.inner.includes("*") && (rest = remaining()) && /^\.[^\\/.]+$/.test(rest)) {
-            output = token.close = `)${rest})${extglobStar})`;
+            const expression = parse(rest, { ...options3, fastpaths: false }).output;
+            output = token.close = `)${expression})${extglobStar})`;
           }
           if (token.prev.type === "bos") {
             state9.negatedExtglob = true;
@@ -8203,9 +7192,9 @@ var require_parse = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/picomatch.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js
 var require_picomatch = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/lib/picomatch.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js"(exports, module2) {
     "use strict";
     var path4 = require("path");
     var scan = require_scan();
@@ -8347,9 +7336,9 @@ var require_picomatch = __commonJS({
   }
 });
 
-// node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/index.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js
 var require_picomatch2 = __commonJS({
-  "node_modules/.pnpm/picomatch@2.3.0/node_modules/picomatch/index.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js"(exports, module2) {
     "use strict";
     module2.exports = require_picomatch();
   }
@@ -8370,7 +7359,7 @@ var require_readdirp = __commonJS({
     var realpath = promisify(fs8.realpath);
     var BANG = "!";
     var RECURSIVE_ERROR_CODE = "READDIRP_RECURSIVE_ERROR";
-    var NORMAL_FLOW_ERRORS = new Set(["ENOENT", "EPERM", "EACCES", "ELOOP", RECURSIVE_ERROR_CODE]);
+    var NORMAL_FLOW_ERRORS = /* @__PURE__ */ new Set(["ENOENT", "EPERM", "EACCES", "ELOOP", RECURSIVE_ERROR_CODE]);
     var FILE_TYPE = "files";
     var DIR_TYPE = "directories";
     var FILE_DIR_TYPE = "files_directories";
@@ -9070,7 +8059,7 @@ var require_to_regex_range = __commonJS({
       let nines = 1;
       let zeros = 1;
       let stop = countNines(min, nines);
-      let stops = new Set([max]);
+      let stops = /* @__PURE__ */ new Set([max]);
       while (min <= stop && stop <= max) {
         stops.add(stop);
         nines += 1;
@@ -9417,7 +8406,7 @@ var require_compile = __commonJS({
     "use strict";
     var fill = require_fill_range();
     var utils = require_utils3();
-    var compile3 = (ast, options3 = {}) => {
+    var compile = (ast, options3 = {}) => {
       let walk = (node, parent = {}) => {
         let invalidBlock = utils.isInvalidBrace(parent);
         let invalidNode = node.invalid === true && options3.escapeInvalid === true;
@@ -9458,7 +8447,7 @@ var require_compile = __commonJS({
       };
       return walk(ast);
     };
-    module2.exports = compile3;
+    module2.exports = compile;
   }
 });
 
@@ -9850,7 +8839,7 @@ var require_braces = __commonJS({
   "node_modules/.pnpm/braces@3.0.2/node_modules/braces/index.js"(exports, module2) {
     "use strict";
     var stringify = require_stringify();
-    var compile3 = require_compile();
+    var compile = require_compile();
     var expand = require_expand();
     var parse = require_parse2();
     var braces = (input, options3 = {}) => {
@@ -9883,7 +8872,7 @@ var require_braces = __commonJS({
       if (typeof input === "string") {
         input = braces.parse(input, options3);
       }
-      return compile3(input, options3);
+      return compile(input, options3);
     };
     braces.expand = (input, options3 = {}) => {
       if (typeof input === "string") {
@@ -10295,10 +9284,10 @@ var require_nodefs_handler = __commonJS({
         fn(val);
       }
     };
-    var addAndConvert = (main2, prop, item) => {
-      let container = main2[prop];
+    var addAndConvert = (main, prop, item) => {
+      let container = main[prop];
       if (!(container instanceof Set)) {
-        main2[prop] = container = new Set([container]);
+        main[prop] = container = /* @__PURE__ */ new Set([container]);
       }
       container.add(item);
     };
@@ -10310,16 +9299,16 @@ var require_nodefs_handler = __commonJS({
         delete cont[key];
       }
     };
-    var delFromSet = (main2, prop, item) => {
-      const container = main2[prop];
+    var delFromSet = (main, prop, item) => {
+      const container = main[prop];
       if (container instanceof Set) {
         container.delete(item);
       } else if (container === item) {
-        delete main2[prop];
+        delete main[prop];
       }
     };
     var isEmptySet = (val) => val instanceof Set ? val.size === 0 : !val;
-    var FsWatchInstances = new Map();
+    var FsWatchInstances = /* @__PURE__ */ new Map();
     function createFsWatchInstance(path4, options3, listener, errHandler, emitRaw) {
       const handleEvent = (rawEvent, evPath) => {
         listener(path4);
@@ -10393,12 +9382,12 @@ var require_nodefs_handler = __commonJS({
         }
       };
     };
-    var FsWatchFileInstances = new Map();
+    var FsWatchFileInstances = /* @__PURE__ */ new Map();
     var setFsWatchFileListener = (path4, fullPath, options3, handlers) => {
       const { listener, rawEmitter } = handlers;
       let cont = FsWatchFileInstances.get(fullPath);
-      let listeners = new Set();
-      let rawEmitters = new Set();
+      let listeners = /* @__PURE__ */ new Set();
+      let rawEmitters = /* @__PURE__ */ new Set();
       const copts = cont && cont.options;
       if (copts && (copts.persistent < options3.persistent || copts.interval > options3.interval)) {
         listeners = cont.listeners;
@@ -10555,7 +9544,7 @@ var require_nodefs_handler = __commonJS({
             return;
         }
         const previous = this.fsw._getWatchedDir(wh.path);
-        const current = new Set();
+        const current = /* @__PURE__ */ new Set();
         let stream = this.fsw._readdirp(directory, {
           fileFilter: (entry) => wh.filterPath(entry),
           directoryFilter: (entry) => wh.filterDir(entry),
@@ -10743,9 +9732,9 @@ var require_fsevents_handler = __commonJS({
     var lstat = promisify(fs8.lstat);
     var realpath = promisify(fs8.realpath);
     var statMethods = { stat, lstat };
-    var FSEventsWatchers = new Map();
+    var FSEventsWatchers = /* @__PURE__ */ new Map();
     var consolidateThreshhold = 10;
-    var wrongEventFlags = new Set([
+    var wrongEventFlags = /* @__PURE__ */ new Set([
       69888,
       70400,
       71424,
@@ -10787,7 +9776,7 @@ var require_fsevents_handler = __commonJS({
         cont.listeners.add(filteredListener);
       } else {
         cont = {
-          listeners: new Set([filteredListener]),
+          listeners: /* @__PURE__ */ new Set([filteredListener]),
           rawEmitter,
           watcher: createFSEventsInstance(watchPath, (fullPath, flags) => {
             if (!cont.listeners.size)
@@ -11166,7 +10155,7 @@ var require_chokidar = __commonJS({
       constructor(dir, removeWatcher) {
         this.path = dir;
         this._removeWatcher = removeWatcher;
-        this.items = new Set();
+        this.items = /* @__PURE__ */ new Set();
       }
       add(item) {
         const { items } = this;
@@ -11283,12 +10272,12 @@ var require_chokidar = __commonJS({
         const opts = {};
         if (_opts)
           Object.assign(opts, _opts);
-        this._watched = new Map();
-        this._closers = new Map();
-        this._ignoredPaths = new Set();
-        this._throttled = new Map();
-        this._symlinkPaths = new Map();
-        this._streams = new Set();
+        this._watched = /* @__PURE__ */ new Map();
+        this._closers = /* @__PURE__ */ new Map();
+        this._ignoredPaths = /* @__PURE__ */ new Set();
+        this._throttled = /* @__PURE__ */ new Map();
+        this._symlinkPaths = /* @__PURE__ */ new Map();
+        this._streams = /* @__PURE__ */ new Set();
         this.closed = false;
         if (undef(opts, "persistent"))
           opts.persistent = true;
@@ -11332,7 +10321,7 @@ var require_chokidar = __commonJS({
         if (undef(opts, "atomic"))
           opts.atomic = !opts.usePolling && !opts.useFsEvents;
         if (opts.atomic)
-          this._pendingUnlinks = new Map();
+          this._pendingUnlinks = /* @__PURE__ */ new Map();
         if (undef(opts, "followSymlinks"))
           opts.followSymlinks = true;
         if (undef(opts, "awaitWriteFinish"))
@@ -11345,7 +10334,7 @@ var require_chokidar = __commonJS({
             awf.stabilityThreshold = 2e3;
           if (!awf.pollInterval)
             awf.pollInterval = 100;
-          this._pendingWrites = new Map();
+          this._pendingWrites = /* @__PURE__ */ new Map();
         }
         if (opts.ignored)
           opts.ignored = arrify(opts.ignored);
@@ -11555,7 +10544,7 @@ var require_chokidar = __commonJS({
       }
       _throttle(actionType, path4, timeout) {
         if (!this._throttled.has(actionType)) {
-          this._throttled.set(actionType, new Map());
+          this._throttled.set(actionType, /* @__PURE__ */ new Map());
         }
         const action = this._throttled.get(actionType);
         const actionPath = action.get(path4);
@@ -11737,12 +10726,12 @@ var require_chokidar = __commonJS({
       }
     };
     exports.FSWatcher = FSWatcher;
-    var watch3 = (paths, options3) => {
+    var watch2 = (paths, options3) => {
       const watcher = new FSWatcher(options3);
       watcher.add(paths);
       return watcher;
     };
-    exports.watch = watch3;
+    exports.watch = watch2;
   }
 });
 
@@ -12930,7 +11919,7 @@ var require_common2 = __commonJS({
       self2.pattern = pattern;
       self2.strict = options3.strict !== false;
       self2.realpath = !!options3.realpath;
-      self2.realpathCache = options3.realpathCache || Object.create(null);
+      self2.realpathCache = options3.realpathCache || /* @__PURE__ */ Object.create(null);
       self2.follow = !!options3.follow;
       self2.dot = !!options3.dot;
       self2.mark = !!options3.mark;
@@ -12947,9 +11936,9 @@ var require_common2 = __commonJS({
       self2.absolute = !!options3.absolute;
       self2.fs = options3.fs || fs8;
       self2.maxLength = options3.maxLength || Infinity;
-      self2.cache = options3.cache || Object.create(null);
-      self2.statCache = options3.statCache || Object.create(null);
-      self2.symlinks = options3.symlinks || Object.create(null);
+      self2.cache = options3.cache || /* @__PURE__ */ Object.create(null);
+      self2.statCache = options3.statCache || /* @__PURE__ */ Object.create(null);
+      self2.symlinks = options3.symlinks || /* @__PURE__ */ Object.create(null);
       setupIgnores(self2, options3);
       self2.changedCwd = false;
       var cwd = process.cwd();
@@ -12974,7 +11963,7 @@ var require_common2 = __commonJS({
     }
     function finish(self2) {
       var nou = self2.nounique;
-      var all = nou ? [] : Object.create(null);
+      var all = nou ? [] : /* @__PURE__ */ Object.create(null);
       for (var i = 0, l = self2.matches.length; i < l; i++) {
         var matches = self2.matches[i];
         if (!matches || Object.keys(matches).length === 0) {
@@ -13115,7 +12104,7 @@ var require_sync = __commonJS({
       if (this.realpath) {
         var self2 = this;
         this.matches.forEach(function(matchset, index) {
-          var set = self2.matches[index] = Object.create(null);
+          var set = self2.matches[index] = /* @__PURE__ */ Object.create(null);
           for (var p in matchset) {
             try {
               p = self2._makeAbs(p);
@@ -13196,7 +12185,7 @@ var require_sync = __commonJS({
         return;
       if (remain.length === 1 && !this.mark && !this.stat) {
         if (!this.matches[index])
-          this.matches[index] = Object.create(null);
+          this.matches[index] = /* @__PURE__ */ Object.create(null);
         for (var i = 0; i < len; i++) {
           var e = matchedEntries[i];
           if (prefix) {
@@ -13349,7 +12338,7 @@ var require_sync = __commonJS({
     GlobSync.prototype._processSimple = function(prefix, index) {
       var exists = this._stat(prefix);
       if (!this.matches[index])
-        this.matches[index] = Object.create(null);
+        this.matches[index] = /* @__PURE__ */ Object.create(null);
       if (!exists)
         return;
       if (prefix && isAbsolute(prefix) && !this.nomount) {
@@ -13500,7 +12489,7 @@ var require_once = __commonJS({
 var require_inflight = __commonJS({
   "node_modules/.pnpm/inflight@1.0.6/node_modules/inflight/inflight.js"(exports, module2) {
     var wrappy = require_wrappy();
-    var reqs = Object.create(null);
+    var reqs = /* @__PURE__ */ Object.create(null);
     var once = require_once();
     module2.exports = wrappy(inflight);
     function inflight(key, cb) {
@@ -13690,7 +12679,7 @@ var require_glob = __commonJS({
       var n = found.length;
       if (n === 0)
         return cb();
-      var set = this.matches[index] = Object.create(null);
+      var set = this.matches[index] = /* @__PURE__ */ Object.create(null);
       found.forEach(function(p, i) {
         p = self2._makeAbs(p);
         rp.realpath(p, self2.realpathCache, function(er, real) {
@@ -13823,7 +12812,7 @@ var require_glob = __commonJS({
         return cb();
       if (remain.length === 1 && !this.mark && !this.stat) {
         if (!this.matches[index])
-          this.matches[index] = Object.create(null);
+          this.matches[index] = /* @__PURE__ */ Object.create(null);
         for (var i = 0; i < len; i++) {
           var e = matchedEntries[i];
           if (prefix) {
@@ -14014,7 +13003,7 @@ var require_glob = __commonJS({
     };
     Glob.prototype._processSimple2 = function(prefix, index, er, exists, cb) {
       if (!this.matches[index])
-        this.matches[index] = Object.create(null);
+        this.matches[index] = /* @__PURE__ */ Object.create(null);
       if (!exists)
         return cb();
       if (prefix && isAbsolute(prefix) && !this.nomount) {
@@ -16149,18 +15138,19 @@ var require_commander = __commonJS({
 });
 
 // src/build.ts
-__export(exports, {
+var build_exports = {};
+__export(build_exports, {
   Build: () => Build
 });
-var fs7 = __toModule(require("fs"));
-var log11 = __toModule(require_pilogger());
+var fs7 = __toESM(require("fs"));
+var log11 = __toESM(require_pilogger());
 
 // src/compile.ts
-var log4 = __toModule(require_pilogger());
-var esbuild = __toModule(require("esbuild"));
+var log4 = __toESM(require_pilogger());
+var esbuild = __toESM(require("esbuild"));
 
 // src/helpers.ts
-var log = __toModule(require_pilogger());
+var log = __toESM(require_pilogger());
 function merge(...objects) {
   const isObject = (obj) => obj && typeof obj === "object";
   return objects.reduce((prev, obj) => {
@@ -16193,7 +15183,7 @@ var results = () => {
     let json = {};
     try {
       const obj = line.msg.match(/{(.*)}/);
-      json = JSON.parse(obj[0]);
+      json = obj ? JSON.parse(obj[0]) : { msg: line.msg };
     } catch (e) {
       json = { msg: line.msg };
     }
@@ -16208,11 +15198,11 @@ var results = () => {
 };
 
 // src/typedoc.ts
-var fs = __toModule(require("fs"));
-var path = __toModule(require("path"));
-var log2 = __toModule(require_pilogger());
-var TypeDoc = __toModule(require("typedoc"));
-var import_promise = __toModule(require_promise());
+var fs = __toESM(require("fs"));
+var path = __toESM(require("path"));
+var log2 = __toESM(require_pilogger());
+var TypeDoc = __toESM(require("typedoc"));
+var import_promise = __toESM(require_promise());
 var git = (0, import_promise.default)();
 var version = TypeDoc.Application.VERSION;
 var defaults = {
@@ -16301,10 +15291,10 @@ async function run(config, entry) {
 }
 
 // src/typings.ts
-var fs2 = __toModule(require("fs"));
-var path2 = __toModule(require("path"));
-var ts = __toModule(require("typescript"));
-var log3 = __toModule(require_pilogger());
+var fs2 = __toESM(require("fs"));
+var path2 = __toESM(require("path"));
+var ts = __toESM(require("typescript"));
+var log3 = __toESM(require_pilogger());
 var version3 = ts.version;
 async function run2(config, entry) {
   var _a, _b;
@@ -16444,8 +15434,8 @@ async function run3(config, steps) {
 }
 
 // src/watch.ts
-var chokidar = __toModule(require_chokidar());
-var log5 = __toModule(require_pilogger());
+var chokidar = __toESM(require_chokidar());
+var log5 = __toESM(require_pilogger());
 var minElapsed = 2e3;
 var lastBuilt = Date.now();
 async function build2(evt, msg, options3, steps) {
@@ -16481,12 +15471,12 @@ async function start(options3, steps) {
 }
 
 // src/serve.ts
-var import_fs = __toModule(require("fs"));
-var zlib = __toModule(require("zlib"));
-var http = __toModule(require("http"));
-var http2 = __toModule(require("http2"));
-var path3 = __toModule(require("path"));
-var log6 = __toModule(require_pilogger());
+var import_fs = __toESM(require("fs"));
+var zlib = __toESM(require("zlib"));
+var http = __toESM(require("http"));
+var http2 = __toESM(require("http2"));
+var path3 = __toESM(require("path"));
+var log6 = __toESM(require_pilogger());
 var options;
 var mime = {
   ".html": "text/html; charset=utf-8",
@@ -16587,7 +15577,7 @@ async function httpRequest(req, res) {
           "Content-Language": "en",
           "Content-Type": contentType,
           "Content-Encoding": acceptBrotli && !rangeRequest ? "br" : "",
-          "Last-Modified": result.stat.mtime,
+          "Last-Modified": result.stat.mtime.toUTCString(),
           "Cache-Control": "no-cache",
           "X-Content-Type-Options": "nosniff",
           "Cross-Origin-Embedder-Policy": "require-corp",
@@ -16665,9 +15655,9 @@ async function start2(config) {
 }
 
 // src/lint.ts
-var fs4 = __toModule(require("fs"));
-var log7 = __toModule(require_pilogger());
-var import_eslint = __toModule(require("eslint"));
+var fs4 = __toESM(require("fs"));
+var log7 = __toESM(require_pilogger());
+var import_eslint = require("eslint");
 var version6 = import_eslint.ESLint.version;
 async function run4(config) {
   const json = fs4.existsSync(".eslintrc.json") ? JSON.parse(fs4.readFileSync(".eslintrc.json").toString()) : {};
@@ -16678,9 +15668,9 @@ async function run4(config) {
     env: { ...config.lint.env, ...json.env },
     parser: json.parser || config.lint.parser,
     parserOptions: { ...config.lint.parserOptions, ...json.parserOptions },
-    plugins: [...new Set([...config.lint.plugins, ...json.plugins || []])],
-    extends: [...new Set([...config.lint.extends, ...json.extends || []])],
-    ignorePatterns: [...new Set([...config.lint.ignorePatterns, ...json.ignorePatterns || []])]
+    plugins: [.../* @__PURE__ */ new Set([...config.lint.plugins, ...json.plugins || []])],
+    extends: [.../* @__PURE__ */ new Set([...config.lint.extends, ...json.extends || []])],
+    ignorePatterns: [.../* @__PURE__ */ new Set([...config.lint.ignorePatterns, ...json.ignorePatterns || []])]
   };
   const eslint = new import_eslint.ESLint({ overrideConfig: options3 });
   if (config.log.debug)
@@ -16844,8 +15834,8 @@ var defaults3 = {
 };
 
 // src/clean.ts
-var log8 = __toModule(require_pilogger());
-var rimraf = __toModule(require_rimraf());
+var log8 = __toESM(require_pilogger());
+var rimraf = __toESM(require_rimraf());
 function run5(config) {
   log8.state("Clean:", { locations: config.clean.locations });
   if (!config.clean.locations)
@@ -16856,18 +15846,18 @@ function run5(config) {
 }
 
 // src/changelog.ts
-var fs5 = __toModule(require("fs"));
-var log9 = __toModule(require_pilogger());
-var import_dayjs = __toModule(require_dayjs_min());
-var import_promise2 = __toModule(require_promise());
+var fs5 = __toESM(require("fs"));
+var log9 = __toESM(require_pilogger());
+var import_dayjs = __toESM(require_dayjs_min());
+var import_promise2 = __toESM(require_promise());
 var git2 = (0, import_promise2.default)();
-var header = (app2, url) => `# ${app2.name}  
+var header = (app, url) => `# ${app.name}  
 
-  Version: **${app2.version}**  
-  Description: **${app2.description}**  
+  Version: **${app.version}**  
+  Description: **${app.description}**  
   
-  Author: **${app2.author}**  
-  License: **${app2.license}**  
+  Author: **${app.author}**  
+  License: **${app.license}**  
   Repository: **<${url}>**  
   
 ## Changelog
@@ -16912,9 +15902,9 @@ async function run6(config, packageJson) {
 }
 
 // src/cli.ts
-var fs6 = __toModule(require("fs"));
-var log10 = __toModule(require_pilogger());
-var import_commander = __toModule(require_commander());
+var fs6 = __toESM(require("fs"));
+var log10 = __toESM(require_pilogger());
+var import_commander = __toESM(require_commander());
 function run7() {
   const build3 = new Build();
   log10.header();
@@ -16966,7 +15956,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.6.6";
+var version7 = "0.6.7";
 
 // src/build.ts
 var Build = class {
@@ -16996,7 +15986,7 @@ var Build = class {
       if (Object.keys(options3).length)
         local = merge(local, options3);
       for (const profile of Object.keys(local.profiles))
-        local.profiles[profile] = [...new Set([...Object.values(local.profiles[profile])])];
+        local.profiles[profile] = [.../* @__PURE__ */ new Set([...Object.values(local.profiles[profile])])];
       return local;
     };
     this.packageJson = () => {
@@ -17091,6 +16081,7 @@ var Build = class {
 if (require.main === module) {
   run7();
 }
+module.exports = __toCommonJS(build_exports);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Build

@@ -9,11 +9,16 @@
   
 ## Changelog
   
+### **0.6.7** 2022/01/13 mandic00@live.com
+
+
+### **origin/main** 2021/12/14 mandic00@live.com
+
+- fix config overrides
+
 ### **0.6.6** 2021/11/23 mandic00@live.com
 
-
-### **origin/main** 2021/11/19 mandic00@live.com
-
+- implement http range requests
 
 ### **0.6.5** 2021/11/19 mandic00@live.com
 
