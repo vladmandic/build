@@ -15372,10 +15372,10 @@ async function getStats(json) {
   }
   return stats;
 }
-async function run3(config, steps) {
+async function run3(config, steps, profile) {
   if (busy) {
     log4.state("Build:", { busy });
-    setTimeout(() => run3(config, steps), 1e3);
+    setTimeout(() => run3(config, steps, profile), 1e3);
     return;
   }
   busy = true;
@@ -15387,7 +15387,7 @@ async function run3(config, steps) {
       log4.error("Build incomplete configuration:", { input: entry.input, output: entry.output });
       continue;
     }
-    const options3 = merge(config.build.global, entry);
+    const options3 = merge(config.build.global, config.build[profile], entry);
     options3.metafile = true;
     delete options3.input;
     delete options3.output;
@@ -15438,7 +15438,7 @@ async function build2(evt, msg, options3, steps) {
   const now = Date.now();
   if (now - lastBuilt > minElapsed) {
     log5.info("Watch:", { event: msg, input: evt });
-    run3(options3, steps);
+    run3(options3, steps, "");
   } else {
     log5.info("Watch:", { event: msg, input: evt, skip: true });
   }
@@ -15947,7 +15947,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.6.8";
+var version7 = "0.6.9";
 
 // src/build.ts
 var Build = class {
@@ -16016,7 +16016,7 @@ var Build = class {
           await run5(this.config);
           break;
         case "compile":
-          await run3(this.config, steps);
+          await run3(this.config, steps, profile);
           break;
         case "lint":
           await run4(this.config);
@@ -16057,7 +16057,7 @@ var Build = class {
     return start2(this.config);
   }
   async compile(steps) {
-    return run3(this.config, steps);
+    return run3(this.config, steps, "");
   }
   async watch(steps) {
     return start(this.config, steps);

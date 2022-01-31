@@ -167,7 +167,7 @@ export class Build {
     for (const step of steps) {
       switch (step) {
         case 'clean': await clean.run(this.config); break;
-        case 'compile': await compile.run(this.config, steps); break;
+        case 'compile': await compile.run(this.config, steps, profile); break;
         case 'lint': await lint.run(this.config); break;
         case 'changelog': await changelog.run(this.config, this.packageJson); break;
         case 'serve': await serve.start(this.config); break;
@@ -186,7 +186,7 @@ export class Build {
   async lint() { return lint.run(this.config); }
   async changelog() { return changelog.run(this.config, this.packageJson); }
   async serve() { return serve.start(this.config); }
-  async compile(steps: Array<Steps>) { return compile.run(this.config, steps); }
+  async compile(steps: Array<Steps>) { return compile.run(this.config, steps, ''); }
   async watch(steps: Array<Steps>) { return watch.start(this.config, steps); }
   async typings(target: Targets) { return typings.run(this.config, target); }
   async typedoc(target: Targets) { return typedoc.run(this.config, target); }

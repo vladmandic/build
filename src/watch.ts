@@ -9,7 +9,7 @@ async function build(evt, msg, options, steps) {
   const now = Date.now();
   if ((now - lastBuilt) > minElapsed) {
     log.info('Watch:', { event: msg, input: evt });
-    compile.run(options, steps);
+    compile.run(options, steps, '');
   } else {
     log.info('Watch:', { event: msg, input: evt, skip: true });
   }

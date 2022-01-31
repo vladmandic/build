@@ -33,10 +33,10 @@ async function getStats(json) {
 }
 
 // rebuild on file change
-export async function run(config, steps) {
+export async function run(config, steps, profile) {
   if (busy) {
     log.state('Build:', { busy });
-    setTimeout(() => run(config, steps), 1000);
+    setTimeout(() => run(config, steps, profile), 1000);
     return;
   }
   busy = true;
@@ -48,7 +48,7 @@ export async function run(config, steps) {
       log.error('Build incomplete configuration:', { input: entry.input, output: entry.output });
       continue;
     }
-    const options = helpers.merge(config.build.global, entry); // combine all options
+    const options = helpers.merge(config.build.global, config.build[profile], entry); // combine all options
     options.metafile = true; // force metadata output
     delete options.input; // set later as entrypoint
     delete options.output; // set later as outfile
