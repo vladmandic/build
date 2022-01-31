@@ -9,10 +9,13 @@
   
 ## Changelog
   
+### **0.6.8** 2022/01/31 mandic00@live.com
+
+
+### **origin/main** 2022/01/13 mandic00@live.com
+
+
 ### **0.6.7** 2022/01/13 mandic00@live.com
-
-
-### **origin/main** 2021/12/14 mandic00@live.com
 
 - fix config overrides
 

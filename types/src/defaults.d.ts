@@ -33,9 +33,15 @@ export declare const defaults: {
         global: {
             target: string;
             sourcemap: boolean;
+            format: string;
             banner: {
                 js: string;
             };
+            minify: boolean;
+            bundle: boolean;
+            platform: string;
+            treeShaking: boolean;
+            ignoreAnnotations: boolean;
         };
         production: {
             minify: boolean;
@@ -43,16 +49,7 @@ export declare const defaults: {
         development: {
             minify: boolean;
         };
-        targets: {
-            name: string;
-            input: string;
-            output: string;
-            platform: string;
-            format: string;
-            typings: string;
-            typedoc: string;
-            external: string[];
-        }[];
+        targets: never[];
     };
     typescript: {
         module: string;
