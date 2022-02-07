@@ -1,6 +1,6 @@
 {
   "name": "@vladmandic/build",
-  "version": "0.6.9",
+  "version": "0.6.10",
   "description": "Build: Automated CI Platform for NodeJS",
   "main": "dist/build.js",
   "types": "types/src/build.d.ts",
