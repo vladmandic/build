@@ -9,10 +9,13 @@
   
 ## Changelog
   
-### **0.6.9** 2022/01/31 mandic00@live.com
+### **0.6.10** 2022/02/07 mandic00@live.com
 
 
 ### **origin/main** 2022/01/31 mandic00@live.com
+
+
+### **0.6.9** 2022/01/31 mandic00@live.com
 
 
 ### **0.6.8** 2022/01/31 mandic00@live.com

@@ -34,32 +34,32 @@ var __toCommonJS = /* @__PURE__ */ ((cache) => {
 var require_pilogger = __commonJS({
   "node_modules/.pnpm/@vladmandic+pilogger@0.4.2/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports) {
     var __create2 = Object.create;
-    var __defProp2 = Object.defineProperty;
-    var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
-    var __getOwnPropNames2 = Object.getOwnPropertyNames;
+    var __defProp3 = Object.defineProperty;
+    var __getOwnPropDesc3 = Object.getOwnPropertyDescriptor;
+    var __getOwnPropNames3 = Object.getOwnPropertyNames;
     var __getProtoOf2 = Object.getPrototypeOf;
-    var __hasOwnProp2 = Object.prototype.hasOwnProperty;
-    var __markAsModule2 = (target) => __defProp2(target, "__esModule", { value: true });
-    var __commonJS2 = (cb, mod) => function __require() {
+    var __hasOwnProp3 = Object.prototype.hasOwnProperty;
+    var __markAsModule3 = (target) => __defProp3(target, "__esModule", { value: true });
+    var __commonJS3 = (cb, mod) => function __require() {
       return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
-    var __export2 = (target, all) => {
-      __markAsModule2(target);
+    var __export3 = (target, all) => {
+      __markAsModule3(target);
       for (var name in all)
-        __defProp2(target, name, { get: all[name], enumerable: true });
+        __defProp3(target, name, { get: all[name], enumerable: true });
     };
-    var __reExport2 = (target, module22, desc) => {
+    var __reExport3 = (target, module22, desc) => {
       if (module22 && typeof module22 === "object" || typeof module22 === "function") {
-        for (let key of __getOwnPropNames2(module22))
-          if (!__hasOwnProp2.call(target, key) && key !== "default")
-            __defProp2(target, key, { get: () => module22[key], enumerable: !(desc = __getOwnPropDesc2(module22, key)) || desc.enumerable });
+        for (let key of __getOwnPropNames3(module22))
+          if (!__hasOwnProp3.call(target, key) && key !== "default")
+            __defProp3(target, key, { get: () => module22[key], enumerable: !(desc = __getOwnPropDesc3(module22, key)) || desc.enumerable });
       }
       return target;
     };
     var __toModule = (module22) => {
-      return __reExport2(__markAsModule2(__defProp2(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
+      return __reExport3(__markAsModule3(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
     };
-    var require_dayjs_min2 = __commonJS2({
+    var require_dayjs_min2 = __commonJS3({
       "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
           typeof exports2 == "object" && typeof module22 != "undefined" ? module22.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
@@ -262,7 +262,7 @@ var require_pilogger = __commonJS({
         });
       }
     });
-    __export2(exports, {
+    __export3(exports, {
       access: () => access,
       accessFile: () => accessFile,
       assert: () => assert,
@@ -272,7 +272,7 @@ var require_pilogger = __commonJS({
       configure: () => configure2,
       data: () => data9,
       dateFormat: () => dateFormat,
-      debug: () => debug,
+      debug: () => debug2,
       error: () => error8,
       fatal: () => fatal,
       header: () => header3,
@@ -913,21 +913,21 @@ var require_pilogger = __commonJS({
         streams.clientStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
-    function configure2(userOptions) {
-      if (!userOptions)
+    function configure2(userOptions2) {
+      if (!userOptions2)
         return;
-      if (userOptions.dateFormat)
-        options3.dateFormat = userOptions.dateFormat;
-      if (userOptions.ringLength)
-        options3.ringLength = userOptions.ringLength;
-      if (userOptions.logFile)
-        logFile2(userOptions.logFile);
-      if (userOptions.accessFile)
-        accessFile(userOptions.accessFile);
-      if (userOptions.clientFile)
-        clientFile(userOptions.clientFile);
-      if (userOptions.inspect)
-        inspectOptions = { ...inspectOptions, ...userOptions.inspect };
+      if (userOptions2.dateFormat)
+        options3.dateFormat = userOptions2.dateFormat;
+      if (userOptions2.ringLength)
+        options3.ringLength = userOptions2.ringLength;
+      if (userOptions2.logFile)
+        logFile2(userOptions2.logFile);
+      if (userOptions2.accessFile)
+        accessFile(userOptions2.accessFile);
+      if (userOptions2.clientFile)
+        clientFile(userOptions2.clientFile);
+      if (userOptions2.inspect)
+        inspectOptions = { ...inspectOptions, ...userOptions2.inspect };
       logger = new import_console.Console({
         stdout: process.stdout,
         stderr: process.stderr,
@@ -969,93 +969,7 @@ var require_pilogger = __commonJS({
     var error8 = (...message) => log12("error", ...message);
     var fatal = (...message) => log12("fatal", ...message);
     var verbose = (...message) => log12("verbose", ...message);
-    var debug = (...message) => log12("debug", ...message);
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-error.js
-var require_git_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-error.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitError = void 0;
-    var GitError = class extends Error {
-      constructor(task, message) {
-        super(message);
-        this.task = task;
-        Object.setPrototypeOf(this, new.target.prototype);
-      }
-    };
-    exports.GitError = GitError;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-construct-error.js
-var require_git_construct_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-construct-error.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitConstructError = void 0;
-    var git_error_1 = require_git_error();
-    var GitConstructError = class extends git_error_1.GitError {
-      constructor(config, message) {
-        super(void 0, message);
-        this.config = config;
-      }
-    };
-    exports.GitConstructError = GitConstructError;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js
-var require_git_plugin_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-plugin-error.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitPluginError = void 0;
-    var git_error_1 = require_git_error();
-    var GitPluginError = class extends git_error_1.GitError {
-      constructor(task, plugin, message) {
-        super(task, message);
-        this.task = task;
-        this.plugin = plugin;
-        Object.setPrototypeOf(this, new.target.prototype);
-      }
-    };
-    exports.GitPluginError = GitPluginError;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-response-error.js
-var require_git_response_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/git-response-error.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitResponseError = void 0;
-    var git_error_1 = require_git_error();
-    var GitResponseError = class extends git_error_1.GitError {
-      constructor(git3, message) {
-        super(void 0, message || String(git3));
-        this.git = git3;
-      }
-    };
-    exports.GitResponseError = GitResponseError;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js
-var require_task_configuration_error = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/errors/task-configuration-error.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.TaskConfigurationError = void 0;
-    var git_error_1 = require_git_error();
-    var TaskConfigurationError = class extends git_error_1.GitError {
-      constructor(message) {
-        super(void 0, message);
-      }
-    };
-    exports.TaskConfigurationError = TaskConfigurationError;
+    var debug2 = (...message) => log12("debug", ...message);
   }
 });
 
@@ -1203,11 +1117,11 @@ var require_common = __commonJS({
         let enableOverride = null;
         let namespacesCache;
         let enabledCache;
-        function debug(...args) {
-          if (!debug.enabled) {
+        function debug2(...args) {
+          if (!debug2.enabled) {
             return;
           }
-          const self2 = debug;
+          const self2 = debug2;
           const curr = Number(new Date());
           const ms = curr - (prevTime || curr);
           self2.diff = ms;
@@ -1237,12 +1151,12 @@ var require_common = __commonJS({
           const logFn = self2.log || createDebug.log;
           logFn.apply(self2, args);
         }
-        debug.namespace = namespace;
-        debug.useColors = createDebug.useColors();
-        debug.color = createDebug.selectColor(namespace);
-        debug.extend = extend;
-        debug.destroy = createDebug.destroy;
-        Object.defineProperty(debug, "enabled", {
+        debug2.namespace = namespace;
+        debug2.useColors = createDebug.useColors();
+        debug2.color = createDebug.selectColor(namespace);
+        debug2.extend = extend;
+        debug2.destroy = createDebug.destroy;
+        Object.defineProperty(debug2, "enabled", {
           enumerable: true,
           configurable: false,
           get: () => {
@@ -1260,9 +1174,9 @@ var require_common = __commonJS({
           }
         });
         if (typeof createDebug.init === "function") {
-          createDebug.init(debug);
+          createDebug.init(debug2);
         }
-        return debug;
+        return debug2;
       }
       function extend(namespace, delimiter) {
         const newDebug = createDebug(this.namespace + (typeof delimiter === "undefined" ? ":" : delimiter) + namespace);
@@ -1765,11 +1679,11 @@ var require_node = __commonJS({
     function load() {
       return process.env.DEBUG;
     }
-    function init(debug) {
-      debug.inspectOpts = {};
+    function init(debug2) {
+      debug2.inspectOpts = {};
       const keys = Object.keys(exports.inspectOpts);
       for (let i = 0; i < keys.length; i++) {
-        debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
+        debug2.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
       }
     }
     module2.exports = require_common()(exports);
@@ -1830,10 +1744,10 @@ var require_src2 = __commonJS({
         throw e;
       }
     }
-    function exists(path4, type = exports.READABLE) {
+    function exists2(path4, type = exports.READABLE) {
       return check(path4, (type & exports.FILE) > 0, (type & exports.FOLDER) > 0);
     }
-    exports.exists = exists;
+    exports.exists = exists2;
     exports.FILE = 1;
     exports.FOLDER = 2;
     exports.READABLE = exports.FILE + exports.FOLDER;
@@ -1844,1006 +1758,13 @@ var require_src2 = __commonJS({
 var require_dist = __commonJS({
   "node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js"(exports) {
     "use strict";
-    function __export2(m) {
+    function __export3(m) {
       for (var p in m)
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
-    __export2(require_src2());
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/util.js
-var require_util = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/util.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.delay = exports.pick = exports.bufferToString = exports.prefixedArray = exports.asNumber = exports.asStringArray = exports.asArray = exports.objectToString = exports.remove = exports.including = exports.append = exports.folderExists = exports.forEachLineWithContent = exports.toLinesWithContent = exports.last = exports.first = exports.splitOn = exports.isUserFunction = exports.asFunction = exports.NOOP = exports.NULL = void 0;
-    var file_exists_1 = require_dist();
-    exports.NULL = "\0";
-    var NOOP = () => {
-    };
-    exports.NOOP = NOOP;
-    function asFunction(source) {
-      return typeof source === "function" ? source : exports.NOOP;
-    }
-    exports.asFunction = asFunction;
-    function isUserFunction(source) {
-      return typeof source === "function" && source !== exports.NOOP;
-    }
-    exports.isUserFunction = isUserFunction;
-    function splitOn(input, char) {
-      const index = input.indexOf(char);
-      if (index <= 0) {
-        return [input, ""];
-      }
-      return [
-        input.substr(0, index),
-        input.substr(index + 1)
-      ];
-    }
-    exports.splitOn = splitOn;
-    function first(input, offset = 0) {
-      return isArrayLike(input) && input.length > offset ? input[offset] : void 0;
-    }
-    exports.first = first;
-    function last(input, offset = 0) {
-      if (isArrayLike(input) && input.length > offset) {
-        return input[input.length - 1 - offset];
-      }
-    }
-    exports.last = last;
-    function isArrayLike(input) {
-      return !!(input && typeof input.length === "number");
-    }
-    function toLinesWithContent(input, trimmed = true, separator = "\n") {
-      return input.split(separator).reduce((output, line) => {
-        const lineContent = trimmed ? line.trim() : line;
-        if (lineContent) {
-          output.push(lineContent);
-        }
-        return output;
-      }, []);
-    }
-    exports.toLinesWithContent = toLinesWithContent;
-    function forEachLineWithContent(input, callback) {
-      return toLinesWithContent(input, true).map((line) => callback(line));
-    }
-    exports.forEachLineWithContent = forEachLineWithContent;
-    function folderExists(path4) {
-      return file_exists_1.exists(path4, file_exists_1.FOLDER);
-    }
-    exports.folderExists = folderExists;
-    function append(target, item) {
-      if (Array.isArray(target)) {
-        if (!target.includes(item)) {
-          target.push(item);
-        }
-      } else {
-        target.add(item);
-      }
-      return item;
-    }
-    exports.append = append;
-    function including(target, item) {
-      if (Array.isArray(target) && !target.includes(item)) {
-        target.push(item);
-      }
-      return target;
-    }
-    exports.including = including;
-    function remove(target, item) {
-      if (Array.isArray(target)) {
-        const index = target.indexOf(item);
-        if (index >= 0) {
-          target.splice(index, 1);
-        }
-      } else {
-        target.delete(item);
-      }
-      return item;
-    }
-    exports.remove = remove;
-    exports.objectToString = Object.prototype.toString.call.bind(Object.prototype.toString);
-    function asArray(source) {
-      return Array.isArray(source) ? source : [source];
-    }
-    exports.asArray = asArray;
-    function asStringArray(source) {
-      return asArray(source).map(String);
-    }
-    exports.asStringArray = asStringArray;
-    function asNumber(source, onNaN = 0) {
-      if (source == null) {
-        return onNaN;
-      }
-      const num = parseInt(source, 10);
-      return isNaN(num) ? onNaN : num;
-    }
-    exports.asNumber = asNumber;
-    function prefixedArray(input, prefix) {
-      const output = [];
-      for (let i = 0, max = input.length; i < max; i++) {
-        output.push(prefix, input[i]);
-      }
-      return output;
-    }
-    exports.prefixedArray = prefixedArray;
-    function bufferToString(input) {
-      return (Array.isArray(input) ? Buffer.concat(input) : input).toString("utf-8");
-    }
-    exports.bufferToString = bufferToString;
-    function pick(source, properties) {
-      return Object.assign({}, ...properties.map((property) => property in source ? { [property]: source[property] } : {}));
-    }
-    exports.pick = pick;
-    function delay(duration = 0) {
-      return new Promise((done) => setTimeout(done, duration));
-    }
-    exports.delay = delay;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/argument-filters.js
-var require_argument_filters = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/argument-filters.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.filterHasLength = exports.filterFunction = exports.filterPlainObject = exports.filterStringOrStringArray = exports.filterStringArray = exports.filterString = exports.filterPrimitives = exports.filterArray = exports.filterType = void 0;
-    var util_1 = require_util();
-    function filterType(input, filter, def) {
-      if (filter(input)) {
-        return input;
-      }
-      return arguments.length > 2 ? def : void 0;
-    }
-    exports.filterType = filterType;
-    var filterArray = (input) => {
-      return Array.isArray(input);
-    };
-    exports.filterArray = filterArray;
-    function filterPrimitives(input, omit) {
-      return /number|string|boolean/.test(typeof input) && (!omit || !omit.includes(typeof input));
-    }
-    exports.filterPrimitives = filterPrimitives;
-    var filterString = (input) => {
-      return typeof input === "string";
-    };
-    exports.filterString = filterString;
-    var filterStringArray = (input) => {
-      return Array.isArray(input) && input.every(exports.filterString);
-    };
-    exports.filterStringArray = filterStringArray;
-    var filterStringOrStringArray = (input) => {
-      return exports.filterString(input) || Array.isArray(input) && input.every(exports.filterString);
-    };
-    exports.filterStringOrStringArray = filterStringOrStringArray;
-    function filterPlainObject(input) {
-      return !!input && util_1.objectToString(input) === "[object Object]";
-    }
-    exports.filterPlainObject = filterPlainObject;
-    function filterFunction(input) {
-      return typeof input === "function";
-    }
-    exports.filterFunction = filterFunction;
-    var filterHasLength = (input) => {
-      if (input == null || "number|boolean|function".includes(typeof input)) {
-        return false;
-      }
-      return Array.isArray(input) || typeof input === "string" || typeof input.length === "number";
-    };
-    exports.filterHasLength = filterHasLength;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/exit-codes.js
-var require_exit_codes = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/exit-codes.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.ExitCodes = void 0;
-    var ExitCodes;
-    (function(ExitCodes2) {
-      ExitCodes2[ExitCodes2["SUCCESS"] = 0] = "SUCCESS";
-      ExitCodes2[ExitCodes2["ERROR"] = 1] = "ERROR";
-      ExitCodes2[ExitCodes2["UNCLEAN"] = 128] = "UNCLEAN";
-    })(ExitCodes = exports.ExitCodes || (exports.ExitCodes = {}));
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/git-output-streams.js
-var require_git_output_streams = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/git-output-streams.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitOutputStreams = void 0;
-    var GitOutputStreams = class {
-      constructor(stdOut, stdErr) {
-        this.stdOut = stdOut;
-        this.stdErr = stdErr;
-      }
-      asStrings() {
-        return new GitOutputStreams(this.stdOut.toString("utf8"), this.stdErr.toString("utf8"));
-      }
-    };
-    exports.GitOutputStreams = GitOutputStreams;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/line-parser.js
-var require_line_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/line-parser.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.RemoteLineParser = exports.LineParser = void 0;
-    var LineParser = class {
-      constructor(regExp, useMatches) {
-        this.matches = [];
-        this.parse = (line, target) => {
-          this.resetMatches();
-          if (!this._regExp.every((reg, index) => this.addMatch(reg, index, line(index)))) {
-            return false;
-          }
-          return this.useMatches(target, this.prepareMatches()) !== false;
-        };
-        this._regExp = Array.isArray(regExp) ? regExp : [regExp];
-        if (useMatches) {
-          this.useMatches = useMatches;
-        }
-      }
-      useMatches(target, match) {
-        throw new Error(`LineParser:useMatches not implemented`);
-      }
-      resetMatches() {
-        this.matches.length = 0;
-      }
-      prepareMatches() {
-        return this.matches;
-      }
-      addMatch(reg, index, line) {
-        const matched = line && reg.exec(line);
-        if (matched) {
-          this.pushMatch(index, matched);
-        }
-        return !!matched;
-      }
-      pushMatch(_index, matched) {
-        this.matches.push(...matched.slice(1));
-      }
-    };
-    exports.LineParser = LineParser;
-    var RemoteLineParser = class extends LineParser {
-      addMatch(reg, index, line) {
-        return /^remote:\s/.test(String(line)) && super.addMatch(reg, index, line);
-      }
-      pushMatch(index, matched) {
-        if (index > 0 || matched.length > 1) {
-          super.pushMatch(index, matched);
-        }
-      }
-    };
-    exports.RemoteLineParser = RemoteLineParser;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/simple-git-options.js
-var require_simple_git_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/simple-git-options.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createInstanceConfig = void 0;
-    var defaultOptions = {
-      binary: "git",
-      maxConcurrentProcesses: 5,
-      config: []
-    };
-    function createInstanceConfig(...options3) {
-      const baseDir = process.cwd();
-      const config = Object.assign(Object.assign({ baseDir }, defaultOptions), ...options3.filter((o) => typeof o === "object" && o));
-      config.baseDir = config.baseDir || baseDir;
-      return config;
-    }
-    exports.createInstanceConfig = createInstanceConfig;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-options.js
-var require_task_options = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-options.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.trailingFunctionArgument = exports.trailingOptionsArgument = exports.getTrailingOptions = exports.appendTaskOptions = void 0;
-    var argument_filters_1 = require_argument_filters();
-    var util_1 = require_util();
-    function appendTaskOptions(options3, commands = []) {
-      if (!argument_filters_1.filterPlainObject(options3)) {
-        return commands;
-      }
-      return Object.keys(options3).reduce((commands2, key) => {
-        const value = options3[key];
-        if (argument_filters_1.filterPrimitives(value, ["boolean"])) {
-          commands2.push(key + "=" + value);
-        } else {
-          commands2.push(key);
-        }
-        return commands2;
-      }, commands);
-    }
-    exports.appendTaskOptions = appendTaskOptions;
-    function getTrailingOptions(args, initialPrimitive = 0, objectOnly = false) {
-      const command = [];
-      for (let i = 0, max = initialPrimitive < 0 ? args.length : initialPrimitive; i < max; i++) {
-        if ("string|number".includes(typeof args[i])) {
-          command.push(String(args[i]));
-        }
-      }
-      appendTaskOptions(trailingOptionsArgument(args), command);
-      if (!objectOnly) {
-        command.push(...trailingArrayArgument(args));
-      }
-      return command;
-    }
-    exports.getTrailingOptions = getTrailingOptions;
-    function trailingArrayArgument(args) {
-      const hasTrailingCallback = typeof util_1.last(args) === "function";
-      return argument_filters_1.filterType(util_1.last(args, hasTrailingCallback ? 1 : 0), argument_filters_1.filterArray, []);
-    }
-    function trailingOptionsArgument(args) {
-      const hasTrailingCallback = argument_filters_1.filterFunction(util_1.last(args));
-      return argument_filters_1.filterType(util_1.last(args, hasTrailingCallback ? 1 : 0), argument_filters_1.filterPlainObject);
-    }
-    exports.trailingOptionsArgument = trailingOptionsArgument;
-    function trailingFunctionArgument(args, includeNoop = true) {
-      const callback = util_1.asFunction(util_1.last(args));
-      return includeNoop || util_1.isUserFunction(callback) ? callback : void 0;
-    }
-    exports.trailingFunctionArgument = trailingFunctionArgument;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-parser.js
-var require_task_parser = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/task-parser.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseStringResponse = exports.callTaskParser = void 0;
-    var util_1 = require_util();
-    function callTaskParser(parser, streams) {
-      return parser(streams.stdOut, streams.stdErr);
-    }
-    exports.callTaskParser = callTaskParser;
-    function parseStringResponse(result, parsers, ...texts) {
-      texts.forEach((text) => {
-        for (let lines = util_1.toLinesWithContent(text), i = 0, max = lines.length; i < max; i++) {
-          const line = (offset = 0) => {
-            if (i + offset >= max) {
-              return;
-            }
-            return lines[i + offset];
-          };
-          parsers.some(({ parse }) => parse(line, result));
-        }
-      });
-      return result;
-    }
-    exports.parseStringResponse = parseStringResponse;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/index.js
-var require_utils = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/utils/index.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
-    });
-    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m)
-        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-          __createBinding(exports2, m, p);
-    };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    __exportStar(require_argument_filters(), exports);
-    __exportStar(require_exit_codes(), exports);
-    __exportStar(require_git_output_streams(), exports);
-    __exportStar(require_line_parser(), exports);
-    __exportStar(require_simple_git_options(), exports);
-    __exportStar(require_task_options(), exports);
-    __exportStar(require_task_parser(), exports);
-    __exportStar(require_util(), exports);
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js
-var require_check_is_repo = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-is-repo.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.checkIsBareRepoTask = exports.checkIsRepoRootTask = exports.checkIsRepoTask = exports.CheckRepoActions = void 0;
-    var utils_1 = require_utils();
-    var CheckRepoActions;
-    (function(CheckRepoActions2) {
-      CheckRepoActions2["BARE"] = "bare";
-      CheckRepoActions2["IN_TREE"] = "tree";
-      CheckRepoActions2["IS_REPO_ROOT"] = "root";
-    })(CheckRepoActions = exports.CheckRepoActions || (exports.CheckRepoActions = {}));
-    var onError = ({ exitCode }, error8, done, fail) => {
-      if (exitCode === utils_1.ExitCodes.UNCLEAN && isNotRepoMessage(error8)) {
-        return done(Buffer.from("false"));
-      }
-      fail(error8);
-    };
-    var parser = (text) => {
-      return text.trim() === "true";
-    };
-    function checkIsRepoTask(action) {
-      switch (action) {
-        case CheckRepoActions.BARE:
-          return checkIsBareRepoTask();
-        case CheckRepoActions.IS_REPO_ROOT:
-          return checkIsRepoRootTask();
-      }
-      const commands = ["rev-parse", "--is-inside-work-tree"];
-      return {
-        commands,
-        format: "utf-8",
-        onError,
-        parser
-      };
-    }
-    exports.checkIsRepoTask = checkIsRepoTask;
-    function checkIsRepoRootTask() {
-      const commands = ["rev-parse", "--git-dir"];
-      return {
-        commands,
-        format: "utf-8",
-        onError,
-        parser(path4) {
-          return /^\.(git)?$/.test(path4.trim());
-        }
-      };
-    }
-    exports.checkIsRepoRootTask = checkIsRepoRootTask;
-    function checkIsBareRepoTask() {
-      const commands = ["rev-parse", "--is-bare-repository"];
-      return {
-        commands,
-        format: "utf-8",
-        onError,
-        parser
-      };
-    }
-    exports.checkIsBareRepoTask = checkIsBareRepoTask;
-    function isNotRepoMessage(error8) {
-      return /(Not a git repository|Kein Git-Repository)/i.test(String(error8));
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CleanSummary.js
-var require_CleanSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CleanSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.cleanSummaryParser = exports.CleanResponse = void 0;
-    var utils_1 = require_utils();
-    var CleanResponse = class {
-      constructor(dryRun) {
-        this.dryRun = dryRun;
-        this.paths = [];
-        this.files = [];
-        this.folders = [];
-      }
-    };
-    exports.CleanResponse = CleanResponse;
-    var removalRegexp = /^[a-z]+\s*/i;
-    var dryRunRemovalRegexp = /^[a-z]+\s+[a-z]+\s*/i;
-    var isFolderRegexp = /\/$/;
-    function cleanSummaryParser(dryRun, text) {
-      const summary = new CleanResponse(dryRun);
-      const regexp = dryRun ? dryRunRemovalRegexp : removalRegexp;
-      utils_1.toLinesWithContent(text).forEach((line) => {
-        const removed = line.replace(regexp, "");
-        summary.paths.push(removed);
-        (isFolderRegexp.test(removed) ? summary.folders : summary.files).push(removed);
-      });
-      return summary;
-    }
-    exports.cleanSummaryParser = cleanSummaryParser;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/task.js
-var require_task = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/task.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.isEmptyTask = exports.isBufferTask = exports.straightThroughBufferTask = exports.straightThroughStringTask = exports.configurationErrorTask = exports.adhocExecTask = exports.EMPTY_COMMANDS = void 0;
-    var task_configuration_error_1 = require_task_configuration_error();
-    exports.EMPTY_COMMANDS = [];
-    function adhocExecTask(parser) {
-      return {
-        commands: exports.EMPTY_COMMANDS,
-        format: "empty",
-        parser
-      };
-    }
-    exports.adhocExecTask = adhocExecTask;
-    function configurationErrorTask(error8) {
-      return {
-        commands: exports.EMPTY_COMMANDS,
-        format: "empty",
-        parser() {
-          throw typeof error8 === "string" ? new task_configuration_error_1.TaskConfigurationError(error8) : error8;
-        }
-      };
-    }
-    exports.configurationErrorTask = configurationErrorTask;
-    function straightThroughStringTask(commands, trimmed = false) {
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return trimmed ? String(text).trim() : text;
-        }
-      };
-    }
-    exports.straightThroughStringTask = straightThroughStringTask;
-    function straightThroughBufferTask(commands) {
-      return {
-        commands,
-        format: "buffer",
-        parser(buffer) {
-          return buffer;
-        }
-      };
-    }
-    exports.straightThroughBufferTask = straightThroughBufferTask;
-    function isBufferTask(task) {
-      return task.format === "buffer";
-    }
-    exports.isBufferTask = isBufferTask;
-    function isEmptyTask(task) {
-      return task.format === "empty" || !task.commands.length;
-    }
-    exports.isEmptyTask = isEmptyTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clean.js
-var require_clean = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clean.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.isCleanOptionsArray = exports.cleanTask = exports.cleanWithOptionsTask = exports.CleanOptions = exports.CONFIG_ERROR_UNKNOWN_OPTION = exports.CONFIG_ERROR_MODE_REQUIRED = exports.CONFIG_ERROR_INTERACTIVE_MODE = void 0;
-    var CleanSummary_1 = require_CleanSummary();
-    var utils_1 = require_utils();
-    var task_1 = require_task();
-    exports.CONFIG_ERROR_INTERACTIVE_MODE = "Git clean interactive mode is not supported";
-    exports.CONFIG_ERROR_MODE_REQUIRED = 'Git clean mode parameter ("n" or "f") is required';
-    exports.CONFIG_ERROR_UNKNOWN_OPTION = "Git clean unknown option found in: ";
-    var CleanOptions;
-    (function(CleanOptions2) {
-      CleanOptions2["DRY_RUN"] = "n";
-      CleanOptions2["FORCE"] = "f";
-      CleanOptions2["IGNORED_INCLUDED"] = "x";
-      CleanOptions2["IGNORED_ONLY"] = "X";
-      CleanOptions2["EXCLUDING"] = "e";
-      CleanOptions2["QUIET"] = "q";
-      CleanOptions2["RECURSIVE"] = "d";
-    })(CleanOptions = exports.CleanOptions || (exports.CleanOptions = {}));
-    var CleanOptionValues = /* @__PURE__ */ new Set(["i", ...utils_1.asStringArray(Object.values(CleanOptions))]);
-    function cleanWithOptionsTask(mode, customArgs) {
-      const { cleanMode, options: options3, valid } = getCleanOptions(mode);
-      if (!cleanMode) {
-        return task_1.configurationErrorTask(exports.CONFIG_ERROR_MODE_REQUIRED);
-      }
-      if (!valid.options) {
-        return task_1.configurationErrorTask(exports.CONFIG_ERROR_UNKNOWN_OPTION + JSON.stringify(mode));
-      }
-      options3.push(...customArgs);
-      if (options3.some(isInteractiveMode)) {
-        return task_1.configurationErrorTask(exports.CONFIG_ERROR_INTERACTIVE_MODE);
-      }
-      return cleanTask(cleanMode, options3);
-    }
-    exports.cleanWithOptionsTask = cleanWithOptionsTask;
-    function cleanTask(mode, customArgs) {
-      const commands = ["clean", `-${mode}`, ...customArgs];
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return CleanSummary_1.cleanSummaryParser(mode === CleanOptions.DRY_RUN, text);
-        }
-      };
-    }
-    exports.cleanTask = cleanTask;
-    function isCleanOptionsArray(input) {
-      return Array.isArray(input) && input.every((test) => CleanOptionValues.has(test));
-    }
-    exports.isCleanOptionsArray = isCleanOptionsArray;
-    function getCleanOptions(input) {
-      let cleanMode;
-      let options3 = [];
-      let valid = { cleanMode: false, options: true };
-      input.replace(/[^a-z]i/g, "").split("").forEach((char) => {
-        if (isCleanMode(char)) {
-          cleanMode = char;
-          valid.cleanMode = true;
-        } else {
-          valid.options = valid.options && isKnownOption(options3[options3.length] = `-${char}`);
-        }
-      });
-      return {
-        cleanMode,
-        options: options3,
-        valid
-      };
-    }
-    function isCleanMode(cleanMode) {
-      return cleanMode === CleanOptions.FORCE || cleanMode === CleanOptions.DRY_RUN;
-    }
-    function isKnownOption(option) {
-      return /^-[a-z]$/i.test(option) && CleanOptionValues.has(option.charAt(1));
-    }
-    function isInteractiveMode(option) {
-      if (/^-[^\-]/.test(option)) {
-        return option.indexOf("i") > 0;
-      }
-      return option === "--interactive";
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/ConfigList.js
-var require_ConfigList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/ConfigList.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.configGetParser = exports.configListParser = exports.ConfigList = void 0;
-    var utils_1 = require_utils();
-    var ConfigList = class {
-      constructor() {
-        this.files = [];
-        this.values = /* @__PURE__ */ Object.create(null);
-      }
-      get all() {
-        if (!this._all) {
-          this._all = this.files.reduce((all, file) => {
-            return Object.assign(all, this.values[file]);
-          }, {});
-        }
-        return this._all;
-      }
-      addFile(file) {
-        if (!(file in this.values)) {
-          const latest = utils_1.last(this.files);
-          this.values[file] = latest ? Object.create(this.values[latest]) : {};
-          this.files.push(file);
-        }
-        return this.values[file];
-      }
-      addValue(file, key, value) {
-        const values = this.addFile(file);
-        if (!values.hasOwnProperty(key)) {
-          values[key] = value;
-        } else if (Array.isArray(values[key])) {
-          values[key].push(value);
-        } else {
-          values[key] = [values[key], value];
-        }
-        this._all = void 0;
-      }
-    };
-    exports.ConfigList = ConfigList;
-    function configListParser(text) {
-      const config = new ConfigList();
-      for (const item of configParser(text)) {
-        config.addValue(item.file, String(item.key), item.value);
-      }
-      return config;
-    }
-    exports.configListParser = configListParser;
-    function configGetParser(text, key) {
-      let value = null;
-      const values = [];
-      const scopes = /* @__PURE__ */ new Map();
-      for (const item of configParser(text, key)) {
-        if (item.key !== key) {
-          continue;
-        }
-        values.push(value = item.value);
-        if (!scopes.has(item.file)) {
-          scopes.set(item.file, []);
-        }
-        scopes.get(item.file).push(value);
-      }
-      return {
-        key,
-        paths: Array.from(scopes.keys()),
-        scopes,
-        value,
-        values
-      };
-    }
-    exports.configGetParser = configGetParser;
-    function configFilePath(filePath) {
-      return filePath.replace(/^(file):/, "");
-    }
-    function* configParser(text, requestedKey = null) {
-      const lines = text.split("\0");
-      for (let i = 0, max = lines.length - 1; i < max; ) {
-        const file = configFilePath(lines[i++]);
-        let value = lines[i++];
-        let key = requestedKey;
-        if (value.includes("\n")) {
-          const line = utils_1.splitOn(value, "\n");
-          key = line[0];
-          value = line[1];
-        }
-        yield { file, key, value };
-      }
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/config.js
-var require_config = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/config.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitConfigScope = void 0;
-    var ConfigList_1 = require_ConfigList();
-    var utils_1 = require_utils();
-    var GitConfigScope;
-    (function(GitConfigScope2) {
-      GitConfigScope2["system"] = "system";
-      GitConfigScope2["global"] = "global";
-      GitConfigScope2["local"] = "local";
-      GitConfigScope2["worktree"] = "worktree";
-    })(GitConfigScope = exports.GitConfigScope || (exports.GitConfigScope = {}));
-    function asConfigScope(scope, fallback) {
-      if (typeof scope === "string" && GitConfigScope.hasOwnProperty(scope)) {
-        return scope;
-      }
-      return fallback;
-    }
-    function addConfigTask(key, value, append, scope) {
-      const commands = ["config", `--${scope}`];
-      if (append) {
-        commands.push("--add");
-      }
-      commands.push(key, value);
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return text;
-        }
-      };
-    }
-    function getConfigTask(key, scope) {
-      const commands = ["config", "--null", "--show-origin", "--get-all", key];
-      if (scope) {
-        commands.splice(1, 0, `--${scope}`);
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return ConfigList_1.configGetParser(text, key);
-        }
-      };
-    }
-    function listConfigTask(scope) {
-      const commands = ["config", "--list", "--show-origin", "--null"];
-      if (scope) {
-        commands.push(`--${scope}`);
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return ConfigList_1.configListParser(text);
-        }
-      };
-    }
-    function default_1() {
-      return {
-        addConfig(key, value, ...rest) {
-          return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(rest[1], GitConfigScope.local)), utils_1.trailingFunctionArgument(arguments));
-        },
-        getConfig(key, scope) {
-          return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), utils_1.trailingFunctionArgument(arguments));
-        },
-        listConfig(...rest) {
-          return this._runTask(listConfigTask(asConfigScope(rest[0], void 0)), utils_1.trailingFunctionArgument(arguments));
-        }
-      };
-    }
-    exports.default = default_1;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/grep.js
-var require_grep = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/grep.js"(exports) {
-    "use strict";
-    var _a;
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.grepQueryBuilder = void 0;
-    var utils_1 = require_utils();
-    var task_1 = require_task();
-    var disallowedOptions = ["-h"];
-    var Query = Symbol("grepQuery");
-    var GrepQuery = class {
-      constructor() {
-        this[_a] = [];
-      }
-      *[(_a = Query, Symbol.iterator)]() {
-        for (const query of this[Query]) {
-          yield query;
-        }
-      }
-      and(...and) {
-        and.length && this[Query].push("--and", "(", ...utils_1.prefixedArray(and, "-e"), ")");
-        return this;
-      }
-      param(...param) {
-        this[Query].push(...utils_1.prefixedArray(param, "-e"));
-        return this;
-      }
-    };
-    function grepQueryBuilder(...params) {
-      return new GrepQuery().param(...params);
-    }
-    exports.grepQueryBuilder = grepQueryBuilder;
-    function parseGrep(grep) {
-      const paths = /* @__PURE__ */ new Set();
-      const results2 = {};
-      utils_1.forEachLineWithContent(grep, (input) => {
-        const [path4, line, preview] = input.split(utils_1.NULL);
-        paths.add(path4);
-        (results2[path4] = results2[path4] || []).push({
-          line: utils_1.asNumber(line),
-          path: path4,
-          preview
-        });
-      });
-      return {
-        paths,
-        results: results2
-      };
-    }
-    function default_1() {
-      return {
-        grep(searchTerm) {
-          const then = utils_1.trailingFunctionArgument(arguments);
-          const options3 = utils_1.getTrailingOptions(arguments);
-          for (const option of disallowedOptions) {
-            if (options3.includes(option)) {
-              return this._runTask(task_1.configurationErrorTask(`git.grep: use of "${option}" is not supported.`), then);
-            }
-          }
-          if (typeof searchTerm === "string") {
-            searchTerm = grepQueryBuilder().param(searchTerm);
-          }
-          const commands = ["grep", "--null", "-n", "--full-name", ...options3, ...searchTerm];
-          return this._runTask({
-            commands,
-            format: "utf-8",
-            parser(stdOut) {
-              return parseGrep(stdOut);
-            }
-          }, then);
-        }
-      };
-    }
-    exports.default = default_1;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/reset.js
-var require_reset = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/reset.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.getResetMode = exports.resetTask = exports.ResetMode = void 0;
-    var task_1 = require_task();
-    var ResetMode;
-    (function(ResetMode2) {
-      ResetMode2["MIXED"] = "mixed";
-      ResetMode2["SOFT"] = "soft";
-      ResetMode2["HARD"] = "hard";
-      ResetMode2["MERGE"] = "merge";
-      ResetMode2["KEEP"] = "keep";
-    })(ResetMode = exports.ResetMode || (exports.ResetMode = {}));
-    var ResetModes = Array.from(Object.values(ResetMode));
-    function resetTask(mode, customArgs) {
-      const commands = ["reset"];
-      if (isValidResetMode(mode)) {
-        commands.push(`--${mode}`);
-      }
-      commands.push(...customArgs);
-      return task_1.straightThroughStringTask(commands);
-    }
-    exports.resetTask = resetTask;
-    function getResetMode(mode) {
-      if (isValidResetMode(mode)) {
-        return mode;
-      }
-      switch (typeof mode) {
-        case "string":
-        case "undefined":
-          return ResetMode.SOFT;
-      }
-      return;
-    }
-    exports.getResetMode = getResetMode;
-    function isValidResetMode(mode) {
-      return ResetModes.includes(mode);
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/api.js
-var require_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/api.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var git_construct_error_1 = require_git_construct_error();
-    var git_error_1 = require_git_error();
-    var git_plugin_error_1 = require_git_plugin_error();
-    var git_response_error_1 = require_git_response_error();
-    var task_configuration_error_1 = require_task_configuration_error();
-    var check_is_repo_1 = require_check_is_repo();
-    var clean_1 = require_clean();
-    var config_1 = require_config();
-    var grep_1 = require_grep();
-    var reset_1 = require_reset();
-    var api = {
-      CheckRepoActions: check_is_repo_1.CheckRepoActions,
-      CleanOptions: clean_1.CleanOptions,
-      GitConfigScope: config_1.GitConfigScope,
-      GitConstructError: git_construct_error_1.GitConstructError,
-      GitError: git_error_1.GitError,
-      GitPluginError: git_plugin_error_1.GitPluginError,
-      GitResponseError: git_response_error_1.GitResponseError,
-      ResetMode: reset_1.ResetMode,
-      TaskConfigurationError: task_configuration_error_1.TaskConfigurationError,
-      grepQueryBuilder: grep_1.grepQueryBuilder
-    };
-    exports.default = api;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js
-var require_command_config_prefixing_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/command-config-prefixing-plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.commandConfigPrefixingPlugin = void 0;
-    var utils_1 = require_utils();
-    function commandConfigPrefixingPlugin(configuration) {
-      const prefix = utils_1.prefixedArray(configuration, "-c");
-      return {
-        type: "spawn.args",
-        action(data9) {
-          return [...prefix, ...data9];
-        }
-      };
-    }
-    exports.commandConfigPrefixingPlugin = commandConfigPrefixingPlugin;
+    __export3(require_src2());
   }
 });
 
@@ -2853,7 +1774,7 @@ var require_dist2 = __commonJS({
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createDeferred = exports.deferred = void 0;
-    function deferred() {
+    function deferred2() {
       let done;
       let fail;
       let status = "pending";
@@ -2883,3007 +1804,9 @@ var require_dist2 = __commonJS({
         }
       };
     }
-    exports.deferred = deferred;
-    exports.createDeferred = deferred;
-    exports.default = deferred;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js
-var require_completion_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/completion-detection.plugin.js"(exports) {
-    "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
-      function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
-          resolve(value);
-        });
-      }
-      return new (P || (P = Promise))(function(resolve, reject) {
-        function fulfilled(value) {
-          try {
-            step(generator.next(value));
-          } catch (e) {
-            reject(e);
-          }
-        }
-        function rejected(value) {
-          try {
-            step(generator["throw"](value));
-          } catch (e) {
-            reject(e);
-          }
-        }
-        function step(result) {
-          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-        }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-      });
-    };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.completionDetectionPlugin = void 0;
-    var promise_deferred_1 = require_dist2();
-    var utils_1 = require_utils();
-    var never = promise_deferred_1.default().promise;
-    function completionDetectionPlugin({ onClose = true, onExit = 50 } = {}) {
-      function createEvents() {
-        let exitCode = -1;
-        const events = {
-          close: promise_deferred_1.default(),
-          closeTimeout: promise_deferred_1.default(),
-          exit: promise_deferred_1.default(),
-          exitTimeout: promise_deferred_1.default()
-        };
-        const result = Promise.race([
-          onClose === false ? never : events.closeTimeout.promise,
-          onExit === false ? never : events.exitTimeout.promise
-        ]);
-        configureTimeout(onClose, events.close, events.closeTimeout);
-        configureTimeout(onExit, events.exit, events.exitTimeout);
-        return {
-          close(code) {
-            exitCode = code;
-            events.close.done();
-          },
-          exit(code) {
-            exitCode = code;
-            events.exit.done();
-          },
-          get exitCode() {
-            return exitCode;
-          },
-          result
-        };
-      }
-      function configureTimeout(flag, event, timeout) {
-        if (flag === false) {
-          return;
-        }
-        (flag === true ? event.promise : event.promise.then(() => utils_1.delay(flag))).then(timeout.done);
-      }
-      return {
-        type: "spawn.after",
-        action(_data, { spawned, close }) {
-          var _a, _b;
-          return __awaiter(this, void 0, void 0, function* () {
-            const events = createEvents();
-            let deferClose = true;
-            let quickClose = () => void (deferClose = false);
-            (_a = spawned.stdout) === null || _a === void 0 ? void 0 : _a.on("data", quickClose);
-            (_b = spawned.stderr) === null || _b === void 0 ? void 0 : _b.on("data", quickClose);
-            spawned.on("error", quickClose);
-            spawned.on("close", (code) => events.close(code));
-            spawned.on("exit", (code) => events.exit(code));
-            try {
-              yield events.result;
-              if (deferClose) {
-                yield utils_1.delay(50);
-              }
-              close(events.exitCode);
-            } catch (err) {
-              close(events.exitCode, err);
-            }
-          });
-        }
-      };
-    }
-    exports.completionDetectionPlugin = completionDetectionPlugin;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js
-var require_error_detection_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/error-detection.plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.errorDetectionPlugin = exports.errorDetectionHandler = void 0;
-    var git_error_1 = require_git_error();
-    function isTaskError(result) {
-      return !!(result.exitCode && result.stdErr.length);
-    }
-    function getErrorMessage(result) {
-      return Buffer.concat([...result.stdOut, ...result.stdErr]);
-    }
-    function errorDetectionHandler(overwrite = false, isError = isTaskError, errorMessage = getErrorMessage) {
-      return (error8, result) => {
-        if (!overwrite && error8 || !isError(result)) {
-          return error8;
-        }
-        return errorMessage(result);
-      };
-    }
-    exports.errorDetectionHandler = errorDetectionHandler;
-    function errorDetectionPlugin(config) {
-      return {
-        type: "task.error",
-        action(data9, context) {
-          const error8 = config(data9.error, {
-            stdErr: context.stdErr,
-            stdOut: context.stdOut,
-            exitCode: context.exitCode
-          });
-          if (Buffer.isBuffer(error8)) {
-            return { error: new git_error_1.GitError(void 0, error8.toString("utf-8")) };
-          }
-          return {
-            error: error8
-          };
-        }
-      };
-    }
-    exports.errorDetectionPlugin = errorDetectionPlugin;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/plugin-store.js
-var require_plugin_store = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/plugin-store.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.PluginStore = void 0;
-    var utils_1 = require_utils();
-    var PluginStore = class {
-      constructor() {
-        this.plugins = /* @__PURE__ */ new Set();
-      }
-      add(plugin) {
-        const plugins = [];
-        utils_1.asArray(plugin).forEach((plugin2) => plugin2 && this.plugins.add(utils_1.append(plugins, plugin2)));
-        return () => {
-          plugins.forEach((plugin2) => this.plugins.delete(plugin2));
-        };
-      }
-      exec(type, data9, context) {
-        let output = data9;
-        const contextual = Object.freeze(Object.create(context));
-        for (const plugin of this.plugins) {
-          if (plugin.type === type) {
-            output = plugin.action(output, contextual);
-          }
-        }
-        return output;
-      }
-    };
-    exports.PluginStore = PluginStore;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js
-var require_progress_monitor_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/progress-monitor-plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.progressMonitorPlugin = void 0;
-    var utils_1 = require_utils();
-    function progressMonitorPlugin(progress) {
-      const progressCommand = "--progress";
-      const progressMethods = ["checkout", "clone", "fetch", "pull", "push"];
-      const onProgress = {
-        type: "spawn.after",
-        action(_data, context) {
-          var _a;
-          if (!context.commands.includes(progressCommand)) {
-            return;
-          }
-          (_a = context.spawned.stderr) === null || _a === void 0 ? void 0 : _a.on("data", (chunk) => {
-            const message = /^([\s\S]+?):\s*(\d+)% \((\d+)\/(\d+)\)/.exec(chunk.toString("utf8"));
-            if (!message) {
-              return;
-            }
-            progress({
-              method: context.method,
-              stage: progressEventStage(message[1]),
-              progress: utils_1.asNumber(message[2]),
-              processed: utils_1.asNumber(message[3]),
-              total: utils_1.asNumber(message[4])
-            });
-          });
-        }
-      };
-      const onArgs = {
-        type: "spawn.args",
-        action(args, context) {
-          if (!progressMethods.includes(context.method)) {
-            return args;
-          }
-          return utils_1.including(args, progressCommand);
-        }
-      };
-      return [onArgs, onProgress];
-    }
-    exports.progressMonitorPlugin = progressMonitorPlugin;
-    function progressEventStage(input) {
-      return String(input.toLowerCase().split(" ", 1)) || "unknown";
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js
-var require_simple_git_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/simple-git-plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js
-var require_spawn_options_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/spawn-options-plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.spawnOptionsPlugin = void 0;
-    var utils_1 = require_utils();
-    function spawnOptionsPlugin(spawnOptions) {
-      const options3 = utils_1.pick(spawnOptions, ["uid", "gid"]);
-      return {
-        type: "spawn.options",
-        action(data9) {
-          return Object.assign(Object.assign({}, options3), data9);
-        }
-      };
-    }
-    exports.spawnOptionsPlugin = spawnOptionsPlugin;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js
-var require_timout_plugin = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/timout-plugin.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.timeoutPlugin = void 0;
-    var git_plugin_error_1 = require_git_plugin_error();
-    function timeoutPlugin({ block }) {
-      if (block > 0) {
-        return {
-          type: "spawn.after",
-          action(_data, context) {
-            var _a, _b;
-            let timeout;
-            function wait() {
-              timeout && clearTimeout(timeout);
-              timeout = setTimeout(kill, block);
-            }
-            function stop() {
-              var _a2, _b2;
-              (_a2 = context.spawned.stdout) === null || _a2 === void 0 ? void 0 : _a2.off("data", wait);
-              (_b2 = context.spawned.stderr) === null || _b2 === void 0 ? void 0 : _b2.off("data", wait);
-              context.spawned.off("exit", stop);
-              context.spawned.off("close", stop);
-            }
-            function kill() {
-              stop();
-              context.kill(new git_plugin_error_1.GitPluginError(void 0, "timeout", `block timeout reached`));
-            }
-            (_a = context.spawned.stdout) === null || _a === void 0 ? void 0 : _a.on("data", wait);
-            (_b = context.spawned.stderr) === null || _b === void 0 ? void 0 : _b.on("data", wait);
-            context.spawned.on("exit", stop);
-            context.spawned.on("close", stop);
-            wait();
-          }
-        };
-      }
-    }
-    exports.timeoutPlugin = timeoutPlugin;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/index.js
-var require_plugins = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/plugins/index.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
-      if (k2 === void 0)
-        k2 = k;
-      o[k2] = m[k];
-    });
-    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
-      for (var p in m)
-        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
-          __createBinding(exports2, m, p);
-    };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    __exportStar(require_command_config_prefixing_plugin(), exports);
-    __exportStar(require_completion_detection_plugin(), exports);
-    __exportStar(require_error_detection_plugin(), exports);
-    __exportStar(require_plugin_store(), exports);
-    __exportStar(require_progress_monitor_plugin(), exports);
-    __exportStar(require_simple_git_plugin(), exports);
-    __exportStar(require_spawn_options_plugin(), exports);
-    __exportStar(require_timout_plugin(), exports);
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-logger.js
-var require_git_logger = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-logger.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitLogger = exports.createLogger = void 0;
-    var debug_1 = require_src();
-    var utils_1 = require_utils();
-    debug_1.default.formatters.L = (value) => String(utils_1.filterHasLength(value) ? value.length : "-");
-    debug_1.default.formatters.B = (value) => {
-      if (Buffer.isBuffer(value)) {
-        return value.toString("utf8");
-      }
-      return utils_1.objectToString(value);
-    };
-    function createLog() {
-      return debug_1.default("simple-git");
-    }
-    function prefixedLogger(to, prefix, forward) {
-      if (!prefix || !String(prefix).replace(/\s*/, "")) {
-        return !forward ? to : (message, ...args) => {
-          to(message, ...args);
-          forward(message, ...args);
-        };
-      }
-      return (message, ...args) => {
-        to(`%s ${message}`, prefix, ...args);
-        if (forward) {
-          forward(message, ...args);
-        }
-      };
-    }
-    function childLoggerName(name, childDebugger, { namespace: parentNamespace }) {
-      if (typeof name === "string") {
-        return name;
-      }
-      const childNamespace = childDebugger && childDebugger.namespace || "";
-      if (childNamespace.startsWith(parentNamespace)) {
-        return childNamespace.substr(parentNamespace.length + 1);
-      }
-      return childNamespace || parentNamespace;
-    }
-    function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
-      const labelPrefix = label && `[${label}]` || "";
-      const spawned = [];
-      const debugDebugger = typeof verbose === "string" ? infoDebugger.extend(verbose) : verbose;
-      const key = childLoggerName(utils_1.filterType(verbose, utils_1.filterString), debugDebugger, infoDebugger);
-      return step(initialStep);
-      function sibling(name, initial) {
-        return utils_1.append(spawned, createLogger(label, key.replace(/^[^:]+/, name), initial, infoDebugger));
-      }
-      function step(phase) {
-        const stepPrefix = phase && `[${phase}]` || "";
-        const debug = debugDebugger && prefixedLogger(debugDebugger, stepPrefix) || utils_1.NOOP;
-        const info9 = prefixedLogger(infoDebugger, `${labelPrefix} ${stepPrefix}`, debug);
-        return Object.assign(debugDebugger ? debug : info9, {
-          label,
-          sibling,
-          info: info9,
-          step
-        });
-      }
-    }
-    exports.createLogger = createLogger;
-    var GitLogger = class {
-      constructor(_out = createLog()) {
-        this._out = _out;
-        this.error = prefixedLogger(_out, "[ERROR]");
-        this.warn = prefixedLogger(_out, "[WARN]");
-      }
-      silent(silence = false) {
-        if (silence !== this._out.enabled) {
-          return;
-        }
-        const { namespace } = this._out;
-        const env = (process.env.DEBUG || "").split(",").filter((s) => !!s);
-        const hasOn = env.includes(namespace);
-        const hasOff = env.includes(`-${namespace}`);
-        if (!silence) {
-          if (hasOff) {
-            utils_1.remove(env, `-${namespace}`);
-          } else {
-            env.push(namespace);
-          }
-        } else {
-          if (hasOn) {
-            utils_1.remove(env, namespace);
-          } else {
-            env.push(`-${namespace}`);
-          }
-        }
-        debug_1.default.enable(env.join(","));
-      }
-    };
-    exports.GitLogger = GitLogger;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js
-var require_tasks_pending_queue = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/tasks-pending-queue.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.TasksPendingQueue = void 0;
-    var git_error_1 = require_git_error();
-    var git_logger_1 = require_git_logger();
-    var TasksPendingQueue = class {
-      constructor(logLabel = "GitExecutor") {
-        this.logLabel = logLabel;
-        this._queue = /* @__PURE__ */ new Map();
-      }
-      withProgress(task) {
-        return this._queue.get(task);
-      }
-      createProgress(task) {
-        const name = TasksPendingQueue.getName(task.commands[0]);
-        const logger = git_logger_1.createLogger(this.logLabel, name);
-        return {
-          task,
-          logger,
-          name
-        };
-      }
-      push(task) {
-        const progress = this.createProgress(task);
-        progress.logger("Adding task to the queue, commands = %o", task.commands);
-        this._queue.set(task, progress);
-        return progress;
-      }
-      fatal(err) {
-        for (const [task, { logger }] of Array.from(this._queue.entries())) {
-          if (task === err.task) {
-            logger.info(`Failed %o`, err);
-            logger(`Fatal exception, any as-yet un-started tasks run through this executor will not be attempted`);
-          } else {
-            logger.info(`A fatal exception occurred in a previous task, the queue has been purged: %o`, err.message);
-          }
-          this.complete(task);
-        }
-        if (this._queue.size !== 0) {
-          throw new Error(`Queue size should be zero after fatal: ${this._queue.size}`);
-        }
-      }
-      complete(task) {
-        const progress = this.withProgress(task);
-        if (progress) {
-          this._queue.delete(task);
-        }
-      }
-      attempt(task) {
-        const progress = this.withProgress(task);
-        if (!progress) {
-          throw new git_error_1.GitError(void 0, "TasksPendingQueue: attempt called for an unknown task");
-        }
-        progress.logger("Starting task");
-        return progress;
-      }
-      static getName(name = "empty") {
-        return `task:${name}:${++TasksPendingQueue.counter}`;
-      }
-    };
-    exports.TasksPendingQueue = TasksPendingQueue;
-    TasksPendingQueue.counter = 0;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js
-var require_git_executor_chain = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor-chain.js"(exports) {
-    "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
-      function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
-          resolve(value);
-        });
-      }
-      return new (P || (P = Promise))(function(resolve, reject) {
-        function fulfilled(value) {
-          try {
-            step(generator.next(value));
-          } catch (e) {
-            reject(e);
-          }
-        }
-        function rejected(value) {
-          try {
-            step(generator["throw"](value));
-          } catch (e) {
-            reject(e);
-          }
-        }
-        function step(result) {
-          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-        }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-      });
-    };
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitExecutorChain = void 0;
-    var child_process_1 = require("child_process");
-    var git_error_1 = require_git_error();
-    var task_1 = require_task();
-    var utils_1 = require_utils();
-    var tasks_pending_queue_1 = require_tasks_pending_queue();
-    var GitExecutorChain = class {
-      constructor(_executor, _scheduler, _plugins) {
-        this._executor = _executor;
-        this._scheduler = _scheduler;
-        this._plugins = _plugins;
-        this._chain = Promise.resolve();
-        this._queue = new tasks_pending_queue_1.TasksPendingQueue();
-      }
-      get binary() {
-        return this._executor.binary;
-      }
-      get cwd() {
-        return this._cwd || this._executor.cwd;
-      }
-      set cwd(cwd) {
-        this._cwd = cwd;
-      }
-      get env() {
-        return this._executor.env;
-      }
-      get outputHandler() {
-        return this._executor.outputHandler;
-      }
-      chain() {
-        return this;
-      }
-      push(task) {
-        this._queue.push(task);
-        return this._chain = this._chain.then(() => this.attemptTask(task));
-      }
-      attemptTask(task) {
-        return __awaiter(this, void 0, void 0, function* () {
-          const onScheduleComplete = yield this._scheduler.next();
-          const onQueueComplete = () => this._queue.complete(task);
-          try {
-            const { logger } = this._queue.attempt(task);
-            return yield task_1.isEmptyTask(task) ? this.attemptEmptyTask(task, logger) : this.attemptRemoteTask(task, logger);
-          } catch (e) {
-            throw this.onFatalException(task, e);
-          } finally {
-            onQueueComplete();
-            onScheduleComplete();
-          }
-        });
-      }
-      onFatalException(task, e) {
-        const gitError = e instanceof git_error_1.GitError ? Object.assign(e, { task }) : new git_error_1.GitError(task, e && String(e));
-        this._chain = Promise.resolve();
-        this._queue.fatal(gitError);
-        return gitError;
-      }
-      attemptRemoteTask(task, logger) {
-        return __awaiter(this, void 0, void 0, function* () {
-          const args = this._plugins.exec("spawn.args", [...task.commands], pluginContext(task, task.commands));
-          const raw = yield this.gitResponse(task, this.binary, args, this.outputHandler, logger.step("SPAWN"));
-          const outputStreams = yield this.handleTaskData(task, args, raw, logger.step("HANDLE"));
-          logger(`passing response to task's parser as a %s`, task.format);
-          if (task_1.isBufferTask(task)) {
-            return utils_1.callTaskParser(task.parser, outputStreams);
-          }
-          return utils_1.callTaskParser(task.parser, outputStreams.asStrings());
-        });
-      }
-      attemptEmptyTask(task, logger) {
-        return __awaiter(this, void 0, void 0, function* () {
-          logger(`empty task bypassing child process to call to task's parser`);
-          return task.parser(this);
-        });
-      }
-      handleTaskData(task, args, result, logger) {
-        const { exitCode, rejection, stdOut, stdErr } = result;
-        return new Promise((done, fail) => {
-          logger(`Preparing to handle process response exitCode=%d stdOut=`, exitCode);
-          const { error: error8 } = this._plugins.exec("task.error", { error: rejection }, Object.assign(Object.assign({}, pluginContext(task, args)), result));
-          if (error8 && task.onError) {
-            logger.info(`exitCode=%s handling with custom error handler`);
-            return task.onError(result, error8, (newStdOut) => {
-              logger.info(`custom error handler treated as success`);
-              logger(`custom error returned a %s`, utils_1.objectToString(newStdOut));
-              done(new utils_1.GitOutputStreams(Array.isArray(newStdOut) ? Buffer.concat(newStdOut) : newStdOut, Buffer.concat(stdErr)));
-            }, fail);
-          }
-          if (error8) {
-            logger.info(`handling as error: exitCode=%s stdErr=%s rejection=%o`, exitCode, stdErr.length, rejection);
-            return fail(error8);
-          }
-          logger.info(`retrieving task output complete`);
-          done(new utils_1.GitOutputStreams(Buffer.concat(stdOut), Buffer.concat(stdErr)));
-        });
-      }
-      gitResponse(task, command, args, outputHandler, logger) {
-        return __awaiter(this, void 0, void 0, function* () {
-          const outputLogger = logger.sibling("output");
-          const spawnOptions = this._plugins.exec("spawn.options", {
-            cwd: this.cwd,
-            env: this.env,
-            windowsHide: true
-          }, pluginContext(task, task.commands));
-          return new Promise((done) => {
-            const stdOut = [];
-            const stdErr = [];
-            let rejection;
-            logger.info(`%s %o`, command, args);
-            logger("%O", spawnOptions);
-            const spawned = child_process_1.spawn(command, args, spawnOptions);
-            spawned.stdout.on("data", onDataReceived(stdOut, "stdOut", logger, outputLogger.step("stdOut")));
-            spawned.stderr.on("data", onDataReceived(stdErr, "stdErr", logger, outputLogger.step("stdErr")));
-            spawned.on("error", onErrorReceived(stdErr, logger));
-            if (outputHandler) {
-              logger(`Passing child process stdOut/stdErr to custom outputHandler`);
-              outputHandler(command, spawned.stdout, spawned.stderr, [...args]);
-            }
-            this._plugins.exec("spawn.after", void 0, Object.assign(Object.assign({}, pluginContext(task, args)), {
-              spawned,
-              close(exitCode, reason) {
-                done({
-                  stdOut,
-                  stdErr,
-                  exitCode,
-                  rejection: rejection || reason
-                });
-              },
-              kill(reason) {
-                if (spawned.killed) {
-                  return;
-                }
-                rejection = reason;
-                spawned.kill("SIGINT");
-              }
-            }));
-          });
-        });
-      }
-    };
-    exports.GitExecutorChain = GitExecutorChain;
-    function pluginContext(task, commands) {
-      return {
-        method: utils_1.first(task.commands) || "",
-        commands
-      };
-    }
-    function onErrorReceived(target, logger) {
-      return (err) => {
-        logger(`[ERROR] child process exception %o`, err);
-        target.push(Buffer.from(String(err.stack), "ascii"));
-      };
-    }
-    function onDataReceived(target, name, logger, output) {
-      return (buffer) => {
-        logger(`%s received %L bytes`, name, buffer);
-        output(`%B`, buffer);
-        target.push(buffer);
-      };
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor.js
-var require_git_executor = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/git-executor.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.GitExecutor = void 0;
-    var git_executor_chain_1 = require_git_executor_chain();
-    var GitExecutor = class {
-      constructor(binary = "git", cwd, _scheduler, _plugins) {
-        this.binary = binary;
-        this.cwd = cwd;
-        this._scheduler = _scheduler;
-        this._plugins = _plugins;
-        this._chain = new git_executor_chain_1.GitExecutorChain(this, this._scheduler, this._plugins);
-      }
-      chain() {
-        return new git_executor_chain_1.GitExecutorChain(this, this._scheduler, this._plugins);
-      }
-      push(task) {
-        return this._chain.push(task);
-      }
-    };
-    exports.GitExecutor = GitExecutor;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/task-callback.js
-var require_task_callback = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/task-callback.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.taskCallback = void 0;
-    var git_response_error_1 = require_git_response_error();
-    var utils_1 = require_utils();
-    function taskCallback(task, response, callback = utils_1.NOOP) {
-      const onSuccess = (data9) => {
-        callback(null, data9);
-      };
-      const onError = (err) => {
-        if ((err === null || err === void 0 ? void 0 : err.task) === task) {
-          callback(err instanceof git_response_error_1.GitResponseError ? addDeprecationNoticeToError(err) : err, void 0);
-        }
-      };
-      response.then(onSuccess, onError);
-    }
-    exports.taskCallback = taskCallback;
-    function addDeprecationNoticeToError(err) {
-      let log12 = (name) => {
-        console.warn(`simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`);
-        log12 = utils_1.NOOP;
-      };
-      return Object.create(err, Object.getOwnPropertyNames(err.git).reduce(descriptorReducer, {}));
-      function descriptorReducer(all, name) {
-        if (name in err) {
-          return all;
-        }
-        all[name] = {
-          enumerable: false,
-          configurable: false,
-          get() {
-            log12(name);
-            return err.git[name];
-          }
-        };
-        return all;
-      }
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js
-var require_change_working_directory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/change-working-directory.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.changeWorkingDirectoryTask = void 0;
-    var utils_1 = require_utils();
-    var task_1 = require_task();
-    function changeWorkingDirectoryTask(directory, root) {
-      return task_1.adhocExecTask((instance) => {
-        if (!utils_1.folderExists(directory)) {
-          throw new Error(`Git.cwd: cannot change to non-directory "${directory}"`);
-        }
-        return (root || instance).cwd = directory;
-      });
-    }
-    exports.changeWorkingDirectoryTask = changeWorkingDirectoryTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/hash-object.js
-var require_hash_object = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/hash-object.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.hashObjectTask = void 0;
-    var task_1 = require_task();
-    function hashObjectTask(filePath, write) {
-      const commands = ["hash-object", filePath];
-      if (write) {
-        commands.push("-w");
-      }
-      return task_1.straightThroughStringTask(commands, true);
-    }
-    exports.hashObjectTask = hashObjectTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/InitSummary.js
-var require_InitSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/InitSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseInit = exports.InitSummary = void 0;
-    var InitSummary = class {
-      constructor(bare, path4, existing, gitDir) {
-        this.bare = bare;
-        this.path = path4;
-        this.existing = existing;
-        this.gitDir = gitDir;
-      }
-    };
-    exports.InitSummary = InitSummary;
-    var initResponseRegex = /^Init.+ repository in (.+)$/;
-    var reInitResponseRegex = /^Rein.+ in (.+)$/;
-    function parseInit(bare, path4, text) {
-      const response = String(text).trim();
-      let result;
-      if (result = initResponseRegex.exec(response)) {
-        return new InitSummary(bare, path4, false, result[1]);
-      }
-      if (result = reInitResponseRegex.exec(response)) {
-        return new InitSummary(bare, path4, true, result[1]);
-      }
-      let gitDir = "";
-      const tokens = response.split(" ");
-      while (tokens.length) {
-        const token = tokens.shift();
-        if (token === "in") {
-          gitDir = tokens.join(" ");
-          break;
-        }
-      }
-      return new InitSummary(bare, path4, /^re/i.test(response), gitDir);
-    }
-    exports.parseInit = parseInit;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/init.js
-var require_init = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/init.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.initTask = void 0;
-    var InitSummary_1 = require_InitSummary();
-    var bareCommand = "--bare";
-    function hasBareCommand(command) {
-      return command.includes(bareCommand);
-    }
-    function initTask(bare = false, path4, customArgs) {
-      const commands = ["init", ...customArgs];
-      if (bare && !hasBareCommand(commands)) {
-        commands.splice(1, 0, bareCommand);
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser(text) {
-          return InitSummary_1.parseInit(commands.includes("--bare"), path4, text);
-        }
-      };
-    }
-    exports.initTask = initTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/DiffSummary.js
-var require_DiffSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/DiffSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.DiffSummary = void 0;
-    var DiffSummary = class {
-      constructor() {
-        this.changed = 0;
-        this.deletions = 0;
-        this.insertions = 0;
-        this.files = [];
-      }
-    };
-    exports.DiffSummary = DiffSummary;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js
-var require_parse_diff_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-diff-summary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseDiffResult = void 0;
-    var DiffSummary_1 = require_DiffSummary();
-    function parseDiffResult(stdOut) {
-      const lines = stdOut.trim().split("\n");
-      const status = new DiffSummary_1.DiffSummary();
-      readSummaryLine(status, lines.pop());
-      for (let i = 0, max = lines.length; i < max; i++) {
-        const line = lines[i];
-        textFileChange(line, status) || binaryFileChange(line, status);
-      }
-      return status;
-    }
-    exports.parseDiffResult = parseDiffResult;
-    function readSummaryLine(status, summary) {
-      (summary || "").trim().split(", ").forEach(function(text) {
-        const summary2 = /(\d+)\s([a-z]+)/.exec(text);
-        if (!summary2) {
-          return;
-        }
-        summaryType(status, summary2[2], parseInt(summary2[1], 10));
-      });
-    }
-    function summaryType(status, key, value) {
-      const match = /([a-z]+?)s?\b/.exec(key);
-      if (!match || !statusUpdate[match[1]]) {
-        return;
-      }
-      statusUpdate[match[1]](status, value);
-    }
-    var statusUpdate = {
-      file(status, value) {
-        status.changed = value;
-      },
-      deletion(status, value) {
-        status.deletions = value;
-      },
-      insertion(status, value) {
-        status.insertions = value;
-      }
-    };
-    function textFileChange(input, { files }) {
-      const line = input.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
-      if (line) {
-        var alterations = (line[3] || "").trim();
-        files.push({
-          file: line[1].trim(),
-          changes: parseInt(line[2], 10),
-          insertions: alterations.replace(/-/g, "").length,
-          deletions: alterations.replace(/\+/g, "").length,
-          binary: false
-        });
-        return true;
-      }
-      return false;
-    }
-    function binaryFileChange(input, { files }) {
-      const line = input.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
-      if (line) {
-        files.push({
-          file: line[1].trim(),
-          before: +line[2],
-          after: +line[3],
-          binary: true
-        });
-        return true;
-      }
-      return false;
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js
-var require_parse_list_log_summary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-list-log-summary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.createListLogSummaryParser = exports.SPLITTER = exports.COMMIT_BOUNDARY = exports.START_BOUNDARY = void 0;
-    var utils_1 = require_utils();
-    var parse_diff_summary_1 = require_parse_diff_summary();
-    exports.START_BOUNDARY = "\xF2\xF2\xF2\xF2\xF2\xF2 ";
-    exports.COMMIT_BOUNDARY = " \xF2\xF2";
-    exports.SPLITTER = " \xF2 ";
-    var defaultFieldNames = ["hash", "date", "message", "refs", "author_name", "author_email"];
-    function lineBuilder(tokens, fields) {
-      return fields.reduce((line, field, index) => {
-        line[field] = tokens[index] || "";
-        return line;
-      }, /* @__PURE__ */ Object.create({ diff: null }));
-    }
-    function createListLogSummaryParser(splitter = exports.SPLITTER, fields = defaultFieldNames) {
-      return function(stdOut) {
-        const all = utils_1.toLinesWithContent(stdOut, true, exports.START_BOUNDARY).map(function(item) {
-          const lineDetail = item.trim().split(exports.COMMIT_BOUNDARY);
-          const listLogLine = lineBuilder(lineDetail[0].trim().split(splitter), fields);
-          if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
-            listLogLine.diff = parse_diff_summary_1.parseDiffResult(lineDetail[1]);
-          }
-          return listLogLine;
-        });
-        return {
-          all,
-          latest: all.length && all[0] || null,
-          total: all.length
-        };
-      };
-    }
-    exports.createListLogSummaryParser = createListLogSummaryParser;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/log.js
-var require_log = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/log.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.logTask = exports.parseLogOptions = void 0;
-    var parse_list_log_summary_1 = require_parse_list_log_summary();
-    var utils_1 = require_utils();
-    var task_1 = require_task();
-    var excludeOptions;
-    (function(excludeOptions2) {
-      excludeOptions2[excludeOptions2["--pretty"] = 0] = "--pretty";
-      excludeOptions2[excludeOptions2["max-count"] = 1] = "max-count";
-      excludeOptions2[excludeOptions2["maxCount"] = 2] = "maxCount";
-      excludeOptions2[excludeOptions2["n"] = 3] = "n";
-      excludeOptions2[excludeOptions2["file"] = 4] = "file";
-      excludeOptions2[excludeOptions2["format"] = 5] = "format";
-      excludeOptions2[excludeOptions2["from"] = 6] = "from";
-      excludeOptions2[excludeOptions2["to"] = 7] = "to";
-      excludeOptions2[excludeOptions2["splitter"] = 8] = "splitter";
-      excludeOptions2[excludeOptions2["symmetric"] = 9] = "symmetric";
-      excludeOptions2[excludeOptions2["mailMap"] = 10] = "mailMap";
-      excludeOptions2[excludeOptions2["multiLine"] = 11] = "multiLine";
-      excludeOptions2[excludeOptions2["strictDate"] = 12] = "strictDate";
-    })(excludeOptions || (excludeOptions = {}));
-    function prettyFormat(format, splitter) {
-      const fields = [];
-      const formatStr = [];
-      Object.keys(format).forEach((field) => {
-        fields.push(field);
-        formatStr.push(String(format[field]));
-      });
-      return [
-        fields,
-        formatStr.join(splitter)
-      ];
-    }
-    function userOptions(input) {
-      const output = Object.assign({}, input);
-      Object.keys(input).forEach((key) => {
-        if (key in excludeOptions) {
-          delete output[key];
-        }
-      });
-      return output;
-    }
-    function parseLogOptions(opt = {}, customArgs = []) {
-      const splitter = opt.splitter || parse_list_log_summary_1.SPLITTER;
-      const format = opt.format || {
-        hash: "%H",
-        date: opt.strictDate === false ? "%ai" : "%aI",
-        message: "%s",
-        refs: "%D",
-        body: opt.multiLine ? "%B" : "%b",
-        author_name: opt.mailMap !== false ? "%aN" : "%an",
-        author_email: opt.mailMap !== false ? "%aE" : "%ae"
-      };
-      const [fields, formatStr] = prettyFormat(format, splitter);
-      const suffix = [];
-      const command = [
-        `--pretty=format:${parse_list_log_summary_1.START_BOUNDARY}${formatStr}${parse_list_log_summary_1.COMMIT_BOUNDARY}`,
-        ...customArgs
-      ];
-      const maxCount = opt.n || opt["max-count"] || opt.maxCount;
-      if (maxCount) {
-        command.push(`--max-count=${maxCount}`);
-      }
-      if (opt.from && opt.to) {
-        const rangeOperator = opt.symmetric !== false ? "..." : "..";
-        suffix.push(`${opt.from}${rangeOperator}${opt.to}`);
-      }
-      if (opt.file) {
-        suffix.push("--follow", opt.file);
-      }
-      utils_1.appendTaskOptions(userOptions(opt), command);
-      return {
-        fields,
-        splitter,
-        commands: [
-          ...command,
-          ...suffix
-        ]
-      };
-    }
-    exports.parseLogOptions = parseLogOptions;
-    function logTask(splitter, fields, customArgs) {
-      return {
-        commands: ["log", ...customArgs],
-        format: "utf-8",
-        parser: parse_list_log_summary_1.createListLogSummaryParser(splitter, fields)
-      };
-    }
-    exports.logTask = logTask;
-    function default_1() {
-      return {
-        log(...rest) {
-          const next = utils_1.trailingFunctionArgument(arguments);
-          const task = rejectDeprecatedSignatures(...rest) || createLogTask(parseLogOptions(utils_1.trailingOptionsArgument(arguments), utils_1.filterType(arguments[0], utils_1.filterArray)));
-          return this._runTask(task, next);
-        }
-      };
-      function createLogTask(options3) {
-        return logTask(options3.splitter, options3.fields, options3.commands);
-      }
-      function rejectDeprecatedSignatures(from, to) {
-        return utils_1.filterString(from) && utils_1.filterString(to) && task_1.configurationErrorTask(`git.log(string, string) should be replaced with git.log({ from: string, to: string })`);
-      }
-    }
-    exports.default = default_1;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/MergeSummary.js
-var require_MergeSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/MergeSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.MergeSummaryDetail = exports.MergeSummaryConflict = void 0;
-    var MergeSummaryConflict = class {
-      constructor(reason, file = null, meta) {
-        this.reason = reason;
-        this.file = file;
-        this.meta = meta;
-      }
-      toString() {
-        return `${this.file}:${this.reason}`;
-      }
-    };
-    exports.MergeSummaryConflict = MergeSummaryConflict;
-    var MergeSummaryDetail = class {
-      constructor() {
-        this.conflicts = [];
-        this.merges = [];
-        this.result = "success";
-      }
-      get failed() {
-        return this.conflicts.length > 0;
-      }
-      get reason() {
-        return this.result;
-      }
-      toString() {
-        if (this.conflicts.length) {
-          return `CONFLICTS: ${this.conflicts.join(", ")}`;
-        }
-        return "OK";
-      }
-    };
-    exports.MergeSummaryDetail = MergeSummaryDetail;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/PullSummary.js
-var require_PullSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/PullSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.PullSummary = void 0;
-    var PullSummary = class {
-      constructor() {
-        this.remoteMessages = {
-          all: []
-        };
-        this.created = [];
-        this.deleted = [];
-        this.files = [];
-        this.deletions = {};
-        this.insertions = {};
-        this.summary = {
-          changes: 0,
-          deletions: 0,
-          insertions: 0
-        };
-      }
-    };
-    exports.PullSummary = PullSummary;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js
-var require_parse_remote_objects = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-objects.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.remoteMessagesObjectParsers = void 0;
-    var utils_1 = require_utils();
-    function objectEnumerationResult(remoteMessages) {
-      return remoteMessages.objects = remoteMessages.objects || {
-        compressing: 0,
-        counting: 0,
-        enumerating: 0,
-        packReused: 0,
-        reused: { count: 0, delta: 0 },
-        total: { count: 0, delta: 0 }
-      };
-    }
-    function asObjectCount(source) {
-      const count = /^\s*(\d+)/.exec(source);
-      const delta = /delta (\d+)/i.exec(source);
-      return {
-        count: utils_1.asNumber(count && count[1] || "0"),
-        delta: utils_1.asNumber(delta && delta[1] || "0")
-      };
-    }
-    exports.remoteMessagesObjectParsers = [
-      new utils_1.RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: (\d+),/i, (result, [action, count]) => {
-        const key = action.toLowerCase();
-        const enumeration = objectEnumerationResult(result.remoteMessages);
-        Object.assign(enumeration, { [key]: utils_1.asNumber(count) });
-      }),
-      new utils_1.RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: \d+% \(\d+\/(\d+)\),/i, (result, [action, count]) => {
-        const key = action.toLowerCase();
-        const enumeration = objectEnumerationResult(result.remoteMessages);
-        Object.assign(enumeration, { [key]: utils_1.asNumber(count) });
-      }),
-      new utils_1.RemoteLineParser(/total ([^,]+), reused ([^,]+), pack-reused (\d+)/i, (result, [total, reused, packReused]) => {
-        const objects = objectEnumerationResult(result.remoteMessages);
-        objects.total = asObjectCount(total);
-        objects.reused = asObjectCount(reused);
-        objects.packReused = utils_1.asNumber(packReused);
-      })
-    ];
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js
-var require_parse_remote_messages = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-remote-messages.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.RemoteMessageSummary = exports.parseRemoteMessages = void 0;
-    var utils_1 = require_utils();
-    var parse_remote_objects_1 = require_parse_remote_objects();
-    var parsers = [
-      new utils_1.RemoteLineParser(/^remote:\s*(.+)$/, (result, [text]) => {
-        result.remoteMessages.all.push(text.trim());
-        return false;
-      }),
-      ...parse_remote_objects_1.remoteMessagesObjectParsers,
-      new utils_1.RemoteLineParser([/create a (?:pull|merge) request/i, /\s(https?:\/\/\S+)$/], (result, [pullRequestUrl]) => {
-        result.remoteMessages.pullRequestUrl = pullRequestUrl;
-      }),
-      new utils_1.RemoteLineParser([/found (\d+) vulnerabilities.+\(([^)]+)\)/i, /\s(https?:\/\/\S+)$/], (result, [count, summary, url]) => {
-        result.remoteMessages.vulnerabilities = {
-          count: utils_1.asNumber(count),
-          summary,
-          url
-        };
-      })
-    ];
-    function parseRemoteMessages(_stdOut, stdErr) {
-      return utils_1.parseStringResponse({ remoteMessages: new RemoteMessageSummary() }, parsers, stdErr);
-    }
-    exports.parseRemoteMessages = parseRemoteMessages;
-    var RemoteMessageSummary = class {
-      constructor() {
-        this.all = [];
-      }
-    };
-    exports.RemoteMessageSummary = RemoteMessageSummary;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-pull.js
-var require_parse_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-pull.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parsePullResult = exports.parsePullDetail = void 0;
-    var PullSummary_1 = require_PullSummary();
-    var utils_1 = require_utils();
-    var parse_remote_messages_1 = require_parse_remote_messages();
-    var FILE_UPDATE_REGEX = /^\s*(.+?)\s+\|\s+\d+\s*(\+*)(-*)/;
-    var SUMMARY_REGEX = /(\d+)\D+((\d+)\D+\(\+\))?(\D+(\d+)\D+\(-\))?/;
-    var ACTION_REGEX = /^(create|delete) mode \d+ (.+)/;
-    var parsers = [
-      new utils_1.LineParser(FILE_UPDATE_REGEX, (result, [file, insertions, deletions]) => {
-        result.files.push(file);
-        if (insertions) {
-          result.insertions[file] = insertions.length;
-        }
-        if (deletions) {
-          result.deletions[file] = deletions.length;
-        }
-      }),
-      new utils_1.LineParser(SUMMARY_REGEX, (result, [changes, , insertions, , deletions]) => {
-        if (insertions !== void 0 || deletions !== void 0) {
-          result.summary.changes = +changes || 0;
-          result.summary.insertions = +insertions || 0;
-          result.summary.deletions = +deletions || 0;
-          return true;
-        }
-        return false;
-      }),
-      new utils_1.LineParser(ACTION_REGEX, (result, [action, file]) => {
-        utils_1.append(result.files, file);
-        utils_1.append(action === "create" ? result.created : result.deleted, file);
-      })
-    ];
-    var parsePullDetail = (stdOut, stdErr) => {
-      return utils_1.parseStringResponse(new PullSummary_1.PullSummary(), parsers, stdOut, stdErr);
-    };
-    exports.parsePullDetail = parsePullDetail;
-    var parsePullResult = (stdOut, stdErr) => {
-      return Object.assign(new PullSummary_1.PullSummary(), exports.parsePullDetail(stdOut, stdErr), parse_remote_messages_1.parseRemoteMessages(stdOut, stdErr));
-    };
-    exports.parsePullResult = parsePullResult;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-merge.js
-var require_parse_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-merge.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseMergeDetail = exports.parseMergeResult = void 0;
-    var MergeSummary_1 = require_MergeSummary();
-    var utils_1 = require_utils();
-    var parse_pull_1 = require_parse_pull();
-    var parsers = [
-      new utils_1.LineParser(/^Auto-merging\s+(.+)$/, (summary, [autoMerge]) => {
-        summary.merges.push(autoMerge);
-      }),
-      new utils_1.LineParser(/^CONFLICT\s+\((.+)\): Merge conflict in (.+)$/, (summary, [reason, file]) => {
-        summary.conflicts.push(new MergeSummary_1.MergeSummaryConflict(reason, file));
-      }),
-      new utils_1.LineParser(/^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/, (summary, [reason, file, deleteRef]) => {
-        summary.conflicts.push(new MergeSummary_1.MergeSummaryConflict(reason, file, { deleteRef }));
-      }),
-      new utils_1.LineParser(/^CONFLICT\s+\((.+)\):/, (summary, [reason]) => {
-        summary.conflicts.push(new MergeSummary_1.MergeSummaryConflict(reason, null));
-      }),
-      new utils_1.LineParser(/^Automatic merge failed;\s+(.+)$/, (summary, [result]) => {
-        summary.result = result;
-      })
-    ];
-    var parseMergeResult = (stdOut, stdErr) => {
-      return Object.assign(exports.parseMergeDetail(stdOut, stdErr), parse_pull_1.parsePullResult(stdOut, stdErr));
-    };
-    exports.parseMergeResult = parseMergeResult;
-    var parseMergeDetail = (stdOut) => {
-      return utils_1.parseStringResponse(new MergeSummary_1.MergeSummaryDetail(), parsers, stdOut);
-    };
-    exports.parseMergeDetail = parseMergeDetail;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/merge.js
-var require_merge = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/merge.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.mergeTask = void 0;
-    var git_response_error_1 = require_git_response_error();
-    var parse_merge_1 = require_parse_merge();
-    var task_1 = require_task();
-    function mergeTask(customArgs) {
-      if (!customArgs.length) {
-        return task_1.configurationErrorTask("Git.merge requires at least one option");
-      }
-      return {
-        commands: ["merge", ...customArgs],
-        format: "utf-8",
-        parser(stdOut, stdErr) {
-          const merge2 = parse_merge_1.parseMergeResult(stdOut, stdErr);
-          if (merge2.failed) {
-            throw new git_response_error_1.GitResponseError(merge2);
-          }
-          return merge2;
-        }
-      };
-    }
-    exports.mergeTask = mergeTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-push.js
-var require_parse_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-push.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parsePushDetail = exports.parsePushResult = void 0;
-    var utils_1 = require_utils();
-    var parse_remote_messages_1 = require_parse_remote_messages();
-    function pushResultPushedItem(local, remote, status) {
-      const deleted = status.includes("deleted");
-      const tag = status.includes("tag") || /^refs\/tags/.test(local);
-      const alreadyUpdated = !status.includes("new");
-      return {
-        deleted,
-        tag,
-        branch: !tag,
-        new: !alreadyUpdated,
-        alreadyUpdated,
-        local,
-        remote
-      };
-    }
-    var parsers = [
-      new utils_1.LineParser(/^Pushing to (.+)$/, (result, [repo]) => {
-        result.repo = repo;
-      }),
-      new utils_1.LineParser(/^updating local tracking ref '(.+)'/, (result, [local]) => {
-        result.ref = Object.assign(Object.assign({}, result.ref || {}), { local });
-      }),
-      new utils_1.LineParser(/^[*-=]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
-        result.pushed.push(pushResultPushedItem(local, remote, type));
-      }),
-      new utils_1.LineParser(/^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/, (result, [local, remote, remoteName]) => {
-        result.branch = Object.assign(Object.assign({}, result.branch || {}), {
-          local,
-          remote,
-          remoteName
-        });
-      }),
-      new utils_1.LineParser(/^([^:]+):(\S+)\s+([a-z0-9]+)\.\.([a-z0-9]+)$/, (result, [local, remote, from, to]) => {
-        result.update = {
-          head: {
-            local,
-            remote
-          },
-          hash: {
-            from,
-            to
-          }
-        };
-      })
-    ];
-    var parsePushResult = (stdOut, stdErr) => {
-      const pushDetail = exports.parsePushDetail(stdOut, stdErr);
-      const responseDetail = parse_remote_messages_1.parseRemoteMessages(stdOut, stdErr);
-      return Object.assign(Object.assign({}, pushDetail), responseDetail);
-    };
-    exports.parsePushResult = parsePushResult;
-    var parsePushDetail = (stdOut, stdErr) => {
-      return utils_1.parseStringResponse({ pushed: [] }, parsers, stdOut, stdErr);
-    };
-    exports.parsePushDetail = parsePushDetail;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/push.js
-var require_push = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/push.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.pushTask = exports.pushTagsTask = void 0;
-    var parse_push_1 = require_parse_push();
-    var utils_1 = require_utils();
-    function pushTagsTask(ref = {}, customArgs) {
-      utils_1.append(customArgs, "--tags");
-      return pushTask(ref, customArgs);
-    }
-    exports.pushTagsTask = pushTagsTask;
-    function pushTask(ref = {}, customArgs) {
-      const commands = ["push", ...customArgs];
-      if (ref.branch) {
-        commands.splice(1, 0, ref.branch);
-      }
-      if (ref.remote) {
-        commands.splice(1, 0, ref.remote);
-      }
-      utils_1.remove(commands, "-v");
-      utils_1.append(commands, "--verbose");
-      utils_1.append(commands, "--porcelain");
-      return {
-        commands,
-        format: "utf-8",
-        parser: parse_push_1.parsePushResult
-      };
-    }
-    exports.pushTask = pushTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js
-var require_FileStatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/FileStatusSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.FileStatusSummary = exports.fromPathRegex = void 0;
-    exports.fromPathRegex = /^(.+) -> (.+)$/;
-    var FileStatusSummary = class {
-      constructor(path4, index, working_dir) {
-        this.path = path4;
-        this.index = index;
-        this.working_dir = working_dir;
-        if (index + working_dir === "R") {
-          const detail = exports.fromPathRegex.exec(path4) || [null, path4, path4];
-          this.from = detail[1] || "";
-          this.path = detail[2] || "";
-        }
-      }
-    };
-    exports.FileStatusSummary = FileStatusSummary;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/StatusSummary.js
-var require_StatusSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/StatusSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseStatusSummary = exports.StatusSummary = void 0;
-    var utils_1 = require_utils();
-    var FileStatusSummary_1 = require_FileStatusSummary();
-    var StatusSummary = class {
-      constructor() {
-        this.not_added = [];
-        this.conflicted = [];
-        this.created = [];
-        this.deleted = [];
-        this.modified = [];
-        this.renamed = [];
-        this.files = [];
-        this.staged = [];
-        this.ahead = 0;
-        this.behind = 0;
-        this.current = null;
-        this.tracking = null;
-        this.detached = false;
-      }
-      isClean() {
-        return !this.files.length;
-      }
-    };
-    exports.StatusSummary = StatusSummary;
-    var PorcelainFileStatus;
-    (function(PorcelainFileStatus2) {
-      PorcelainFileStatus2["ADDED"] = "A";
-      PorcelainFileStatus2["DELETED"] = "D";
-      PorcelainFileStatus2["MODIFIED"] = "M";
-      PorcelainFileStatus2["RENAMED"] = "R";
-      PorcelainFileStatus2["COPIED"] = "C";
-      PorcelainFileStatus2["UNMERGED"] = "U";
-      PorcelainFileStatus2["UNTRACKED"] = "?";
-      PorcelainFileStatus2["IGNORED"] = "!";
-      PorcelainFileStatus2["NONE"] = " ";
-    })(PorcelainFileStatus || (PorcelainFileStatus = {}));
-    function renamedFile(line) {
-      const detail = /^(.+) -> (.+)$/.exec(line);
-      if (!detail) {
-        return {
-          from: line,
-          to: line
-        };
-      }
-      return {
-        from: String(detail[1]),
-        to: String(detail[2])
-      };
-    }
-    function parser(indexX, indexY, handler) {
-      return [`${indexX}${indexY}`, handler];
-    }
-    function conflicts(indexX, ...indexY) {
-      return indexY.map((y) => parser(indexX, y, (result, file) => utils_1.append(result.conflicted, file)));
-    }
-    var parsers = new Map([
-      parser(PorcelainFileStatus.NONE, PorcelainFileStatus.ADDED, (result, file) => utils_1.append(result.created, file)),
-      parser(PorcelainFileStatus.NONE, PorcelainFileStatus.DELETED, (result, file) => utils_1.append(result.deleted, file)),
-      parser(PorcelainFileStatus.NONE, PorcelainFileStatus.MODIFIED, (result, file) => utils_1.append(result.modified, file)),
-      parser(PorcelainFileStatus.ADDED, PorcelainFileStatus.NONE, (result, file) => utils_1.append(result.created, file) && utils_1.append(result.staged, file)),
-      parser(PorcelainFileStatus.ADDED, PorcelainFileStatus.MODIFIED, (result, file) => utils_1.append(result.created, file) && utils_1.append(result.staged, file) && utils_1.append(result.modified, file)),
-      parser(PorcelainFileStatus.DELETED, PorcelainFileStatus.NONE, (result, file) => utils_1.append(result.deleted, file) && utils_1.append(result.staged, file)),
-      parser(PorcelainFileStatus.MODIFIED, PorcelainFileStatus.NONE, (result, file) => utils_1.append(result.modified, file) && utils_1.append(result.staged, file)),
-      parser(PorcelainFileStatus.MODIFIED, PorcelainFileStatus.MODIFIED, (result, file) => utils_1.append(result.modified, file) && utils_1.append(result.staged, file)),
-      parser(PorcelainFileStatus.RENAMED, PorcelainFileStatus.NONE, (result, file) => {
-        utils_1.append(result.renamed, renamedFile(file));
-      }),
-      parser(PorcelainFileStatus.RENAMED, PorcelainFileStatus.MODIFIED, (result, file) => {
-        const renamed = renamedFile(file);
-        utils_1.append(result.renamed, renamed);
-        utils_1.append(result.modified, renamed.to);
-      }),
-      parser(PorcelainFileStatus.UNTRACKED, PorcelainFileStatus.UNTRACKED, (result, file) => utils_1.append(result.not_added, file)),
-      ...conflicts(PorcelainFileStatus.ADDED, PorcelainFileStatus.ADDED, PorcelainFileStatus.UNMERGED),
-      ...conflicts(PorcelainFileStatus.DELETED, PorcelainFileStatus.DELETED, PorcelainFileStatus.UNMERGED),
-      ...conflicts(PorcelainFileStatus.UNMERGED, PorcelainFileStatus.ADDED, PorcelainFileStatus.DELETED, PorcelainFileStatus.UNMERGED),
-      ["##", (result, line) => {
-        const aheadReg = /ahead (\d+)/;
-        const behindReg = /behind (\d+)/;
-        const currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
-        const trackingReg = /\.{3}(\S*)/;
-        const onEmptyBranchReg = /\son\s([\S]+)$/;
-        let regexResult;
-        regexResult = aheadReg.exec(line);
-        result.ahead = regexResult && +regexResult[1] || 0;
-        regexResult = behindReg.exec(line);
-        result.behind = regexResult && +regexResult[1] || 0;
-        regexResult = currentReg.exec(line);
-        result.current = regexResult && regexResult[1];
-        regexResult = trackingReg.exec(line);
-        result.tracking = regexResult && regexResult[1];
-        regexResult = onEmptyBranchReg.exec(line);
-        result.current = regexResult && regexResult[1] || result.current;
-        result.detached = /\(no branch\)/.test(line);
-      }]
-    ]);
-    var parseStatusSummary = function(text) {
-      const lines = text.trim().split("\n");
-      const status = new StatusSummary();
-      for (let i = 0, l = lines.length; i < l; i++) {
-        splitLine(status, lines[i]);
-      }
-      return status;
-    };
-    exports.parseStatusSummary = parseStatusSummary;
-    function splitLine(result, lineStr) {
-      const trimmed = lineStr.trim();
-      switch (" ") {
-        case trimmed.charAt(2):
-          return data9(trimmed.charAt(0), trimmed.charAt(1), trimmed.substr(3));
-        case trimmed.charAt(1):
-          return data9(PorcelainFileStatus.NONE, trimmed.charAt(0), trimmed.substr(2));
-        default:
-          return;
-      }
-      function data9(index, workingDir, path4) {
-        const raw = `${index}${workingDir}`;
-        const handler = parsers.get(raw);
-        if (handler) {
-          handler(result, path4);
-        }
-        if (raw !== "##") {
-          result.files.push(new FileStatusSummary_1.FileStatusSummary(path4, index, workingDir));
-        }
-      }
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/status.js
-var require_status = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/status.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.statusTask = void 0;
-    var StatusSummary_1 = require_StatusSummary();
-    function statusTask(customArgs) {
-      return {
-        format: "utf-8",
-        commands: ["status", "--porcelain", "-b", "-u", ...customArgs],
-        parser(text) {
-          return StatusSummary_1.parseStatusSummary(text);
-        }
-      };
-    }
-    exports.statusTask = statusTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/simple-git-api.js
-var require_simple_git_api = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/simple-git-api.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.SimpleGitApi = void 0;
-    var task_callback_1 = require_task_callback();
-    var change_working_directory_1 = require_change_working_directory();
-    var config_1 = require_config();
-    var grep_1 = require_grep();
-    var hash_object_1 = require_hash_object();
-    var init_1 = require_init();
-    var log_1 = require_log();
-    var merge_1 = require_merge();
-    var push_1 = require_push();
-    var status_1 = require_status();
-    var task_1 = require_task();
-    var utils_1 = require_utils();
-    var SimpleGitApi = class {
-      constructor(_executor) {
-        this._executor = _executor;
-      }
-      _runTask(task, then) {
-        const chain = this._executor.chain();
-        const promise = chain.push(task);
-        if (then) {
-          task_callback_1.taskCallback(task, promise, then);
-        }
-        return Object.create(this, {
-          then: { value: promise.then.bind(promise) },
-          catch: { value: promise.catch.bind(promise) },
-          _executor: { value: chain }
-        });
-      }
-      add(files) {
-        return this._runTask(task_1.straightThroughStringTask(["add", ...utils_1.asArray(files)]), utils_1.trailingFunctionArgument(arguments));
-      }
-      cwd(directory) {
-        const next = utils_1.trailingFunctionArgument(arguments);
-        if (typeof directory === "string") {
-          return this._runTask(change_working_directory_1.changeWorkingDirectoryTask(directory, this._executor), next);
-        }
-        if (typeof (directory === null || directory === void 0 ? void 0 : directory.path) === "string") {
-          return this._runTask(change_working_directory_1.changeWorkingDirectoryTask(directory.path, directory.root && this._executor || void 0), next);
-        }
-        return this._runTask(task_1.configurationErrorTask("Git.cwd: workingDirectory must be supplied as a string"), next);
-      }
-      hashObject(path4, write) {
-        return this._runTask(hash_object_1.hashObjectTask(path4, write === true), utils_1.trailingFunctionArgument(arguments));
-      }
-      init(bare) {
-        return this._runTask(init_1.initTask(bare === true, this._executor.cwd, utils_1.getTrailingOptions(arguments)), utils_1.trailingFunctionArgument(arguments));
-      }
-      merge() {
-        return this._runTask(merge_1.mergeTask(utils_1.getTrailingOptions(arguments)), utils_1.trailingFunctionArgument(arguments));
-      }
-      mergeFromTo(remote, branch) {
-        if (!(utils_1.filterString(remote) && utils_1.filterString(branch))) {
-          return this._runTask(task_1.configurationErrorTask(`Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings`));
-        }
-        return this._runTask(merge_1.mergeTask([remote, branch, ...utils_1.getTrailingOptions(arguments)]), utils_1.trailingFunctionArgument(arguments, false));
-      }
-      outputHandler(handler) {
-        this._executor.outputHandler = handler;
-        return this;
-      }
-      push() {
-        const task = push_1.pushTask({
-          remote: utils_1.filterType(arguments[0], utils_1.filterString),
-          branch: utils_1.filterType(arguments[1], utils_1.filterString)
-        }, utils_1.getTrailingOptions(arguments));
-        return this._runTask(task, utils_1.trailingFunctionArgument(arguments));
-      }
-      stash() {
-        return this._runTask(task_1.straightThroughStringTask(["stash", ...utils_1.getTrailingOptions(arguments)]), utils_1.trailingFunctionArgument(arguments));
-      }
-      status() {
-        return this._runTask(status_1.statusTask(utils_1.getTrailingOptions(arguments)), utils_1.trailingFunctionArgument(arguments));
-      }
-    };
-    exports.SimpleGitApi = SimpleGitApi;
-    Object.assign(SimpleGitApi.prototype, config_1.default(), grep_1.default(), log_1.default());
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/scheduler.js
-var require_scheduler = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/scheduler.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.Scheduler = void 0;
-    var utils_1 = require_utils();
-    var promise_deferred_1 = require_dist2();
-    var git_logger_1 = require_git_logger();
-    var createScheduledTask = (() => {
-      let id = 0;
-      return () => {
-        id++;
-        const { promise, done } = promise_deferred_1.createDeferred();
-        return {
-          promise,
-          done,
-          id
-        };
-      };
-    })();
-    var Scheduler = class {
-      constructor(concurrency = 2) {
-        this.concurrency = concurrency;
-        this.logger = git_logger_1.createLogger("", "scheduler");
-        this.pending = [];
-        this.running = [];
-        this.logger(`Constructed, concurrency=%s`, concurrency);
-      }
-      schedule() {
-        if (!this.pending.length || this.running.length >= this.concurrency) {
-          this.logger(`Schedule attempt ignored, pending=%s running=%s concurrency=%s`, this.pending.length, this.running.length, this.concurrency);
-          return;
-        }
-        const task = utils_1.append(this.running, this.pending.shift());
-        this.logger(`Attempting id=%s`, task.id);
-        task.done(() => {
-          this.logger(`Completing id=`, task.id);
-          utils_1.remove(this.running, task);
-          this.schedule();
-        });
-      }
-      next() {
-        const { promise, id } = utils_1.append(this.pending, createScheduledTask());
-        this.logger(`Scheduling id=%s`, id);
-        this.schedule();
-        return promise;
-      }
-    };
-    exports.Scheduler = Scheduler;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/apply-patch.js
-var require_apply_patch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/apply-patch.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.applyPatchTask = void 0;
-    var task_1 = require_task();
-    function applyPatchTask(patches, customArgs) {
-      return task_1.straightThroughStringTask(["apply", ...customArgs, ...patches]);
-    }
-    exports.applyPatchTask = applyPatchTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js
-var require_BranchDeleteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchDeleteSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.isSingleBranchDeleteFailure = exports.branchDeletionFailure = exports.branchDeletionSuccess = exports.BranchDeletionBatch = void 0;
-    var BranchDeletionBatch = class {
-      constructor() {
-        this.all = [];
-        this.branches = {};
-        this.errors = [];
-      }
-      get success() {
-        return !this.errors.length;
-      }
-    };
-    exports.BranchDeletionBatch = BranchDeletionBatch;
-    function branchDeletionSuccess(branch, hash) {
-      return {
-        branch,
-        hash,
-        success: true
-      };
-    }
-    exports.branchDeletionSuccess = branchDeletionSuccess;
-    function branchDeletionFailure(branch) {
-      return {
-        branch,
-        hash: null,
-        success: false
-      };
-    }
-    exports.branchDeletionFailure = branchDeletionFailure;
-    function isSingleBranchDeleteFailure(test) {
-      return test.success;
-    }
-    exports.isSingleBranchDeleteFailure = isSingleBranchDeleteFailure;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js
-var require_parse_branch_delete = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch-delete.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.hasBranchDeletionError = exports.parseBranchDeletions = void 0;
-    var BranchDeleteSummary_1 = require_BranchDeleteSummary();
-    var utils_1 = require_utils();
-    var deleteSuccessRegex = /(\S+)\s+\(\S+\s([^)]+)\)/;
-    var deleteErrorRegex = /^error[^']+'([^']+)'/m;
-    var parsers = [
-      new utils_1.LineParser(deleteSuccessRegex, (result, [branch, hash]) => {
-        const deletion = BranchDeleteSummary_1.branchDeletionSuccess(branch, hash);
-        result.all.push(deletion);
-        result.branches[branch] = deletion;
-      }),
-      new utils_1.LineParser(deleteErrorRegex, (result, [branch]) => {
-        const deletion = BranchDeleteSummary_1.branchDeletionFailure(branch);
-        result.errors.push(deletion);
-        result.all.push(deletion);
-        result.branches[branch] = deletion;
-      })
-    ];
-    var parseBranchDeletions = (stdOut, stdErr) => {
-      return utils_1.parseStringResponse(new BranchDeleteSummary_1.BranchDeletionBatch(), parsers, stdOut, stdErr);
-    };
-    exports.parseBranchDeletions = parseBranchDeletions;
-    function hasBranchDeletionError(data9, processExitCode) {
-      return processExitCode === utils_1.ExitCodes.ERROR && deleteErrorRegex.test(data9);
-    }
-    exports.hasBranchDeletionError = hasBranchDeletionError;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchSummary.js
-var require_BranchSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/BranchSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.BranchSummaryResult = void 0;
-    var BranchSummaryResult = class {
-      constructor() {
-        this.all = [];
-        this.branches = {};
-        this.current = "";
-        this.detached = false;
-      }
-      push(current, detached, name, commit, label) {
-        if (current) {
-          this.detached = detached;
-          this.current = name;
-        }
-        this.all.push(name);
-        this.branches[name] = {
-          current,
-          name,
-          commit,
-          label
-        };
-      }
-    };
-    exports.BranchSummaryResult = BranchSummaryResult;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch.js
-var require_parse_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-branch.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseBranchSummary = void 0;
-    var BranchSummary_1 = require_BranchSummary();
-    var utils_1 = require_utils();
-    var parsers = [
-      new utils_1.LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
-        result.push(!!current, true, name, commit, label);
-      }),
-      new utils_1.LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s(.*)$/s, (result, [current, name, commit, label]) => {
-        result.push(!!current, false, name, commit, label);
-      })
-    ];
-    function parseBranchSummary(stdOut) {
-      return utils_1.parseStringResponse(new BranchSummary_1.BranchSummaryResult(), parsers, stdOut);
-    }
-    exports.parseBranchSummary = parseBranchSummary;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/branch.js
-var require_branch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/branch.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.deleteBranchTask = exports.deleteBranchesTask = exports.branchLocalTask = exports.branchTask = exports.containsDeleteBranchCommand = void 0;
-    var git_response_error_1 = require_git_response_error();
-    var parse_branch_delete_1 = require_parse_branch_delete();
-    var parse_branch_1 = require_parse_branch();
-    var utils_1 = require_utils();
-    function containsDeleteBranchCommand(commands) {
-      const deleteCommands = ["-d", "-D", "--delete"];
-      return commands.some((command) => deleteCommands.includes(command));
-    }
-    exports.containsDeleteBranchCommand = containsDeleteBranchCommand;
-    function branchTask(customArgs) {
-      const isDelete = containsDeleteBranchCommand(customArgs);
-      const commands = ["branch", ...customArgs];
-      if (commands.length === 1) {
-        commands.push("-a");
-      }
-      if (!commands.includes("-v")) {
-        commands.splice(1, 0, "-v");
-      }
-      return {
-        format: "utf-8",
-        commands,
-        parser(stdOut, stdErr) {
-          if (isDelete) {
-            return parse_branch_delete_1.parseBranchDeletions(stdOut, stdErr).all[0];
-          }
-          return parse_branch_1.parseBranchSummary(stdOut);
-        }
-      };
-    }
-    exports.branchTask = branchTask;
-    function branchLocalTask() {
-      const parser = parse_branch_1.parseBranchSummary;
-      return {
-        format: "utf-8",
-        commands: ["branch", "-v"],
-        parser
-      };
-    }
-    exports.branchLocalTask = branchLocalTask;
-    function deleteBranchesTask(branches, forceDelete = false) {
-      return {
-        format: "utf-8",
-        commands: ["branch", "-v", forceDelete ? "-D" : "-d", ...branches],
-        parser(stdOut, stdErr) {
-          return parse_branch_delete_1.parseBranchDeletions(stdOut, stdErr);
-        },
-        onError({ exitCode, stdOut }, error8, done, fail) {
-          if (!parse_branch_delete_1.hasBranchDeletionError(String(error8), exitCode)) {
-            return fail(error8);
-          }
-          done(stdOut);
-        }
-      };
-    }
-    exports.deleteBranchesTask = deleteBranchesTask;
-    function deleteBranchTask(branch, forceDelete = false) {
-      const task = {
-        format: "utf-8",
-        commands: ["branch", "-v", forceDelete ? "-D" : "-d", branch],
-        parser(stdOut, stdErr) {
-          return parse_branch_delete_1.parseBranchDeletions(stdOut, stdErr).branches[branch];
-        },
-        onError({ exitCode, stdErr, stdOut }, error8, _, fail) {
-          if (!parse_branch_delete_1.hasBranchDeletionError(String(error8), exitCode)) {
-            return fail(error8);
-          }
-          throw new git_response_error_1.GitResponseError(task.parser(utils_1.bufferToString(stdOut), utils_1.bufferToString(stdErr)), String(error8));
-        }
-      };
-      return task;
-    }
-    exports.deleteBranchTask = deleteBranchTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js
-var require_CheckIgnore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/CheckIgnore.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseCheckIgnore = void 0;
-    var parseCheckIgnore = (text) => {
-      return text.split(/\n/g).map((line) => line.trim()).filter((file) => !!file);
-    };
-    exports.parseCheckIgnore = parseCheckIgnore;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-ignore.js
-var require_check_ignore = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/check-ignore.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.checkIgnoreTask = void 0;
-    var CheckIgnore_1 = require_CheckIgnore();
-    function checkIgnoreTask(paths) {
-      return {
-        commands: ["check-ignore", ...paths],
-        format: "utf-8",
-        parser: CheckIgnore_1.parseCheckIgnore
-      };
-    }
-    exports.checkIgnoreTask = checkIgnoreTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clone.js
-var require_clone = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/clone.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.cloneMirrorTask = exports.cloneTask = void 0;
-    var task_1 = require_task();
-    var utils_1 = require_utils();
-    function cloneTask(repo, directory, customArgs) {
-      const commands = ["clone", ...customArgs];
-      if (typeof repo === "string") {
-        commands.push(repo);
-      }
-      if (typeof directory === "string") {
-        commands.push(directory);
-      }
-      return task_1.straightThroughStringTask(commands);
-    }
-    exports.cloneTask = cloneTask;
-    function cloneMirrorTask(repo, directory, customArgs) {
-      utils_1.append(customArgs, "--mirror");
-      return cloneTask(repo, directory, customArgs);
-    }
-    exports.cloneMirrorTask = cloneMirrorTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-commit.js
-var require_parse_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-commit.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseCommitResult = void 0;
-    var utils_1 = require_utils();
-    var parsers = [
-      new utils_1.LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
-        result.branch = branch;
-        result.commit = commit;
-        result.root = !!root;
-      }),
-      new utils_1.LineParser(/\s*Author:\s(.+)/i, (result, [author]) => {
-        const parts = author.split("<");
-        const email = parts.pop();
-        if (!email || !email.includes("@")) {
-          return;
-        }
-        result.author = {
-          email: email.substr(0, email.length - 1),
-          name: parts.join("<").trim()
-        };
-      }),
-      new utils_1.LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        result.summary.insertions = parseInt(insertions, 10) || 0;
-        result.summary.deletions = parseInt(deletions, 10) || 0;
-      }),
-      new utils_1.LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        const count = parseInt(lines, 10) || 0;
-        if (direction === "-") {
-          result.summary.deletions = count;
-        } else if (direction === "+") {
-          result.summary.insertions = count;
-        }
-      })
-    ];
-    function parseCommitResult(stdOut) {
-      const result = {
-        author: null,
-        branch: "",
-        commit: "",
-        root: false,
-        summary: {
-          changes: 0,
-          insertions: 0,
-          deletions: 0
-        }
-      };
-      return utils_1.parseStringResponse(result, parsers, stdOut);
-    }
-    exports.parseCommitResult = parseCommitResult;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/commit.js
-var require_commit = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/commit.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.commitTask = void 0;
-    var parse_commit_1 = require_parse_commit();
-    function commitTask(message, files, customArgs) {
-      const commands = ["commit"];
-      message.forEach((m) => commands.push("-m", m));
-      commands.push(...files, ...customArgs);
-      return {
-        commands,
-        format: "utf-8",
-        parser: parse_commit_1.parseCommitResult
-      };
-    }
-    exports.commitTask = commitTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/diff.js
-var require_diff = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/diff.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.diffSummaryTask = void 0;
-    var parse_diff_summary_1 = require_parse_diff_summary();
-    function diffSummaryTask(customArgs) {
-      return {
-        commands: ["diff", "--stat=4096", ...customArgs],
-        format: "utf-8",
-        parser(stdOut) {
-          return parse_diff_summary_1.parseDiffResult(stdOut);
-        }
-      };
-    }
-    exports.diffSummaryTask = diffSummaryTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js
-var require_parse_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-fetch.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseFetchResult = void 0;
-    var utils_1 = require_utils();
-    var parsers = [
-      new utils_1.LineParser(/From (.+)$/, (result, [remote]) => {
-        result.remote = remote;
-      }),
-      new utils_1.LineParser(/\* \[new branch]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
-        result.branches.push({
-          name,
-          tracking
-        });
-      }),
-      new utils_1.LineParser(/\* \[new tag]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
-        result.tags.push({
-          name,
-          tracking
-        });
-      })
-    ];
-    function parseFetchResult(stdOut, stdErr) {
-      const result = {
-        raw: stdOut,
-        remote: null,
-        branches: [],
-        tags: []
-      };
-      return utils_1.parseStringResponse(result, parsers, stdOut, stdErr);
-    }
-    exports.parseFetchResult = parseFetchResult;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/fetch.js
-var require_fetch = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/fetch.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.fetchTask = void 0;
-    var parse_fetch_1 = require_parse_fetch();
-    function fetchTask(remote, branch, customArgs) {
-      const commands = ["fetch", ...customArgs];
-      if (remote && branch) {
-        commands.push(remote, branch);
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser: parse_fetch_1.parseFetchResult
-      };
-    }
-    exports.fetchTask = fetchTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-move.js
-var require_parse_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/parsers/parse-move.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseMoveResult = void 0;
-    var utils_1 = require_utils();
-    var parsers = [
-      new utils_1.LineParser(/^Renaming (.+) to (.+)$/, (result, [from, to]) => {
-        result.moves.push({ from, to });
-      })
-    ];
-    function parseMoveResult(stdOut) {
-      return utils_1.parseStringResponse({ moves: [] }, parsers, stdOut);
-    }
-    exports.parseMoveResult = parseMoveResult;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/move.js
-var require_move = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/move.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.moveTask = void 0;
-    var parse_move_1 = require_parse_move();
-    var utils_1 = require_utils();
-    function moveTask(from, to) {
-      return {
-        commands: ["mv", "-v", ...utils_1.asArray(from), to],
-        format: "utf-8",
-        parser: parse_move_1.parseMoveResult
-      };
-    }
-    exports.moveTask = moveTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/pull.js
-var require_pull = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/pull.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.pullTask = void 0;
-    var parse_pull_1 = require_parse_pull();
-    function pullTask(remote, branch, customArgs) {
-      const commands = ["pull", ...customArgs];
-      if (remote && branch) {
-        commands.splice(1, 0, remote, branch);
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser(stdOut, stdErr) {
-          return parse_pull_1.parsePullResult(stdOut, stdErr);
-        }
-      };
-    }
-    exports.pullTask = pullTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js
-var require_GetRemoteSummary = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/GetRemoteSummary.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseGetRemotesVerbose = exports.parseGetRemotes = void 0;
-    var utils_1 = require_utils();
-    function parseGetRemotes(text) {
-      const remotes = {};
-      forEach(text, ([name]) => remotes[name] = { name });
-      return Object.values(remotes);
-    }
-    exports.parseGetRemotes = parseGetRemotes;
-    function parseGetRemotesVerbose(text) {
-      const remotes = {};
-      forEach(text, ([name, url, purpose]) => {
-        if (!remotes.hasOwnProperty(name)) {
-          remotes[name] = {
-            name,
-            refs: { fetch: "", push: "" }
-          };
-        }
-        if (purpose && url) {
-          remotes[name].refs[purpose.replace(/[^a-z]/g, "")] = url;
-        }
-      });
-      return Object.values(remotes);
-    }
-    exports.parseGetRemotesVerbose = parseGetRemotesVerbose;
-    function forEach(text, handler) {
-      utils_1.forEachLineWithContent(text, (line) => handler(line.split(/\s+/)));
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/remote.js
-var require_remote = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/remote.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.removeRemoteTask = exports.remoteTask = exports.listRemotesTask = exports.getRemotesTask = exports.addRemoteTask = void 0;
-    var GetRemoteSummary_1 = require_GetRemoteSummary();
-    var task_1 = require_task();
-    function addRemoteTask(remoteName, remoteRepo, customArgs = []) {
-      return task_1.straightThroughStringTask(["remote", "add", ...customArgs, remoteName, remoteRepo]);
-    }
-    exports.addRemoteTask = addRemoteTask;
-    function getRemotesTask(verbose) {
-      const commands = ["remote"];
-      if (verbose) {
-        commands.push("-v");
-      }
-      return {
-        commands,
-        format: "utf-8",
-        parser: verbose ? GetRemoteSummary_1.parseGetRemotesVerbose : GetRemoteSummary_1.parseGetRemotes
-      };
-    }
-    exports.getRemotesTask = getRemotesTask;
-    function listRemotesTask(customArgs = []) {
-      const commands = [...customArgs];
-      if (commands[0] !== "ls-remote") {
-        commands.unshift("ls-remote");
-      }
-      return task_1.straightThroughStringTask(commands);
-    }
-    exports.listRemotesTask = listRemotesTask;
-    function remoteTask(customArgs = []) {
-      const commands = [...customArgs];
-      if (commands[0] !== "remote") {
-        commands.unshift("remote");
-      }
-      return task_1.straightThroughStringTask(commands);
-    }
-    exports.remoteTask = remoteTask;
-    function removeRemoteTask(remoteName) {
-      return task_1.straightThroughStringTask(["remote", "remove", remoteName]);
-    }
-    exports.removeRemoteTask = removeRemoteTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/stash-list.js
-var require_stash_list = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/stash-list.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.stashListTask = void 0;
-    var parse_list_log_summary_1 = require_parse_list_log_summary();
-    var log_1 = require_log();
-    function stashListTask(opt = {}, customArgs) {
-      const options3 = log_1.parseLogOptions(opt);
-      const parser = parse_list_log_summary_1.createListLogSummaryParser(options3.splitter, options3.fields);
-      return {
-        commands: ["stash", "list", ...options3.commands, ...customArgs],
-        format: "utf-8",
-        parser
-      };
-    }
-    exports.stashListTask = stashListTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/sub-module.js
-var require_sub_module = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/sub-module.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.updateSubModuleTask = exports.subModuleTask = exports.initSubModuleTask = exports.addSubModuleTask = void 0;
-    var task_1 = require_task();
-    function addSubModuleTask(repo, path4) {
-      return subModuleTask(["add", repo, path4]);
-    }
-    exports.addSubModuleTask = addSubModuleTask;
-    function initSubModuleTask(customArgs) {
-      return subModuleTask(["init", ...customArgs]);
-    }
-    exports.initSubModuleTask = initSubModuleTask;
-    function subModuleTask(customArgs) {
-      const commands = [...customArgs];
-      if (commands[0] !== "submodule") {
-        commands.unshift("submodule");
-      }
-      return task_1.straightThroughStringTask(commands);
-    }
-    exports.subModuleTask = subModuleTask;
-    function updateSubModuleTask(customArgs) {
-      return subModuleTask(["update", ...customArgs]);
-    }
-    exports.updateSubModuleTask = updateSubModuleTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/TagList.js
-var require_TagList = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/responses/TagList.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.parseTagList = exports.TagList = void 0;
-    var TagList = class {
-      constructor(all, latest) {
-        this.all = all;
-        this.latest = latest;
-      }
-    };
-    exports.TagList = TagList;
-    var parseTagList = function(data9, customSort = false) {
-      const tags = data9.split("\n").map(trimmed).filter(Boolean);
-      if (!customSort) {
-        tags.sort(function(tagA, tagB) {
-          const partsA = tagA.split(".");
-          const partsB = tagB.split(".");
-          if (partsA.length === 1 || partsB.length === 1) {
-            return singleSorted(toNumber(partsA[0]), toNumber(partsB[0]));
-          }
-          for (let i = 0, l = Math.max(partsA.length, partsB.length); i < l; i++) {
-            const diff = sorted(toNumber(partsA[i]), toNumber(partsB[i]));
-            if (diff) {
-              return diff;
-            }
-          }
-          return 0;
-        });
-      }
-      const latest = customSort ? tags[0] : [...tags].reverse().find((tag) => tag.indexOf(".") >= 0);
-      return new TagList(tags, latest);
-    };
-    exports.parseTagList = parseTagList;
-    function singleSorted(a, b) {
-      const aIsNum = isNaN(a);
-      const bIsNum = isNaN(b);
-      if (aIsNum !== bIsNum) {
-        return aIsNum ? 1 : -1;
-      }
-      return aIsNum ? sorted(a, b) : 0;
-    }
-    function sorted(a, b) {
-      return a === b ? 0 : a > b ? 1 : -1;
-    }
-    function trimmed(input) {
-      return input.trim();
-    }
-    function toNumber(input) {
-      if (typeof input === "string") {
-        return parseInt(input.replace(/^\D+/g, ""), 10) || 0;
-      }
-      return 0;
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/tag.js
-var require_tag = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/tasks/tag.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.addAnnotatedTagTask = exports.addTagTask = exports.tagListTask = void 0;
-    var TagList_1 = require_TagList();
-    function tagListTask(customArgs = []) {
-      const hasCustomSort = customArgs.some((option) => /^--sort=/.test(option));
-      return {
-        format: "utf-8",
-        commands: ["tag", "-l", ...customArgs],
-        parser(text) {
-          return TagList_1.parseTagList(text, hasCustomSort);
-        }
-      };
-    }
-    exports.tagListTask = tagListTask;
-    function addTagTask(name) {
-      return {
-        format: "utf-8",
-        commands: ["tag", name],
-        parser() {
-          return { name };
-        }
-      };
-    }
-    exports.addTagTask = addTagTask;
-    function addAnnotatedTagTask(name, tagMessage) {
-      return {
-        format: "utf-8",
-        commands: ["tag", "-a", "-m", tagMessage, name],
-        parser() {
-          return { name };
-        }
-      };
-    }
-    exports.addAnnotatedTagTask = addAnnotatedTagTask;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/git.js
-var require_git = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/git.js"(exports, module2) {
-    var { GitExecutor } = require_git_executor();
-    var { SimpleGitApi } = require_simple_git_api();
-    var { Scheduler } = require_scheduler();
-    var { GitLogger } = require_git_logger();
-    var { configurationErrorTask } = require_task();
-    var {
-      asArray,
-      filterArray,
-      filterPrimitives,
-      filterString,
-      filterStringOrStringArray,
-      filterType,
-      getTrailingOptions,
-      trailingFunctionArgument,
-      trailingOptionsArgument
-    } = require_utils();
-    var { applyPatchTask } = require_apply_patch();
-    var { branchTask, branchLocalTask, deleteBranchesTask, deleteBranchTask } = require_branch();
-    var { checkIgnoreTask } = require_check_ignore();
-    var { checkIsRepoTask } = require_check_is_repo();
-    var { cloneTask, cloneMirrorTask } = require_clone();
-    var { cleanWithOptionsTask, isCleanOptionsArray } = require_clean();
-    var { commitTask } = require_commit();
-    var { diffSummaryTask } = require_diff();
-    var { fetchTask } = require_fetch();
-    var { moveTask } = require_move();
-    var { pullTask } = require_pull();
-    var { pushTagsTask } = require_push();
-    var { addRemoteTask, getRemotesTask, listRemotesTask, remoteTask, removeRemoteTask } = require_remote();
-    var { getResetMode, resetTask } = require_reset();
-    var { stashListTask } = require_stash_list();
-    var { addSubModuleTask, initSubModuleTask, subModuleTask, updateSubModuleTask } = require_sub_module();
-    var { addAnnotatedTagTask, addTagTask, tagListTask } = require_tag();
-    var { straightThroughBufferTask, straightThroughStringTask } = require_task();
-    function Git(options3, plugins) {
-      this._executor = new GitExecutor(options3.binary, options3.baseDir, new Scheduler(options3.maxConcurrentProcesses), plugins);
-      this._logger = new GitLogger();
-    }
-    (Git.prototype = Object.create(SimpleGitApi.prototype)).constructor = Git;
-    Git.prototype._logger = null;
-    Git.prototype.customBinary = function(command) {
-      this._executor.binary = command;
-      return this;
-    };
-    Git.prototype.env = function(name, value) {
-      if (arguments.length === 1 && typeof name === "object") {
-        this._executor.env = name;
-      } else {
-        (this._executor.env = this._executor.env || {})[name] = value;
-      }
-      return this;
-    };
-    Git.prototype.stashList = function(options3) {
-      return this._runTask(stashListTask(trailingOptionsArgument(arguments) || {}, filterArray(options3) && options3 || []), trailingFunctionArgument(arguments));
-    };
-    function createCloneTask(api, task, repoPath, localPath) {
-      if (typeof repoPath !== "string") {
-        return configurationErrorTask(`git.${api}() requires a string 'repoPath'`);
-      }
-      return task(repoPath, filterType(localPath, filterString), getTrailingOptions(arguments));
-    }
-    Git.prototype.clone = function() {
-      return this._runTask(createCloneTask("clone", cloneTask, ...arguments), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.mirror = function() {
-      return this._runTask(createCloneTask("mirror", cloneMirrorTask, ...arguments), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.mv = function(from, to) {
-      return this._runTask(moveTask(from, to), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.checkoutLatestTag = function(then) {
-      var git3 = this;
-      return this.pull(function() {
-        git3.tags(function(err, tags) {
-          git3.checkout(tags.latest, then);
-        });
-      });
-    };
-    Git.prototype.commit = function(message, files, options3, then) {
-      const next = trailingFunctionArgument(arguments);
-      const messages = [];
-      if (filterStringOrStringArray(message)) {
-        messages.push(...asArray(message));
-      } else {
-        console.warn("simple-git deprecation notice: git.commit: requires the commit message to be supplied as a string/string[], this will be an error in version 3");
-      }
-      return this._runTask(commitTask(messages, asArray(filterType(files, filterStringOrStringArray, [])), [...filterType(options3, filterArray, []), ...getTrailingOptions(arguments, 0, true)]), next);
-    };
-    Git.prototype.pull = function(remote, branch, options3, then) {
-      return this._runTask(pullTask(filterType(remote, filterString), filterType(branch, filterString), getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.fetch = function(remote, branch) {
-      return this._runTask(fetchTask(filterType(remote, filterString), filterType(branch, filterString), getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.silent = function(silence) {
-      console.warn("simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3");
-      this._logger.silent(!!silence);
-      return this;
-    };
-    Git.prototype.tags = function(options3, then) {
-      return this._runTask(tagListTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.rebase = function() {
-      return this._runTask(straightThroughStringTask(["rebase", ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.reset = function(mode) {
-      return this._runTask(resetTask(getResetMode(mode), getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.revert = function(commit) {
-      const next = trailingFunctionArgument(arguments);
-      if (typeof commit !== "string") {
-        return this._runTask(configurationErrorTask("Commit must be a string"), next);
-      }
-      return this._runTask(straightThroughStringTask(["revert", ...getTrailingOptions(arguments, 0, true), commit]), next);
-    };
-    Git.prototype.addTag = function(name) {
-      const task = typeof name === "string" ? addTagTask(name) : configurationErrorTask("Git.addTag requires a tag name");
-      return this._runTask(task, trailingFunctionArgument(arguments));
-    };
-    Git.prototype.addAnnotatedTag = function(tagName, tagMessage) {
-      return this._runTask(addAnnotatedTagTask(tagName, tagMessage), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.checkout = function() {
-      const commands = ["checkout", ...getTrailingOptions(arguments, true)];
-      return this._runTask(straightThroughStringTask(commands), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.checkoutBranch = function(branchName, startPoint, then) {
-      return this.checkout(["-b", branchName, startPoint], trailingFunctionArgument(arguments));
-    };
-    Git.prototype.checkoutLocalBranch = function(branchName, then) {
-      return this.checkout(["-b", branchName], trailingFunctionArgument(arguments));
-    };
-    Git.prototype.deleteLocalBranch = function(branchName, forceDelete, then) {
-      return this._runTask(deleteBranchTask(branchName, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.deleteLocalBranches = function(branchNames, forceDelete, then) {
-      return this._runTask(deleteBranchesTask(branchNames, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.branch = function(options3, then) {
-      return this._runTask(branchTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.branchLocal = function(then) {
-      return this._runTask(branchLocalTask(), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.raw = function(commands) {
-      const createRestCommands = !Array.isArray(commands);
-      const command = [].slice.call(createRestCommands ? arguments : commands, 0);
-      for (let i = 0; i < command.length && createRestCommands; i++) {
-        if (!filterPrimitives(command[i])) {
-          command.splice(i, command.length - i);
-          break;
-        }
-      }
-      command.push(...getTrailingOptions(arguments, 0, true));
-      var next = trailingFunctionArgument(arguments);
-      if (!command.length) {
-        return this._runTask(configurationErrorTask("Raw: must supply one or more command to execute"), next);
-      }
-      return this._runTask(straightThroughStringTask(command), next);
-    };
-    Git.prototype.submoduleAdd = function(repo, path4, then) {
-      return this._runTask(addSubModuleTask(repo, path4), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.submoduleUpdate = function(args, then) {
-      return this._runTask(updateSubModuleTask(getTrailingOptions(arguments, true)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.submoduleInit = function(args, then) {
-      return this._runTask(initSubModuleTask(getTrailingOptions(arguments, true)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.subModule = function(options3, then) {
-      return this._runTask(subModuleTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.listRemote = function() {
-      return this._runTask(listRemotesTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.addRemote = function(remoteName, remoteRepo, then) {
-      return this._runTask(addRemoteTask(remoteName, remoteRepo, getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.removeRemote = function(remoteName, then) {
-      return this._runTask(removeRemoteTask(remoteName), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.getRemotes = function(verbose, then) {
-      return this._runTask(getRemotesTask(verbose === true), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.remote = function(options3, then) {
-      return this._runTask(remoteTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.tag = function(options3, then) {
-      const command = getTrailingOptions(arguments);
-      if (command[0] !== "tag") {
-        command.unshift("tag");
-      }
-      return this._runTask(straightThroughStringTask(command), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.updateServerInfo = function(then) {
-      return this._runTask(straightThroughStringTask(["update-server-info"]), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.pushTags = function(remote, then) {
-      const task = pushTagsTask({ remote: filterType(remote, filterString) }, getTrailingOptions(arguments));
-      return this._runTask(task, trailingFunctionArgument(arguments));
-    };
-    Git.prototype.rm = function(files) {
-      return this._runTask(straightThroughStringTask(["rm", "-f", ...asArray(files)]), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.rmKeepLocal = function(files) {
-      return this._runTask(straightThroughStringTask(["rm", "--cached", ...asArray(files)]), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.catFile = function(options3, then) {
-      return this._catFile("utf-8", arguments);
-    };
-    Git.prototype.binaryCatFile = function() {
-      return this._catFile("buffer", arguments);
-    };
-    Git.prototype._catFile = function(format, args) {
-      var handler = trailingFunctionArgument(args);
-      var command = ["cat-file"];
-      var options3 = args[0];
-      if (typeof options3 === "string") {
-        return this._runTask(configurationErrorTask("Git.catFile: options must be supplied as an array of strings"), handler);
-      }
-      if (Array.isArray(options3)) {
-        command.push.apply(command, options3);
-      }
-      const task = format === "buffer" ? straightThroughBufferTask(command) : straightThroughStringTask(command);
-      return this._runTask(task, handler);
-    };
-    Git.prototype.diff = function(options3, then) {
-      const command = ["diff", ...getTrailingOptions(arguments)];
-      if (typeof options3 === "string") {
-        command.splice(1, 0, options3);
-        this._logger.warn("Git#diff: supplying options as a single string is now deprecated, switch to an array of strings");
-      }
-      return this._runTask(straightThroughStringTask(command), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.diffSummary = function() {
-      return this._runTask(diffSummaryTask(getTrailingOptions(arguments, 1)), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.applyPatch = function(patches) {
-      const task = !filterStringOrStringArray(patches) ? configurationErrorTask(`git.applyPatch requires one or more string patches as the first argument`) : applyPatchTask(asArray(patches), getTrailingOptions([].slice.call(arguments, 1)));
-      return this._runTask(task, trailingFunctionArgument(arguments));
-    };
-    Git.prototype.revparse = function() {
-      const commands = ["rev-parse", ...getTrailingOptions(arguments, true)];
-      return this._runTask(straightThroughStringTask(commands, true), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.show = function(options3, then) {
-      return this._runTask(straightThroughStringTask(["show", ...getTrailingOptions(arguments, 1)]), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.clean = function(mode, options3, then) {
-      const usingCleanOptionsArray = isCleanOptionsArray(mode);
-      const cleanMode = usingCleanOptionsArray && mode.join("") || filterType(mode, filterString) || "";
-      const customArgs = getTrailingOptions([].slice.call(arguments, usingCleanOptionsArray ? 1 : 0));
-      return this._runTask(cleanWithOptionsTask(cleanMode, customArgs), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.exec = function(then) {
-      const task = {
-        commands: [],
-        format: "utf-8",
-        parser() {
-          if (typeof then === "function") {
-            then();
-          }
-        }
-      };
-      return this._runTask(task);
-    };
-    Git.prototype.clearQueue = function() {
-      return this;
-    };
-    Git.prototype.checkIgnore = function(pathnames, then) {
-      return this._runTask(checkIgnoreTask(asArray(filterType(pathnames, filterStringOrStringArray, []))), trailingFunctionArgument(arguments));
-    };
-    Git.prototype.checkIsRepo = function(checkType, then) {
-      return this._runTask(checkIsRepoTask(filterType(checkType, filterString)), trailingFunctionArgument(arguments));
-    };
-    module2.exports = Git;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-factory.js
-var require_git_factory = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/git-factory.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.gitInstanceFactory = exports.gitExportFactory = exports.esModuleFactory = void 0;
-    var api_1 = require_api();
-    var plugins_1 = require_plugins();
-    var utils_1 = require_utils();
-    var Git = require_git();
-    function esModuleFactory(defaultExport) {
-      return Object.defineProperties(defaultExport, {
-        __esModule: { value: true },
-        default: { value: defaultExport }
-      });
-    }
-    exports.esModuleFactory = esModuleFactory;
-    function gitExportFactory(factory, extra) {
-      return Object.assign(function(...args) {
-        return factory.apply(null, args);
-      }, api_1.default, extra || {});
-    }
-    exports.gitExportFactory = gitExportFactory;
-    function gitInstanceFactory(baseDir, options3) {
-      const plugins = new plugins_1.PluginStore();
-      const config = utils_1.createInstanceConfig(baseDir && (typeof baseDir === "string" ? { baseDir } : baseDir) || {}, options3);
-      if (!utils_1.folderExists(config.baseDir)) {
-        throw new api_1.default.GitConstructError(config, `Cannot use simple-git on a directory that does not exist`);
-      }
-      if (Array.isArray(config.config)) {
-        plugins.add(plugins_1.commandConfigPrefixingPlugin(config.config));
-      }
-      plugins.add(plugins_1.completionDetectionPlugin(config.completion));
-      config.progress && plugins.add(plugins_1.progressMonitorPlugin(config.progress));
-      config.timeout && plugins.add(plugins_1.timeoutPlugin(config.timeout));
-      config.spawnOptions && plugins.add(plugins_1.spawnOptionsPlugin(config.spawnOptions));
-      plugins.add(plugins_1.errorDetectionPlugin(plugins_1.errorDetectionHandler(true)));
-      config.errors && plugins.add(plugins_1.errorDetectionPlugin(config.errors));
-      return new Git(config, plugins);
-    }
-    exports.gitInstanceFactory = gitInstanceFactory;
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js
-var require_promise_wrapped = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/src/lib/runners/promise-wrapped.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.gitP = void 0;
-    var git_response_error_1 = require_git_response_error();
-    var git_factory_1 = require_git_factory();
-    var functionNamesBuilderApi = [
-      "customBinary",
-      "env",
-      "outputHandler",
-      "silent"
-    ];
-    var functionNamesPromiseApi = [
-      "add",
-      "addAnnotatedTag",
-      "addConfig",
-      "addRemote",
-      "addTag",
-      "applyPatch",
-      "binaryCatFile",
-      "branch",
-      "branchLocal",
-      "catFile",
-      "checkIgnore",
-      "checkIsRepo",
-      "checkout",
-      "checkoutBranch",
-      "checkoutLatestTag",
-      "checkoutLocalBranch",
-      "clean",
-      "clone",
-      "commit",
-      "cwd",
-      "deleteLocalBranch",
-      "deleteLocalBranches",
-      "diff",
-      "diffSummary",
-      "exec",
-      "fetch",
-      "getRemotes",
-      "init",
-      "listConfig",
-      "listRemote",
-      "log",
-      "merge",
-      "mergeFromTo",
-      "mirror",
-      "mv",
-      "pull",
-      "push",
-      "pushTags",
-      "raw",
-      "rebase",
-      "remote",
-      "removeRemote",
-      "reset",
-      "revert",
-      "revparse",
-      "rm",
-      "rmKeepLocal",
-      "show",
-      "stash",
-      "stashList",
-      "status",
-      "subModule",
-      "submoduleAdd",
-      "submoduleInit",
-      "submoduleUpdate",
-      "tag",
-      "tags",
-      "updateServerInfo"
-    ];
-    function gitP(...args) {
-      let git3;
-      let chain = Promise.resolve();
-      try {
-        git3 = git_factory_1.gitInstanceFactory(...args);
-      } catch (e) {
-        chain = Promise.reject(e);
-      }
-      function builderReturn() {
-        return promiseApi;
-      }
-      function chainReturn() {
-        return chain;
-      }
-      const promiseApi = [...functionNamesBuilderApi, ...functionNamesPromiseApi].reduce((api, name) => {
-        const isAsync = functionNamesPromiseApi.includes(name);
-        const valid = isAsync ? asyncWrapper(name, git3) : syncWrapper(name, git3, api);
-        const alternative = isAsync ? chainReturn : builderReturn;
-        Object.defineProperty(api, name, {
-          enumerable: false,
-          configurable: false,
-          value: git3 ? valid : alternative
-        });
-        return api;
-      }, {});
-      return promiseApi;
-      function asyncWrapper(fn, git4) {
-        return function(...args2) {
-          if (typeof args2[args2.length] === "function") {
-            throw new TypeError("Promise interface requires that handlers are not supplied inline, trailing function not allowed in call to " + fn);
-          }
-          return chain.then(function() {
-            return new Promise(function(resolve, reject) {
-              const callback = (err, result) => {
-                if (err) {
-                  return reject(toError(err));
-                }
-                resolve(result);
-              };
-              args2.push(callback);
-              git4[fn].apply(git4, args2);
-            });
-          });
-        };
-      }
-      function syncWrapper(fn, git4, api) {
-        return (...args2) => {
-          git4[fn](...args2);
-          return api;
-        };
-      }
-    }
-    exports.gitP = gitP;
-    function toError(error8) {
-      if (error8 instanceof Error) {
-        return error8;
-      }
-      if (typeof error8 === "string") {
-        return new Error(error8);
-      }
-      return new git_response_error_1.GitResponseError(error8);
-    }
-  }
-});
-
-// node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/promise.js
-var require_promise = __commonJS({
-  "node_modules/.pnpm/simple-git@2.48.0/node_modules/simple-git/promise.js"(exports, module2) {
-    var { esModuleFactory, gitExportFactory } = require_git_factory();
-    var { gitP } = require_promise_wrapped();
-    module2.exports = esModuleFactory(gitExportFactory(gitP));
+    exports.deferred = deferred2;
+    exports.createDeferred = deferred2;
+    exports.default = deferred2;
   }
 });
 
@@ -6031,7 +1954,7 @@ var require_constants = __commonJS({
 });
 
 // node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js
-var require_utils2 = __commonJS({
+var require_utils = __commonJS({
   "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js"(exports) {
     "use strict";
     var path4 = require("path");
@@ -6083,8 +2006,8 @@ var require_utils2 = __commonJS({
     };
     exports.wrapOutput = (input, state9 = {}, options3 = {}) => {
       const prepend = options3.contains ? "" : "^";
-      const append = options3.contains ? "" : "$";
-      let output = `${prepend}(?:${input})${append}`;
+      const append2 = options3.contains ? "" : "$";
+      let output = `${prepend}(?:${input})${append2}`;
       if (state9.negated === true) {
         output = `(?:^(?!${output}).*$)`;
       }
@@ -6097,7 +2020,7 @@ var require_utils2 = __commonJS({
 var require_scan = __commonJS({
   "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js"(exports, module2) {
     "use strict";
-    var utils = require_utils2();
+    var utils = require_utils();
     var {
       CHAR_ASTERISK,
       CHAR_AT,
@@ -6416,7 +2339,7 @@ var require_parse = __commonJS({
   "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports, module2) {
     "use strict";
     var constants2 = require_constants();
-    var utils = require_utils2();
+    var utils = require_utils();
     var {
       MAX_LENGTH,
       POSIX_REGEX_SOURCE,
@@ -6515,7 +2438,7 @@ var require_parse = __commonJS({
         state9.consumed += value2;
         state9.index += num;
       };
-      const append = (token) => {
+      const append2 = (token) => {
         state9.output += token.output != null ? token.output : token.value;
         consume(token.value);
       };
@@ -6557,7 +2480,7 @@ var require_parse = __commonJS({
           extglobs[extglobs.length - 1].inner += tok.value;
         }
         if (tok.value || tok.output)
-          append(tok);
+          append2(tok);
         if (prev && prev.type === "text" && tok.type === "text") {
           prev.value += tok.value;
           prev.output = (prev.output || "") + tok.value;
@@ -6602,26 +2525,26 @@ var require_parse = __commonJS({
       };
       if (opts.fastpaths !== false && !/(^[*!]|[/()[\]{}"])/.test(input)) {
         let backslashes = false;
-        let output = input.replace(REGEX_SPECIAL_CHARS_BACKREF, (m, esc, chars, first, rest, index) => {
-          if (first === "\\") {
+        let output = input.replace(REGEX_SPECIAL_CHARS_BACKREF, (m, esc, chars, first2, rest, index) => {
+          if (first2 === "\\") {
             backslashes = true;
             return m;
           }
-          if (first === "?") {
+          if (first2 === "?") {
             if (esc) {
-              return esc + first + (rest ? QMARK.repeat(rest.length) : "");
+              return esc + first2 + (rest ? QMARK.repeat(rest.length) : "");
             }
             if (index === 0) {
               return qmarkNoDot + (rest ? QMARK.repeat(rest.length) : "");
             }
             return QMARK.repeat(chars.length);
           }
-          if (first === ".") {
+          if (first2 === ".") {
             return DOT_LITERAL.repeat(chars.length);
           }
-          if (first === "*") {
+          if (first2 === "*") {
             if (esc) {
-              return esc + first + (rest ? star : "");
+              return esc + first2 + (rest ? star : "");
             }
             return star;
           }
@@ -6712,13 +2635,13 @@ var require_parse = __commonJS({
             value = "^";
           }
           prev.value += value;
-          append({ value });
+          append2({ value });
           continue;
         }
         if (state9.quotes === 1 && value !== '"') {
           value = utils.escapeRegex(value);
           prev.value += value;
-          append({ value });
+          append2({ value });
           continue;
         }
         if (value === '"') {
@@ -6776,7 +2699,7 @@ var require_parse = __commonJS({
             value = `/${value}`;
           }
           prev.value += value;
-          append({ value });
+          append2({ value });
           if (opts.literalBrackets === false || utils.hasRegexChars(prevValue)) {
             continue;
           }
@@ -7199,7 +3122,7 @@ var require_picomatch = __commonJS({
     var path4 = require("path");
     var scan = require_scan();
     var parse = require_parse();
-    var utils = require_utils2();
+    var utils = require_utils();
     var constants2 = require_constants();
     var isObject = (val) => val && typeof val === "object" && !Array.isArray(val);
     var picomatch = (glob, options3, returnState = false) => {
@@ -7297,8 +3220,8 @@ var require_picomatch = __commonJS({
       }
       const opts = options3 || {};
       const prepend = opts.contains ? "" : "^";
-      const append = opts.contains ? "" : "$";
-      let source = `${prepend}(?:${state9.output})${append}`;
+      const append2 = opts.contains ? "" : "$";
+      let source = `${prepend}(?:${state9.output})${append2}`;
       if (state9 && state9.negated === true) {
         source = `^(?!${source}).*$`;
       }
@@ -7381,11 +3304,11 @@ var require_readdirp = __commonJS({
         const positive = [];
         const negative = [];
         for (const item of filter) {
-          const trimmed = item.trim();
-          if (trimmed.charAt(0) === BANG) {
-            negative.push(picomatch(trimmed.slice(1)));
+          const trimmed2 = item.trim();
+          if (trimmed2.charAt(0) === BANG) {
+            negative.push(picomatch(trimmed2.slice(1)));
           } else {
-            positive.push(picomatch(trimmed));
+            positive.push(picomatch(trimmed2));
           }
         }
         if (negative.length > 0) {
@@ -7852,7 +3775,7 @@ var require_glob_parent = __commonJS({
 });
 
 // node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/utils.js
-var require_utils3 = __commonJS({
+var require_utils2 = __commonJS({
   "node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/utils.js"(exports) {
     "use strict";
     exports.isInteger = (num) => {
@@ -7939,7 +3862,7 @@ var require_utils3 = __commonJS({
 var require_stringify = __commonJS({
   "node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/stringify.js"(exports, module2) {
     "use strict";
-    var utils = require_utils3();
+    var utils = require_utils2();
     module2.exports = (ast, options3 = {}) => {
       let stringify = (node, parent = {}) => {
         let invalidBlock = options3.escapeInvalid && utils.isInvalidBrace(parent);
@@ -8201,8 +4124,8 @@ var require_fill_range = __commonJS({
     var util = require("util");
     var toRegexRange = require_to_regex_range();
     var isObject = (val) => val !== null && typeof val === "object" && !Array.isArray(val);
-    var transform = (toNumber) => {
-      return (value) => toNumber === true ? Number(value) : String(value);
+    var transform = (toNumber2) => {
+      return (value) => toNumber2 === true ? Number(value) : String(value);
     };
     var isValidValue = (value) => {
       return typeof value === "number" || typeof value === "string" && value !== "";
@@ -8225,14 +4148,14 @@ var require_fill_range = __commonJS({
       }
       return options3.stringify === true;
     };
-    var pad = (input, maxLength, toNumber) => {
+    var pad = (input, maxLength, toNumber2) => {
       if (maxLength > 0) {
         let dash = input[0] === "-" ? "-" : "";
         if (dash)
           input = input.slice(1);
         input = dash + input.padStart(dash ? maxLength - 1 : maxLength, "0");
       }
-      if (toNumber === false) {
+      if (toNumber2 === false) {
         return String(input);
       }
       return input;
@@ -8321,8 +4244,8 @@ var require_fill_range = __commonJS({
       step = Math.max(Math.abs(step), 1);
       let padded = zeros(startString) || zeros(endString) || zeros(stepString);
       let maxLen = padded ? Math.max(startString.length, endString.length, stepString.length) : 0;
-      let toNumber = padded === false && stringify(start3, end, options3) === false;
-      let format = options3.transform || transform(toNumber);
+      let toNumber2 = padded === false && stringify(start3, end, options3) === false;
+      let format = options3.transform || transform(toNumber2);
       if (options3.toRegex && step === 1) {
         return toRange(toMaxLen(start3, maxLen), toMaxLen(end, maxLen), true, options3);
       }
@@ -8334,7 +4257,7 @@ var require_fill_range = __commonJS({
         if (options3.toRegex === true && step > 1) {
           push(a);
         } else {
-          range.push(pad(format(a, index), maxLen, toNumber));
+          range.push(pad(format(a, index), maxLen, toNumber2));
         }
         a = descending ? a - step : a + step;
         index++;
@@ -8405,7 +4328,7 @@ var require_compile = __commonJS({
   "node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/compile.js"(exports, module2) {
     "use strict";
     var fill = require_fill_range();
-    var utils = require_utils3();
+    var utils = require_utils2();
     var compile = (ast, options3 = {}) => {
       let walk = (node, parent = {}) => {
         let invalidBlock = utils.isInvalidBrace(parent);
@@ -8457,8 +4380,8 @@ var require_expand = __commonJS({
     "use strict";
     var fill = require_fill_range();
     var stringify = require_stringify();
-    var utils = require_utils3();
-    var append = (queue = "", stash = "", enclose = false) => {
+    var utils = require_utils2();
+    var append2 = (queue = "", stash = "", enclose = false) => {
       let result = [];
       queue = [].concat(queue);
       stash = [].concat(stash);
@@ -8470,13 +4393,13 @@ var require_expand = __commonJS({
       for (let item of queue) {
         if (Array.isArray(item)) {
           for (let value of item) {
-            result.push(append(value, stash, enclose));
+            result.push(append2(value, stash, enclose));
           }
         } else {
           for (let ele of stash) {
             if (enclose === true && typeof ele === "string")
               ele = `{${ele}}`;
-            result.push(Array.isArray(ele) ? append(item, ele, enclose) : item + ele);
+            result.push(Array.isArray(ele) ? append2(item, ele, enclose) : item + ele);
           }
         }
       }
@@ -8493,11 +4416,11 @@ var require_expand = __commonJS({
           q = p.queue;
         }
         if (node.invalid || node.dollar) {
-          q.push(append(q.pop(), stringify(node, options3)));
+          q.push(append2(q.pop(), stringify(node, options3)));
           return;
         }
         if (node.type === "brace" && node.invalid !== true && node.nodes.length === 2) {
-          q.push(append(q.pop(), ["{}"]));
+          q.push(append2(q.pop(), ["{}"]));
           return;
         }
         if (node.nodes && node.ranges > 0) {
@@ -8509,7 +4432,7 @@ var require_expand = __commonJS({
           if (range.length === 0) {
             range = stringify(node, options3);
           }
-          q.push(append(q.pop(), range));
+          q.push(append2(q.pop(), range));
           node.nodes = [];
           return;
         }
@@ -8529,11 +4452,11 @@ var require_expand = __commonJS({
             continue;
           }
           if (child.type === "close") {
-            q.push(append(q.pop(), queue, enclose));
+            q.push(append2(q.pop(), queue, enclose));
             continue;
           }
           if (child.value && child.type !== "open") {
-            queue.push(append(queue.pop(), child.value));
+            queue.push(append2(queue.pop(), child.value));
             continue;
           }
           if (child.nodes) {
@@ -9181,9 +5104,9 @@ var require_is_binary_path = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/constants.js
+// node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/constants.js
 var require_constants3 = __commonJS({
-  "node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/constants.js"(exports) {
+  "node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/constants.js"(exports) {
     "use strict";
     var { sep } = require("path");
     var { platform } = process;
@@ -9244,9 +5167,9 @@ var require_constants3 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/nodefs-handler.js
+// node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/nodefs-handler.js
 var require_nodefs_handler = __commonJS({
-  "node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/nodefs-handler.js"(exports, module2) {
+  "node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/nodefs-handler.js"(exports, module2) {
     "use strict";
     var fs8 = require("fs");
     var sysPath = require("path");
@@ -9515,7 +5438,13 @@ var require_nodefs_handler = __commonJS({
         const dir = this.fsw._getWatchedDir(directory);
         if (!this.fsw.options.followSymlinks) {
           this.fsw._incrReadyCount();
-          const linkPath = await fsrealpath(path4);
+          let linkPath;
+          try {
+            linkPath = await fsrealpath(path4);
+          } catch (e) {
+            this.fsw._emitReady();
+            return true;
+          }
           if (this.fsw.closed)
             return;
           if (dir.has(item)) {
@@ -9680,9 +5609,9 @@ var require_nodefs_handler = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/fsevents-handler.js
+// node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/fsevents-handler.js
 var require_fsevents_handler = __commonJS({
-  "node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/lib/fsevents-handler.js"(exports, module2) {
+  "node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/lib/fsevents-handler.js"(exports, module2) {
     "use strict";
     var fs8 = require("fs");
     var sysPath = require("path");
@@ -10051,9 +5980,9 @@ var require_fsevents_handler = __commonJS({
   }
 });
 
-// node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/index.js
+// node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/index.js
 var require_chokidar = __commonJS({
-  "node_modules/.pnpm/chokidar@3.5.2/node_modules/chokidar/index.js"(exports) {
+  "node_modules/.pnpm/chokidar@3.5.3/node_modules/chokidar/index.js"(exports) {
     "use strict";
     var { EventEmitter } = require("events");
     var fs8 = require("fs");
@@ -11231,16 +7160,20 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// node_modules/.pnpm/minimatch@3.0.4/node_modules/minimatch/minimatch.js
+// node_modules/.pnpm/minimatch@3.0.5/node_modules/minimatch/minimatch.js
 var require_minimatch = __commonJS({
-  "node_modules/.pnpm/minimatch@3.0.4/node_modules/minimatch/minimatch.js"(exports, module2) {
+  "node_modules/.pnpm/minimatch@3.0.5/node_modules/minimatch/minimatch.js"(exports, module2) {
     module2.exports = minimatch;
     minimatch.Minimatch = Minimatch;
-    var path4 = { sep: "/" };
-    try {
-      path4 = require("path");
-    } catch (er) {
-    }
+    var path4 = (() => {
+      try {
+        return require("path");
+      } catch (e) {
+      }
+    })() || {
+      sep: "/"
+    };
+    minimatch.sep = path4.sep;
     var GLOBSTAR = minimatch.GLOBSTAR = Minimatch.GLOBSTAR = {};
     var expand = require_brace_expansion();
     var plTypes = {
@@ -11272,36 +7205,51 @@ var require_minimatch = __commonJS({
     function ext(a, b) {
       a = a || {};
       b = b || {};
-      var t = {};
-      Object.keys(b).forEach(function(k) {
-        t[k] = b[k];
-      });
+      const t = {};
       Object.keys(a).forEach(function(k) {
         t[k] = a[k];
+      });
+      Object.keys(b).forEach(function(k) {
+        t[k] = b[k];
       });
       return t;
     }
     minimatch.defaults = function(def) {
-      if (!def || !Object.keys(def).length)
+      if (!def || typeof def !== "object" || !Object.keys(def).length) {
         return minimatch;
-      var orig = minimatch;
-      var m = function minimatch2(p, pattern, options3) {
-        return orig.minimatch(p, pattern, ext(def, options3));
+      }
+      const orig = minimatch;
+      const m = function minimatch2(p, pattern, options3) {
+        return orig(p, pattern, ext(def, options3));
       };
       m.Minimatch = function Minimatch2(pattern, options3) {
         return new orig.Minimatch(pattern, ext(def, options3));
       };
+      m.Minimatch.defaults = (options3) => {
+        return orig.defaults(ext(def, options3)).Minimatch;
+      };
+      m.filter = function filter2(pattern, options3) {
+        return orig.filter(pattern, ext(def, options3));
+      };
+      m.defaults = function defaults3(options3) {
+        return orig.defaults(ext(def, options3));
+      };
+      m.makeRe = function makeRe2(pattern, options3) {
+        return orig.makeRe(pattern, ext(def, options3));
+      };
+      m.braceExpand = function braceExpand2(pattern, options3) {
+        return orig.braceExpand(pattern, ext(def, options3));
+      };
+      m.match = function(list, pattern, options3) {
+        return orig.match(list, pattern, ext(def, options3));
+      };
       return m;
     };
     Minimatch.defaults = function(def) {
-      if (!def || !Object.keys(def).length)
-        return Minimatch;
       return minimatch.defaults(def).Minimatch;
     };
     function minimatch(p, pattern, options3) {
-      if (typeof pattern !== "string") {
-        throw new TypeError("glob pattern string required");
-      }
+      assertValidPattern(pattern);
       if (!options3)
         options3 = {};
       if (!options3.nocomment && pattern.charAt(0) === "#") {
@@ -11315,9 +7263,7 @@ var require_minimatch = __commonJS({
       if (!(this instanceof Minimatch)) {
         return new Minimatch(pattern, options3);
       }
-      if (typeof pattern !== "string") {
-        throw new TypeError("glob pattern string required");
-      }
+      assertValidPattern(pattern);
       if (!options3)
         options3 = {};
       pattern = pattern.trim();
@@ -11397,27 +7343,32 @@ var require_minimatch = __commonJS({
         }
       }
       pattern = typeof pattern === "undefined" ? this.pattern : pattern;
-      if (typeof pattern === "undefined") {
-        throw new TypeError("undefined pattern");
-      }
-      if (options3.nobrace || !pattern.match(/\{.*\}/)) {
+      assertValidPattern(pattern);
+      if (options3.nobrace || !/\{(?:(?!\{).)*\}/.test(pattern)) {
         return [pattern];
       }
       return expand(pattern);
     }
+    var MAX_PATTERN_LENGTH = 1024 * 64;
+    var assertValidPattern = (pattern) => {
+      if (typeof pattern !== "string") {
+        throw new TypeError("invalid pattern");
+      }
+      if (pattern.length > MAX_PATTERN_LENGTH) {
+        throw new TypeError("pattern is too long");
+      }
+    };
     Minimatch.prototype.parse = parse;
     var SUBPARSE = {};
     function parse(pattern, isSub) {
-      if (pattern.length > 1024 * 64) {
-        throw new TypeError("pattern is too long");
-      }
+      assertValidPattern(pattern);
       var options3 = this.options;
       if (!options3.noglobstar && pattern === "**")
         return GLOBSTAR;
       if (pattern === "")
         return "";
       var re = "";
-      var hasMagic = !!options3.nocase;
+      var hasMagic = false;
       var escaping = false;
       var patternListStack = [];
       var negativeLists = [];
@@ -11454,8 +7405,9 @@ var require_minimatch = __commonJS({
           continue;
         }
         switch (c) {
-          case "/":
+          case "/": {
             return false;
+          }
           case "\\":
             clearStateChar();
             escaping = true;
@@ -11670,7 +7622,7 @@ var require_minimatch = __commonJS({
     }
     minimatch.match = function(list, pattern, options3) {
       options3 = options3 || {};
-      var mm = new Minimatch(pattern, options3);
+      const mm = new Minimatch(pattern, options3);
       list = list.filter(function(f) {
         return mm.match(f);
       });
@@ -11785,8 +7737,7 @@ var require_minimatch = __commonJS({
       } else if (fi === fl) {
         return partial;
       } else if (pi === pl) {
-        var emptyFileEnd = fi === fl - 1 && file[fi] === "";
-        return emptyFileEnd;
+        return fi === fl - 1 && file[fi] === "";
       }
       throw new Error("wtf?");
     };
@@ -12336,10 +8287,10 @@ var require_sync = __commonJS({
       }
     };
     GlobSync.prototype._processSimple = function(prefix, index) {
-      var exists = this._stat(prefix);
+      var exists2 = this._stat(prefix);
       if (!this.matches[index])
         this.matches[index] = /* @__PURE__ */ Object.create(null);
-      if (!exists)
+      if (!exists2)
         return;
       if (prefix && isAbsolute(prefix) && !this.nomount) {
         var trail = /[\/\\]$/.test(prefix);
@@ -12369,7 +8320,7 @@ var require_sync = __commonJS({
         if (needDir && c === "FILE")
           return false;
       }
-      var exists;
+      var exists2;
       var stat = this.statCache[abs];
       if (!stat) {
         var lstat;
@@ -12997,14 +8948,14 @@ var require_glob = __commonJS({
     };
     Glob.prototype._processSimple = function(prefix, index, cb) {
       var self2 = this;
-      this._stat(prefix, function(er, exists) {
-        self2._processSimple2(prefix, index, er, exists, cb);
+      this._stat(prefix, function(er, exists2) {
+        self2._processSimple2(prefix, index, er, exists2, cb);
       });
     };
-    Glob.prototype._processSimple2 = function(prefix, index, er, exists, cb) {
+    Glob.prototype._processSimple2 = function(prefix, index, er, exists2, cb) {
       if (!this.matches[index])
         this.matches[index] = /* @__PURE__ */ Object.create(null);
-      if (!exists)
+      if (!exists2)
         return cb();
       if (prefix && isAbsolute(prefix) && !this.nomount) {
         var trail = /[\/\\]$/.test(prefix);
@@ -13035,7 +8986,7 @@ var require_glob = __commonJS({
         if (needDir && c === "FILE")
           return cb();
       }
-      var exists;
+      var exists2;
       var stat = this.statCache[abs];
       if (stat !== void 0) {
         if (stat === false)
@@ -13571,10 +9522,10 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/error.js"(exports) {
-    var CommanderError = class extends Error {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/error.js"(exports) {
+    var CommanderError2 = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
         Error.captureStackTrace(this, this.constructor);
@@ -13584,23 +9535,23 @@ var require_error = __commonJS({
         this.nestedError = void 0;
       }
     };
-    var InvalidArgumentError = class extends CommanderError {
+    var InvalidArgumentError2 = class extends CommanderError2 {
       constructor(message) {
         super(1, "commander.invalidArgument", message);
         Error.captureStackTrace(this, this.constructor);
         this.name = this.constructor.name;
       }
     };
-    exports.CommanderError = CommanderError;
-    exports.InvalidArgumentError = InvalidArgumentError;
+    exports.CommanderError = CommanderError2;
+    exports.InvalidArgumentError = InvalidArgumentError2;
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/argument.js"(exports) {
-    var { InvalidArgumentError } = require_error();
-    var Argument = class {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/argument.js"(exports) {
+    var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
+    var Argument2 = class {
       constructor(name, description) {
         this.description = description || "";
         this.variadic = false;
@@ -13646,10 +9597,10 @@ var require_argument = __commonJS({
         return this;
       }
       choices(values) {
-        this.argChoices = values;
+        this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
-          if (!values.includes(arg)) {
-            throw new InvalidArgumentError(`Allowed choices are ${values.join(", ")}.`);
+          if (!this.argChoices.includes(arg)) {
+            throw new InvalidArgumentError2(`Allowed choices are ${this.argChoices.join(", ")}.`);
           }
           if (this.variadic) {
             return this._concatValue(arg, previous);
@@ -13671,16 +9622,16 @@ var require_argument = __commonJS({
       const nameOutput = arg.name() + (arg.variadic === true ? "..." : "");
       return arg.required ? "<" + nameOutput + ">" : "[" + nameOutput + "]";
     }
-    exports.Argument = Argument;
+    exports.Argument = Argument2;
     exports.humanReadableArgName = humanReadableArgName;
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
-    var Help = class {
+    var Help2 = class {
       constructor() {
         this.helpWidth = void 0;
         this.sortSubcommands = false;
@@ -13737,7 +9688,6 @@ var require_help = __commonJS({
         if (cmd._args.find((argument) => argument.description)) {
           return cmd._args;
         }
-        ;
         return [];
       }
       subcommandTerm(cmd) {
@@ -13784,11 +9734,17 @@ var require_help = __commonJS({
       }
       optionDescription(option) {
         const extraInfo = [];
-        if (option.argChoices && !option.negate) {
+        if (option.argChoices) {
           extraInfo.push(`choices: ${option.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`);
         }
-        if (option.defaultValue !== void 0 && !option.negate) {
-          extraInfo.push(`default: ${option.defaultValueDescription || JSON.stringify(option.defaultValue)}`);
+        if (option.defaultValue !== void 0) {
+          const showDefault = option.required || option.optional || option.isBoolean() && typeof option.defaultValue === "boolean";
+          if (showDefault) {
+            extraInfo.push(`default: ${option.defaultValueDescription || JSON.stringify(option.defaultValue)}`);
+          }
+        }
+        if (option.presetArg !== void 0 && option.optional) {
+          extraInfo.push(`preset: ${JSON.stringify(option.presetArg)}`);
         }
         if (option.envVar !== void 0) {
           extraInfo.push(`env: ${option.envVar}`);
@@ -13827,7 +9783,6 @@ var require_help = __commonJS({
           }
           return term;
         }
-        ;
         function formatList(textArray) {
           return textArray.join("\n").replace(/^/gm, " ".repeat(itemIndentWidth));
         }
@@ -13878,15 +9833,15 @@ var require_help = __commonJS({
         }).join("\n");
       }
     };
-    exports.Help = Help;
+    exports.Help = Help2;
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/option.js"(exports) {
-    var { InvalidArgumentError } = require_error();
-    var Option = class {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/option.js"(exports) {
+    var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
+    var Option2 = class {
       constructor(flags, description) {
         this.flags = flags;
         this.description = description || "";
@@ -13903,6 +9858,7 @@ var require_option = __commonJS({
         }
         this.defaultValue = void 0;
         this.defaultValueDescription = void 0;
+        this.presetArg = void 0;
         this.envVar = void 0;
         this.parseArg = void 0;
         this.hidden = false;
@@ -13911,6 +9867,10 @@ var require_option = __commonJS({
       default(value, description) {
         this.defaultValue = value;
         this.defaultValueDescription = description;
+        return this;
+      }
+      preset(arg) {
+        this.presetArg = arg;
         return this;
       }
       env(name) {
@@ -13936,10 +9896,10 @@ var require_option = __commonJS({
         return previous.concat(value);
       }
       choices(values) {
-        this.argChoices = values;
+        this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
-          if (!values.includes(arg)) {
-            throw new InvalidArgumentError(`Allowed choices are ${values.join(", ")}.`);
+          if (!this.argChoices.includes(arg)) {
+            throw new InvalidArgumentError2(`Allowed choices are ${this.argChoices.join(", ")}.`);
           }
           if (this.variadic) {
             return this._concatValue(arg, previous);
@@ -13960,6 +9920,9 @@ var require_option = __commonJS({
       is(arg) {
         return this.short === arg || this.long === arg;
       }
+      isBoolean() {
+        return !this.required && !this.optional && !this.negate;
+      }
     };
     function camelcase(str) {
       return str.split("-").reduce((str2, word) => {
@@ -13979,14 +9942,14 @@ var require_option = __commonJS({
       }
       return { shortFlag, longFlag };
     }
-    exports.Option = Option;
+    exports.Option = Option2;
     exports.splitOptionFlags = splitOptionFlags;
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -14059,19 +10022,19 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = require("events").EventEmitter;
     var childProcess = require("child_process");
     var path4 = require("path");
     var fs8 = require("fs");
-    var { Argument, humanReadableArgName } = require_argument();
-    var { CommanderError } = require_error();
-    var { Help } = require_help();
-    var { Option, splitOptionFlags } = require_option();
+    var { Argument: Argument2, humanReadableArgName } = require_argument();
+    var { CommanderError: CommanderError2 } = require_error();
+    var { Help: Help2 } = require_help();
+    var { Option: Option2, splitOptionFlags } = require_option();
     var { suggestSimilar } = require_suggestSimilar();
-    var Command = class extends EventEmitter {
+    var Command2 = class extends EventEmitter {
       constructor(name) {
         super();
         this.commands = [];
@@ -14091,6 +10054,7 @@ var require_command = __commonJS({
         this._actionHandler = null;
         this._executableHandler = false;
         this._executableFile = null;
+        this._executableDir = null;
         this._defaultCommandName = null;
         this._exitCallback = null;
         this._aliases = [];
@@ -14101,7 +10065,7 @@ var require_command = __commonJS({
         this._passThroughOptions = false;
         this._lifeCycleHooks = {};
         this._showHelpAfterError = false;
-        this._showSuggestionAfterError = false;
+        this._showSuggestionAfterError = true;
         this._outputConfiguration = {
           writeOut: (str) => process.stdout.write(str),
           writeErr: (str) => process.stderr.write(str),
@@ -14169,10 +10133,10 @@ var require_command = __commonJS({
         return cmd;
       }
       createCommand(name) {
-        return new Command(name);
+        return new Command2(name);
       }
       createHelp() {
-        return Object.assign(new Help(), this.configureHelp());
+        return Object.assign(new Help2(), this.configureHelp());
       }
       configureHelp(configuration) {
         if (configuration === void 0)
@@ -14197,17 +10161,10 @@ var require_command = __commonJS({
         return this;
       }
       addCommand(cmd, opts) {
-        if (!cmd._name)
-          throw new Error("Command passed to .addCommand() must have a name");
-        function checkExplicitNames(commandArray) {
-          commandArray.forEach((cmd2) => {
-            if (cmd2._executableHandler && !cmd2._executableFile) {
-              throw new Error(`Must specify executableFile for deeply nested executable: ${cmd2.name()}`);
-            }
-            checkExplicitNames(cmd2.commands);
-          });
+        if (!cmd._name) {
+          throw new Error(`Command passed to .addCommand() must have a name
+- specify the name in Command constructor or using .name()`);
         }
-        checkExplicitNames(cmd.commands);
         opts = opts || {};
         if (opts.isDefault)
           this._defaultCommandName = cmd._name;
@@ -14218,7 +10175,7 @@ var require_command = __commonJS({
         return this;
       }
       createArgument(name, description) {
-        return new Argument(name, description);
+        return new Argument2(name, description);
       }
       argument(name, description, fn, defaultValue) {
         const argument = this.createArgument(name, description);
@@ -14294,7 +10251,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       _exit(exitCode, code, message) {
         if (this._exitCallback) {
-          this._exitCallback(new CommanderError(exitCode, code, message));
+          this._exitCallback(new CommanderError2(exitCode, code, message));
         }
         process.exit(exitCode);
       }
@@ -14314,46 +10271,48 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return this;
       }
       createOption(flags, description) {
-        return new Option(flags, description);
+        return new Option2(flags, description);
       }
       addOption(option) {
         const oname = option.name();
         const name = option.attributeName();
-        let defaultValue = option.defaultValue;
-        if (option.negate || option.optional || option.required || typeof defaultValue === "boolean") {
-          if (option.negate) {
-            const positiveLongFlag = option.long.replace(/^--no-/, "--");
-            defaultValue = this._findOption(positiveLongFlag) ? this.getOptionValue(name) : true;
+        if (option.negate) {
+          const positiveLongFlag = option.long.replace(/^--no-/, "--");
+          if (!this._findOption(positiveLongFlag)) {
+            this.setOptionValueWithSource(name, option.defaultValue === void 0 ? true : option.defaultValue, "default");
           }
-          if (defaultValue !== void 0) {
-            this.setOptionValueWithSource(name, defaultValue, "default");
-          }
+        } else if (option.defaultValue !== void 0) {
+          this.setOptionValueWithSource(name, option.defaultValue, "default");
         }
         this.options.push(option);
         const handleOptionValue = (val, invalidValueMessage, valueSource) => {
+          if (val == null && option.presetArg !== void 0) {
+            val = option.presetArg;
+          }
           const oldValue = this.getOptionValue(name);
           if (val !== null && option.parseArg) {
             try {
-              val = option.parseArg(val, oldValue === void 0 ? defaultValue : oldValue);
+              val = option.parseArg(val, oldValue);
             } catch (err) {
               if (err.code === "commander.invalidArgument") {
                 const message = `${invalidValueMessage} ${err.message}`;
-                this._displayError(err.exitCode, err.code, message);
+                this.error(message, { exitCode: err.exitCode, code: err.code });
               }
               throw err;
             }
           } else if (val !== null && option.variadic) {
             val = option._concatValue(val, oldValue);
           }
-          if (typeof oldValue === "boolean" || typeof oldValue === "undefined") {
-            if (val == null) {
-              this.setOptionValueWithSource(name, option.negate ? false : defaultValue || true, valueSource);
+          if (val == null) {
+            if (option.negate) {
+              val = false;
+            } else if (option.isBoolean() || option.optional) {
+              val = true;
             } else {
-              this.setOptionValueWithSource(name, val, valueSource);
+              val = "";
             }
-          } else if (val !== null) {
-            this.setOptionValueWithSource(name, option.negate ? false : val, valueSource);
           }
+          this.setOptionValueWithSource(name, val, valueSource);
         };
         this.on("option:" + oname, (val) => {
           const invalidValueMessage = `error: option '${option.flags}' argument '${val}' is invalid.`;
@@ -14368,6 +10327,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return this;
       }
       _optionEx(config, flags, description, fn, defaultValue) {
+        if (typeof flags === "object" && flags instanceof Option2) {
+          throw new Error("To add an Option object use addOption() instead of option() or requiredOption()");
+        }
         const option = this.createOption(flags, description);
         option.makeOptionMandatory(!!config.mandatory);
         if (typeof fn === "function") {
@@ -14475,10 +10437,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
           default:
             throw new Error(`unexpected parse option { from: '${parseOptions.from}' }`);
         }
-        if (!this._scriptPath && require.main) {
-          this._scriptPath = require.main.filename;
-        }
-        this._name = this._name || this._scriptPath && path4.basename(this._scriptPath, path4.extname(this._scriptPath));
+        if (!this._name && this._scriptPath)
+          this.nameFromFilename(this._scriptPath);
+        this._name = this._name || "program";
         return userArgs;
       }
       parse(argv, parseOptions) {
@@ -14495,76 +10456,87 @@ Expecting one of '${allowedValues.join("', '")}'`);
         args = args.slice();
         let launchWithNode = false;
         const sourceExt = [".js", ".ts", ".tsx", ".mjs", ".cjs"];
+        function findFile(baseDir, baseName) {
+          const localBin = path4.resolve(baseDir, baseName);
+          if (fs8.existsSync(localBin))
+            return localBin;
+          if (sourceExt.includes(path4.extname(baseName)))
+            return void 0;
+          const foundExt = sourceExt.find((ext) => fs8.existsSync(`${localBin}${ext}`));
+          if (foundExt)
+            return `${localBin}${foundExt}`;
+          return void 0;
+        }
         this._checkForMissingMandatoryOptions();
-        let scriptPath = this._scriptPath;
-        if (!scriptPath && require.main) {
-          scriptPath = require.main.filename;
+        let executableFile = subcommand._executableFile || `${this._name}-${subcommand._name}`;
+        let executableDir = this._executableDir || "";
+        if (this._scriptPath) {
+          let resolvedScriptPath;
+          try {
+            resolvedScriptPath = fs8.realpathSync(this._scriptPath);
+          } catch (err) {
+            resolvedScriptPath = this._scriptPath;
+          }
+          executableDir = path4.resolve(path4.dirname(resolvedScriptPath), executableDir);
         }
-        let baseDir;
-        try {
-          const resolvedLink = fs8.realpathSync(scriptPath);
-          baseDir = path4.dirname(resolvedLink);
-        } catch (e) {
-          baseDir = ".";
-        }
-        let bin = path4.basename(scriptPath, path4.extname(scriptPath)) + "-" + subcommand._name;
-        if (subcommand._executableFile) {
-          bin = subcommand._executableFile;
-        }
-        const localBin = path4.join(baseDir, bin);
-        if (fs8.existsSync(localBin)) {
-          bin = localBin;
-        } else {
-          sourceExt.forEach((ext) => {
-            if (fs8.existsSync(`${localBin}${ext}`)) {
-              bin = `${localBin}${ext}`;
+        if (executableDir) {
+          let localFile = findFile(executableDir, executableFile);
+          if (!localFile && !subcommand._executableFile && this._scriptPath) {
+            const legacyName = path4.basename(this._scriptPath, path4.extname(this._scriptPath));
+            if (legacyName !== this._name) {
+              localFile = findFile(executableDir, `${legacyName}-${subcommand._name}`);
             }
-          });
+          }
+          executableFile = localFile || executableFile;
         }
-        launchWithNode = sourceExt.includes(path4.extname(bin));
+        launchWithNode = sourceExt.includes(path4.extname(executableFile));
         let proc;
         if (process.platform !== "win32") {
           if (launchWithNode) {
-            args.unshift(bin);
+            args.unshift(executableFile);
             args = incrementNodeInspectorPort(process.execArgv).concat(args);
             proc = childProcess.spawn(process.argv[0], args, { stdio: "inherit" });
           } else {
-            proc = childProcess.spawn(bin, args, { stdio: "inherit" });
+            proc = childProcess.spawn(executableFile, args, { stdio: "inherit" });
           }
         } else {
-          args.unshift(bin);
+          args.unshift(executableFile);
           args = incrementNodeInspectorPort(process.execArgv).concat(args);
           proc = childProcess.spawn(process.execPath, args, { stdio: "inherit" });
         }
-        const signals = ["SIGUSR1", "SIGUSR2", "SIGTERM", "SIGINT", "SIGHUP"];
-        signals.forEach((signal) => {
-          process.on(signal, () => {
-            if (proc.killed === false && proc.exitCode === null) {
-              proc.kill(signal);
-            }
+        if (!proc.killed) {
+          const signals = ["SIGUSR1", "SIGUSR2", "SIGTERM", "SIGINT", "SIGHUP"];
+          signals.forEach((signal) => {
+            process.on(signal, () => {
+              if (proc.killed === false && proc.exitCode === null) {
+                proc.kill(signal);
+              }
+            });
           });
-        });
+        }
         const exitCallback = this._exitCallback;
         if (!exitCallback) {
           proc.on("close", process.exit.bind(process));
         } else {
           proc.on("close", () => {
-            exitCallback(new CommanderError(process.exitCode || 0, "commander.executeSubCommandAsync", "(close)"));
+            exitCallback(new CommanderError2(process.exitCode || 0, "commander.executeSubCommandAsync", "(close)"));
           });
         }
         proc.on("error", (err) => {
           if (err.code === "ENOENT") {
-            const executableMissing = `'${bin}' does not exist
+            const executableDirMessage = executableDir ? `searched for local subcommand relative to directory '${executableDir}'` : "no directory for search for local subcommand, use .executableDir() to supply a custom directory";
+            const executableMissing = `'${executableFile}' does not exist
  - if '${subcommand._name}' is not meant to be an executable command, remove description parameter from '.command()' and use '.description()' instead
- - if the default executable name is not suitable, use the executableFile option to supply a custom name`;
+ - if the default executable name is not suitable, use the executableFile option to supply a custom name or path
+ - ${executableDirMessage}`;
             throw new Error(executableMissing);
           } else if (err.code === "EACCES") {
-            throw new Error(`'${bin}' not executable`);
+            throw new Error(`'${executableFile}' not executable`);
           }
           if (!exitCallback) {
             process.exit(1);
           } else {
-            const wrappedError = new CommanderError(1, "commander.executeSubCommandAsync", "(error)");
+            const wrappedError = new CommanderError2(1, "commander.executeSubCommandAsync", "(error)");
             wrappedError.nestedError = err;
             exitCallback(wrappedError);
           }
@@ -14603,7 +10575,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             } catch (err) {
               if (err.code === "commander.invalidArgument") {
                 const message = `error: command-argument value '${value}' is invalid for argument '${argument.name()}'. ${err.message}`;
-                this._displayError(err.exitCode, err.code, message);
+                this.error(message, { exitCode: err.exitCode, code: err.code });
               }
               throw err;
             }
@@ -14695,8 +10667,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           let actionResult;
           actionResult = this._chainOrCallHooks(actionResult, "preAction");
           actionResult = this._chainOrCall(actionResult, () => this._actionHandler(this.processedArgs));
-          if (this.parent)
-            this.parent.emit(commandEvent, operands, unknown);
+          if (this.parent) {
+            actionResult = this._chainOrCall(actionResult, () => {
+              this.parent.emit(commandEvent, operands, unknown);
+            });
+          }
           actionResult = this._chainOrCallHooks(actionResult, "postAction");
           return actionResult;
         }
@@ -14847,7 +10822,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this._optionValues;
       }
-      _displayError(exitCode, code, message) {
+      optsWithGlobals() {
+        return getCommandAndParents(this).reduce((combinedOptions, cmd) => Object.assign(combinedOptions, cmd.opts()), {});
+      }
+      error(message, errorOptions) {
         this._outputConfiguration.outputError(`${message}
 `, this._outputConfiguration.writeErr);
         if (typeof this._showHelpAfterError === "string") {
@@ -14857,6 +10835,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
           this._outputConfiguration.writeErr("\n");
           this.outputHelp({ error: true });
         }
+        const config = errorOptions || {};
+        const exitCode = config.exitCode || 1;
+        const code = config.code || "commander.error";
         this._exit(exitCode, code, message);
       }
       _parseOptionsEnv() {
@@ -14875,15 +10856,15 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       missingArgument(name) {
         const message = `error: missing required argument '${name}'`;
-        this._displayError(1, "commander.missingArgument", message);
+        this.error(message, { code: "commander.missingArgument" });
       }
       optionMissingArgument(option) {
         const message = `error: option '${option.flags}' argument missing`;
-        this._displayError(1, "commander.optionMissingArgument", message);
+        this.error(message, { code: "commander.optionMissingArgument" });
       }
       missingMandatoryOptionValue(option) {
         const message = `error: required option '${option.flags}' not specified`;
-        this._displayError(1, "commander.missingMandatoryOptionValue", message);
+        this.error(message, { code: "commander.missingMandatoryOptionValue" });
       }
       unknownOption(flag) {
         if (this._allowUnknownOption)
@@ -14900,7 +10881,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
           suggestion = suggestSimilar(flag, candidateFlags);
         }
         const message = `error: unknown option '${flag}'${suggestion}`;
-        this._displayError(1, "commander.unknownOption", message);
+        this.error(message, { code: "commander.unknownOption" });
       }
       _excessArguments(receivedArgs) {
         if (this._allowExcessArguments)
@@ -14909,7 +10890,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const s = expected === 1 ? "" : "s";
         const forSubcommand = this.parent ? ` for '${this.name()}'` : "";
         const message = `error: too many arguments${forSubcommand}. Expected ${expected} argument${s} but got ${receivedArgs.length}.`;
-        this._displayError(1, "commander.excessArguments", message);
+        this.error(message, { code: "commander.excessArguments" });
       }
       unknownCommand() {
         const unknownName = this.args[0];
@@ -14924,7 +10905,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
           suggestion = suggestSimilar(unknownName, candidateNames);
         }
         const message = `error: unknown command '${unknownName}'${suggestion}`;
-        this._displayError(1, "commander.unknownCommand", message);
+        this.error(message, { code: "commander.unknownCommand" });
       }
       version(str, flags, description) {
         if (str === void 0)
@@ -14985,6 +10966,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
         if (str === void 0)
           return this._name;
         this._name = str;
+        return this;
+      }
+      nameFromFilename(filename) {
+        this._name = path4.basename(filename, path4.extname(filename));
+        return this;
+      }
+      executableDir(path5) {
+        if (path5 === void 0)
+          return this._executableDir;
+        this._executableDir = path5;
         return this;
       }
       helpInformation(contextOptions) {
@@ -15113,27 +11104,27 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       return result;
     }
-    exports.Command = Command;
+    exports.Command = Command2;
   }
 });
 
-// node_modules/.pnpm/commander@8.3.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@8.3.0/node_modules/commander/index.js"(exports, module2) {
-    var { Argument } = require_argument();
-    var { Command } = require_command();
-    var { CommanderError, InvalidArgumentError } = require_error();
-    var { Help } = require_help();
-    var { Option } = require_option();
-    exports = module2.exports = new Command();
+  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/index.js"(exports, module2) {
+    var { Argument: Argument2 } = require_argument();
+    var { Command: Command2 } = require_command();
+    var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
+    var { Help: Help2 } = require_help();
+    var { Option: Option2 } = require_option();
+    exports = module2.exports = new Command2();
     exports.program = exports;
-    exports.Argument = Argument;
-    exports.Command = Command;
-    exports.CommanderError = CommanderError;
-    exports.Help = Help;
-    exports.InvalidArgumentError = InvalidArgumentError;
-    exports.InvalidOptionArgumentError = InvalidArgumentError;
-    exports.Option = Option;
+    exports.Argument = Argument2;
+    exports.Command = Command2;
+    exports.CommanderError = CommanderError2;
+    exports.Help = Help2;
+    exports.InvalidArgumentError = InvalidArgumentError2;
+    exports.InvalidOptionArgumentError = InvalidArgumentError2;
+    exports.Option = Option2;
   }
 });
 
@@ -15202,8 +11193,3509 @@ var fs = __toESM(require("fs"));
 var path = __toESM(require("path"));
 var log2 = __toESM(require_pilogger());
 var TypeDoc = __toESM(require("typedoc"));
-var import_promise = __toESM(require_promise());
-var git = (0, import_promise.default)();
+
+// node_modules/.pnpm/simple-git@3.1.1/node_modules/simple-git/esm/index.js
+var import_file_exists = __toESM(require_dist(), 1);
+var import_debug = __toESM(require_src(), 1);
+var import_child_process = require("child_process");
+var import_promise_deferred = __toESM(require_dist2(), 1);
+var import_promise_deferred2 = __toESM(require_dist2(), 1);
+var __defProp2 = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropNames2 = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp2 = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp2.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+var __markAsModule2 = (target) => __defProp2(target, "__esModule", { value: true });
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames2(fn)[0]])(fn = 0)), res;
+};
+var __commonJS2 = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames2(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __export2 = (target, all) => {
+  for (var name in all)
+    __defProp2(target, name, { get: all[name], enumerable: true });
+};
+var __reExport2 = (target, module2, copyDefault, desc) => {
+  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+    for (let key of __getOwnPropNames2(module2))
+      if (!__hasOwnProp2.call(target, key) && (copyDefault || key !== "default"))
+        __defProp2(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc2(module2, key)) || desc.enumerable });
+  }
+  return target;
+};
+var __toCommonJS2 = /* @__PURE__ */ ((cache) => {
+  return (module2, temp) => {
+    return cache && cache.get(module2) || (temp = __reExport2(__markAsModule2({}), module2, 1), cache && cache.set(module2, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+var GitError;
+var init_git_error = __esm({
+  "src/lib/errors/git-error.ts"() {
+    GitError = class extends Error {
+      constructor(task, message) {
+        super(message);
+        this.task = task;
+        Object.setPrototypeOf(this, new.target.prototype);
+      }
+    };
+  }
+});
+var GitResponseError;
+var init_git_response_error = __esm({
+  "src/lib/errors/git-response-error.ts"() {
+    init_git_error();
+    GitResponseError = class extends GitError {
+      constructor(git3, message) {
+        super(void 0, message || String(git3));
+        this.git = git3;
+      }
+    };
+  }
+});
+var TaskConfigurationError;
+var init_task_configuration_error = __esm({
+  "src/lib/errors/task-configuration-error.ts"() {
+    init_git_error();
+    TaskConfigurationError = class extends GitError {
+      constructor(message) {
+        super(void 0, message);
+      }
+    };
+  }
+});
+function asFunction(source) {
+  return typeof source === "function" ? source : NOOP;
+}
+function isUserFunction(source) {
+  return typeof source === "function" && source !== NOOP;
+}
+function splitOn(input, char) {
+  const index = input.indexOf(char);
+  if (index <= 0) {
+    return [input, ""];
+  }
+  return [
+    input.substr(0, index),
+    input.substr(index + 1)
+  ];
+}
+function first(input, offset = 0) {
+  return isArrayLike(input) && input.length > offset ? input[offset] : void 0;
+}
+function last(input, offset = 0) {
+  if (isArrayLike(input) && input.length > offset) {
+    return input[input.length - 1 - offset];
+  }
+}
+function isArrayLike(input) {
+  return !!(input && typeof input.length === "number");
+}
+function toLinesWithContent(input = "", trimmed2 = true, separator = "\n") {
+  return input.split(separator).reduce((output, line) => {
+    const lineContent = trimmed2 ? line.trim() : line;
+    if (lineContent) {
+      output.push(lineContent);
+    }
+    return output;
+  }, []);
+}
+function forEachLineWithContent(input, callback) {
+  return toLinesWithContent(input, true).map((line) => callback(line));
+}
+function folderExists(path4) {
+  return (0, import_file_exists.exists)(path4, import_file_exists.FOLDER);
+}
+function append(target, item) {
+  if (Array.isArray(target)) {
+    if (!target.includes(item)) {
+      target.push(item);
+    }
+  } else {
+    target.add(item);
+  }
+  return item;
+}
+function including(target, item) {
+  if (Array.isArray(target) && !target.includes(item)) {
+    target.push(item);
+  }
+  return target;
+}
+function remove(target, item) {
+  if (Array.isArray(target)) {
+    const index = target.indexOf(item);
+    if (index >= 0) {
+      target.splice(index, 1);
+    }
+  } else {
+    target.delete(item);
+  }
+  return item;
+}
+function asArray(source) {
+  return Array.isArray(source) ? source : [source];
+}
+function asStringArray(source) {
+  return asArray(source).map(String);
+}
+function asNumber(source, onNaN = 0) {
+  if (source == null) {
+    return onNaN;
+  }
+  const num = parseInt(source, 10);
+  return isNaN(num) ? onNaN : num;
+}
+function prefixedArray(input, prefix) {
+  const output = [];
+  for (let i = 0, max = input.length; i < max; i++) {
+    output.push(prefix, input[i]);
+  }
+  return output;
+}
+function bufferToString(input) {
+  return (Array.isArray(input) ? Buffer.concat(input) : input).toString("utf-8");
+}
+function pick(source, properties) {
+  return Object.assign({}, ...properties.map((property) => property in source ? { [property]: source[property] } : {}));
+}
+function delay(duration = 0) {
+  return new Promise((done) => setTimeout(done, duration));
+}
+var NULL;
+var NOOP;
+var objectToString;
+var init_util = __esm({
+  "src/lib/utils/util.ts"() {
+    NULL = "\0";
+    NOOP = () => {
+    };
+    objectToString = Object.prototype.toString.call.bind(Object.prototype.toString);
+  }
+});
+function filterType(input, filter, def) {
+  if (filter(input)) {
+    return input;
+  }
+  return arguments.length > 2 ? def : void 0;
+}
+function filterPrimitives(input, omit) {
+  return /number|string|boolean/.test(typeof input) && (!omit || !omit.includes(typeof input));
+}
+function filterPlainObject(input) {
+  return !!input && objectToString(input) === "[object Object]";
+}
+function filterFunction(input) {
+  return typeof input === "function";
+}
+var filterArray;
+var filterString;
+var filterStringArray;
+var filterStringOrStringArray;
+var filterHasLength;
+var init_argument_filters = __esm({
+  "src/lib/utils/argument-filters.ts"() {
+    init_util();
+    filterArray = (input) => {
+      return Array.isArray(input);
+    };
+    filterString = (input) => {
+      return typeof input === "string";
+    };
+    filterStringArray = (input) => {
+      return Array.isArray(input) && input.every(filterString);
+    };
+    filterStringOrStringArray = (input) => {
+      return filterString(input) || Array.isArray(input) && input.every(filterString);
+    };
+    filterHasLength = (input) => {
+      if (input == null || "number|boolean|function".includes(typeof input)) {
+        return false;
+      }
+      return Array.isArray(input) || typeof input === "string" || typeof input.length === "number";
+    };
+  }
+});
+var ExitCodes;
+var init_exit_codes = __esm({
+  "src/lib/utils/exit-codes.ts"() {
+    ExitCodes = /* @__PURE__ */ ((ExitCodes2) => {
+      ExitCodes2[ExitCodes2["SUCCESS"] = 0] = "SUCCESS";
+      ExitCodes2[ExitCodes2["ERROR"] = 1] = "ERROR";
+      ExitCodes2[ExitCodes2["UNCLEAN"] = 128] = "UNCLEAN";
+      return ExitCodes2;
+    })(ExitCodes || {});
+  }
+});
+var GitOutputStreams;
+var init_git_output_streams = __esm({
+  "src/lib/utils/git-output-streams.ts"() {
+    GitOutputStreams = class {
+      constructor(stdOut, stdErr) {
+        this.stdOut = stdOut;
+        this.stdErr = stdErr;
+      }
+      asStrings() {
+        return new GitOutputStreams(this.stdOut.toString("utf8"), this.stdErr.toString("utf8"));
+      }
+    };
+  }
+});
+var LineParser;
+var RemoteLineParser;
+var init_line_parser = __esm({
+  "src/lib/utils/line-parser.ts"() {
+    LineParser = class {
+      constructor(regExp, useMatches) {
+        this.matches = [];
+        this.parse = (line, target) => {
+          this.resetMatches();
+          if (!this._regExp.every((reg, index) => this.addMatch(reg, index, line(index)))) {
+            return false;
+          }
+          return this.useMatches(target, this.prepareMatches()) !== false;
+        };
+        this._regExp = Array.isArray(regExp) ? regExp : [regExp];
+        if (useMatches) {
+          this.useMatches = useMatches;
+        }
+      }
+      useMatches(target, match) {
+        throw new Error(`LineParser:useMatches not implemented`);
+      }
+      resetMatches() {
+        this.matches.length = 0;
+      }
+      prepareMatches() {
+        return this.matches;
+      }
+      addMatch(reg, index, line) {
+        const matched = line && reg.exec(line);
+        if (matched) {
+          this.pushMatch(index, matched);
+        }
+        return !!matched;
+      }
+      pushMatch(_index, matched) {
+        this.matches.push(...matched.slice(1));
+      }
+    };
+    RemoteLineParser = class extends LineParser {
+      addMatch(reg, index, line) {
+        return /^remote:\s/.test(String(line)) && super.addMatch(reg, index, line);
+      }
+      pushMatch(index, matched) {
+        if (index > 0 || matched.length > 1) {
+          super.pushMatch(index, matched);
+        }
+      }
+    };
+  }
+});
+function createInstanceConfig(...options3) {
+  const baseDir = process.cwd();
+  const config = Object.assign(__spreadValues({ baseDir }, defaultOptions), ...options3.filter((o) => typeof o === "object" && o));
+  config.baseDir = config.baseDir || baseDir;
+  return config;
+}
+var defaultOptions;
+var init_simple_git_options = __esm({
+  "src/lib/utils/simple-git-options.ts"() {
+    defaultOptions = {
+      binary: "git",
+      maxConcurrentProcesses: 5,
+      config: []
+    };
+  }
+});
+function appendTaskOptions(options3, commands = []) {
+  if (!filterPlainObject(options3)) {
+    return commands;
+  }
+  return Object.keys(options3).reduce((commands2, key) => {
+    const value = options3[key];
+    if (filterPrimitives(value, ["boolean"])) {
+      commands2.push(key + "=" + value);
+    } else {
+      commands2.push(key);
+    }
+    return commands2;
+  }, commands);
+}
+function getTrailingOptions(args, initialPrimitive = 0, objectOnly = false) {
+  const command = [];
+  for (let i = 0, max = initialPrimitive < 0 ? args.length : initialPrimitive; i < max; i++) {
+    if ("string|number".includes(typeof args[i])) {
+      command.push(String(args[i]));
+    }
+  }
+  appendTaskOptions(trailingOptionsArgument(args), command);
+  if (!objectOnly) {
+    command.push(...trailingArrayArgument(args));
+  }
+  return command;
+}
+function trailingArrayArgument(args) {
+  const hasTrailingCallback = typeof last(args) === "function";
+  return filterType(last(args, hasTrailingCallback ? 1 : 0), filterArray, []);
+}
+function trailingOptionsArgument(args) {
+  const hasTrailingCallback = filterFunction(last(args));
+  return filterType(last(args, hasTrailingCallback ? 1 : 0), filterPlainObject);
+}
+function trailingFunctionArgument(args, includeNoop = true) {
+  const callback = asFunction(last(args));
+  return includeNoop || isUserFunction(callback) ? callback : void 0;
+}
+var init_task_options = __esm({
+  "src/lib/utils/task-options.ts"() {
+    init_argument_filters();
+    init_util();
+  }
+});
+function callTaskParser(parser3, streams) {
+  return parser3(streams.stdOut, streams.stdErr);
+}
+function parseStringResponse(result, parsers11, ...texts) {
+  texts.forEach((text) => {
+    for (let lines = toLinesWithContent(text), i = 0, max = lines.length; i < max; i++) {
+      const line = (offset = 0) => {
+        if (i + offset >= max) {
+          return;
+        }
+        return lines[i + offset];
+      };
+      parsers11.some(({ parse }) => parse(line, result));
+    }
+  });
+  return result;
+}
+var init_task_parser = __esm({
+  "src/lib/utils/task-parser.ts"() {
+    init_util();
+  }
+});
+var utils_exports = {};
+__export2(utils_exports, {
+  ExitCodes: () => ExitCodes,
+  GitOutputStreams: () => GitOutputStreams,
+  LineParser: () => LineParser,
+  NOOP: () => NOOP,
+  NULL: () => NULL,
+  RemoteLineParser: () => RemoteLineParser,
+  append: () => append,
+  appendTaskOptions: () => appendTaskOptions,
+  asArray: () => asArray,
+  asFunction: () => asFunction,
+  asNumber: () => asNumber,
+  asStringArray: () => asStringArray,
+  bufferToString: () => bufferToString,
+  callTaskParser: () => callTaskParser,
+  createInstanceConfig: () => createInstanceConfig,
+  delay: () => delay,
+  filterArray: () => filterArray,
+  filterFunction: () => filterFunction,
+  filterHasLength: () => filterHasLength,
+  filterPlainObject: () => filterPlainObject,
+  filterPrimitives: () => filterPrimitives,
+  filterString: () => filterString,
+  filterStringArray: () => filterStringArray,
+  filterStringOrStringArray: () => filterStringOrStringArray,
+  filterType: () => filterType,
+  first: () => first,
+  folderExists: () => folderExists,
+  forEachLineWithContent: () => forEachLineWithContent,
+  getTrailingOptions: () => getTrailingOptions,
+  including: () => including,
+  isUserFunction: () => isUserFunction,
+  last: () => last,
+  objectToString: () => objectToString,
+  parseStringResponse: () => parseStringResponse,
+  pick: () => pick,
+  prefixedArray: () => prefixedArray,
+  remove: () => remove,
+  splitOn: () => splitOn,
+  toLinesWithContent: () => toLinesWithContent,
+  trailingFunctionArgument: () => trailingFunctionArgument,
+  trailingOptionsArgument: () => trailingOptionsArgument
+});
+var init_utils = __esm({
+  "src/lib/utils/index.ts"() {
+    init_argument_filters();
+    init_exit_codes();
+    init_git_output_streams();
+    init_line_parser();
+    init_simple_git_options();
+    init_task_options();
+    init_task_parser();
+    init_util();
+  }
+});
+var check_is_repo_exports = {};
+__export2(check_is_repo_exports, {
+  CheckRepoActions: () => CheckRepoActions,
+  checkIsBareRepoTask: () => checkIsBareRepoTask,
+  checkIsRepoRootTask: () => checkIsRepoRootTask,
+  checkIsRepoTask: () => checkIsRepoTask
+});
+function checkIsRepoTask(action) {
+  switch (action) {
+    case "bare":
+      return checkIsBareRepoTask();
+    case "root":
+      return checkIsRepoRootTask();
+  }
+  const commands = ["rev-parse", "--is-inside-work-tree"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser
+  };
+}
+function checkIsRepoRootTask() {
+  const commands = ["rev-parse", "--git-dir"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser(path4) {
+      return /^\.(git)?$/.test(path4.trim());
+    }
+  };
+}
+function checkIsBareRepoTask() {
+  const commands = ["rev-parse", "--is-bare-repository"];
+  return {
+    commands,
+    format: "utf-8",
+    onError,
+    parser
+  };
+}
+function isNotRepoMessage(error8) {
+  return /(Not a git repository|Kein Git-Repository)/i.test(String(error8));
+}
+var CheckRepoActions;
+var onError;
+var parser;
+var init_check_is_repo = __esm({
+  "src/lib/tasks/check-is-repo.ts"() {
+    init_utils();
+    CheckRepoActions = /* @__PURE__ */ ((CheckRepoActions2) => {
+      CheckRepoActions2["BARE"] = "bare";
+      CheckRepoActions2["IN_TREE"] = "tree";
+      CheckRepoActions2["IS_REPO_ROOT"] = "root";
+      return CheckRepoActions2;
+    })(CheckRepoActions || {});
+    onError = ({ exitCode }, error8, done, fail) => {
+      if (exitCode === 128 && isNotRepoMessage(error8)) {
+        return done(Buffer.from("false"));
+      }
+      fail(error8);
+    };
+    parser = (text) => {
+      return text.trim() === "true";
+    };
+  }
+});
+function cleanSummaryParser(dryRun, text) {
+  const summary = new CleanResponse(dryRun);
+  const regexp = dryRun ? dryRunRemovalRegexp : removalRegexp;
+  toLinesWithContent(text).forEach((line) => {
+    const removed = line.replace(regexp, "");
+    summary.paths.push(removed);
+    (isFolderRegexp.test(removed) ? summary.folders : summary.files).push(removed);
+  });
+  return summary;
+}
+var CleanResponse;
+var removalRegexp;
+var dryRunRemovalRegexp;
+var isFolderRegexp;
+var init_CleanSummary = __esm({
+  "src/lib/responses/CleanSummary.ts"() {
+    init_utils();
+    CleanResponse = class {
+      constructor(dryRun) {
+        this.dryRun = dryRun;
+        this.paths = [];
+        this.files = [];
+        this.folders = [];
+      }
+    };
+    removalRegexp = /^[a-z]+\s*/i;
+    dryRunRemovalRegexp = /^[a-z]+\s+[a-z]+\s*/i;
+    isFolderRegexp = /\/$/;
+  }
+});
+var task_exports = {};
+__export2(task_exports, {
+  EMPTY_COMMANDS: () => EMPTY_COMMANDS,
+  adhocExecTask: () => adhocExecTask,
+  configurationErrorTask: () => configurationErrorTask,
+  isBufferTask: () => isBufferTask,
+  isEmptyTask: () => isEmptyTask,
+  straightThroughBufferTask: () => straightThroughBufferTask,
+  straightThroughStringTask: () => straightThroughStringTask
+});
+function adhocExecTask(parser3) {
+  return {
+    commands: EMPTY_COMMANDS,
+    format: "empty",
+    parser: parser3
+  };
+}
+function configurationErrorTask(error8) {
+  return {
+    commands: EMPTY_COMMANDS,
+    format: "empty",
+    parser() {
+      throw typeof error8 === "string" ? new TaskConfigurationError(error8) : error8;
+    }
+  };
+}
+function straightThroughStringTask(commands, trimmed2 = false) {
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return trimmed2 ? String(text).trim() : text;
+    }
+  };
+}
+function straightThroughBufferTask(commands) {
+  return {
+    commands,
+    format: "buffer",
+    parser(buffer) {
+      return buffer;
+    }
+  };
+}
+function isBufferTask(task) {
+  return task.format === "buffer";
+}
+function isEmptyTask(task) {
+  return task.format === "empty" || !task.commands.length;
+}
+var EMPTY_COMMANDS;
+var init_task = __esm({
+  "src/lib/tasks/task.ts"() {
+    init_task_configuration_error();
+    EMPTY_COMMANDS = [];
+  }
+});
+var clean_exports = {};
+__export2(clean_exports, {
+  CONFIG_ERROR_INTERACTIVE_MODE: () => CONFIG_ERROR_INTERACTIVE_MODE,
+  CONFIG_ERROR_MODE_REQUIRED: () => CONFIG_ERROR_MODE_REQUIRED,
+  CONFIG_ERROR_UNKNOWN_OPTION: () => CONFIG_ERROR_UNKNOWN_OPTION,
+  CleanOptions: () => CleanOptions,
+  cleanTask: () => cleanTask,
+  cleanWithOptionsTask: () => cleanWithOptionsTask,
+  isCleanOptionsArray: () => isCleanOptionsArray
+});
+function cleanWithOptionsTask(mode, customArgs) {
+  const { cleanMode, options: options3, valid } = getCleanOptions(mode);
+  if (!cleanMode) {
+    return configurationErrorTask(CONFIG_ERROR_MODE_REQUIRED);
+  }
+  if (!valid.options) {
+    return configurationErrorTask(CONFIG_ERROR_UNKNOWN_OPTION + JSON.stringify(mode));
+  }
+  options3.push(...customArgs);
+  if (options3.some(isInteractiveMode)) {
+    return configurationErrorTask(CONFIG_ERROR_INTERACTIVE_MODE);
+  }
+  return cleanTask(cleanMode, options3);
+}
+function cleanTask(mode, customArgs) {
+  const commands = ["clean", `-${mode}`, ...customArgs];
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return cleanSummaryParser(mode === "n", text);
+    }
+  };
+}
+function isCleanOptionsArray(input) {
+  return Array.isArray(input) && input.every((test) => CleanOptionValues.has(test));
+}
+function getCleanOptions(input) {
+  let cleanMode;
+  let options3 = [];
+  let valid = { cleanMode: false, options: true };
+  input.replace(/[^a-z]i/g, "").split("").forEach((char) => {
+    if (isCleanMode(char)) {
+      cleanMode = char;
+      valid.cleanMode = true;
+    } else {
+      valid.options = valid.options && isKnownOption(options3[options3.length] = `-${char}`);
+    }
+  });
+  return {
+    cleanMode,
+    options: options3,
+    valid
+  };
+}
+function isCleanMode(cleanMode) {
+  return cleanMode === "f" || cleanMode === "n";
+}
+function isKnownOption(option) {
+  return /^-[a-z]$/i.test(option) && CleanOptionValues.has(option.charAt(1));
+}
+function isInteractiveMode(option) {
+  if (/^-[^\-]/.test(option)) {
+    return option.indexOf("i") > 0;
+  }
+  return option === "--interactive";
+}
+var CONFIG_ERROR_INTERACTIVE_MODE;
+var CONFIG_ERROR_MODE_REQUIRED;
+var CONFIG_ERROR_UNKNOWN_OPTION;
+var CleanOptions;
+var CleanOptionValues;
+var init_clean = __esm({
+  "src/lib/tasks/clean.ts"() {
+    init_CleanSummary();
+    init_utils();
+    init_task();
+    CONFIG_ERROR_INTERACTIVE_MODE = "Git clean interactive mode is not supported";
+    CONFIG_ERROR_MODE_REQUIRED = 'Git clean mode parameter ("n" or "f") is required';
+    CONFIG_ERROR_UNKNOWN_OPTION = "Git clean unknown option found in: ";
+    CleanOptions = /* @__PURE__ */ ((CleanOptions2) => {
+      CleanOptions2["DRY_RUN"] = "n";
+      CleanOptions2["FORCE"] = "f";
+      CleanOptions2["IGNORED_INCLUDED"] = "x";
+      CleanOptions2["IGNORED_ONLY"] = "X";
+      CleanOptions2["EXCLUDING"] = "e";
+      CleanOptions2["QUIET"] = "q";
+      CleanOptions2["RECURSIVE"] = "d";
+      return CleanOptions2;
+    })(CleanOptions || {});
+    CleanOptionValues = /* @__PURE__ */ new Set(["i", ...asStringArray(Object.values(CleanOptions))]);
+  }
+});
+function configListParser(text) {
+  const config = new ConfigList();
+  for (const item of configParser(text)) {
+    config.addValue(item.file, String(item.key), item.value);
+  }
+  return config;
+}
+function configGetParser(text, key) {
+  let value = null;
+  const values = [];
+  const scopes = /* @__PURE__ */ new Map();
+  for (const item of configParser(text, key)) {
+    if (item.key !== key) {
+      continue;
+    }
+    values.push(value = item.value);
+    if (!scopes.has(item.file)) {
+      scopes.set(item.file, []);
+    }
+    scopes.get(item.file).push(value);
+  }
+  return {
+    key,
+    paths: Array.from(scopes.keys()),
+    scopes,
+    value,
+    values
+  };
+}
+function configFilePath(filePath) {
+  return filePath.replace(/^(file):/, "");
+}
+function* configParser(text, requestedKey = null) {
+  const lines = text.split("\0");
+  for (let i = 0, max = lines.length - 1; i < max; ) {
+    const file = configFilePath(lines[i++]);
+    let value = lines[i++];
+    let key = requestedKey;
+    if (value.includes("\n")) {
+      const line = splitOn(value, "\n");
+      key = line[0];
+      value = line[1];
+    }
+    yield { file, key, value };
+  }
+}
+var ConfigList;
+var init_ConfigList = __esm({
+  "src/lib/responses/ConfigList.ts"() {
+    init_utils();
+    ConfigList = class {
+      constructor() {
+        this.files = [];
+        this.values = /* @__PURE__ */ Object.create(null);
+      }
+      get all() {
+        if (!this._all) {
+          this._all = this.files.reduce((all, file) => {
+            return Object.assign(all, this.values[file]);
+          }, {});
+        }
+        return this._all;
+      }
+      addFile(file) {
+        if (!(file in this.values)) {
+          const latest = last(this.files);
+          this.values[file] = latest ? Object.create(this.values[latest]) : {};
+          this.files.push(file);
+        }
+        return this.values[file];
+      }
+      addValue(file, key, value) {
+        const values = this.addFile(file);
+        if (!values.hasOwnProperty(key)) {
+          values[key] = value;
+        } else if (Array.isArray(values[key])) {
+          values[key].push(value);
+        } else {
+          values[key] = [values[key], value];
+        }
+        this._all = void 0;
+      }
+    };
+  }
+});
+function asConfigScope(scope, fallback) {
+  if (typeof scope === "string" && GitConfigScope.hasOwnProperty(scope)) {
+    return scope;
+  }
+  return fallback;
+}
+function addConfigTask(key, value, append2, scope) {
+  const commands = ["config", `--${scope}`];
+  if (append2) {
+    commands.push("--add");
+  }
+  commands.push(key, value);
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return text;
+    }
+  };
+}
+function getConfigTask(key, scope) {
+  const commands = ["config", "--null", "--show-origin", "--get-all", key];
+  if (scope) {
+    commands.splice(1, 0, `--${scope}`);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return configGetParser(text, key);
+    }
+  };
+}
+function listConfigTask(scope) {
+  const commands = ["config", "--list", "--show-origin", "--null"];
+  if (scope) {
+    commands.push(`--${scope}`);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return configListParser(text);
+    }
+  };
+}
+function config_default() {
+  return {
+    addConfig(key, value, ...rest) {
+      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(rest[1], "local")), trailingFunctionArgument(arguments));
+    },
+    getConfig(key, scope) {
+      return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), trailingFunctionArgument(arguments));
+    },
+    listConfig(...rest) {
+      return this._runTask(listConfigTask(asConfigScope(rest[0], void 0)), trailingFunctionArgument(arguments));
+    }
+  };
+}
+var GitConfigScope;
+var init_config = __esm({
+  "src/lib/tasks/config.ts"() {
+    init_ConfigList();
+    init_utils();
+    GitConfigScope = /* @__PURE__ */ ((GitConfigScope2) => {
+      GitConfigScope2["system"] = "system";
+      GitConfigScope2["global"] = "global";
+      GitConfigScope2["local"] = "local";
+      GitConfigScope2["worktree"] = "worktree";
+      return GitConfigScope2;
+    })(GitConfigScope || {});
+  }
+});
+function grepQueryBuilder(...params) {
+  return new GrepQuery().param(...params);
+}
+function parseGrep(grep) {
+  const paths = /* @__PURE__ */ new Set();
+  const results2 = {};
+  forEachLineWithContent(grep, (input) => {
+    const [path4, line, preview] = input.split(NULL);
+    paths.add(path4);
+    (results2[path4] = results2[path4] || []).push({
+      line: asNumber(line),
+      path: path4,
+      preview
+    });
+  });
+  return {
+    paths,
+    results: results2
+  };
+}
+function grep_default() {
+  return {
+    grep(searchTerm) {
+      const then = trailingFunctionArgument(arguments);
+      const options3 = getTrailingOptions(arguments);
+      for (const option of disallowedOptions) {
+        if (options3.includes(option)) {
+          return this._runTask(configurationErrorTask(`git.grep: use of "${option}" is not supported.`), then);
+        }
+      }
+      if (typeof searchTerm === "string") {
+        searchTerm = grepQueryBuilder().param(searchTerm);
+      }
+      const commands = ["grep", "--null", "-n", "--full-name", ...options3, ...searchTerm];
+      return this._runTask({
+        commands,
+        format: "utf-8",
+        parser(stdOut) {
+          return parseGrep(stdOut);
+        }
+      }, then);
+    }
+  };
+}
+var disallowedOptions;
+var Query;
+var _a;
+var GrepQuery;
+var init_grep = __esm({
+  "src/lib/tasks/grep.ts"() {
+    init_utils();
+    init_task();
+    disallowedOptions = ["-h"];
+    Query = Symbol("grepQuery");
+    GrepQuery = class {
+      constructor() {
+        this[_a] = [];
+      }
+      *[(_a = Query, Symbol.iterator)]() {
+        for (const query of this[Query]) {
+          yield query;
+        }
+      }
+      and(...and) {
+        and.length && this[Query].push("--and", "(", ...prefixedArray(and, "-e"), ")");
+        return this;
+      }
+      param(...param) {
+        this[Query].push(...prefixedArray(param, "-e"));
+        return this;
+      }
+    };
+  }
+});
+var reset_exports = {};
+__export2(reset_exports, {
+  ResetMode: () => ResetMode,
+  getResetMode: () => getResetMode,
+  resetTask: () => resetTask
+});
+function resetTask(mode, customArgs) {
+  const commands = ["reset"];
+  if (isValidResetMode(mode)) {
+    commands.push(`--${mode}`);
+  }
+  commands.push(...customArgs);
+  return straightThroughStringTask(commands);
+}
+function getResetMode(mode) {
+  if (isValidResetMode(mode)) {
+    return mode;
+  }
+  switch (typeof mode) {
+    case "string":
+    case "undefined":
+      return "soft";
+  }
+  return;
+}
+function isValidResetMode(mode) {
+  return ResetModes.includes(mode);
+}
+var ResetMode;
+var ResetModes;
+var init_reset = __esm({
+  "src/lib/tasks/reset.ts"() {
+    init_task();
+    ResetMode = /* @__PURE__ */ ((ResetMode2) => {
+      ResetMode2["MIXED"] = "mixed";
+      ResetMode2["SOFT"] = "soft";
+      ResetMode2["HARD"] = "hard";
+      ResetMode2["MERGE"] = "merge";
+      ResetMode2["KEEP"] = "keep";
+      return ResetMode2;
+    })(ResetMode || {});
+    ResetModes = Array.from(Object.values(ResetMode));
+  }
+});
+function createLog() {
+  return (0, import_debug.default)("simple-git");
+}
+function prefixedLogger(to, prefix, forward) {
+  if (!prefix || !String(prefix).replace(/\s*/, "")) {
+    return !forward ? to : (message, ...args) => {
+      to(message, ...args);
+      forward(message, ...args);
+    };
+  }
+  return (message, ...args) => {
+    to(`%s ${message}`, prefix, ...args);
+    if (forward) {
+      forward(message, ...args);
+    }
+  };
+}
+function childLoggerName(name, childDebugger, { namespace: parentNamespace }) {
+  if (typeof name === "string") {
+    return name;
+  }
+  const childNamespace = childDebugger && childDebugger.namespace || "";
+  if (childNamespace.startsWith(parentNamespace)) {
+    return childNamespace.substr(parentNamespace.length + 1);
+  }
+  return childNamespace || parentNamespace;
+}
+function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
+  const labelPrefix = label && `[${label}]` || "";
+  const spawned = [];
+  const debugDebugger = typeof verbose === "string" ? infoDebugger.extend(verbose) : verbose;
+  const key = childLoggerName(filterType(verbose, filterString), debugDebugger, infoDebugger);
+  return step(initialStep);
+  function sibling(name, initial) {
+    return append(spawned, createLogger(label, key.replace(/^[^:]+/, name), initial, infoDebugger));
+  }
+  function step(phase) {
+    const stepPrefix = phase && `[${phase}]` || "";
+    const debug2 = debugDebugger && prefixedLogger(debugDebugger, stepPrefix) || NOOP;
+    const info9 = prefixedLogger(infoDebugger, `${labelPrefix} ${stepPrefix}`, debug2);
+    return Object.assign(debugDebugger ? debug2 : info9, {
+      label,
+      sibling,
+      info: info9,
+      step
+    });
+  }
+}
+var init_git_logger = __esm({
+  "src/lib/git-logger.ts"() {
+    init_utils();
+    import_debug.default.formatters.L = (value) => String(filterHasLength(value) ? value.length : "-");
+    import_debug.default.formatters.B = (value) => {
+      if (Buffer.isBuffer(value)) {
+        return value.toString("utf8");
+      }
+      return objectToString(value);
+    };
+  }
+});
+var _TasksPendingQueue;
+var TasksPendingQueue;
+var init_tasks_pending_queue = __esm({
+  "src/lib/runners/tasks-pending-queue.ts"() {
+    init_git_error();
+    init_git_logger();
+    _TasksPendingQueue = class {
+      constructor(logLabel = "GitExecutor") {
+        this.logLabel = logLabel;
+        this._queue = /* @__PURE__ */ new Map();
+      }
+      withProgress(task) {
+        return this._queue.get(task);
+      }
+      createProgress(task) {
+        const name = _TasksPendingQueue.getName(task.commands[0]);
+        const logger = createLogger(this.logLabel, name);
+        return {
+          task,
+          logger,
+          name
+        };
+      }
+      push(task) {
+        const progress = this.createProgress(task);
+        progress.logger("Adding task to the queue, commands = %o", task.commands);
+        this._queue.set(task, progress);
+        return progress;
+      }
+      fatal(err) {
+        for (const [task, { logger }] of Array.from(this._queue.entries())) {
+          if (task === err.task) {
+            logger.info(`Failed %o`, err);
+            logger(`Fatal exception, any as-yet un-started tasks run through this executor will not be attempted`);
+          } else {
+            logger.info(`A fatal exception occurred in a previous task, the queue has been purged: %o`, err.message);
+          }
+          this.complete(task);
+        }
+        if (this._queue.size !== 0) {
+          throw new Error(`Queue size should be zero after fatal: ${this._queue.size}`);
+        }
+      }
+      complete(task) {
+        const progress = this.withProgress(task);
+        if (progress) {
+          this._queue.delete(task);
+        }
+      }
+      attempt(task) {
+        const progress = this.withProgress(task);
+        if (!progress) {
+          throw new GitError(void 0, "TasksPendingQueue: attempt called for an unknown task");
+        }
+        progress.logger("Starting task");
+        return progress;
+      }
+      static getName(name = "empty") {
+        return `task:${name}:${++_TasksPendingQueue.counter}`;
+      }
+    };
+    TasksPendingQueue = _TasksPendingQueue;
+    TasksPendingQueue.counter = 0;
+  }
+});
+function pluginContext(task, commands) {
+  return {
+    method: first(task.commands) || "",
+    commands
+  };
+}
+function onErrorReceived(target, logger) {
+  return (err) => {
+    logger(`[ERROR] child process exception %o`, err);
+    target.push(Buffer.from(String(err.stack), "ascii"));
+  };
+}
+function onDataReceived(target, name, logger, output) {
+  return (buffer) => {
+    logger(`%s received %L bytes`, name, buffer);
+    output(`%B`, buffer);
+    target.push(buffer);
+  };
+}
+var GitExecutorChain;
+var init_git_executor_chain = __esm({
+  "src/lib/runners/git-executor-chain.ts"() {
+    init_git_error();
+    init_task();
+    init_utils();
+    init_tasks_pending_queue();
+    GitExecutorChain = class {
+      constructor(_executor, _scheduler, _plugins) {
+        this._executor = _executor;
+        this._scheduler = _scheduler;
+        this._plugins = _plugins;
+        this._chain = Promise.resolve();
+        this._queue = new TasksPendingQueue();
+      }
+      get binary() {
+        return this._executor.binary;
+      }
+      get cwd() {
+        return this._cwd || this._executor.cwd;
+      }
+      set cwd(cwd) {
+        this._cwd = cwd;
+      }
+      get env() {
+        return this._executor.env;
+      }
+      get outputHandler() {
+        return this._executor.outputHandler;
+      }
+      chain() {
+        return this;
+      }
+      push(task) {
+        this._queue.push(task);
+        return this._chain = this._chain.then(() => this.attemptTask(task));
+      }
+      attemptTask(task) {
+        return __async(this, null, function* () {
+          const onScheduleComplete = yield this._scheduler.next();
+          const onQueueComplete = () => this._queue.complete(task);
+          try {
+            const { logger } = this._queue.attempt(task);
+            return yield isEmptyTask(task) ? this.attemptEmptyTask(task, logger) : this.attemptRemoteTask(task, logger);
+          } catch (e) {
+            throw this.onFatalException(task, e);
+          } finally {
+            onQueueComplete();
+            onScheduleComplete();
+          }
+        });
+      }
+      onFatalException(task, e) {
+        const gitError = e instanceof GitError ? Object.assign(e, { task }) : new GitError(task, e && String(e));
+        this._chain = Promise.resolve();
+        this._queue.fatal(gitError);
+        return gitError;
+      }
+      attemptRemoteTask(task, logger) {
+        return __async(this, null, function* () {
+          const args = this._plugins.exec("spawn.args", [...task.commands], pluginContext(task, task.commands));
+          const raw = yield this.gitResponse(task, this.binary, args, this.outputHandler, logger.step("SPAWN"));
+          const outputStreams = yield this.handleTaskData(task, args, raw, logger.step("HANDLE"));
+          logger(`passing response to task's parser as a %s`, task.format);
+          if (isBufferTask(task)) {
+            return callTaskParser(task.parser, outputStreams);
+          }
+          return callTaskParser(task.parser, outputStreams.asStrings());
+        });
+      }
+      attemptEmptyTask(task, logger) {
+        return __async(this, null, function* () {
+          logger(`empty task bypassing child process to call to task's parser`);
+          return task.parser(this);
+        });
+      }
+      handleTaskData(task, args, result, logger) {
+        const { exitCode, rejection, stdOut, stdErr } = result;
+        return new Promise((done, fail) => {
+          logger(`Preparing to handle process response exitCode=%d stdOut=`, exitCode);
+          const { error: error8 } = this._plugins.exec("task.error", { error: rejection }, __spreadValues(__spreadValues({}, pluginContext(task, args)), result));
+          if (error8 && task.onError) {
+            logger.info(`exitCode=%s handling with custom error handler`);
+            return task.onError(result, error8, (newStdOut) => {
+              logger.info(`custom error handler treated as success`);
+              logger(`custom error returned a %s`, objectToString(newStdOut));
+              done(new GitOutputStreams(Array.isArray(newStdOut) ? Buffer.concat(newStdOut) : newStdOut, Buffer.concat(stdErr)));
+            }, fail);
+          }
+          if (error8) {
+            logger.info(`handling as error: exitCode=%s stdErr=%s rejection=%o`, exitCode, stdErr.length, rejection);
+            return fail(error8);
+          }
+          logger.info(`retrieving task output complete`);
+          done(new GitOutputStreams(Buffer.concat(stdOut), Buffer.concat(stdErr)));
+        });
+      }
+      gitResponse(task, command, args, outputHandler, logger) {
+        return __async(this, null, function* () {
+          const outputLogger = logger.sibling("output");
+          const spawnOptions = this._plugins.exec("spawn.options", {
+            cwd: this.cwd,
+            env: this.env,
+            windowsHide: true
+          }, pluginContext(task, task.commands));
+          return new Promise((done) => {
+            const stdOut = [];
+            const stdErr = [];
+            let rejection;
+            logger.info(`%s %o`, command, args);
+            logger("%O", spawnOptions);
+            const spawned = (0, import_child_process.spawn)(command, args, spawnOptions);
+            spawned.stdout.on("data", onDataReceived(stdOut, "stdOut", logger, outputLogger.step("stdOut")));
+            spawned.stderr.on("data", onDataReceived(stdErr, "stdErr", logger, outputLogger.step("stdErr")));
+            spawned.on("error", onErrorReceived(stdErr, logger));
+            if (outputHandler) {
+              logger(`Passing child process stdOut/stdErr to custom outputHandler`);
+              outputHandler(command, spawned.stdout, spawned.stderr, [...args]);
+            }
+            this._plugins.exec("spawn.after", void 0, __spreadProps(__spreadValues({}, pluginContext(task, args)), {
+              spawned,
+              close(exitCode, reason) {
+                done({
+                  stdOut,
+                  stdErr,
+                  exitCode,
+                  rejection: rejection || reason
+                });
+              },
+              kill(reason) {
+                if (spawned.killed) {
+                  return;
+                }
+                rejection = reason;
+                spawned.kill("SIGINT");
+              }
+            }));
+          });
+        });
+      }
+    };
+  }
+});
+var git_executor_exports = {};
+__export2(git_executor_exports, {
+  GitExecutor: () => GitExecutor
+});
+var GitExecutor;
+var init_git_executor = __esm({
+  "src/lib/runners/git-executor.ts"() {
+    init_git_executor_chain();
+    GitExecutor = class {
+      constructor(binary = "git", cwd, _scheduler, _plugins) {
+        this.binary = binary;
+        this.cwd = cwd;
+        this._scheduler = _scheduler;
+        this._plugins = _plugins;
+        this._chain = new GitExecutorChain(this, this._scheduler, this._plugins);
+      }
+      chain() {
+        return new GitExecutorChain(this, this._scheduler, this._plugins);
+      }
+      push(task) {
+        return this._chain.push(task);
+      }
+    };
+  }
+});
+function taskCallback(task, response, callback = NOOP) {
+  const onSuccess = (data9) => {
+    callback(null, data9);
+  };
+  const onError2 = (err) => {
+    if ((err == null ? void 0 : err.task) === task) {
+      callback(err instanceof GitResponseError ? addDeprecationNoticeToError(err) : err, void 0);
+    }
+  };
+  response.then(onSuccess, onError2);
+}
+function addDeprecationNoticeToError(err) {
+  let log12 = (name) => {
+    console.warn(`simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`);
+    log12 = NOOP;
+  };
+  return Object.create(err, Object.getOwnPropertyNames(err.git).reduce(descriptorReducer, {}));
+  function descriptorReducer(all, name) {
+    if (name in err) {
+      return all;
+    }
+    all[name] = {
+      enumerable: false,
+      configurable: false,
+      get() {
+        log12(name);
+        return err.git[name];
+      }
+    };
+    return all;
+  }
+}
+var init_task_callback = __esm({
+  "src/lib/task-callback.ts"() {
+    init_git_response_error();
+    init_utils();
+  }
+});
+function changeWorkingDirectoryTask(directory, root) {
+  return adhocExecTask((instance) => {
+    if (!folderExists(directory)) {
+      throw new Error(`Git.cwd: cannot change to non-directory "${directory}"`);
+    }
+    return (root || instance).cwd = directory;
+  });
+}
+var init_change_working_directory = __esm({
+  "src/lib/tasks/change-working-directory.ts"() {
+    init_utils();
+    init_task();
+  }
+});
+function hashObjectTask(filePath, write) {
+  const commands = ["hash-object", filePath];
+  if (write) {
+    commands.push("-w");
+  }
+  return straightThroughStringTask(commands, true);
+}
+var init_hash_object = __esm({
+  "src/lib/tasks/hash-object.ts"() {
+    init_task();
+  }
+});
+function parseInit(bare, path4, text) {
+  const response = String(text).trim();
+  let result;
+  if (result = initResponseRegex.exec(response)) {
+    return new InitSummary(bare, path4, false, result[1]);
+  }
+  if (result = reInitResponseRegex.exec(response)) {
+    return new InitSummary(bare, path4, true, result[1]);
+  }
+  let gitDir = "";
+  const tokens = response.split(" ");
+  while (tokens.length) {
+    const token = tokens.shift();
+    if (token === "in") {
+      gitDir = tokens.join(" ");
+      break;
+    }
+  }
+  return new InitSummary(bare, path4, /^re/i.test(response), gitDir);
+}
+var InitSummary;
+var initResponseRegex;
+var reInitResponseRegex;
+var init_InitSummary = __esm({
+  "src/lib/responses/InitSummary.ts"() {
+    InitSummary = class {
+      constructor(bare, path4, existing, gitDir) {
+        this.bare = bare;
+        this.path = path4;
+        this.existing = existing;
+        this.gitDir = gitDir;
+      }
+    };
+    initResponseRegex = /^Init.+ repository in (.+)$/;
+    reInitResponseRegex = /^Rein.+ in (.+)$/;
+  }
+});
+function hasBareCommand(command) {
+  return command.includes(bareCommand);
+}
+function initTask(bare = false, path4, customArgs) {
+  const commands = ["init", ...customArgs];
+  if (bare && !hasBareCommand(commands)) {
+    commands.splice(1, 0, bareCommand);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(text) {
+      return parseInit(commands.includes("--bare"), path4, text);
+    }
+  };
+}
+var bareCommand;
+var init_init = __esm({
+  "src/lib/tasks/init.ts"() {
+    init_InitSummary();
+    bareCommand = "--bare";
+  }
+});
+var DiffSummary;
+var init_DiffSummary = __esm({
+  "src/lib/responses/DiffSummary.ts"() {
+    DiffSummary = class {
+      constructor() {
+        this.changed = 0;
+        this.deletions = 0;
+        this.insertions = 0;
+        this.files = [];
+      }
+    };
+  }
+});
+function parseDiffResult(stdOut) {
+  const lines = stdOut.trim().split("\n");
+  const status = new DiffSummary();
+  readSummaryLine(status, lines.pop());
+  for (let i = 0, max = lines.length; i < max; i++) {
+    const line = lines[i];
+    textFileChange(line, status) || binaryFileChange(line, status);
+  }
+  return status;
+}
+function readSummaryLine(status, summary) {
+  (summary || "").trim().split(", ").forEach(function(text) {
+    const summary2 = /(\d+)\s([a-z]+)/.exec(text);
+    if (!summary2) {
+      return;
+    }
+    summaryType(status, summary2[2], parseInt(summary2[1], 10));
+  });
+}
+function summaryType(status, key, value) {
+  const match = /([a-z]+?)s?\b/.exec(key);
+  if (!match || !statusUpdate[match[1]]) {
+    return;
+  }
+  statusUpdate[match[1]](status, value);
+}
+function textFileChange(input, { files }) {
+  const line = input.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
+  if (line) {
+    var alterations = (line[3] || "").trim();
+    files.push({
+      file: line[1].trim(),
+      changes: parseInt(line[2], 10),
+      insertions: alterations.replace(/-/g, "").length,
+      deletions: alterations.replace(/\+/g, "").length,
+      binary: false
+    });
+    return true;
+  }
+  return false;
+}
+function binaryFileChange(input, { files }) {
+  const line = input.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
+  if (line) {
+    files.push({
+      file: line[1].trim(),
+      before: +line[2],
+      after: +line[3],
+      binary: true
+    });
+    return true;
+  }
+  return false;
+}
+var statusUpdate;
+var init_parse_diff_summary = __esm({
+  "src/lib/parsers/parse-diff-summary.ts"() {
+    init_DiffSummary();
+    statusUpdate = {
+      file(status, value) {
+        status.changed = value;
+      },
+      deletion(status, value) {
+        status.deletions = value;
+      },
+      insertion(status, value) {
+        status.insertions = value;
+      }
+    };
+  }
+});
+function lineBuilder(tokens, fields) {
+  return fields.reduce((line, field, index) => {
+    line[field] = tokens[index] || "";
+    return line;
+  }, /* @__PURE__ */ Object.create({ diff: null }));
+}
+function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames) {
+  return function(stdOut) {
+    const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
+      const lineDetail = item.trim().split(COMMIT_BOUNDARY);
+      const listLogLine = lineBuilder(lineDetail[0].trim().split(splitter), fields);
+      if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
+        listLogLine.diff = parseDiffResult(lineDetail[1]);
+      }
+      return listLogLine;
+    });
+    return {
+      all,
+      latest: all.length && all[0] || null,
+      total: all.length
+    };
+  };
+}
+var START_BOUNDARY;
+var COMMIT_BOUNDARY;
+var SPLITTER;
+var defaultFieldNames;
+var init_parse_list_log_summary = __esm({
+  "src/lib/parsers/parse-list-log-summary.ts"() {
+    init_utils();
+    init_parse_diff_summary();
+    START_BOUNDARY = "\xF2\xF2\xF2\xF2\xF2\xF2 ";
+    COMMIT_BOUNDARY = " \xF2\xF2";
+    SPLITTER = " \xF2 ";
+    defaultFieldNames = ["hash", "date", "message", "refs", "author_name", "author_email"];
+  }
+});
+function prettyFormat(format, splitter) {
+  const fields = [];
+  const formatStr = [];
+  Object.keys(format).forEach((field) => {
+    fields.push(field);
+    formatStr.push(String(format[field]));
+  });
+  return [
+    fields,
+    formatStr.join(splitter)
+  ];
+}
+function userOptions(input) {
+  const output = __spreadValues({}, input);
+  Object.keys(input).forEach((key) => {
+    if (key in excludeOptions) {
+      delete output[key];
+    }
+  });
+  return output;
+}
+function parseLogOptions(opt = {}, customArgs = []) {
+  const splitter = opt.splitter || SPLITTER;
+  const format = opt.format || {
+    hash: "%H",
+    date: opt.strictDate === false ? "%ai" : "%aI",
+    message: "%s",
+    refs: "%D",
+    body: opt.multiLine ? "%B" : "%b",
+    author_name: opt.mailMap !== false ? "%aN" : "%an",
+    author_email: opt.mailMap !== false ? "%aE" : "%ae"
+  };
+  const [fields, formatStr] = prettyFormat(format, splitter);
+  const suffix = [];
+  const command = [
+    `--pretty=format:${START_BOUNDARY}${formatStr}${COMMIT_BOUNDARY}`,
+    ...customArgs
+  ];
+  const maxCount = opt.n || opt["max-count"] || opt.maxCount;
+  if (maxCount) {
+    command.push(`--max-count=${maxCount}`);
+  }
+  if (opt.from && opt.to) {
+    const rangeOperator = opt.symmetric !== false ? "..." : "..";
+    suffix.push(`${opt.from}${rangeOperator}${opt.to}`);
+  }
+  if (opt.file) {
+    suffix.push("--follow", opt.file);
+  }
+  appendTaskOptions(userOptions(opt), command);
+  return {
+    fields,
+    splitter,
+    commands: [
+      ...command,
+      ...suffix
+    ]
+  };
+}
+function logTask(splitter, fields, customArgs) {
+  return {
+    commands: ["log", ...customArgs],
+    format: "utf-8",
+    parser: createListLogSummaryParser(splitter, fields)
+  };
+}
+function log_default() {
+  return {
+    log(...rest) {
+      const next = trailingFunctionArgument(arguments);
+      const task = rejectDeprecatedSignatures(...rest) || createLogTask(parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray)));
+      return this._runTask(task, next);
+    }
+  };
+  function createLogTask(options3) {
+    return logTask(options3.splitter, options3.fields, options3.commands);
+  }
+  function rejectDeprecatedSignatures(from, to) {
+    return filterString(from) && filterString(to) && configurationErrorTask(`git.log(string, string) should be replaced with git.log({ from: string, to: string })`);
+  }
+}
+var excludeOptions;
+var init_log = __esm({
+  "src/lib/tasks/log.ts"() {
+    init_parse_list_log_summary();
+    init_utils();
+    init_task();
+    excludeOptions = /* @__PURE__ */ ((excludeOptions2) => {
+      excludeOptions2[excludeOptions2["--pretty"] = 0] = "--pretty";
+      excludeOptions2[excludeOptions2["max-count"] = 1] = "max-count";
+      excludeOptions2[excludeOptions2["maxCount"] = 2] = "maxCount";
+      excludeOptions2[excludeOptions2["n"] = 3] = "n";
+      excludeOptions2[excludeOptions2["file"] = 4] = "file";
+      excludeOptions2[excludeOptions2["format"] = 5] = "format";
+      excludeOptions2[excludeOptions2["from"] = 6] = "from";
+      excludeOptions2[excludeOptions2["to"] = 7] = "to";
+      excludeOptions2[excludeOptions2["splitter"] = 8] = "splitter";
+      excludeOptions2[excludeOptions2["symmetric"] = 9] = "symmetric";
+      excludeOptions2[excludeOptions2["mailMap"] = 10] = "mailMap";
+      excludeOptions2[excludeOptions2["multiLine"] = 11] = "multiLine";
+      excludeOptions2[excludeOptions2["strictDate"] = 12] = "strictDate";
+      return excludeOptions2;
+    })(excludeOptions || {});
+  }
+});
+var MergeSummaryConflict;
+var MergeSummaryDetail;
+var init_MergeSummary = __esm({
+  "src/lib/responses/MergeSummary.ts"() {
+    MergeSummaryConflict = class {
+      constructor(reason, file = null, meta) {
+        this.reason = reason;
+        this.file = file;
+        this.meta = meta;
+      }
+      toString() {
+        return `${this.file}:${this.reason}`;
+      }
+    };
+    MergeSummaryDetail = class {
+      constructor() {
+        this.conflicts = [];
+        this.merges = [];
+        this.result = "success";
+      }
+      get failed() {
+        return this.conflicts.length > 0;
+      }
+      get reason() {
+        return this.result;
+      }
+      toString() {
+        if (this.conflicts.length) {
+          return `CONFLICTS: ${this.conflicts.join(", ")}`;
+        }
+        return "OK";
+      }
+    };
+  }
+});
+var PullSummary;
+var PullFailedSummary;
+var init_PullSummary = __esm({
+  "src/lib/responses/PullSummary.ts"() {
+    PullSummary = class {
+      constructor() {
+        this.remoteMessages = {
+          all: []
+        };
+        this.created = [];
+        this.deleted = [];
+        this.files = [];
+        this.deletions = {};
+        this.insertions = {};
+        this.summary = {
+          changes: 0,
+          deletions: 0,
+          insertions: 0
+        };
+      }
+    };
+    PullFailedSummary = class {
+      constructor() {
+        this.remote = "";
+        this.hash = {
+          local: "",
+          remote: ""
+        };
+        this.branch = {
+          local: "",
+          remote: ""
+        };
+        this.message = "";
+      }
+      toString() {
+        return this.message;
+      }
+    };
+  }
+});
+function objectEnumerationResult(remoteMessages) {
+  return remoteMessages.objects = remoteMessages.objects || {
+    compressing: 0,
+    counting: 0,
+    enumerating: 0,
+    packReused: 0,
+    reused: { count: 0, delta: 0 },
+    total: { count: 0, delta: 0 }
+  };
+}
+function asObjectCount(source) {
+  const count = /^\s*(\d+)/.exec(source);
+  const delta = /delta (\d+)/i.exec(source);
+  return {
+    count: asNumber(count && count[1] || "0"),
+    delta: asNumber(delta && delta[1] || "0")
+  };
+}
+var remoteMessagesObjectParsers;
+var init_parse_remote_objects = __esm({
+  "src/lib/parsers/parse-remote-objects.ts"() {
+    init_utils();
+    remoteMessagesObjectParsers = [
+      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: (\d+),/i, (result, [action, count]) => {
+        const key = action.toLowerCase();
+        const enumeration = objectEnumerationResult(result.remoteMessages);
+        Object.assign(enumeration, { [key]: asNumber(count) });
+      }),
+      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: \d+% \(\d+\/(\d+)\),/i, (result, [action, count]) => {
+        const key = action.toLowerCase();
+        const enumeration = objectEnumerationResult(result.remoteMessages);
+        Object.assign(enumeration, { [key]: asNumber(count) });
+      }),
+      new RemoteLineParser(/total ([^,]+), reused ([^,]+), pack-reused (\d+)/i, (result, [total, reused, packReused]) => {
+        const objects = objectEnumerationResult(result.remoteMessages);
+        objects.total = asObjectCount(total);
+        objects.reused = asObjectCount(reused);
+        objects.packReused = asNumber(packReused);
+      })
+    ];
+  }
+});
+function parseRemoteMessages(_stdOut, stdErr) {
+  return parseStringResponse({ remoteMessages: new RemoteMessageSummary() }, parsers, stdErr);
+}
+var parsers;
+var RemoteMessageSummary;
+var init_parse_remote_messages = __esm({
+  "src/lib/parsers/parse-remote-messages.ts"() {
+    init_utils();
+    init_parse_remote_objects();
+    parsers = [
+      new RemoteLineParser(/^remote:\s*(.+)$/, (result, [text]) => {
+        result.remoteMessages.all.push(text.trim());
+        return false;
+      }),
+      ...remoteMessagesObjectParsers,
+      new RemoteLineParser([/create a (?:pull|merge) request/i, /\s(https?:\/\/\S+)$/], (result, [pullRequestUrl]) => {
+        result.remoteMessages.pullRequestUrl = pullRequestUrl;
+      }),
+      new RemoteLineParser([/found (\d+) vulnerabilities.+\(([^)]+)\)/i, /\s(https?:\/\/\S+)$/], (result, [count, summary, url]) => {
+        result.remoteMessages.vulnerabilities = {
+          count: asNumber(count),
+          summary,
+          url
+        };
+      })
+    ];
+    RemoteMessageSummary = class {
+      constructor() {
+        this.all = [];
+      }
+    };
+  }
+});
+function parsePullErrorResult(stdOut, stdErr) {
+  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, stdOut, stdErr);
+  return pullError.message && pullError;
+}
+var FILE_UPDATE_REGEX;
+var SUMMARY_REGEX;
+var ACTION_REGEX;
+var parsers2;
+var errorParsers;
+var parsePullDetail;
+var parsePullResult;
+var init_parse_pull = __esm({
+  "src/lib/parsers/parse-pull.ts"() {
+    init_PullSummary();
+    init_utils();
+    init_parse_remote_messages();
+    FILE_UPDATE_REGEX = /^\s*(.+?)\s+\|\s+\d+\s*(\+*)(-*)/;
+    SUMMARY_REGEX = /(\d+)\D+((\d+)\D+\(\+\))?(\D+(\d+)\D+\(-\))?/;
+    ACTION_REGEX = /^(create|delete) mode \d+ (.+)/;
+    parsers2 = [
+      new LineParser(FILE_UPDATE_REGEX, (result, [file, insertions, deletions]) => {
+        result.files.push(file);
+        if (insertions) {
+          result.insertions[file] = insertions.length;
+        }
+        if (deletions) {
+          result.deletions[file] = deletions.length;
+        }
+      }),
+      new LineParser(SUMMARY_REGEX, (result, [changes, , insertions, , deletions]) => {
+        if (insertions !== void 0 || deletions !== void 0) {
+          result.summary.changes = +changes || 0;
+          result.summary.insertions = +insertions || 0;
+          result.summary.deletions = +deletions || 0;
+          return true;
+        }
+        return false;
+      }),
+      new LineParser(ACTION_REGEX, (result, [action, file]) => {
+        append(result.files, file);
+        append(action === "create" ? result.created : result.deleted, file);
+      })
+    ];
+    errorParsers = [
+      new LineParser(/^from\s(.+)$/i, (result, [remote]) => void (result.remote = remote)),
+      new LineParser(/^fatal:\s(.+)$/, (result, [message]) => void (result.message = message)),
+      new LineParser(/([a-z0-9]+)\.\.([a-z0-9]+)\s+(\S+)\s+->\s+(\S+)$/, (result, [hashLocal, hashRemote, branchLocal, branchRemote]) => {
+        result.branch.local = branchLocal;
+        result.hash.local = hashLocal;
+        result.branch.remote = branchRemote;
+        result.hash.remote = hashRemote;
+      })
+    ];
+    parsePullDetail = (stdOut, stdErr) => {
+      return parseStringResponse(new PullSummary(), parsers2, stdOut, stdErr);
+    };
+    parsePullResult = (stdOut, stdErr) => {
+      return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
+    };
+  }
+});
+var parsers3;
+var parseMergeResult;
+var parseMergeDetail;
+var init_parse_merge = __esm({
+  "src/lib/parsers/parse-merge.ts"() {
+    init_MergeSummary();
+    init_utils();
+    init_parse_pull();
+    parsers3 = [
+      new LineParser(/^Auto-merging\s+(.+)$/, (summary, [autoMerge]) => {
+        summary.merges.push(autoMerge);
+      }),
+      new LineParser(/^CONFLICT\s+\((.+)\): Merge conflict in (.+)$/, (summary, [reason, file]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, file));
+      }),
+      new LineParser(/^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/, (summary, [reason, file, deleteRef]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, file, { deleteRef }));
+      }),
+      new LineParser(/^CONFLICT\s+\((.+)\):/, (summary, [reason]) => {
+        summary.conflicts.push(new MergeSummaryConflict(reason, null));
+      }),
+      new LineParser(/^Automatic merge failed;\s+(.+)$/, (summary, [result]) => {
+        summary.result = result;
+      })
+    ];
+    parseMergeResult = (stdOut, stdErr) => {
+      return Object.assign(parseMergeDetail(stdOut, stdErr), parsePullResult(stdOut, stdErr));
+    };
+    parseMergeDetail = (stdOut) => {
+      return parseStringResponse(new MergeSummaryDetail(), parsers3, stdOut);
+    };
+  }
+});
+function mergeTask(customArgs) {
+  if (!customArgs.length) {
+    return configurationErrorTask("Git.merge requires at least one option");
+  }
+  return {
+    commands: ["merge", ...customArgs],
+    format: "utf-8",
+    parser(stdOut, stdErr) {
+      const merge2 = parseMergeResult(stdOut, stdErr);
+      if (merge2.failed) {
+        throw new GitResponseError(merge2);
+      }
+      return merge2;
+    }
+  };
+}
+var init_merge = __esm({
+  "src/lib/tasks/merge.ts"() {
+    init_git_response_error();
+    init_parse_merge();
+    init_task();
+  }
+});
+function pushResultPushedItem(local, remote, status) {
+  const deleted = status.includes("deleted");
+  const tag = status.includes("tag") || /^refs\/tags/.test(local);
+  const alreadyUpdated = !status.includes("new");
+  return {
+    deleted,
+    tag,
+    branch: !tag,
+    new: !alreadyUpdated,
+    alreadyUpdated,
+    local,
+    remote
+  };
+}
+var parsers4;
+var parsePushResult;
+var parsePushDetail;
+var init_parse_push = __esm({
+  "src/lib/parsers/parse-push.ts"() {
+    init_utils();
+    init_parse_remote_messages();
+    parsers4 = [
+      new LineParser(/^Pushing to (.+)$/, (result, [repo]) => {
+        result.repo = repo;
+      }),
+      new LineParser(/^updating local tracking ref '(.+)'/, (result, [local]) => {
+        result.ref = __spreadProps(__spreadValues({}, result.ref || {}), {
+          local
+        });
+      }),
+      new LineParser(/^[*-=]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
+        result.pushed.push(pushResultPushedItem(local, remote, type));
+      }),
+      new LineParser(/^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/, (result, [local, remote, remoteName]) => {
+        result.branch = __spreadProps(__spreadValues({}, result.branch || {}), {
+          local,
+          remote,
+          remoteName
+        });
+      }),
+      new LineParser(/^([^:]+):(\S+)\s+([a-z0-9]+)\.\.([a-z0-9]+)$/, (result, [local, remote, from, to]) => {
+        result.update = {
+          head: {
+            local,
+            remote
+          },
+          hash: {
+            from,
+            to
+          }
+        };
+      })
+    ];
+    parsePushResult = (stdOut, stdErr) => {
+      const pushDetail = parsePushDetail(stdOut, stdErr);
+      const responseDetail = parseRemoteMessages(stdOut, stdErr);
+      return __spreadValues(__spreadValues({}, pushDetail), responseDetail);
+    };
+    parsePushDetail = (stdOut, stdErr) => {
+      return parseStringResponse({ pushed: [] }, parsers4, stdOut, stdErr);
+    };
+  }
+});
+var push_exports = {};
+__export2(push_exports, {
+  pushTagsTask: () => pushTagsTask,
+  pushTask: () => pushTask
+});
+function pushTagsTask(ref = {}, customArgs) {
+  append(customArgs, "--tags");
+  return pushTask(ref, customArgs);
+}
+function pushTask(ref = {}, customArgs) {
+  const commands = ["push", ...customArgs];
+  if (ref.branch) {
+    commands.splice(1, 0, ref.branch);
+  }
+  if (ref.remote) {
+    commands.splice(1, 0, ref.remote);
+  }
+  remove(commands, "-v");
+  append(commands, "--verbose");
+  append(commands, "--porcelain");
+  return {
+    commands,
+    format: "utf-8",
+    parser: parsePushResult
+  };
+}
+var init_push = __esm({
+  "src/lib/tasks/push.ts"() {
+    init_parse_push();
+    init_utils();
+  }
+});
+var fromPathRegex;
+var FileStatusSummary;
+var init_FileStatusSummary = __esm({
+  "src/lib/responses/FileStatusSummary.ts"() {
+    fromPathRegex = /^(.+) -> (.+)$/;
+    FileStatusSummary = class {
+      constructor(path4, index, working_dir) {
+        this.path = path4;
+        this.index = index;
+        this.working_dir = working_dir;
+        if (index + working_dir === "R") {
+          const detail = fromPathRegex.exec(path4) || [null, path4, path4];
+          this.from = detail[1] || "";
+          this.path = detail[2] || "";
+        }
+      }
+    };
+  }
+});
+function renamedFile(line) {
+  const detail = /^(.+) -> (.+)$/.exec(line);
+  if (!detail) {
+    return {
+      from: line,
+      to: line
+    };
+  }
+  return {
+    from: String(detail[1]),
+    to: String(detail[2])
+  };
+}
+function parser2(indexX, indexY, handler) {
+  return [`${indexX}${indexY}`, handler];
+}
+function conflicts(indexX, ...indexY) {
+  return indexY.map((y) => parser2(indexX, y, (result, file) => append(result.conflicted, file)));
+}
+function splitLine(result, lineStr) {
+  const trimmed2 = lineStr.trim();
+  switch (" ") {
+    case trimmed2.charAt(2):
+      return data9(trimmed2.charAt(0), trimmed2.charAt(1), trimmed2.substr(3));
+    case trimmed2.charAt(1):
+      return data9(" ", trimmed2.charAt(0), trimmed2.substr(2));
+    default:
+      return;
+  }
+  function data9(index, workingDir, path4) {
+    const raw = `${index}${workingDir}`;
+    const handler = parsers5.get(raw);
+    if (handler) {
+      handler(result, path4);
+    }
+    if (raw !== "##" && raw !== "!!") {
+      result.files.push(new FileStatusSummary(path4, index, workingDir));
+    }
+  }
+}
+var StatusSummary;
+var parsers5;
+var parseStatusSummary;
+var init_StatusSummary = __esm({
+  "src/lib/responses/StatusSummary.ts"() {
+    init_utils();
+    init_FileStatusSummary();
+    StatusSummary = class {
+      constructor() {
+        this.not_added = [];
+        this.conflicted = [];
+        this.created = [];
+        this.deleted = [];
+        this.ignored = void 0;
+        this.modified = [];
+        this.renamed = [];
+        this.files = [];
+        this.staged = [];
+        this.ahead = 0;
+        this.behind = 0;
+        this.current = null;
+        this.tracking = null;
+        this.detached = false;
+      }
+      isClean() {
+        return !this.files.length;
+      }
+    };
+    parsers5 = new Map([
+      parser2(" ", "A", (result, file) => append(result.created, file)),
+      parser2(" ", "D", (result, file) => append(result.deleted, file)),
+      parser2(" ", "M", (result, file) => append(result.modified, file)),
+      parser2("A", " ", (result, file) => append(result.created, file) && append(result.staged, file)),
+      parser2("A", "M", (result, file) => append(result.created, file) && append(result.staged, file) && append(result.modified, file)),
+      parser2("D", " ", (result, file) => append(result.deleted, file) && append(result.staged, file)),
+      parser2("M", " ", (result, file) => append(result.modified, file) && append(result.staged, file)),
+      parser2("M", "M", (result, file) => append(result.modified, file) && append(result.staged, file)),
+      parser2("R", " ", (result, file) => {
+        append(result.renamed, renamedFile(file));
+      }),
+      parser2("R", "M", (result, file) => {
+        const renamed = renamedFile(file);
+        append(result.renamed, renamed);
+        append(result.modified, renamed.to);
+      }),
+      parser2("!", "!", (_result, _file) => {
+        append(_result.ignored = _result.ignored || [], _file);
+      }),
+      parser2("?", "?", (result, file) => append(result.not_added, file)),
+      ...conflicts("A", "A", "U"),
+      ...conflicts("D", "D", "U"),
+      ...conflicts("U", "A", "D", "U"),
+      ["##", (result, line) => {
+        const aheadReg = /ahead (\d+)/;
+        const behindReg = /behind (\d+)/;
+        const currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
+        const trackingReg = /\.{3}(\S*)/;
+        const onEmptyBranchReg = /\son\s([\S]+)$/;
+        let regexResult;
+        regexResult = aheadReg.exec(line);
+        result.ahead = regexResult && +regexResult[1] || 0;
+        regexResult = behindReg.exec(line);
+        result.behind = regexResult && +regexResult[1] || 0;
+        regexResult = currentReg.exec(line);
+        result.current = regexResult && regexResult[1];
+        regexResult = trackingReg.exec(line);
+        result.tracking = regexResult && regexResult[1];
+        regexResult = onEmptyBranchReg.exec(line);
+        result.current = regexResult && regexResult[1] || result.current;
+        result.detached = /\(no branch\)/.test(line);
+      }]
+    ]);
+    parseStatusSummary = function(text) {
+      const lines = text.trim().split("\n");
+      const status = new StatusSummary();
+      for (let i = 0, l = lines.length; i < l; i++) {
+        splitLine(status, lines[i]);
+      }
+      return status;
+    };
+  }
+});
+function statusTask(customArgs) {
+  return {
+    format: "utf-8",
+    commands: ["status", "--porcelain", "-b", "-u", ...customArgs],
+    parser(text) {
+      return parseStatusSummary(text);
+    }
+  };
+}
+var init_status = __esm({
+  "src/lib/tasks/status.ts"() {
+    init_StatusSummary();
+  }
+});
+var simple_git_api_exports = {};
+__export2(simple_git_api_exports, {
+  SimpleGitApi: () => SimpleGitApi
+});
+var SimpleGitApi;
+var init_simple_git_api = __esm({
+  "src/lib/simple-git-api.ts"() {
+    init_task_callback();
+    init_change_working_directory();
+    init_config();
+    init_grep();
+    init_hash_object();
+    init_init();
+    init_log();
+    init_merge();
+    init_push();
+    init_status();
+    init_task();
+    init_utils();
+    SimpleGitApi = class {
+      constructor(_executor) {
+        this._executor = _executor;
+      }
+      _runTask(task, then) {
+        const chain = this._executor.chain();
+        const promise = chain.push(task);
+        if (then) {
+          taskCallback(task, promise, then);
+        }
+        return Object.create(this, {
+          then: { value: promise.then.bind(promise) },
+          catch: { value: promise.catch.bind(promise) },
+          _executor: { value: chain }
+        });
+      }
+      add(files) {
+        return this._runTask(straightThroughStringTask(["add", ...asArray(files)]), trailingFunctionArgument(arguments));
+      }
+      cwd(directory) {
+        const next = trailingFunctionArgument(arguments);
+        if (typeof directory === "string") {
+          return this._runTask(changeWorkingDirectoryTask(directory, this._executor), next);
+        }
+        if (typeof (directory == null ? void 0 : directory.path) === "string") {
+          return this._runTask(changeWorkingDirectoryTask(directory.path, directory.root && this._executor || void 0), next);
+        }
+        return this._runTask(configurationErrorTask("Git.cwd: workingDirectory must be supplied as a string"), next);
+      }
+      hashObject(path4, write) {
+        return this._runTask(hashObjectTask(path4, write === true), trailingFunctionArgument(arguments));
+      }
+      init(bare) {
+        return this._runTask(initTask(bare === true, this._executor.cwd, getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+      merge() {
+        return this._runTask(mergeTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+      mergeFromTo(remote, branch) {
+        if (!(filterString(remote) && filterString(branch))) {
+          return this._runTask(configurationErrorTask(`Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings`));
+        }
+        return this._runTask(mergeTask([remote, branch, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments, false));
+      }
+      outputHandler(handler) {
+        this._executor.outputHandler = handler;
+        return this;
+      }
+      push() {
+        const task = pushTask({
+          remote: filterType(arguments[0], filterString),
+          branch: filterType(arguments[1], filterString)
+        }, getTrailingOptions(arguments));
+        return this._runTask(task, trailingFunctionArgument(arguments));
+      }
+      stash() {
+        return this._runTask(straightThroughStringTask(["stash", ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+      }
+      status() {
+        return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+      }
+    };
+    Object.assign(SimpleGitApi.prototype, config_default(), grep_default(), log_default());
+  }
+});
+var scheduler_exports = {};
+__export2(scheduler_exports, {
+  Scheduler: () => Scheduler
+});
+var createScheduledTask;
+var Scheduler;
+var init_scheduler = __esm({
+  "src/lib/runners/scheduler.ts"() {
+    init_utils();
+    init_git_logger();
+    createScheduledTask = (() => {
+      let id = 0;
+      return () => {
+        id++;
+        const { promise, done } = (0, import_promise_deferred.createDeferred)();
+        return {
+          promise,
+          done,
+          id
+        };
+      };
+    })();
+    Scheduler = class {
+      constructor(concurrency = 2) {
+        this.concurrency = concurrency;
+        this.logger = createLogger("", "scheduler");
+        this.pending = [];
+        this.running = [];
+        this.logger(`Constructed, concurrency=%s`, concurrency);
+      }
+      schedule() {
+        if (!this.pending.length || this.running.length >= this.concurrency) {
+          this.logger(`Schedule attempt ignored, pending=%s running=%s concurrency=%s`, this.pending.length, this.running.length, this.concurrency);
+          return;
+        }
+        const task = append(this.running, this.pending.shift());
+        this.logger(`Attempting id=%s`, task.id);
+        task.done(() => {
+          this.logger(`Completing id=`, task.id);
+          remove(this.running, task);
+          this.schedule();
+        });
+      }
+      next() {
+        const { promise, id } = append(this.pending, createScheduledTask());
+        this.logger(`Scheduling id=%s`, id);
+        this.schedule();
+        return promise;
+      }
+    };
+  }
+});
+var apply_patch_exports = {};
+__export2(apply_patch_exports, {
+  applyPatchTask: () => applyPatchTask
+});
+function applyPatchTask(patches, customArgs) {
+  return straightThroughStringTask(["apply", ...customArgs, ...patches]);
+}
+var init_apply_patch = __esm({
+  "src/lib/tasks/apply-patch.ts"() {
+    init_task();
+  }
+});
+function branchDeletionSuccess(branch, hash) {
+  return {
+    branch,
+    hash,
+    success: true
+  };
+}
+function branchDeletionFailure(branch) {
+  return {
+    branch,
+    hash: null,
+    success: false
+  };
+}
+var BranchDeletionBatch;
+var init_BranchDeleteSummary = __esm({
+  "src/lib/responses/BranchDeleteSummary.ts"() {
+    BranchDeletionBatch = class {
+      constructor() {
+        this.all = [];
+        this.branches = {};
+        this.errors = [];
+      }
+      get success() {
+        return !this.errors.length;
+      }
+    };
+  }
+});
+function hasBranchDeletionError(data9, processExitCode) {
+  return processExitCode === 1 && deleteErrorRegex.test(data9);
+}
+var deleteSuccessRegex;
+var deleteErrorRegex;
+var parsers6;
+var parseBranchDeletions;
+var init_parse_branch_delete = __esm({
+  "src/lib/parsers/parse-branch-delete.ts"() {
+    init_BranchDeleteSummary();
+    init_utils();
+    deleteSuccessRegex = /(\S+)\s+\(\S+\s([^)]+)\)/;
+    deleteErrorRegex = /^error[^']+'([^']+)'/m;
+    parsers6 = [
+      new LineParser(deleteSuccessRegex, (result, [branch, hash]) => {
+        const deletion = branchDeletionSuccess(branch, hash);
+        result.all.push(deletion);
+        result.branches[branch] = deletion;
+      }),
+      new LineParser(deleteErrorRegex, (result, [branch]) => {
+        const deletion = branchDeletionFailure(branch);
+        result.errors.push(deletion);
+        result.all.push(deletion);
+        result.branches[branch] = deletion;
+      })
+    ];
+    parseBranchDeletions = (stdOut, stdErr) => {
+      return parseStringResponse(new BranchDeletionBatch(), parsers6, stdOut, stdErr);
+    };
+  }
+});
+var BranchSummaryResult;
+var init_BranchSummary = __esm({
+  "src/lib/responses/BranchSummary.ts"() {
+    BranchSummaryResult = class {
+      constructor() {
+        this.all = [];
+        this.branches = {};
+        this.current = "";
+        this.detached = false;
+      }
+      push(current, detached, name, commit, label) {
+        if (current) {
+          this.detached = detached;
+          this.current = name;
+        }
+        this.all.push(name);
+        this.branches[name] = {
+          current,
+          name,
+          commit,
+          label
+        };
+      }
+    };
+  }
+});
+function parseBranchSummary(stdOut) {
+  return parseStringResponse(new BranchSummaryResult(), parsers7, stdOut);
+}
+var parsers7;
+var init_parse_branch = __esm({
+  "src/lib/parsers/parse-branch.ts"() {
+    init_BranchSummary();
+    init_utils();
+    parsers7 = [
+      new LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(!!current, true, name, commit, label);
+      }),
+      new LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
+        result.push(!!current, false, name, commit, label);
+      })
+    ];
+  }
+});
+var branch_exports = {};
+__export2(branch_exports, {
+  branchLocalTask: () => branchLocalTask,
+  branchTask: () => branchTask,
+  containsDeleteBranchCommand: () => containsDeleteBranchCommand,
+  deleteBranchTask: () => deleteBranchTask,
+  deleteBranchesTask: () => deleteBranchesTask
+});
+function containsDeleteBranchCommand(commands) {
+  const deleteCommands = ["-d", "-D", "--delete"];
+  return commands.some((command) => deleteCommands.includes(command));
+}
+function branchTask(customArgs) {
+  const isDelete = containsDeleteBranchCommand(customArgs);
+  const commands = ["branch", ...customArgs];
+  if (commands.length === 1) {
+    commands.push("-a");
+  }
+  if (!commands.includes("-v")) {
+    commands.splice(1, 0, "-v");
+  }
+  return {
+    format: "utf-8",
+    commands,
+    parser(stdOut, stdErr) {
+      if (isDelete) {
+        return parseBranchDeletions(stdOut, stdErr).all[0];
+      }
+      return parseBranchSummary(stdOut);
+    }
+  };
+}
+function branchLocalTask() {
+  const parser3 = parseBranchSummary;
+  return {
+    format: "utf-8",
+    commands: ["branch", "-v"],
+    parser: parser3
+  };
+}
+function deleteBranchesTask(branches, forceDelete = false) {
+  return {
+    format: "utf-8",
+    commands: ["branch", "-v", forceDelete ? "-D" : "-d", ...branches],
+    parser(stdOut, stdErr) {
+      return parseBranchDeletions(stdOut, stdErr);
+    },
+    onError({ exitCode, stdOut }, error8, done, fail) {
+      if (!hasBranchDeletionError(String(error8), exitCode)) {
+        return fail(error8);
+      }
+      done(stdOut);
+    }
+  };
+}
+function deleteBranchTask(branch, forceDelete = false) {
+  const task = {
+    format: "utf-8",
+    commands: ["branch", "-v", forceDelete ? "-D" : "-d", branch],
+    parser(stdOut, stdErr) {
+      return parseBranchDeletions(stdOut, stdErr).branches[branch];
+    },
+    onError({ exitCode, stdErr, stdOut }, error8, _, fail) {
+      if (!hasBranchDeletionError(String(error8), exitCode)) {
+        return fail(error8);
+      }
+      throw new GitResponseError(task.parser(bufferToString(stdOut), bufferToString(stdErr)), String(error8));
+    }
+  };
+  return task;
+}
+var init_branch = __esm({
+  "src/lib/tasks/branch.ts"() {
+    init_git_response_error();
+    init_parse_branch_delete();
+    init_parse_branch();
+    init_utils();
+  }
+});
+var parseCheckIgnore;
+var init_CheckIgnore = __esm({
+  "src/lib/responses/CheckIgnore.ts"() {
+    parseCheckIgnore = (text) => {
+      return text.split(/\n/g).map((line) => line.trim()).filter((file) => !!file);
+    };
+  }
+});
+var check_ignore_exports = {};
+__export2(check_ignore_exports, {
+  checkIgnoreTask: () => checkIgnoreTask
+});
+function checkIgnoreTask(paths) {
+  return {
+    commands: ["check-ignore", ...paths],
+    format: "utf-8",
+    parser: parseCheckIgnore
+  };
+}
+var init_check_ignore = __esm({
+  "src/lib/tasks/check-ignore.ts"() {
+    init_CheckIgnore();
+  }
+});
+var clone_exports = {};
+__export2(clone_exports, {
+  cloneMirrorTask: () => cloneMirrorTask,
+  cloneTask: () => cloneTask
+});
+function cloneTask(repo, directory, customArgs) {
+  const commands = ["clone", ...customArgs];
+  if (typeof repo === "string") {
+    commands.push(repo);
+  }
+  if (typeof directory === "string") {
+    commands.push(directory);
+  }
+  return straightThroughStringTask(commands);
+}
+function cloneMirrorTask(repo, directory, customArgs) {
+  append(customArgs, "--mirror");
+  return cloneTask(repo, directory, customArgs);
+}
+var init_clone = __esm({
+  "src/lib/tasks/clone.ts"() {
+    init_task();
+    init_utils();
+  }
+});
+function parseCommitResult(stdOut) {
+  const result = {
+    author: null,
+    branch: "",
+    commit: "",
+    root: false,
+    summary: {
+      changes: 0,
+      insertions: 0,
+      deletions: 0
+    }
+  };
+  return parseStringResponse(result, parsers8, stdOut);
+}
+var parsers8;
+var init_parse_commit = __esm({
+  "src/lib/parsers/parse-commit.ts"() {
+    init_utils();
+    parsers8 = [
+      new LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
+        result.branch = branch;
+        result.commit = commit;
+        result.root = !!root;
+      }),
+      new LineParser(/\s*Author:\s(.+)/i, (result, [author]) => {
+        const parts = author.split("<");
+        const email = parts.pop();
+        if (!email || !email.includes("@")) {
+          return;
+        }
+        result.author = {
+          email: email.substr(0, email.length - 1),
+          name: parts.join("<").trim()
+        };
+      }),
+      new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        result.summary.insertions = parseInt(insertions, 10) || 0;
+        result.summary.deletions = parseInt(deletions, 10) || 0;
+      }),
+      new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        const count = parseInt(lines, 10) || 0;
+        if (direction === "-") {
+          result.summary.deletions = count;
+        } else if (direction === "+") {
+          result.summary.insertions = count;
+        }
+      })
+    ];
+  }
+});
+var commit_exports = {};
+__export2(commit_exports, {
+  commitTask: () => commitTask
+});
+function commitTask(message, files, customArgs) {
+  const commands = ["commit"];
+  message.forEach((m) => commands.push("-m", m));
+  commands.push(...files, ...customArgs);
+  return {
+    commands,
+    format: "utf-8",
+    parser: parseCommitResult
+  };
+}
+var init_commit = __esm({
+  "src/lib/tasks/commit.ts"() {
+    init_parse_commit();
+  }
+});
+var diff_exports = {};
+__export2(diff_exports, {
+  diffSummaryTask: () => diffSummaryTask
+});
+function diffSummaryTask(customArgs) {
+  return {
+    commands: ["diff", "--stat=4096", ...customArgs],
+    format: "utf-8",
+    parser(stdOut) {
+      return parseDiffResult(stdOut);
+    }
+  };
+}
+var init_diff = __esm({
+  "src/lib/tasks/diff.ts"() {
+    init_parse_diff_summary();
+  }
+});
+function parseFetchResult(stdOut, stdErr) {
+  const result = {
+    raw: stdOut,
+    remote: null,
+    branches: [],
+    tags: []
+  };
+  return parseStringResponse(result, parsers9, stdOut, stdErr);
+}
+var parsers9;
+var init_parse_fetch = __esm({
+  "src/lib/parsers/parse-fetch.ts"() {
+    init_utils();
+    parsers9 = [
+      new LineParser(/From (.+)$/, (result, [remote]) => {
+        result.remote = remote;
+      }),
+      new LineParser(/\* \[new branch]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
+        result.branches.push({
+          name,
+          tracking
+        });
+      }),
+      new LineParser(/\* \[new tag]\s+(\S+)\s*-> (.+)$/, (result, [name, tracking]) => {
+        result.tags.push({
+          name,
+          tracking
+        });
+      })
+    ];
+  }
+});
+var fetch_exports = {};
+__export2(fetch_exports, {
+  fetchTask: () => fetchTask
+});
+function fetchTask(remote, branch, customArgs) {
+  const commands = ["fetch", ...customArgs];
+  if (remote && branch) {
+    commands.push(remote, branch);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser: parseFetchResult
+  };
+}
+var init_fetch = __esm({
+  "src/lib/tasks/fetch.ts"() {
+    init_parse_fetch();
+  }
+});
+function parseMoveResult(stdOut) {
+  return parseStringResponse({ moves: [] }, parsers10, stdOut);
+}
+var parsers10;
+var init_parse_move = __esm({
+  "src/lib/parsers/parse-move.ts"() {
+    init_utils();
+    parsers10 = [
+      new LineParser(/^Renaming (.+) to (.+)$/, (result, [from, to]) => {
+        result.moves.push({ from, to });
+      })
+    ];
+  }
+});
+var move_exports = {};
+__export2(move_exports, {
+  moveTask: () => moveTask
+});
+function moveTask(from, to) {
+  return {
+    commands: ["mv", "-v", ...asArray(from), to],
+    format: "utf-8",
+    parser: parseMoveResult
+  };
+}
+var init_move = __esm({
+  "src/lib/tasks/move.ts"() {
+    init_parse_move();
+    init_utils();
+  }
+});
+var pull_exports = {};
+__export2(pull_exports, {
+  pullTask: () => pullTask
+});
+function pullTask(remote, branch, customArgs) {
+  const commands = ["pull", ...customArgs];
+  if (remote && branch) {
+    commands.splice(1, 0, remote, branch);
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser(stdOut, stdErr) {
+      return parsePullResult(stdOut, stdErr);
+    },
+    onError(result, _error, _done, fail) {
+      const pullError = parsePullErrorResult(bufferToString(result.stdOut), bufferToString(result.stdErr));
+      if (pullError) {
+        return fail(new GitResponseError(pullError));
+      }
+      fail(_error);
+    }
+  };
+}
+var init_pull = __esm({
+  "src/lib/tasks/pull.ts"() {
+    init_git_response_error();
+    init_parse_pull();
+    init_utils();
+  }
+});
+function parseGetRemotes(text) {
+  const remotes = {};
+  forEach(text, ([name]) => remotes[name] = { name });
+  return Object.values(remotes);
+}
+function parseGetRemotesVerbose(text) {
+  const remotes = {};
+  forEach(text, ([name, url, purpose]) => {
+    if (!remotes.hasOwnProperty(name)) {
+      remotes[name] = {
+        name,
+        refs: { fetch: "", push: "" }
+      };
+    }
+    if (purpose && url) {
+      remotes[name].refs[purpose.replace(/[^a-z]/g, "")] = url;
+    }
+  });
+  return Object.values(remotes);
+}
+function forEach(text, handler) {
+  forEachLineWithContent(text, (line) => handler(line.split(/\s+/)));
+}
+var init_GetRemoteSummary = __esm({
+  "src/lib/responses/GetRemoteSummary.ts"() {
+    init_utils();
+  }
+});
+var remote_exports = {};
+__export2(remote_exports, {
+  addRemoteTask: () => addRemoteTask,
+  getRemotesTask: () => getRemotesTask,
+  listRemotesTask: () => listRemotesTask,
+  remoteTask: () => remoteTask,
+  removeRemoteTask: () => removeRemoteTask
+});
+function addRemoteTask(remoteName, remoteRepo, customArgs = []) {
+  return straightThroughStringTask(["remote", "add", ...customArgs, remoteName, remoteRepo]);
+}
+function getRemotesTask(verbose) {
+  const commands = ["remote"];
+  if (verbose) {
+    commands.push("-v");
+  }
+  return {
+    commands,
+    format: "utf-8",
+    parser: verbose ? parseGetRemotesVerbose : parseGetRemotes
+  };
+}
+function listRemotesTask(customArgs = []) {
+  const commands = [...customArgs];
+  if (commands[0] !== "ls-remote") {
+    commands.unshift("ls-remote");
+  }
+  return straightThroughStringTask(commands);
+}
+function remoteTask(customArgs = []) {
+  const commands = [...customArgs];
+  if (commands[0] !== "remote") {
+    commands.unshift("remote");
+  }
+  return straightThroughStringTask(commands);
+}
+function removeRemoteTask(remoteName) {
+  return straightThroughStringTask(["remote", "remove", remoteName]);
+}
+var init_remote = __esm({
+  "src/lib/tasks/remote.ts"() {
+    init_GetRemoteSummary();
+    init_task();
+  }
+});
+var stash_list_exports = {};
+__export2(stash_list_exports, {
+  stashListTask: () => stashListTask
+});
+function stashListTask(opt = {}, customArgs) {
+  const options3 = parseLogOptions(opt);
+  const parser3 = createListLogSummaryParser(options3.splitter, options3.fields);
+  return {
+    commands: ["stash", "list", ...options3.commands, ...customArgs],
+    format: "utf-8",
+    parser: parser3
+  };
+}
+var init_stash_list = __esm({
+  "src/lib/tasks/stash-list.ts"() {
+    init_parse_list_log_summary();
+    init_log();
+  }
+});
+var sub_module_exports = {};
+__export2(sub_module_exports, {
+  addSubModuleTask: () => addSubModuleTask,
+  initSubModuleTask: () => initSubModuleTask,
+  subModuleTask: () => subModuleTask,
+  updateSubModuleTask: () => updateSubModuleTask
+});
+function addSubModuleTask(repo, path4) {
+  return subModuleTask(["add", repo, path4]);
+}
+function initSubModuleTask(customArgs) {
+  return subModuleTask(["init", ...customArgs]);
+}
+function subModuleTask(customArgs) {
+  const commands = [...customArgs];
+  if (commands[0] !== "submodule") {
+    commands.unshift("submodule");
+  }
+  return straightThroughStringTask(commands);
+}
+function updateSubModuleTask(customArgs) {
+  return subModuleTask(["update", ...customArgs]);
+}
+var init_sub_module = __esm({
+  "src/lib/tasks/sub-module.ts"() {
+    init_task();
+  }
+});
+function singleSorted(a, b) {
+  const aIsNum = isNaN(a);
+  const bIsNum = isNaN(b);
+  if (aIsNum !== bIsNum) {
+    return aIsNum ? 1 : -1;
+  }
+  return aIsNum ? sorted(a, b) : 0;
+}
+function sorted(a, b) {
+  return a === b ? 0 : a > b ? 1 : -1;
+}
+function trimmed(input) {
+  return input.trim();
+}
+function toNumber(input) {
+  if (typeof input === "string") {
+    return parseInt(input.replace(/^\D+/g, ""), 10) || 0;
+  }
+  return 0;
+}
+var TagList;
+var parseTagList;
+var init_TagList = __esm({
+  "src/lib/responses/TagList.ts"() {
+    TagList = class {
+      constructor(all, latest) {
+        this.all = all;
+        this.latest = latest;
+      }
+    };
+    parseTagList = function(data9, customSort = false) {
+      const tags = data9.split("\n").map(trimmed).filter(Boolean);
+      if (!customSort) {
+        tags.sort(function(tagA, tagB) {
+          const partsA = tagA.split(".");
+          const partsB = tagB.split(".");
+          if (partsA.length === 1 || partsB.length === 1) {
+            return singleSorted(toNumber(partsA[0]), toNumber(partsB[0]));
+          }
+          for (let i = 0, l = Math.max(partsA.length, partsB.length); i < l; i++) {
+            const diff = sorted(toNumber(partsA[i]), toNumber(partsB[i]));
+            if (diff) {
+              return diff;
+            }
+          }
+          return 0;
+        });
+      }
+      const latest = customSort ? tags[0] : [...tags].reverse().find((tag) => tag.indexOf(".") >= 0);
+      return new TagList(tags, latest);
+    };
+  }
+});
+var tag_exports = {};
+__export2(tag_exports, {
+  addAnnotatedTagTask: () => addAnnotatedTagTask,
+  addTagTask: () => addTagTask,
+  tagListTask: () => tagListTask
+});
+function tagListTask(customArgs = []) {
+  const hasCustomSort = customArgs.some((option) => /^--sort=/.test(option));
+  return {
+    format: "utf-8",
+    commands: ["tag", "-l", ...customArgs],
+    parser(text) {
+      return parseTagList(text, hasCustomSort);
+    }
+  };
+}
+function addTagTask(name) {
+  return {
+    format: "utf-8",
+    commands: ["tag", name],
+    parser() {
+      return { name };
+    }
+  };
+}
+function addAnnotatedTagTask(name, tagMessage) {
+  return {
+    format: "utf-8",
+    commands: ["tag", "-a", "-m", tagMessage, name],
+    parser() {
+      return { name };
+    }
+  };
+}
+var init_tag = __esm({
+  "src/lib/tasks/tag.ts"() {
+    init_TagList();
+  }
+});
+var require_git = __commonJS2({
+  "src/git.js"(exports, module2) {
+    var { GitExecutor: GitExecutor2 } = (init_git_executor(), __toCommonJS2(git_executor_exports));
+    var { SimpleGitApi: SimpleGitApi2 } = (init_simple_git_api(), __toCommonJS2(simple_git_api_exports));
+    var { Scheduler: Scheduler2 } = (init_scheduler(), __toCommonJS2(scheduler_exports));
+    var { configurationErrorTask: configurationErrorTask2 } = (init_task(), __toCommonJS2(task_exports));
+    var {
+      asArray: asArray2,
+      filterArray: filterArray2,
+      filterPrimitives: filterPrimitives2,
+      filterString: filterString2,
+      filterStringOrStringArray: filterStringOrStringArray2,
+      filterType: filterType2,
+      getTrailingOptions: getTrailingOptions2,
+      trailingFunctionArgument: trailingFunctionArgument2,
+      trailingOptionsArgument: trailingOptionsArgument2
+    } = (init_utils(), __toCommonJS2(utils_exports));
+    var { applyPatchTask: applyPatchTask2 } = (init_apply_patch(), __toCommonJS2(apply_patch_exports));
+    var { branchTask: branchTask2, branchLocalTask: branchLocalTask2, deleteBranchesTask: deleteBranchesTask2, deleteBranchTask: deleteBranchTask2 } = (init_branch(), __toCommonJS2(branch_exports));
+    var { checkIgnoreTask: checkIgnoreTask2 } = (init_check_ignore(), __toCommonJS2(check_ignore_exports));
+    var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS2(check_is_repo_exports));
+    var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS2(clone_exports));
+    var { cleanWithOptionsTask: cleanWithOptionsTask2, isCleanOptionsArray: isCleanOptionsArray2 } = (init_clean(), __toCommonJS2(clean_exports));
+    var { commitTask: commitTask2 } = (init_commit(), __toCommonJS2(commit_exports));
+    var { diffSummaryTask: diffSummaryTask2 } = (init_diff(), __toCommonJS2(diff_exports));
+    var { fetchTask: fetchTask2 } = (init_fetch(), __toCommonJS2(fetch_exports));
+    var { moveTask: moveTask2 } = (init_move(), __toCommonJS2(move_exports));
+    var { pullTask: pullTask2 } = (init_pull(), __toCommonJS2(pull_exports));
+    var { pushTagsTask: pushTagsTask2 } = (init_push(), __toCommonJS2(push_exports));
+    var { addRemoteTask: addRemoteTask2, getRemotesTask: getRemotesTask2, listRemotesTask: listRemotesTask2, remoteTask: remoteTask2, removeRemoteTask: removeRemoteTask2 } = (init_remote(), __toCommonJS2(remote_exports));
+    var { getResetMode: getResetMode2, resetTask: resetTask2 } = (init_reset(), __toCommonJS2(reset_exports));
+    var { stashListTask: stashListTask2 } = (init_stash_list(), __toCommonJS2(stash_list_exports));
+    var { addSubModuleTask: addSubModuleTask2, initSubModuleTask: initSubModuleTask2, subModuleTask: subModuleTask2, updateSubModuleTask: updateSubModuleTask2 } = (init_sub_module(), __toCommonJS2(sub_module_exports));
+    var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS2(tag_exports));
+    var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS2(task_exports));
+    function Git2(options3, plugins) {
+      this._executor = new GitExecutor2(options3.binary, options3.baseDir, new Scheduler2(options3.maxConcurrentProcesses), plugins);
+    }
+    (Git2.prototype = Object.create(SimpleGitApi2.prototype)).constructor = Git2;
+    Git2.prototype.customBinary = function(command) {
+      this._executor.binary = command;
+      return this;
+    };
+    Git2.prototype.env = function(name, value) {
+      if (arguments.length === 1 && typeof name === "object") {
+        this._executor.env = name;
+      } else {
+        (this._executor.env = this._executor.env || {})[name] = value;
+      }
+      return this;
+    };
+    Git2.prototype.stashList = function(options3) {
+      return this._runTask(stashListTask2(trailingOptionsArgument2(arguments) || {}, filterArray2(options3) && options3 || []), trailingFunctionArgument2(arguments));
+    };
+    function createCloneTask(api, task, repoPath, localPath) {
+      if (typeof repoPath !== "string") {
+        return configurationErrorTask2(`git.${api}() requires a string 'repoPath'`);
+      }
+      return task(repoPath, filterType2(localPath, filterString2), getTrailingOptions2(arguments));
+    }
+    Git2.prototype.clone = function() {
+      return this._runTask(createCloneTask("clone", cloneTask2, ...arguments), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.mirror = function() {
+      return this._runTask(createCloneTask("mirror", cloneMirrorTask2, ...arguments), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.mv = function(from, to) {
+      return this._runTask(moveTask2(from, to), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutLatestTag = function(then) {
+      var git3 = this;
+      return this.pull(function() {
+        git3.tags(function(err, tags) {
+          git3.checkout(tags.latest, then);
+        });
+      });
+    };
+    Git2.prototype.commit = function(message, files, options3, then) {
+      const next = trailingFunctionArgument2(arguments);
+      if (!filterStringOrStringArray2(message)) {
+        return this._runTask(configurationErrorTask2("git.commit: requires the commit message to be supplied as a string/string[]"), next);
+      }
+      return this._runTask(commitTask2(asArray2(message), asArray2(filterType2(files, filterStringOrStringArray2, [])), [...filterType2(options3, filterArray2, []), ...getTrailingOptions2(arguments, 0, true)]), next);
+    };
+    Git2.prototype.pull = function(remote, branch, options3, then) {
+      return this._runTask(pullTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.fetch = function(remote, branch) {
+      return this._runTask(fetchTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.silent = function(silence) {
+      console.warn("simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3");
+      return this;
+    };
+    Git2.prototype.tags = function(options3, then) {
+      return this._runTask(tagListTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rebase = function() {
+      return this._runTask(straightThroughStringTask2(["rebase", ...getTrailingOptions2(arguments)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.reset = function(mode) {
+      return this._runTask(resetTask2(getResetMode2(mode), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.revert = function(commit) {
+      const next = trailingFunctionArgument2(arguments);
+      if (typeof commit !== "string") {
+        return this._runTask(configurationErrorTask2("Commit must be a string"), next);
+      }
+      return this._runTask(straightThroughStringTask2(["revert", ...getTrailingOptions2(arguments, 0, true), commit]), next);
+    };
+    Git2.prototype.addTag = function(name) {
+      const task = typeof name === "string" ? addTagTask2(name) : configurationErrorTask2("Git.addTag requires a tag name");
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.addAnnotatedTag = function(tagName, tagMessage) {
+      return this._runTask(addAnnotatedTagTask2(tagName, tagMessage), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkout = function() {
+      const commands = ["checkout", ...getTrailingOptions2(arguments, true)];
+      return this._runTask(straightThroughStringTask2(commands), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutBranch = function(branchName, startPoint, then) {
+      return this.checkout(["-b", branchName, startPoint], trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkoutLocalBranch = function(branchName, then) {
+      return this.checkout(["-b", branchName], trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.deleteLocalBranch = function(branchName, forceDelete, then) {
+      return this._runTask(deleteBranchTask2(branchName, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.deleteLocalBranches = function(branchNames, forceDelete, then) {
+      return this._runTask(deleteBranchesTask2(branchNames, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.branch = function(options3, then) {
+      return this._runTask(branchTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.branchLocal = function(then) {
+      return this._runTask(branchLocalTask2(), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.raw = function(commands) {
+      const createRestCommands = !Array.isArray(commands);
+      const command = [].slice.call(createRestCommands ? arguments : commands, 0);
+      for (let i = 0; i < command.length && createRestCommands; i++) {
+        if (!filterPrimitives2(command[i])) {
+          command.splice(i, command.length - i);
+          break;
+        }
+      }
+      command.push(...getTrailingOptions2(arguments, 0, true));
+      var next = trailingFunctionArgument2(arguments);
+      if (!command.length) {
+        return this._runTask(configurationErrorTask2("Raw: must supply one or more command to execute"), next);
+      }
+      return this._runTask(straightThroughStringTask2(command), next);
+    };
+    Git2.prototype.submoduleAdd = function(repo, path4, then) {
+      return this._runTask(addSubModuleTask2(repo, path4), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.submoduleUpdate = function(args, then) {
+      return this._runTask(updateSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.submoduleInit = function(args, then) {
+      return this._runTask(initSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.subModule = function(options3, then) {
+      return this._runTask(subModuleTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.listRemote = function() {
+      return this._runTask(listRemotesTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.addRemote = function(remoteName, remoteRepo, then) {
+      return this._runTask(addRemoteTask2(remoteName, remoteRepo, getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.removeRemote = function(remoteName, then) {
+      return this._runTask(removeRemoteTask2(remoteName), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.getRemotes = function(verbose, then) {
+      return this._runTask(getRemotesTask2(verbose === true), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.remote = function(options3, then) {
+      return this._runTask(remoteTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.tag = function(options3, then) {
+      const command = getTrailingOptions2(arguments);
+      if (command[0] !== "tag") {
+        command.unshift("tag");
+      }
+      return this._runTask(straightThroughStringTask2(command), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.updateServerInfo = function(then) {
+      return this._runTask(straightThroughStringTask2(["update-server-info"]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.pushTags = function(remote, then) {
+      const task = pushTagsTask2({ remote: filterType2(remote, filterString2) }, getTrailingOptions2(arguments));
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rm = function(files) {
+      return this._runTask(straightThroughStringTask2(["rm", "-f", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.rmKeepLocal = function(files) {
+      return this._runTask(straightThroughStringTask2(["rm", "--cached", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.catFile = function(options3, then) {
+      return this._catFile("utf-8", arguments);
+    };
+    Git2.prototype.binaryCatFile = function() {
+      return this._catFile("buffer", arguments);
+    };
+    Git2.prototype._catFile = function(format, args) {
+      var handler = trailingFunctionArgument2(args);
+      var command = ["cat-file"];
+      var options3 = args[0];
+      if (typeof options3 === "string") {
+        return this._runTask(configurationErrorTask2("Git.catFile: options must be supplied as an array of strings"), handler);
+      }
+      if (Array.isArray(options3)) {
+        command.push.apply(command, options3);
+      }
+      const task = format === "buffer" ? straightThroughBufferTask2(command) : straightThroughStringTask2(command);
+      return this._runTask(task, handler);
+    };
+    Git2.prototype.diff = function(options3, then) {
+      const task = filterString2(options3) ? configurationErrorTask2("git.diff: supplying options as a single string is no longer supported, switch to an array of strings") : straightThroughStringTask2(["diff", ...getTrailingOptions2(arguments)]);
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.diffSummary = function() {
+      return this._runTask(diffSummaryTask2(getTrailingOptions2(arguments, 1)), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.applyPatch = function(patches) {
+      const task = !filterStringOrStringArray2(patches) ? configurationErrorTask2(`git.applyPatch requires one or more string patches as the first argument`) : applyPatchTask2(asArray2(patches), getTrailingOptions2([].slice.call(arguments, 1)));
+      return this._runTask(task, trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.revparse = function() {
+      const commands = ["rev-parse", ...getTrailingOptions2(arguments, true)];
+      return this._runTask(straightThroughStringTask2(commands, true), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.show = function(options3, then) {
+      return this._runTask(straightThroughStringTask2(["show", ...getTrailingOptions2(arguments, 1)]), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.clean = function(mode, options3, then) {
+      const usingCleanOptionsArray = isCleanOptionsArray2(mode);
+      const cleanMode = usingCleanOptionsArray && mode.join("") || filterType2(mode, filterString2) || "";
+      const customArgs = getTrailingOptions2([].slice.call(arguments, usingCleanOptionsArray ? 1 : 0));
+      return this._runTask(cleanWithOptionsTask2(cleanMode, customArgs), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.exec = function(then) {
+      const task = {
+        commands: [],
+        format: "utf-8",
+        parser() {
+          if (typeof then === "function") {
+            then();
+          }
+        }
+      };
+      return this._runTask(task);
+    };
+    Git2.prototype.clearQueue = function() {
+      return this;
+    };
+    Git2.prototype.checkIgnore = function(pathnames, then) {
+      return this._runTask(checkIgnoreTask2(asArray2(filterType2(pathnames, filterStringOrStringArray2, []))), trailingFunctionArgument2(arguments));
+    };
+    Git2.prototype.checkIsRepo = function(checkType, then) {
+      return this._runTask(checkIsRepoTask2(filterType2(checkType, filterString2)), trailingFunctionArgument2(arguments));
+    };
+    module2.exports = Git2;
+  }
+});
+init_git_error();
+var GitConstructError = class extends GitError {
+  constructor(config, message) {
+    super(void 0, message);
+    this.config = config;
+  }
+};
+init_git_error();
+init_git_error();
+var GitPluginError = class extends GitError {
+  constructor(task, plugin, message) {
+    super(task, message);
+    this.task = task;
+    this.plugin = plugin;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+};
+init_git_response_error();
+init_task_configuration_error();
+init_check_is_repo();
+init_clean();
+init_config();
+init_grep();
+init_reset();
+init_utils();
+function commandConfigPrefixingPlugin(configuration) {
+  const prefix = prefixedArray(configuration, "-c");
+  return {
+    type: "spawn.args",
+    action(data9) {
+      return [...prefix, ...data9];
+    }
+  };
+}
+init_utils();
+var never = (0, import_promise_deferred2.deferred)().promise;
+function completionDetectionPlugin({
+  onClose = true,
+  onExit = 50
+} = {}) {
+  function createEvents() {
+    let exitCode = -1;
+    const events = {
+      close: (0, import_promise_deferred2.deferred)(),
+      closeTimeout: (0, import_promise_deferred2.deferred)(),
+      exit: (0, import_promise_deferred2.deferred)(),
+      exitTimeout: (0, import_promise_deferred2.deferred)()
+    };
+    const result = Promise.race([
+      onClose === false ? never : events.closeTimeout.promise,
+      onExit === false ? never : events.exitTimeout.promise
+    ]);
+    configureTimeout(onClose, events.close, events.closeTimeout);
+    configureTimeout(onExit, events.exit, events.exitTimeout);
+    return {
+      close(code) {
+        exitCode = code;
+        events.close.done();
+      },
+      exit(code) {
+        exitCode = code;
+        events.exit.done();
+      },
+      get exitCode() {
+        return exitCode;
+      },
+      result
+    };
+  }
+  function configureTimeout(flag, event, timeout) {
+    if (flag === false) {
+      return;
+    }
+    (flag === true ? event.promise : event.promise.then(() => delay(flag))).then(timeout.done);
+  }
+  return {
+    type: "spawn.after",
+    action(_0, _1) {
+      return __async(this, arguments, function* (_data, { spawned, close }) {
+        var _a2, _b;
+        const events = createEvents();
+        let deferClose = true;
+        let quickClose = () => void (deferClose = false);
+        (_a2 = spawned.stdout) == null ? void 0 : _a2.on("data", quickClose);
+        (_b = spawned.stderr) == null ? void 0 : _b.on("data", quickClose);
+        spawned.on("error", quickClose);
+        spawned.on("close", (code) => events.close(code));
+        spawned.on("exit", (code) => events.exit(code));
+        try {
+          yield events.result;
+          if (deferClose) {
+            yield delay(50);
+          }
+          close(events.exitCode);
+        } catch (err) {
+          close(events.exitCode, err);
+        }
+      });
+    }
+  };
+}
+init_git_error();
+function isTaskError(result) {
+  return !!(result.exitCode && result.stdErr.length);
+}
+function getErrorMessage(result) {
+  return Buffer.concat([...result.stdOut, ...result.stdErr]);
+}
+function errorDetectionHandler(overwrite = false, isError = isTaskError, errorMessage = getErrorMessage) {
+  return (error8, result) => {
+    if (!overwrite && error8 || !isError(result)) {
+      return error8;
+    }
+    return errorMessage(result);
+  };
+}
+function errorDetectionPlugin(config) {
+  return {
+    type: "task.error",
+    action(data9, context) {
+      const error8 = config(data9.error, {
+        stdErr: context.stdErr,
+        stdOut: context.stdOut,
+        exitCode: context.exitCode
+      });
+      if (Buffer.isBuffer(error8)) {
+        return { error: new GitError(void 0, error8.toString("utf-8")) };
+      }
+      return {
+        error: error8
+      };
+    }
+  };
+}
+init_utils();
+var PluginStore = class {
+  constructor() {
+    this.plugins = /* @__PURE__ */ new Set();
+  }
+  add(plugin) {
+    const plugins = [];
+    asArray(plugin).forEach((plugin2) => plugin2 && this.plugins.add(append(plugins, plugin2)));
+    return () => {
+      plugins.forEach((plugin2) => this.plugins.delete(plugin2));
+    };
+  }
+  exec(type, data9, context) {
+    let output = data9;
+    const contextual = Object.freeze(Object.create(context));
+    for (const plugin of this.plugins) {
+      if (plugin.type === type) {
+        output = plugin.action(output, contextual);
+      }
+    }
+    return output;
+  }
+};
+init_utils();
+function progressMonitorPlugin(progress) {
+  const progressCommand = "--progress";
+  const progressMethods = ["checkout", "clone", "fetch", "pull", "push"];
+  const onProgress = {
+    type: "spawn.after",
+    action(_data, context) {
+      var _a2;
+      if (!context.commands.includes(progressCommand)) {
+        return;
+      }
+      (_a2 = context.spawned.stderr) == null ? void 0 : _a2.on("data", (chunk) => {
+        const message = /^([\s\S]+?):\s*(\d+)% \((\d+)\/(\d+)\)/.exec(chunk.toString("utf8"));
+        if (!message) {
+          return;
+        }
+        progress({
+          method: context.method,
+          stage: progressEventStage(message[1]),
+          progress: asNumber(message[2]),
+          processed: asNumber(message[3]),
+          total: asNumber(message[4])
+        });
+      });
+    }
+  };
+  const onArgs = {
+    type: "spawn.args",
+    action(args, context) {
+      if (!progressMethods.includes(context.method)) {
+        return args;
+      }
+      return including(args, progressCommand);
+    }
+  };
+  return [onArgs, onProgress];
+}
+function progressEventStage(input) {
+  return String(input.toLowerCase().split(" ", 1)) || "unknown";
+}
+init_utils();
+function spawnOptionsPlugin(spawnOptions) {
+  const options3 = pick(spawnOptions, ["uid", "gid"]);
+  return {
+    type: "spawn.options",
+    action(data9) {
+      return __spreadValues(__spreadValues({}, options3), data9);
+    }
+  };
+}
+function timeoutPlugin({ block }) {
+  if (block > 0) {
+    return {
+      type: "spawn.after",
+      action(_data, context) {
+        var _a2, _b;
+        let timeout;
+        function wait() {
+          timeout && clearTimeout(timeout);
+          timeout = setTimeout(kill, block);
+        }
+        function stop() {
+          var _a3, _b2;
+          (_a3 = context.spawned.stdout) == null ? void 0 : _a3.off("data", wait);
+          (_b2 = context.spawned.stderr) == null ? void 0 : _b2.off("data", wait);
+          context.spawned.off("exit", stop);
+          context.spawned.off("close", stop);
+        }
+        function kill() {
+          stop();
+          context.kill(new GitPluginError(void 0, "timeout", `block timeout reached`));
+        }
+        (_a2 = context.spawned.stdout) == null ? void 0 : _a2.on("data", wait);
+        (_b = context.spawned.stderr) == null ? void 0 : _b.on("data", wait);
+        context.spawned.on("exit", stop);
+        context.spawned.on("close", stop);
+        wait();
+      }
+    };
+  }
+}
+init_utils();
+var Git = require_git();
+function gitInstanceFactory(baseDir, options3) {
+  const plugins = new PluginStore();
+  const config = createInstanceConfig(baseDir && (typeof baseDir === "string" ? { baseDir } : baseDir) || {}, options3);
+  if (!folderExists(config.baseDir)) {
+    throw new GitConstructError(config, `Cannot use simple-git on a directory that does not exist`);
+  }
+  if (Array.isArray(config.config)) {
+    plugins.add(commandConfigPrefixingPlugin(config.config));
+  }
+  plugins.add(completionDetectionPlugin(config.completion));
+  config.progress && plugins.add(progressMonitorPlugin(config.progress));
+  config.timeout && plugins.add(timeoutPlugin(config.timeout));
+  config.spawnOptions && plugins.add(spawnOptionsPlugin(config.spawnOptions));
+  plugins.add(errorDetectionPlugin(errorDetectionHandler(true)));
+  config.errors && plugins.add(errorDetectionPlugin(config.errors));
+  return new Git(config, plugins);
+}
+init_git_response_error();
+var esm_default = gitInstanceFactory;
+
+// src/typedoc.ts
+var git = esm_default();
 var version = TypeDoc.Application.VERSION;
 var defaults = {
   excludePrivate: true,
@@ -15226,7 +14718,7 @@ var defaults = {
   }
 };
 async function run(config, entry) {
-  var _a;
+  var _a2;
   try {
     const branch = await git.branchLocal();
     if (branch && branch.current)
@@ -15285,7 +14777,7 @@ async function run(config, entry) {
   if (result)
     log2.warn("TypeDoc:", result);
   else
-    log2.state("TypeDoc:", { input: entry.input, output: entry.typedoc, objects: (_a = project.children) == null ? void 0 : _a.length, generated });
+    log2.state("TypeDoc:", { input: entry.input, output: entry.typedoc, objects: (_a2 = project.children) == null ? void 0 : _a2.length, generated });
   if (typeof project.children === "undefined")
     log2.warn("TypeDoc:", "no output generated");
 }
@@ -15297,7 +14789,7 @@ var ts = __toESM(require("typescript"));
 var log3 = __toESM(require_pilogger());
 var version3 = ts.version;
 async function run2(config, entry) {
-  var _a, _b;
+  var _a2, _b;
   const configFileName = ts.findConfigFile("./", ts.sys.fileExists, "tsconfig.json") || "";
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
   const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, "./");
@@ -15314,7 +14806,7 @@ async function run2(config, entry) {
   if (config.log.debug)
     log3.data("TypeScript Options:", compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
-  const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
+  const program2 = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
   if (config.generate) {
     if (fs2.existsSync("tsconfig.json"))
       log3.warn("Generate config file exists:", ["tsconfig.json"]);
@@ -15322,16 +14814,16 @@ async function run2(config, entry) {
       const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions["include"], exclude: compilerOptions["exclude"] };
       delete tsconfig.compilerOptions.emitDeclarationOnly;
       delete tsconfig.compilerOptions.resolveJsonModule;
-      tsconfig.compilerOptions.lib = (_a = tsconfig.compilerOptions.lib) == null ? void 0 : _a.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""));
+      tsconfig.compilerOptions.lib = (_a2 = tsconfig.compilerOptions.lib) == null ? void 0 : _a2.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""));
       fs2.writeFileSync("tsconfig.json", JSON.stringify(tsconfig, null, 2));
       log3.info("Generate config file:", ["tsconfig.json"]);
     }
   }
-  const emit = program.emit();
-  const diag = ts.getPreEmitDiagnostics(program).concat(emit.diagnostics);
+  const emit = program2.emit();
+  const diag = ts.getPreEmitDiagnostics(program2).concat(emit.diagnostics);
   log3.state("Typings:", { input: entry.input, output: compilerOptions.options.outDir, files: (_b = emit.emittedFiles) == null ? void 0 : _b.length });
   if (config.log.debug)
-    log3.data("TypeScript Diag", { nodes: program.getNodeCount(), identifiers: program.getIdentifierCount(), symbols: program.getSymbolCount(), types: program.getTypeCount(), instances: program.getInstantiationCount() });
+    log3.data("TypeScript Diag", { nodes: program2.getNodeCount(), identifiers: program2.getIdentifierCount(), symbols: program2.getSymbolCount(), types: program2.getTypeCount(), instances: program2.getInstantiationCount() });
   for (const info9 of diag) {
     const msg = info9.messageText["messageText"] || info9.messageText;
     if (msg.includes("package.json"))
@@ -15349,9 +14841,9 @@ async function run2(config, entry) {
 var version5 = esbuild.version;
 var busy = false;
 async function getStats(json) {
-  var _a, _b;
+  var _a2, _b;
   const stats = { modules: 0, moduleBytes: 0, imports: 0, importBytes: 0, outputBytes: 0, outputFiles: "" };
-  if (json && ((_a = json.metafile) == null ? void 0 : _a.inputs) && ((_b = json.metafile) == null ? void 0 : _b.outputs)) {
+  if (json && ((_a2 = json.metafile) == null ? void 0 : _a2.inputs) && ((_b = json.metafile) == null ? void 0 : _b.outputs)) {
     for (const [key, val] of Object.entries(json.metafile.inputs)) {
       if (key.startsWith("node_modules")) {
         stats.modules += 1;
@@ -15542,10 +15034,10 @@ function handle(url) {
 async function httpRequest(req, res) {
   const url = decodeURI(req.url);
   handle(url).then((result) => {
-    var _a, _b, _c;
+    var _a2, _b, _c;
     const forwarded = (req.headers["forwarded"] || "").match(/for="\[(.*)\]:/);
     const remote = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers["x-forwarded-for"] || req.ip || req.socket.remoteAddress;
-    const protocol = ((_a = req.headers[":scheme"]) == null ? void 0 : _a.toUpperCase()) || "HTTP";
+    const protocol = ((_a2 = req.headers[":scheme"]) == null ? void 0 : _a2.toUpperCase()) || "HTTP";
     if (!result || !result.ok || !result.stat) {
       res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
       res.end("Error 404: Not Found\n", "utf-8");
@@ -15707,7 +15199,7 @@ var defaults2 = {
     all: ["clean", "compile", "typings", "typedoc", "lint", "changelog", "serve", "watch"]
   },
   watch: {
-    locations: ["src/**", "README.md"]
+    locations: ["src/**"]
   },
   clean: {
     locations: ["types/*", "typedoc/*"]
@@ -15730,14 +15222,13 @@ var defaults2 = {
       sourcemap: true,
       format: "esm",
       banner: { js: "/*\n  generated by @vladmandic/build  \n*/\n" },
-      minify: true,
       bundle: true,
       platform: "browser",
       treeShaking: true,
       ignoreAnnotations: false
     },
     production: {
-      minify: false
+      minify: true
     },
     development: {
       minify: false
@@ -15840,8 +15331,7 @@ function run5(config) {
 var fs5 = __toESM(require("fs"));
 var log9 = __toESM(require_pilogger());
 var import_dayjs = __toESM(require_dayjs_min());
-var import_promise2 = __toESM(require_promise());
-var git2 = (0, import_promise2.default)();
+var git2 = esm_default();
 var header = (app, url) => `# ${app.name}  
 
   Version: **${app.version}**  
@@ -15895,19 +15385,35 @@ async function run6(config, packageJson) {
 // src/cli.ts
 var fs6 = __toESM(require("fs"));
 var log10 = __toESM(require_pilogger());
-var import_commander = __toESM(require_commander());
+
+// node_modules/.pnpm/commander@9.0.0/node_modules/commander/esm.mjs
+var import_index = __toESM(require_commander(), 1);
+var {
+  program,
+  createCommand,
+  createArgument,
+  createOption,
+  CommanderError,
+  InvalidArgumentError,
+  Command,
+  Argument,
+  Option,
+  Help
+} = import_index.default;
+
+// src/cli.ts
 function run7() {
   const build3 = new Build();
   log10.header();
   if (build3.environment.tsconfig)
     build3.config.build.global["tsconfig"] = "tsconfig.json";
-  import_commander.program.option("-c, --config <file>", "specify config file");
-  import_commander.program.option("-d, --debug", "enable debug output");
-  import_commander.program.option("-g, --generate", "generate config files from templates");
-  import_commander.program.option("-l, --list", "list configured build profiles");
-  import_commander.program.option("-p, --profile <profile>", "run build for specific profile");
-  import_commander.program.parse(process.argv);
-  build3.params = { ...build3.params, ...import_commander.program.opts() };
+  program.option("-c, --config <file>", "specify config file");
+  program.option("-d, --debug", "enable debug output");
+  program.option("-g, --generate", "generate config files from templates");
+  program.option("-l, --list", "list configured build profiles");
+  program.option("-p, --profile <profile>", "run build for specific profile");
+  program.parse(process.argv);
+  build3.params = { ...build3.params, ...program.opts() };
   if (build3.params.debug) {
     log10.info("Debug output:", build3.params.debug);
     build3.config.log.debug = true;
@@ -15918,10 +15424,13 @@ function run7() {
   }
   if (build3.params.config && build3.params.config !== "") {
     if (fs6.existsSync(build3.params.config)) {
+      build3.environment.config = build3.params.config;
       const data9 = fs6.readFileSync(build3.params.config);
       try {
-        build3.config = merge(build3.config, JSON.parse(data9.toString()));
-        log10.info("Parsed config file:", build3.params.config, build3.config);
+        const parsedConfig = JSON.parse(data9.toString());
+        build3.config = merge(build3.config, parsedConfig);
+        if (build3.params.debug)
+          log10.info("Parsed config file:", build3.params.config, parsedConfig);
       } catch (e) {
         log10.error("Error parsing config file:", build3.params.config);
       }
@@ -15929,7 +15438,7 @@ function run7() {
       log10.error("Config file does not exist:", build3.params.config);
     }
   }
-  if (import_commander.program.opts().list) {
+  if (program.opts().list) {
     log10.info("Configured build profiles:");
     log10.data(build3.config.profiles);
     process.exit();
@@ -15939,15 +15448,13 @@ function run7() {
     log10.error("Profile not specified and no Default profile configured");
   } else if (!build3.config.profiles) {
     log10.error("Profiles not configured");
-  } else if (!Object.keys(build3.config.profiles).includes(profile)) {
-    log10.error("Profile not found:", profile);
   } else {
     build3.run(profile);
   }
 }
 
 // package.json
-var version7 = "0.6.9";
+var version7 = "0.7.0";
 
 // src/build.ts
 var Build = class {
@@ -15959,11 +15466,6 @@ var Build = class {
     this.config = { ...defaults2 };
     this.updateConfig = (config, options3 = {}) => {
       let local = merge(config);
-      local.profiles = {};
-      local.clean.locations = [];
-      local.lint.locations = [];
-      local.watch.locatinos = [];
-      local.build.targets = [];
       if (fs7.existsSync(".build.json")) {
         const data9 = fs7.readFileSync(".build.json");
         local = merge(local, JSON.parse(data9.toString()));
@@ -15991,6 +15493,11 @@ var Build = class {
       return json;
     };
     this.config = this.updateConfig(merge(defaults2), config);
+    this.config.profiles = {};
+    this.config.clean.locations = [];
+    this.config.lint.locations = [];
+    this.config.watch.locations = [];
+    this.config.build.targets = [];
     const tsconfig = fs7.existsSync("tsconfig.json");
     const eslintrc = fs7.existsSync(".eslintrc.json");
     const git3 = fs7.existsSync(".git") && fs7.existsSync(".git/config");
@@ -16006,6 +15513,10 @@ var Build = class {
   async run(profile, config = {}) {
     this.config = this.updateConfig(this.config, config);
     info2(profile, this.application, this.environment, this.toolchain);
+    if (!this.config.profiles[profile]) {
+      log11.error("Cannot find profile:", profile, "available:", Object.keys(this.config.profiles));
+      return {};
+    }
     const steps = Object.values(this.config.profiles[profile]);
     log11.info("Build:", { profile, steps });
     if (this.config.log.debug)

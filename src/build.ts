@@ -103,6 +103,12 @@ export class Build {
    */
   constructor(config?: Partial<Config>) {
     this.config = this.updateConfig(helpers.merge(defaults), config);
+    // reset defaults to emtpy project
+    this.config.profiles = {};
+    this.config.clean.locations = [];
+    this.config.lint.locations = [];
+    this.config.watch.locations = [];
+    this.config.build.targets = [];
     const tsconfig = fs.existsSync('tsconfig.json');
     const eslintrc = fs.existsSync('.eslintrc.json');
     const git = fs.existsSync('.git') && fs.existsSync('.git/config');
@@ -119,12 +125,6 @@ export class Build {
   updateConfig = (config, options = {}) => {
     // set defaults
     let local = helpers.merge(config);
-    // reset defaults to emtpy project
-    local.profiles = {};
-    local.clean.locations = [];
-    local.lint.locations = [];
-    local.watch.locatinos = [];
-    local.build.targets = [];
     if (fs.existsSync('.build.json')) { // add options from parsed build.json
       const data = fs.readFileSync('.build.json');
       local = helpers.merge(local, JSON.parse(data.toString()));
@@ -161,6 +161,10 @@ export class Build {
   async run(profile: string, config: Partial<Config> = {}) {
     this.config = this.updateConfig(this.config, config);
     helpers.info(profile, this.application, this.environment, this.toolchain);
+    if (!this.config.profiles[profile]) {
+      log.error('Cannot find profile:', profile, 'available:', Object.keys(this.config.profiles));
+      return {};
+    }
     const steps = Object.values(this.config.profiles[profile]);
     log.info('Build:', { profile, steps });
     if (this.config.log.debug) log.data('Configuration:', this.config);

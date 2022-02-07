@@ -37,7 +37,6 @@ export declare const defaults: {
             banner: {
                 js: string;
             };
-            minify: boolean;
             bundle: boolean;
             platform: string;
             treeShaking: boolean;

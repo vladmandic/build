@@ -2,10 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as log from '@vladmandic/pilogger';
 import * as TypeDoc from 'typedoc';
-import simpleGit from 'simple-git/promise';
+import SimpleGit from 'simple-git';
 // import * as process from 'process'; // internal
 
-const git = simpleGit();
+const git = SimpleGit();
 
 export const version = TypeDoc.Application.VERSION;
 

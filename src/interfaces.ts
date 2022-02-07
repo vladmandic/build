@@ -13,6 +13,7 @@ export interface Config {
   default: string,
   watch: { locations: string[] },
   clean: { locations: string[] },
+  lint: { locations: string[] },
   changelog: { output: string },
   serve: { sslKey: string, sslCrt: string, httpPort: number, httpsPort: number, documentRoot: string, defaultFolder: string, defaultFile: string },
   build: {

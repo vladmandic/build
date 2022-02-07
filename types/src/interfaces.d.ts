@@ -20,6 +20,9 @@ export interface Config {
     clean: {
         locations: string[];
     };
+    lint: {
+        locations: string[];
+    };
     changelog: {
         output: string;
     };

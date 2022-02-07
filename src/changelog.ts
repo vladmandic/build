@@ -5,9 +5,9 @@
 import * as fs from 'fs';
 import * as log from '@vladmandic/pilogger';
 import dayjs from 'dayjs';
-import simpleGit from 'simple-git/promise';
+import SimpleGit from 'simple-git';
 
-const git = simpleGit();
+const git = SimpleGit();
 
 const header = (app, url) => `# ${app.name}  
 

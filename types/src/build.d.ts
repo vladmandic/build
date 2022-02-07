@@ -30,7 +30,7 @@ export declare class Build {
     constructor(config?: Partial<Config>);
     updateConfig: (config: any, options?: {}) => any;
     packageJson: () => any;
-    run(profile: string, config?: Partial<Config>): Promise<Record<string, unknown>[]>;
+    run(profile: string, config?: Partial<Config>): Promise<{}>;
     clean(): Promise<void>;
     lint(): Promise<void>;
     changelog(): Promise<void>;
