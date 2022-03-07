@@ -30,9 +30,9 @@ var __toCommonJS = /* @__PURE__ */ ((cache) => {
   };
 })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.2/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.3/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.2/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.3/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
     var __getOwnPropDesc3 = Object.getOwnPropertyDescriptor;
@@ -41,26 +41,30 @@ var require_pilogger = __commonJS({
     var __hasOwnProp3 = Object.prototype.hasOwnProperty;
     var __markAsModule3 = (target) => __defProp3(target, "__esModule", { value: true });
     var __commonJS3 = (cb, mod) => function __require() {
-      return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+      return mod || (0, cb[__getOwnPropNames3(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
     var __export3 = (target, all) => {
-      __markAsModule3(target);
       for (var name in all)
         __defProp3(target, name, { get: all[name], enumerable: true });
     };
-    var __reExport3 = (target, module22, desc) => {
+    var __reExport3 = (target, module22, copyDefault, desc) => {
       if (module22 && typeof module22 === "object" || typeof module22 === "function") {
         for (let key of __getOwnPropNames3(module22))
-          if (!__hasOwnProp3.call(target, key) && key !== "default")
+          if (!__hasOwnProp3.call(target, key) && (copyDefault || key !== "default"))
             __defProp3(target, key, { get: () => module22[key], enumerable: !(desc = __getOwnPropDesc3(module22, key)) || desc.enumerable });
       }
       return target;
     };
-    var __toModule = (module22) => {
-      return __reExport3(__markAsModule3(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
+    var __toESM2 = (module22, isNodeMode) => {
+      return __reExport3(__markAsModule3(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", !isNodeMode && module22 && module22.__esModule ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
     };
+    var __toCommonJS3 = /* @__PURE__ */ ((cache) => {
+      return (module22, temp) => {
+        return cache && cache.get(module22) || (temp = __reExport3(__markAsModule3({}), module22, 1), cache && cache.set(module22, temp), temp);
+      };
+    })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
     var require_dayjs_min2 = __commonJS3({
-      "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
+      "node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
           typeof exports2 == "object" && typeof module22 != "undefined" ? module22.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
         }(exports2, function() {
@@ -262,7 +266,8 @@ var require_pilogger = __commonJS({
         });
       }
     });
-    __export3(exports, {
+    var pilogger_exports = {};
+    __export3(pilogger_exports, {
       access: () => access,
       accessFile: () => accessFile,
       assert: () => assert,
@@ -289,10 +294,10 @@ var require_pilogger = __commonJS({
       verbose: () => verbose,
       warn: () => warn9
     });
-    var os2 = __toModule(require("os"));
-    var fs8 = __toModule(require("fs"));
-    var path4 = __toModule(require("path"));
-    var import_dayjs2 = __toModule(require_dayjs_min2());
+    var os2 = __toESM2(require("os"));
+    var fs8 = __toESM2(require("fs"));
+    var path4 = __toESM2(require("path"));
+    var import_dayjs2 = __toESM2(require_dayjs_min2());
     var ANSI_BACKGROUND_OFFSET = 10;
     var wrapAnsi16 = (offset = 0) => (code) => `\x1B[${code + offset}m`;
     var wrapAnsi256 = (offset = 0) => (code) => `\x1B[${38 + offset};5;${code}m`;
@@ -464,9 +469,9 @@ var require_pilogger = __commonJS({
     }
     var ansiStyles = assembleStyles();
     var ansi_styles_default = ansiStyles;
-    var import_node_process = __toModule(require("process"));
-    var import_node_os = __toModule(require("os"));
-    var import_node_tty = __toModule(require("tty"));
+    var import_node_process = __toESM2(require("process"), 1);
+    var import_node_os = __toESM2(require("os"), 1);
+    var import_node_tty = __toESM2(require("tty"), 1);
     function hasFlag(flag, argv = import_node_process.default.argv) {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
       const position = argv.indexOf(prefix + flag);
@@ -757,7 +762,7 @@ var require_pilogger = __commonJS({
     Object.defineProperties(createChalk.prototype, styles);
     var chalk = createChalk();
     var chalkStderr = createChalk({ level: stderrColor ? stderrColor.level : 0 });
-    var import_console = __toModule(require("console"));
+    var import_console = require("console");
     var chalk2 = new Chalk({ level: 2 });
     var ring2 = [];
     var options3 = {
@@ -970,6 +975,7 @@ var require_pilogger = __commonJS({
     var fatal = (...message) => log12("fatal", ...message);
     var verbose = (...message) => log12("verbose", ...message);
     var debug2 = (...message) => log12("debug", ...message);
+    module2.exports = __toCommonJS3(pilogger_exports);
   }
 });
 
@@ -7160,17 +7166,17 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// node_modules/.pnpm/minimatch@3.0.5/node_modules/minimatch/minimatch.js
+// node_modules/.pnpm/minimatch@3.1.2/node_modules/minimatch/minimatch.js
 var require_minimatch = __commonJS({
-  "node_modules/.pnpm/minimatch@3.0.5/node_modules/minimatch/minimatch.js"(exports, module2) {
+  "node_modules/.pnpm/minimatch@3.1.2/node_modules/minimatch/minimatch.js"(exports, module2) {
     module2.exports = minimatch;
     minimatch.Minimatch = Minimatch;
-    var path4 = (() => {
+    var path4 = function() {
       try {
         return require("path");
       } catch (e) {
       }
-    })() || {
+    }() || {
       sep: "/"
     };
     minimatch.sep = path4.sep;
@@ -7203,9 +7209,8 @@ var require_minimatch = __commonJS({
       };
     }
     function ext(a, b) {
-      a = a || {};
       b = b || {};
-      const t = {};
+      var t = {};
       Object.keys(a).forEach(function(k) {
         t[k] = a[k];
       });
@@ -7218,14 +7223,14 @@ var require_minimatch = __commonJS({
       if (!def || typeof def !== "object" || !Object.keys(def).length) {
         return minimatch;
       }
-      const orig = minimatch;
-      const m = function minimatch2(p, pattern, options3) {
+      var orig = minimatch;
+      var m = function minimatch2(p, pattern, options3) {
         return orig(p, pattern, ext(def, options3));
       };
       m.Minimatch = function Minimatch2(pattern, options3) {
         return new orig.Minimatch(pattern, ext(def, options3));
       };
-      m.Minimatch.defaults = (options3) => {
+      m.Minimatch.defaults = function defaults3(options3) {
         return orig.defaults(ext(def, options3)).Minimatch;
       };
       m.filter = function filter2(pattern, options3) {
@@ -7255,8 +7260,6 @@ var require_minimatch = __commonJS({
       if (!options3.nocomment && pattern.charAt(0) === "#") {
         return false;
       }
-      if (pattern.trim() === "")
-        return p === "";
       return new Minimatch(pattern, options3).match(p);
     }
     function Minimatch(pattern, options3) {
@@ -7267,7 +7270,7 @@ var require_minimatch = __commonJS({
       if (!options3)
         options3 = {};
       pattern = pattern.trim();
-      if (path4.sep !== "/") {
+      if (!options3.allowWindowsEscape && path4.sep !== "/") {
         pattern = pattern.split(path4.sep).join("/");
       }
       this.options = options3;
@@ -7277,14 +7280,13 @@ var require_minimatch = __commonJS({
       this.negate = false;
       this.comment = false;
       this.empty = false;
+      this.partial = !!options3.partial;
       this.make();
     }
     Minimatch.prototype.debug = function() {
     };
     Minimatch.prototype.make = make;
     function make() {
-      if (this._made)
-        return;
       var pattern = this.pattern;
       var options3 = this.options;
       if (!options3.nocomment && pattern.charAt(0) === "#") {
@@ -7298,7 +7300,9 @@ var require_minimatch = __commonJS({
       this.parseNegate();
       var set = this.globSet = this.braceExpand();
       if (options3.debug)
-        this.debug = console.error;
+        this.debug = function debug2() {
+          console.error.apply(console, arguments);
+        };
       this.debug(this.pattern, set);
       set = this.globParts = set.map(function(s) {
         return s.split(slashSplit);
@@ -7350,7 +7354,7 @@ var require_minimatch = __commonJS({
       return expand(pattern);
     }
     var MAX_PATTERN_LENGTH = 1024 * 64;
-    var assertValidPattern = (pattern) => {
+    var assertValidPattern = function(pattern) {
       if (typeof pattern !== "string") {
         throw new TypeError("invalid pattern");
       }
@@ -7363,12 +7367,16 @@ var require_minimatch = __commonJS({
     function parse(pattern, isSub) {
       assertValidPattern(pattern);
       var options3 = this.options;
-      if (!options3.noglobstar && pattern === "**")
-        return GLOBSTAR;
+      if (pattern === "**") {
+        if (!options3.noglobstar)
+          return GLOBSTAR;
+        else
+          pattern = "*";
+      }
       if (pattern === "")
         return "";
       var re = "";
-      var hasMagic = false;
+      var hasMagic = !!options3.nocase;
       var escaping = false;
       var patternListStack = [];
       var negativeLists = [];
@@ -7491,17 +7499,15 @@ var require_minimatch = __commonJS({
               escaping = false;
               continue;
             }
-            if (inClass) {
-              var cs = pattern.substring(classStart + 1, i);
-              try {
-                RegExp("[" + cs + "]");
-              } catch (er) {
-                var sp = this.parse(cs, SUBPARSE);
-                re = re.substr(0, reClassStart) + "\\[" + sp[0] + "\\]";
-                hasMagic = hasMagic || sp[1];
-                inClass = false;
-                continue;
-              }
+            var cs = pattern.substring(classStart + 1, i);
+            try {
+              RegExp("[" + cs + "]");
+            } catch (er) {
+              var sp = this.parse(cs, SUBPARSE);
+              re = re.substr(0, reClassStart) + "\\[" + sp[0] + "\\]";
+              hasMagic = hasMagic || sp[1];
+              inClass = false;
+              continue;
             }
             hasMagic = true;
             inClass = false;
@@ -7543,8 +7549,8 @@ var require_minimatch = __commonJS({
       }
       var addPatternStart = false;
       switch (re.charAt(0)) {
-        case ".":
         case "[":
+        case ".":
         case "(":
           addPatternStart = true;
       }
@@ -7622,7 +7628,7 @@ var require_minimatch = __commonJS({
     }
     minimatch.match = function(list, pattern, options3) {
       options3 = options3 || {};
-      const mm = new Minimatch(pattern, options3);
+      var mm = new Minimatch(pattern, options3);
       list = list.filter(function(f) {
         return mm.match(f);
       });
@@ -7631,8 +7637,9 @@ var require_minimatch = __commonJS({
       }
       return list;
     };
-    Minimatch.prototype.match = match;
-    function match(f, partial) {
+    Minimatch.prototype.match = function match(f, partial) {
+      if (typeof partial === "undefined")
+        partial = this.partial;
       this.debug("match", f, this.pattern);
       if (this.comment)
         return false;
@@ -7671,7 +7678,7 @@ var require_minimatch = __commonJS({
       if (options3.flipNegate)
         return false;
       return this.negate;
-    }
+    };
     Minimatch.prototype.matchOne = function(file, pattern, partial) {
       var options3 = this.options;
       this.debug("matchOne", { "this": this, file, pattern });
@@ -7719,11 +7726,7 @@ var require_minimatch = __commonJS({
         }
         var hit;
         if (typeof p === "string") {
-          if (options3.nocase) {
-            hit = f.toLowerCase() === p.toLowerCase();
-          } else {
-            hit = f === p;
-          }
+          hit = f === p;
           this.debug("string match", p, f, hit);
         } else {
           hit = f.match(p);
@@ -9317,9 +9320,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.10.7/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -11194,7 +11197,7 @@ var path = __toESM(require("path"));
 var log2 = __toESM(require_pilogger());
 var TypeDoc = __toESM(require("typedoc"));
 
-// node_modules/.pnpm/simple-git@3.1.1/node_modules/simple-git/esm/index.js
+// node_modules/.pnpm/simple-git@3.2.6/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -12761,17 +12764,16 @@ function prettyFormat(format, splitter) {
   ];
 }
 function userOptions(input) {
-  const output = __spreadValues({}, input);
-  Object.keys(input).forEach((key) => {
-    if (key in excludeOptions) {
-      delete output[key];
+  return Object.keys(input).reduce((out, key) => {
+    if (!(key in excludeOptions)) {
+      out[key] = input[key];
     }
-  });
-  return output;
+    return out;
+  }, {});
 }
 function parseLogOptions(opt = {}, customArgs = []) {
-  const splitter = opt.splitter || SPLITTER;
-  const format = opt.format || {
+  const splitter = filterType(opt.splitter, filterString, SPLITTER);
+  const format = !filterPrimitives(opt.format) && opt.format ? opt.format : {
     hash: "%H",
     date: opt.strictDate === false ? "%ai" : "%aI",
     message: "%s",
@@ -12794,7 +12796,7 @@ function parseLogOptions(opt = {}, customArgs = []) {
     const rangeOperator = opt.symmetric !== false ? "..." : "..";
     suffix.push(`${opt.from}${rangeOperator}${opt.to}`);
   }
-  if (opt.file) {
+  if (filterString(opt.file)) {
     suffix.push("--follow", opt.file);
   }
   appendTaskOptions(userOptions(opt), command);
@@ -13297,9 +13299,9 @@ var init_StatusSummary = __esm({
         this.current = null;
         this.tracking = null;
         this.detached = false;
-      }
-      isClean() {
-        return !this.files.length;
+        this.isClean = () => {
+          return !this.files.length;
+        };
       }
     };
     parsers5 = new Map([
@@ -15454,7 +15456,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.0";
+var version7 = "0.7.1";
 
 // src/build.ts
 var Build = class {

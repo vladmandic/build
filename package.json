@@ -29,9 +29,9 @@
   "keywords": [],
   "dependencies": {
     "@types/node": "^17.0.21",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
-    "@vladmandic/pilogger": "^0.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "@vladmandic/pilogger": "^0.4.3",
     "chokidar": "^3.5.3",
     "commander": "^9.0.0",
     "dayjs": "^1.10.8",
@@ -42,9 +42,9 @@
     "eslint-plugin-node": "^11.1.0",
     "rimraf": "^3.0.2",
     "simple-git": "^3.2.6",
-    "ts-node": "^10.6.0",
+    "ts-node": "^10.7.0",
     "tslib": "^2.3.1",
-    "typedoc": "^0.22.12",
+    "typedoc": "^0.22.13",
     "typescript": "^4.6.2"
   }
 }
