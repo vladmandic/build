@@ -173,7 +173,7 @@ export class Build {
         case 'clean': await clean.run(this.config); break;
         case 'compile': await compile.run(this.config, steps, profile); break;
         case 'lint': await lint.run(this.config); break;
-        case 'changelog': await changelog.run(this.config, this.packageJson); break;
+        case 'changelog': await changelog.run(this.config, this.packageJson()); break;
         case 'serve': await serve.start(this.config); break;
         case 'watch': await watch.start(this.config, steps); break;
         case 'typings': break; // triggered as compile step per target
@@ -188,7 +188,7 @@ export class Build {
 
   async clean() { return clean.run(this.config); }
   async lint() { return lint.run(this.config); }
-  async changelog() { return changelog.run(this.config, this.packageJson); }
+  async changelog() { return changelog.run(this.config, this.packageJson()); }
   async serve() { return serve.start(this.config); }
   async compile(steps: Array<Steps>) { return compile.run(this.config, steps, ''); }
   async watch(steps: Array<Steps>) { return watch.start(this.config, steps); }

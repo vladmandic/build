@@ -5,7 +5,6 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -13,33 +12,27 @@ var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module2, copyDefault, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default"))
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
-  return target;
+  return to;
 };
-var __toESM = (module2, isNodeMode) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
-};
-var __toCommonJS = /* @__PURE__ */ ((cache) => {
-  return (module2, temp) => {
-    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
-  };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.3/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.4/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.3/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.4/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
     var __getOwnPropDesc3 = Object.getOwnPropertyDescriptor;
     var __getOwnPropNames3 = Object.getOwnPropertyNames;
     var __getProtoOf2 = Object.getPrototypeOf;
     var __hasOwnProp3 = Object.prototype.hasOwnProperty;
-    var __markAsModule3 = (target) => __defProp3(target, "__esModule", { value: true });
+    var __markAsModule2 = (target) => __defProp3(target, "__esModule", { value: true });
     var __commonJS3 = (cb, mod) => function __require() {
       return mod || (0, cb[__getOwnPropNames3(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
@@ -47,7 +40,7 @@ var require_pilogger = __commonJS({
       for (var name in all)
         __defProp3(target, name, { get: all[name], enumerable: true });
     };
-    var __reExport3 = (target, module22, copyDefault, desc) => {
+    var __reExport2 = (target, module22, copyDefault, desc) => {
       if (module22 && typeof module22 === "object" || typeof module22 === "function") {
         for (let key of __getOwnPropNames3(module22))
           if (!__hasOwnProp3.call(target, key) && (copyDefault || key !== "default"))
@@ -56,11 +49,11 @@ var require_pilogger = __commonJS({
       return target;
     };
     var __toESM2 = (module22, isNodeMode) => {
-      return __reExport3(__markAsModule3(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", !isNodeMode && module22 && module22.__esModule ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
+      return __reExport2(__markAsModule2(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", !isNodeMode && module22 && module22.__esModule ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
     };
     var __toCommonJS3 = /* @__PURE__ */ ((cache) => {
       return (module22, temp) => {
-        return cache && cache.get(module22) || (temp = __reExport3(__markAsModule3({}), module22, 1), cache && cache.set(module22, temp), temp);
+        return cache && cache.get(module22) || (temp = __reExport2(__markAsModule2({}), module22, 1), cache && cache.set(module22, temp), temp);
       };
     })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
     var require_dayjs_min2 = __commonJS3({
@@ -275,6 +268,7 @@ var require_pilogger = __commonJS({
       client: () => client,
       clientFile: () => clientFile,
       configure: () => configure2,
+      console: () => console2,
       data: () => data9,
       dateFormat: () => dateFormat,
       debug: () => debug2,
@@ -791,7 +785,8 @@ var require_pilogger = __commonJS({
       timed: chalk2.magentaBright("TIMED:"),
       state: chalk2.magenta("STATE:"),
       verbose: chalk2.bgGray.yellowBright("VERB: "),
-      debug: chalk2.bgGray.redBright("DEBUG:")
+      debug: chalk2.bgGray.redBright("DEBUG:"),
+      console: chalk2.gray("CONSOLE:")
     };
     var inspectOptions = {
       showHidden: false,
@@ -975,6 +970,7 @@ var require_pilogger = __commonJS({
     var fatal = (...message) => log12("fatal", ...message);
     var verbose = (...message) => log12("verbose", ...message);
     var debug2 = (...message) => log12("debug", ...message);
+    var console2 = (...message) => log12("console", ...message);
     module2.exports = __toCommonJS3(pilogger_exports);
   }
 });
@@ -9320,9 +9316,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.0/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.0/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -9344,21 +9340,25 @@ var require_dayjs_min = __commonJS({
         return { M: f, y: c, w: o, d: a, D: d, h: u, m: s, s: i, ms: r, Q: h }[t2] || String(t2 || "").toLowerCase().replace(/s$/, "");
       }, u: function(t2) {
         return t2 === void 0;
-      } }, D = "en", v = {};
-      v[D] = M;
+      } }, v = "en", D = {};
+      D[v] = M;
       var p = function(t2) {
         return t2 instanceof _;
-      }, S = function(t2, e2, n2) {
-        var r2;
-        if (!t2)
-          return D;
-        if (typeof t2 == "string")
-          v[t2] && (r2 = t2), e2 && (v[t2] = e2, r2 = t2);
-        else {
-          var i2 = t2.name;
-          v[i2] = t2, r2 = i2;
+      }, S = function t2(e2, n2, r2) {
+        var i2;
+        if (!e2)
+          return v;
+        if (typeof e2 == "string") {
+          var s2 = e2.toLowerCase();
+          D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
+          var u2 = e2.split("-");
+          if (!i2 && u2.length > 1)
+            return t2(u2[0]);
+        } else {
+          var a2 = e2.name;
+          D[a2] = e2, i2 = a2;
         }
-        return !n2 && r2 && (D = r2), r2 || !n2 && D;
+        return !r2 && i2 && (v = i2), i2 || !r2 && v;
       }, w = function(t2, e2) {
         if (p(t2))
           return t2.clone();
@@ -9424,8 +9424,8 @@ var require_dayjs_min = __commonJS({
             case f:
               return r2 ? $2(1, M3) : $2(0, M3 + 1);
             case o:
-              var D2 = this.$locale().weekStart || 0, v2 = (y2 < D2 ? y2 + 7 : y2) - D2;
-              return $2(r2 ? m3 - v2 : m3 + (6 - v2), M3);
+              var v2 = this.$locale().weekStart || 0, D2 = (y2 < v2 ? y2 + 7 : y2) - v2;
+              return $2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
             case a:
             case d:
               return l2(g2 + "Hours", 0);
@@ -9489,12 +9489,12 @@ var require_dayjs_min = __commonJS({
         }, m2.utcOffset = function() {
           return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
         }, m2.diff = function(r2, d2, $2) {
-          var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, D2 = O.m(this, M3);
-          return D2 = (l2 = {}, l2[c] = D2 / 12, l2[f] = D2, l2[h] = D2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? D2 : O.a(D2);
+          var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, v2 = O.m(this, M3);
+          return v2 = (l2 = {}, l2[c] = v2 / 12, l2[f] = v2, l2[h] = v2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? v2 : O.a(v2);
         }, m2.daysInMonth = function() {
           return this.endOf(f).$D;
         }, m2.$locale = function() {
-          return v[this.$L];
+          return D[this.$L];
         }, m2.locale = function(t2, e2) {
           if (!t2)
             return this.$L;
@@ -9520,7 +9520,7 @@ var require_dayjs_min = __commonJS({
         return t2.$i || (t2(e2, _, w), t2.$i = true), w;
       }, w.locale = S, w.isDayjs = p, w.unix = function(t2) {
         return w(1e3 * t2);
-      }, w.en = v[D], w.Ls = v, w.p = {}, w;
+      }, w.en = D[v], w.Ls = D, w.p = {}, w;
     });
   }
 });
@@ -11136,6 +11136,7 @@ var build_exports = {};
 __export(build_exports, {
   Build: () => Build
 });
+module.exports = __toCommonJS(build_exports);
 var fs7 = __toESM(require("fs"));
 var log11 = __toESM(require_pilogger());
 
@@ -11197,7 +11198,7 @@ var path = __toESM(require("path"));
 var log2 = __toESM(require_pilogger());
 var TypeDoc = __toESM(require("typedoc"));
 
-// node_modules/.pnpm/simple-git@3.2.6/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.3.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -11224,7 +11225,7 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __markAsModule2 = (target) => __defProp2(target, "__esModule", { value: true });
+var __markAsModule = (target) => __defProp2(target, "__esModule", { value: true });
 var __esm = (fn, res) => function __init() {
   return fn && (res = (0, fn[__getOwnPropNames2(fn)[0]])(fn = 0)), res;
 };
@@ -11235,7 +11236,7 @@ var __export2 = (target, all) => {
   for (var name in all)
     __defProp2(target, name, { get: all[name], enumerable: true });
 };
-var __reExport2 = (target, module2, copyDefault, desc) => {
+var __reExport = (target, module2, copyDefault, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
     for (let key of __getOwnPropNames2(module2))
       if (!__hasOwnProp2.call(target, key) && (copyDefault || key !== "default"))
@@ -11245,7 +11246,7 @@ var __reExport2 = (target, module2, copyDefault, desc) => {
 };
 var __toCommonJS2 = /* @__PURE__ */ ((cache) => {
   return (module2, temp) => {
-    return cache && cache.get(module2) || (temp = __reExport2(__markAsModule2({}), module2, 1), cache && cache.set(module2, temp), temp);
+    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
   };
 })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 var __async = (__this, __arguments, generator) => {
@@ -13877,10 +13878,17 @@ var fetch_exports = {};
 __export2(fetch_exports, {
   fetchTask: () => fetchTask
 });
+function disallowedCommand(command) {
+  return /^--upload-pack(=|$)/.test(command);
+}
 function fetchTask(remote, branch, customArgs) {
   const commands = ["fetch", ...customArgs];
   if (remote && branch) {
     commands.push(remote, branch);
+  }
+  const banned = commands.find(disallowedCommand);
+  if (banned) {
+    return configurationErrorTask(`git.fetch: potential exploit argument blocked.`);
   }
   return {
     commands,
@@ -13891,6 +13899,7 @@ function fetchTask(remote, branch, customArgs) {
 var init_fetch = __esm({
   "src/lib/tasks/fetch.ts"() {
     init_parse_fetch();
+    init_task();
   }
 });
 function parseMoveResult(stdOut) {
@@ -15456,7 +15465,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.1";
+var version7 = "0.7.2";
 
 // src/build.ts
 var Build = class {
@@ -15535,7 +15544,7 @@ var Build = class {
           await run4(this.config);
           break;
         case "changelog":
-          await run6(this.config, this.packageJson);
+          await run6(this.config, this.packageJson());
           break;
         case "serve":
           await start2(this.config);
@@ -15564,7 +15573,7 @@ var Build = class {
     return run4(this.config);
   }
   async changelog() {
-    return run6(this.config, this.packageJson);
+    return run6(this.config, this.packageJson());
   }
   async serve() {
     return start2(this.config);
@@ -15585,7 +15594,6 @@ var Build = class {
 if (require.main === module) {
   run7();
 }
-module.exports = __toCommonJS(build_exports);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Build
