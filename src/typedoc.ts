@@ -80,10 +80,18 @@ export async function run(config, entry) {
   // capture stdout messages
   td.logger.log = () => { /***/ }; // remove extra logging
   const stdout = process.stdout.write;
+  const stderr = process.stderr.write;
   const msgs: Array<string> = [];
+  const errs: Array<string> = [];
   process.stdout.write = (...msg) => (msgs.push(...msg) as unknown as boolean);
+  process.stderr.write = (...msg) => (errs.push(...msg) as unknown as boolean);
   const result = project ? await td.generateDocs(project, entry.typedoc) : null;
   process.stdout.write = stdout;
+  process.stderr.write = stderr;
+  for (const msg of errs) {
+    const lines = typeof msg === 'string' ? msg.split('\n') : [];
+    if (lines[0]) log.warn('TypeDoc:', { msg: lines[0] });
+  }
   for (const msg of msgs) {
     const lines = typeof msg === 'string' ? msg.split('\n') : [];
     if (lines.length > 0 && lines[1].length > 0) log.warn(lines[1].replace(/\u001b[^m]*?m/g, ''));

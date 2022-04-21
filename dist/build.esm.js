@@ -1092,9 +1092,9 @@ var require_ms = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/common.js
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/common.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/common.js"(exports, module2) {
     function setup(env) {
       createDebug.debug = createDebug;
       createDebug.default = createDebug;
@@ -1204,7 +1204,7 @@ var require_common = __commonJS({
           }
           namespaces = split[i].replace(/\*/g, ".*?");
           if (namespaces[0] === "-") {
-            createDebug.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
+            createDebug.skips.push(new RegExp("^" + namespaces.slice(1) + "$"));
           } else {
             createDebug.names.push(new RegExp("^" + namespaces + "$"));
           }
@@ -1255,9 +1255,9 @@ var require_common = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/browser.js
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/browser.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/browser.js"(exports, module2) {
     exports.formatArgs = formatArgs;
     exports.save = save;
     exports.load = load;
@@ -1535,9 +1535,9 @@ var require_supports_color = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/node.js
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/node.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/node.js"(exports, module2) {
     var tty = __require("tty");
     var util = __require("util");
     exports.init = init;
@@ -1706,9 +1706,9 @@ var require_node = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/index.js
+// node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/.pnpm/debug@4.3.3/node_modules/debug/src/index.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.4/node_modules/debug/src/index.js"(exports, module2) {
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
     } else {
@@ -9321,9 +9321,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.0/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.1/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.0/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.1/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -9481,7 +9481,7 @@ var require_dayjs_min = __commonJS({
           if (!this.isValid())
             return n2.invalidDate || $;
           var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = O.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, f2 = n2.months, h2 = function(t3, n3, i3, s3) {
-            return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].substr(0, s3);
+            return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
           }, c2 = function(t3) {
             return O.s(s2 % 12 || 12, t3, "0");
           }, d2 = n2.meridiem || function(t3, e3, n3) {
@@ -9516,9 +9516,9 @@ var require_dayjs_min = __commonJS({
         }, m2.toString = function() {
           return this.$d.toUTCString();
         }, M2;
-      }(), b = _.prototype;
-      return w.prototype = b, [["$ms", r], ["$s", i], ["$m", s], ["$H", u], ["$W", a], ["$M", f], ["$y", c], ["$D", d]].forEach(function(t2) {
-        b[t2[1]] = function(e2) {
+      }(), T = _.prototype;
+      return w.prototype = T, [["$ms", r], ["$s", i], ["$m", s], ["$H", u], ["$W", a], ["$M", f], ["$y", c], ["$D", d]].forEach(function(t2) {
+        T[t2[1]] = function(e2) {
           return this.$g(e2, t2[0], t2[1]);
         };
       }), w.extend = function(t2, e2) {
@@ -9530,9 +9530,9 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/error.js"(exports) {
     var CommanderError2 = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
@@ -9555,9 +9555,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/argument.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
       constructor(name, description) {
@@ -9635,9 +9635,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
       constructor() {
@@ -9828,8 +9828,8 @@ var require_help = __commonJS({
         const columnWidth = width - indent;
         if (columnWidth < minColumnWidth)
           return str;
-        const leadingStr = str.substr(0, indent);
-        const columnText = str.substr(indent);
+        const leadingStr = str.slice(0, indent);
+        const columnText = str.slice(indent);
         const indentString = " ".repeat(indent);
         const regex = new RegExp(".{1," + (columnWidth - 1) + "}([\\s\u200B]|$)|[^\\s\u200B]+?([\\s\u200B]|$)", "g");
         const lines = columnText.match(regex) || [];
@@ -9845,9 +9845,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/option.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
       constructor(flags, description) {
@@ -9871,6 +9871,7 @@ var require_option = __commonJS({
         this.parseArg = void 0;
         this.hidden = false;
         this.argChoices = void 0;
+        this.conflictsWith = [];
       }
       default(value, description) {
         this.defaultValue = value;
@@ -9879,6 +9880,10 @@ var require_option = __commonJS({
       }
       preset(arg) {
         this.presetArg = arg;
+        return this;
+      }
+      conflicts(names) {
+        this.conflictsWith = this.conflictsWith.concat(names);
         return this;
       }
       env(name) {
@@ -9955,9 +9960,9 @@ var require_option = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -10030,13 +10035,14 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = __require("events").EventEmitter;
     var childProcess = __require("child_process");
     var path4 = __require("path");
     var fs8 = __require("fs");
+    var process2 = __require("process");
     var { Argument: Argument2, humanReadableArgName } = require_argument();
     var { CommanderError: CommanderError2 } = require_error();
     var { Help: Help2 } = require_help();
@@ -10075,10 +10081,10 @@ var require_command = __commonJS({
         this._showHelpAfterError = false;
         this._showSuggestionAfterError = true;
         this._outputConfiguration = {
-          writeOut: (str) => process.stdout.write(str),
-          writeErr: (str) => process.stderr.write(str),
-          getOutHelpWidth: () => process.stdout.isTTY ? process.stdout.columns : void 0,
-          getErrHelpWidth: () => process.stderr.isTTY ? process.stderr.columns : void 0,
+          writeOut: (str) => process2.stdout.write(str),
+          writeErr: (str) => process2.stderr.write(str),
+          getOutHelpWidth: () => process2.stdout.isTTY ? process2.stdout.columns : void 0,
+          getErrHelpWidth: () => process2.stderr.isTTY ? process2.stderr.columns : void 0,
           outputError: (str, write) => write(str)
         };
         this._hidden = false;
@@ -10261,7 +10267,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         if (this._exitCallback) {
           this._exitCallback(new CommanderError2(exitCode, code, message));
         }
-        process.exit(exitCode);
+        process2.exit(exitCode);
       }
       action(fn) {
         const listener = (args) => {
@@ -10418,8 +10424,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         parseOptions = parseOptions || {};
         if (argv === void 0) {
-          argv = process.argv;
-          if (process.versions && process.versions.electron) {
+          argv = process2.argv;
+          if (process2.versions && process2.versions.electron) {
             parseOptions.from = "electron";
           }
         }
@@ -10432,7 +10438,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             userArgs = argv.slice(2);
             break;
           case "electron":
-            if (process.defaultApp) {
+            if (process2.defaultApp) {
               this._scriptPath = argv[1];
               userArgs = argv.slice(2);
             } else {
@@ -10476,6 +10482,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
           return void 0;
         }
         this._checkForMissingMandatoryOptions();
+        this._checkForConflictingOptions();
         let executableFile = subcommand._executableFile || `${this._name}-${subcommand._name}`;
         let executableDir = this._executableDir || "";
         if (this._scriptPath) {
@@ -10499,23 +10506,23 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         launchWithNode = sourceExt.includes(path4.extname(executableFile));
         let proc;
-        if (process.platform !== "win32") {
+        if (process2.platform !== "win32") {
           if (launchWithNode) {
             args.unshift(executableFile);
-            args = incrementNodeInspectorPort(process.execArgv).concat(args);
-            proc = childProcess.spawn(process.argv[0], args, { stdio: "inherit" });
+            args = incrementNodeInspectorPort(process2.execArgv).concat(args);
+            proc = childProcess.spawn(process2.argv[0], args, { stdio: "inherit" });
           } else {
             proc = childProcess.spawn(executableFile, args, { stdio: "inherit" });
           }
         } else {
           args.unshift(executableFile);
-          args = incrementNodeInspectorPort(process.execArgv).concat(args);
-          proc = childProcess.spawn(process.execPath, args, { stdio: "inherit" });
+          args = incrementNodeInspectorPort(process2.execArgv).concat(args);
+          proc = childProcess.spawn(process2.execPath, args, { stdio: "inherit" });
         }
         if (!proc.killed) {
           const signals = ["SIGUSR1", "SIGUSR2", "SIGTERM", "SIGINT", "SIGHUP"];
           signals.forEach((signal) => {
-            process.on(signal, () => {
+            process2.on(signal, () => {
               if (proc.killed === false && proc.exitCode === null) {
                 proc.kill(signal);
               }
@@ -10524,10 +10531,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         const exitCallback = this._exitCallback;
         if (!exitCallback) {
-          proc.on("close", process.exit.bind(process));
+          proc.on("close", process2.exit.bind(process2));
         } else {
           proc.on("close", () => {
-            exitCallback(new CommanderError2(process.exitCode || 0, "commander.executeSubCommandAsync", "(close)"));
+            exitCallback(new CommanderError2(process2.exitCode || 0, "commander.executeSubCommandAsync", "(close)"));
           });
         }
         proc.on("error", (err) => {
@@ -10542,7 +10549,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             throw new Error(`'${executableFile}' not executable`);
           }
           if (!exitCallback) {
-            process.exit(1);
+            process2.exit(1);
           } else {
             const wrappedError = new CommanderError2(1, "commander.executeSubCommandAsync", "(error)");
             wrappedError.nestedError = err;
@@ -10663,6 +10670,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         outputHelpIfRequested(this, parsed.unknown);
         this._checkForMissingMandatoryOptions();
+        this._checkForConflictingOptions();
         const checkForUnknownOptions = () => {
           if (parsed.unknown.length > 0) {
             this.unknownOption(parsed.unknown[0]);
@@ -10722,6 +10730,27 @@ Expecting one of '${allowedValues.join("', '")}'`);
               cmd.missingMandatoryOptionValue(anOption);
             }
           });
+        }
+      }
+      _checkForConflictingLocalOptions() {
+        const definedNonDefaultOptions = this.options.filter((option) => {
+          const optionKey = option.attributeName();
+          if (this.getOptionValue(optionKey) === void 0) {
+            return false;
+          }
+          return this.getOptionValueSource(optionKey) !== "default";
+        });
+        const optionsWithConflicting = definedNonDefaultOptions.filter((option) => option.conflictsWith.length > 0);
+        optionsWithConflicting.forEach((option) => {
+          const conflictingAndDefined = definedNonDefaultOptions.find((defined) => option.conflictsWith.includes(defined.attributeName()));
+          if (conflictingAndDefined) {
+            this._conflictingOption(option, conflictingAndDefined);
+          }
+        });
+      }
+      _checkForConflictingOptions() {
+        for (let cmd = this; cmd; cmd = cmd.parent) {
+          cmd._checkForConflictingLocalOptions();
         }
       }
       parseOptions(argv) {
@@ -10850,11 +10879,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       _parseOptionsEnv() {
         this.options.forEach((option) => {
-          if (option.envVar && option.envVar in process.env) {
+          if (option.envVar && option.envVar in process2.env) {
             const optionKey = option.attributeName();
             if (this.getOptionValue(optionKey) === void 0 || ["default", "config", "env"].includes(this.getOptionValueSource(optionKey))) {
               if (option.required || option.optional) {
-                this.emit(`optionEnv:${option.name()}`, process.env[option.envVar]);
+                this.emit(`optionEnv:${option.name()}`, process2.env[option.envVar]);
               } else {
                 this.emit(`optionEnv:${option.name()}`);
               }
@@ -10873,6 +10902,29 @@ Expecting one of '${allowedValues.join("', '")}'`);
       missingMandatoryOptionValue(option) {
         const message = `error: required option '${option.flags}' not specified`;
         this.error(message, { code: "commander.missingMandatoryOptionValue" });
+      }
+      _conflictingOption(option, conflictingOption) {
+        const findBestOptionFromValue = (option2) => {
+          const optionKey = option2.attributeName();
+          const optionValue = this.getOptionValue(optionKey);
+          const negativeOption = this.options.find((target) => target.negate && optionKey === target.attributeName());
+          const positiveOption = this.options.find((target) => !target.negate && optionKey === target.attributeName());
+          if (negativeOption && (negativeOption.presetArg === void 0 && optionValue === false || negativeOption.presetArg !== void 0 && optionValue === negativeOption.presetArg)) {
+            return negativeOption;
+          }
+          return positiveOption || option2;
+        };
+        const getErrorMessage2 = (option2) => {
+          const bestOption = findBestOptionFromValue(option2);
+          const optionKey = bestOption.attributeName();
+          const source = this.getOptionValueSource(optionKey);
+          if (source === "env") {
+            return `environment variable '${bestOption.envVar}'`;
+          }
+          return `option '${bestOption.flags}'`;
+        };
+        const message = `error: ${getErrorMessage2(option)} cannot be used with ${getErrorMessage2(conflictingOption)}`;
+        this.error(message, { code: "commander.conflictingOption" });
       }
       unknownOption(flag) {
         if (this._allowUnknownOption)
@@ -11041,7 +11093,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       help(contextOptions) {
         this.outputHelp(contextOptions);
-        let exitCode = process.exitCode || 0;
+        let exitCode = process2.exitCode || 0;
         if (exitCode === 0 && contextOptions && typeof contextOptions !== "function" && contextOptions.error) {
           exitCode = 1;
         }
@@ -11116,9 +11168,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@9.0.0/node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/index.js"(exports, module2) {
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
@@ -11198,7 +11250,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/.pnpm/simple-git@3.3.0/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.7.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
@@ -12559,6 +12611,97 @@ var init_change_working_directory = __esm({
     init_task();
   }
 });
+function parseCommitResult(stdOut) {
+  const result = {
+    author: null,
+    branch: "",
+    commit: "",
+    root: false,
+    summary: {
+      changes: 0,
+      insertions: 0,
+      deletions: 0
+    }
+  };
+  return parseStringResponse(result, parsers, stdOut);
+}
+var parsers;
+var init_parse_commit = __esm({
+  "src/lib/parsers/parse-commit.ts"() {
+    init_utils();
+    parsers = [
+      new LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
+        result.branch = branch;
+        result.commit = commit;
+        result.root = !!root;
+      }),
+      new LineParser(/\s*Author:\s(.+)/i, (result, [author]) => {
+        const parts = author.split("<");
+        const email = parts.pop();
+        if (!email || !email.includes("@")) {
+          return;
+        }
+        result.author = {
+          email: email.substr(0, email.length - 1),
+          name: parts.join("<").trim()
+        };
+      }),
+      new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        result.summary.insertions = parseInt(insertions, 10) || 0;
+        result.summary.deletions = parseInt(deletions, 10) || 0;
+      }),
+      new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
+        result.summary.changes = parseInt(changes, 10) || 0;
+        const count = parseInt(lines, 10) || 0;
+        if (direction === "-") {
+          result.summary.deletions = count;
+        } else if (direction === "+") {
+          result.summary.insertions = count;
+        }
+      })
+    ];
+  }
+});
+var commit_exports = {};
+__export(commit_exports, {
+  commitTask: () => commitTask,
+  default: () => commit_default
+});
+function commitTask(message, files, customArgs) {
+  const commands = [
+    "-c",
+    "core.abbrev=40",
+    "commit",
+    ...prefixedArray(message, "-m"),
+    ...files,
+    ...customArgs
+  ];
+  return {
+    commands,
+    format: "utf-8",
+    parser: parseCommitResult
+  };
+}
+function commit_default() {
+  return {
+    commit(message, ...rest) {
+      const next = trailingFunctionArgument(arguments);
+      const task = rejectDeprecatedSignatures(message) || commitTask(asArray(message), asArray(filterType(rest[0], filterStringOrStringArray, [])), [...filterType(rest[1], filterArray, []), ...getTrailingOptions(arguments, 0, true)]);
+      return this._runTask(task, next);
+    }
+  };
+  function rejectDeprecatedSignatures(message) {
+    return !filterStringOrStringArray(message) && configurationErrorTask(`git.commit: requires the commit message to be supplied as a string/string[]`);
+  }
+}
+var init_commit = __esm({
+  "src/lib/tasks/commit.ts"() {
+    init_parse_commit();
+    init_utils();
+    init_task();
+  }
+});
 function hashObjectTask(filePath, write) {
   const commands = ["hash-object", filePath];
   if (write) {
@@ -12974,15 +13117,15 @@ var init_parse_remote_objects = __esm({
   }
 });
 function parseRemoteMessages(_stdOut, stdErr) {
-  return parseStringResponse({ remoteMessages: new RemoteMessageSummary() }, parsers, stdErr);
+  return parseStringResponse({ remoteMessages: new RemoteMessageSummary() }, parsers2, stdErr);
 }
-var parsers;
+var parsers2;
 var RemoteMessageSummary;
 var init_parse_remote_messages = __esm({
   "src/lib/parsers/parse-remote-messages.ts"() {
     init_utils();
     init_parse_remote_objects();
-    parsers = [
+    parsers2 = [
       new RemoteLineParser(/^remote:\s*(.+)$/, (result, [text]) => {
         result.remoteMessages.all.push(text.trim());
         return false;
@@ -13013,7 +13156,7 @@ function parsePullErrorResult(stdOut, stdErr) {
 var FILE_UPDATE_REGEX;
 var SUMMARY_REGEX;
 var ACTION_REGEX;
-var parsers2;
+var parsers3;
 var errorParsers;
 var parsePullDetail;
 var parsePullResult;
@@ -13025,7 +13168,7 @@ var init_parse_pull = __esm({
     FILE_UPDATE_REGEX = /^\s*(.+?)\s+\|\s+\d+\s*(\+*)(-*)/;
     SUMMARY_REGEX = /(\d+)\D+((\d+)\D+\(\+\))?(\D+(\d+)\D+\(-\))?/;
     ACTION_REGEX = /^(create|delete) mode \d+ (.+)/;
-    parsers2 = [
+    parsers3 = [
       new LineParser(FILE_UPDATE_REGEX, (result, [file, insertions, deletions]) => {
         result.files.push(file);
         if (insertions) {
@@ -13060,14 +13203,14 @@ var init_parse_pull = __esm({
       })
     ];
     parsePullDetail = (stdOut, stdErr) => {
-      return parseStringResponse(new PullSummary(), parsers2, stdOut, stdErr);
+      return parseStringResponse(new PullSummary(), parsers3, stdOut, stdErr);
     };
     parsePullResult = (stdOut, stdErr) => {
       return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
     };
   }
 });
-var parsers3;
+var parsers4;
 var parseMergeResult;
 var parseMergeDetail;
 var init_parse_merge = __esm({
@@ -13075,7 +13218,7 @@ var init_parse_merge = __esm({
     init_MergeSummary();
     init_utils();
     init_parse_pull();
-    parsers3 = [
+    parsers4 = [
       new LineParser(/^Auto-merging\s+(.+)$/, (summary, [autoMerge]) => {
         summary.merges.push(autoMerge);
       }),
@@ -13096,7 +13239,7 @@ var init_parse_merge = __esm({
       return Object.assign(parseMergeDetail(stdOut, stdErr), parsePullResult(stdOut, stdErr));
     };
     parseMergeDetail = (stdOut) => {
-      return parseStringResponse(new MergeSummaryDetail(), parsers3, stdOut);
+      return parseStringResponse(new MergeSummaryDetail(), parsers4, stdOut);
     };
   }
 });
@@ -13137,14 +13280,14 @@ function pushResultPushedItem(local, remote, status) {
     remote
   };
 }
-var parsers4;
+var parsers5;
 var parsePushResult;
 var parsePushDetail;
 var init_parse_push = __esm({
   "src/lib/parsers/parse-push.ts"() {
     init_utils();
     init_parse_remote_messages();
-    parsers4 = [
+    parsers5 = [
       new LineParser(/^Pushing to (.+)$/, (result, [repo]) => {
         result.repo = repo;
       }),
@@ -13182,7 +13325,7 @@ var init_parse_push = __esm({
       return __spreadValues(__spreadValues({}, pushDetail), responseDetail);
     };
     parsePushDetail = (stdOut, stdErr) => {
-      return parseStringResponse({ pushed: [] }, parsers4, stdOut, stdErr);
+      return parseStringResponse({ pushed: [] }, parsers5, stdOut, stdErr);
     };
   }
 });
@@ -13268,7 +13411,7 @@ function splitLine(result, lineStr) {
   }
   function data9(index, workingDir, path4) {
     const raw = `${index}${workingDir}`;
-    const handler = parsers5.get(raw);
+    const handler = parsers6.get(raw);
     if (handler) {
       handler(result, path4);
     }
@@ -13278,7 +13421,7 @@ function splitLine(result, lineStr) {
   }
 }
 var StatusSummary;
-var parsers5;
+var parsers6;
 var parseStatusSummary;
 var init_StatusSummary = __esm({
   "src/lib/responses/StatusSummary.ts"() {
@@ -13305,7 +13448,7 @@ var init_StatusSummary = __esm({
         };
       }
     };
-    parsers5 = new Map([
+    parsers6 = new Map([
       parser2(" ", "A", (result, file) => append(result.created, file)),
       parser2(" ", "D", (result, file) => append(result.deleted, file)),
       parser2(" ", "M", (result, file) => append(result.modified, file)),
@@ -13350,7 +13493,7 @@ var init_StatusSummary = __esm({
       }]
     ]);
     parseStatusSummary = function(text) {
-      const lines = text.trim().split("\n");
+      const lines = text.trim().split(NULL);
       const status = new StatusSummary();
       for (let i = 0, l = lines.length; i < l; i++) {
         splitLine(status, lines[i]);
@@ -13360,17 +13503,27 @@ var init_StatusSummary = __esm({
   }
 });
 function statusTask(customArgs) {
+  const commands = [
+    "status",
+    "--porcelain",
+    "-b",
+    "-u",
+    "--null",
+    ...customArgs.filter((arg) => !ignoredOptions.includes(arg))
+  ];
   return {
     format: "utf-8",
-    commands: ["status", "--porcelain", "-b", "-u", ...customArgs],
+    commands,
     parser(text) {
       return parseStatusSummary(text);
     }
   };
 }
+var ignoredOptions;
 var init_status = __esm({
   "src/lib/tasks/status.ts"() {
     init_StatusSummary();
+    ignoredOptions = ["--null", "-z"];
   }
 });
 var simple_git_api_exports = {};
@@ -13382,6 +13535,7 @@ var init_simple_git_api = __esm({
   "src/lib/simple-git-api.ts"() {
     init_task_callback();
     init_change_working_directory();
+    init_commit();
     init_config();
     init_grep();
     init_hash_object();
@@ -13454,7 +13608,7 @@ var init_simple_git_api = __esm({
         return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
       }
     };
-    Object.assign(SimpleGitApi.prototype, config_default(), grep_default(), log_default());
+    Object.assign(SimpleGitApi.prototype, commit_default(), config_default(), grep_default(), log_default());
   }
 });
 var scheduler_exports = {};
@@ -13555,7 +13709,7 @@ function hasBranchDeletionError(data9, processExitCode) {
 }
 var deleteSuccessRegex;
 var deleteErrorRegex;
-var parsers6;
+var parsers7;
 var parseBranchDeletions;
 var init_parse_branch_delete = __esm({
   "src/lib/parsers/parse-branch-delete.ts"() {
@@ -13563,7 +13717,7 @@ var init_parse_branch_delete = __esm({
     init_utils();
     deleteSuccessRegex = /(\S+)\s+\(\S+\s([^)]+)\)/;
     deleteErrorRegex = /^error[^']+'([^']+)'/m;
-    parsers6 = [
+    parsers7 = [
       new LineParser(deleteSuccessRegex, (result, [branch, hash]) => {
         const deletion = branchDeletionSuccess(branch, hash);
         result.all.push(deletion);
@@ -13577,7 +13731,7 @@ var init_parse_branch_delete = __esm({
       })
     ];
     parseBranchDeletions = (stdOut, stdErr) => {
-      return parseStringResponse(new BranchDeletionBatch(), parsers6, stdOut, stdErr);
+      return parseStringResponse(new BranchDeletionBatch(), parsers7, stdOut, stdErr);
     };
   }
 });
@@ -13608,14 +13762,14 @@ var init_BranchSummary = __esm({
   }
 });
 function parseBranchSummary(stdOut) {
-  return parseStringResponse(new BranchSummaryResult(), parsers7, stdOut);
+  return parseStringResponse(new BranchSummaryResult(), parsers8, stdOut);
 }
-var parsers7;
+var parsers8;
 var init_parse_branch = __esm({
   "src/lib/parsers/parse-branch.ts"() {
     init_BranchSummary();
     init_utils();
-    parsers7 = [
+    parsers8 = [
       new LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
         result.push(!!current, true, name, commit, label);
       }),
@@ -13733,13 +13887,16 @@ __export(clone_exports, {
   cloneMirrorTask: () => cloneMirrorTask,
   cloneTask: () => cloneTask
 });
+function disallowedCommand(command) {
+  return /^--upload-pack(=|$)/.test(command);
+}
 function cloneTask(repo, directory, customArgs) {
   const commands = ["clone", ...customArgs];
-  if (typeof repo === "string") {
-    commands.push(repo);
-  }
-  if (typeof directory === "string") {
-    commands.push(directory);
+  filterString(repo) && commands.push(repo);
+  filterString(directory) && commands.push(directory);
+  const banned = commands.find(disallowedCommand);
+  if (banned) {
+    return configurationErrorTask(`git.fetch: potential exploit argument blocked.`);
   }
   return straightThroughStringTask(commands);
 }
@@ -13751,77 +13908,6 @@ var init_clone = __esm({
   "src/lib/tasks/clone.ts"() {
     init_task();
     init_utils();
-  }
-});
-function parseCommitResult(stdOut) {
-  const result = {
-    author: null,
-    branch: "",
-    commit: "",
-    root: false,
-    summary: {
-      changes: 0,
-      insertions: 0,
-      deletions: 0
-    }
-  };
-  return parseStringResponse(result, parsers8, stdOut);
-}
-var parsers8;
-var init_parse_commit = __esm({
-  "src/lib/parsers/parse-commit.ts"() {
-    init_utils();
-    parsers8 = [
-      new LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
-        result.branch = branch;
-        result.commit = commit;
-        result.root = !!root;
-      }),
-      new LineParser(/\s*Author:\s(.+)/i, (result, [author]) => {
-        const parts = author.split("<");
-        const email = parts.pop();
-        if (!email || !email.includes("@")) {
-          return;
-        }
-        result.author = {
-          email: email.substr(0, email.length - 1),
-          name: parts.join("<").trim()
-        };
-      }),
-      new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        result.summary.insertions = parseInt(insertions, 10) || 0;
-        result.summary.deletions = parseInt(deletions, 10) || 0;
-      }),
-      new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        const count = parseInt(lines, 10) || 0;
-        if (direction === "-") {
-          result.summary.deletions = count;
-        } else if (direction === "+") {
-          result.summary.insertions = count;
-        }
-      })
-    ];
-  }
-});
-var commit_exports = {};
-__export(commit_exports, {
-  commitTask: () => commitTask
-});
-function commitTask(message, files, customArgs) {
-  const commands = ["commit"];
-  message.forEach((m) => commands.push("-m", m));
-  commands.push(...files, ...customArgs);
-  return {
-    commands,
-    format: "utf-8",
-    parser: parseCommitResult
-  };
-}
-var init_commit = __esm({
-  "src/lib/tasks/commit.ts"() {
-    init_parse_commit();
   }
 });
 var diff_exports = {};
@@ -13878,7 +13964,7 @@ var fetch_exports = {};
 __export(fetch_exports, {
   fetchTask: () => fetchTask
 });
-function disallowedCommand(command) {
+function disallowedCommand2(command) {
   return /^--upload-pack(=|$)/.test(command);
 }
 function fetchTask(remote, branch, customArgs) {
@@ -13886,7 +13972,7 @@ function fetchTask(remote, branch, customArgs) {
   if (remote && branch) {
     commands.push(remote, branch);
   }
-  const banned = commands.find(disallowedCommand);
+  const banned = commands.find(disallowedCommand2);
   if (banned) {
     return configurationErrorTask(`git.fetch: potential exploit argument blocked.`);
   }
@@ -14252,13 +14338,6 @@ var require_git = __commonJS2({
           git3.checkout(tags.latest, then);
         });
       });
-    };
-    Git2.prototype.commit = function(message, files, options3, then) {
-      const next = trailingFunctionArgument2(arguments);
-      if (!filterStringOrStringArray2(message)) {
-        return this._runTask(configurationErrorTask2("git.commit: requires the commit message to be supplied as a string/string[]"), next);
-      }
-      return this._runTask(commitTask2(asArray2(message), asArray2(filterType2(files, filterStringOrStringArray2, [])), [...filterType2(options3, filterArray2, []), ...getTrailingOptions2(arguments, 0, true)]), next);
     };
     Git2.prototype.pull = function(remote, branch, options3, then) {
       return this._runTask(pullTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
@@ -14669,6 +14748,7 @@ function timeoutPlugin({ block }) {
           (_b2 = context.spawned.stderr) == null ? void 0 : _b2.off("data", wait);
           context.spawned.off("exit", stop);
           context.spawned.off("close", stop);
+          timeout && clearTimeout(timeout);
         }
         function kill() {
           stop();
@@ -14775,10 +14855,19 @@ async function run(config, entry) {
   td.logger.log = () => {
   };
   const stdout = process.stdout.write;
+  const stderr = process.stderr.write;
   const msgs = [];
+  const errs = [];
   process.stdout.write = (...msg) => msgs.push(...msg);
+  process.stderr.write = (...msg) => errs.push(...msg);
   const result = project ? await td.generateDocs(project, entry.typedoc) : null;
   process.stdout.write = stdout;
+  process.stderr.write = stderr;
+  for (const msg of errs) {
+    const lines = typeof msg === "string" ? msg.split("\n") : [];
+    if (lines[0])
+      log2.warn("TypeDoc:", { msg: lines[0] });
+  }
   for (const msg of msgs) {
     const lines = typeof msg === "string" ? msg.split("\n") : [];
     if (lines.length > 0 && lines[1].length > 0)
@@ -15397,7 +15486,7 @@ async function run6(config, packageJson) {
 var log10 = __toESM(require_pilogger());
 import * as fs6 from "fs";
 
-// node_modules/.pnpm/commander@9.0.0/node_modules/commander/esm.mjs
+// node_modules/.pnpm/commander@9.2.0/node_modules/commander/esm.mjs
 var import_index = __toESM(require_commander(), 1);
 var {
   program,
@@ -15465,7 +15554,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.2";
+var version7 = "0.7.3";
 
 // src/build.ts
 var Build = class {
