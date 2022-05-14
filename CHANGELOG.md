@@ -9,11 +9,12 @@
   
 ## Changelog
   
+### **HEAD -> main** 2022/04/21 mandic00@live.com
+
+
 ### **0.7.3** 2022/04/21 mandic00@live.com
 
-
-### **origin/main** 2022/03/16 mandic00@live.com
-
+- fix changelog header
 
 ### **0.7.2** 2022/03/16 mandic00@live.com
 

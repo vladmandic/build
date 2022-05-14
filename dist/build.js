@@ -7816,9 +7816,9 @@ var require_path_is_absolute = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.0/node_modules/glob/common.js
+// node_modules/.pnpm/glob@7.2.2/node_modules/glob/common.js
 var require_common2 = __commonJS({
-  "node_modules/.pnpm/glob@7.2.0/node_modules/glob/common.js"(exports) {
+  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/common.js"(exports) {
     exports.setopts = setopts;
     exports.ownProp = ownProp;
     exports.makeAbs = makeAbs;
@@ -7908,6 +7908,7 @@ var require_common2 = __commonJS({
       self2.nomount = !!options3.nomount;
       options3.nonegate = true;
       options3.nocomment = true;
+      options3.allowWindowsEscape = true;
       self2.minimatch = new Minimatch(pattern, options3);
       self2.options = self2.minimatch.options;
     }
@@ -8009,9 +8010,9 @@ var require_common2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.0/node_modules/glob/sync.js
+// node_modules/.pnpm/glob@7.2.2/node_modules/glob/sync.js
 var require_sync = __commonJS({
-  "node_modules/.pnpm/glob@7.2.0/node_modules/glob/sync.js"(exports, module2) {
+  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/sync.js"(exports, module2) {
     module2.exports = globSync;
     globSync.GlobSync = GlobSync;
     var rp = require_fs();
@@ -8050,7 +8051,7 @@ var require_sync = __commonJS({
       this._finish();
     }
     GlobSync.prototype._finish = function() {
-      assert(this instanceof GlobSync);
+      assert.ok(this instanceof GlobSync);
       if (this.realpath) {
         var self2 = this;
         this.matches.forEach(function(matchset, index) {
@@ -8072,7 +8073,7 @@ var require_sync = __commonJS({
       common.finish(this);
     };
     GlobSync.prototype._process = function(pattern, index, inGlobStar) {
-      assert(this instanceof GlobSync);
+      assert.ok(this instanceof GlobSync);
       var n = 0;
       while (typeof pattern[n] === "string") {
         n++;
@@ -8093,7 +8094,9 @@ var require_sync = __commonJS({
       var read;
       if (prefix === null)
         read = ".";
-      else if (isAbsolute(prefix) || isAbsolute(pattern.join("/"))) {
+      else if (isAbsolute(prefix) || isAbsolute(pattern.map(function(p) {
+        return typeof p === "string" ? p : "[*]";
+      }).join("/"))) {
         if (!prefix || !isAbsolute(prefix))
           prefix = "/" + prefix;
         read = prefix;
@@ -8482,9 +8485,9 @@ var require_inflight = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.0/node_modules/glob/glob.js
+// node_modules/.pnpm/glob@7.2.2/node_modules/glob/glob.js
 var require_glob = __commonJS({
-  "node_modules/.pnpm/glob@7.2.0/node_modules/glob/glob.js"(exports, module2) {
+  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/glob.js"(exports, module2) {
     module2.exports = glob;
     var rp = require_fs();
     var minimatch = require_minimatch();
@@ -8715,7 +8718,9 @@ var require_glob = __commonJS({
       var read;
       if (prefix === null)
         read = ".";
-      else if (isAbsolute(prefix) || isAbsolute(pattern.join("/"))) {
+      else if (isAbsolute(prefix) || isAbsolute(pattern.map(function(p) {
+        return typeof p === "string" ? p : "[*]";
+      }).join("/"))) {
         if (!prefix || !isAbsolute(prefix))
           prefix = "/" + prefix;
         read = prefix;
@@ -9316,9 +9321,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.1/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.2/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.1/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.2/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -11250,7 +11255,7 @@ var path = __toESM(require("path"));
 var log2 = __toESM(require_pilogger());
 var TypeDoc = __toESM(require("typedoc"));
 
-// node_modules/.pnpm/simple-git@3.7.0/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.7.1/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -13381,16 +13386,10 @@ var init_FileStatusSummary = __esm({
   }
 });
 function renamedFile(line) {
-  const detail = /^(.+) -> (.+)$/.exec(line);
-  if (!detail) {
-    return {
-      from: line,
-      to: line
-    };
-  }
+  const [to, from] = line.split(NULL);
   return {
-    from: String(detail[1]),
-    to: String(detail[2])
+    from: from || to,
+    to
   };
 }
 function parser2(indexX, indexY, handler) {
@@ -13416,7 +13415,7 @@ function splitLine(result, lineStr) {
       handler(result, path4);
     }
     if (raw !== "##" && raw !== "!!") {
-      result.files.push(new FileStatusSummary(path4, index, workingDir));
+      result.files.push(new FileStatusSummary(path4.replace(/\0.+$/, ""), index, workingDir));
     }
   }
 }
@@ -13493,10 +13492,17 @@ var init_StatusSummary = __esm({
       }]
     ]);
     parseStatusSummary = function(text) {
-      const lines = text.trim().split(NULL);
+      const lines = text.split(NULL);
       const status = new StatusSummary();
-      for (let i = 0, l = lines.length; i < l; i++) {
-        splitLine(status, lines[i]);
+      for (let i = 0, l = lines.length; i < l; ) {
+        let line = lines[i++].trim();
+        if (!line) {
+          continue;
+        }
+        if (line.charAt(0) === "R") {
+          line += NULL + (lines[i++] || "");
+        }
+        splitLine(status, line);
       }
       return status;
     };
@@ -15565,14 +15571,19 @@ var Build = class {
     this.application = { name: "", version: "" };
     this.config = { ...defaults2 };
     this.updateConfig = (config, options3 = {}) => {
+      var _a2, _b;
       let local = merge(config);
       if (fs7.existsSync(".build.json")) {
         const data9 = fs7.readFileSync(".build.json");
+        if ((_a2 = local.build) == null ? void 0 : _a2.targets)
+          local.build.targets = [];
         local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = ".build.json";
       }
       if (fs7.existsSync("build.json")) {
         const data9 = fs7.readFileSync("build.json");
+        if ((_b = local.build) == null ? void 0 : _b.targets)
+          local.build.targets = [];
         local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = "build.json";
       }

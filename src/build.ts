@@ -127,11 +127,13 @@ export class Build {
     let local = helpers.merge(config);
     if (fs.existsSync('.build.json')) { // add options from parsed build.json
       const data = fs.readFileSync('.build.json');
+      if (local.build?.targets) local.build.targets = [];
       local = helpers.merge(local, JSON.parse(data.toString()));
       this.environment.config = '.build.json';
     }
     if (fs.existsSync('build.json')) { // add options from parsed build.json
       const data = fs.readFileSync('build.json');
+      if (local.build?.targets) local.build.targets = [];
       local = helpers.merge(local, JSON.parse(data.toString()));
       this.environment.config = 'build.json';
     }
