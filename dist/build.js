@@ -15700,7 +15700,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.6";
+var version7 = "0.7.7";
 
 // src/build.ts
 var Build = class {
