@@ -7821,9 +7821,9 @@ var require_path_is_absolute = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.2/node_modules/glob/common.js
+// node_modules/.pnpm/glob@7.2.3/node_modules/glob/common.js
 var require_common2 = __commonJS({
-  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/common.js"(exports) {
+  "node_modules/.pnpm/glob@7.2.3/node_modules/glob/common.js"(exports) {
     exports.setopts = setopts;
     exports.ownProp = ownProp;
     exports.makeAbs = makeAbs;
@@ -7864,7 +7864,7 @@ var require_common2 = __commonJS({
     function setopts(self2, pattern, options3) {
       if (!options3)
         options3 = {};
-      if (options3.matchBase && pattern.indexOf("/") === -1) {
+      if (options3.matchBase && -1 === pattern.indexOf("/")) {
         if (options3.noglobstar) {
           throw new Error("base matching requires globstar");
         }
@@ -7913,7 +7913,7 @@ var require_common2 = __commonJS({
       self2.nomount = !!options3.nomount;
       options3.nonegate = true;
       options3.nocomment = true;
-      options3.allowWindowsEscape = true;
+      options3.allowWindowsEscape = false;
       self2.minimatch = new Minimatch(pattern, options3);
       self2.options = self2.minimatch.options;
     }
@@ -8015,9 +8015,9 @@ var require_common2 = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.2/node_modules/glob/sync.js
+// node_modules/.pnpm/glob@7.2.3/node_modules/glob/sync.js
 var require_sync = __commonJS({
-  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/sync.js"(exports, module2) {
+  "node_modules/.pnpm/glob@7.2.3/node_modules/glob/sync.js"(exports, module2) {
     module2.exports = globSync;
     globSync.GlobSync = GlobSync;
     var rp = require_fs();
@@ -8490,9 +8490,9 @@ var require_inflight = __commonJS({
   }
 });
 
-// node_modules/.pnpm/glob@7.2.2/node_modules/glob/glob.js
+// node_modules/.pnpm/glob@7.2.3/node_modules/glob/glob.js
 var require_glob = __commonJS({
-  "node_modules/.pnpm/glob@7.2.2/node_modules/glob/glob.js"(exports, module2) {
+  "node_modules/.pnpm/glob@7.2.3/node_modules/glob/glob.js"(exports, module2) {
     module2.exports = glob;
     var rp = require_fs();
     var minimatch = require_minimatch();
@@ -9326,11 +9326,11 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.2/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.2/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
-      typeof exports == "object" && typeof module2 != "undefined" ? module2.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
+      "object" == typeof exports && "undefined" != typeof module2 ? module2.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
     }(exports, function() {
       "use strict";
       var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", $ = "Invalid Date", l = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_") }, m = function(t2, e2, n2) {
@@ -9349,7 +9349,7 @@ var require_dayjs_min = __commonJS({
       }, p: function(t2) {
         return { M: f, y: c, w: o, d: a, D: d, h: u, m: s, s: i, ms: r, Q: h }[t2] || String(t2 || "").toLowerCase().replace(/s$/, "");
       }, u: function(t2) {
-        return t2 === void 0;
+        return void 0 === t2;
       } }, v = "en", D = {};
       D[v] = M;
       var p = function(t2) {
@@ -9358,7 +9358,7 @@ var require_dayjs_min = __commonJS({
         var i2;
         if (!e2)
           return v;
-        if (typeof e2 == "string") {
+        if ("string" == typeof e2) {
           var s2 = e2.toLowerCase();
           D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
           var u2 = e2.split("-");
@@ -9372,7 +9372,7 @@ var require_dayjs_min = __commonJS({
       }, w = function(t2, e2) {
         if (p(t2))
           return t2.clone();
-        var n2 = typeof e2 == "object" ? e2 : {};
+        var n2 = "object" == typeof e2 ? e2 : {};
         return n2.date = t2, n2.args = arguments, new _(n2);
       }, O = g;
       O.l = S, O.i = p, O.w = function(t2, e2) {
@@ -9386,13 +9386,13 @@ var require_dayjs_min = __commonJS({
         return m2.parse = function(t2) {
           this.$d = function(t3) {
             var e2 = t3.date, n2 = t3.utc;
-            if (e2 === null)
+            if (null === e2)
               return new Date(NaN);
             if (O.u(e2))
               return new Date();
             if (e2 instanceof Date)
               return new Date(e2);
-            if (typeof e2 == "string" && !/Z$/i.test(e2)) {
+            if ("string" == typeof e2 && !/Z$/i.test(e2)) {
               var r2 = e2.match(l);
               if (r2) {
                 var i2 = r2[2] - 1 || 0, s2 = (r2[7] || "0").substring(0, 3);
@@ -9535,9 +9535,9 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/error.js"(exports) {
     var CommanderError2 = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
@@ -9560,9 +9560,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/argument.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
       constructor(name, description) {
@@ -9640,9 +9640,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
       constructor() {
@@ -9743,7 +9743,7 @@ var require_help = __commonJS({
         return cmd.description();
       }
       subcommandDescription(cmd) {
-        return cmd.description();
+        return cmd.summary() || cmd.description();
       }
       optionDescription(option) {
         const extraInfo = [];
@@ -9850,9 +9850,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/option.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
       constructor(flags, description) {
@@ -9877,6 +9877,7 @@ var require_option = __commonJS({
         this.hidden = false;
         this.argChoices = void 0;
         this.conflictsWith = [];
+        this.implied = void 0;
       }
       default(value, description) {
         this.defaultValue = value;
@@ -9889,6 +9890,10 @@ var require_option = __commonJS({
       }
       conflicts(names) {
         this.conflictsWith = this.conflictsWith.concat(names);
+        return this;
+      }
+      implies(impliedOptionValues) {
+        this.implied = Object.assign(this.implied || {}, impliedOptionValues);
         return this;
       }
       env(name) {
@@ -9942,6 +9947,33 @@ var require_option = __commonJS({
         return !this.required && !this.optional && !this.negate;
       }
     };
+    var DualOptions = class {
+      constructor(options3) {
+        this.positiveOptions = /* @__PURE__ */ new Map();
+        this.negativeOptions = /* @__PURE__ */ new Map();
+        this.dualOptions = /* @__PURE__ */ new Set();
+        options3.forEach((option) => {
+          if (option.negate) {
+            this.negativeOptions.set(option.attributeName(), option);
+          } else {
+            this.positiveOptions.set(option.attributeName(), option);
+          }
+        });
+        this.negativeOptions.forEach((value, key) => {
+          if (this.positiveOptions.has(key)) {
+            this.dualOptions.add(key);
+          }
+        });
+      }
+      valueFromOption(value, option) {
+        const optionKey = option.attributeName();
+        if (!this.dualOptions.has(optionKey))
+          return true;
+        const preset = this.negativeOptions.get(optionKey).presetArg;
+        const negativeValue = preset !== void 0 ? preset : false;
+        return option.negate === (negativeValue === value);
+      }
+    };
     function camelcase(str) {
       return str.split("-").reduce((str2, word) => {
         return str2 + word[0].toUpperCase() + word.slice(1);
@@ -9962,12 +9994,13 @@ var require_option = __commonJS({
     }
     exports.Option = Option2;
     exports.splitOptionFlags = splitOptionFlags;
+    exports.DualOptions = DualOptions;
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -10040,9 +10073,9 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = __require("events").EventEmitter;
     var childProcess = __require("child_process");
     var path4 = __require("path");
@@ -10051,7 +10084,7 @@ var require_command = __commonJS({
     var { Argument: Argument2, humanReadableArgName } = require_argument();
     var { CommanderError: CommanderError2 } = require_error();
     var { Help: Help2 } = require_help();
-    var { Option: Option2, splitOptionFlags } = require_option();
+    var { Option: Option2, splitOptionFlags, DualOptions } = require_option();
     var { suggestSimilar } = require_suggestSimilar();
     var Command2 = class extends EventEmitter {
       constructor(name) {
@@ -10079,6 +10112,7 @@ var require_command = __commonJS({
         this._aliases = [];
         this._combineFlagAndOptionalValue = true;
         this._description = "";
+        this._summary = "";
         this._argsDescription = void 0;
         this._enablePositionalOptions = false;
         this._passThroughOptions = false;
@@ -10654,6 +10688,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       _parseCommand(operands, unknown) {
         const parsed = this.parseOptions(unknown);
         this._parseOptionsEnv();
+        this._parseOptionsImplied();
         operands = operands.concat(parsed.operands);
         unknown = parsed.unknown;
         this.args = operands.concat(unknown);
@@ -10896,6 +10931,17 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
         });
       }
+      _parseOptionsImplied() {
+        const dualHelper = new DualOptions(this.options);
+        const hasCustomOptionValue = (optionKey) => {
+          return this.getOptionValue(optionKey) !== void 0 && !["default", "implied"].includes(this.getOptionValueSource(optionKey));
+        };
+        this.options.filter((option) => option.implied !== void 0 && hasCustomOptionValue(option.attributeName()) && dualHelper.valueFromOption(this.getOptionValue(option.attributeName()), option)).forEach((option) => {
+          Object.keys(option.implied).filter((impliedKey) => !hasCustomOptionValue(impliedKey)).forEach((impliedKey) => {
+            this.setOptionValueWithSource(impliedKey, option.implied[impliedKey], "implied");
+          });
+        });
+      }
       missingArgument(name) {
         const message = `error: missing required argument '${name}'`;
         this.error(message, { code: "commander.missingArgument" });
@@ -10995,6 +11041,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         if (argsDescription) {
           this._argsDescription = argsDescription;
         }
+        return this;
+      }
+      summary(str) {
+        if (str === void 0)
+          return this._summary;
+        this._summary = str;
         return this;
       }
       alias(alias) {
@@ -11173,9 +11225,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@9.2.0/node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/index.js"(exports, module2) {
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
@@ -11255,7 +11307,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/.pnpm/simple-git@3.7.1/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.10.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
@@ -11653,9 +11705,9 @@ var init_task_options = __esm({
 function callTaskParser(parser3, streams) {
   return parser3(streams.stdOut, streams.stdErr);
 }
-function parseStringResponse(result, parsers11, ...texts) {
-  texts.forEach((text) => {
-    for (let lines = toLinesWithContent(text), i = 0, max = lines.length; i < max; i++) {
+function parseStringResponse(result, parsers11, texts, trim = true) {
+  asArray(texts).forEach((text) => {
+    for (let lines = toLinesWithContent(text, trim), i = 0, max = lines.length; i < max; i++) {
       const line = (offset = 0) => {
         if (i + offset >= max) {
           return;
@@ -12779,6 +12831,24 @@ var init_init = __esm({
     bareCommand = "--bare";
   }
 });
+function logFormatFromCommand(customArgs) {
+  for (let i = 0; i < customArgs.length; i++) {
+    const format = logFormatRegex.exec(customArgs[i]);
+    if (format) {
+      return `--${format[1]}`;
+    }
+  }
+  return "";
+}
+function isLogFormat(customArg) {
+  return logFormatRegex.test(customArg);
+}
+var logFormatRegex;
+var init_log_format = __esm({
+  "src/lib/args/log-format.ts"() {
+    logFormatRegex = /^--(stat|numstat|name-only|name-status)(=|$)/;
+  }
+});
 var DiffSummary;
 var init_DiffSummary = __esm({
   "src/lib/responses/DiffSummary.ts"() {
@@ -12792,74 +12862,101 @@ var init_DiffSummary = __esm({
     };
   }
 });
-function parseDiffResult(stdOut) {
-  const lines = stdOut.trim().split("\n");
-  const status = new DiffSummary();
-  readSummaryLine(status, lines.pop());
-  for (let i = 0, max = lines.length; i < max; i++) {
-    const line = lines[i];
-    textFileChange(line, status) || binaryFileChange(line, status);
-  }
-  return status;
+function getDiffParser(format = "") {
+  const parser3 = diffSummaryParsers[format];
+  return (stdOut) => parseStringResponse(new DiffSummary(), parser3, stdOut, false);
 }
-function readSummaryLine(status, summary) {
-  (summary || "").trim().split(", ").forEach(function(text) {
-    const summary2 = /(\d+)\s([a-z]+)/.exec(text);
-    if (!summary2) {
-      return;
-    }
-    summaryType(status, summary2[2], parseInt(summary2[1], 10));
-  });
-}
-function summaryType(status, key, value) {
-  const match = /([a-z]+?)s?\b/.exec(key);
-  if (!match || !statusUpdate[match[1]]) {
-    return;
-  }
-  statusUpdate[match[1]](status, value);
-}
-function textFileChange(input, { files }) {
-  const line = input.trim().match(/^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/);
-  if (line) {
-    var alterations = (line[3] || "").trim();
-    files.push({
-      file: line[1].trim(),
-      changes: parseInt(line[2], 10),
-      insertions: alterations.replace(/-/g, "").length,
-      deletions: alterations.replace(/\+/g, "").length,
-      binary: false
-    });
-    return true;
-  }
-  return false;
-}
-function binaryFileChange(input, { files }) {
-  const line = input.match(/^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)$/);
-  if (line) {
-    files.push({
-      file: line[1].trim(),
-      before: +line[2],
-      after: +line[3],
-      binary: true
-    });
-    return true;
-  }
-  return false;
-}
-var statusUpdate;
+var statParser;
+var numStatParser;
+var nameOnlyParser;
+var nameStatusParser;
+var diffSummaryParsers;
 var init_parse_diff_summary = __esm({
   "src/lib/parsers/parse-diff-summary.ts"() {
+    init_log_format();
     init_DiffSummary();
-    statusUpdate = {
-      file(status, value) {
-        status.changed = value;
-      },
-      deletion(status, value) {
-        status.deletions = value;
-      },
-      insertion(status, value) {
-        status.insertions = value;
-      }
+    init_utils();
+    statParser = [
+      new LineParser(/(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/, (result, [file, changes, alterations = ""]) => {
+        result.files.push({
+          file: file.trim(),
+          changes: asNumber(changes),
+          insertions: alterations.replace(/[^+]/g, "").length,
+          deletions: alterations.replace(/[^-]/g, "").length,
+          binary: false
+        });
+      }),
+      new LineParser(/(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)/, (result, [file, before, after]) => {
+        result.files.push({
+          file: file.trim(),
+          before: asNumber(before),
+          after: asNumber(after),
+          binary: true
+        });
+      }),
+      new LineParser(/(\d+) files? changed\s*((?:, \d+ [^,]+){0,2})/, (result, [changed, summary]) => {
+        const inserted = /(\d+) i/.exec(summary);
+        const deleted = /(\d+) d/.exec(summary);
+        result.changed = asNumber(changed);
+        result.insertions = asNumber(inserted == null ? void 0 : inserted[1]);
+        result.deletions = asNumber(deleted == null ? void 0 : deleted[1]);
+      })
+    ];
+    numStatParser = [
+      new LineParser(/(\d+)\t(\d+)\t(.+)$/, (result, [changesInsert, changesDelete, file]) => {
+        const insertions = asNumber(changesInsert);
+        const deletions = asNumber(changesDelete);
+        result.changed++;
+        result.insertions += insertions;
+        result.deletions += deletions;
+        result.files.push({
+          file,
+          changes: insertions + deletions,
+          insertions,
+          deletions,
+          binary: false
+        });
+      }),
+      new LineParser(/-\t-\t(.+)$/, (result, [file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          after: 0,
+          before: 0,
+          binary: true
+        });
+      })
+    ];
+    nameOnlyParser = [
+      new LineParser(/(.+)$/, (result, [file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          changes: 0,
+          insertions: 0,
+          deletions: 0,
+          binary: false
+        });
+      })
+    ];
+    nameStatusParser = [
+      new LineParser(/([ACDMRTUXB])\s*(.+)$/, (result, [_status, file]) => {
+        result.changed++;
+        result.files.push({
+          file,
+          changes: 0,
+          insertions: 0,
+          deletions: 0,
+          binary: false
+        });
+      })
+    ];
+    diffSummaryParsers = {
+      [""]: statParser,
+      ["--stat"]: statParser,
+      ["--numstat"]: numStatParser,
+      ["--name-status"]: nameStatusParser,
+      ["--name-only"]: nameOnlyParser
     };
   }
 });
@@ -12869,7 +12966,8 @@ function lineBuilder(tokens, fields) {
     return line;
   }, /* @__PURE__ */ Object.create({ diff: null }));
 }
-function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames) {
+function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames, logFormat = "") {
+  const parseDiffResult = getDiffParser(logFormat);
   return function(stdOut) {
     const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
       const lineDetail = item.trim().split(COMMIT_BOUNDARY);
@@ -12894,10 +12992,46 @@ var init_parse_list_log_summary = __esm({
   "src/lib/parsers/parse-list-log-summary.ts"() {
     init_utils();
     init_parse_diff_summary();
+    init_log_format();
     START_BOUNDARY = "\xF2\xF2\xF2\xF2\xF2\xF2 ";
     COMMIT_BOUNDARY = " \xF2\xF2";
     SPLITTER = " \xF2 ";
     defaultFieldNames = ["hash", "date", "message", "refs", "author_name", "author_email"];
+  }
+});
+var diff_exports = {};
+__export(diff_exports, {
+  diffSummaryTask: () => diffSummaryTask,
+  validateLogFormatConfig: () => validateLogFormatConfig
+});
+function diffSummaryTask(customArgs) {
+  let logFormat = logFormatFromCommand(customArgs);
+  const commands = ["diff"];
+  if (logFormat === "") {
+    logFormat = "--stat";
+    commands.push("--stat=4096");
+  }
+  commands.push(...customArgs);
+  return validateLogFormatConfig(commands) || {
+    commands,
+    format: "utf-8",
+    parser: getDiffParser(logFormat)
+  };
+}
+function validateLogFormatConfig(customArgs) {
+  const flags = customArgs.filter(isLogFormat);
+  if (flags.length > 1) {
+    return configurationErrorTask(`Summary flags are mutually exclusive - pick one of ${flags.join(",")}`);
+  }
+  if (flags.length && customArgs.includes("-z")) {
+    return configurationErrorTask(`Summary flag ${flags} parsing is not compatible with null termination option '-z'`);
+  }
+}
+var init_diff = __esm({
+  "src/lib/tasks/diff.ts"() {
+    init_log_format();
+    init_parse_diff_summary();
+    init_task();
   }
 });
 function prettyFormat(format, splitter) {
@@ -12959,17 +13093,19 @@ function parseLogOptions(opt = {}, customArgs = []) {
   };
 }
 function logTask(splitter, fields, customArgs) {
+  const parser3 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
   return {
     commands: ["log", ...customArgs],
     format: "utf-8",
-    parser: createListLogSummaryParser(splitter, fields)
+    parser: parser3
   };
 }
 function log_default() {
   return {
     log(...rest) {
       const next = trailingFunctionArgument(arguments);
-      const task = rejectDeprecatedSignatures(...rest) || createLogTask(parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray)));
+      const options3 = parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray));
+      const task = rejectDeprecatedSignatures(...rest) || validateLogFormatConfig(options3.commands) || createLogTask(options3);
       return this._runTask(task, next);
     }
   };
@@ -12983,9 +13119,11 @@ function log_default() {
 var excludeOptions;
 var init_log = __esm({
   "src/lib/tasks/log.ts"() {
+    init_log_format();
     init_parse_list_log_summary();
     init_utils();
     init_task();
+    init_diff();
     excludeOptions = /* @__PURE__ */ ((excludeOptions2) => {
       excludeOptions2[excludeOptions2["--pretty"] = 0] = "--pretty";
       excludeOptions2[excludeOptions2["max-count"] = 1] = "max-count";
@@ -13155,7 +13293,7 @@ var init_parse_remote_messages = __esm({
   }
 });
 function parsePullErrorResult(stdOut, stdErr) {
-  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, stdOut, stdErr);
+  const pullError = parseStringResponse(new PullFailedSummary(), errorParsers, [stdOut, stdErr]);
   return pullError.message && pullError;
 }
 var FILE_UPDATE_REGEX;
@@ -13208,7 +13346,7 @@ var init_parse_pull = __esm({
       })
     ];
     parsePullDetail = (stdOut, stdErr) => {
-      return parseStringResponse(new PullSummary(), parsers3, stdOut, stdErr);
+      return parseStringResponse(new PullSummary(), parsers3, [stdOut, stdErr]);
     };
     parsePullResult = (stdOut, stdErr) => {
       return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
@@ -13330,7 +13468,7 @@ var init_parse_push = __esm({
       return __spreadValues(__spreadValues({}, pushDetail), responseDetail);
     };
     parsePushDetail = (stdOut, stdErr) => {
-      return parseStringResponse({ pushed: [] }, parsers5, stdOut, stdErr);
+      return parseStringResponse({ pushed: [] }, parsers5, [stdOut, stdErr]);
     };
   }
 });
@@ -13737,7 +13875,7 @@ var init_parse_branch_delete = __esm({
       })
     ];
     parseBranchDeletions = (stdOut, stdErr) => {
-      return parseStringResponse(new BranchDeletionBatch(), parsers7, stdOut, stdErr);
+      return parseStringResponse(new BranchDeletionBatch(), parsers7, [stdOut, stdErr]);
     };
   }
 });
@@ -13751,14 +13889,15 @@ var init_BranchSummary = __esm({
         this.current = "";
         this.detached = false;
       }
-      push(current, detached, name, commit, label) {
-        if (current) {
+      push(status, detached, name, commit, label) {
+        if (status === "*") {
           this.detached = detached;
           this.current = name;
         }
         this.all.push(name);
         this.branches[name] = {
-          current,
+          current: status === "*",
+          linkedWorkTree: status === "+",
           name,
           commit,
           label
@@ -13767,6 +13906,9 @@ var init_BranchSummary = __esm({
     };
   }
 });
+function branchStatus(input) {
+  return input ? input.charAt(0) : "";
+}
 function parseBranchSummary(stdOut) {
   return parseStringResponse(new BranchSummaryResult(), parsers8, stdOut);
 }
@@ -13776,11 +13918,11 @@ var init_parse_branch = __esm({
     init_BranchSummary();
     init_utils();
     parsers8 = [
-      new LineParser(/^(\*\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
-        result.push(!!current, true, name, commit, label);
+      new LineParser(/^([*+]\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
+        result.push(branchStatus(current), true, name, commit, label);
       }),
-      new LineParser(/^(\*\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
-        result.push(!!current, false, name, commit, label);
+      new LineParser(/^([*+]\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
+        result.push(branchStatus(current), false, name, commit, label);
       })
     ];
   }
@@ -13916,24 +14058,6 @@ var init_clone = __esm({
     init_utils();
   }
 });
-var diff_exports = {};
-__export(diff_exports, {
-  diffSummaryTask: () => diffSummaryTask
-});
-function diffSummaryTask(customArgs) {
-  return {
-    commands: ["diff", "--stat=4096", ...customArgs],
-    format: "utf-8",
-    parser(stdOut) {
-      return parseDiffResult(stdOut);
-    }
-  };
-}
-var init_diff = __esm({
-  "src/lib/tasks/diff.ts"() {
-    init_parse_diff_summary();
-  }
-});
 function parseFetchResult(stdOut, stdErr) {
   const result = {
     raw: stdOut,
@@ -13941,7 +14065,7 @@ function parseFetchResult(stdOut, stdErr) {
     branches: [],
     tags: []
   };
-  return parseStringResponse(result, parsers9, stdOut, stdErr);
+  return parseStringResponse(result, parsers9, [stdOut, stdErr]);
 }
 var parsers9;
 var init_parse_fetch = __esm({
@@ -14135,16 +14259,19 @@ __export(stash_list_exports, {
 });
 function stashListTask(opt = {}, customArgs) {
   const options3 = parseLogOptions(opt);
-  const parser3 = createListLogSummaryParser(options3.splitter, options3.fields);
-  return {
-    commands: ["stash", "list", ...options3.commands, ...customArgs],
+  const commands = ["stash", "list", ...options3.commands, ...customArgs];
+  const parser3 = createListLogSummaryParser(options3.splitter, options3.fields, logFormatFromCommand(commands));
+  return validateLogFormatConfig(commands) || {
+    commands,
     format: "utf-8",
     parser: parser3
   };
 }
 var init_stash_list = __esm({
   "src/lib/tasks/stash-list.ts"() {
+    init_log_format();
     init_parse_list_log_summary();
+    init_diff();
     init_log();
   }
 });
@@ -15167,6 +15294,10 @@ async function httpRequest(req, res) {
           "Accept-Ranges": "bytes",
           "Content-Length": rangeEnd - rangeStart + 1
         };
+        const corsHeader = !options.cors ? {} : {
+          "Cross-Origin-Embedder-Policy": "require-corp",
+          "Cross-Origin-Opener-Policy": "same-origin"
+        };
         res.writeHead(rangeRequest ? 206 : 200, {
           "Content-Language": "en",
           "Content-Type": contentType,
@@ -15174,9 +15305,8 @@ async function httpRequest(req, res) {
           "Last-Modified": result.stat.mtime.toUTCString(),
           "Cache-Control": "no-cache",
           "X-Content-Type-Options": "nosniff",
-          "Cross-Origin-Embedder-Policy": "require-corp",
-          "Cross-Origin-Opener-Policy": "same-origin",
           "Content-Security-Policy": "media-src 'self' http: https: data:",
+          ...corsHeader,
           ...rangeHeader
         });
         const compress = zlib.createBrotliCompress({ params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 } });
@@ -15320,7 +15450,8 @@ var defaults2 = {
     httpsPort: 8001,
     documentRoot: ".",
     defaultFolder: ".",
-    defaultFile: "index.html"
+    defaultFile: "index.html",
+    cors: true
   },
   build: {
     global: {
@@ -15492,7 +15623,7 @@ async function run6(config, packageJson) {
 var log10 = __toESM(require_pilogger());
 import * as fs6 from "fs";
 
-// node_modules/.pnpm/commander@9.2.0/node_modules/commander/esm.mjs
+// node_modules/.pnpm/commander@9.3.0/node_modules/commander/esm.mjs
 var import_index = __toESM(require_commander(), 1);
 var {
   program,
@@ -15560,7 +15691,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.3";
+var version7 = "0.7.4";
 
 // src/build.ts
 var Build = class {

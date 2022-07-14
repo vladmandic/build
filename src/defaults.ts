@@ -28,6 +28,7 @@ export const defaults = {
     documentRoot: '.',
     defaultFolder: '.',
     defaultFile: 'index.html',
+    cors: true,
   },
   build: {
     global: {

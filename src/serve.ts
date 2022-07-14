@@ -111,6 +111,10 @@ async function httpRequest(req, res) {
           'Accept-Ranges': 'bytes',
           'Content-Length': rangeEnd - rangeStart + 1,
         };
+        const corsHeader = !options.cors ? {} : {
+          'Cross-Origin-Embedder-Policy': 'require-corp',
+          'Cross-Origin-Opener-Policy': 'same-origin',
+        };
         res.writeHead(rangeRequest ? 206 : 200, {
           // 'Content-Length': result.stat.size, // not using as it's misleading for compressed streams
           'Content-Language': 'en',
@@ -119,9 +123,9 @@ async function httpRequest(req, res) {
           'Last-Modified': result.stat.mtime.toUTCString(),
           'Cache-Control': 'no-cache',
           'X-Content-Type-Options': 'nosniff',
-          'Cross-Origin-Embedder-Policy': 'require-corp',
-          'Cross-Origin-Opener-Policy': 'same-origin',
+          // 'Access-Control-Allow-Origin': '*',
           'Content-Security-Policy': "media-src 'self' http: https: data:",
+          ...corsHeader,
           ...rangeHeader,
         });
         const compress = zlib.createBrotliCompress({ params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 } }); // instance of brotli compression with level 5

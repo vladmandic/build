@@ -28,6 +28,7 @@ export declare const defaults: {
         documentRoot: string;
         defaultFolder: string;
         defaultFile: string;
+        cors: boolean;
     };
     build: {
         global: {
