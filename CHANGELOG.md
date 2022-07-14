@@ -9,8 +9,9 @@
   
 ## Changelog
   
-### **HEAD -> main** 2022/07/13 mandic00@live.com
+### **HEAD -> main** 2022/07/14 mandic00@live.com
 
+- optional cors headers
 - fix duplicate build targets
 
 ### **0.7.4** 2022/05/14 mandic00@live.com

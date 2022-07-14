@@ -69,8 +69,9 @@ export async function run(config, entry) {
   td.logger.error = log.error;
   td.logger.verbose = config.log.debug ? log.data : () => { /***/ }; // remove extra logging
 
-  // td.logger.log = log.error; // converter writes errors to stdout
+  td.logger.warn = () => { /***/ }; // remove extra logging
   const project = td.convert();
+  td.logger.warn = log.warn;
   if (!project) {
     log.error('TypeDoc: convert returned empty project');
     return;

@@ -14984,7 +14984,10 @@ async function run(config, entry) {
   td.logger.error = log2.error;
   td.logger.verbose = config.log.debug ? log2.data : () => {
   };
+  td.logger.warn = () => {
+  };
   const project = td.convert();
+  td.logger.warn = log2.warn;
   if (!project) {
     log2.error("TypeDoc: convert returned empty project");
     return;
