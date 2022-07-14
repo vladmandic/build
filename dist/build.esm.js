@@ -28,16 +28,16 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.4/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.5/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.4/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.5/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+    "use strict";
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
     var __getOwnPropDesc3 = Object.getOwnPropertyDescriptor;
     var __getOwnPropNames3 = Object.getOwnPropertyNames;
     var __getProtoOf2 = Object.getPrototypeOf;
     var __hasOwnProp3 = Object.prototype.hasOwnProperty;
-    var __markAsModule2 = (target) => __defProp3(target, "__esModule", { value: true });
     var __commonJS3 = (cb, mod) => function __require2() {
       return mod || (0, cb[__getOwnPropNames3(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
     };
@@ -45,26 +45,20 @@ var require_pilogger = __commonJS({
       for (var name in all)
         __defProp3(target, name, { get: all[name], enumerable: true });
     };
-    var __reExport2 = (target, module22, copyDefault, desc) => {
-      if (module22 && typeof module22 === "object" || typeof module22 === "function") {
-        for (let key of __getOwnPropNames3(module22))
-          if (!__hasOwnProp3.call(target, key) && (copyDefault || key !== "default"))
-            __defProp3(target, key, { get: () => module22[key], enumerable: !(desc = __getOwnPropDesc3(module22, key)) || desc.enumerable });
+    var __copyProps2 = (to, from, except, desc) => {
+      if (from && typeof from === "object" || typeof from === "function") {
+        for (let key of __getOwnPropNames3(from))
+          if (!__hasOwnProp3.call(to, key) && key !== except)
+            __defProp3(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc3(from, key)) || desc.enumerable });
       }
-      return target;
+      return to;
     };
-    var __toESM2 = (module22, isNodeMode) => {
-      return __reExport2(__markAsModule2(__defProp3(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", !isNodeMode && module22 && module22.__esModule ? { get: () => module22.default, enumerable: true } : { value: module22, enumerable: true })), module22);
-    };
-    var __toCommonJS2 = /* @__PURE__ */ ((cache) => {
-      return (module22, temp) => {
-        return cache && cache.get(module22) || (temp = __reExport2(__markAsModule2({}), module22, 1), cache && cache.set(module22, temp), temp);
-      };
-    })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+    var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps2(isNodeMode || !mod || !mod.__esModule ? __defProp3(target, "default", { value: mod, enumerable: true }) : target, mod));
+    var __toCommonJS2 = (mod) => __copyProps2(__defProp3({}, "__esModule", { value: true }), mod);
     var require_dayjs_min2 = __commonJS3({
-      "node_modules/.pnpm/dayjs@1.10.8/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
+      "node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
-          typeof exports2 == "object" && typeof module22 != "undefined" ? module22.exports = e() : typeof define == "function" && define.amd ? define(e) : (t = typeof globalThis != "undefined" ? globalThis : t || self).dayjs = e();
+          "object" == typeof exports2 && "undefined" != typeof module22 ? module22.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
         }(exports2, function() {
           "use strict";
           var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", $ = "Invalid Date", l = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_") }, m = function(t2, e2, n2) {
@@ -83,26 +77,30 @@ var require_pilogger = __commonJS({
           }, p: function(t2) {
             return { M: f, y: c, w: o, d: a, D: d, h: u, m: s, s: i, ms: r, Q: h }[t2] || String(t2 || "").toLowerCase().replace(/s$/, "");
           }, u: function(t2) {
-            return t2 === void 0;
-          } }, D = "en", v = {};
-          v[D] = M;
+            return void 0 === t2;
+          } }, v = "en", D = {};
+          D[v] = M;
           var p = function(t2) {
             return t2 instanceof _;
-          }, S = function(t2, e2, n2) {
-            var r2;
-            if (!t2)
-              return D;
-            if (typeof t2 == "string")
-              v[t2] && (r2 = t2), e2 && (v[t2] = e2, r2 = t2);
-            else {
-              var i2 = t2.name;
-              v[i2] = t2, r2 = i2;
+          }, S = function t2(e2, n2, r2) {
+            var i2;
+            if (!e2)
+              return v;
+            if ("string" == typeof e2) {
+              var s2 = e2.toLowerCase();
+              D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
+              var u2 = e2.split("-");
+              if (!i2 && u2.length > 1)
+                return t2(u2[0]);
+            } else {
+              var a2 = e2.name;
+              D[a2] = e2, i2 = a2;
             }
-            return !n2 && r2 && (D = r2), r2 || !n2 && D;
+            return !r2 && i2 && (v = i2), i2 || !r2 && v;
           }, w = function(t2, e2) {
             if (p(t2))
               return t2.clone();
-            var n2 = typeof e2 == "object" ? e2 : {};
+            var n2 = "object" == typeof e2 ? e2 : {};
             return n2.date = t2, n2.args = arguments, new _(n2);
           }, O = g;
           O.l = S, O.i = p, O.w = function(t2, e2) {
@@ -116,13 +114,13 @@ var require_pilogger = __commonJS({
             return m2.parse = function(t2) {
               this.$d = function(t3) {
                 var e2 = t3.date, n2 = t3.utc;
-                if (e2 === null)
+                if (null === e2)
                   return new Date(NaN);
                 if (O.u(e2))
                   return new Date();
                 if (e2 instanceof Date)
                   return new Date(e2);
-                if (typeof e2 == "string" && !/Z$/i.test(e2)) {
+                if ("string" == typeof e2 && !/Z$/i.test(e2)) {
                   var r2 = e2.match(l);
                   if (r2) {
                     var i2 = r2[2] - 1 || 0, s2 = (r2[7] || "0").substring(0, 3);
@@ -164,8 +162,8 @@ var require_pilogger = __commonJS({
                 case f:
                   return r2 ? $2(1, M3) : $2(0, M3 + 1);
                 case o:
-                  var D2 = this.$locale().weekStart || 0, v2 = (y2 < D2 ? y2 + 7 : y2) - D2;
-                  return $2(r2 ? m3 - v2 : m3 + (6 - v2), M3);
+                  var v2 = this.$locale().weekStart || 0, D2 = (y2 < v2 ? y2 + 7 : y2) - v2;
+                  return $2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
                 case a:
                 case d:
                   return l2(g2 + "Hours", 0);
@@ -216,7 +214,7 @@ var require_pilogger = __commonJS({
               if (!this.isValid())
                 return n2.invalidDate || $;
               var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = O.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, f2 = n2.months, h2 = function(t3, n3, i3, s3) {
-                return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].substr(0, s3);
+                return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
               }, c2 = function(t3) {
                 return O.s(s2 % 12 || 12, t3, "0");
               }, d2 = n2.meridiem || function(t3, e3, n3) {
@@ -229,12 +227,12 @@ var require_pilogger = __commonJS({
             }, m2.utcOffset = function() {
               return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
             }, m2.diff = function(r2, d2, $2) {
-              var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, D2 = O.m(this, M3);
-              return D2 = (l2 = {}, l2[c] = D2 / 12, l2[f] = D2, l2[h] = D2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? D2 : O.a(D2);
+              var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, v2 = O.m(this, M3);
+              return v2 = (l2 = {}, l2[c] = v2 / 12, l2[f] = v2, l2[h] = v2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? v2 : O.a(v2);
             }, m2.daysInMonth = function() {
               return this.endOf(f).$D;
             }, m2.$locale = function() {
-              return v[this.$L];
+              return D[this.$L];
             }, m2.locale = function(t2, e2) {
               if (!t2)
                 return this.$L;
@@ -251,16 +249,16 @@ var require_pilogger = __commonJS({
             }, m2.toString = function() {
               return this.$d.toUTCString();
             }, M2;
-          }(), b = _.prototype;
-          return w.prototype = b, [["$ms", r], ["$s", i], ["$m", s], ["$H", u], ["$W", a], ["$M", f], ["$y", c], ["$D", d]].forEach(function(t2) {
-            b[t2[1]] = function(e2) {
+          }(), T = _.prototype;
+          return w.prototype = T, [["$ms", r], ["$s", i], ["$m", s], ["$H", u], ["$W", a], ["$M", f], ["$y", c], ["$D", d]].forEach(function(t2) {
+            T[t2[1]] = function(e2) {
               return this.$g(e2, t2[0], t2[1]);
             };
           }), w.extend = function(t2, e2) {
             return t2.$i || (t2(e2, _, w), t2.$i = true), w;
           }, w.locale = S, w.isDayjs = p, w.unix = function(t2) {
             return w(1e3 * t2);
-          }, w.en = v[D], w.Ls = v, w.p = {}, w;
+          }, w.en = D[v], w.Ls = D, w.p = {}, w;
         });
       }
     });
@@ -293,6 +291,7 @@ var require_pilogger = __commonJS({
       verbose: () => verbose,
       warn: () => warn9
     });
+    module2.exports = __toCommonJS2(pilogger_exports);
     var os2 = __toESM2(__require("os"));
     var fs8 = __toESM2(__require("fs"));
     var path4 = __toESM2(__require("path"));
@@ -817,10 +816,18 @@ var require_pilogger = __commonJS({
     function ringLength() {
       options3.ringLength = 100;
     }
+    function stringify(message) {
+      let str = "";
+      try {
+        str = JSON.stringify(message);
+      } catch (e) {
+      }
+      return str;
+    }
     function combineMessages(...messages) {
       let msg = "";
       for (const message of messages) {
-        msg += typeof message === "object" ? JSON.stringify(message) : message;
+        msg += typeof message === "object" ? stringify(message) : message;
         msg += " ";
       }
       return msg;
@@ -976,7 +983,6 @@ var require_pilogger = __commonJS({
     var verbose = (...message) => log12("verbose", ...message);
     var debug2 = (...message) => log12("debug", ...message);
     var console2 = (...message) => log12("console", ...message);
-    module2.exports = __toCommonJS2(pilogger_exports);
   }
 });
 
@@ -15691,7 +15697,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.4";
+var version7 = "0.7.6";
 
 // src/build.ts
 var Build = class {
