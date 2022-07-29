@@ -26,7 +26,10 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 
 // node_modules/.pnpm/@vladmandic+pilogger@0.4.5/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
@@ -1003,14 +1006,18 @@ var require_ms = __commonJS({
       } else if (type === "number" && isFinite(val)) {
         return options3.long ? fmtLong(val) : fmtShort(val);
       }
-      throw new Error("val is not a non-empty string or a valid number. val=" + JSON.stringify(val));
+      throw new Error(
+        "val is not a non-empty string or a valid number. val=" + JSON.stringify(val)
+      );
     };
     function parse(str) {
       str = String(str);
       if (str.length > 100) {
         return;
       }
-      var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(str);
+      var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+        str
+      );
       if (!match) {
         return;
       }
@@ -1552,8 +1559,11 @@ var require_node = __commonJS({
     exports.save = save;
     exports.load = load;
     exports.useColors = useColors;
-    exports.destroy = util.deprecate(() => {
-    }, "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.");
+    exports.destroy = util.deprecate(
+      () => {
+      },
+      "Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`."
+    );
     exports.colors = [6, 2, 3, 4, 5, 1];
     try {
       const supportsColor = require_supports_color();
@@ -3468,7 +3478,9 @@ var require_readdirp = __commonJS({
             if (entryRealPathStats.isDirectory()) {
               const len = entryRealPath.length;
               if (full.startsWith(entryRealPath) && full.substr(len, 1) === sysPath.sep) {
-                const recursiveError = new Error(`Circular symlink detected: "${full}" points to "${entryRealPath}"`);
+                const recursiveError = new Error(
+                  `Circular symlink detected: "${full}" points to "${entryRealPath}"`
+                );
                 recursiveError.code = RECURSIVE_ERROR_CODE;
                 return this._onError(recursiveError);
               }
@@ -5250,7 +5262,11 @@ var require_nodefs_handler = __commonJS({
         listener(path4);
         emitRaw(rawEvent, evPath, { watchedPath: path4 });
         if (evPath && path4 !== evPath) {
-          fsWatchBroadcast(sysPath.resolve(path4, evPath), KEY_LISTENERS, sysPath.join(path4, evPath));
+          fsWatchBroadcast(
+            sysPath.resolve(path4, evPath),
+            KEY_LISTENERS,
+            sysPath.join(path4, evPath)
+          );
         }
       };
       try {
@@ -5272,7 +5288,13 @@ var require_nodefs_handler = __commonJS({
       let cont = FsWatchInstances.get(fullPath);
       let watcher;
       if (!options3.persistent) {
-        watcher = createFsWatchInstance(path4, options3, listener, errHandler, rawEmitter);
+        watcher = createFsWatchInstance(
+          path4,
+          options3,
+          listener,
+          errHandler,
+          rawEmitter
+        );
         return watcher.close.bind(watcher);
       }
       if (cont) {
@@ -5280,7 +5302,13 @@ var require_nodefs_handler = __commonJS({
         addAndConvert(cont, KEY_ERR, errHandler);
         addAndConvert(cont, KEY_RAW, rawEmitter);
       } else {
-        watcher = createFsWatchInstance(path4, options3, fsWatchBroadcast.bind(null, fullPath, KEY_LISTENERS), errHandler, fsWatchBroadcast.bind(null, fullPath, KEY_RAW));
+        watcher = createFsWatchInstance(
+          path4,
+          options3,
+          fsWatchBroadcast.bind(null, fullPath, KEY_LISTENERS),
+          errHandler,
+          fsWatchBroadcast.bind(null, fullPath, KEY_RAW)
+        );
         if (!watcher)
           return;
         watcher.on(EV_ERROR, async (error8) => {
@@ -5512,24 +5540,26 @@ var require_nodefs_handler = __commonJS({
             this._addToNodeFs(path4, initialAdd, wh, depth + 1);
           }
         }).on(EV_ERROR, this._boundHandleError);
-        return new Promise((resolve) => stream.once(STR_END, () => {
-          if (this.fsw.closed) {
+        return new Promise(
+          (resolve) => stream.once(STR_END, () => {
+            if (this.fsw.closed) {
+              stream = void 0;
+              return;
+            }
+            const wasThrottled = throttler ? throttler.clear() : false;
+            resolve();
+            previous.getChildren().filter((item) => {
+              return item !== directory && !current.has(item) && (!wh.hasGlob || wh.filterPath({
+                fullPath: sysPath.resolve(directory, item)
+              }));
+            }).forEach((item) => {
+              this.fsw._remove(directory, item);
+            });
             stream = void 0;
-            return;
-          }
-          const wasThrottled = throttler ? throttler.clear() : false;
-          resolve();
-          previous.getChildren().filter((item) => {
-            return item !== directory && !current.has(item) && (!wh.hasGlob || wh.filterPath({
-              fullPath: sysPath.resolve(directory, item)
-            }));
-          }).forEach((item) => {
-            this.fsw._remove(directory, item);
-          });
-          stream = void 0;
-          if (wasThrottled)
-            this._handleRead(directory, false, wh, target, dir, depth, throttler);
-        }));
+            if (wasThrottled)
+              this._handleRead(directory, false, wh, target, dir, depth, throttler);
+          })
+        );
       }
       async _handleDir(dir, stats, initialAdd, depth, target, wh, realpath) {
         const parentDir = this.fsw._getWatchedDir(sysPath.dirname(dir));
@@ -5836,12 +5866,17 @@ var require_fsevents_handler = __commonJS({
             return;
           if (opts.depth !== void 0 && calcDepth(fullPath, realPath) > opts.depth)
             return;
-          const path4 = transform(sysPath.join(watchPath, sysPath.relative(watchPath, fullPath)));
+          const path4 = transform(sysPath.join(
+            watchPath,
+            sysPath.relative(watchPath, fullPath)
+          ));
           if (globFilter && !globFilter(path4))
             return;
           const parent = sysPath.dirname(path4);
           const item = sysPath.basename(path4);
-          const watchedDir = this.fsw._getWatchedDir(info9.type === FSEVENT_TYPE_DIRECTORY ? path4 : parent);
+          const watchedDir = this.fsw._getWatchedDir(
+            info9.type === FSEVENT_TYPE_DIRECTORY ? path4 : parent
+          );
           if (wrongEventFlags.has(flags) || info9.event === FSEVENT_UNKNOWN) {
             if (typeof opts.ignored === FUNCTION_TYPE) {
               let stats;
@@ -5872,7 +5907,12 @@ var require_fsevents_handler = __commonJS({
             }
           }
         };
-        const closer = setFSEventsListener(watchPath, realPath, watchCallback, this.fsw._emitRaw);
+        const closer = setFSEventsListener(
+          watchPath,
+          realPath,
+          watchCallback,
+          this.fsw._emitRaw
+        );
         this.fsw._emitReady();
         return closer;
       }
@@ -5921,7 +5961,12 @@ var require_fsevents_handler = __commonJS({
       initWatch(realPath, path4, wh, processPath) {
         if (this.fsw.closed)
           return;
-        const closer = this._watchWithFsEvents(wh.watchPath, sysPath.resolve(realPath || wh.watchPath), processPath, wh.globFilter);
+        const closer = this._watchWithFsEvents(
+          wh.watchPath,
+          sysPath.resolve(realPath || wh.watchPath),
+          processPath,
+          wh.globFilter
+        );
         this.fsw._addPathCloser(path4, closer);
       }
       async _addToFsEvents(path4, transform, forceAdd, priorDepth) {
@@ -6173,7 +6218,10 @@ var require_chokidar = __commonJS({
         return entry.fullPath;
       }
       entryPath(entry) {
-        return sysPath.join(this.watchPath, sysPath.relative(this.watchPath, this.checkGlobSymlink(entry)));
+        return sysPath.join(
+          this.watchPath,
+          sysPath.relative(this.watchPath, this.checkGlobSymlink(entry))
+        );
       }
       filterPath(entry) {
         const { stats } = entry;
@@ -6332,12 +6380,14 @@ var require_chokidar = __commonJS({
           if (!this._readyCount)
             this._readyCount = 0;
           this._readyCount += paths.length;
-          Promise.all(paths.map(async (path4) => {
-            const res = await this._nodeFsHandler._addToNodeFs(path4, !_internal, 0, 0, _origAdd);
-            if (res)
-              this._emitReady();
-            return res;
-          })).then((results2) => {
+          Promise.all(
+            paths.map(async (path4) => {
+              const res = await this._nodeFsHandler._addToNodeFs(path4, !_internal, 0, 0, _origAdd);
+              if (res)
+                this._emitReady();
+              return res;
+            })
+          ).then((results2) => {
             if (this.closed)
               return;
             results2.filter((item) => item).forEach((item) => {
@@ -6536,7 +6586,11 @@ var require_chokidar = __commonJS({
               this._pendingWrites.delete(path4);
               awfEmit(void 0, curStat);
             } else {
-              timeoutHandler = setTimeout(awaitWriteFinish, this.options.awaitWriteFinish.pollInterval, curStat);
+              timeoutHandler = setTimeout(
+                awaitWriteFinish,
+                this.options.awaitWriteFinish.pollInterval,
+                curStat
+              );
             }
           });
         };
@@ -6549,7 +6603,10 @@ var require_chokidar = __commonJS({
               return event;
             }
           });
-          timeoutHandler = setTimeout(awaitWriteFinish, this.options.awaitWriteFinish.pollInterval);
+          timeoutHandler = setTimeout(
+            awaitWriteFinish,
+            this.options.awaitWriteFinish.pollInterval
+          );
         }
       }
       _getGlobIgnored() {
@@ -7688,7 +7745,10 @@ var require_minimatch = __commonJS({
     };
     Minimatch.prototype.matchOne = function(file, pattern, partial) {
       var options3 = this.options;
-      this.debug("matchOne", { "this": this, file, pattern });
+      this.debug(
+        "matchOne",
+        { "this": this, file, pattern }
+      );
       this.debug("matchOne", file.length, pattern.length);
       for (var fi = 0, pi = 0, fl = file.length, pl = pattern.length; fi < fl && pi < pl; fi++, pi++) {
         this.debug("matchOne loop");
@@ -9332,9 +9392,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       "object" == typeof exports && "undefined" != typeof module2 ? module2.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -9541,9 +9601,9 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/error.js"(exports) {
     var CommanderError2 = class extends Error {
       constructor(exitCode, code, message) {
         super(message);
@@ -9566,9 +9626,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/argument.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
       constructor(name, description) {
@@ -9646,9 +9706,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
       constructor() {
@@ -9754,7 +9814,9 @@ var require_help = __commonJS({
       optionDescription(option) {
         const extraInfo = [];
         if (option.argChoices) {
-          extraInfo.push(`choices: ${option.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`);
+          extraInfo.push(
+            `choices: ${option.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`
+          );
         }
         if (option.defaultValue !== void 0) {
           const showDefault = option.required || option.optional || option.isBoolean() && typeof option.defaultValue === "boolean";
@@ -9776,7 +9838,9 @@ var require_help = __commonJS({
       argumentDescription(argument) {
         const extraInfo = [];
         if (argument.argChoices) {
-          extraInfo.push(`choices: ${argument.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`);
+          extraInfo.push(
+            `choices: ${argument.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`
+          );
         }
         if (argument.defaultValue !== void 0) {
           extraInfo.push(`default: ${argument.defaultValueDescription || JSON.stringify(argument.defaultValue)}`);
@@ -9831,7 +9895,11 @@ var require_help = __commonJS({
         return output.join("\n");
       }
       padWidth(cmd, helper) {
-        return Math.max(helper.longestOptionTermLength(cmd, helper), helper.longestSubcommandTermLength(cmd, helper), helper.longestArgumentTermLength(cmd, helper));
+        return Math.max(
+          helper.longestOptionTermLength(cmd, helper),
+          helper.longestSubcommandTermLength(cmd, helper),
+          helper.longestArgumentTermLength(cmd, helper)
+        );
       }
       wrap(str, width, indent, minColumnWidth = 40) {
         if (str.match(/[\n]\s+/))
@@ -9856,9 +9924,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/option.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
       constructor(flags, description) {
@@ -10004,9 +10072,9 @@ var require_option = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -10026,7 +10094,11 @@ var require_suggestSimilar = __commonJS({
           } else {
             cost = 1;
           }
-          d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+          d[i][j] = Math.min(
+            d[i - 1][j] + 1,
+            d[i][j - 1] + 1,
+            d[i - 1][j - 1] + cost
+          );
           if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
             d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
           }
@@ -10079,9 +10151,9 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = __require("events").EventEmitter;
     var childProcess = __require("child_process");
     var path4 = __require("path");
@@ -10283,7 +10355,7 @@ var require_command = __commonJS({
         return this._addImplicitHelpCommand;
       }
       hook(event, listener) {
-        const allowedValues = ["preAction", "postAction"];
+        const allowedValues = ["preSubcommand", "preAction", "postAction"];
         if (!allowedValues.includes(event)) {
           throw new Error(`Unexpected value for event passed to hook : '${event}'.
 Expecting one of '${allowedValues.join("', '")}'`);
@@ -10607,11 +10679,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const subCommand = this._findCommand(commandName);
         if (!subCommand)
           this.help({ error: true });
-        if (subCommand._executableHandler) {
-          this._executeSubCommand(subCommand, operands.concat(unknown));
-        } else {
-          return subCommand._parseCommand(operands, unknown);
-        }
+        let hookResult;
+        hookResult = this._chainOrCallSubCommandHook(hookResult, subCommand, "preSubcommand");
+        hookResult = this._chainOrCall(hookResult, () => {
+          if (subCommand._executableHandler) {
+            this._executeSubCommand(subCommand, operands.concat(unknown));
+          } else {
+            return subCommand._parseCommand(operands, unknown);
+          }
+        });
+        return hookResult;
       }
       _checkNumberOfArguments() {
         this._args.forEach((arg, i) => {
@@ -10689,6 +10766,17 @@ Expecting one of '${allowedValues.join("', '")}'`);
             return hookDetail.callback(hookDetail.hookedCommand, this);
           });
         });
+        return result;
+      }
+      _chainOrCallSubCommandHook(promise, subCommand, event) {
+        let result = promise;
+        if (this._lifeCycleHooks[event] !== void 0) {
+          this._lifeCycleHooks[event].forEach((hook) => {
+            result = this._chainOrCall(result, () => {
+              return hook(this, subCommand);
+            });
+          });
+        }
         return result;
       }
       _parseCommand(operands, unknown) {
@@ -10779,16 +10867,22 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
       }
       _checkForConflictingLocalOptions() {
-        const definedNonDefaultOptions = this.options.filter((option) => {
-          const optionKey = option.attributeName();
-          if (this.getOptionValue(optionKey) === void 0) {
-            return false;
+        const definedNonDefaultOptions = this.options.filter(
+          (option) => {
+            const optionKey = option.attributeName();
+            if (this.getOptionValue(optionKey) === void 0) {
+              return false;
+            }
+            return this.getOptionValueSource(optionKey) !== "default";
           }
-          return this.getOptionValueSource(optionKey) !== "default";
-        });
-        const optionsWithConflicting = definedNonDefaultOptions.filter((option) => option.conflictsWith.length > 0);
+        );
+        const optionsWithConflicting = definedNonDefaultOptions.filter(
+          (option) => option.conflictsWith.length > 0
+        );
         optionsWithConflicting.forEach((option) => {
-          const conflictingAndDefined = definedNonDefaultOptions.find((defined) => option.conflictsWith.includes(defined.attributeName()));
+          const conflictingAndDefined = definedNonDefaultOptions.find(
+            (defined) => option.conflictsWith.includes(defined.attributeName())
+          );
           if (conflictingAndDefined) {
             this._conflictingOption(option, conflictingAndDefined);
           }
@@ -10906,7 +11000,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return this._optionValues;
       }
       optsWithGlobals() {
-        return getCommandAndParents(this).reduce((combinedOptions, cmd) => Object.assign(combinedOptions, cmd.opts()), {});
+        return getCommandAndParents(this).reduce(
+          (combinedOptions, cmd) => Object.assign(combinedOptions, cmd.opts()),
+          {}
+        );
       }
       error(message, errorOptions) {
         this._outputConfiguration.outputError(`${message}
@@ -11080,7 +11177,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           const args = this._args.map((arg) => {
             return humanReadableArgName(arg);
           });
-          return [].concat(this.options.length || this._hasHelpOption ? "[options]" : [], this.commands.length ? "[command]" : [], this._args.length ? args : []).join(" ");
+          return [].concat(
+            this.options.length || this._hasHelpOption ? "[options]" : [],
+            this.commands.length ? "[command]" : [],
+            this._args.length ? args : []
+          ).join(" ");
         }
         this._usage = str;
         return this;
@@ -11231,9 +11332,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@9.3.0/node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/index.js"(exports, module2) {
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
@@ -15471,6 +15572,7 @@ var defaults2 = {
       bundle: true,
       platform: "browser",
       treeShaking: true,
+      legalComments: "none",
       ignoreAnnotations: false
     },
     production: {
@@ -15632,7 +15734,7 @@ async function run6(config, packageJson) {
 var log10 = __toESM(require_pilogger());
 import * as fs6 from "fs";
 
-// node_modules/.pnpm/commander@9.3.0/node_modules/commander/esm.mjs
+// node_modules/.pnpm/commander@9.4.0/node_modules/commander/esm.mjs
 var import_index = __toESM(require_commander(), 1);
 var {
   program,
@@ -15641,6 +15743,7 @@ var {
   createOption,
   CommanderError,
   InvalidArgumentError,
+  InvalidOptionArgumentError,
   Command,
   Argument,
   Option,
@@ -15700,7 +15803,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.7";
+var version7 = "0.7.8";
 
 // src/build.ts
 var Build = class {
@@ -15837,40 +15940,4 @@ if (__require.main === module) {
 export {
   Build
 };
-/*!
- * fill-range <https://github.com/jonschlinkert/fill-range>
- *
- * Copyright (c) 2014-present, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-/*!
- * is-extglob <https://github.com/jonschlinkert/is-extglob>
- *
- * Copyright (c) 2014-2016, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-/*!
- * is-glob <https://github.com/jonschlinkert/is-glob>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * is-number <https://github.com/jonschlinkert/is-number>
- *
- * Copyright (c) 2014-present, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * normalize-path <https://github.com/jonschlinkert/normalize-path>
- *
- * Copyright (c) 2014-2018, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * to-regex-range <https://github.com/micromatch/to-regex-range>
- *
- * Copyright (c) 2015-present, Jon Schlinkert.
- * Released under the MIT License.
- */
 //# sourceMappingURL=build.esm.js.map

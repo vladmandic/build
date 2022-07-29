@@ -41,6 +41,7 @@ export declare const defaults: {
             bundle: boolean;
             platform: string;
             treeShaking: boolean;
+            legalComments: string;
             ignoreAnnotations: boolean;
         };
         production: {

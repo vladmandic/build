@@ -39,6 +39,7 @@ export const defaults = {
       bundle: true,
       platform: 'browser',
       treeShaking: true,
+      legalComments: 'none',
       ignoreAnnotations: false,
     },
     production: {
