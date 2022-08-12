@@ -31,9 +31,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.5/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.6/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.5/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.6/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
     "use strict";
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
@@ -56,10 +56,13 @@ var require_pilogger = __commonJS({
       }
       return to;
     };
-    var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps2(isNodeMode || !mod || !mod.__esModule ? __defProp3(target, "default", { value: mod, enumerable: true }) : target, mod));
+    var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps2(
+      isNodeMode || !mod || !mod.__esModule ? __defProp3(target, "default", { value: mod, enumerable: true }) : target,
+      mod
+    ));
     var __toCommonJS2 = (mod) => __copyProps2(__defProp3({}, "__esModule", { value: true }), mod);
     var require_dayjs_min2 = __commonJS3({
-      "node_modules/.pnpm/dayjs@1.11.3/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
+      "node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
           "object" == typeof exports2 && "undefined" != typeof module22 ? module22.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
         }(exports2, function() {
@@ -276,7 +279,6 @@ var require_pilogger = __commonJS({
       configure: () => configure2,
       console: () => console2,
       data: () => data9,
-      dateFormat: () => dateFormat,
       debug: () => debug2,
       error: () => error8,
       fatal: () => fatal,
@@ -287,7 +289,6 @@ var require_pilogger = __commonJS({
       options: () => options3,
       print: () => print,
       ring: () => ring2,
-      ringLength: () => ringLength,
       state: () => state9,
       tags: () => tags,
       timed: () => timed,
@@ -813,12 +814,6 @@ var require_pilogger = __commonJS({
       ignoreErrors: true,
       inspectOptions
     });
-    function dateFormat(dt) {
-      options3.dateFormat = dt;
-    }
-    function ringLength() {
-      options3.ringLength = 100;
-    }
     function stringify(message) {
       let str = "";
       try {
@@ -850,11 +845,12 @@ var require_pilogger = __commonJS({
       options3.logFile = file;
       streams.logFile = true;
       streams.logStream = fs8.createWriteStream(path4.resolve(options3.logFile || ""), { flags: "a" });
-      if (streams.logStream)
+      if (streams.logStream) {
         streams.logStream.on("error", (e) => {
           print(tags.error, "Cannot open application log", options3.logFile, e);
           streams.logFile = false;
         });
+      }
     }
     function accessFile(file) {
       if (typeof file !== "string")
@@ -862,11 +858,12 @@ var require_pilogger = __commonJS({
       options3.accessFile = file;
       streams.accessFile = true;
       streams.accessStream = fs8.createWriteStream(path4.resolve(options3.accessFile), { flags: "a" });
-      if (streams.accessStream)
+      if (streams.accessStream) {
         streams.accessStream.on("error", (e) => {
           print(tags.error, "Cannot open application log", options3.accessFile, e);
           streams.accessFile = false;
         });
+      }
     }
     function clientFile(file) {
       if (typeof file !== "string")
@@ -874,15 +871,12 @@ var require_pilogger = __commonJS({
       options3.clientFile = file;
       streams.clientFile = true;
       streams.clientStream = fs8.createWriteStream(path4.resolve(options3.clientFile), { flags: "a" });
-      if (streams.clientStream)
+      if (streams.clientStream) {
         streams.clientStream.on("error", (e) => {
           print(tags.error, "Cannot open application log", options3.clientFile, e);
           streams.clientFile = false;
         });
-    }
-    async function assert(res, exp, ...messages) {
-      if (res !== exp)
-        log12("assert", ...messages, { res, exp });
+      }
     }
     async function timed(t0, ...messages) {
       if (arguments.length < 2) {
@@ -915,6 +909,10 @@ var require_pilogger = __commonJS({
       ring2.push({ tag, time, msg: combineMessages(...messages) });
       if (ring2.length > options3.ringLength)
         ring2.shift();
+    }
+    async function assert(res, exp, ...messages) {
+      if (res !== exp)
+        log12("assert", ...messages, { res, exp });
     }
     async function access(...messages) {
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
@@ -11414,7 +11412,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/.pnpm/simple-git@3.10.0/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.12.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
@@ -11531,10 +11529,7 @@ function splitOn(input, char) {
   if (index <= 0) {
     return [input, ""];
   }
-  return [
-    input.substr(0, index),
-    input.substr(index + 1)
-  ];
+  return [input.substr(0, index), input.substr(index + 1)];
 }
 function first(input, offset = 0) {
   return isArrayLike(input) && input.length > offset ? input[offset] : void 0;
@@ -11752,6 +11747,7 @@ function createInstanceConfig(...options3) {
   const baseDir = process.cwd();
   const config = Object.assign(__spreadValues({ baseDir }, defaultOptions), ...options3.filter((o) => typeof o === "object" && o));
   config.baseDir = config.baseDir || baseDir;
+  config.trimmed = config.trimmed === true;
   return config;
 }
 var defaultOptions;
@@ -11760,7 +11756,8 @@ var init_simple_git_options = __esm({
     defaultOptions = {
       binary: "git",
       maxConcurrentProcesses: 5,
-      config: []
+      config: [],
+      trimmed: false
     };
   }
 });
@@ -12132,7 +12129,10 @@ var init_clean = __esm({
       CleanOptions2["RECURSIVE"] = "d";
       return CleanOptions2;
     })(CleanOptions || {});
-    CleanOptionValues = /* @__PURE__ */ new Set(["i", ...asStringArray(Object.values(CleanOptions))]);
+    CleanOptionValues = /* @__PURE__ */ new Set([
+      "i",
+      ...asStringArray(Object.values(CleanOptions))
+    ]);
   }
 });
 function configListParser(text) {
@@ -13148,10 +13148,7 @@ function prettyFormat(format, splitter) {
     fields.push(field);
     formatStr.push(String(format[field]));
   });
-  return [
-    fields,
-    formatStr.join(splitter)
-  ];
+  return [fields, formatStr.join(splitter)];
 }
 function userOptions(input) {
   return Object.keys(input).reduce((out, key) => {
@@ -13193,10 +13190,7 @@ function parseLogOptions(opt = {}, customArgs = []) {
   return {
     fields,
     splitter,
-    commands: [
-      ...command,
-      ...suffix
-    ]
+    commands: [...command, ...suffix]
   };
 }
 function logTask(splitter, fields, customArgs) {
@@ -13716,25 +13710,28 @@ var init_StatusSummary = __esm({
       ...conflicts("A", "A", "U"),
       ...conflicts("D", "D", "U"),
       ...conflicts("U", "A", "D", "U"),
-      ["##", (result, line) => {
-        const aheadReg = /ahead (\d+)/;
-        const behindReg = /behind (\d+)/;
-        const currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
-        const trackingReg = /\.{3}(\S*)/;
-        const onEmptyBranchReg = /\son\s([\S]+)$/;
-        let regexResult;
-        regexResult = aheadReg.exec(line);
-        result.ahead = regexResult && +regexResult[1] || 0;
-        regexResult = behindReg.exec(line);
-        result.behind = regexResult && +regexResult[1] || 0;
-        regexResult = currentReg.exec(line);
-        result.current = regexResult && regexResult[1];
-        regexResult = trackingReg.exec(line);
-        result.tracking = regexResult && regexResult[1];
-        regexResult = onEmptyBranchReg.exec(line);
-        result.current = regexResult && regexResult[1] || result.current;
-        result.detached = /\(no branch\)/.test(line);
-      }]
+      [
+        "##",
+        (result, line) => {
+          const aheadReg = /ahead (\d+)/;
+          const behindReg = /behind (\d+)/;
+          const currentReg = /^(.+?(?=(?:\.{3}|\s|$)))/;
+          const trackingReg = /\.{3}(\S*)/;
+          const onEmptyBranchReg = /\son\s([\S]+)$/;
+          let regexResult;
+          regexResult = aheadReg.exec(line);
+          result.ahead = regexResult && +regexResult[1] || 0;
+          regexResult = behindReg.exec(line);
+          result.behind = regexResult && +regexResult[1] || 0;
+          regexResult = currentReg.exec(line);
+          result.current = regexResult && regexResult[1];
+          regexResult = trackingReg.exec(line);
+          result.tracking = regexResult && regexResult[1];
+          regexResult = onEmptyBranchReg.exec(line);
+          result.current = regexResult && regexResult[1] || result.current;
+          result.detached = /\(no branch\)/.test(line);
+        }
+      ]
     ]);
     parseStatusSummary = function(text) {
       const lines = text.split(NULL);
@@ -14170,7 +14167,9 @@ function parseFetchResult(stdOut, stdErr) {
     raw: stdOut,
     remote: null,
     branches: [],
-    tags: []
+    tags: [],
+    updated: [],
+    deleted: []
   };
   return parseStringResponse(result, parsers9, [stdOut, stdErr]);
 }
@@ -14192,6 +14191,19 @@ var init_parse_fetch = __esm({
         result.tags.push({
           name,
           tracking
+        });
+      }),
+      new LineParser(/- \[deleted]\s+\S+\s*-> (.+)$/, (result, [tracking]) => {
+        result.deleted.push({
+          tracking
+        });
+      }),
+      new LineParser(/\s*([^.]+)\.\.(\S+)\s+(\S+)\s*-> (.+)$/, (result, [from, to, name, tracking]) => {
+        result.updated.push({
+          name,
+          tracking,
+          to,
+          from
         });
       })
     ];
@@ -14520,7 +14532,12 @@ var require_git = __commonJS2({
       trailingOptionsArgument: trailingOptionsArgument2
     } = (init_utils(), __toCommonJS(utils_exports));
     var { applyPatchTask: applyPatchTask2 } = (init_apply_patch(), __toCommonJS(apply_patch_exports));
-    var { branchTask: branchTask2, branchLocalTask: branchLocalTask2, deleteBranchesTask: deleteBranchesTask2, deleteBranchTask: deleteBranchTask2 } = (init_branch(), __toCommonJS(branch_exports));
+    var {
+      branchTask: branchTask2,
+      branchLocalTask: branchLocalTask2,
+      deleteBranchesTask: deleteBranchesTask2,
+      deleteBranchTask: deleteBranchTask2
+    } = (init_branch(), __toCommonJS(branch_exports));
     var { checkIgnoreTask: checkIgnoreTask2 } = (init_check_ignore(), __toCommonJS(check_ignore_exports));
     var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS(check_is_repo_exports));
     var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS(clone_exports));
@@ -14531,14 +14548,26 @@ var require_git = __commonJS2({
     var { moveTask: moveTask2 } = (init_move(), __toCommonJS(move_exports));
     var { pullTask: pullTask2 } = (init_pull(), __toCommonJS(pull_exports));
     var { pushTagsTask: pushTagsTask2 } = (init_push(), __toCommonJS(push_exports));
-    var { addRemoteTask: addRemoteTask2, getRemotesTask: getRemotesTask2, listRemotesTask: listRemotesTask2, remoteTask: remoteTask2, removeRemoteTask: removeRemoteTask2 } = (init_remote(), __toCommonJS(remote_exports));
+    var {
+      addRemoteTask: addRemoteTask2,
+      getRemotesTask: getRemotesTask2,
+      listRemotesTask: listRemotesTask2,
+      remoteTask: remoteTask2,
+      removeRemoteTask: removeRemoteTask2
+    } = (init_remote(), __toCommonJS(remote_exports));
     var { getResetMode: getResetMode2, resetTask: resetTask2 } = (init_reset(), __toCommonJS(reset_exports));
     var { stashListTask: stashListTask2 } = (init_stash_list(), __toCommonJS(stash_list_exports));
-    var { addSubModuleTask: addSubModuleTask2, initSubModuleTask: initSubModuleTask2, subModuleTask: subModuleTask2, updateSubModuleTask: updateSubModuleTask2 } = (init_sub_module(), __toCommonJS(sub_module_exports));
+    var {
+      addSubModuleTask: addSubModuleTask2,
+      initSubModuleTask: initSubModuleTask2,
+      subModuleTask: subModuleTask2,
+      updateSubModuleTask: updateSubModuleTask2
+    } = (init_sub_module(), __toCommonJS(sub_module_exports));
     var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS(tag_exports));
     var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS(task_exports));
     function Git2(options3, plugins) {
       this._executor = new GitExecutor2(options3.binary, options3.baseDir, new Scheduler2(options3.maxConcurrentProcesses), plugins);
+      this._trimmed = options3.trimmed;
     }
     (Git2.prototype = Object.create(SimpleGitApi2.prototype)).constructor = Git2;
     Git2.prototype.customBinary = function(command) {
@@ -14648,7 +14677,7 @@ var require_git = __commonJS2({
       if (!command.length) {
         return this._runTask(configurationErrorTask2("Raw: must supply one or more command to execute"), next);
       }
-      return this._runTask(straightThroughStringTask2(command), next);
+      return this._runTask(straightThroughStringTask2(command, this._trimmed), next);
     };
     Git2.prototype.submoduleAdd = function(repo, path4, then) {
       return this._runTask(addSubModuleTask2(repo, path4), trailingFunctionArgument2(arguments));
@@ -14971,7 +15000,9 @@ function spawnOptionsPlugin(spawnOptions) {
     }
   };
 }
-function timeoutPlugin({ block }) {
+function timeoutPlugin({
+  block
+}) {
   if (block > 0) {
     return {
       type: "spawn.after",
@@ -15803,7 +15834,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.8";
+var version7 = "0.7.9";
 
 // src/build.ts
 var Build = class {
