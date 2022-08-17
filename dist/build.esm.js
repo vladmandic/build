@@ -9390,9 +9390,9 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.5/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.5/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       "object" == typeof exports && "undefined" != typeof module2 ? module2.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
     }(exports, function() {
@@ -15440,6 +15440,7 @@ async function httpRequest(req, res) {
           "Cross-Origin-Opener-Policy": "same-origin"
         };
         res.writeHead(rangeRequest ? 206 : 200, {
+          "Content-Size": result.stat.size,
           "Content-Language": "en",
           "Content-Type": contentType,
           "Content-Encoding": acceptBrotli && !rangeRequest ? "br" : "",
@@ -15447,6 +15448,7 @@ async function httpRequest(req, res) {
           "Cache-Control": "no-cache",
           "X-Content-Type-Options": "nosniff",
           "Content-Security-Policy": "media-src 'self' http: https: data:",
+          "`Service-Worker-Allowed": "/",
           ...corsHeader,
           ...rangeHeader
         });
@@ -15834,7 +15836,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.9";
+var version7 = "0.7.10";
 
 // src/build.ts
 var Build = class {

@@ -116,15 +116,17 @@ async function httpRequest(req, res) {
           'Cross-Origin-Opener-Policy': 'same-origin',
         };
         res.writeHead(rangeRequest ? 206 : 200, {
-          // 'Content-Length': result.stat.size, // not using as it's misleading for compressed streams
+          // 'Access-Control-Allow-Origin': '*', // disabled
+          // 'Content-Length': result.stat.size, // not using standard header as it's misleading for compressed streams
+          'Content-Size': result.stat.size, // this is not standard but useful for logging/debugging
           'Content-Language': 'en',
           'Content-Type': contentType,
           'Content-Encoding': (acceptBrotli && !rangeRequest) ? 'br' : '',
           'Last-Modified': result.stat.mtime.toUTCString(),
           'Cache-Control': 'no-cache',
           'X-Content-Type-Options': 'nosniff',
-          // 'Access-Control-Allow-Origin': '*',
           'Content-Security-Policy': "media-src 'self' http: https: data:",
+          '`Service-Worker-Allowed': '/',
           ...corsHeader,
           ...rangeHeader,
         });
