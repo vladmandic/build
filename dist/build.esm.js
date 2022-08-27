@@ -15836,7 +15836,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.10";
+var version7 = "0.7.11";
 
 // src/build.ts
 var Build = class {
