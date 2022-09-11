@@ -14,6 +14,7 @@ export async function run(config, entry) {
     ...compilerOptions.options,
     emitDeclarationOnly: true,
     declaration: true,
+    declarationMap: false,
     outDir: entry.typings,
   };
   compilerOptions['include'] = [path.dirname(entry.input)];
@@ -22,6 +23,7 @@ export async function run(config, entry) {
   if (config.log.debug) log.data('TypeScript Options:', compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
   const program = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
+  // console.log(program.getCompilerOptions());
 
   if (config.generate) {
     if (fs.existsSync('tsconfig.json')) log.warn('Generate config file exists:', ['tsconfig.json']);
@@ -29,7 +31,7 @@ export async function run(config, entry) {
       const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions['include'], exclude: compilerOptions['exclude'] };
       delete tsconfig.compilerOptions.emitDeclarationOnly;
       delete tsconfig.compilerOptions.resolveJsonModule;
-      tsconfig.compilerOptions.lib = tsconfig.compilerOptions.lib?.map((lib) => lib.replace('lib.', '').replace('.d.ts', ''));
+      tsconfig.compilerOptions.lib = tsconfig.compilerOptions.lib?.map((lib) => lib.replace('lib.', '').replace('.d.ts', '')) || [];
       fs.writeFileSync('tsconfig.json', JSON.stringify(tsconfig, null, 2));
       log.info('Generate config file:', ['tsconfig.json']);
     }

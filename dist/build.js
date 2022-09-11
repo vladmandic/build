@@ -6,6 +6,7 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
@@ -26,6 +27,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __publicField = (obj, key, value) => {
+  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+  return value;
+};
 
 // node_modules/.pnpm/@vladmandic+pilogger@0.4.6/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
@@ -11427,15 +11432,15 @@ var __getOwnPropNames2 = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp2 = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __defNormalProp2 = (obj, key, value) => key in obj ? __defProp2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __spreadValues = (a, b) => {
   for (var prop in b || (b = {}))
     if (__hasOwnProp2.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
+      __defNormalProp2(a, prop, b[prop]);
   if (__getOwnPropSymbols)
     for (var prop of __getOwnPropSymbols(b)) {
       if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
+        __defNormalProp2(a, prop, b[prop]);
     }
   return a;
 };
@@ -15173,6 +15178,7 @@ async function run2(config, entry) {
     ...compilerOptions.options,
     emitDeclarationOnly: true,
     declaration: true,
+    declarationMap: false,
     outDir: entry.typings
   };
   compilerOptions["include"] = [path2.dirname(entry.input)];
@@ -15189,7 +15195,7 @@ async function run2(config, entry) {
       const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions["include"], exclude: compilerOptions["exclude"] };
       delete tsconfig.compilerOptions.emitDeclarationOnly;
       delete tsconfig.compilerOptions.resolveJsonModule;
-      tsconfig.compilerOptions.lib = (_a2 = tsconfig.compilerOptions.lib) == null ? void 0 : _a2.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""));
+      tsconfig.compilerOptions.lib = ((_a2 = tsconfig.compilerOptions.lib) == null ? void 0 : _a2.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""))) || [];
       fs2.writeFileSync("tsconfig.json", JSON.stringify(tsconfig, null, 2));
       log3.info("Generate config file:", ["tsconfig.json"]);
     }
@@ -15837,17 +15843,18 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.11";
+var version7 = "0.7.12";
 
 // src/build.ts
 var Build = class {
   constructor(config) {
-    this.params = { debug: false, config: "", generate: false, profile: "" };
-    this.toolchain = { build: "version", esbuild: "version", typescript: "version", typedoc: "version", eslint: "version" };
-    this.environment = { config: void 0, package: void 0, tsconfig: false, eslintrc: false, git: false };
-    this.application = { name: "", version: "" };
-    this.config = { ...defaults2 };
-    this.updateConfig = (config, options3 = {}) => {
+    __publicField(this, "params", { debug: false, config: "", generate: false, profile: "" });
+    __publicField(this, "toolchain", { build: "version", esbuild: "version", typescript: "version", typedoc: "version", eslint: "version" });
+    __publicField(this, "environment", { config: void 0, package: void 0, tsconfig: false, eslintrc: false, git: false });
+    __publicField(this, "application", { name: "", version: "" });
+    __publicField(this, "package");
+    __publicField(this, "config", { ...defaults2 });
+    __publicField(this, "updateConfig", (config, options3 = {}) => {
       var _a2, _b;
       let local = merge(config);
       if (fs7.existsSync(".build.json")) {
@@ -15869,8 +15876,8 @@ var Build = class {
       for (const profile of Object.keys(local.profiles))
         local.profiles[profile] = [.../* @__PURE__ */ new Set([...Object.values(local.profiles[profile])])];
       return local;
-    };
-    this.packageJson = () => {
+    });
+    __publicField(this, "packageJson", () => {
       if (!fs7.existsSync("package.json")) {
         log11.error("Package definition not found:", "package.json");
         process.exit(1);
@@ -15879,7 +15886,7 @@ var Build = class {
       const json = JSON.parse(data9.toString());
       this.environment.package = "package.json";
       return json;
-    };
+    });
     this.config = this.updateConfig(merge(defaults2), config);
     this.config.profiles = {};
     this.config.clean.locations = [];

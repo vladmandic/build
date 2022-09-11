@@ -11,7 +11,7 @@ import { defaults } from './defaults';
 import * as clean from './clean';
 import * as changelog from './changelog';
 import * as cli from './cli';
-import { Config, Targets, Steps } from './interfaces';
+import type { Config, Targets, Steps } from './interfaces';
 import * as app from '../package.json';
 
 export { Config, Targets, Steps } from './interfaces';
