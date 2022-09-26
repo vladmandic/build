@@ -15839,14 +15839,27 @@ var header = (app, url) => `# ${app.name}
   `;
 async function run6(config, packageJson) {
   if (!fs5.existsSync(".git")) {
-    log9.warn("No valid git repository:", ".git");
+    if (config.log.debug)
+      log9.warn("No valid git repository:", ".git");
     return;
   }
-  const gitLog = await git2.log();
-  const gitRemote = await git2.listRemote(["--get-url"]) || "";
+  let gitLog;
+  try {
+    gitLog = await git2.log();
+  } catch (e) {
+    if (config.log.debug)
+      log9.warn("Git repository is empty");
+  }
+  let gitRemote = "localhost";
+  try {
+    gitRemote = await git2.listRemote(["--get-url"]) || "";
+  } catch (e) {
+    if (config.log.debug)
+      log9.warn("No remote git repository");
+  }
   const gitUrl = gitRemote.replace("\n", "");
   const branch = await git2.branchLocal();
-  const entries = [...gitLog.all].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const entries = gitLog ? [...gitLog.all].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) : [];
   if (config.log.debug)
     log9.data("Git Log:", entries);
   let previous = "";
@@ -15949,7 +15962,7 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.13";
+var version7 = "0.7.14";
 
 // src/build.ts
 var Build = class {

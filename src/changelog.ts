@@ -23,14 +23,24 @@ const header = (app, url) => `# ${app.name}
 
 export async function run(config, packageJson) {
   if (!fs.existsSync('.git')) {
-    log.warn('No valid git repository:', '.git');
+    if (config.log.debug) log.warn('No valid git repository:', '.git');
     return;
   }
-  const gitLog = await git.log();
-  const gitRemote = await git.listRemote(['--get-url']) || '';
+  let gitLog;
+  try {
+    gitLog = await git.log();
+  } catch {
+    if (config.log.debug) log.warn('Git repository is empty');
+  }
+  let gitRemote = 'localhost';
+  try {
+    gitRemote = await git.listRemote(['--get-url']) || '';
+  } catch {
+    if (config.log.debug) log.warn('No remote git repository');
+  }
   const gitUrl = gitRemote.replace('\n', '');
   const branch = await git.branchLocal();
-  const entries = [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
+  const entries = gitLog ? [...gitLog.all].sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime())) : [];
   if (config.log.debug) log.data('Git Log:', entries);
 
   let previous = '';
