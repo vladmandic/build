@@ -28,6 +28,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -36,9 +40,9 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.6/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.7/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.6/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.7/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
     "use strict";
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
@@ -62,20 +66,27 @@ var require_pilogger = __commonJS({
       return to;
     };
     var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps2(
+      // If the importer is in node compatibility mode or this is not an ESM
+      // file that has been converted to a CommonJS file using a Babel-
+      // compatible transform (i.e. "__esModule" has not been set), then set
+      // "default" to the CommonJS "module.exports" for node compatibility.
       isNodeMode || !mod || !mod.__esModule ? __defProp3(target, "default", { value: mod, enumerable: true }) : target,
       mod
     ));
     var __toCommonJS2 = (mod) => __copyProps2(__defProp3({}, "__esModule", { value: true }), mod);
     var require_dayjs_min2 = __commonJS3({
-      "node_modules/.pnpm/dayjs@1.11.4/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
+      "node_modules/.pnpm/dayjs@1.11.7/node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
           "object" == typeof exports2 && "undefined" != typeof module22 ? module22.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
         }(exports2, function() {
           "use strict";
-          var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", $ = "Invalid Date", l = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_") }, m = function(t2, e2, n2) {
+          var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", l = "Invalid Date", $ = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), ordinal: function(t2) {
+            var e2 = ["th", "st", "nd", "rd"], n2 = t2 % 100;
+            return "[" + t2 + (e2[(n2 - 20) % 10] || e2[n2] || e2[0]) + "]";
+          } }, m = function(t2, e2, n2) {
             var r2 = String(t2);
             return !r2 || r2.length >= e2 ? t2 : "" + Array(e2 + 1 - r2.length).join(n2) + t2;
-          }, g = { s: m, z: function(t2) {
+          }, v = { s: m, z: function(t2) {
             var e2 = -t2.utcOffset(), n2 = Math.abs(e2), r2 = Math.floor(n2 / 60), i2 = n2 % 60;
             return (e2 <= 0 ? "+" : "-") + m(r2, 2, "0") + ":" + m(i2, 2, "0");
           }, m: function t2(e2, n2) {
@@ -89,14 +100,14 @@ var require_pilogger = __commonJS({
             return { M: f, y: c, w: o, d: a, D: d, h: u, m: s, s: i, ms: r, Q: h }[t2] || String(t2 || "").toLowerCase().replace(/s$/, "");
           }, u: function(t2) {
             return void 0 === t2;
-          } }, v = "en", D = {};
-          D[v] = M;
+          } }, g = "en", D = {};
+          D[g] = M;
           var p = function(t2) {
             return t2 instanceof _;
           }, S = function t2(e2, n2, r2) {
             var i2;
             if (!e2)
-              return v;
+              return g;
             if ("string" == typeof e2) {
               var s2 = e2.toLowerCase();
               D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
@@ -107,13 +118,13 @@ var require_pilogger = __commonJS({
               var a2 = e2.name;
               D[a2] = e2, i2 = a2;
             }
-            return !r2 && i2 && (v = i2), i2 || !r2 && v;
+            return !r2 && i2 && (g = i2), i2 || !r2 && g;
           }, w = function(t2, e2) {
             if (p(t2))
               return t2.clone();
             var n2 = "object" == typeof e2 ? e2 : {};
             return n2.date = t2, n2.args = arguments, new _(n2);
-          }, O = g;
+          }, O = v;
           O.l = S, O.i = p, O.w = function(t2, e2) {
             return w(t2, { locale: e2.$L, utc: e2.$u, x: e2.$x, $offset: e2.$offset });
           };
@@ -132,7 +143,7 @@ var require_pilogger = __commonJS({
                 if (e2 instanceof Date)
                   return new Date(e2);
                 if ("string" == typeof e2 && !/Z$/i.test(e2)) {
-                  var r2 = e2.match(l);
+                  var r2 = e2.match($);
                   if (r2) {
                     var i2 = r2[2] - 1 || 0, s2 = (r2[7] || "0").substring(0, 3);
                     return n2 ? new Date(Date.UTC(r2[1], i2, r2[3] || 1, r2[4] || 0, r2[5] || 0, r2[6] || 0, s2)) : new Date(r2[1], i2, r2[3] || 1, r2[4] || 0, r2[5] || 0, r2[6] || 0, s2);
@@ -146,7 +157,7 @@ var require_pilogger = __commonJS({
             }, m2.$utils = function() {
               return O;
             }, m2.isValid = function() {
-              return !(this.$d.toString() === $);
+              return !(this.$d.toString() === l);
             }, m2.isSame = function(t2, e2) {
               var n2 = w(t2);
               return this.startOf(e2) <= n2 && n2 <= this.endOf(e2);
@@ -161,69 +172,69 @@ var require_pilogger = __commonJS({
             }, m2.valueOf = function() {
               return this.$d.getTime();
             }, m2.startOf = function(t2, e2) {
-              var n2 = this, r2 = !!O.u(e2) || e2, h2 = O.p(t2), $2 = function(t3, e3) {
+              var n2 = this, r2 = !!O.u(e2) || e2, h2 = O.p(t2), l2 = function(t3, e3) {
                 var i2 = O.w(n2.$u ? Date.UTC(n2.$y, e3, t3) : new Date(n2.$y, e3, t3), n2);
                 return r2 ? i2 : i2.endOf(a);
-              }, l2 = function(t3, e3) {
+              }, $2 = function(t3, e3) {
                 return O.w(n2.toDate()[t3].apply(n2.toDate("s"), (r2 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e3)), n2);
-              }, y2 = this.$W, M3 = this.$M, m3 = this.$D, g2 = "set" + (this.$u ? "UTC" : "");
+              }, y2 = this.$W, M3 = this.$M, m3 = this.$D, v2 = "set" + (this.$u ? "UTC" : "");
               switch (h2) {
                 case c:
-                  return r2 ? $2(1, 0) : $2(31, 11);
+                  return r2 ? l2(1, 0) : l2(31, 11);
                 case f:
-                  return r2 ? $2(1, M3) : $2(0, M3 + 1);
+                  return r2 ? l2(1, M3) : l2(0, M3 + 1);
                 case o:
-                  var v2 = this.$locale().weekStart || 0, D2 = (y2 < v2 ? y2 + 7 : y2) - v2;
-                  return $2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
+                  var g2 = this.$locale().weekStart || 0, D2 = (y2 < g2 ? y2 + 7 : y2) - g2;
+                  return l2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
                 case a:
                 case d:
-                  return l2(g2 + "Hours", 0);
+                  return $2(v2 + "Hours", 0);
                 case u:
-                  return l2(g2 + "Minutes", 1);
+                  return $2(v2 + "Minutes", 1);
                 case s:
-                  return l2(g2 + "Seconds", 2);
+                  return $2(v2 + "Seconds", 2);
                 case i:
-                  return l2(g2 + "Milliseconds", 3);
+                  return $2(v2 + "Milliseconds", 3);
                 default:
                   return this.clone();
               }
             }, m2.endOf = function(t2) {
               return this.startOf(t2, false);
             }, m2.$set = function(t2, e2) {
-              var n2, o2 = O.p(t2), h2 = "set" + (this.$u ? "UTC" : ""), $2 = (n2 = {}, n2[a] = h2 + "Date", n2[d] = h2 + "Date", n2[f] = h2 + "Month", n2[c] = h2 + "FullYear", n2[u] = h2 + "Hours", n2[s] = h2 + "Minutes", n2[i] = h2 + "Seconds", n2[r] = h2 + "Milliseconds", n2)[o2], l2 = o2 === a ? this.$D + (e2 - this.$W) : e2;
+              var n2, o2 = O.p(t2), h2 = "set" + (this.$u ? "UTC" : ""), l2 = (n2 = {}, n2[a] = h2 + "Date", n2[d] = h2 + "Date", n2[f] = h2 + "Month", n2[c] = h2 + "FullYear", n2[u] = h2 + "Hours", n2[s] = h2 + "Minutes", n2[i] = h2 + "Seconds", n2[r] = h2 + "Milliseconds", n2)[o2], $2 = o2 === a ? this.$D + (e2 - this.$W) : e2;
               if (o2 === f || o2 === c) {
                 var y2 = this.clone().set(d, 1);
-                y2.$d[$2](l2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
+                y2.$d[l2]($2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
               } else
-                $2 && this.$d[$2](l2);
+                l2 && this.$d[l2]($2);
               return this.init(), this;
             }, m2.set = function(t2, e2) {
               return this.clone().$set(t2, e2);
             }, m2.get = function(t2) {
               return this[O.p(t2)]();
             }, m2.add = function(r2, h2) {
-              var d2, $2 = this;
+              var d2, l2 = this;
               r2 = Number(r2);
-              var l2 = O.p(h2), y2 = function(t2) {
-                var e2 = w($2);
-                return O.w(e2.date(e2.date() + Math.round(t2 * r2)), $2);
+              var $2 = O.p(h2), y2 = function(t2) {
+                var e2 = w(l2);
+                return O.w(e2.date(e2.date() + Math.round(t2 * r2)), l2);
               };
-              if (l2 === f)
+              if ($2 === f)
                 return this.set(f, this.$M + r2);
-              if (l2 === c)
+              if ($2 === c)
                 return this.set(c, this.$y + r2);
-              if (l2 === a)
+              if ($2 === a)
                 return y2(1);
-              if (l2 === o)
+              if ($2 === o)
                 return y2(7);
-              var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[l2] || 1, m3 = this.$d.getTime() + r2 * M3;
+              var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[$2] || 1, m3 = this.$d.getTime() + r2 * M3;
               return O.w(m3, this);
             }, m2.subtract = function(t2, e2) {
               return this.add(-1 * t2, e2);
             }, m2.format = function(t2) {
               var e2 = this, n2 = this.$locale();
               if (!this.isValid())
-                return n2.invalidDate || $;
+                return n2.invalidDate || l;
               var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = O.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, f2 = n2.months, h2 = function(t3, n3, i3, s3) {
                 return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
               }, c2 = function(t3) {
@@ -231,15 +242,15 @@ var require_pilogger = __commonJS({
               }, d2 = n2.meridiem || function(t3, e3, n3) {
                 var r3 = t3 < 12 ? "AM" : "PM";
                 return n3 ? r3.toLowerCase() : r3;
-              }, l2 = { YY: String(this.$y).slice(-2), YYYY: this.$y, M: a2 + 1, MM: O.s(a2 + 1, 2, "0"), MMM: h2(n2.monthsShort, a2, f2, 3), MMMM: h2(f2, a2), D: this.$D, DD: O.s(this.$D, 2, "0"), d: String(this.$W), dd: h2(n2.weekdaysMin, this.$W, o2, 2), ddd: h2(n2.weekdaysShort, this.$W, o2, 3), dddd: o2[this.$W], H: String(s2), HH: O.s(s2, 2, "0"), h: c2(1), hh: c2(2), a: d2(s2, u2, true), A: d2(s2, u2, false), m: String(u2), mm: O.s(u2, 2, "0"), s: String(this.$s), ss: O.s(this.$s, 2, "0"), SSS: O.s(this.$ms, 3, "0"), Z: i2 };
+              }, $2 = { YY: String(this.$y).slice(-2), YYYY: this.$y, M: a2 + 1, MM: O.s(a2 + 1, 2, "0"), MMM: h2(n2.monthsShort, a2, f2, 3), MMMM: h2(f2, a2), D: this.$D, DD: O.s(this.$D, 2, "0"), d: String(this.$W), dd: h2(n2.weekdaysMin, this.$W, o2, 2), ddd: h2(n2.weekdaysShort, this.$W, o2, 3), dddd: o2[this.$W], H: String(s2), HH: O.s(s2, 2, "0"), h: c2(1), hh: c2(2), a: d2(s2, u2, true), A: d2(s2, u2, false), m: String(u2), mm: O.s(u2, 2, "0"), s: String(this.$s), ss: O.s(this.$s, 2, "0"), SSS: O.s(this.$ms, 3, "0"), Z: i2 };
               return r2.replace(y, function(t3, e3) {
-                return e3 || l2[t3] || i2.replace(":", "");
+                return e3 || $2[t3] || i2.replace(":", "");
               });
             }, m2.utcOffset = function() {
               return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
-            }, m2.diff = function(r2, d2, $2) {
-              var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, v2 = O.m(this, M3);
-              return v2 = (l2 = {}, l2[c] = v2 / 12, l2[f] = v2, l2[h] = v2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? v2 : O.a(v2);
+            }, m2.diff = function(r2, d2, l2) {
+              var $2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, v2 = this - M3, g2 = O.m(this, M3);
+              return g2 = ($2 = {}, $2[c] = g2 / 12, $2[f] = g2, $2[h] = g2 / 3, $2[o] = (v2 - m3) / 6048e5, $2[a] = (v2 - m3) / 864e5, $2[u] = v2 / n, $2[s] = v2 / e, $2[i] = v2 / t, $2)[y2] || v2, l2 ? g2 : O.a(g2);
             }, m2.daysInMonth = function() {
               return this.endOf(f).$D;
             }, m2.$locale = function() {
@@ -269,7 +280,7 @@ var require_pilogger = __commonJS({
             return t2.$i || (t2(e2, _, w), t2.$i = true), w;
           }, w.locale = S, w.isDayjs = p, w.unix = function(t2) {
             return w(1e3 * t2);
-          }, w.en = D[v], w.Ls = D, w.p = {}, w;
+          }, w.en = D[g], w.Ls = D, w.p = {}, w;
         });
       }
     });
@@ -309,90 +320,101 @@ var require_pilogger = __commonJS({
     var wrapAnsi16 = (offset = 0) => (code) => `\x1B[${code + offset}m`;
     var wrapAnsi256 = (offset = 0) => (code) => `\x1B[${38 + offset};5;${code}m`;
     var wrapAnsi16m = (offset = 0) => (red, green, blue) => `\x1B[${38 + offset};2;${red};${green};${blue}m`;
+    var styles = {
+      modifier: {
+        reset: [0, 0],
+        // 21 isn't widely supported and 22 does the same thing
+        bold: [1, 22],
+        dim: [2, 22],
+        italic: [3, 23],
+        underline: [4, 24],
+        overline: [53, 55],
+        inverse: [7, 27],
+        hidden: [8, 28],
+        strikethrough: [9, 29]
+      },
+      color: {
+        black: [30, 39],
+        red: [31, 39],
+        green: [32, 39],
+        yellow: [33, 39],
+        blue: [34, 39],
+        magenta: [35, 39],
+        cyan: [36, 39],
+        white: [37, 39],
+        // Bright color
+        blackBright: [90, 39],
+        gray: [90, 39],
+        // Alias of `blackBright`
+        grey: [90, 39],
+        // Alias of `blackBright`
+        redBright: [91, 39],
+        greenBright: [92, 39],
+        yellowBright: [93, 39],
+        blueBright: [94, 39],
+        magentaBright: [95, 39],
+        cyanBright: [96, 39],
+        whiteBright: [97, 39]
+      },
+      bgColor: {
+        bgBlack: [40, 49],
+        bgRed: [41, 49],
+        bgGreen: [42, 49],
+        bgYellow: [43, 49],
+        bgBlue: [44, 49],
+        bgMagenta: [45, 49],
+        bgCyan: [46, 49],
+        bgWhite: [47, 49],
+        // Bright color
+        bgBlackBright: [100, 49],
+        bgGray: [100, 49],
+        // Alias of `bgBlackBright`
+        bgGrey: [100, 49],
+        // Alias of `bgBlackBright`
+        bgRedBright: [101, 49],
+        bgGreenBright: [102, 49],
+        bgYellowBright: [103, 49],
+        bgBlueBright: [104, 49],
+        bgMagentaBright: [105, 49],
+        bgCyanBright: [106, 49],
+        bgWhiteBright: [107, 49]
+      }
+    };
+    var modifierNames = Object.keys(styles.modifier);
+    var foregroundColorNames = Object.keys(styles.color);
+    var backgroundColorNames = Object.keys(styles.bgColor);
+    var colorNames = [...foregroundColorNames, ...backgroundColorNames];
     function assembleStyles() {
       const codes = /* @__PURE__ */ new Map();
-      const styles2 = {
-        modifier: {
-          reset: [0, 0],
-          bold: [1, 22],
-          dim: [2, 22],
-          italic: [3, 23],
-          underline: [4, 24],
-          overline: [53, 55],
-          inverse: [7, 27],
-          hidden: [8, 28],
-          strikethrough: [9, 29]
-        },
-        color: {
-          black: [30, 39],
-          red: [31, 39],
-          green: [32, 39],
-          yellow: [33, 39],
-          blue: [34, 39],
-          magenta: [35, 39],
-          cyan: [36, 39],
-          white: [37, 39],
-          blackBright: [90, 39],
-          redBright: [91, 39],
-          greenBright: [92, 39],
-          yellowBright: [93, 39],
-          blueBright: [94, 39],
-          magentaBright: [95, 39],
-          cyanBright: [96, 39],
-          whiteBright: [97, 39]
-        },
-        bgColor: {
-          bgBlack: [40, 49],
-          bgRed: [41, 49],
-          bgGreen: [42, 49],
-          bgYellow: [43, 49],
-          bgBlue: [44, 49],
-          bgMagenta: [45, 49],
-          bgCyan: [46, 49],
-          bgWhite: [47, 49],
-          bgBlackBright: [100, 49],
-          bgRedBright: [101, 49],
-          bgGreenBright: [102, 49],
-          bgYellowBright: [103, 49],
-          bgBlueBright: [104, 49],
-          bgMagentaBright: [105, 49],
-          bgCyanBright: [106, 49],
-          bgWhiteBright: [107, 49]
-        }
-      };
-      styles2.color.gray = styles2.color.blackBright;
-      styles2.bgColor.bgGray = styles2.bgColor.bgBlackBright;
-      styles2.color.grey = styles2.color.blackBright;
-      styles2.bgColor.bgGrey = styles2.bgColor.bgBlackBright;
-      for (const [groupName, group] of Object.entries(styles2)) {
+      for (const [groupName, group] of Object.entries(styles)) {
         for (const [styleName, style] of Object.entries(group)) {
-          styles2[styleName] = {
+          styles[styleName] = {
             open: `\x1B[${style[0]}m`,
             close: `\x1B[${style[1]}m`
           };
-          group[styleName] = styles2[styleName];
+          group[styleName] = styles[styleName];
           codes.set(style[0], style[1]);
         }
-        Object.defineProperty(styles2, groupName, {
+        Object.defineProperty(styles, groupName, {
           value: group,
           enumerable: false
         });
       }
-      Object.defineProperty(styles2, "codes", {
+      Object.defineProperty(styles, "codes", {
         value: codes,
         enumerable: false
       });
-      styles2.color.close = "\x1B[39m";
-      styles2.bgColor.close = "\x1B[49m";
-      styles2.color.ansi = wrapAnsi16();
-      styles2.color.ansi256 = wrapAnsi256();
-      styles2.color.ansi16m = wrapAnsi16m();
-      styles2.bgColor.ansi = wrapAnsi16(ANSI_BACKGROUND_OFFSET);
-      styles2.bgColor.ansi256 = wrapAnsi256(ANSI_BACKGROUND_OFFSET);
-      styles2.bgColor.ansi16m = wrapAnsi16m(ANSI_BACKGROUND_OFFSET);
-      Object.defineProperties(styles2, {
+      styles.color.close = "\x1B[39m";
+      styles.bgColor.close = "\x1B[49m";
+      styles.color.ansi = wrapAnsi16();
+      styles.color.ansi256 = wrapAnsi256();
+      styles.color.ansi16m = wrapAnsi16m();
+      styles.bgColor.ansi = wrapAnsi16(ANSI_BACKGROUND_OFFSET);
+      styles.bgColor.ansi256 = wrapAnsi256(ANSI_BACKGROUND_OFFSET);
+      styles.bgColor.ansi16m = wrapAnsi16m(ANSI_BACKGROUND_OFFSET);
+      Object.defineProperties(styles, {
         rgbToAnsi256: {
-          value: (red, green, blue) => {
+          value(red, green, blue) {
             if (red === green && green === blue) {
               if (red < 8) {
                 return 16;
@@ -407,12 +429,12 @@ var require_pilogger = __commonJS({
           enumerable: false
         },
         hexToRgb: {
-          value: (hex) => {
-            const matches = /(?<colorString>[a-f\d]{6}|[a-f\d]{3})/i.exec(hex.toString(16));
+          value(hex) {
+            const matches = /[a-f\d]{6}|[a-f\d]{3}/i.exec(hex.toString(16));
             if (!matches) {
               return [0, 0, 0];
             }
-            let { colorString } = matches.groups;
+            let [colorString] = matches;
             if (colorString.length === 3) {
               colorString = [...colorString].map((character) => character + character).join("");
             }
@@ -421,16 +443,17 @@ var require_pilogger = __commonJS({
               integer >> 16 & 255,
               integer >> 8 & 255,
               integer & 255
+              /* eslint-enable no-bitwise */
             ];
           },
           enumerable: false
         },
         hexToAnsi256: {
-          value: (hex) => styles2.rgbToAnsi256(...styles2.hexToRgb(hex)),
+          value: (hex) => styles.rgbToAnsi256(...styles.hexToRgb(hex)),
           enumerable: false
         },
         ansi256ToAnsi: {
-          value: (code) => {
+          value(code) {
             if (code < 8) {
               return 30 + code;
             }
@@ -464,22 +487,22 @@ var require_pilogger = __commonJS({
           enumerable: false
         },
         rgbToAnsi: {
-          value: (red, green, blue) => styles2.ansi256ToAnsi(styles2.rgbToAnsi256(red, green, blue)),
+          value: (red, green, blue) => styles.ansi256ToAnsi(styles.rgbToAnsi256(red, green, blue)),
           enumerable: false
         },
         hexToAnsi: {
-          value: (hex) => styles2.ansi256ToAnsi(styles2.hexToAnsi256(hex)),
+          value: (hex) => styles.ansi256ToAnsi(styles.hexToAnsi256(hex)),
           enumerable: false
         }
       });
-      return styles2;
+      return styles;
     }
     var ansiStyles = assembleStyles();
     var ansi_styles_default = ansiStyles;
     var import_node_process = __toESM2(__require("process"), 1);
     var import_node_os = __toESM2(__require("os"), 1);
     var import_node_tty = __toESM2(__require("tty"), 1);
-    function hasFlag(flag, argv = import_node_process.default.argv) {
+    function hasFlag(flag, argv = globalThis.Deno ? globalThis.Deno.args : import_node_process.default.argv) {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
       const position = argv.indexOf(prefix + flag);
       const terminatorPosition = argv.indexOf("--");
@@ -531,6 +554,9 @@ var require_pilogger = __commonJS({
           return 2;
         }
       }
+      if ("TF_BUILD" in env && "AGENT_NAME" in env) {
+        return 1;
+      }
       if (haveStream && !streamIsTTY && forceColor === void 0) {
         return 0;
       }
@@ -546,7 +572,10 @@ var require_pilogger = __commonJS({
         return 1;
       }
       if ("CI" in env) {
-        if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "GITHUB_ACTIONS", "BUILDKITE", "DRONE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
+        if ("GITHUB_ACTIONS" in env) {
+          return 3;
+        }
+        if (["TRAVIS", "CIRCLECI", "APPVEYOR", "GITLAB_CI", "BUILDKITE", "DRONE"].some((sign) => sign in env) || env.CI_NAME === "codeship") {
           return 1;
         }
         return min;
@@ -554,19 +583,21 @@ var require_pilogger = __commonJS({
       if ("TEAMCITY_VERSION" in env) {
         return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
       }
-      if ("TF_BUILD" in env && "AGENT_NAME" in env) {
-        return 1;
-      }
       if (env.COLORTERM === "truecolor") {
+        return 3;
+      }
+      if (env.TERM === "xterm-kitty") {
         return 3;
       }
       if ("TERM_PROGRAM" in env) {
         const version8 = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
         switch (env.TERM_PROGRAM) {
-          case "iTerm.app":
+          case "iTerm.app": {
             return version8 >= 3 ? 3 : 2;
-          case "Apple_Terminal":
+          }
+          case "Apple_Terminal": {
             return 2;
+          }
         }
       }
       if (/-256(color)?$/i.test(env.TERM)) {
@@ -601,7 +632,7 @@ var require_pilogger = __commonJS({
       let endIndex = 0;
       let returnValue = "";
       do {
-        returnValue += string.substr(endIndex, index - endIndex) + substring + replacer;
+        returnValue += string.slice(endIndex, index) + substring + replacer;
         endIndex = index + substringLength;
         index = string.indexOf(substring, endIndex);
       } while (index !== -1);
@@ -613,7 +644,7 @@ var require_pilogger = __commonJS({
       let returnValue = "";
       do {
         const gotCR = string[index - 1] === "\r";
-        returnValue += string.substr(endIndex, (gotCR ? index - 1 : index) - endIndex) + prefix + (gotCR ? "\r\n" : "\n") + postfix;
+        returnValue += string.slice(endIndex, gotCR ? index - 1 : index) + prefix + (gotCR ? "\r\n" : "\n") + postfix;
         endIndex = index + 1;
         index = string.indexOf("\n", endIndex);
       } while (index !== -1);
@@ -630,7 +661,7 @@ var require_pilogger = __commonJS({
       "ansi256",
       "ansi16m"
     ];
-    var styles = /* @__PURE__ */ Object.create(null);
+    var styles2 = /* @__PURE__ */ Object.create(null);
     var applyOptions = (object, options22 = {}) => {
       if (options22.level && !(Number.isInteger(options22.level) && options22.level >= 0 && options22.level <= 3)) {
         throw new Error("The `level` option should be an integer from 0 to 3");
@@ -654,7 +685,7 @@ var require_pilogger = __commonJS({
     }
     Object.setPrototypeOf(createChalk.prototype, Function.prototype);
     for (const [styleName, style] of Object.entries(ansi_styles_default)) {
-      styles[styleName] = {
+      styles2[styleName] = {
         get() {
           const builder = createBuilder(this, createStyler(style.open, style.close, this[STYLER]), this[IS_EMPTY]);
           Object.defineProperty(this, styleName, { value: builder });
@@ -662,7 +693,7 @@ var require_pilogger = __commonJS({
         }
       };
     }
-    styles.visible = {
+    styles2.visible = {
       get() {
         const builder = createBuilder(this, this[STYLER], true);
         Object.defineProperty(this, "visible", { value: builder });
@@ -686,7 +717,7 @@ var require_pilogger = __commonJS({
     };
     var usedModels = ["rgb", "hex", "ansi256"];
     for (const model of usedModels) {
-      styles[model] = {
+      styles2[model] = {
         get() {
           const { level } = this;
           return function(...arguments_) {
@@ -696,7 +727,7 @@ var require_pilogger = __commonJS({
         }
       };
       const bgModel = "bg" + model[0].toUpperCase() + model.slice(1);
-      styles[bgModel] = {
+      styles2[bgModel] = {
         get() {
           const { level } = this;
           return function(...arguments_) {
@@ -708,7 +739,7 @@ var require_pilogger = __commonJS({
     }
     var proto = Object.defineProperties(() => {
     }, {
-      ...styles,
+      ...styles2,
       level: {
         enumerable: true,
         get() {
@@ -766,7 +797,7 @@ var require_pilogger = __commonJS({
       }
       return openAll + string + closeAll;
     };
-    Object.defineProperties(createChalk.prototype, styles);
+    Object.defineProperties(createChalk.prototype, styles2);
     var chalk = createChalk();
     var chalkStderr = createChalk({ level: stderrColor ? stderrColor.level : 0 });
     var import_console = __require("console");
@@ -802,6 +833,7 @@ var require_pilogger = __commonJS({
       console: chalk2.gray("CONSOLE:")
     };
     var inspectOptions = {
+      // options passed to nodejs console constructor
       showHidden: false,
       depth: 5,
       colors: true,
@@ -1908,61 +1940,112 @@ var require_constants = __commonJS({
     module2.exports = {
       MAX_LENGTH: 1024 * 64,
       POSIX_REGEX_SOURCE,
+      // regular expressions
       REGEX_BACKSLASH: /\\(?![*+?^${}(|)[\]])/g,
       REGEX_NON_SPECIAL_CHARS: /^[^@![\].,$*+?^{}()|\\/]+/,
       REGEX_SPECIAL_CHARS: /[-*+?.^${}(|)[\]]/,
       REGEX_SPECIAL_CHARS_BACKREF: /(\\?)((\W)(\3*))/g,
       REGEX_SPECIAL_CHARS_GLOBAL: /([-*+?.^${}(|)[\]])/g,
       REGEX_REMOVE_BACKSLASH: /(?:\[.*?[^\\]\]|\\(?=.))/g,
+      // Replace globs with equivalent patterns to reduce parsing time.
       REPLACEMENTS: {
         "***": "*",
         "**/**": "**",
         "**/**/**": "**"
       },
+      // Digits
       CHAR_0: 48,
+      /* 0 */
       CHAR_9: 57,
+      /* 9 */
+      // Alphabet chars.
       CHAR_UPPERCASE_A: 65,
+      /* A */
       CHAR_LOWERCASE_A: 97,
+      /* a */
       CHAR_UPPERCASE_Z: 90,
+      /* Z */
       CHAR_LOWERCASE_Z: 122,
+      /* z */
       CHAR_LEFT_PARENTHESES: 40,
+      /* ( */
       CHAR_RIGHT_PARENTHESES: 41,
+      /* ) */
       CHAR_ASTERISK: 42,
+      /* * */
+      // Non-alphabetic chars.
       CHAR_AMPERSAND: 38,
+      /* & */
       CHAR_AT: 64,
+      /* @ */
       CHAR_BACKWARD_SLASH: 92,
+      /* \ */
       CHAR_CARRIAGE_RETURN: 13,
+      /* \r */
       CHAR_CIRCUMFLEX_ACCENT: 94,
+      /* ^ */
       CHAR_COLON: 58,
+      /* : */
       CHAR_COMMA: 44,
+      /* , */
       CHAR_DOT: 46,
+      /* . */
       CHAR_DOUBLE_QUOTE: 34,
+      /* " */
       CHAR_EQUAL: 61,
+      /* = */
       CHAR_EXCLAMATION_MARK: 33,
+      /* ! */
       CHAR_FORM_FEED: 12,
+      /* \f */
       CHAR_FORWARD_SLASH: 47,
+      /* / */
       CHAR_GRAVE_ACCENT: 96,
+      /* ` */
       CHAR_HASH: 35,
+      /* # */
       CHAR_HYPHEN_MINUS: 45,
+      /* - */
       CHAR_LEFT_ANGLE_BRACKET: 60,
+      /* < */
       CHAR_LEFT_CURLY_BRACE: 123,
+      /* { */
       CHAR_LEFT_SQUARE_BRACKET: 91,
+      /* [ */
       CHAR_LINE_FEED: 10,
+      /* \n */
       CHAR_NO_BREAK_SPACE: 160,
+      /* \u00A0 */
       CHAR_PERCENT: 37,
+      /* % */
       CHAR_PLUS: 43,
+      /* + */
       CHAR_QUESTION_MARK: 63,
+      /* ? */
       CHAR_RIGHT_ANGLE_BRACKET: 62,
+      /* > */
       CHAR_RIGHT_CURLY_BRACE: 125,
+      /* } */
       CHAR_RIGHT_SQUARE_BRACKET: 93,
+      /* ] */
       CHAR_SEMICOLON: 59,
+      /* ; */
       CHAR_SINGLE_QUOTE: 39,
+      /* ' */
       CHAR_SPACE: 32,
+      /*   */
       CHAR_TAB: 9,
+      /* \t */
       CHAR_UNDERSCORE: 95,
+      /* _ */
       CHAR_VERTICAL_LINE: 124,
+      /* | */
       CHAR_ZERO_WIDTH_NOBREAK_SPACE: 65279,
+      /* \uFEFF */
       SEP: path4.sep,
+      /**
+       * Create EXTGLOB_CHARS
+       */
       extglobChars(chars) {
         return {
           "!": { type: "negate", open: "(?:(?!(?:", close: `))${chars.STAR})` },
@@ -1972,6 +2055,9 @@ var require_constants = __commonJS({
           "@": { type: "at", open: "(?:", close: ")" }
         };
       },
+      /**
+       * Create GLOB_CHARS
+       */
       globChars(win32) {
         return win32 === true ? WINDOWS_CHARS : POSIX_CHARS;
       }
@@ -2049,20 +2135,35 @@ var require_scan = __commonJS({
     var utils = require_utils();
     var {
       CHAR_ASTERISK,
+      /* * */
       CHAR_AT,
+      /* @ */
       CHAR_BACKWARD_SLASH,
+      /* \ */
       CHAR_COMMA,
+      /* , */
       CHAR_DOT,
+      /* . */
       CHAR_EXCLAMATION_MARK,
+      /* ! */
       CHAR_FORWARD_SLASH,
+      /* / */
       CHAR_LEFT_CURLY_BRACE,
+      /* { */
       CHAR_LEFT_PARENTHESES,
+      /* ( */
       CHAR_LEFT_SQUARE_BRACKET,
+      /* [ */
       CHAR_PLUS,
+      /* + */
       CHAR_QUESTION_MARK,
+      /* ? */
       CHAR_RIGHT_CURLY_BRACE,
+      /* } */
       CHAR_RIGHT_PARENTHESES,
+      /* ) */
       CHAR_RIGHT_SQUARE_BRACKET
+      /* ] */
     } = require_constants();
     var isPathSeparator = (code) => {
       return code === CHAR_FORWARD_SLASH || code === CHAR_BACKWARD_SLASH;
@@ -3350,8 +3451,10 @@ var require_readdirp = __commonJS({
       static get defaultOptions() {
         return {
           root: ".",
+          /* eslint-disable no-unused-vars */
           fileFilter: (path4) => true,
           directoryFilter: (path4) => true,
+          /* eslint-enable no-unused-vars */
           type: FILE_TYPE,
           lstat: false,
           depth: 2147483648,
@@ -3557,9 +3660,9 @@ var require_normalize_path = __commonJS({
   }
 });
 
-// node_modules/.pnpm/anymatch@3.1.2/node_modules/anymatch/index.js
+// node_modules/.pnpm/anymatch@3.1.3/node_modules/anymatch/index.js
 var require_anymatch = __commonJS({
-  "node_modules/.pnpm/anymatch@3.1.2/node_modules/anymatch/index.js"(exports, module2) {
+  "node_modules/.pnpm/anymatch@3.1.3/node_modules/anymatch/index.js"(exports, module2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var picomatch = require_picomatch2();
@@ -3586,7 +3689,7 @@ var require_anymatch = __commonJS({
       if (!isList && typeof _path !== "string") {
         throw new TypeError("anymatch: second argument must be a string: got " + Object.prototype.toString.call(_path));
       }
-      const path4 = normalizePath(_path);
+      const path4 = normalizePath(_path, false);
       for (let index = 0; index < negPatterns.length; index++) {
         const nglob = negPatterns[index];
         if (nglob(path4)) {
@@ -4505,50 +4608,97 @@ var require_constants2 = __commonJS({
     "use strict";
     module2.exports = {
       MAX_LENGTH: 1024 * 64,
+      // Digits
       CHAR_0: "0",
+      /* 0 */
       CHAR_9: "9",
+      /* 9 */
+      // Alphabet chars.
       CHAR_UPPERCASE_A: "A",
+      /* A */
       CHAR_LOWERCASE_A: "a",
+      /* a */
       CHAR_UPPERCASE_Z: "Z",
+      /* Z */
       CHAR_LOWERCASE_Z: "z",
+      /* z */
       CHAR_LEFT_PARENTHESES: "(",
+      /* ( */
       CHAR_RIGHT_PARENTHESES: ")",
+      /* ) */
       CHAR_ASTERISK: "*",
+      /* * */
+      // Non-alphabetic chars.
       CHAR_AMPERSAND: "&",
+      /* & */
       CHAR_AT: "@",
+      /* @ */
       CHAR_BACKSLASH: "\\",
+      /* \ */
       CHAR_BACKTICK: "`",
+      /* ` */
       CHAR_CARRIAGE_RETURN: "\r",
+      /* \r */
       CHAR_CIRCUMFLEX_ACCENT: "^",
+      /* ^ */
       CHAR_COLON: ":",
+      /* : */
       CHAR_COMMA: ",",
+      /* , */
       CHAR_DOLLAR: "$",
+      /* . */
       CHAR_DOT: ".",
+      /* . */
       CHAR_DOUBLE_QUOTE: '"',
+      /* " */
       CHAR_EQUAL: "=",
+      /* = */
       CHAR_EXCLAMATION_MARK: "!",
+      /* ! */
       CHAR_FORM_FEED: "\f",
+      /* \f */
       CHAR_FORWARD_SLASH: "/",
+      /* / */
       CHAR_HASH: "#",
+      /* # */
       CHAR_HYPHEN_MINUS: "-",
+      /* - */
       CHAR_LEFT_ANGLE_BRACKET: "<",
+      /* < */
       CHAR_LEFT_CURLY_BRACE: "{",
+      /* { */
       CHAR_LEFT_SQUARE_BRACKET: "[",
+      /* [ */
       CHAR_LINE_FEED: "\n",
+      /* \n */
       CHAR_NO_BREAK_SPACE: "\xA0",
+      /* \u00A0 */
       CHAR_PERCENT: "%",
+      /* % */
       CHAR_PLUS: "+",
+      /* + */
       CHAR_QUESTION_MARK: "?",
+      /* ? */
       CHAR_RIGHT_ANGLE_BRACKET: ">",
+      /* > */
       CHAR_RIGHT_CURLY_BRACE: "}",
+      /* } */
       CHAR_RIGHT_SQUARE_BRACKET: "]",
+      /* ] */
       CHAR_SEMICOLON: ";",
+      /* ; */
       CHAR_SINGLE_QUOTE: "'",
+      /* ' */
       CHAR_SPACE: " ",
+      /*   */
       CHAR_TAB: "	",
+      /* \t */
       CHAR_UNDERSCORE: "_",
+      /* _ */
       CHAR_VERTICAL_LINE: "|",
+      /* | */
       CHAR_ZERO_WIDTH_NOBREAK_SPACE: "\uFEFF"
+      /* \uFEFF */
     };
   }
 });
@@ -4561,17 +4711,29 @@ var require_parse2 = __commonJS({
     var {
       MAX_LENGTH,
       CHAR_BACKSLASH,
+      /* \ */
       CHAR_BACKTICK,
+      /* ` */
       CHAR_COMMA,
+      /* , */
       CHAR_DOT,
+      /* . */
       CHAR_LEFT_PARENTHESES,
+      /* ( */
       CHAR_RIGHT_PARENTHESES,
+      /* ) */
       CHAR_LEFT_CURLY_BRACE,
+      /* { */
       CHAR_RIGHT_CURLY_BRACE,
+      /* } */
       CHAR_LEFT_SQUARE_BRACKET,
+      /* [ */
       CHAR_RIGHT_SQUARE_BRACKET,
+      /* ] */
       CHAR_DOUBLE_QUOTE,
+      /* " */
       CHAR_SINGLE_QUOTE,
+      /* ' */
       CHAR_NO_BREAK_SPACE,
       CHAR_ZERO_WIDTH_NOBREAK_SPACE
     } = require_constants2();
@@ -5310,6 +5472,7 @@ var require_nodefs_handler = __commonJS({
           options3,
           fsWatchBroadcast.bind(null, fullPath, KEY_LISTENERS),
           errHandler,
+          // no need to use broadcast here
           fsWatchBroadcast.bind(null, fullPath, KEY_RAW)
         );
         if (!watcher)
@@ -5394,10 +5557,19 @@ var require_nodefs_handler = __commonJS({
       };
     };
     var NodeFsHandler = class {
+      /**
+       * @param {import("../index").FSWatcher} fsW
+       */
       constructor(fsW) {
         this.fsw = fsW;
         this._boundHandleError = (error8) => fsW._handleError(error8);
       }
+      /**
+       * Watch file for changes with fs_watchFile or fs_watch.
+       * @param {String} path to file or dir
+       * @param {Function} listener on fs change
+       * @returns {Function} closer for the watcher instance
+       */
       _watchWithNodeFs(path4, listener) {
         const opts = this.fsw.options;
         const directory = sysPath.dirname(path4);
@@ -5424,6 +5596,13 @@ var require_nodefs_handler = __commonJS({
         }
         return closer;
       }
+      /**
+       * Watch a file and emit add event if warranted.
+       * @param {Path} file Path
+       * @param {fs.Stats} stats result of fs_stat
+       * @param {Boolean} initialAdd was the file added at watch instantiation?
+       * @returns {Function} closer for the watcher instance
+       */
       _handleFile(file, stats, initialAdd) {
         if (this.fsw.closed) {
           return;
@@ -5474,6 +5653,14 @@ var require_nodefs_handler = __commonJS({
         }
         return closer;
       }
+      /**
+       * Handle symlinks encountered while reading a dir.
+       * @param {Object} entry returned by readdirp
+       * @param {String} directory path of dir being read
+       * @param {String} path of this item
+       * @param {String} item basename of this item
+       * @returns {Promise<Boolean>} true if no more processing is needed for this entry.
+       */
       async _handleSymlink(entry, directory, path4, item) {
         if (this.fsw.closed) {
           return;
@@ -5564,6 +5751,17 @@ var require_nodefs_handler = __commonJS({
           })
         );
       }
+      /**
+       * Read directory to add / remove files from `@watched` list and re-read it on change.
+       * @param {String} dir fs path
+       * @param {fs.Stats} stats
+       * @param {Boolean} initialAdd
+       * @param {Number} depth relative to user-supplied path
+       * @param {String} target child path targeted for watch
+       * @param {Object} wh Common watch helpers for this path
+       * @param {String} realpath
+       * @returns {Promise<Function>} closer for the watcher instance.
+       */
       async _handleDir(dir, stats, initialAdd, depth, target, wh, realpath) {
         const parentDir = this.fsw._getWatchedDir(sysPath.dirname(dir));
         const tracked = parentDir.has(sysPath.basename(dir));
@@ -5590,6 +5788,16 @@ var require_nodefs_handler = __commonJS({
         }
         return closer;
       }
+      /**
+       * Handle added file, directory, or glob pattern.
+       * Delegates call to _handleFile / _handleDir after checks.
+       * @param {String} path to file or ir
+       * @param {Boolean} initialAdd was the file added at watch instantiation?
+       * @param {Object} priorWh depth relative to user-supplied path
+       * @param {Number} depth Child path actually targeted for watch
+       * @param {String=} target Child path actually targeted for watch
+       * @returns {Promise}
+       */
       async _addToNodeFs(path4, initialAdd, priorWh, depth, target) {
         const ready = this.fsw._emitReady;
         if (this.fsw._isIgnored(path4) || this.fsw.closed) {
@@ -5691,6 +5899,7 @@ var require_fsevents_handler = __commonJS({
       FSEVENT_MODIFIED,
       FSEVENT_DELETED,
       FSEVENT_MOVED,
+      // FSEVENT_CLONED,
       FSEVENT_UNKNOWN,
       FSEVENT_TYPE_FILE,
       FSEVENT_TYPE_DIRECTORY,
@@ -5799,6 +6008,9 @@ var require_fsevents_handler = __commonJS({
     };
     var sameTypes = (info9, stats) => info9.type === FSEVENT_TYPE_DIRECTORY && stats.isDirectory() || info9.type === FSEVENT_TYPE_SYMLINK && stats.isSymbolicLink() || info9.type === FSEVENT_TYPE_FILE && stats.isFile();
     var FsEventsHandler = class {
+      /**
+       * @param {import('../index').FSWatcher} fsw
+       */
       constructor(fsw) {
         this.fsw = fsw;
       }
@@ -5860,6 +6072,14 @@ var require_fsevents_handler = __commonJS({
             this._addToFsEvents(path4, false, true);
         }
       }
+      /**
+       * Handle symlinks encountered during directory scan
+       * @param {String} watchPath  - file/dir path to be watched with fsevents
+       * @param {String} realPath   - real path (in case of symlinks)
+       * @param {Function} transform  - path transformer
+       * @param {Function} globFilter - path filter in case a glob pattern was provided
+       * @returns {Function} closer for the watcher instance
+      */
       _watchWithFsEvents(watchPath, realPath, transform, globFilter) {
         if (this.fsw.closed || this.fsw._isIgnored(watchPath))
           return;
@@ -5919,6 +6139,14 @@ var require_fsevents_handler = __commonJS({
         this.fsw._emitReady();
         return closer;
       }
+      /**
+       * Handle symlinks encountered during directory scan
+       * @param {String} linkPath path to symlink
+       * @param {String} fullPath absolute path to the symlink
+       * @param {Function} transform pre-existing path transformer
+       * @param {Number} curDepth level of subdirectories traversed to where symlink is
+       * @returns {Promise<void>}
+       */
       async _handleFsEventsSymlink(linkPath, fullPath, transform, curDepth) {
         if (this.fsw.closed || this.fsw._symlinkPaths.has(fullPath))
           return;
@@ -5947,6 +6175,11 @@ var require_fsevents_handler = __commonJS({
           }
         }
       }
+      /**
+       *
+       * @param {Path} newPath
+       * @param {fs.Stats} stats
+       */
       emitAdd(newPath, stats, processPath, opts, forceAdd) {
         const pp = processPath(newPath);
         const isDir = stats.isDirectory();
@@ -5972,6 +6205,14 @@ var require_fsevents_handler = __commonJS({
         );
         this.fsw._addPathCloser(path4, closer);
       }
+      /**
+       * Handle added path with fsevents
+       * @param {String} path file/dir path or glob pattern
+       * @param {Function|Boolean=} transform converts working path to what the user expects
+       * @param {Boolean=} forceAdd ensure add is emitted
+       * @param {Number=} priorDepth Level of subdirectories already traversed.
+       * @returns {Promise<void>}
+       */
       async _addToFsEvents(path4, transform, forceAdd, priorDepth) {
         if (this.fsw.closed) {
           return;
@@ -6142,6 +6383,10 @@ var require_chokidar = __commonJS({
     };
     var undef = (opts, key) => opts[key] === void 0;
     var DirEntry = class {
+      /**
+       * @param {Path} dir
+       * @param {Function} removeWatcher
+       */
       constructor(dir, removeWatcher) {
         this.path = dir;
         this._removeWatcher = removeWatcher;
@@ -6176,6 +6421,9 @@ var require_chokidar = __commonJS({
           return;
         return items.has(item);
       }
+      /**
+       * @returns {Array<String>}
+       */
       getChildren() {
         const { items } = this;
         if (!items)
@@ -6260,6 +6508,7 @@ var require_chokidar = __commonJS({
       }
     };
     var FSWatcher = class extends EventEmitter {
+      // Not indenting methods for history sake; for now.
       constructor(_opts) {
         super();
         const opts = {};
@@ -6350,6 +6599,14 @@ var require_chokidar = __commonJS({
         }
         Object.freeze(opts);
       }
+      // Public methods
+      /**
+       * Adds paths to be watched on an existing FSWatcher instance
+       * @param {Path|Array<Path>} paths_
+       * @param {String=} _origAdd private; for handling non-existent paths to be watched
+       * @param {Boolean=} _internal private; indicates a non-user add
+       * @returns {FSWatcher} for chaining
+       */
       add(paths_, _origAdd, _internal) {
         const { cwd, disableGlobbing } = this.options;
         this.closed = false;
@@ -6400,6 +6657,11 @@ var require_chokidar = __commonJS({
         }
         return this;
       }
+      /**
+       * Close watchers or start ignoring events from specified paths.
+       * @param {Path|Array<Path>} paths_ - string or array of strings, file/directory paths and/or globs
+       * @returns {FSWatcher} for chaining
+      */
       unwatch(paths_) {
         if (this.closed)
           return this;
@@ -6420,6 +6682,10 @@ var require_chokidar = __commonJS({
         });
         return this;
       }
+      /**
+       * Close watchers and remove all listeners from watched paths.
+       * @returns {Promise<void>}.
+      */
       close() {
         if (this.closed)
           return this._closePromise;
@@ -6442,6 +6708,10 @@ var require_chokidar = __commonJS({
         this._closePromise = closers.length ? Promise.all(closers).then(() => void 0) : Promise.resolve();
         return this._closePromise;
       }
+      /**
+       * Expose list of watched paths
+       * @returns {Object} for chaining
+      */
       getWatched() {
         const watchList = {};
         this._watched.forEach((entry, dir) => {
@@ -6455,6 +6725,18 @@ var require_chokidar = __commonJS({
         if (event !== EV_ERROR)
           this.emit(EV_ALL, ...args);
       }
+      // Common helpers
+      // --------------
+      /**
+       * Normalize and emit events.
+       * Calling _emit DOES NOT MEAN emit() would be called!
+       * @param {EventName} event Type of event
+       * @param {Path} path File or directory path
+       * @param {*=} val1 arguments to be passed with event
+       * @param {*=} val2
+       * @param {*=} val3
+       * @returns the error if defined, otherwise the value of the FSWatcher instance's `closed` flag
+       */
       async _emit(event, path4, val1, val2, val3) {
         if (this.closed)
           return;
@@ -6530,6 +6812,11 @@ var require_chokidar = __commonJS({
         this.emitWithAll(event, args);
         return this;
       }
+      /**
+       * Common handler for errors
+       * @param {Error} error
+       * @returns {Error|Boolean} The error if defined, otherwise the value of the FSWatcher instance's `closed` flag
+       */
       _handleError(error8) {
         const code = error8 && error8.code;
         if (error8 && code !== "ENOENT" && code !== "ENOTDIR" && (!this.options.ignorePermissionErrors || code !== "EPERM" && code !== "EACCES")) {
@@ -6537,6 +6824,13 @@ var require_chokidar = __commonJS({
         }
         return error8 || this.closed;
       }
+      /**
+       * Helper utility for throttling
+       * @param {ThrottleType} actionType type being throttled
+       * @param {Path} path being acted upon
+       * @param {Number} timeout duration of time to suppress duplicate actions
+       * @returns {Object|false} tracking object or false if action should be suppressed
+       */
       _throttle(actionType, path4, timeout) {
         if (!this._throttled.has(actionType)) {
           this._throttled.set(actionType, /* @__PURE__ */ new Map());
@@ -6565,6 +6859,14 @@ var require_chokidar = __commonJS({
       _incrReadyCount() {
         return this._readyCount++;
       }
+      /**
+       * Awaits write operation to finish.
+       * Polls a newly created file for size variations. When files size does not change for 'threshold' milliseconds calls callback.
+       * @param {Path} path being acted upon
+       * @param {Number} threshold Time in milliseconds a file size must be fixed before acknowledging write OP is finished
+       * @param {EventName} event
+       * @param {Function} awfEmit Callback to be called when ready for event to be emitted.
+       */
       _awaitWriteFinish(path4, threshold, event, awfEmit) {
         let timeoutHandler;
         let fullPath = path4;
@@ -6615,6 +6917,12 @@ var require_chokidar = __commonJS({
       _getGlobIgnored() {
         return [...this._ignoredPaths.values()];
       }
+      /**
+       * Determines whether user has asked to ignore this path.
+       * @param {Path} path filepath or dir
+       * @param {fs.Stats=} stats result of fs.stat
+       * @returns {Boolean}
+       */
       _isIgnored(path4, stats) {
         if (this.options.atomic && DOT_RE.test(path4))
           return true;
@@ -6631,11 +6939,24 @@ var require_chokidar = __commonJS({
       _isntIgnored(path4, stat2) {
         return !this._isIgnored(path4, stat2);
       }
+      /**
+       * Provides a set of common helpers and properties relating to symlink and glob handling.
+       * @param {Path} path file, directory, or glob pattern being watched
+       * @param {Number=} depth at any depth > 0, this isn't a glob
+       * @returns {WatchHelper} object containing helpers for this path
+       */
       _getWatchHelpers(path4, depth) {
         const watchPath = depth || this.options.disableGlobbing || !isGlob(path4) ? path4 : globParent(path4);
         const follow = this.options.followSymlinks;
         return new WatchHelper(path4, watchPath, follow, this);
       }
+      // Directory helpers
+      // -----------------
+      /**
+       * Provides directory tracking objects
+       * @param {String} directory path of the directory
+       * @returns {DirEntry} the directory's tracking object
+       */
       _getWatchedDir(directory) {
         if (!this._boundRemove)
           this._boundRemove = this._remove.bind(this);
@@ -6644,6 +6965,14 @@ var require_chokidar = __commonJS({
           this._watched.set(dir, new DirEntry(dir, this._boundRemove));
         return this._watched.get(dir);
       }
+      // File helpers
+      // ------------
+      /**
+       * Check for read permissions.
+       * Based on this answer on SO: https://stackoverflow.com/a/11781404/1358405
+       * @param {fs.Stats} stats - object, result of fs_stat
+       * @returns {Boolean} indicates whether the file can be read
+      */
       _hasReadPermissions(stats) {
         if (this.options.ignorePermissionErrors)
           return true;
@@ -6652,6 +6981,14 @@ var require_chokidar = __commonJS({
         const it = Number.parseInt(st.toString(8)[0], 10);
         return Boolean(4 & it);
       }
+      /**
+       * Handles emitting unlink events for
+       * files and directories, and via recursion, for
+       * files and directories within directories that are unlinked
+       * @param {String} directory within which the following item is located
+       * @param {String} item      base path of item/directory
+       * @returns {void}
+      */
       _remove(directory, item, isDirectory) {
         const path4 = sysPath.join(directory, item);
         const fullPath = sysPath.resolve(path4);
@@ -6687,11 +7024,19 @@ var require_chokidar = __commonJS({
           this._closePath(path4);
         }
       }
+      /**
+       * Closes all watchers for a path
+       * @param {Path} path
+       */
       _closePath(path4) {
         this._closeFile(path4);
         const dir = sysPath.dirname(path4);
         this._getWatchedDir(dir).remove(sysPath.basename(path4));
       }
+      /**
+       * Closes only file-specific watchers
+       * @param {Path} path
+       */
       _closeFile(path4) {
         const closers = this._closers.get(path4);
         if (!closers)
@@ -6699,6 +7044,11 @@ var require_chokidar = __commonJS({
         closers.forEach((closer) => closer());
         this._closers.delete(path4);
       }
+      /**
+       *
+       * @param {Path} path
+       * @param {Function} closer
+       */
       _addPathCloser(path4, closer) {
         if (!closer)
           return;
@@ -9395,17 +9745,20 @@ var require_rimraf = __commonJS({
   }
 });
 
-// node_modules/.pnpm/dayjs@1.11.5/node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.7/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/.pnpm/dayjs@1.11.5/node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.7/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     !function(t, e) {
       "object" == typeof exports && "undefined" != typeof module2 ? module2.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
     }(exports, function() {
       "use strict";
-      var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", $ = "Invalid Date", l = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_") }, m = function(t2, e2, n2) {
+      var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", f = "month", h = "quarter", c = "year", d = "date", l = "Invalid Date", $ = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), ordinal: function(t2) {
+        var e2 = ["th", "st", "nd", "rd"], n2 = t2 % 100;
+        return "[" + t2 + (e2[(n2 - 20) % 10] || e2[n2] || e2[0]) + "]";
+      } }, m = function(t2, e2, n2) {
         var r2 = String(t2);
         return !r2 || r2.length >= e2 ? t2 : "" + Array(e2 + 1 - r2.length).join(n2) + t2;
-      }, g = { s: m, z: function(t2) {
+      }, v = { s: m, z: function(t2) {
         var e2 = -t2.utcOffset(), n2 = Math.abs(e2), r2 = Math.floor(n2 / 60), i2 = n2 % 60;
         return (e2 <= 0 ? "+" : "-") + m(r2, 2, "0") + ":" + m(i2, 2, "0");
       }, m: function t2(e2, n2) {
@@ -9419,14 +9772,14 @@ var require_dayjs_min = __commonJS({
         return { M: f, y: c, w: o, d: a, D: d, h: u, m: s, s: i, ms: r, Q: h }[t2] || String(t2 || "").toLowerCase().replace(/s$/, "");
       }, u: function(t2) {
         return void 0 === t2;
-      } }, v = "en", D = {};
-      D[v] = M;
+      } }, g = "en", D = {};
+      D[g] = M;
       var p = function(t2) {
         return t2 instanceof _;
       }, S = function t2(e2, n2, r2) {
         var i2;
         if (!e2)
-          return v;
+          return g;
         if ("string" == typeof e2) {
           var s2 = e2.toLowerCase();
           D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
@@ -9437,13 +9790,13 @@ var require_dayjs_min = __commonJS({
           var a2 = e2.name;
           D[a2] = e2, i2 = a2;
         }
-        return !r2 && i2 && (v = i2), i2 || !r2 && v;
+        return !r2 && i2 && (g = i2), i2 || !r2 && g;
       }, w = function(t2, e2) {
         if (p(t2))
           return t2.clone();
         var n2 = "object" == typeof e2 ? e2 : {};
         return n2.date = t2, n2.args = arguments, new _(n2);
-      }, O = g;
+      }, O = v;
       O.l = S, O.i = p, O.w = function(t2, e2) {
         return w(t2, { locale: e2.$L, utc: e2.$u, x: e2.$x, $offset: e2.$offset });
       };
@@ -9462,7 +9815,7 @@ var require_dayjs_min = __commonJS({
             if (e2 instanceof Date)
               return new Date(e2);
             if ("string" == typeof e2 && !/Z$/i.test(e2)) {
-              var r2 = e2.match(l);
+              var r2 = e2.match($);
               if (r2) {
                 var i2 = r2[2] - 1 || 0, s2 = (r2[7] || "0").substring(0, 3);
                 return n2 ? new Date(Date.UTC(r2[1], i2, r2[3] || 1, r2[4] || 0, r2[5] || 0, r2[6] || 0, s2)) : new Date(r2[1], i2, r2[3] || 1, r2[4] || 0, r2[5] || 0, r2[6] || 0, s2);
@@ -9476,7 +9829,7 @@ var require_dayjs_min = __commonJS({
         }, m2.$utils = function() {
           return O;
         }, m2.isValid = function() {
-          return !(this.$d.toString() === $);
+          return !(this.$d.toString() === l);
         }, m2.isSame = function(t2, e2) {
           var n2 = w(t2);
           return this.startOf(e2) <= n2 && n2 <= this.endOf(e2);
@@ -9491,69 +9844,69 @@ var require_dayjs_min = __commonJS({
         }, m2.valueOf = function() {
           return this.$d.getTime();
         }, m2.startOf = function(t2, e2) {
-          var n2 = this, r2 = !!O.u(e2) || e2, h2 = O.p(t2), $2 = function(t3, e3) {
+          var n2 = this, r2 = !!O.u(e2) || e2, h2 = O.p(t2), l2 = function(t3, e3) {
             var i2 = O.w(n2.$u ? Date.UTC(n2.$y, e3, t3) : new Date(n2.$y, e3, t3), n2);
             return r2 ? i2 : i2.endOf(a);
-          }, l2 = function(t3, e3) {
+          }, $2 = function(t3, e3) {
             return O.w(n2.toDate()[t3].apply(n2.toDate("s"), (r2 ? [0, 0, 0, 0] : [23, 59, 59, 999]).slice(e3)), n2);
-          }, y2 = this.$W, M3 = this.$M, m3 = this.$D, g2 = "set" + (this.$u ? "UTC" : "");
+          }, y2 = this.$W, M3 = this.$M, m3 = this.$D, v2 = "set" + (this.$u ? "UTC" : "");
           switch (h2) {
             case c:
-              return r2 ? $2(1, 0) : $2(31, 11);
+              return r2 ? l2(1, 0) : l2(31, 11);
             case f:
-              return r2 ? $2(1, M3) : $2(0, M3 + 1);
+              return r2 ? l2(1, M3) : l2(0, M3 + 1);
             case o:
-              var v2 = this.$locale().weekStart || 0, D2 = (y2 < v2 ? y2 + 7 : y2) - v2;
-              return $2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
+              var g2 = this.$locale().weekStart || 0, D2 = (y2 < g2 ? y2 + 7 : y2) - g2;
+              return l2(r2 ? m3 - D2 : m3 + (6 - D2), M3);
             case a:
             case d:
-              return l2(g2 + "Hours", 0);
+              return $2(v2 + "Hours", 0);
             case u:
-              return l2(g2 + "Minutes", 1);
+              return $2(v2 + "Minutes", 1);
             case s:
-              return l2(g2 + "Seconds", 2);
+              return $2(v2 + "Seconds", 2);
             case i:
-              return l2(g2 + "Milliseconds", 3);
+              return $2(v2 + "Milliseconds", 3);
             default:
               return this.clone();
           }
         }, m2.endOf = function(t2) {
           return this.startOf(t2, false);
         }, m2.$set = function(t2, e2) {
-          var n2, o2 = O.p(t2), h2 = "set" + (this.$u ? "UTC" : ""), $2 = (n2 = {}, n2[a] = h2 + "Date", n2[d] = h2 + "Date", n2[f] = h2 + "Month", n2[c] = h2 + "FullYear", n2[u] = h2 + "Hours", n2[s] = h2 + "Minutes", n2[i] = h2 + "Seconds", n2[r] = h2 + "Milliseconds", n2)[o2], l2 = o2 === a ? this.$D + (e2 - this.$W) : e2;
+          var n2, o2 = O.p(t2), h2 = "set" + (this.$u ? "UTC" : ""), l2 = (n2 = {}, n2[a] = h2 + "Date", n2[d] = h2 + "Date", n2[f] = h2 + "Month", n2[c] = h2 + "FullYear", n2[u] = h2 + "Hours", n2[s] = h2 + "Minutes", n2[i] = h2 + "Seconds", n2[r] = h2 + "Milliseconds", n2)[o2], $2 = o2 === a ? this.$D + (e2 - this.$W) : e2;
           if (o2 === f || o2 === c) {
             var y2 = this.clone().set(d, 1);
-            y2.$d[$2](l2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
+            y2.$d[l2]($2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
           } else
-            $2 && this.$d[$2](l2);
+            l2 && this.$d[l2]($2);
           return this.init(), this;
         }, m2.set = function(t2, e2) {
           return this.clone().$set(t2, e2);
         }, m2.get = function(t2) {
           return this[O.p(t2)]();
         }, m2.add = function(r2, h2) {
-          var d2, $2 = this;
+          var d2, l2 = this;
           r2 = Number(r2);
-          var l2 = O.p(h2), y2 = function(t2) {
-            var e2 = w($2);
-            return O.w(e2.date(e2.date() + Math.round(t2 * r2)), $2);
+          var $2 = O.p(h2), y2 = function(t2) {
+            var e2 = w(l2);
+            return O.w(e2.date(e2.date() + Math.round(t2 * r2)), l2);
           };
-          if (l2 === f)
+          if ($2 === f)
             return this.set(f, this.$M + r2);
-          if (l2 === c)
+          if ($2 === c)
             return this.set(c, this.$y + r2);
-          if (l2 === a)
+          if ($2 === a)
             return y2(1);
-          if (l2 === o)
+          if ($2 === o)
             return y2(7);
-          var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[l2] || 1, m3 = this.$d.getTime() + r2 * M3;
+          var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[$2] || 1, m3 = this.$d.getTime() + r2 * M3;
           return O.w(m3, this);
         }, m2.subtract = function(t2, e2) {
           return this.add(-1 * t2, e2);
         }, m2.format = function(t2) {
           var e2 = this, n2 = this.$locale();
           if (!this.isValid())
-            return n2.invalidDate || $;
+            return n2.invalidDate || l;
           var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = O.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, f2 = n2.months, h2 = function(t3, n3, i3, s3) {
             return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
           }, c2 = function(t3) {
@@ -9561,15 +9914,15 @@ var require_dayjs_min = __commonJS({
           }, d2 = n2.meridiem || function(t3, e3, n3) {
             var r3 = t3 < 12 ? "AM" : "PM";
             return n3 ? r3.toLowerCase() : r3;
-          }, l2 = { YY: String(this.$y).slice(-2), YYYY: this.$y, M: a2 + 1, MM: O.s(a2 + 1, 2, "0"), MMM: h2(n2.monthsShort, a2, f2, 3), MMMM: h2(f2, a2), D: this.$D, DD: O.s(this.$D, 2, "0"), d: String(this.$W), dd: h2(n2.weekdaysMin, this.$W, o2, 2), ddd: h2(n2.weekdaysShort, this.$W, o2, 3), dddd: o2[this.$W], H: String(s2), HH: O.s(s2, 2, "0"), h: c2(1), hh: c2(2), a: d2(s2, u2, true), A: d2(s2, u2, false), m: String(u2), mm: O.s(u2, 2, "0"), s: String(this.$s), ss: O.s(this.$s, 2, "0"), SSS: O.s(this.$ms, 3, "0"), Z: i2 };
+          }, $2 = { YY: String(this.$y).slice(-2), YYYY: this.$y, M: a2 + 1, MM: O.s(a2 + 1, 2, "0"), MMM: h2(n2.monthsShort, a2, f2, 3), MMMM: h2(f2, a2), D: this.$D, DD: O.s(this.$D, 2, "0"), d: String(this.$W), dd: h2(n2.weekdaysMin, this.$W, o2, 2), ddd: h2(n2.weekdaysShort, this.$W, o2, 3), dddd: o2[this.$W], H: String(s2), HH: O.s(s2, 2, "0"), h: c2(1), hh: c2(2), a: d2(s2, u2, true), A: d2(s2, u2, false), m: String(u2), mm: O.s(u2, 2, "0"), s: String(this.$s), ss: O.s(this.$s, 2, "0"), SSS: O.s(this.$ms, 3, "0"), Z: i2 };
           return r2.replace(y, function(t3, e3) {
-            return e3 || l2[t3] || i2.replace(":", "");
+            return e3 || $2[t3] || i2.replace(":", "");
           });
         }, m2.utcOffset = function() {
           return 15 * -Math.round(this.$d.getTimezoneOffset() / 15);
-        }, m2.diff = function(r2, d2, $2) {
-          var l2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, g2 = this - M3, v2 = O.m(this, M3);
-          return v2 = (l2 = {}, l2[c] = v2 / 12, l2[f] = v2, l2[h] = v2 / 3, l2[o] = (g2 - m3) / 6048e5, l2[a] = (g2 - m3) / 864e5, l2[u] = g2 / n, l2[s] = g2 / e, l2[i] = g2 / t, l2)[y2] || g2, $2 ? v2 : O.a(v2);
+        }, m2.diff = function(r2, d2, l2) {
+          var $2, y2 = O.p(d2), M3 = w(r2), m3 = (M3.utcOffset() - this.utcOffset()) * e, v2 = this - M3, g2 = O.m(this, M3);
+          return g2 = ($2 = {}, $2[c] = g2 / 12, $2[f] = g2, $2[h] = g2 / 3, $2[o] = (v2 - m3) / 6048e5, $2[a] = (v2 - m3) / 864e5, $2[u] = v2 / n, $2[s] = v2 / e, $2[i] = v2 / t, $2)[y2] || v2, l2 ? g2 : O.a(g2);
         }, m2.daysInMonth = function() {
           return this.endOf(f).$D;
         }, m2.$locale = function() {
@@ -9599,15 +9952,22 @@ var require_dayjs_min = __commonJS({
         return t2.$i || (t2(e2, _, w), t2.$i = true), w;
       }, w.locale = S, w.isDayjs = p, w.unix = function(t2) {
         return w(1e3 * t2);
-      }, w.en = D[v], w.Ls = D, w.p = {}, w;
+      }, w.en = D[g], w.Ls = D, w.p = {}, w;
     });
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/error.js"(exports) {
     var CommanderError2 = class extends Error {
+      /**
+       * Constructs the CommanderError class
+       * @param {number} exitCode suggested exit code which could be used with process.exit
+       * @param {string} code an id string representing the error
+       * @param {string} message human-readable description of the error
+       * @constructor
+       */
       constructor(exitCode, code, message) {
         super(message);
         Error.captureStackTrace(this, this.constructor);
@@ -9618,6 +9978,11 @@ var require_error = __commonJS({
       }
     };
     var InvalidArgumentError2 = class extends CommanderError2 {
+      /**
+       * Constructs the InvalidArgumentError class
+       * @param {string} [message] explanation of why argument is invalid
+       * @constructor
+       */
       constructor(message) {
         super(1, "commander.invalidArgument", message);
         Error.captureStackTrace(this, this.constructor);
@@ -9629,11 +9994,19 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/argument.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
+      /**
+       * Initialize a new command argument with the given name and description.
+       * The default is that the argument is required, and you can explicitly
+       * indicate this with <> around the name. Put [] around the name for an optional argument.
+       *
+       * @param {string} name
+       * @param {string} [description]
+       */
       constructor(name, description) {
         this.description = description || "";
         this.variadic = false;
@@ -9660,24 +10033,51 @@ var require_argument = __commonJS({
           this._name = this._name.slice(0, -3);
         }
       }
+      /**
+       * Return argument name.
+       *
+       * @return {string}
+       */
       name() {
         return this._name;
       }
+      /**
+       * @api private
+       */
       _concatValue(value, previous) {
         if (previous === this.defaultValue || !Array.isArray(previous)) {
           return [value];
         }
         return previous.concat(value);
       }
+      /**
+       * Set the default value, and optionally supply the description to be displayed in the help.
+       *
+       * @param {any} value
+       * @param {string} [description]
+       * @return {Argument}
+       */
       default(value, description) {
         this.defaultValue = value;
         this.defaultValueDescription = description;
         return this;
       }
+      /**
+       * Set the custom handler for processing CLI command arguments into argument values.
+       *
+       * @param {Function} [fn]
+       * @return {Argument}
+       */
       argParser(fn) {
         this.parseArg = fn;
         return this;
       }
+      /**
+       * Only allow argument value to be one of choices.
+       *
+       * @param {string[]} values
+       * @return {Argument}
+       */
       choices(values) {
         this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
@@ -9691,10 +10091,16 @@ var require_argument = __commonJS({
         };
         return this;
       }
+      /**
+       * Make argument required.
+       */
       argRequired() {
         this.required = true;
         return this;
       }
+      /**
+       * Make argument optional.
+       */
       argOptional() {
         this.required = false;
         return this;
@@ -9709,16 +10115,23 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/help.js"(exports) {
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
       constructor() {
         this.helpWidth = void 0;
         this.sortSubcommands = false;
         this.sortOptions = false;
+        this.showGlobalOptions = false;
       }
+      /**
+       * Get an array of the visible subcommands. Includes a placeholder for the implicit help command, if there is one.
+       *
+       * @param {Command} cmd
+       * @returns {Command[]}
+       */
       visibleCommands(cmd) {
         const visibleCommands = cmd.commands.filter((cmd2) => !cmd2._hidden);
         if (cmd._hasImplicitHelpCommand()) {
@@ -9736,6 +10149,25 @@ var require_help = __commonJS({
         }
         return visibleCommands;
       }
+      /**
+       * Compare options for sort.
+       *
+       * @param {Option} a
+       * @param {Option} b
+       * @returns number
+       */
+      compareOptions(a, b) {
+        const getSortKey = (option) => {
+          return option.short ? option.short.replace(/^-/, "") : option.long.replace(/^--/, "");
+        };
+        return getSortKey(a).localeCompare(getSortKey(b));
+      }
+      /**
+       * Get an array of the visible options. Includes a placeholder for the implicit help option, if there is one.
+       *
+       * @param {Command} cmd
+       * @returns {Option[]}
+       */
       visibleOptions(cmd) {
         const visibleOptions = cmd.options.filter((option) => !option.hidden);
         const showShortHelpFlag = cmd._hasHelpOption && cmd._helpShortFlag && !cmd._findOption(cmd._helpShortFlag);
@@ -9752,15 +10184,35 @@ var require_help = __commonJS({
           visibleOptions.push(helpOption);
         }
         if (this.sortOptions) {
-          const getSortKey = (option) => {
-            return option.short ? option.short.replace(/^-/, "") : option.long.replace(/^--/, "");
-          };
-          visibleOptions.sort((a, b) => {
-            return getSortKey(a).localeCompare(getSortKey(b));
-          });
+          visibleOptions.sort(this.compareOptions);
         }
         return visibleOptions;
       }
+      /**
+       * Get an array of the visible global options. (Not including help.)
+       *
+       * @param {Command} cmd
+       * @returns {Option[]}
+       */
+      visibleGlobalOptions(cmd) {
+        if (!this.showGlobalOptions)
+          return [];
+        const globalOptions = [];
+        for (let parentCmd = cmd.parent; parentCmd; parentCmd = parentCmd.parent) {
+          const visibleOptions = parentCmd.options.filter((option) => !option.hidden);
+          globalOptions.push(...visibleOptions);
+        }
+        if (this.sortOptions) {
+          globalOptions.sort(this.compareOptions);
+        }
+        return globalOptions;
+      }
+      /**
+       * Get an array of the arguments if any have a description.
+       *
+       * @param {Command} cmd
+       * @returns {Argument[]}
+       */
       visibleArguments(cmd) {
         if (cmd._argsDescription) {
           cmd._args.forEach((argument) => {
@@ -9772,31 +10224,88 @@ var require_help = __commonJS({
         }
         return [];
       }
+      /**
+       * Get the command term to show in the list of subcommands.
+       *
+       * @param {Command} cmd
+       * @returns {string}
+       */
       subcommandTerm(cmd) {
         const args = cmd._args.map((arg) => humanReadableArgName(arg)).join(" ");
         return cmd._name + (cmd._aliases[0] ? "|" + cmd._aliases[0] : "") + (cmd.options.length ? " [options]" : "") + (args ? " " + args : "");
       }
+      /**
+       * Get the option term to show in the list of options.
+       *
+       * @param {Option} option
+       * @returns {string}
+       */
       optionTerm(option) {
         return option.flags;
       }
+      /**
+       * Get the argument term to show in the list of arguments.
+       *
+       * @param {Argument} argument
+       * @returns {string}
+       */
       argumentTerm(argument) {
         return argument.name();
       }
+      /**
+       * Get the longest command term length.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {number}
+       */
       longestSubcommandTermLength(cmd, helper) {
         return helper.visibleCommands(cmd).reduce((max, command) => {
           return Math.max(max, helper.subcommandTerm(command).length);
         }, 0);
       }
+      /**
+       * Get the longest option term length.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {number}
+       */
       longestOptionTermLength(cmd, helper) {
         return helper.visibleOptions(cmd).reduce((max, option) => {
           return Math.max(max, helper.optionTerm(option).length);
         }, 0);
       }
+      /**
+       * Get the longest global option term length.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {number}
+       */
+      longestGlobalOptionTermLength(cmd, helper) {
+        return helper.visibleGlobalOptions(cmd).reduce((max, option) => {
+          return Math.max(max, helper.optionTerm(option).length);
+        }, 0);
+      }
+      /**
+       * Get the longest argument term length.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {number}
+       */
       longestArgumentTermLength(cmd, helper) {
         return helper.visibleArguments(cmd).reduce((max, argument) => {
           return Math.max(max, helper.argumentTerm(argument).length);
         }, 0);
       }
+      /**
+       * Get the command usage to be displayed at the top of the built-in help.
+       *
+       * @param {Command} cmd
+       * @returns {string}
+       */
       commandUsage(cmd) {
         let cmdName = cmd._name;
         if (cmd._aliases[0]) {
@@ -9808,16 +10317,36 @@ var require_help = __commonJS({
         }
         return parentCmdNames + cmdName + " " + cmd.usage();
       }
+      /**
+       * Get the description for the command.
+       *
+       * @param {Command} cmd
+       * @returns {string}
+       */
       commandDescription(cmd) {
         return cmd.description();
       }
+      /**
+       * Get the subcommand summary to show in the list of subcommands.
+       * (Fallback to description for backwards compatibility.)
+       *
+       * @param {Command} cmd
+       * @returns {string}
+       */
       subcommandDescription(cmd) {
         return cmd.summary() || cmd.description();
       }
+      /**
+       * Get the option description to show in the list of options.
+       *
+       * @param {Option} option
+       * @return {string}
+       */
       optionDescription(option) {
         const extraInfo = [];
         if (option.argChoices) {
           extraInfo.push(
+            // use stringify to match the display of the default value
             `choices: ${option.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`
           );
         }
@@ -9838,10 +10367,17 @@ var require_help = __commonJS({
         }
         return option.description;
       }
+      /**
+       * Get the argument description to show in the list of arguments.
+       *
+       * @param {Argument} argument
+       * @return {string}
+       */
       argumentDescription(argument) {
         const extraInfo = [];
         if (argument.argChoices) {
           extraInfo.push(
+            // use stringify to match the display of the default value
             `choices: ${argument.argChoices.map((choice) => JSON.stringify(choice)).join(", ")}`
           );
         }
@@ -9857,6 +10393,13 @@ var require_help = __commonJS({
         }
         return argument.description;
       }
+      /**
+       * Generate the built-in help text.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {string}
+       */
       formatHelp(cmd, helper) {
         const termWidth = helper.padWidth(cmd, helper);
         const helpWidth = helper.helpWidth || 80;
@@ -9889,6 +10432,14 @@ var require_help = __commonJS({
         if (optionList.length > 0) {
           output = output.concat(["Options:", formatList(optionList), ""]);
         }
+        if (this.showGlobalOptions) {
+          const globalOptionList = helper.visibleGlobalOptions(cmd).map((option) => {
+            return formatItem(helper.optionTerm(option), helper.optionDescription(option));
+          });
+          if (globalOptionList.length > 0) {
+            output = output.concat(["Global Options:", formatList(globalOptionList), ""]);
+          }
+        }
         const commandList = helper.visibleCommands(cmd).map((cmd2) => {
           return formatItem(helper.subcommandTerm(cmd2), helper.subcommandDescription(cmd2));
         });
@@ -9897,13 +10448,32 @@ var require_help = __commonJS({
         }
         return output.join("\n");
       }
+      /**
+       * Calculate the pad width from the maximum term length.
+       *
+       * @param {Command} cmd
+       * @param {Help} helper
+       * @returns {number}
+       */
       padWidth(cmd, helper) {
         return Math.max(
           helper.longestOptionTermLength(cmd, helper),
+          helper.longestGlobalOptionTermLength(cmd, helper),
           helper.longestSubcommandTermLength(cmd, helper),
           helper.longestArgumentTermLength(cmd, helper)
         );
       }
+      /**
+       * Wrap the given string to width characters per line, with lines after the first indented.
+       * Do not wrap if insufficient room for wrapping (minColumnWidth), or string is manually formatted.
+       *
+       * @param {string} str
+       * @param {number} width
+       * @param {number} indent
+       * @param {number} [minColumnWidth=40]
+       * @return {string}
+       *
+       */
       wrap(str, width, indent, minColumnWidth = 40) {
         if (str.match(/[\n]\s+/))
           return str;
@@ -9927,11 +10497,17 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/option.js"(exports) {
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
+      /**
+       * Initialize a new `Option` with the given `flags` and `description`.
+       *
+       * @param {string} flags
+       * @param {string} [description]
+       */
       constructor(flags, description) {
         this.flags = flags;
         this.description = description || "";
@@ -9956,45 +10532,123 @@ var require_option = __commonJS({
         this.conflictsWith = [];
         this.implied = void 0;
       }
+      /**
+       * Set the default value, and optionally supply the description to be displayed in the help.
+       *
+       * @param {any} value
+       * @param {string} [description]
+       * @return {Option}
+       */
       default(value, description) {
         this.defaultValue = value;
         this.defaultValueDescription = description;
         return this;
       }
+      /**
+       * Preset to use when option used without option-argument, especially optional but also boolean and negated.
+       * The custom processing (parseArg) is called.
+       *
+       * @example
+       * new Option('--color').default('GREYSCALE').preset('RGB');
+       * new Option('--donate [amount]').preset('20').argParser(parseFloat);
+       *
+       * @param {any} arg
+       * @return {Option}
+       */
       preset(arg) {
         this.presetArg = arg;
         return this;
       }
+      /**
+       * Add option name(s) that conflict with this option.
+       * An error will be displayed if conflicting options are found during parsing.
+       *
+       * @example
+       * new Option('--rgb').conflicts('cmyk');
+       * new Option('--js').conflicts(['ts', 'jsx']);
+       *
+       * @param {string | string[]} names
+       * @return {Option}
+       */
       conflicts(names) {
         this.conflictsWith = this.conflictsWith.concat(names);
         return this;
       }
+      /**
+       * Specify implied option values for when this option is set and the implied options are not.
+       *
+       * The custom processing (parseArg) is not called on the implied values.
+       *
+       * @example
+       * program
+       *   .addOption(new Option('--log', 'write logging information to file'))
+       *   .addOption(new Option('--trace', 'log extra details').implies({ log: 'trace.txt' }));
+       *
+       * @param {Object} impliedOptionValues
+       * @return {Option}
+       */
       implies(impliedOptionValues) {
         this.implied = Object.assign(this.implied || {}, impliedOptionValues);
         return this;
       }
+      /**
+       * Set environment variable to check for option value.
+       *
+       * An environment variable is only used if when processed the current option value is
+       * undefined, or the source of the current value is 'default' or 'config' or 'env'.
+       *
+       * @param {string} name
+       * @return {Option}
+       */
       env(name) {
         this.envVar = name;
         return this;
       }
+      /**
+       * Set the custom handler for processing CLI option arguments into option values.
+       *
+       * @param {Function} [fn]
+       * @return {Option}
+       */
       argParser(fn) {
         this.parseArg = fn;
         return this;
       }
+      /**
+       * Whether the option is mandatory and must have a value after parsing.
+       *
+       * @param {boolean} [mandatory=true]
+       * @return {Option}
+       */
       makeOptionMandatory(mandatory = true) {
         this.mandatory = !!mandatory;
         return this;
       }
+      /**
+       * Hide option in help.
+       *
+       * @param {boolean} [hide=true]
+       * @return {Option}
+       */
       hideHelp(hide = true) {
         this.hidden = !!hide;
         return this;
       }
+      /**
+       * @api private
+       */
       _concatValue(value, previous) {
         if (previous === this.defaultValue || !Array.isArray(previous)) {
           return [value];
         }
         return previous.concat(value);
       }
+      /**
+       * Only allow option value to be one of choices.
+       *
+       * @param {string[]} values
+       * @return {Option}
+       */
       choices(values) {
         this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
@@ -10008,23 +10662,53 @@ var require_option = __commonJS({
         };
         return this;
       }
+      /**
+       * Return option name.
+       *
+       * @return {string}
+       */
       name() {
         if (this.long) {
           return this.long.replace(/^--/, "");
         }
         return this.short.replace(/^-/, "");
       }
+      /**
+       * Return option name, in a camelcase format that can be used
+       * as a object attribute key.
+       *
+       * @return {string}
+       * @api private
+       */
       attributeName() {
         return camelcase(this.name().replace(/^no-/, ""));
       }
+      /**
+       * Check if `arg` matches the short or long flag.
+       *
+       * @param {string} arg
+       * @return {boolean}
+       * @api private
+       */
       is(arg) {
         return this.short === arg || this.long === arg;
       }
+      /**
+       * Return whether a boolean option.
+       *
+       * Options are one of boolean, negated, required argument, or optional argument.
+       *
+       * @return {boolean}
+       * @api private
+       */
       isBoolean() {
         return !this.required && !this.optional && !this.negate;
       }
     };
     var DualOptions = class {
+      /**
+       * @param {Option[]} options
+       */
       constructor(options3) {
         this.positiveOptions = /* @__PURE__ */ new Map();
         this.negativeOptions = /* @__PURE__ */ new Map();
@@ -10042,6 +10726,13 @@ var require_option = __commonJS({
           }
         });
       }
+      /**
+       * Did the value come from the option, and not from possible matching dual option?
+       *
+       * @param {any} value
+       * @param {Option} option
+       * @returns {boolean}
+       */
       valueFromOption(value, option) {
         const optionKey = option.attributeName();
         if (!this.dualOptions.has(optionKey))
@@ -10075,9 +10766,9 @@ var require_option = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     var maxDistance = 3;
     function editDistance(a, b) {
       if (Math.abs(a.length - b.length) > maxDistance)
@@ -10099,8 +10790,11 @@ var require_suggestSimilar = __commonJS({
           }
           d[i][j] = Math.min(
             d[i - 1][j] + 1,
+            // deletion
             d[i][j - 1] + 1,
+            // insertion
             d[i - 1][j - 1] + cost
+            // substitution
           );
           if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) {
             d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
@@ -10154,9 +10848,9 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/lib/command.js"(exports) {
     var EventEmitter = __require("events").EventEmitter;
     var childProcess = __require("child_process");
     var path4 = __require("path");
@@ -10168,6 +10862,11 @@ var require_command = __commonJS({
     var { Option: Option2, splitOptionFlags, DualOptions } = require_option();
     var { suggestSimilar } = require_suggestSimilar();
     var Command2 = class extends EventEmitter {
+      /**
+       * Initialize a new `Command`.
+       *
+       * @param {string} [name]
+       */
       constructor(name) {
         super();
         this.commands = [];
@@ -10219,6 +10918,14 @@ var require_command = __commonJS({
         this._helpCommandDescription = "display help for command";
         this._helpConfiguration = {};
       }
+      /**
+       * Copy settings that are useful to have in common across root command and subcommands.
+       *
+       * (Used internally when adding a command using `.command()` so subcommands inherit parent settings.)
+       *
+       * @param {Command} sourceCommand
+       * @return {Command} `this` command for chaining
+       */
       copyInheritedSettings(sourceCommand) {
         this._outputConfiguration = sourceCommand._outputConfiguration;
         this._hasHelpOption = sourceCommand._hasHelpOption;
@@ -10239,6 +10946,30 @@ var require_command = __commonJS({
         this._showSuggestionAfterError = sourceCommand._showSuggestionAfterError;
         return this;
       }
+      /**
+       * Define a command.
+       *
+       * There are two styles of command: pay attention to where to put the description.
+       *
+       * @example
+       * // Command implemented using action handler (description is supplied separately to `.command`)
+       * program
+       *   .command('clone <source> [destination]')
+       *   .description('clone a repository into a newly created directory')
+       *   .action((source, destination) => {
+       *     console.log('clone command called');
+       *   });
+       *
+       * // Command implemented using separate executable file (description is second parameter to `.command`)
+       * program
+       *   .command('start <service>', 'start named service')
+       *   .command('stop [service]', 'stop named service, or all if no name supplied');
+       *
+       * @param {string} nameAndArgs - command name and arguments, args are `<required>` or `[optional]` and last may also be `variadic...`
+       * @param {Object|string} [actionOptsOrExecDesc] - configuration options (for action), or description (for executable)
+       * @param {Object} [execOpts] - configuration options (for executable)
+       * @return {Command} returns new command for action handler, or `this` for executable command
+       */
       command(nameAndArgs, actionOptsOrExecDesc, execOpts) {
         let desc = actionOptsOrExecDesc;
         let opts = execOpts;
@@ -10266,34 +10997,95 @@ var require_command = __commonJS({
           return this;
         return cmd;
       }
+      /**
+       * Factory routine to create a new unattached command.
+       *
+       * See .command() for creating an attached subcommand, which uses this routine to
+       * create the command. You can override createCommand to customise subcommands.
+       *
+       * @param {string} [name]
+       * @return {Command} new command
+       */
       createCommand(name) {
         return new Command2(name);
       }
+      /**
+       * You can customise the help with a subclass of Help by overriding createHelp,
+       * or by overriding Help properties using configureHelp().
+       *
+       * @return {Help}
+       */
       createHelp() {
         return Object.assign(new Help2(), this.configureHelp());
       }
+      /**
+       * You can customise the help by overriding Help properties using configureHelp(),
+       * or with a subclass of Help by overriding createHelp().
+       *
+       * @param {Object} [configuration] - configuration options
+       * @return {Command|Object} `this` command for chaining, or stored configuration
+       */
       configureHelp(configuration) {
         if (configuration === void 0)
           return this._helpConfiguration;
         this._helpConfiguration = configuration;
         return this;
       }
+      /**
+       * The default output goes to stdout and stderr. You can customise this for special
+       * applications. You can also customise the display of errors by overriding outputError.
+       *
+       * The configuration properties are all functions:
+       *
+       *     // functions to change where being written, stdout and stderr
+       *     writeOut(str)
+       *     writeErr(str)
+       *     // matching functions to specify width for wrapping help
+       *     getOutHelpWidth()
+       *     getErrHelpWidth()
+       *     // functions based on what is being written out
+       *     outputError(str, write) // used for displaying errors, and not used for displaying help
+       *
+       * @param {Object} [configuration] - configuration options
+       * @return {Command|Object} `this` command for chaining, or stored configuration
+       */
       configureOutput(configuration) {
         if (configuration === void 0)
           return this._outputConfiguration;
         Object.assign(this._outputConfiguration, configuration);
         return this;
       }
+      /**
+       * Display the help or a custom message after an error occurs.
+       *
+       * @param {boolean|string} [displayHelp]
+       * @return {Command} `this` command for chaining
+       */
       showHelpAfterError(displayHelp = true) {
         if (typeof displayHelp !== "string")
           displayHelp = !!displayHelp;
         this._showHelpAfterError = displayHelp;
         return this;
       }
+      /**
+       * Display suggestion of similar commands for unknown commands, or options for unknown options.
+       *
+       * @param {boolean} [displaySuggestion]
+       * @return {Command} `this` command for chaining
+       */
       showSuggestionAfterError(displaySuggestion = true) {
         this._showSuggestionAfterError = !!displaySuggestion;
         return this;
       }
+      /**
+       * Add a prepared subcommand.
+       *
+       * See .command() for creating an attached subcommand which inherits settings from its parent.
+       *
+       * @param {Command} cmd - new subcommand
+       * @param {Object} [opts] - configuration options
+       * @return {Command} `this` command for chaining
+       */
       addCommand(cmd, opts) {
         if (!cmd._name) {
           throw new Error(`Command passed to .addCommand() must have a name
@@ -10308,9 +11100,35 @@ var require_command = __commonJS({
         cmd.parent = this;
         return this;
       }
+      /**
+       * Factory routine to create a new unattached argument.
+       *
+       * See .argument() for creating an attached argument, which uses this routine to
+       * create the argument. You can override createArgument to return a custom argument.
+       *
+       * @param {string} name
+       * @param {string} [description]
+       * @return {Argument} new argument
+       */
       createArgument(name, description) {
         return new Argument2(name, description);
       }
+      /**
+       * Define argument syntax for command.
+       *
+       * The default is that the argument is required, and you can explicitly
+       * indicate this with <> around the name. Put [] around the name for an optional argument.
+       *
+       * @example
+       * program.argument('<input-file>');
+       * program.argument('[output-file]');
+       *
+       * @param {string} name
+       * @param {string} [description]
+       * @param {Function|*} [fn] - custom argument processing function
+       * @param {*} [defaultValue]
+       * @return {Command} `this` command for chaining
+       */
       argument(name, description, fn, defaultValue) {
         const argument = this.createArgument(name, description);
         if (typeof fn === "function") {
@@ -10321,12 +11139,29 @@ var require_command = __commonJS({
         this.addArgument(argument);
         return this;
       }
+      /**
+       * Define argument syntax for command, adding multiple at once (without descriptions).
+       *
+       * See also .argument().
+       *
+       * @example
+       * program.arguments('<cmd> [env]');
+       *
+       * @param {string} names
+       * @return {Command} `this` command for chaining
+       */
       arguments(names) {
         names.split(/ +/).forEach((detail) => {
           this.argument(detail);
         });
         return this;
       }
+      /**
+       * Define argument syntax for command, adding a prepared argument.
+       *
+       * @param {Argument} argument
+       * @return {Command} `this` command for chaining
+       */
       addArgument(argument) {
         const previousArgument = this._args.slice(-1)[0];
         if (previousArgument && previousArgument.variadic) {
@@ -10338,6 +11173,15 @@ var require_command = __commonJS({
         this._args.push(argument);
         return this;
       }
+      /**
+       * Override default decision whether to add implicit help command.
+       *
+       *    addHelpCommand() // force on
+       *    addHelpCommand(false); // force off
+       *    addHelpCommand('help [cmd]', 'display help for [cmd]'); // force on with custom details
+       *
+       * @return {Command} `this` command for chaining
+       */
       addHelpCommand(enableOrNameAndArgs, description) {
         if (enableOrNameAndArgs === false) {
           this._addImplicitHelpCommand = false;
@@ -10351,12 +11195,23 @@ var require_command = __commonJS({
         }
         return this;
       }
+      /**
+       * @return {boolean}
+       * @api private
+       */
       _hasImplicitHelpCommand() {
         if (this._addImplicitHelpCommand === void 0) {
           return this.commands.length && !this._actionHandler && !this._findCommand("help");
         }
         return this._addImplicitHelpCommand;
       }
+      /**
+       * Add hook for life cycle event.
+       *
+       * @param {string} event
+       * @param {Function} listener
+       * @return {Command} `this` command for chaining
+       */
       hook(event, listener) {
         const allowedValues = ["preSubcommand", "preAction", "postAction"];
         if (!allowedValues.includes(event)) {
@@ -10370,6 +11225,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+       * Register callback to use as replacement for calling process.exit.
+       *
+       * @param {Function} [fn] optional callback which will be passed a CommanderError, defaults to throwing
+       * @return {Command} `this` command for chaining
+       */
       exitOverride(fn) {
         if (fn) {
           this._exitCallback = fn;
@@ -10383,12 +11244,35 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+       * Call process.exit, and _exitCallback if defined.
+       *
+       * @param {number} exitCode exit code for using with process.exit
+       * @param {string} code an id string representing the error
+       * @param {string} message human-readable description of the error
+       * @return never
+       * @api private
+       */
       _exit(exitCode, code, message) {
         if (this._exitCallback) {
           this._exitCallback(new CommanderError2(exitCode, code, message));
         }
         process2.exit(exitCode);
       }
+      /**
+       * Register callback `fn` for the command.
+       *
+       * @example
+       * program
+       *   .command('serve')
+       *   .description('start service')
+       *   .action(function() {
+       *      // do work here
+       *   });
+       *
+       * @param {Function} fn
+       * @return {Command} `this` command for chaining
+       */
       action(fn) {
         const listener = (args) => {
           const expectedArgsCount = this._args.length;
@@ -10404,9 +11288,25 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this._actionHandler = listener;
         return this;
       }
+      /**
+       * Factory routine to create a new unattached option.
+       *
+       * See .option() for creating an attached option, which uses this routine to
+       * create the option. You can override createOption to return a custom option.
+       *
+       * @param {string} flags
+       * @param {string} [description]
+       * @return {Option} new option
+       */
       createOption(flags, description) {
         return new Option2(flags, description);
       }
+      /**
+       * Add an option.
+       *
+       * @param {Option} option
+       * @return {Command} `this` command for chaining
+       */
       addOption(option) {
         const oname = option.name();
         const name = option.attributeName();
@@ -10460,6 +11360,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+       * Internal implementation shared by .option() and .requiredOption()
+       *
+       * @api private
+       */
       _optionEx(config, flags, description, fn, defaultValue) {
         if (typeof flags === "object" && flags instanceof Option2) {
           throw new Error("To add an Option object use addOption() instead of option() or requiredOption()");
@@ -10480,28 +11385,127 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this.addOption(option);
       }
+      /**
+       * Define option with `flags`, `description` and optional
+       * coercion `fn`.
+       *
+       * The `flags` string contains the short and/or long flags,
+       * separated by comma, a pipe or space. The following are all valid
+       * all will output this way when `--help` is used.
+       *
+       *     "-p, --pepper"
+       *     "-p|--pepper"
+       *     "-p --pepper"
+       *
+       * @example
+       * // simple boolean defaulting to undefined
+       * program.option('-p, --pepper', 'add pepper');
+       *
+       * program.pepper
+       * // => undefined
+       *
+       * --pepper
+       * program.pepper
+       * // => true
+       *
+       * // simple boolean defaulting to true (unless non-negated option is also defined)
+       * program.option('-C, --no-cheese', 'remove cheese');
+       *
+       * program.cheese
+       * // => true
+       *
+       * --no-cheese
+       * program.cheese
+       * // => false
+       *
+       * // required argument
+       * program.option('-C, --chdir <path>', 'change the working directory');
+       *
+       * --chdir /tmp
+       * program.chdir
+       * // => "/tmp"
+       *
+       * // optional argument
+       * program.option('-c, --cheese [type]', 'add cheese [marble]');
+       *
+       * @param {string} flags
+       * @param {string} [description]
+       * @param {Function|*} [fn] - custom option processing function or default value
+       * @param {*} [defaultValue]
+       * @return {Command} `this` command for chaining
+       */
       option(flags, description, fn, defaultValue) {
         return this._optionEx({}, flags, description, fn, defaultValue);
       }
+      /**
+      * Add a required option which must have a value after parsing. This usually means
+      * the option must be specified on the command line. (Otherwise the same as .option().)
+      *
+      * The `flags` string contains the short and/or long flags, separated by comma, a pipe or space.
+      *
+      * @param {string} flags
+      * @param {string} [description]
+      * @param {Function|*} [fn] - custom option processing function or default value
+      * @param {*} [defaultValue]
+      * @return {Command} `this` command for chaining
+      */
       requiredOption(flags, description, fn, defaultValue) {
         return this._optionEx({ mandatory: true }, flags, description, fn, defaultValue);
       }
+      /**
+       * Alter parsing of short flags with optional values.
+       *
+       * @example
+       * // for `.option('-f,--flag [value]'):
+       * program.combineFlagAndOptionalValue(true);  // `-f80` is treated like `--flag=80`, this is the default behaviour
+       * program.combineFlagAndOptionalValue(false) // `-fb` is treated like `-f -b`
+       *
+       * @param {Boolean} [combine=true] - if `true` or omitted, an optional value can be specified directly after the flag.
+       */
       combineFlagAndOptionalValue(combine = true) {
         this._combineFlagAndOptionalValue = !!combine;
         return this;
       }
+      /**
+       * Allow unknown options on the command line.
+       *
+       * @param {Boolean} [allowUnknown=true] - if `true` or omitted, no error will be thrown
+       * for unknown options.
+       */
       allowUnknownOption(allowUnknown = true) {
         this._allowUnknownOption = !!allowUnknown;
         return this;
       }
+      /**
+       * Allow excess command-arguments on the command line. Pass false to make excess arguments an error.
+       *
+       * @param {Boolean} [allowExcess=true] - if `true` or omitted, no error will be thrown
+       * for excess arguments.
+       */
       allowExcessArguments(allowExcess = true) {
         this._allowExcessArguments = !!allowExcess;
         return this;
       }
+      /**
+       * Enable positional options. Positional means global options are specified before subcommands which lets
+       * subcommands reuse the same option names, and also enables subcommands to turn on passThroughOptions.
+       * The default behaviour is non-positional and global options may appear anywhere on the command line.
+       *
+       * @param {Boolean} [positional=true]
+       */
       enablePositionalOptions(positional = true) {
         this._enablePositionalOptions = !!positional;
         return this;
       }
+      /**
+       * Pass through options that come after command-arguments rather than treat them as command-options,
+       * so actual command-options come before command-arguments. Turning this on for a subcommand requires
+       * positional options to have been enabled on the program (parent commands).
+       * The default behaviour is non-positional and options may appear before or after command-arguments.
+       *
+       * @param {Boolean} [passThrough=true]
+       * for unknown options.
+       */
       passThroughOptions(passThrough = true) {
         this._passThroughOptions = !!passThrough;
         if (!!this.parent && passThrough && !this.parent._enablePositionalOptions) {
@@ -10509,6 +11513,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+        * Whether to store option values as properties on command object,
+        * or store separately (specify false). In both cases the option values can be accessed using .opts().
+        *
+        * @param {boolean} [storeAsProperties=true]
+        * @return {Command} `this` command for chaining
+        */
       storeOptionsAsProperties(storeAsProperties = true) {
         this._storeOptionsAsProperties = !!storeAsProperties;
         if (this.options.length) {
@@ -10516,28 +11527,77 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+       * Retrieve option value.
+       *
+       * @param {string} key
+       * @return {Object} value
+       */
       getOptionValue(key) {
         if (this._storeOptionsAsProperties) {
           return this[key];
         }
         return this._optionValues[key];
       }
+      /**
+       * Store option value.
+       *
+       * @param {string} key
+       * @param {Object} value
+       * @return {Command} `this` command for chaining
+       */
       setOptionValue(key, value) {
+        return this.setOptionValueWithSource(key, value, void 0);
+      }
+      /**
+        * Store option value and where the value came from.
+        *
+        * @param {string} key
+        * @param {Object} value
+        * @param {string} source - expected values are default/config/env/cli/implied
+        * @return {Command} `this` command for chaining
+        */
+      setOptionValueWithSource(key, value, source) {
         if (this._storeOptionsAsProperties) {
           this[key] = value;
         } else {
           this._optionValues[key] = value;
         }
-        return this;
-      }
-      setOptionValueWithSource(key, value, source) {
-        this.setOptionValue(key, value);
         this._optionValueSources[key] = source;
         return this;
       }
+      /**
+        * Get source of option value.
+        * Expected values are default | config | env | cli | implied
+        *
+        * @param {string} key
+        * @return {string}
+        */
       getOptionValueSource(key) {
         return this._optionValueSources[key];
       }
+      /**
+        * Get source of option value. See also .optsWithGlobals().
+        * Expected values are default | config | env | cli | implied
+        *
+        * @param {string} key
+        * @return {string}
+        */
+      getOptionValueSourceWithGlobals(key) {
+        let source;
+        getCommandAndParents(this).forEach((cmd) => {
+          if (cmd.getOptionValueSource(key) !== void 0) {
+            source = cmd.getOptionValueSource(key);
+          }
+        });
+        return source;
+      }
+      /**
+       * Get user arguments from implied or explicit arguments.
+       * Side-effects: set _scriptPath if args included script. Used for default program name, and subcommand searches.
+       *
+       * @api private
+       */
       _prepareUserArgs(argv, parseOptions) {
         if (argv !== void 0 && !Array.isArray(argv)) {
           throw new Error("first parameter to parse must be array or undefined");
@@ -10576,16 +11636,55 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this._name = this._name || "program";
         return userArgs;
       }
+      /**
+       * Parse `argv`, setting options and invoking commands when defined.
+       *
+       * The default expectation is that the arguments are from node and have the application as argv[0]
+       * and the script being run in argv[1], with user parameters after that.
+       *
+       * @example
+       * program.parse(process.argv);
+       * program.parse(); // implicitly use process.argv and auto-detect node vs electron conventions
+       * program.parse(my-args, { from: 'user' }); // just user supplied arguments, nothing special about argv[0]
+       *
+       * @param {string[]} [argv] - optional, defaults to process.argv
+       * @param {Object} [parseOptions] - optionally specify style of options with from: node/user/electron
+       * @param {string} [parseOptions.from] - where the args are from: 'node', 'user', 'electron'
+       * @return {Command} `this` command for chaining
+       */
       parse(argv, parseOptions) {
         const userArgs = this._prepareUserArgs(argv, parseOptions);
         this._parseCommand([], userArgs);
         return this;
       }
+      /**
+       * Parse `argv`, setting options and invoking commands when defined.
+       *
+       * Use parseAsync instead of parse if any of your action handlers are async. Returns a Promise.
+       *
+       * The default expectation is that the arguments are from node and have the application as argv[0]
+       * and the script being run in argv[1], with user parameters after that.
+       *
+       * @example
+       * await program.parseAsync(process.argv);
+       * await program.parseAsync(); // implicitly use process.argv and auto-detect node vs electron conventions
+       * await program.parseAsync(my-args, { from: 'user' }); // just user supplied arguments, nothing special about argv[0]
+       *
+       * @param {string[]} [argv]
+       * @param {Object} [parseOptions]
+       * @param {string} parseOptions.from - where the args are from: 'node', 'user', 'electron'
+       * @return {Promise}
+       */
       async parseAsync(argv, parseOptions) {
         const userArgs = this._prepareUserArgs(argv, parseOptions);
         await this._parseCommand([], userArgs);
         return this;
       }
+      /**
+       * Execute a sub-command executable.
+       *
+       * @api private
+       */
       _executeSubCommand(subcommand, args) {
         args = args.slice();
         let launchWithNode = false;
@@ -10678,6 +11777,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         this.runningCommand = proc;
       }
+      /**
+       * @api private
+       */
       _dispatchSubcommand(commandName, operands, unknown) {
         const subCommand = this._findCommand(commandName);
         if (!subCommand)
@@ -10693,6 +11795,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         return hookResult;
       }
+      /**
+       * Check this.args against expected this._args.
+       *
+       * @api private
+       */
       _checkNumberOfArguments() {
         this._args.forEach((arg, i) => {
           if (arg.required && this.args[i] == null) {
@@ -10706,6 +11813,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           this._excessArguments(this.args);
         }
       }
+      /**
+       * Process this.args using this._args and save as this.processedArgs!
+       *
+       * @api private
+       */
       _processArguments() {
         const myParseArg = (argument, value, previous) => {
           let parsedValue = value;
@@ -10747,12 +11859,27 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         this.processedArgs = processedArgs;
       }
+      /**
+       * Once we have a promise we chain, but call synchronously until then.
+       *
+       * @param {Promise|undefined} promise
+       * @param {Function} fn
+       * @return {Promise|undefined}
+       * @api private
+       */
       _chainOrCall(promise, fn) {
         if (promise && promise.then && typeof promise.then === "function") {
           return promise.then(() => fn());
         }
         return fn();
       }
+      /**
+       *
+       * @param {Promise|undefined} promise
+       * @param {string} event
+       * @return {Promise|undefined}
+       * @api private
+       */
       _chainOrCallHooks(promise, event) {
         let result = promise;
         const hooks = [];
@@ -10771,6 +11898,14 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         return result;
       }
+      /**
+       *
+       * @param {Promise|undefined} promise
+       * @param {Command} subCommand
+       * @param {string} event
+       * @return {Promise|undefined}
+       * @api private
+       */
       _chainOrCallSubCommandHook(promise, subCommand, event) {
         let result = promise;
         if (this._lifeCycleHooks[event] !== void 0) {
@@ -10782,6 +11917,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return result;
       }
+      /**
+       * Process arguments in context of this command.
+       * Returns action result, in case it is a promise.
+       *
+       * @api private
+       */
       _parseCommand(operands, unknown) {
         const parsed = this.parseOptions(unknown);
         this._parseOptionsEnv();
@@ -10852,14 +11993,32 @@ Expecting one of '${allowedValues.join("', '")}'`);
           this._processArguments();
         }
       }
+      /**
+       * Find matching command.
+       *
+       * @api private
+       */
       _findCommand(name) {
         if (!name)
           return void 0;
         return this.commands.find((cmd) => cmd._name === name || cmd._aliases.includes(name));
       }
+      /**
+       * Return an option matching `arg` if any.
+       *
+       * @param {string} arg
+       * @return {Option}
+       * @api private
+       */
       _findOption(arg) {
         return this.options.find((option) => option.is(arg));
       }
+      /**
+       * Display an error message if a mandatory option does not have a value.
+       * Called after checking for help flags in leaf subcommand.
+       *
+       * @api private
+       */
       _checkForMissingMandatoryOptions() {
         for (let cmd = this; cmd; cmd = cmd.parent) {
           cmd.options.forEach((anOption) => {
@@ -10869,6 +12028,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           });
         }
       }
+      /**
+       * Display an error message if conflicting options are used together in this.
+       *
+       * @api private
+       */
       _checkForConflictingLocalOptions() {
         const definedNonDefaultOptions = this.options.filter(
           (option) => {
@@ -10891,11 +12055,32 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
         });
       }
+      /**
+       * Display an error message if conflicting options are used together.
+       * Called after checking for help flags in leaf subcommand.
+       *
+       * @api private
+       */
       _checkForConflictingOptions() {
         for (let cmd = this; cmd; cmd = cmd.parent) {
           cmd._checkForConflictingLocalOptions();
         }
       }
+      /**
+       * Parse options from `argv` removing known options,
+       * and return argv split into operands and unknown arguments.
+       *
+       * Examples:
+       *
+       *     argv => operands, unknown
+       *     --known kkk op => [op], []
+       *     op --known kkk => [op], []
+       *     sub --unknown uuu op => [sub], [--unknown uuu op]
+       *     sub -- --unknown uuu op => [sub --unknown uuu op], []
+       *
+       * @param {String[]} argv
+       * @return {{operands: String[], unknown: String[]}}
+       */
       parseOptions(argv) {
         const operands = [];
         const unknown = [];
@@ -10990,6 +12175,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return { operands, unknown };
       }
+      /**
+       * Return an object containing local option values as key-value pairs.
+       *
+       * @return {Object}
+       */
       opts() {
         if (this._storeOptionsAsProperties) {
           const result = {};
@@ -11002,12 +12192,25 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this._optionValues;
       }
+      /**
+       * Return an object containing merged local and global option values as key-value pairs.
+       *
+       * @return {Object}
+       */
       optsWithGlobals() {
         return getCommandAndParents(this).reduce(
           (combinedOptions, cmd) => Object.assign(combinedOptions, cmd.opts()),
           {}
         );
       }
+      /**
+       * Display error message and exit (or call exitOverride).
+       *
+       * @param {string} message
+       * @param {Object} [errorOptions]
+       * @param {string} [errorOptions.code] - an id string representing the error
+       * @param {number} [errorOptions.exitCode] - used with process.exit
+       */
       error(message, errorOptions) {
         this._outputConfiguration.outputError(`${message}
 `, this._outputConfiguration.writeErr);
@@ -11023,6 +12226,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const code = config.code || "commander.error";
         this._exit(exitCode, code, message);
       }
+      /**
+       * Apply any option related environment variables, if option does
+       * not have a value from cli or client code.
+       *
+       * @api private
+       */
       _parseOptionsEnv() {
         this.options.forEach((option) => {
           if (option.envVar && option.envVar in process2.env) {
@@ -11037,6 +12246,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
         });
       }
+      /**
+       * Apply any implied option values, if option is undefined or default value.
+       *
+       * @api private
+       */
       _parseOptionsImplied() {
         const dualHelper = new DualOptions(this.options);
         const hasCustomOptionValue = (optionKey) => {
@@ -11048,18 +12262,43 @@ Expecting one of '${allowedValues.join("', '")}'`);
           });
         });
       }
+      /**
+       * Argument `name` is missing.
+       *
+       * @param {string} name
+       * @api private
+       */
       missingArgument(name) {
         const message = `error: missing required argument '${name}'`;
         this.error(message, { code: "commander.missingArgument" });
       }
+      /**
+       * `Option` is missing an argument.
+       *
+       * @param {Option} option
+       * @api private
+       */
       optionMissingArgument(option) {
         const message = `error: option '${option.flags}' argument missing`;
         this.error(message, { code: "commander.optionMissingArgument" });
       }
+      /**
+       * `Option` does not have a value, and is a mandatory option.
+       *
+       * @param {Option} option
+       * @api private
+       */
       missingMandatoryOptionValue(option) {
         const message = `error: required option '${option.flags}' not specified`;
         this.error(message, { code: "commander.missingMandatoryOptionValue" });
       }
+      /**
+       * `Option` conflicts with another option.
+       *
+       * @param {Option} option
+       * @param {Option} conflictingOption
+       * @api private
+       */
       _conflictingOption(option, conflictingOption) {
         const findBestOptionFromValue = (option2) => {
           const optionKey = option2.attributeName();
@@ -11083,6 +12322,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const message = `error: ${getErrorMessage2(option)} cannot be used with ${getErrorMessage2(conflictingOption)}`;
         this.error(message, { code: "commander.conflictingOption" });
       }
+      /**
+       * Unknown option `flag`.
+       *
+       * @param {string} flag
+       * @api private
+       */
       unknownOption(flag) {
         if (this._allowUnknownOption)
           return;
@@ -11100,6 +12345,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const message = `error: unknown option '${flag}'${suggestion}`;
         this.error(message, { code: "commander.unknownOption" });
       }
+      /**
+       * Excess arguments, more than expected.
+       *
+       * @param {string[]} receivedArgs
+       * @api private
+       */
       _excessArguments(receivedArgs) {
         if (this._allowExcessArguments)
           return;
@@ -11109,6 +12360,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const message = `error: too many arguments${forSubcommand}. Expected ${expected} argument${s} but got ${receivedArgs.length}.`;
         this.error(message, { code: "commander.excessArguments" });
       }
+      /**
+       * Unknown command.
+       *
+       * @api private
+       */
       unknownCommand() {
         const unknownName = this.args[0];
         let suggestion = "";
@@ -11124,6 +12380,19 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const message = `error: unknown command '${unknownName}'${suggestion}`;
         this.error(message, { code: "commander.unknownCommand" });
       }
+      /**
+       * Set the program version to `str`.
+       *
+       * This method auto-registers the "-V, --version" flag
+       * which will print the version number when passed.
+       *
+       * You can optionally supply the  flags and description to override the defaults.
+       *
+       * @param {string} str
+       * @param {string} [flags]
+       * @param {string} [description]
+       * @return {this | string} `this` command for chaining, or version string if no arguments
+       */
       version(str, flags, description) {
         if (str === void 0)
           return this._version;
@@ -11140,6 +12409,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         return this;
       }
+      /**
+       * Set the description.
+       *
+       * @param {string} [str]
+       * @param {Object} [argsDescription]
+       * @return {string|Command}
+       */
       description(str, argsDescription) {
         if (str === void 0 && argsDescription === void 0)
           return this._description;
@@ -11149,12 +12425,26 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return this;
       }
+      /**
+       * Set the summary. Used when listed as subcommand of parent.
+       *
+       * @param {string} [str]
+       * @return {string|Command}
+       */
       summary(str) {
         if (str === void 0)
           return this._summary;
         this._summary = str;
         return this;
       }
+      /**
+       * Set an alias for the command.
+       *
+       * You may call more than once to add multiple aliases. Only the first alias is shown in the auto-generated help.
+       *
+       * @param {string} [alias]
+       * @return {string|Command}
+       */
       alias(alias) {
         if (alias === void 0)
           return this._aliases[0];
@@ -11167,12 +12457,26 @@ Expecting one of '${allowedValues.join("', '")}'`);
         command._aliases.push(alias);
         return this;
       }
+      /**
+       * Set aliases for the command.
+       *
+       * Only the first alias is shown in the auto-generated help.
+       *
+       * @param {string[]} [aliases]
+       * @return {string[]|Command}
+       */
       aliases(aliases) {
         if (aliases === void 0)
           return this._aliases;
         aliases.forEach((alias) => this.alias(alias));
         return this;
       }
+      /**
+       * Set / get the command usage `str`.
+       *
+       * @param {string} [str]
+       * @return {String|Command}
+       */
       usage(str) {
         if (str === void 0) {
           if (this._usage)
@@ -11189,22 +12493,57 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this._usage = str;
         return this;
       }
+      /**
+       * Get or set the name of the command.
+       *
+       * @param {string} [str]
+       * @return {string|Command}
+       */
       name(str) {
         if (str === void 0)
           return this._name;
         this._name = str;
         return this;
       }
+      /**
+       * Set the name of the command from script filename, such as process.argv[1],
+       * or require.main.filename, or __filename.
+       *
+       * (Used internally and public although not documented in README.)
+       *
+       * @example
+       * program.nameFromFilename(require.main.filename);
+       *
+       * @param {string} filename
+       * @return {Command}
+       */
       nameFromFilename(filename) {
         this._name = path4.basename(filename, path4.extname(filename));
         return this;
       }
+      /**
+       * Get or set the directory for searching for executable subcommands of this command.
+       *
+       * @example
+       * program.executableDir(__dirname);
+       * // or
+       * program.executableDir('subcommands');
+       *
+       * @param {string} [path]
+       * @return {string|Command}
+       */
       executableDir(path5) {
         if (path5 === void 0)
           return this._executableDir;
         this._executableDir = path5;
         return this;
       }
+      /**
+       * Return program help documentation.
+       *
+       * @param {{ error: boolean }} [contextOptions] - pass {error:true} to wrap for stderr instead of stdout
+       * @return {string}
+       */
       helpInformation(contextOptions) {
         const helper = this.createHelp();
         if (helper.helpWidth === void 0) {
@@ -11212,6 +12551,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         return helper.formatHelp(this, helper);
       }
+      /**
+       * @api private
+       */
       _getHelpContext(contextOptions) {
         contextOptions = contextOptions || {};
         const context = { error: !!contextOptions.error };
@@ -11225,6 +12567,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
         context.command = this;
         return context;
       }
+      /**
+       * Output help information for this command.
+       *
+       * Outputs built-in help, and custom text added using `.addHelpText()`.
+       *
+       * @param {{ error: boolean } | Function} [contextOptions] - pass {error:true} to write to stderr instead of stdout
+       */
       outputHelp(contextOptions) {
         let deprecatedCallback;
         if (typeof contextOptions === "function") {
@@ -11246,6 +12595,15 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this.emit("afterHelp", context);
         getCommandAndParents(this).forEach((command) => command.emit("afterAllHelp", context));
       }
+      /**
+       * You can pass in flags and a description to override the help
+       * flags and help description for your command. Pass in false to
+       * disable the built-in help option.
+       *
+       * @param {string | boolean} [flags]
+       * @param {string} [description]
+       * @return {Command} `this` command for chaining
+       */
       helpOption(flags, description) {
         if (typeof flags === "boolean") {
           this._hasHelpOption = flags;
@@ -11258,6 +12616,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this._helpLongFlag = helpFlags.longFlag;
         return this;
       }
+      /**
+       * Output help information and exit.
+       *
+       * Outputs built-in help, and custom text added using `.addHelpText()`.
+       *
+       * @param {{ error: boolean }} [contextOptions] - pass {error:true} to write to stderr instead of stdout
+       */
       help(contextOptions) {
         this.outputHelp(contextOptions);
         let exitCode = process2.exitCode || 0;
@@ -11266,6 +12631,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
         this._exit(exitCode, "commander.help", "(outputHelp)");
       }
+      /**
+       * Add additional text to be displayed with the built-in help.
+       *
+       * Position is 'before' or 'after' to affect just this command,
+       * and 'beforeAll' or 'afterAll' to affect this command and all its subcommands.
+       *
+       * @param {string} position - before or after built-in help
+       * @param {string | Function} text - string to add, or a function returning a string
+       * @return {Command} `this` command for chaining
+       */
       addHelpText(position, text) {
         const allowedValues = ["beforeAll", "before", "after", "afterAll"];
         if (!allowedValues.includes(position)) {
@@ -11335,9 +12710,9 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/index.js
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/.pnpm/commander@9.4.0/node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@9.5.0/node_modules/commander/index.js"(exports, module2) {
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
@@ -11417,7 +12792,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/.pnpm/simple-git@3.14.1/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.15.1/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
@@ -12275,7 +13650,11 @@ function listConfigTask(scope) {
 function config_default() {
   return {
     addConfig(key, value, ...rest) {
-      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(rest[1], "local")), trailingFunctionArgument(arguments));
+      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(
+        rest[1],
+        "local"
+        /* local */
+      )), trailingFunctionArgument(arguments));
     },
     getConfig(key, scope) {
       return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), trailingFunctionArgument(arguments));
@@ -13087,11 +14466,26 @@ var init_parse_diff_summary = __esm({
       })
     ];
     diffSummaryParsers = {
-      [""]: statParser,
-      ["--stat"]: statParser,
-      ["--numstat"]: numStatParser,
-      ["--name-status"]: nameStatusParser,
-      ["--name-only"]: nameOnlyParser
+      [
+        ""
+        /* NONE */
+      ]: statParser,
+      [
+        "--stat"
+        /* STAT */
+      ]: statParser,
+      [
+        "--numstat"
+        /* NUM_STAT */
+      ]: numStatParser,
+      [
+        "--name-status"
+        /* NAME_STATUS */
+      ]: nameStatusParser,
+      [
+        "--name-only"
+        /* NAME_ONLY */
+      ]: nameOnlyParser
     };
   }
 });
@@ -13735,9 +15129,25 @@ var init_StatusSummary = __esm({
         append(_result.ignored = _result.ignored || [], _file);
       }),
       parser2("?", "?", (result, file) => append(result.not_added, file)),
-      ...conflicts("A", "A", "U"),
-      ...conflicts("D", "D", "U"),
-      ...conflicts("U", "A", "D", "U"),
+      ...conflicts(
+        "A",
+        "A",
+        "U"
+        /* UNMERGED */
+      ),
+      ...conflicts(
+        "D",
+        "D",
+        "U"
+        /* UNMERGED */
+      ),
+      ...conflicts(
+        "U",
+        "A",
+        "D",
+        "U"
+        /* UNMERGED */
+      ),
       [
         "##",
         (result, line) => {
@@ -14927,6 +16337,32 @@ function abortPlugin(signal) {
   };
   return [onSpawnBefore, onSpawnAfter];
 }
+function isConfigSwitch(arg) {
+  return typeof arg === "string" && arg.trim().toLowerCase() === "-c";
+}
+function preventProtocolOverride(arg, next) {
+  if (!isConfigSwitch(arg)) {
+    return;
+  }
+  if (!/^\s*protocol(.[a-z]+)?.allow/.test(next)) {
+    return;
+  }
+  throw new GitPluginError(void 0, "unsafe", "Configuring protocol.allow is not permitted without enabling allowUnsafeExtProtocol");
+}
+function blockUnsafeOperationsPlugin({
+  allowUnsafeProtocolOverride = false
+} = {}) {
+  return {
+    type: "spawn.args",
+    action(args, _context) {
+      args.forEach((current, index) => {
+        const next = index < args.length ? args[index + 1] : "";
+        allowUnsafeProtocolOverride || preventProtocolOverride(current, next);
+      });
+      return args;
+    }
+  };
+}
 init_utils();
 function commandConfigPrefixingPlugin(configuration) {
   const prefix = prefixedArray(configuration, "-c");
@@ -15155,6 +16591,7 @@ function gitInstanceFactory(baseDir, options3) {
   if (Array.isArray(config.config)) {
     plugins.add(commandConfigPrefixingPlugin(config.config));
   }
+  plugins.add(blockUnsafeOperationsPlugin(config.unsafe));
   plugins.add(completionDetectionPlugin(config.completion));
   config.abort && plugins.add(abortPlugin(config.abort));
   config.progress && plugins.add(progressMonitorPlugin(config.progress));
@@ -15179,10 +16616,12 @@ var defaults = {
   gitRevision: "main",
   hideGenerator: "true",
   readme: "none",
+  // 'README.md',
   includeVersion: true,
   entryPoints: [],
   exclude: [],
   externalPattern: ["node_modules/"],
+  // githubPages: true,
   logLevel: "Verbose",
   logger: "none",
   validation: {
@@ -15552,7 +16991,10 @@ async function httpRequest(req, res) {
           "Cross-Origin-Opener-Policy": "same-origin"
         };
         res.writeHead(rangeRequest ? 206 : 200, {
+          // 'Access-Control-Allow-Origin': '*', // disabled
+          // 'Content-Length': result.stat.size, // not using standard header as it's misleading for compressed streams
           "Content-Size": result.stat.size,
+          // this is not standard but useful for logging/debugging
           "Content-Language": "en",
           "Content-Type": contentType,
           "Content-Encoding": acceptBrotli && !rangeRequest ? "br" : "",
@@ -15587,6 +17029,7 @@ async function start2(config) {
   options = {
     insecureHTTPParser: false,
     ...config.serve
+    // documentRoot: path.join(process.cwd(), config.documentRoot),
   };
   if (fs3.existsSync(options.sslKey) && fs3.existsSync(options.sslCrt)) {
     options.key = fs3.readFileSync(options.sslKey);
@@ -15892,7 +17335,7 @@ async function run6(config, packageJson) {
 var log10 = __toESM(require_pilogger());
 import * as fs6 from "fs";
 
-// node_modules/.pnpm/commander@9.4.0/node_modules/commander/esm.mjs
+// node_modules/.pnpm/commander@9.5.0/node_modules/commander/esm.mjs
 var import_index = __toESM(require_commander(), 1);
 var {
   program,
@@ -15902,6 +17345,7 @@ var {
   CommanderError,
   InvalidArgumentError,
   InvalidOptionArgumentError,
+  // deprecated old name
   Command,
   Argument,
   Option,
@@ -15961,16 +17405,67 @@ function run7() {
 }
 
 // package.json
-var version7 = "0.7.14";
+var version7 = "0.7.15";
 
 // src/build.ts
 var Build = class {
+  /**
+   * Initializes Build class with all parsed configurations
+   *
+   * @param config {@link Config} Optional configuration options overrides
+   */
   constructor(config) {
+    /**
+     * Command line params when used in Cli mode
+     */
     __publicField(this, "params", { debug: false, config: "", generate: false, profile: "" });
+    /**
+     * Contains version strings of all build tools
+     * @property `build` semver version string
+     * @property `esbuild` semver version string
+     * @property `typescript` semver version string
+     * @property `typedoc` semver version string
+     * @property `eslint` semver version string
+     */
     __publicField(this, "toolchain", { build: "version", esbuild: "version", typescript: "version", typedoc: "version", eslint: "version" });
+    /**
+     * Contains detected available configuration
+     * @property `config` name of the parsed config file
+     * @property `tsconfig` is `tsconfig.json` present?
+     * @property `eslintrc` is `eslintrc.json` present?
+     * @property `git` is this a valid git repository?
+     */
     __publicField(this, "environment", { config: void 0, package: void 0, tsconfig: false, eslintrc: false, git: false });
+    /**
+     * Contains detected application information
+     * @property `name` application name
+     * @property `version` application version
+     */
     __publicField(this, "application", { name: "", version: "" });
+    /**
+     * Contains parsed application package.json file
+     */
     __publicField(this, "package");
+    /**
+     * Contains currently active build configuration
+     *
+     * Configuration is combined from:
+     * - Build defaults
+     * - Parsing optional `build.json` or user specified config file
+     * - Parsing optional `tsconfig.json`
+     * - Parsing optional `eslintrc.json`
+     * - Parsing optional `typedoc.json`
+     *
+     * @property `log` control build logging
+     * @property `clean` control location cleaning at the beggining of build process
+     * @property `lint` configuration for project linting
+     * @property `changelog` configuration for changelog generation
+     * @property `build` configuration for project build step and all individual targets which includes: **build**, **bundle**, **typedoc**, **typings**
+     * @property `serve` configuration for http/https web server used in dev build profile
+     * @property `watch` configuration for file/folder watcher used in dev build profile
+     * @property `typescript` override compiler configuration for typescript
+     */
+    // @ts-ignore ignore string enum mismatches when reading from json file
     __publicField(this, "config", { ...defaults2 });
     __publicField(this, "updateConfig", (config, options3 = {}) => {
       var _a2, _b;
@@ -16023,6 +17518,13 @@ var Build = class {
     if (this.config.log.enabled && this.config.log.output && this.config.log.output !== "")
       log11.logFile(this.config.log.output);
   }
+  /**
+   * Runs build pipeline for specified profile
+   *
+   * @param profile Profile type, e.g. "production" or "development"
+   * @param config {@link Config} Optional configuration options overrides
+   * @returns Object containing all messages
+   */
   async run(profile, config = {}) {
     this.config = this.updateConfig(this.config, config);
     info2(profile, this.application, this.environment, this.toolchain);

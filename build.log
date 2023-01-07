@@ -1,13 +1,13 @@
-2022-09-26 10:48:14 [36mINFO: [39m @vladmandic/build version 0.7.14 
-2022-09-26 10:48:14 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v18.1.0 
-2022-09-26 10:48:14 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.7.14"} 
-2022-09-26 10:48:14 [36mINFO: [39m Environment: {"profile":"production","config":".build.json","package":"package.json","tsconfig":true,"eslintrc":true,"git":true} 
-2022-09-26 10:48:14 [36mINFO: [39m Toolchain: {"build":"0.7.14","esbuild":"0.15.9","typescript":"4.8.3","typedoc":"0.23.15","eslint":"8.24.0"} 
-2022-09-26 10:48:14 [36mINFO: [39m Build: {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
-2022-09-26 10:48:14 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
-2022-09-26 10:48:14 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.ts","output":"dist/build.esm.js","files":14,"inputBytes":45258,"outputBytes":549242} 
-2022-09-26 10:48:14 [35mSTATE:[39m Typings: {"input":"src/build.ts","output":"types","files":12} 
-2022-09-26 10:48:15 [35mSTATE:[39m TypeDoc: {"input":"src/build.ts","output":"typedoc","objects":4,"generated":true} 
-2022-09-26 10:48:16 [35mSTATE:[39m Lint: {"locations":["src/*.ts"],"files":13,"errors":0,"warnings":0} 
-2022-09-26 10:48:16 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
-2022-09-26 10:48:16 [36mINFO: [39m Done... 
+2023-01-07 15:46:44 [36mINFO: [39m @vladmandic/build version 0.7.15 
+2023-01-07 15:46:44 [36mINFO: [39m User: vlado Platform: linux Arch: x64 Node: v19.1.0 
+2023-01-07 15:46:44 [36mINFO: [39m Application: {"name":"@vladmandic/build","version":"0.7.15"} 
+2023-01-07 15:46:44 [36mINFO: [39m Environment: {"profile":"production","config":".build.json","package":"package.json","tsconfig":true,"eslintrc":true,"git":true} 
+2023-01-07 15:46:44 [36mINFO: [39m Toolchain: {"build":"0.7.15","esbuild":"0.16.15","typescript":"4.9.4","typedoc":"0.23.24","eslint":"8.31.0"} 
+2023-01-07 15:46:44 [36mINFO: [39m Build: {"profile":"production","steps":["clean","compile","typings","typedoc","lint","changelog"]} 
+2023-01-07 15:46:44 [35mSTATE:[39m Clean: {"locations":["types/*","typedoc/*"]} 
+2023-01-07 15:46:44 [35mSTATE:[39m Compile: {"name":"build module","format":"esm","platform":"node","input":"src/build.ts","output":"dist/build.esm.js","files":14,"inputBytes":45260,"outputBytes":598335} 
+2023-01-07 15:46:45 [35mSTATE:[39m Typings: {"input":"src/build.ts","output":"types","files":12} 
+2023-01-07 15:46:45 [35mSTATE:[39m TypeDoc: {"input":"src/build.ts","output":"typedoc","objects":4,"generated":true} 
+2023-01-07 15:46:46 [35mSTATE:[39m Lint: {"locations":["src/*.ts"],"files":13,"errors":0,"warnings":0} 
+2023-01-07 15:46:46 [35mSTATE:[39m ChangeLog: {"repository":"https://github.com/vladmandic/build","branch":"main","output":"CHANGELOG.md"} 
+2023-01-07 15:46:46 [36mINFO: [39m Done... 

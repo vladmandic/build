@@ -1,4 +1,4 @@
-export declare type Steps = 'clean' | 'lint' | 'compile' | 'changelog' | 'serve' | 'watch' | 'typings' | 'typedoc';
+export type Steps = 'clean' | 'lint' | 'compile' | 'changelog' | 'serve' | 'watch' | 'typings' | 'typedoc';
 export interface Targets {
     name: string;
     input: string;
