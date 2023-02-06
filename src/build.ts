@@ -170,20 +170,21 @@ export class Build {
     const steps = Object.values(this.config.profiles[profile]);
     log.info('Build:', { profile, steps });
     if (this.config.log.debug) log.data('Configuration:', this.config);
+    let urls: string[] = [];
     for (const step of steps) {
       switch (step) {
         case 'clean': await clean.run(this.config); break;
         case 'compile': await compile.run(this.config, steps, profile); break;
         case 'lint': await lint.run(this.config); break;
         case 'changelog': await changelog.run(this.config, this.packageJson()); break;
-        case 'serve': await serve.start(this.config); break;
+        case 'serve': urls = await serve.start(this.config); break;
         case 'watch': await watch.start(this.config, steps); break;
         case 'typings': break; // triggered as compile step per target
         case 'typedoc': break; // triggered as compile step per target
         default: log.warn('Build: unknown step', step);
       }
     }
-    if (steps.includes('serve')) log.info('Listening...');
+    if (steps.includes('serve')) log.info('Listening...', urls);
     else log.info('Done...');
     return helpers.results();
   }

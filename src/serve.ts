@@ -172,12 +172,14 @@ export async function start(config) {
   }
   if (!options.key || !options.cert) log.warn('Cannot read SSL certificate');
 
+  const res: string[] = [];
   // process.chdir(path.join(__dirname, '..'));
   if (options.httpPort && options.httpPort > 0) {
     await new Promise((resolve) => {
       const server1 = http.createServer(options, httpRequest);
       server1.on('listening', () => {
         log.state('WebServer:', { ssl: false, port: options.httpPort, root: options.documentRoot });
+        res.push(`http://localhost:${options.httpPort}`);
         resolve(true);
       });
       server1.on('error', (err) => {
@@ -192,6 +194,7 @@ export async function start(config) {
       const server2 = http2.createSecureServer(options, httpRequest);
       server2.on('listening', () => {
         log.state('WebServer:', { ssl: true, port: options.httpsPort, root: options.documentRoot, sslKey: options.sslKey, sslCrt: options.sslCrt });
+        res.push(`https://localhost:${options.httpsPort}`);
         resolve(true);
       });
       server2.on('error', (err) => {
@@ -201,4 +204,5 @@ export async function start(config) {
       server2.listen(options.httpsPort);
     });
   }
+  return res;
 }

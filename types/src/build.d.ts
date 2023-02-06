@@ -94,7 +94,7 @@ export declare class Build {
     clean(): Promise<void>;
     lint(): Promise<void>;
     changelog(): Promise<void>;
-    serve(): Promise<void>;
+    serve(): Promise<string[]>;
     compile(steps: Array<Steps>): Promise<void>;
     watch(steps: Array<Steps>): Promise<unknown>;
     typings(target: Targets): Promise<void>;

@@ -6,4 +6,4 @@
   - any build errors are immediately displayed and can be corrected without need for restart
   - passthrough data compression
 */
-export declare function start(config: any): Promise<void>;
+export declare function start(config: any): Promise<string[]>;
