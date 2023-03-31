@@ -125,7 +125,7 @@ async function httpRequest(req, res) {
           'Last-Modified': result.stat.mtime.toUTCString(),
           'Cache-Control': 'no-cache',
           'X-Content-Type-Options': 'nosniff',
-          'Content-Security-Policy': "media-src 'self' http: https: data:",
+          'Content-Security-Policy': "media-src 'self' http: https: data: blob:",
           '`Service-Worker-Allowed': '/',
           ...corsHeader,
           ...rangeHeader,
