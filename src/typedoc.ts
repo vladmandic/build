@@ -24,7 +24,7 @@ const defaults = {
   externalPattern: ['node_modules/'],
   // githubPages: true,
   logLevel: 'Verbose',
-  logger: 'none',
+  // logger: 'none',
   validation: {
     notExported: true,
     invalidLink: true,
@@ -37,10 +37,10 @@ export async function run(config, entry) {
     if (branch && branch.current) defaults.gitRevision = branch.current;
   } catch { /**/ }
 
-  const td = new TypeDoc.Application();
+  const td = await TypeDoc.Application.bootstrap({ entryPoints: [entry.input] });
   td.options.addReader(new TypeDoc.TSConfigReader());
   td.options.addReader(new TypeDoc.TypeDocReader());
-  td.bootstrap({ entryPoints: [entry.input] }); // initialize td.options with default values
+  // td.bootstrap({ entryPoints: [entry.input] }); // initialize td.options with default values
   const localTSdefaults = { ...config.typescript };
   if (localTSdefaults.emitDeclarationOnly) delete localTSdefaults.emitDeclarationOnly;
   // @ts-ignore private options
@@ -70,7 +70,7 @@ export async function run(config, entry) {
   td.logger.verbose = config.log.debug ? log.data : () => { /***/ }; // remove extra logging
 
   td.logger.warn = () => { /***/ }; // remove extra logging
-  const project = td.convert();
+  const project = await td.convert();
   td.logger.warn = log.warn;
   if (!project) {
     log.error('TypeDoc: convert returned empty project');
