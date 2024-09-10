@@ -28,7 +28,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@vladmandic/pilogger": "^0.4.9",
+    "@vladmandic/pilogger": "^0.5.1",
     "chokidar": "^3.6.0",
     "commander": "^12.1.0",
     "dayjs": "^1.11.13",

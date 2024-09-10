@@ -12,6 +12,9 @@
 ### **HEAD -> main** 2024/09/10 mandic00@live.com
 
 
+### **0.10.1** 2024/09/10 mandic00@live.com
+
+
 ### **0.9.3** 2023/12/06 mandic00@live.com
 
 - revert to older rimraf

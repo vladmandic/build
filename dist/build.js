@@ -49,9 +49,9 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 
-// node_modules/.pnpm/@vladmandic+pilogger@0.4.9/node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.5.1/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/.pnpm/@vladmandic+pilogger@0.4.9/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports2, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.5.1/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports2, module2) {
     "use strict";
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
@@ -84,10 +84,10 @@ var require_pilogger = __commonJS({
     ));
     var __toCommonJS3 = (mod) => __copyProps3(__defProp3({}, "__esModule", { value: true }), mod);
     var require_dayjs_min2 = __commonJS3({
-      "node_modules/dayjs/dayjs.min.js"(exports3, module22) {
+      "node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/dayjs.min.js"(exports22, module22) {
         !function(t, e) {
-          "object" == typeof exports3 && "undefined" != typeof module22 ? module22.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
-        }(exports3, function() {
+          "object" == typeof exports22 && "undefined" != typeof module22 ? module22.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
+        }(exports22, function() {
           "use strict";
           var t = 1e3, e = 6e4, n = 36e5, r = "millisecond", i = "second", s = "minute", u = "hour", a = "day", o = "week", c = "month", f = "quarter", h = "year", d = "date", l = "Invalid Date", $ = /^(\d{4})[-/]?(\d{1,2})?[-/]?(\d{0,2})[Tt\s]*(\d{1,2})?:?(\d{1,2})?:?(\d{1,2})?[.:]?(\d+)?$/, y = /\[([^\]]+)]|Y{1,4}|M{1,4}|D{1,2}|d{1,4}|H{1,2}|h{1,2}|a|A|m{1,2}|s{1,2}|Z{1,2}|SSS/g, M = { name: "en", weekdays: "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"), months: "January_February_March_April_May_June_July_August_September_October_November_December".split("_"), ordinal: function(t2) {
             var e2 = ["th", "st", "nd", "rd"], n2 = t2 % 100;
@@ -99,8 +99,7 @@ var require_pilogger = __commonJS({
             var e2 = -t2.utcOffset(), n2 = Math.abs(e2), r2 = Math.floor(n2 / 60), i2 = n2 % 60;
             return (e2 <= 0 ? "+" : "-") + m(r2, 2, "0") + ":" + m(i2, 2, "0");
           }, m: function t2(e2, n2) {
-            if (e2.date() < n2.date())
-              return -t2(n2, e2);
+            if (e2.date() < n2.date()) return -t2(n2, e2);
             var r2 = 12 * (n2.year() - e2.year()) + (n2.month() - e2.month()), i2 = e2.clone().add(r2, c), s2 = n2 - i2 < 0, u2 = e2.clone().add(r2 + (s2 ? -1 : 1), c);
             return +(-(r2 + (n2 - i2) / (s2 ? i2 - u2 : u2 - i2)) || 0);
           }, a: function(t2) {
@@ -115,22 +114,19 @@ var require_pilogger = __commonJS({
             return t2 instanceof _ || !(!t2 || !t2[p]);
           }, w = function t2(e2, n2, r2) {
             var i2;
-            if (!e2)
-              return g;
+            if (!e2) return g;
             if ("string" == typeof e2) {
               var s2 = e2.toLowerCase();
               D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
               var u2 = e2.split("-");
-              if (!i2 && u2.length > 1)
-                return t2(u2[0]);
+              if (!i2 && u2.length > 1) return t2(u2[0]);
             } else {
               var a2 = e2.name;
               D[a2] = e2, i2 = a2;
             }
             return !r2 && i2 && (g = i2), i2 || !r2 && g;
           }, O = function(t2, e2) {
-            if (S(t2))
-              return t2.clone();
+            if (S(t2)) return t2.clone();
             var n2 = "object" == typeof e2 ? e2 : {};
             return n2.date = t2, n2.args = arguments, new _(n2);
           }, b = v;
@@ -145,12 +141,9 @@ var require_pilogger = __commonJS({
             return m2.parse = function(t2) {
               this.$d = function(t3) {
                 var e2 = t3.date, n2 = t3.utc;
-                if (null === e2)
-                  return /* @__PURE__ */ new Date(NaN);
-                if (b.u(e2))
-                  return /* @__PURE__ */ new Date();
-                if (e2 instanceof Date)
-                  return new Date(e2);
+                if (null === e2) return /* @__PURE__ */ new Date(NaN);
+                if (b.u(e2)) return /* @__PURE__ */ new Date();
+                if (e2 instanceof Date) return new Date(e2);
                 if ("string" == typeof e2 && !/Z$/i.test(e2)) {
                   var r2 = e2.match($);
                   if (r2) {
@@ -214,8 +207,7 @@ var require_pilogger = __commonJS({
               if (o2 === c || o2 === h) {
                 var y2 = this.clone().set(d, 1);
                 y2.$d[l2]($2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
-              } else
-                l2 && this.$d[l2]($2);
+              } else l2 && this.$d[l2]($2);
               return this.init(), this;
             }, m2.set = function(t2, e2) {
               return this.clone().$set(t2, e2);
@@ -228,22 +220,17 @@ var require_pilogger = __commonJS({
                 var e2 = O(l2);
                 return b.w(e2.date(e2.date() + Math.round(t2 * r2)), l2);
               };
-              if ($2 === c)
-                return this.set(c, this.$M + r2);
-              if ($2 === h)
-                return this.set(h, this.$y + r2);
-              if ($2 === a)
-                return y2(1);
-              if ($2 === o)
-                return y2(7);
+              if ($2 === c) return this.set(c, this.$M + r2);
+              if ($2 === h) return this.set(h, this.$y + r2);
+              if ($2 === a) return y2(1);
+              if ($2 === o) return y2(7);
               var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[$2] || 1, m3 = this.$d.getTime() + r2 * M3;
               return b.w(m3, this);
             }, m2.subtract = function(t2, e2) {
               return this.add(-1 * t2, e2);
             }, m2.format = function(t2) {
               var e2 = this, n2 = this.$locale();
-              if (!this.isValid())
-                return n2.invalidDate || l;
+              if (!this.isValid()) return n2.invalidDate || l;
               var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = b.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, c2 = n2.months, f2 = n2.meridiem, h2 = function(t3, n3, i3, s3) {
                 return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
               }, d2 = function(t3) {
@@ -347,8 +334,7 @@ var require_pilogger = __commonJS({
             }, m2.$locale = function() {
               return D[this.$L];
             }, m2.locale = function(t2, e2) {
-              if (!t2)
-                return this.$L;
+              if (!t2) return this.$L;
               var n2 = this.clone(), r2 = w(t2, e2, true);
               return r2 && (n2.$L = r2), n2;
             }, m2.clone = function() {
@@ -591,9 +577,9 @@ var require_pilogger = __commonJS({
     }
     var ansiStyles = assembleStyles();
     var ansi_styles_default = ansiStyles;
-    var import_node_process = __toESM2(require("process"), 1);
-    var import_node_os = __toESM2(require("os"), 1);
-    var import_node_tty = __toESM2(require("tty"), 1);
+    var import_node_process = __toESM2(require("node:process"), 1);
+    var import_node_os = __toESM2(require("node:os"), 1);
+    var import_node_tty = __toESM2(require("node:tty"), 1);
     function hasFlag(flag, argv = globalThis.Deno ? globalThis.Deno.args : import_node_process.default.argv) {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
       const position = argv.indexOf(prefix + flag);
@@ -962,15 +948,12 @@ var require_pilogger = __commonJS({
     function print(...messages) {
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
       if (options3.console) {
-        if (options3.timeStamp)
-          logger.log(time, ...messages);
-        else
-          logger.log(...messages);
+        if (options3.timeStamp) logger.log(time, ...messages);
+        else logger.log(...messages);
       }
     }
     function logFile2(file) {
-      if (typeof file !== "string")
-        return;
+      if (typeof file !== "string") return;
       options3.logFile = file;
       streams.logFile = true;
       streams.logStream = fs9.createWriteStream(path5.resolve(options3.logFile || ""), { flags: "a" });
@@ -982,8 +965,7 @@ var require_pilogger = __commonJS({
       }
     }
     function accessFile(file) {
-      if (typeof file !== "string")
-        return;
+      if (typeof file !== "string") return;
       options3.accessFile = file;
       streams.accessFile = true;
       streams.accessStream = fs9.createWriteStream(path5.resolve(options3.accessFile), { flags: "a" });
@@ -995,8 +977,7 @@ var require_pilogger = __commonJS({
       }
     }
     function clientFile(file) {
-      if (typeof file !== "string")
-        return;
+      if (typeof file !== "string") return;
       options3.clientFile = file;
       streams.clientFile = true;
       streams.clientStream = fs9.createWriteStream(path5.resolve(options3.clientFile), { flags: "a" });
@@ -1020,56 +1001,40 @@ var require_pilogger = __commonJS({
       }
       elapsed = Math.round(elapsed / 1e6);
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
-      if (options3.console)
-        logger.log(time, tags.timed, `${elapsed.toLocaleString()} ms`, ...messages);
-      if (streams.logFile && streams.logStream)
-        streams.logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
+      if (options3.console) logger.log(time, tags.timed, `${elapsed.toLocaleString()} ms`, ...messages);
+      if (streams.logFile && streams.logStream) streams.logStream.write(`${tags.timed} ${time} ${elapsed.toLocaleString()} ms ${combineMessages(...messages)}
 `);
     }
     async function log12(tag, ...messages) {
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
-      if (tags[tag])
-        print(tags[tag], ...messages);
-      else
-        print(...messages);
-      if (streams.logFile && streams.logStream)
-        streams.logStream.write(`${time} ${tags[tag]} ${combineMessages(...messages)}
+      if (tags[tag]) print(tags[tag], ...messages);
+      else print(...messages);
+      if (streams.logFile && streams.logStream) streams.logStream.write(`${time} ${tags[tag]} ${combineMessages(...messages)}
 `);
       ring2.push({ tag, time, msg: combineMessages(...messages) });
-      if (ring2.length > options3.ringLength)
-        ring2.shift();
+      if (ring2.length > options3.ringLength) ring2.shift();
     }
     async function assert(res, exp, ...messages) {
-      if (res !== exp)
-        log12("assert", ...messages, { res, exp });
+      if (res !== exp) log12("assert", ...messages, { res, exp });
     }
     async function access(...messages) {
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
-      if (streams.accessFile && streams.accessStream)
-        streams.accessStream.write(`${time} ${combineMessages(...messages)}
+      if (streams.accessFile && streams.accessStream) streams.accessStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
     async function client(...messages) {
       const time = (0, import_dayjs2.default)(Date.now()).format(options3.dateFormat);
-      if (streams.clientFile && streams.clientStream)
-        streams.clientStream.write(`${time} ${combineMessages(...messages)}
+      if (streams.clientFile && streams.clientStream) streams.clientStream.write(`${time} ${combineMessages(...messages)}
 `);
     }
     function configure2(userOptions2) {
-      if (!userOptions2)
-        return;
-      if (userOptions2.dateFormat)
-        options3.dateFormat = userOptions2.dateFormat;
-      if (userOptions2.ringLength)
-        options3.ringLength = userOptions2.ringLength;
-      if (userOptions2.logFile)
-        logFile2(userOptions2.logFile);
-      if (userOptions2.accessFile)
-        accessFile(userOptions2.accessFile);
-      if (userOptions2.clientFile)
-        clientFile(userOptions2.clientFile);
-      if (userOptions2.inspect)
-        inspectOptions = { ...inspectOptions, ...userOptions2.inspect };
+      if (!userOptions2) return;
+      if (userOptions2.dateFormat) options3.dateFormat = userOptions2.dateFormat;
+      if (userOptions2.ringLength) options3.ringLength = userOptions2.ringLength;
+      if (userOptions2.logFile) logFile2(userOptions2.logFile);
+      if (userOptions2.accessFile) accessFile(userOptions2.accessFile);
+      if (userOptions2.clientFile) clientFile(userOptions2.clientFile);
+      if (userOptions2.inspect) inspectOptions = { ...inspectOptions, ...userOptions2.inspect };
       logger = new import_console.Console({
         stdout: process.stdout,
         stderr: process.stderr,
@@ -1079,29 +1044,23 @@ var require_pilogger = __commonJS({
     }
     function header3() {
       const f = "./package.json";
-      if (!fs9.existsSync(f))
-        return;
+      if (!fs9.existsSync(f)) return;
       const node = JSON.parse(fs9.readFileSync(f).toString());
       process.title = node.name;
       log12("info", node.name, "version", node.version);
       log12("info", "User:", os2.userInfo().username, "Platform:", process.platform, "Arch:", process.arch, "Node:", process.version);
-      if (options3.logFile && streams.logFile)
-        print(tags.state, "Application log:", path5.resolve(options3.logFile));
-      if (options3.accessFile && streams.accessFile)
-        print(tags.state, "Access log:", path5.resolve(options3.accessFile));
-      if (options3.clientFile && streams.clientFile)
-        print(tags.state, "Client log:", path5.resolve(options3.clientFile));
+      if (options3.logFile && streams.logFile) print(tags.state, "Application log:", path5.resolve(options3.logFile));
+      if (options3.accessFile && streams.accessFile) print(tags.state, "Access log:", path5.resolve(options3.accessFile));
+      if (options3.clientFile && streams.clientFile) print(tags.state, "Client log:", path5.resolve(options3.clientFile));
     }
     function headerJson() {
       const f = "./package.json";
-      if (!fs9.existsSync(f))
-        return;
+      if (!fs9.existsSync(f)) return;
       const node = JSON.parse(fs9.readFileSync(f).toString());
       process.title = node.name;
       log12("info", { application: node.name, version: node.version });
       log12("info", { user: os2.userInfo().username, platform: process.platform, arch: process.arch, node: process.version });
-      if (options3.logFile || options3.accessFile || options3.clientFile)
-        print(tags.state, { log: path5.resolve(options3.logFile || ""), access: path5.resolve(options3.accessFile || ""), client: path5.resolve(options3.clientFile || "") });
+      if (options3.logFile || options3.accessFile || options3.clientFile) print(tags.state, { log: path5.resolve(options3.logFile || ""), access: path5.resolve(options3.accessFile || ""), client: path5.resolve(options3.clientFile || "") });
     }
     var blank = (...message) => log12("blank", ...message);
     var info9 = (...message) => log12("info", ...message);
