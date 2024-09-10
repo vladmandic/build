@@ -1,6 +1,6 @@
 # @vladmandic/build  
 
-  Version: **0.9.2**  
+  Version: **0.10.1**  
   Description: **Build: Automated CI Platform for NodeJS**  
   
   Author: **Vladimir Mandic <mandic00@live.com>**  
@@ -9,8 +9,12 @@
   
 ## Changelog
   
-### **HEAD -> main** 2023/04/03 mandic00@live.com
+### **HEAD -> main** 2024/09/10 mandic00@live.com
 
+
+### **0.9.3** 2023/12/06 mandic00@live.com
+
+- revert to older rimraf
 
 ### **0.9.2** 2023/04/03 mandic00@live.com
 

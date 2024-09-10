@@ -44,7 +44,8 @@ export async function run(config, entry) {
   const localTSdefaults = { ...config.typescript };
   if (localTSdefaults.emitDeclarationOnly) delete localTSdefaults.emitDeclarationOnly;
   // @ts-ignore private options
-  for (const [key, val] of Object.entries(localTSdefaults)) td.options._compilerOptions[key] = val; // override TypeDoc TS compileOptions
+  // TODO fix this
+  // for (const [key, val] of Object.entries(localTSdefaults)) td.options._compilerOptions[key] = val; // override TypeDoc TS compileOptions
   for (const [key, val] of Object.entries(defaults)) td.options.setValue(key, val); // override TypeDoc options
   td.options.setValue('entryPoints', [entry.input]);
   td.options.setValue('out', entry.typedoc);

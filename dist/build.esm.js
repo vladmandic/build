@@ -8,12 +8,14 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
   get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
 }) : x)(function(x) {
-  if (typeof require !== "undefined")
-    return require.apply(this, arguments);
+  if (typeof require !== "undefined") return require.apply(this, arguments);
   throw Error('Dynamic require of "' + x + '" is not supported');
 });
 var __commonJS = (cb, mod) => function __require2() {
@@ -35,28 +37,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
-var __publicField = (obj, key, value) => {
-  __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-  return value;
-};
-var __accessCheck = (obj, member, msg) => {
-  if (!member.has(obj))
-    throw TypeError("Cannot " + msg);
-};
-var __privateGet = (obj, member, getter) => {
-  __accessCheck(obj, member, "read from private field");
-  return getter ? getter.call(obj) : member.get(obj);
-};
-var __privateAdd = (obj, member, value) => {
-  if (member.has(obj))
-    throw TypeError("Cannot add the same private member more than once");
-  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-};
-var __privateSet = (obj, member, value, setter) => {
-  __accessCheck(obj, member, "write to private field");
-  setter ? setter.call(obj, value) : member.set(obj, value);
-  return value;
-};
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
 var __privateWrapper = (obj, member, setter, getter) => ({
   set _(value) {
     __privateSet(obj, member, value, setter);
@@ -65,14 +51,10 @@ var __privateWrapper = (obj, member, setter, getter) => ({
     return __privateGet(obj, member, getter);
   }
 });
-var __privateMethod = (obj, member, method) => {
-  __accessCheck(obj, member, "access private method");
-  return method;
-};
 
-// node_modules/@vladmandic/pilogger/dist/pilogger.js
+// node_modules/.pnpm/@vladmandic+pilogger@0.4.9/node_modules/@vladmandic/pilogger/dist/pilogger.js
 var require_pilogger = __commonJS({
-  "node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
+  "node_modules/.pnpm/@vladmandic+pilogger@0.4.9/node_modules/@vladmandic/pilogger/dist/pilogger.js"(exports, module2) {
     "use strict";
     var __create2 = Object.create;
     var __defProp3 = Object.defineProperty;
@@ -87,7 +69,7 @@ var require_pilogger = __commonJS({
       for (var name in all)
         __defProp3(target, name, { get: all[name], enumerable: true });
     };
-    var __copyProps2 = (to, from, except, desc) => {
+    var __copyProps3 = (to, from, except, desc) => {
       if (from && typeof from === "object" || typeof from === "function") {
         for (let key of __getOwnPropNames3(from))
           if (!__hasOwnProp3.call(to, key) && key !== except)
@@ -95,7 +77,7 @@ var require_pilogger = __commonJS({
       }
       return to;
     };
-    var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps2(
+    var __toESM2 = (mod, isNodeMode, target) => (target = mod != null ? __create2(__getProtoOf2(mod)) : {}, __copyProps3(
       // If the importer is in node compatibility mode or this is not an ESM
       // file that has been converted to a CommonJS file using a Babel-
       // compatible transform (i.e. "__esModule" has not been set), then set
@@ -103,7 +85,7 @@ var require_pilogger = __commonJS({
       isNodeMode || !mod || !mod.__esModule ? __defProp3(target, "default", { value: mod, enumerable: true }) : target,
       mod
     ));
-    var __toCommonJS2 = (mod) => __copyProps2(__defProp3({}, "__esModule", { value: true }), mod);
+    var __toCommonJS2 = (mod) => __copyProps3(__defProp3({}, "__esModule", { value: true }), mod);
     var require_dayjs_min2 = __commonJS3({
       "node_modules/dayjs/dayjs.min.js"(exports2, module22) {
         !function(t, e) {
@@ -1137,9 +1119,9 @@ var require_pilogger = __commonJS({
   }
 });
 
-// node_modules/ms/index.js
+// node_modules/.pnpm/ms@2.1.3/node_modules/ms/index.js
 var require_ms = __commonJS({
-  "node_modules/ms/index.js"(exports, module2) {
+  "node_modules/.pnpm/ms@2.1.3/node_modules/ms/index.js"(exports, module2) {
     "use strict";
     var s = 1e3;
     var m = s * 60;
@@ -1254,9 +1236,9 @@ var require_ms = __commonJS({
   }
 });
 
-// node_modules/debug/src/common.js
+// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/debug/src/common.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/common.js"(exports, module2) {
     "use strict";
     function setup(env) {
       createDebug.debug = createDebug;
@@ -1418,9 +1400,9 @@ var require_common = __commonJS({
   }
 });
 
-// node_modules/debug/src/browser.js
+// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/debug/src/browser.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/browser.js"(exports, module2) {
     "use strict";
     exports.formatArgs = formatArgs;
     exports.save = save;
@@ -1521,10 +1503,11 @@ var require_browser = __commonJS({
       if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
         return false;
       }
+      let m;
       return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
       typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
       // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && (m = navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)) && parseInt(m[1], 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
       typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     function formatArgs(args) {
@@ -1588,9 +1571,9 @@ var require_browser = __commonJS({
   }
 });
 
-// node_modules/has-flag/index.js
+// node_modules/.pnpm/has-flag@4.0.0/node_modules/has-flag/index.js
 var require_has_flag = __commonJS({
-  "node_modules/has-flag/index.js"(exports, module2) {
+  "node_modules/.pnpm/has-flag@4.0.0/node_modules/has-flag/index.js"(exports, module2) {
     "use strict";
     module2.exports = (flag, argv = process.argv) => {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
@@ -1601,9 +1584,9 @@ var require_has_flag = __commonJS({
   }
 });
 
-// node_modules/supports-color/index.js
+// node_modules/.pnpm/supports-color@7.2.0/node_modules/supports-color/index.js
 var require_supports_color = __commonJS({
-  "node_modules/supports-color/index.js"(exports, module2) {
+  "node_modules/.pnpm/supports-color@7.2.0/node_modules/supports-color/index.js"(exports, module2) {
     "use strict";
     var os = __require("os");
     var tty = __require("tty");
@@ -1703,9 +1686,9 @@ var require_supports_color = __commonJS({
   }
 });
 
-// node_modules/debug/src/node.js
+// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "node_modules/debug/src/node.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/node.js"(exports, module2) {
     "use strict";
     var tty = __require("tty");
     var util = __require("util");
@@ -1846,7 +1829,7 @@ var require_node = __commonJS({
       return (/* @__PURE__ */ new Date()).toISOString() + " ";
     }
     function log12(...args) {
-      return process.stderr.write(util.format(...args) + "\n");
+      return process.stderr.write(util.formatWithOptions(exports.inspectOpts, ...args) + "\n");
     }
     function save(namespaces) {
       if (namespaces) {
@@ -1878,9 +1861,9 @@ var require_node = __commonJS({
   }
 });
 
-// node_modules/debug/src/index.js
+// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/debug/src/index.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/index.js"(exports, module2) {
     "use strict";
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
@@ -1890,9 +1873,9 @@ var require_src = __commonJS({
   }
 });
 
-// node_modules/@kwsites/file-exists/dist/src/index.js
+// node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/src/index.js
 var require_src2 = __commonJS({
-  "node_modules/@kwsites/file-exists/dist/src/index.js"(exports) {
+  "node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/src/index.js"(exports) {
     "use strict";
     var __importDefault = exports && exports.__importDefault || function(mod) {
       return mod && mod.__esModule ? mod : { "default": mod };
@@ -1934,23 +1917,21 @@ var require_src2 = __commonJS({
   }
 });
 
-// node_modules/@kwsites/file-exists/dist/index.js
+// node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/@kwsites/file-exists/dist/index.js"(exports) {
+  "node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js"(exports) {
     "use strict";
     function __export2(m) {
-      for (var p in m)
-        if (!exports.hasOwnProperty(p))
-          exports[p] = m[p];
+      for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
     __export2(require_src2());
   }
 });
 
-// node_modules/@kwsites/promise-deferred/dist/index.js
+// node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js
 var require_dist2 = __commonJS({
-  "node_modules/@kwsites/promise-deferred/dist/index.js"(exports) {
+  "node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createDeferred = exports.deferred = void 0;
@@ -1990,9 +1971,9 @@ var require_dist2 = __commonJS({
   }
 });
 
-// node_modules/picomatch/lib/constants.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js
 var require_constants = __commonJS({
-  "node_modules/picomatch/lib/constants.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js"(exports, module2) {
     "use strict";
     var path5 = __require("path");
     var WIN_SLASH = "\\\\/";
@@ -2187,9 +2168,9 @@ var require_constants = __commonJS({
   }
 });
 
-// node_modules/picomatch/lib/utils.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js
 var require_utils = __commonJS({
-  "node_modules/picomatch/lib/utils.js"(exports) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js"(exports) {
     "use strict";
     var path5 = __require("path");
     var win322 = process.platform === "win32";
@@ -2224,10 +2205,8 @@ var require_utils = __commonJS({
     };
     exports.escapeLast = (input, char, lastIdx) => {
       const idx = input.lastIndexOf(char, lastIdx);
-      if (idx === -1)
-        return input;
-      if (input[idx - 1] === "\\")
-        return exports.escapeLast(input, char, idx - 1);
+      if (idx === -1) return input;
+      if (input[idx - 1] === "\\") return exports.escapeLast(input, char, idx - 1);
       return `${input.slice(0, idx)}\\${input.slice(idx)}`;
     };
     exports.removePrefix = (input, state9 = {}) => {
@@ -2250,9 +2229,9 @@ var require_utils = __commonJS({
   }
 });
 
-// node_modules/picomatch/lib/scan.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js
 var require_scan = __commonJS({
-  "node_modules/picomatch/lib/scan.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js"(exports, module2) {
     "use strict";
     var utils = require_utils();
     var {
@@ -2386,8 +2365,7 @@ var require_scan = __commonJS({
           slashes.push(index);
           tokens.push(token);
           token = { value: "", depth: 0, isGlob: false };
-          if (finished === true)
-            continue;
+          if (finished === true) continue;
           if (prev === CHAR_DOT && index === start3 + 1) {
             start3 += 2;
             continue;
@@ -2423,8 +2401,7 @@ var require_scan = __commonJS({
           }
         }
         if (code === CHAR_ASTERISK) {
-          if (prev === CHAR_ASTERISK)
-            isGlobstar = token.isGlobstar = true;
+          if (prev === CHAR_ASTERISK) isGlobstar = token.isGlobstar = true;
           isGlob = token.isGlob = true;
           finished = true;
           if (scanToEnd === true) {
@@ -2517,8 +2494,7 @@ var require_scan = __commonJS({
         }
       }
       if (opts.unescape === true) {
-        if (glob2)
-          glob2 = utils.removeBackslashes(glob2);
+        if (glob2) glob2 = utils.removeBackslashes(glob2);
         if (base && backslashes === true) {
           base = utils.removeBackslashes(base);
         }
@@ -2583,9 +2559,9 @@ var require_scan = __commonJS({
   }
 });
 
-// node_modules/picomatch/lib/parse.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js
 var require_parse = __commonJS({
-  "node_modules/picomatch/lib/parse.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports, module2) {
     "use strict";
     var constants2 = require_constants();
     var utils = require_utils();
@@ -2728,8 +2704,7 @@ var require_parse = __commonJS({
         if (extglobs.length && tok.type !== "paren") {
           extglobs[extglobs.length - 1].inner += tok.value;
         }
-        if (tok.value || tok.output)
-          append2(tok);
+        if (tok.value || tok.output) append2(tok);
         if (prev && prev.type === "text" && tok.type === "text") {
           prev.value += tok.value;
           prev.output = (prev.output || "") + tok.value;
@@ -3044,8 +3019,7 @@ var require_parse = __commonJS({
         }
         if (value === ".") {
           if (state9.braces > 0 && prev.type === "dot") {
-            if (prev.value === ".")
-              prev.output = DOT_LITERAL;
+            if (prev.value === ".") prev.output = DOT_LITERAL;
             const brace = braces[braces.length - 1];
             prev.type = "dots";
             prev.output += value;
@@ -3260,20 +3234,17 @@ var require_parse = __commonJS({
         push(token);
       }
       while (state9.brackets > 0) {
-        if (opts.strictBrackets === true)
-          throw new SyntaxError(syntaxError("closing", "]"));
+        if (opts.strictBrackets === true) throw new SyntaxError(syntaxError("closing", "]"));
         state9.output = utils.escapeLast(state9.output, "[");
         decrement("brackets");
       }
       while (state9.parens > 0) {
-        if (opts.strictBrackets === true)
-          throw new SyntaxError(syntaxError("closing", ")"));
+        if (opts.strictBrackets === true) throw new SyntaxError(syntaxError("closing", ")"));
         state9.output = utils.escapeLast(state9.output, "(");
         decrement("parens");
       }
       while (state9.braces > 0) {
-        if (opts.strictBrackets === true)
-          throw new SyntaxError(syntaxError("closing", "}"));
+        if (opts.strictBrackets === true) throw new SyntaxError(syntaxError("closing", "}"));
         state9.output = utils.escapeLast(state9.output, "{");
         decrement("braces");
       }
@@ -3320,8 +3291,7 @@ var require_parse = __commonJS({
         star3 = `(${star3})`;
       }
       const globstar = (opts2) => {
-        if (opts2.noglobstar === true)
-          return star3;
+        if (opts2.noglobstar === true) return star3;
         return `(${capture}(?:(?!${START_ANCHOR}${opts2.dot ? DOTS_SLASH : DOT_LITERAL}).)*?)`;
       };
       const create = (str) => {
@@ -3344,11 +3314,9 @@ var require_parse = __commonJS({
             return `(?:${nodot}${globstar(opts)}${SLASH_LITERAL})?${DOT_LITERAL}${ONE_CHAR}${star3}`;
           default: {
             const match2 = /^(.*?)\.(\w+)$/.exec(str);
-            if (!match2)
-              return;
+            if (!match2) return;
             const source2 = create(match2[1]);
-            if (!source2)
-              return;
+            if (!source2) return;
             return source2 + DOT_LITERAL + match2[2];
           }
         }
@@ -3364,9 +3332,9 @@ var require_parse = __commonJS({
   }
 });
 
-// node_modules/picomatch/lib/picomatch.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js
 var require_picomatch = __commonJS({
-  "node_modules/picomatch/lib/picomatch.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js"(exports, module2) {
     "use strict";
     var path5 = __require("path");
     var scan = require_scan();
@@ -3380,8 +3348,7 @@ var require_picomatch = __commonJS({
         const arrayMatcher = (str) => {
           for (const isMatch of fns) {
             const state10 = isMatch(str);
-            if (state10)
-              return state10;
+            if (state10) return state10;
           }
           return false;
         };
@@ -3458,8 +3425,7 @@ var require_picomatch = __commonJS({
     };
     picomatch.isMatch = (str, patterns, options3) => picomatch(patterns, options3)(str);
     picomatch.parse = (pattern, options3) => {
-      if (Array.isArray(pattern))
-        return pattern.map((p) => picomatch.parse(p, options3));
+      if (Array.isArray(pattern)) return pattern.map((p) => picomatch.parse(p, options3));
       return parse6(pattern, { ...options3, fastpaths: false });
     };
     picomatch.scan = (input, options3) => scan(input, options3);
@@ -3498,8 +3464,7 @@ var require_picomatch = __commonJS({
         const opts = options3 || {};
         return new RegExp(source, opts.flags || (opts.nocase ? "i" : ""));
       } catch (err) {
-        if (options3 && options3.debug === true)
-          throw err;
+        if (options3 && options3.debug === true) throw err;
         return /$^/;
       }
     };
@@ -3508,17 +3473,17 @@ var require_picomatch = __commonJS({
   }
 });
 
-// node_modules/picomatch/index.js
+// node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js
 var require_picomatch2 = __commonJS({
-  "node_modules/picomatch/index.js"(exports, module2) {
+  "node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js"(exports, module2) {
     "use strict";
     module2.exports = require_picomatch();
   }
 });
 
-// node_modules/readdirp/index.js
+// node_modules/.pnpm/readdirp@3.6.0/node_modules/readdirp/index.js
 var require_readdirp = __commonJS({
-  "node_modules/readdirp/index.js"(exports, module2) {
+  "node_modules/.pnpm/readdirp@3.6.0/node_modules/readdirp/index.js"(exports, module2) {
     "use strict";
     var fs9 = __require("fs");
     var { Readable } = __require("stream");
@@ -3541,10 +3506,8 @@ var require_readdirp = __commonJS({
     var [maj, min] = process.versions.node.split(".").slice(0, 2).map((n) => Number.parseInt(n, 10));
     var wantBigintFsStats = process.platform === "win32" && (maj > 10 || maj === 10 && min >= 5);
     var normalizeFilter = (filter2) => {
-      if (filter2 === void 0)
-        return;
-      if (typeof filter2 === "function")
-        return filter2;
+      if (filter2 === void 0) return;
+      if (typeof filter2 === "function") return filter2;
       if (typeof filter2 === "string") {
         const glob2 = picomatch(filter2.trim());
         return (entry) => glob2(entry.basename);
@@ -3612,8 +3575,7 @@ var require_readdirp = __commonJS({
         this.parent = void 0;
       }
       async _read(batch) {
-        if (this.reading)
-          return;
+        if (this.reading) return;
         this.reading = true;
         try {
           while (!this.destroyed && batch > 0) {
@@ -3621,8 +3583,7 @@ var require_readdirp = __commonJS({
             if (files.length > 0) {
               const slice = files.splice(0, batch).map((dirent) => this._formatEntry(dirent, path5));
               for (const entry of await Promise.all(slice)) {
-                if (this.destroyed)
-                  return;
+                if (this.destroyed) return;
                 const entryType = await this._getEntryType(entry);
                 if (entryType === "directory" && this._directoryFilter(entry)) {
                   if (depth <= this._maxDepth) {
@@ -3646,8 +3607,7 @@ var require_readdirp = __commonJS({
                 break;
               }
               this.parent = await parent;
-              if (this.destroyed)
-                return;
+              if (this.destroyed) return;
             }
           }
         } catch (error8) {
@@ -3726,10 +3686,8 @@ var require_readdirp = __commonJS({
     };
     var readdirp = (root, options3 = {}) => {
       let type = options3.entryType || options3.type;
-      if (type === "both")
-        type = FILE_DIR_TYPE;
-      if (type)
-        options3.type = type;
+      if (type === "both") type = FILE_DIR_TYPE;
+      if (type) options3.type = type;
       if (!root) {
         throw new Error("readdirp: root argument is required. Usage: readdirp(root, options)");
       } else if (typeof root !== "string") {
@@ -3753,19 +3711,17 @@ var require_readdirp = __commonJS({
   }
 });
 
-// node_modules/normalize-path/index.js
+// node_modules/.pnpm/normalize-path@3.0.0/node_modules/normalize-path/index.js
 var require_normalize_path = __commonJS({
-  "node_modules/normalize-path/index.js"(exports, module2) {
+  "node_modules/.pnpm/normalize-path@3.0.0/node_modules/normalize-path/index.js"(exports, module2) {
     "use strict";
     module2.exports = function(path5, stripTrailing) {
       if (typeof path5 !== "string") {
         throw new TypeError("expected path to be a string");
       }
-      if (path5 === "\\" || path5 === "/")
-        return "/";
+      if (path5 === "\\" || path5 === "/") return "/";
       var len = path5.length;
-      if (len <= 1)
-        return path5;
+      if (len <= 1) return path5;
       var prefix = "";
       if (len > 4 && path5[3] === "\\") {
         var ch = path5[2];
@@ -3783,9 +3739,9 @@ var require_normalize_path = __commonJS({
   }
 });
 
-// node_modules/anymatch/index.js
+// node_modules/.pnpm/anymatch@3.1.3/node_modules/anymatch/index.js
 var require_anymatch = __commonJS({
-  "node_modules/anymatch/index.js"(exports, module2) {
+  "node_modules/.pnpm/anymatch@3.1.3/node_modules/anymatch/index.js"(exports, module2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var picomatch = require_picomatch2();
@@ -3850,9 +3806,9 @@ var require_anymatch = __commonJS({
   }
 });
 
-// node_modules/is-extglob/index.js
+// node_modules/.pnpm/is-extglob@2.1.1/node_modules/is-extglob/index.js
 var require_is_extglob = __commonJS({
-  "node_modules/is-extglob/index.js"(exports, module2) {
+  "node_modules/.pnpm/is-extglob@2.1.1/node_modules/is-extglob/index.js"(exports, module2) {
     "use strict";
     module2.exports = function isExtglob(str) {
       if (typeof str !== "string" || str === "") {
@@ -3860,8 +3816,7 @@ var require_is_extglob = __commonJS({
       }
       var match2;
       while (match2 = /(\\).|([@?!+*]\(.*\))/g.exec(str)) {
-        if (match2[2])
-          return true;
+        if (match2[2]) return true;
         str = str.slice(match2.index + match2[0].length);
       }
       return false;
@@ -3869,9 +3824,9 @@ var require_is_extglob = __commonJS({
   }
 });
 
-// node_modules/is-glob/index.js
+// node_modules/.pnpm/is-glob@4.0.3/node_modules/is-glob/index.js
 var require_is_glob = __commonJS({
-  "node_modules/is-glob/index.js"(exports, module2) {
+  "node_modules/.pnpm/is-glob@4.0.3/node_modules/is-glob/index.js"(exports, module2) {
     "use strict";
     var isExtglob = require_is_extglob();
     var chars = { "{": "}", "(": ")", "[": "]" };
@@ -4001,9 +3956,9 @@ var require_is_glob = __commonJS({
   }
 });
 
-// node_modules/glob-parent/index.js
+// node_modules/.pnpm/glob-parent@5.1.2/node_modules/glob-parent/index.js
 var require_glob_parent = __commonJS({
-  "node_modules/glob-parent/index.js"(exports, module2) {
+  "node_modules/.pnpm/glob-parent@5.1.2/node_modules/glob-parent/index.js"(exports, module2) {
     "use strict";
     var isGlob = require_is_glob();
     var pathPosixDirname = __require("path").posix.dirname;
@@ -4030,9 +3985,9 @@ var require_glob_parent = __commonJS({
   }
 });
 
-// node_modules/braces/lib/utils.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/utils.js
 var require_utils2 = __commonJS({
-  "node_modules/braces/lib/utils.js"(exports) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/utils.js"(exports) {
     "use strict";
     exports.isInteger = (num) => {
       if (typeof num === "number") {
@@ -4045,16 +4000,13 @@ var require_utils2 = __commonJS({
     };
     exports.find = (node, type) => node.nodes.find((node2) => node2.type === type);
     exports.exceedsLimit = (min, max, step = 1, limit) => {
-      if (limit === false)
-        return false;
-      if (!exports.isInteger(min) || !exports.isInteger(max))
-        return false;
+      if (limit === false) return false;
+      if (!exports.isInteger(min) || !exports.isInteger(max)) return false;
       return (Number(max) - Number(min)) / Number(step) >= limit;
     };
     exports.escapeNode = (block, n = 0, type) => {
-      let node = block.nodes[n];
-      if (!node)
-        return;
+      const node = block.nodes[n];
+      if (!node) return;
       if (type && node.type === type || node.type === "open" || node.type === "close") {
         if (node.escaped !== true) {
           node.value = "\\" + node.value;
@@ -4063,8 +4015,7 @@ var require_utils2 = __commonJS({
       }
     };
     exports.encloseBrace = (node) => {
-      if (node.type !== "brace")
-        return false;
+      if (node.type !== "brace") return false;
       if (node.commas >> 0 + node.ranges >> 0 === 0) {
         node.invalid = true;
         return true;
@@ -4072,10 +4023,8 @@ var require_utils2 = __commonJS({
       return false;
     };
     exports.isInvalidBrace = (block) => {
-      if (block.type !== "brace")
-        return false;
-      if (block.invalid === true || block.dollar)
-        return true;
+      if (block.type !== "brace") return false;
+      if (block.invalid === true || block.dollar) return true;
       if (block.commas >> 0 + block.ranges >> 0 === 0) {
         block.invalid = true;
         return true;
@@ -4093,18 +4042,22 @@ var require_utils2 = __commonJS({
       return node.open === true || node.close === true;
     };
     exports.reduce = (nodes) => nodes.reduce((acc, node) => {
-      if (node.type === "text")
-        acc.push(node.value);
-      if (node.type === "range")
-        node.type = "text";
+      if (node.type === "text") acc.push(node.value);
+      if (node.type === "range") node.type = "text";
       return acc;
     }, []);
     exports.flatten = (...args) => {
       const result = [];
       const flat = (arr) => {
         for (let i = 0; i < arr.length; i++) {
-          let ele = arr[i];
-          Array.isArray(ele) ? flat(ele, result) : ele !== void 0 && result.push(ele);
+          const ele = arr[i];
+          if (Array.isArray(ele)) {
+            flat(ele);
+            continue;
+          }
+          if (ele !== void 0) {
+            result.push(ele);
+          }
         }
         return result;
       };
@@ -4114,15 +4067,15 @@ var require_utils2 = __commonJS({
   }
 });
 
-// node_modules/braces/lib/stringify.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/stringify.js
 var require_stringify = __commonJS({
-  "node_modules/braces/lib/stringify.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/stringify.js"(exports, module2) {
     "use strict";
     var utils = require_utils2();
     module2.exports = (ast, options3 = {}) => {
-      let stringify = (node, parent = {}) => {
-        let invalidBlock = options3.escapeInvalid && utils.isInvalidBrace(parent);
-        let invalidNode = node.invalid === true && options3.escapeInvalid === true;
+      const stringify = (node, parent = {}) => {
+        const invalidBlock = options3.escapeInvalid && utils.isInvalidBrace(parent);
+        const invalidNode = node.invalid === true && options3.escapeInvalid === true;
         let output = "";
         if (node.value) {
           if ((invalidBlock || invalidNode) && utils.isOpenOrClose(node)) {
@@ -4134,7 +4087,7 @@ var require_stringify = __commonJS({
           return node.value;
         }
         if (node.nodes) {
-          for (let child of node.nodes) {
+          for (const child of node.nodes) {
             output += stringify(child);
           }
         }
@@ -4145,9 +4098,9 @@ var require_stringify = __commonJS({
   }
 });
 
-// node_modules/is-number/index.js
+// node_modules/.pnpm/is-number@7.0.0/node_modules/is-number/index.js
 var require_is_number = __commonJS({
-  "node_modules/is-number/index.js"(exports, module2) {
+  "node_modules/.pnpm/is-number@7.0.0/node_modules/is-number/index.js"(exports, module2) {
     "use strict";
     module2.exports = function(num) {
       if (typeof num === "number") {
@@ -4161,9 +4114,9 @@ var require_is_number = __commonJS({
   }
 });
 
-// node_modules/to-regex-range/index.js
+// node_modules/.pnpm/to-regex-range@5.0.1/node_modules/to-regex-range/index.js
 var require_to_regex_range = __commonJS({
-  "node_modules/to-regex-range/index.js"(exports, module2) {
+  "node_modules/.pnpm/to-regex-range@5.0.1/node_modules/to-regex-range/index.js"(exports, module2) {
     "use strict";
     var isNumber = require_is_number();
     var toRegexRange = (min, max, options3) => {
@@ -4320,8 +4273,7 @@ var require_to_regex_range = __commonJS({
     }
     function zip(a, b) {
       let arr = [];
-      for (let i = 0; i < a.length; i++)
-        arr.push([a[i], b[i]]);
+      for (let i = 0; i < a.length; i++) arr.push([a[i], b[i]]);
       return arr;
     }
     function compare(a, b) {
@@ -4373,9 +4325,9 @@ var require_to_regex_range = __commonJS({
   }
 });
 
-// node_modules/fill-range/index.js
+// node_modules/.pnpm/fill-range@7.1.1/node_modules/fill-range/index.js
 var require_fill_range = __commonJS({
-  "node_modules/fill-range/index.js"(exports, module2) {
+  "node_modules/.pnpm/fill-range@7.1.1/node_modules/fill-range/index.js"(exports, module2) {
     "use strict";
     var util = __require("util");
     var toRegexRange = require_to_regex_range();
@@ -4390,12 +4342,9 @@ var require_fill_range = __commonJS({
     var zeros = (input) => {
       let value = `${input}`;
       let index = -1;
-      if (value[0] === "-")
-        value = value.slice(1);
-      if (value === "0")
-        return false;
-      while (value[++index] === "0")
-        ;
+      if (value[0] === "-") value = value.slice(1);
+      if (value === "0") return false;
+      while (value[++index] === "0") ;
       return index > 0;
     };
     var stringify = (start3, end, options3) => {
@@ -4407,8 +4356,7 @@ var require_fill_range = __commonJS({
     var pad = (input, maxLength, toNumber2) => {
       if (maxLength > 0) {
         let dash = input[0] === "-" ? "-" : "";
-        if (dash)
-          input = input.slice(1);
+        if (dash) input = input.slice(1);
         input = dash + input.padStart(dash ? maxLength - 1 : maxLength, "0");
       }
       if (toNumber2 === false) {
@@ -4422,11 +4370,10 @@ var require_fill_range = __commonJS({
         input = input.slice(1);
         maxLength--;
       }
-      while (input.length < maxLength)
-        input = "0" + input;
+      while (input.length < maxLength) input = "0" + input;
       return negative ? "-" + input : input;
     };
-    var toSequence = (parts, options3) => {
+    var toSequence = (parts, options3, maxLen) => {
       parts.negatives.sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
       parts.positives.sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
       let prefix = options3.capture ? "" : "?:";
@@ -4434,10 +4381,10 @@ var require_fill_range = __commonJS({
       let negatives = "";
       let result;
       if (parts.positives.length) {
-        positives = parts.positives.join("|");
+        positives = parts.positives.map((v) => toMaxLen(String(v), maxLen)).join("|");
       }
       if (parts.negatives.length) {
-        negatives = `-(${prefix}${parts.negatives.join("|")})`;
+        negatives = `-(${prefix}${parts.negatives.map((v) => toMaxLen(String(v), maxLen)).join("|")})`;
       }
       if (positives && negatives) {
         result = `${positives}|${negatives}`;
@@ -4454,8 +4401,7 @@ var require_fill_range = __commonJS({
         return toRegexRange(a, b, { wrap: false, ...options3 });
       }
       let start3 = String.fromCharCode(a);
-      if (a === b)
-        return start3;
+      if (a === b) return start3;
       let stop = String.fromCharCode(b);
       return `[${start3}-${stop}]`;
     };
@@ -4471,8 +4417,7 @@ var require_fill_range = __commonJS({
       return new RangeError("Invalid range arguments: " + util.inspect(...args));
     };
     var invalidRange = (start3, end, options3) => {
-      if (options3.strictRanges === true)
-        throw rangeError([start3, end]);
+      if (options3.strictRanges === true) throw rangeError([start3, end]);
       return [];
     };
     var invalidStep = (step, options3) => {
@@ -4485,14 +4430,11 @@ var require_fill_range = __commonJS({
       let a = Number(start3);
       let b = Number(end);
       if (!Number.isInteger(a) || !Number.isInteger(b)) {
-        if (options3.strictRanges === true)
-          throw rangeError([start3, end]);
+        if (options3.strictRanges === true) throw rangeError([start3, end]);
         return [];
       }
-      if (a === 0)
-        a = 0;
-      if (b === 0)
-        b = 0;
+      if (a === 0) a = 0;
+      if (b === 0) b = 0;
       let descending = a > b;
       let startString = String(start3);
       let endString = String(end);
@@ -4519,7 +4461,7 @@ var require_fill_range = __commonJS({
         index++;
       }
       if (options3.toRegex === true) {
-        return step > 1 ? toSequence(parts, options3) : toRegex(range, null, { wrap: false, ...options3 });
+        return step > 1 ? toSequence(parts, options3, maxLen) : toRegex(range, null, { wrap: false, ...options3 });
       }
       return range;
     };
@@ -4562,12 +4504,10 @@ var require_fill_range = __commonJS({
         return fill(start3, end, 0, step);
       }
       let opts = { ...options3 };
-      if (opts.capture === true)
-        opts.wrap = true;
+      if (opts.capture === true) opts.wrap = true;
       step = step || opts.step || 1;
       if (!isNumber(step)) {
-        if (step != null && !isObject(step))
-          return invalidStep(step, opts);
+        if (step != null && !isObject(step)) return invalidStep(step, opts);
         return fill(start3, end, 1, step);
       }
       if (isNumber(start3) && isNumber(end)) {
@@ -4579,23 +4519,24 @@ var require_fill_range = __commonJS({
   }
 });
 
-// node_modules/braces/lib/compile.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/compile.js
 var require_compile = __commonJS({
-  "node_modules/braces/lib/compile.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/compile.js"(exports, module2) {
     "use strict";
     var fill = require_fill_range();
     var utils = require_utils2();
     var compile = (ast, options3 = {}) => {
-      let walk = (node, parent = {}) => {
-        let invalidBlock = utils.isInvalidBrace(parent);
-        let invalidNode = node.invalid === true && options3.escapeInvalid === true;
-        let invalid = invalidBlock === true || invalidNode === true;
-        let prefix = options3.escapeInvalid === true ? "\\" : "";
+      const walk = (node, parent = {}) => {
+        const invalidBlock = utils.isInvalidBrace(parent);
+        const invalidNode = node.invalid === true && options3.escapeInvalid === true;
+        const invalid = invalidBlock === true || invalidNode === true;
+        const prefix = options3.escapeInvalid === true ? "\\" : "";
         let output = "";
         if (node.isOpen === true) {
           return prefix + node.value;
         }
         if (node.isClose === true) {
+          console.log("node.isClose", prefix, node.value);
           return prefix + node.value;
         }
         if (node.type === "open") {
@@ -4611,14 +4552,14 @@ var require_compile = __commonJS({
           return node.value;
         }
         if (node.nodes && node.ranges > 0) {
-          let args = utils.reduce(node.nodes);
-          let range = fill(...args, { ...options3, wrap: false, toRegex: true });
+          const args = utils.reduce(node.nodes);
+          const range = fill(...args, { ...options3, wrap: false, toRegex: true, strictZeros: true });
           if (range.length !== 0) {
             return args.length > 1 && range.length > 1 ? `(${range})` : range;
           }
         }
         if (node.nodes) {
-          for (let child of node.nodes) {
+          for (const child of node.nodes) {
             output += walk(child, node);
           }
         }
@@ -4630,31 +4571,29 @@ var require_compile = __commonJS({
   }
 });
 
-// node_modules/braces/lib/expand.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/expand.js
 var require_expand = __commonJS({
-  "node_modules/braces/lib/expand.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/expand.js"(exports, module2) {
     "use strict";
     var fill = require_fill_range();
     var stringify = require_stringify();
     var utils = require_utils2();
     var append2 = (queue = "", stash = "", enclose = false) => {
-      let result = [];
+      const result = [];
       queue = [].concat(queue);
       stash = [].concat(stash);
-      if (!stash.length)
-        return queue;
+      if (!stash.length) return queue;
       if (!queue.length) {
         return enclose ? utils.flatten(stash).map((ele) => `{${ele}}`) : stash;
       }
-      for (let item of queue) {
+      for (const item of queue) {
         if (Array.isArray(item)) {
-          for (let value of item) {
+          for (const value of item) {
             result.push(append2(value, stash, enclose));
           }
         } else {
           for (let ele of stash) {
-            if (enclose === true && typeof ele === "string")
-              ele = `{${ele}}`;
+            if (enclose === true && typeof ele === "string") ele = `{${ele}}`;
             result.push(Array.isArray(ele) ? append2(item, ele, enclose) : item + ele);
           }
         }
@@ -4662,8 +4601,8 @@ var require_expand = __commonJS({
       return utils.flatten(result);
     };
     var expand2 = (ast, options3 = {}) => {
-      let rangeLimit = options3.rangeLimit === void 0 ? 1e3 : options3.rangeLimit;
-      let walk = (node, parent = {}) => {
+      const rangeLimit = options3.rangeLimit === void 0 ? 1e3 : options3.rangeLimit;
+      const walk = (node, parent = {}) => {
         node.queue = [];
         let p = parent;
         let q = parent.queue;
@@ -4680,7 +4619,7 @@ var require_expand = __commonJS({
           return;
         }
         if (node.nodes && node.ranges > 0) {
-          let args = utils.reduce(node.nodes);
+          const args = utils.reduce(node.nodes);
           if (utils.exceedsLimit(...args, options3.step, rangeLimit)) {
             throw new RangeError("expanded array length exceeds range limit. Use options.rangeLimit to increase or disable the limit.");
           }
@@ -4692,7 +4631,7 @@ var require_expand = __commonJS({
           node.nodes = [];
           return;
         }
-        let enclose = utils.encloseBrace(node);
+        const enclose = utils.encloseBrace(node);
         let queue = node.queue;
         let block = node;
         while (block.type !== "brace" && block.type !== "root" && block.parent) {
@@ -4700,10 +4639,9 @@ var require_expand = __commonJS({
           queue = block.queue;
         }
         for (let i = 0; i < node.nodes.length; i++) {
-          let child = node.nodes[i];
+          const child = node.nodes[i];
           if (child.type === "comma" && node.type === "brace") {
-            if (i === 1)
-              queue.push("");
+            if (i === 1) queue.push("");
             queue.push("");
             continue;
           }
@@ -4727,12 +4665,12 @@ var require_expand = __commonJS({
   }
 });
 
-// node_modules/braces/lib/constants.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/constants.js
 var require_constants2 = __commonJS({
-  "node_modules/braces/lib/constants.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/constants.js"(exports, module2) {
     "use strict";
     module2.exports = {
-      MAX_LENGTH: 1024 * 64,
+      MAX_LENGTH: 1e4,
       // Digits
       CHAR_0: "0",
       /* 0 */
@@ -4828,9 +4766,9 @@ var require_constants2 = __commonJS({
   }
 });
 
-// node_modules/braces/lib/parse.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/parse.js
 var require_parse2 = __commonJS({
-  "node_modules/braces/lib/parse.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/lib/parse.js"(exports, module2) {
     "use strict";
     var stringify = require_stringify();
     var {
@@ -4866,21 +4804,20 @@ var require_parse2 = __commonJS({
       if (typeof input !== "string") {
         throw new TypeError("Expected a string");
       }
-      let opts = options3 || {};
-      let max = typeof opts.maxLength === "number" ? Math.min(MAX_LENGTH, opts.maxLength) : MAX_LENGTH;
+      const opts = options3 || {};
+      const max = typeof opts.maxLength === "number" ? Math.min(MAX_LENGTH, opts.maxLength) : MAX_LENGTH;
       if (input.length > max) {
         throw new SyntaxError(`Input length (${input.length}), exceeds max characters (${max})`);
       }
-      let ast = { type: "root", input, nodes: [] };
-      let stack = [ast];
+      const ast = { type: "root", input, nodes: [] };
+      const stack = [ast];
       let block = ast;
       let prev = ast;
       let brackets = 0;
-      let length = input.length;
+      const length = input.length;
       let index = 0;
       let depth = 0;
       let value;
-      let memo = {};
       const advance = () => input[index++];
       const push = (node) => {
         if (node.type === "text" && prev.type === "dot") {
@@ -4913,7 +4850,6 @@ var require_parse2 = __commonJS({
         }
         if (value === CHAR_LEFT_SQUARE_BRACKET) {
           brackets++;
-          let closed = true;
           let next;
           while (index < length && (next = advance())) {
             value += next;
@@ -4952,7 +4888,7 @@ var require_parse2 = __commonJS({
           continue;
         }
         if (value === CHAR_DOUBLE_QUOTE || value === CHAR_SINGLE_QUOTE || value === CHAR_BACKTICK) {
-          let open = value;
+          const open = value;
           let next;
           if (options3.keepQuotes !== true) {
             value = "";
@@ -4963,8 +4899,7 @@ var require_parse2 = __commonJS({
               continue;
             }
             if (next === open) {
-              if (options3.keepQuotes === true)
-                value += next;
+              if (options3.keepQuotes === true) value += next;
               break;
             }
             value += next;
@@ -4974,8 +4909,8 @@ var require_parse2 = __commonJS({
         }
         if (value === CHAR_LEFT_CURLY_BRACE) {
           depth++;
-          let dollar = prev.value && prev.value.slice(-1) === "$" || block.dollar === true;
-          let brace = {
+          const dollar = prev.value && prev.value.slice(-1) === "$" || block.dollar === true;
+          const brace = {
             type: "brace",
             open: true,
             close: false,
@@ -4995,7 +4930,7 @@ var require_parse2 = __commonJS({
             push({ type: "text", value });
             continue;
           }
-          let type = "close";
+          const type = "close";
           block = stack.pop();
           block.close = true;
           push({ type, value });
@@ -5006,7 +4941,7 @@ var require_parse2 = __commonJS({
         if (value === CHAR_COMMA && depth > 0) {
           if (block.ranges > 0) {
             block.ranges = 0;
-            let open = block.nodes.shift();
+            const open = block.nodes.shift();
             block.nodes = [open, { type: "text", value: stringify(block) }];
           }
           push({ type: "comma", value });
@@ -5014,7 +4949,7 @@ var require_parse2 = __commonJS({
           continue;
         }
         if (value === CHAR_DOT && depth > 0 && block.commas === 0) {
-          let siblings = block.nodes;
+          const siblings = block.nodes;
           if (depth === 0 || siblings.length === 0) {
             push({ type: "text", value });
             continue;
@@ -5035,7 +4970,7 @@ var require_parse2 = __commonJS({
           }
           if (prev.type === "range") {
             siblings.pop();
-            let before = siblings[siblings.length - 1];
+            const before = siblings[siblings.length - 1];
             before.value += prev.value + value;
             prev = before;
             block.ranges--;
@@ -5051,17 +4986,14 @@ var require_parse2 = __commonJS({
         if (block.type !== "root") {
           block.nodes.forEach((node) => {
             if (!node.nodes) {
-              if (node.type === "open")
-                node.isOpen = true;
-              if (node.type === "close")
-                node.isClose = true;
-              if (!node.nodes)
-                node.type = "text";
+              if (node.type === "open") node.isOpen = true;
+              if (node.type === "close") node.isClose = true;
+              if (!node.nodes) node.type = "text";
               node.invalid = true;
             }
           });
-          let parent = stack[stack.length - 1];
-          let index2 = parent.nodes.indexOf(block);
+          const parent = stack[stack.length - 1];
+          const index2 = parent.nodes.indexOf(block);
           parent.nodes.splice(index2, 1, ...block.nodes);
         }
       } while (stack.length > 0);
@@ -5072,9 +5004,9 @@ var require_parse2 = __commonJS({
   }
 });
 
-// node_modules/braces/index.js
+// node_modules/.pnpm/braces@3.0.3/node_modules/braces/index.js
 var require_braces = __commonJS({
-  "node_modules/braces/index.js"(exports, module2) {
+  "node_modules/.pnpm/braces@3.0.3/node_modules/braces/index.js"(exports, module2) {
     "use strict";
     var stringify = require_stringify();
     var compile = require_compile();
@@ -5083,8 +5015,8 @@ var require_braces = __commonJS({
     var braces = (input, options3 = {}) => {
       let output = [];
       if (Array.isArray(input)) {
-        for (let pattern of input) {
-          let result = braces.create(pattern, options3);
+        for (const pattern of input) {
+          const result = braces.create(pattern, options3);
           if (Array.isArray(result)) {
             output.push(...result);
           } else {
@@ -5135,9 +5067,9 @@ var require_braces = __commonJS({
   }
 });
 
-// node_modules/binary-extensions/binary-extensions.json
+// node_modules/.pnpm/binary-extensions@2.3.0/node_modules/binary-extensions/binary-extensions.json
 var require_binary_extensions = __commonJS({
-  "node_modules/binary-extensions/binary-extensions.json"(exports, module2) {
+  "node_modules/.pnpm/binary-extensions@2.3.0/node_modules/binary-extensions/binary-extensions.json"(exports, module2) {
     module2.exports = [
       "3dm",
       "3ds",
@@ -5147,6 +5079,9 @@ var require_binary_extensions = __commonJS({
       "a",
       "aac",
       "adp",
+      "afdesign",
+      "afphoto",
+      "afpub",
       "ai",
       "aif",
       "aiff",
@@ -5401,17 +5336,17 @@ var require_binary_extensions = __commonJS({
   }
 });
 
-// node_modules/binary-extensions/index.js
+// node_modules/.pnpm/binary-extensions@2.3.0/node_modules/binary-extensions/index.js
 var require_binary_extensions2 = __commonJS({
-  "node_modules/binary-extensions/index.js"(exports, module2) {
+  "node_modules/.pnpm/binary-extensions@2.3.0/node_modules/binary-extensions/index.js"(exports, module2) {
     "use strict";
     module2.exports = require_binary_extensions();
   }
 });
 
-// node_modules/is-binary-path/index.js
+// node_modules/.pnpm/is-binary-path@2.1.0/node_modules/is-binary-path/index.js
 var require_is_binary_path = __commonJS({
-  "node_modules/is-binary-path/index.js"(exports, module2) {
+  "node_modules/.pnpm/is-binary-path@2.1.0/node_modules/is-binary-path/index.js"(exports, module2) {
     "use strict";
     var path5 = __require("path");
     var binaryExtensions = require_binary_extensions2();
@@ -5420,9 +5355,9 @@ var require_is_binary_path = __commonJS({
   }
 });
 
-// node_modules/chokidar/lib/constants.js
+// node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/constants.js
 var require_constants3 = __commonJS({
-  "node_modules/chokidar/lib/constants.js"(exports) {
+  "node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/constants.js"(exports) {
     "use strict";
     var { sep: sep2 } = __require("path");
     var { platform } = process;
@@ -5445,6 +5380,7 @@ var require_constants3 = __commonJS({
     exports.FSEVENT_MOVED = "moved";
     exports.FSEVENT_CLONED = "cloned";
     exports.FSEVENT_UNKNOWN = "unknown";
+    exports.FSEVENT_FLAG_MUST_SCAN_SUBDIRS = 1;
     exports.FSEVENT_TYPE_FILE = "file";
     exports.FSEVENT_TYPE_DIRECTORY = "directory";
     exports.FSEVENT_TYPE_SYMLINK = "symlink";
@@ -5483,9 +5419,9 @@ var require_constants3 = __commonJS({
   }
 });
 
-// node_modules/chokidar/lib/nodefs-handler.js
+// node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/nodefs-handler.js
 var require_nodefs_handler = __commonJS({
-  "node_modules/chokidar/lib/nodefs-handler.js"(exports, module2) {
+  "node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/nodefs-handler.js"(exports, module2) {
     "use strict";
     var fs9 = __require("fs");
     var sysPath = __require("path");
@@ -5568,8 +5504,7 @@ var require_nodefs_handler = __commonJS({
     }
     var fsWatchBroadcast = (fullPath, type, val1, val2, val3) => {
       const cont = FsWatchInstances.get(fullPath);
-      if (!cont)
-        return;
+      if (!cont) return;
       foreach(cont[type], (listener) => {
         listener(val1, val2, val3);
       });
@@ -5601,8 +5536,7 @@ var require_nodefs_handler = __commonJS({
           // no need to use broadcast here
           fsWatchBroadcast.bind(null, fullPath, KEY_RAW)
         );
-        if (!watcher)
-          return;
+        if (!watcher) return;
         watcher.on(EV_ERROR, async (error8) => {
           const broadcastErr = fsWatchBroadcast.bind(null, fullPath, KEY_ERR);
           cont.watcherUnusable = true;
@@ -5704,8 +5638,7 @@ var require_nodefs_handler = __commonJS({
         parent.add(basename2);
         const absolutePath = sysPath.resolve(path5);
         const options3 = { persistent: opts.persistent };
-        if (!listener)
-          listener = EMPTY_FN;
+        if (!listener) listener = EMPTY_FN;
         let closer;
         if (opts.usePolling) {
           options3.interval = opts.enableBinaryInterval && isBinaryPath(basename2) ? opts.binaryInterval : opts.interval;
@@ -5737,16 +5670,13 @@ var require_nodefs_handler = __commonJS({
         const basename2 = sysPath.basename(file);
         const parent = this.fsw._getWatchedDir(dirname3);
         let prevStats = stats;
-        if (parent.has(basename2))
-          return;
+        if (parent.has(basename2)) return;
         const listener = async (path5, newStats) => {
-          if (!this.fsw._throttle(THROTTLE_MODE_WATCH, file, 5))
-            return;
+          if (!this.fsw._throttle(THROTTLE_MODE_WATCH, file, 5)) return;
           if (!newStats || newStats.mtimeMs === 0) {
             try {
               const newStats2 = await stat3(file);
-              if (this.fsw.closed)
-                return;
+              if (this.fsw.closed) return;
               const at = newStats2.atimeMs;
               const mt = newStats2.mtimeMs;
               if (!at || at <= mt || mt !== prevStats.mtimeMs) {
@@ -5773,8 +5703,7 @@ var require_nodefs_handler = __commonJS({
         };
         const closer = this._watchWithNodeFs(file, listener);
         if (!(initialAdd && this.fsw.options.ignoreInitial) && this.fsw._isntIgnored(file)) {
-          if (!this.fsw._throttle(EV_ADD, file, 0))
-            return;
+          if (!this.fsw._throttle(EV_ADD, file, 0)) return;
           this.fsw._emit(EV_ADD, file, stats);
         }
         return closer;
@@ -5802,8 +5731,7 @@ var require_nodefs_handler = __commonJS({
             this.fsw._emitReady();
             return true;
           }
-          if (this.fsw.closed)
-            return;
+          if (this.fsw.closed) return;
           if (dir.has(item)) {
             if (this.fsw._symlinkPaths.get(full) !== linkPath) {
               this.fsw._symlinkPaths.set(full, linkPath);
@@ -5826,8 +5754,7 @@ var require_nodefs_handler = __commonJS({
         directory = sysPath.join(directory, EMPTY_STR);
         if (!wh.hasGlob) {
           throttler = this.fsw._throttle("readdir", directory, 1e3);
-          if (!throttler)
-            return;
+          if (!throttler) return;
         }
         const previous = this.fsw._getWatchedDir(wh.path);
         const current = /* @__PURE__ */ new Set();
@@ -5875,8 +5802,7 @@ var require_nodefs_handler = __commonJS({
               this.fsw._remove(directory, item);
             });
             stream2 = void 0;
-            if (wasThrottled)
-              this._handleRead(directory, false, wh, target, dir, depth, throttler);
+            if (wasThrottled) this._handleRead(directory, false, wh, target, dir, depth, throttler);
           })
         );
       }
@@ -5895,8 +5821,7 @@ var require_nodefs_handler = __commonJS({
         const parentDir = this.fsw._getWatchedDir(sysPath.dirname(dir));
         const tracked = parentDir.has(sysPath.basename(dir));
         if (!(initialAdd && this.fsw.options.ignoreInitial) && !target && !tracked) {
-          if (!wh.hasGlob || wh.globFilter(dir))
-            this.fsw._emit(EV_ADD_DIR, dir, stats);
+          if (!wh.hasGlob || wh.globFilter(dir)) this.fsw._emit(EV_ADD_DIR, dir, stats);
         }
         parentDir.add(sysPath.basename(dir));
         this.fsw._getWatchedDir(dir);
@@ -5906,12 +5831,10 @@ var require_nodefs_handler = __commonJS({
         if ((oDepth == null || depth <= oDepth) && !this.fsw._symlinkPaths.has(realpath2)) {
           if (!target) {
             await this._handleRead(dir, initialAdd, wh, target, dir, depth, throttler);
-            if (this.fsw.closed)
-              return;
+            if (this.fsw.closed) return;
           }
           closer = this._watchWithNodeFs(dir, (dirPath, stats2) => {
-            if (stats2 && stats2.mtimeMs === 0)
-              return;
+            if (stats2 && stats2.mtimeMs === 0) return;
             this._handleRead(dirPath, false, wh, target, dir, depth, throttler);
           });
         }
@@ -5942,8 +5865,7 @@ var require_nodefs_handler = __commonJS({
         }
         try {
           const stats = await statMethods[wh.statMethod](wh.watchPath);
-          if (this.fsw.closed)
-            return;
+          if (this.fsw.closed) return;
           if (this.fsw._isIgnored(wh.watchPath, stats)) {
             ready();
             return false;
@@ -5953,24 +5875,20 @@ var require_nodefs_handler = __commonJS({
           if (stats.isDirectory()) {
             const absPath = sysPath.resolve(path5);
             const targetPath = follow ? await fsrealpath(path5) : path5;
-            if (this.fsw.closed)
-              return;
+            if (this.fsw.closed) return;
             closer = await this._handleDir(wh.watchPath, stats, initialAdd, depth, target, wh, targetPath);
-            if (this.fsw.closed)
-              return;
+            if (this.fsw.closed) return;
             if (absPath !== targetPath && targetPath !== void 0) {
               this.fsw._symlinkPaths.set(absPath, targetPath);
             }
           } else if (stats.isSymbolicLink()) {
             const targetPath = follow ? await fsrealpath(path5) : path5;
-            if (this.fsw.closed)
-              return;
+            if (this.fsw.closed) return;
             const parent = sysPath.dirname(wh.watchPath);
             this.fsw._getWatchedDir(parent).add(wh.watchPath);
             this.fsw._emit(EV_ADD, wh.watchPath, stats);
             closer = await this._handleDir(parent, stats, initialAdd, depth, path5, wh, targetPath);
-            if (this.fsw.closed)
-              return;
+            if (this.fsw.closed) return;
             if (targetPath !== void 0) {
               this.fsw._symlinkPaths.set(sysPath.resolve(path5), targetPath);
             }
@@ -5992,9 +5910,9 @@ var require_nodefs_handler = __commonJS({
   }
 });
 
-// node_modules/chokidar/lib/fsevents-handler.js
+// node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/fsevents-handler.js
 var require_fsevents_handler = __commonJS({
-  "node_modules/chokidar/lib/fsevents-handler.js"(exports, module2) {
+  "node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/lib/fsevents-handler.js"(exports, module2) {
     "use strict";
     var fs9 = __require("fs");
     var sysPath = __require("path");
@@ -6003,8 +5921,7 @@ var require_fsevents_handler = __commonJS({
     try {
       fsevents = __require("fsevents");
     } catch (error8) {
-      if (process.env.CHOKIDAR_PRINT_FSEVENTS_REQUIRE_ERROR)
-        console.error(error8);
+      if (process.env.CHOKIDAR_PRINT_FSEVENTS_REQUIRE_ERROR) console.error(error8);
     }
     if (fsevents) {
       const mtch = process.version.match(/v(\d+)\.(\d+)/);
@@ -6030,6 +5947,7 @@ var require_fsevents_handler = __commonJS({
       FSEVENT_MOVED,
       // FSEVENT_CLONED,
       FSEVENT_UNKNOWN,
+      FSEVENT_FLAG_MUST_SCAN_SUBDIRS,
       FSEVENT_TYPE_FILE,
       FSEVENT_TYPE_DIRECTORY,
       FSEVENT_TYPE_SYMLINK,
@@ -6071,10 +5989,8 @@ var require_fsevents_handler = __commonJS({
       const resolvedPath = sysPath.resolve(path5);
       const hasSymlink = resolvedPath !== realPath;
       const filteredListener = (fullPath, flags, info9) => {
-        if (hasSymlink)
-          fullPath = fullPath.replace(realPath, resolvedPath);
-        if (fullPath === resolvedPath || !fullPath.indexOf(resolvedPath + sysPath.sep))
-          listener(fullPath, flags, info9);
+        if (hasSymlink) fullPath = fullPath.replace(realPath, resolvedPath);
+        if (fullPath === resolvedPath || !fullPath.indexOf(resolvedPath + sysPath.sep)) listener(fullPath, flags, info9);
       };
       let watchedParent = false;
       for (const watchedPath of FSEventsWatchers.keys()) {
@@ -6092,8 +6008,8 @@ var require_fsevents_handler = __commonJS({
           listeners: /* @__PURE__ */ new Set([filteredListener]),
           rawEmitter,
           watcher: createFSEventsInstance(watchPath, (fullPath, flags) => {
-            if (!cont.listeners.size)
-              return;
+            if (!cont.listeners.size) return;
+            if (flags & FSEVENT_FLAG_MUST_SCAN_SUBDIRS) return;
             const info9 = fsevents.getInfo(fullPath, flags);
             cont.listeners.forEach((list) => {
               list(fullPath, flags, info9);
@@ -6108,11 +6024,10 @@ var require_fsevents_handler = __commonJS({
         lst.delete(filteredListener);
         if (!lst.size) {
           FSEventsWatchers.delete(watchPath);
-          if (cont.watcher)
-            return cont.watcher.stop().then(() => {
-              cont.rawEmitter = cont.watcher = void 0;
-              Object.freeze(cont);
-            });
+          if (cont.watcher) return cont.watcher.stop().then(() => {
+            cont.rawEmitter = cont.watcher = void 0;
+            Object.freeze(cont);
+          });
         }
       };
     }
@@ -6131,8 +6046,7 @@ var require_fsevents_handler = __commonJS({
     var canUse = () => fsevents && FSEventsWatchers.size < 128;
     var calcDepth = (path5, root) => {
       let i = 0;
-      while (!path5.indexOf(root) && (path5 = sysPath.dirname(path5)) !== root)
-        i++;
+      while (!path5.indexOf(root) && (path5 = sysPath.dirname(path5)) !== root) i++;
       return i;
     };
     var sameTypes = (info9, stats) => info9.type === FSEVENT_TYPE_DIRECTORY && stats.isDirectory() || info9.type === FSEVENT_TYPE_SYMLINK && stats.isSymbolicLink() || info9.type === FSEVENT_TYPE_FILE && stats.isFile();
@@ -6162,8 +6076,7 @@ var require_fsevents_handler = __commonJS({
       async checkExists(path5, fullPath, realPath, parent, watchedDir, item, info9, opts) {
         try {
           const stats = await stat3(path5);
-          if (this.fsw.closed)
-            return;
+          if (this.fsw.closed) return;
           if (sameTypes(info9, stats)) {
             this.addOrChange(path5, fullPath, realPath, parent, watchedDir, item, info9, opts);
           } else {
@@ -6178,8 +6091,7 @@ var require_fsevents_handler = __commonJS({
         }
       }
       handleEvent(event, path5, fullPath, realPath, parent, watchedDir, item, info9, opts) {
-        if (this.fsw.closed || this.checkIgnored(path5))
-          return;
+        if (this.fsw.closed || this.checkIgnored(path5)) return;
         if (event === EV_UNLINK) {
           const isDirectory = info9.type === FSEVENT_TYPE_DIRECTORY;
           if (isDirectory || watchedDir.has(item)) {
@@ -6187,8 +6099,7 @@ var require_fsevents_handler = __commonJS({
           }
         } else {
           if (event === EV_ADD) {
-            if (info9.type === FSEVENT_TYPE_DIRECTORY)
-              this.fsw._getWatchedDir(path5);
+            if (info9.type === FSEVENT_TYPE_DIRECTORY) this.fsw._getWatchedDir(path5);
             if (info9.type === FSEVENT_TYPE_SYMLINK && opts.followSymlinks) {
               const curDepth = opts.depth === void 0 ? void 0 : calcDepth(fullPath, realPath) + 1;
               return this._addToFsEvents(path5, false, true, curDepth);
@@ -6197,8 +6108,7 @@ var require_fsevents_handler = __commonJS({
           }
           const eventName = info9.type === FSEVENT_TYPE_DIRECTORY ? event + DIR_SUFFIX : event;
           this.fsw._emit(eventName, path5);
-          if (eventName === EV_ADD_DIR)
-            this._addToFsEvents(path5, false, true);
+          if (eventName === EV_ADD_DIR) this._addToFsEvents(path5, false, true);
         }
       }
       /**
@@ -6210,20 +6120,16 @@ var require_fsevents_handler = __commonJS({
        * @returns {Function} closer for the watcher instance
       */
       _watchWithFsEvents(watchPath, realPath, transform, globFilter) {
-        if (this.fsw.closed || this.fsw._isIgnored(watchPath))
-          return;
+        if (this.fsw.closed || this.fsw._isIgnored(watchPath)) return;
         const opts = this.fsw.options;
         const watchCallback = async (fullPath, flags, info9) => {
-          if (this.fsw.closed)
-            return;
-          if (opts.depth !== void 0 && calcDepth(fullPath, realPath) > opts.depth)
-            return;
+          if (this.fsw.closed) return;
+          if (opts.depth !== void 0 && calcDepth(fullPath, realPath) > opts.depth) return;
           const path5 = transform(sysPath.join(
             watchPath,
             sysPath.relative(watchPath, fullPath)
           ));
-          if (globFilter && !globFilter(path5))
-            return;
+          if (globFilter && !globFilter(path5)) return;
           const parent = sysPath.dirname(path5);
           const item = sysPath.basename(path5);
           const watchedDir = this.fsw._getWatchedDir(
@@ -6236,10 +6142,8 @@ var require_fsevents_handler = __commonJS({
                 stats = await stat3(path5);
               } catch (error8) {
               }
-              if (this.fsw.closed)
-                return;
-              if (this.checkIgnored(path5, stats))
-                return;
+              if (this.fsw.closed) return;
+              if (this.checkIgnored(path5, stats)) return;
               if (sameTypes(info9, stats)) {
                 this.addOrChange(path5, fullPath, realPath, parent, watchedDir, item, info9, opts);
               } else {
@@ -6277,14 +6181,12 @@ var require_fsevents_handler = __commonJS({
        * @returns {Promise<void>}
        */
       async _handleFsEventsSymlink(linkPath, fullPath, transform, curDepth) {
-        if (this.fsw.closed || this.fsw._symlinkPaths.has(fullPath))
-          return;
+        if (this.fsw.closed || this.fsw._symlinkPaths.has(fullPath)) return;
         this.fsw._symlinkPaths.set(fullPath, true);
         this.fsw._incrReadyCount();
         try {
           const linkTarget = await realpath2(linkPath);
-          if (this.fsw.closed)
-            return;
+          if (this.fsw.closed) return;
           if (this.fsw._isIgnored(linkTarget)) {
             return this.fsw._emitReady();
           }
@@ -6314,18 +6216,15 @@ var require_fsevents_handler = __commonJS({
         const isDir2 = stats.isDirectory();
         const dirObj = this.fsw._getWatchedDir(sysPath.dirname(pp));
         const base = sysPath.basename(pp);
-        if (isDir2)
-          this.fsw._getWatchedDir(pp);
-        if (dirObj.has(base))
-          return;
+        if (isDir2) this.fsw._getWatchedDir(pp);
+        if (dirObj.has(base)) return;
         dirObj.add(base);
         if (!opts.ignoreInitial || forceAdd === true) {
           this.fsw._emit(isDir2 ? EV_ADD_DIR : EV_ADD, pp, stats);
         }
       }
       initWatch(realPath, path5, wh, processPath) {
-        if (this.fsw.closed)
-          return;
+        if (this.fsw.closed) return;
         const closer = this._watchWithFsEvents(
           wh.watchPath,
           sysPath.resolve(realPath || wh.watchPath),
@@ -6351,16 +6250,13 @@ var require_fsevents_handler = __commonJS({
         const wh = this.fsw._getWatchHelpers(path5);
         try {
           const stats = await statMethods[wh.statMethod](wh.watchPath);
-          if (this.fsw.closed)
-            return;
+          if (this.fsw.closed) return;
           if (this.fsw._isIgnored(wh.watchPath, stats)) {
             throw null;
           }
           if (stats.isDirectory()) {
-            if (!wh.globFilter)
-              this.emitAdd(processPath(path5), stats, processPath, opts, forceAdd);
-            if (priorDepth && priorDepth > opts.depth)
-              return;
+            if (!wh.globFilter) this.emitAdd(processPath(path5), stats, processPath, opts, forceAdd);
+            if (priorDepth && priorDepth > opts.depth) return;
             this.fsw._readdirp(wh.watchPath, {
               fileFilter: (entry) => wh.filterPath(entry),
               directoryFilter: (entry) => wh.filterDir(entry),
@@ -6369,8 +6265,7 @@ var require_fsevents_handler = __commonJS({
               if (this.fsw.closed) {
                 return;
               }
-              if (entry.stats.isDirectory() && !wh.filterPath(entry))
-                return;
+              if (entry.stats.isDirectory() && !wh.filterPath(entry)) return;
               const joinedPath = sysPath.join(wh.watchPath, entry.path);
               const { fullPath } = entry;
               if (wh.followSymlinks && entry.stats.isSymbolicLink()) {
@@ -6411,11 +6306,11 @@ var require_fsevents_handler = __commonJS({
   }
 });
 
-// node_modules/chokidar/index.js
+// node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/index.js
 var require_chokidar = __commonJS({
-  "node_modules/chokidar/index.js"(exports) {
+  "node_modules/.pnpm/chokidar@3.6.0/node_modules/chokidar/index.js"(exports) {
     "use strict";
-    var { EventEmitter: EventEmitter2 } = __require("events");
+    var { EventEmitter: EventEmitter3 } = __require("events");
     var fs9 = __require("fs");
     var sysPath = __require("path");
     var { promisify } = __require("util");
@@ -6497,8 +6392,7 @@ var require_chokidar = __commonJS({
     };
     var normalizePathToUnix = (path5) => toUnix(sysPath.normalize(toUnix(path5)));
     var normalizeIgnored = (cwd = EMPTY_STR) => (path5) => {
-      if (typeof path5 !== STRING_TYPE)
-        return path5;
+      if (typeof path5 !== STRING_TYPE) return path5;
       return normalizePathToUnix(sysPath.isAbsolute(path5) ? path5 : sysPath.join(cwd, path5));
     };
     var getAbsolutePath = (path5, cwd) => {
@@ -6523,18 +6417,14 @@ var require_chokidar = __commonJS({
       }
       add(item) {
         const { items } = this;
-        if (!items)
-          return;
-        if (item !== ONE_DOT && item !== TWO_DOTS)
-          items.add(item);
+        if (!items) return;
+        if (item !== ONE_DOT && item !== TWO_DOTS) items.add(item);
       }
       async remove(item) {
         const { items } = this;
-        if (!items)
-          return;
+        if (!items) return;
         items.delete(item);
-        if (items.size > 0)
-          return;
+        if (items.size > 0) return;
         const dir = this.path;
         try {
           await readdir4(dir);
@@ -6546,8 +6436,7 @@ var require_chokidar = __commonJS({
       }
       has(item) {
         const { items } = this;
-        if (!items)
-          return;
+        if (!items) return;
         return items.has(item);
       }
       /**
@@ -6555,8 +6444,7 @@ var require_chokidar = __commonJS({
        */
       getChildren() {
         const { items } = this;
-        if (!items)
-          return;
+        if (!items) return;
         return [...items.values()];
       }
       dispose() {
@@ -6576,14 +6464,12 @@ var require_chokidar = __commonJS({
         this.watchPath = watchPath;
         this.fullWatchPath = sysPath.resolve(watchPath);
         this.hasGlob = watchPath !== path5;
-        if (path5 === EMPTY_STR)
-          this.hasGlob = false;
+        if (path5 === EMPTY_STR) this.hasGlob = false;
         this.globSymlink = this.hasGlob && follow ? void 0 : false;
         this.globFilter = this.hasGlob ? anymatch(path5, void 0, ANYMATCH_OPTS) : false;
         this.dirParts = this.getDirParts(path5);
         this.dirParts.forEach((parts) => {
-          if (parts.length > 1)
-            parts.pop();
+          if (parts.length > 1) parts.pop();
         });
         this.followSymlinks = follow;
         this.statMethod = follow ? STAT_METHOD_F : STAT_METHOD_L;
@@ -6605,15 +6491,13 @@ var require_chokidar = __commonJS({
       }
       filterPath(entry) {
         const { stats } = entry;
-        if (stats && stats.isSymbolicLink())
-          return this.filterDir(entry);
+        if (stats && stats.isSymbolicLink()) return this.filterDir(entry);
         const resolvedPath = this.entryPath(entry);
         const matchesGlob = this.hasGlob && typeof this.globFilter === FUNCTION_TYPE ? this.globFilter(resolvedPath) : true;
         return matchesGlob && this.fsw._isntIgnored(resolvedPath, stats) && this.fsw._hasReadPermissions(stats);
       }
       getDirParts(path5) {
-        if (!this.hasGlob)
-          return [];
+        if (!this.hasGlob) return [];
         const parts = [];
         const expandedPath = path5.includes(BRACE_START) ? braces.expand(path5) : [path5];
         expandedPath.forEach((path6) => {
@@ -6627,8 +6511,7 @@ var require_chokidar = __commonJS({
           let globstar = false;
           this.unmatchedGlob = !this.dirParts.some((parts) => {
             return parts.every((part, i) => {
-              if (part === GLOBSTAR2)
-                globstar = true;
+              if (part === GLOBSTAR2) globstar = true;
               return globstar || !entryParts[0][i] || anymatch(part, entryParts[0][i], ANYMATCH_OPTS);
             });
           });
@@ -6636,13 +6519,12 @@ var require_chokidar = __commonJS({
         return !this.unmatchedGlob && this.fsw._isntIgnored(this.entryPath(entry), entry.stats);
       }
     };
-    var FSWatcher = class extends EventEmitter2 {
+    var FSWatcher = class extends EventEmitter3 {
       // Not indenting methods for history sake; for now.
       constructor(_opts) {
         super();
         const opts = {};
-        if (_opts)
-          Object.assign(opts, _opts);
+        if (_opts) Object.assign(opts, _opts);
         this._watched = /* @__PURE__ */ new Map();
         this._closers = /* @__PURE__ */ new Map();
         this._ignoredPaths = /* @__PURE__ */ new Set();
@@ -6650,24 +6532,16 @@ var require_chokidar = __commonJS({
         this._symlinkPaths = /* @__PURE__ */ new Map();
         this._streams = /* @__PURE__ */ new Set();
         this.closed = false;
-        if (undef(opts, "persistent"))
-          opts.persistent = true;
-        if (undef(opts, "ignoreInitial"))
-          opts.ignoreInitial = false;
-        if (undef(opts, "ignorePermissionErrors"))
-          opts.ignorePermissionErrors = false;
-        if (undef(opts, "interval"))
-          opts.interval = 100;
-        if (undef(opts, "binaryInterval"))
-          opts.binaryInterval = 300;
-        if (undef(opts, "disableGlobbing"))
-          opts.disableGlobbing = false;
+        if (undef(opts, "persistent")) opts.persistent = true;
+        if (undef(opts, "ignoreInitial")) opts.ignoreInitial = false;
+        if (undef(opts, "ignorePermissionErrors")) opts.ignorePermissionErrors = false;
+        if (undef(opts, "interval")) opts.interval = 100;
+        if (undef(opts, "binaryInterval")) opts.binaryInterval = 300;
+        if (undef(opts, "disableGlobbing")) opts.disableGlobbing = false;
         opts.enableBinaryInterval = opts.binaryInterval !== opts.interval;
-        if (undef(opts, "useFsEvents"))
-          opts.useFsEvents = !opts.usePolling;
+        if (undef(opts, "useFsEvents")) opts.useFsEvents = !opts.usePolling;
         const canUseFsEvents = FsEventsHandler.canUse();
-        if (!canUseFsEvents)
-          opts.useFsEvents = false;
+        if (!canUseFsEvents) opts.useFsEvents = false;
         if (undef(opts, "usePolling") && !opts.useFsEvents) {
           opts.usePolling = isMacos;
         }
@@ -6689,26 +6563,18 @@ var require_chokidar = __commonJS({
         if (envInterval) {
           opts.interval = Number.parseInt(envInterval, 10);
         }
-        if (undef(opts, "atomic"))
-          opts.atomic = !opts.usePolling && !opts.useFsEvents;
-        if (opts.atomic)
-          this._pendingUnlinks = /* @__PURE__ */ new Map();
-        if (undef(opts, "followSymlinks"))
-          opts.followSymlinks = true;
-        if (undef(opts, "awaitWriteFinish"))
-          opts.awaitWriteFinish = false;
-        if (opts.awaitWriteFinish === true)
-          opts.awaitWriteFinish = {};
+        if (undef(opts, "atomic")) opts.atomic = !opts.usePolling && !opts.useFsEvents;
+        if (opts.atomic) this._pendingUnlinks = /* @__PURE__ */ new Map();
+        if (undef(opts, "followSymlinks")) opts.followSymlinks = true;
+        if (undef(opts, "awaitWriteFinish")) opts.awaitWriteFinish = false;
+        if (opts.awaitWriteFinish === true) opts.awaitWriteFinish = {};
         const awf = opts.awaitWriteFinish;
         if (awf) {
-          if (!awf.stabilityThreshold)
-            awf.stabilityThreshold = 2e3;
-          if (!awf.pollInterval)
-            awf.pollInterval = 100;
+          if (!awf.stabilityThreshold) awf.stabilityThreshold = 2e3;
+          if (!awf.pollInterval) awf.pollInterval = 100;
           this._pendingWrites = /* @__PURE__ */ new Map();
         }
-        if (opts.ignored)
-          opts.ignored = arrify(opts.ignored);
+        if (opts.ignored) opts.ignored = arrify(opts.ignored);
         let readyCalls = 0;
         this._emitReady = () => {
           readyCalls++;
@@ -6760,25 +6626,20 @@ var require_chokidar = __commonJS({
           return true;
         });
         if (this.options.useFsEvents && this._fsEventsHandler) {
-          if (!this._readyCount)
-            this._readyCount = paths.length;
-          if (this.options.persistent)
-            this._readyCount *= 2;
+          if (!this._readyCount) this._readyCount = paths.length;
+          if (this.options.persistent) this._readyCount += paths.length;
           paths.forEach((path5) => this._fsEventsHandler._addToFsEvents(path5));
         } else {
-          if (!this._readyCount)
-            this._readyCount = 0;
+          if (!this._readyCount) this._readyCount = 0;
           this._readyCount += paths.length;
           Promise.all(
             paths.map(async (path5) => {
               const res = await this._nodeFsHandler._addToNodeFs(path5, !_internal, 0, 0, _origAdd);
-              if (res)
-                this._emitReady();
+              if (res) this._emitReady();
               return res;
             })
           ).then((results2) => {
-            if (this.closed)
-              return;
+            if (this.closed) return;
             results2.filter((item) => item).forEach((item) => {
               this.add(sysPath.dirname(item), sysPath.basename(_origAdd || item));
             });
@@ -6792,14 +6653,12 @@ var require_chokidar = __commonJS({
        * @returns {FSWatcher} for chaining
       */
       unwatch(paths_) {
-        if (this.closed)
-          return this;
+        if (this.closed) return this;
         const paths = unifyPaths(paths_);
         const { cwd } = this.options;
         paths.forEach((path5) => {
           if (!sysPath.isAbsolute(path5) && !this._closers.has(path5)) {
-            if (cwd)
-              path5 = sysPath.join(cwd, path5);
+            if (cwd) path5 = sysPath.join(cwd, path5);
             path5 = sysPath.resolve(path5);
           }
           this._closePath(path5);
@@ -6816,15 +6675,13 @@ var require_chokidar = __commonJS({
        * @returns {Promise<void>}.
       */
       close() {
-        if (this.closed)
-          return this._closePromise;
+        if (this.closed) return this._closePromise;
         this.closed = true;
         this.removeAllListeners();
         const closers = [];
         this._closers.forEach((closerList) => closerList.forEach((closer) => {
           const promise = closer();
-          if (promise instanceof Promise)
-            closers.push(promise);
+          if (promise instanceof Promise) closers.push(promise);
         }));
         this._streams.forEach((stream2) => stream2.destroy());
         this._userIgnored = void 0;
@@ -6851,8 +6708,7 @@ var require_chokidar = __commonJS({
       }
       emitWithAll(event, args) {
         this.emit(...args);
-        if (event !== EV_ERROR)
-          this.emit(EV_ALL, ...args);
+        if (event !== EV_ERROR) this.emit(EV_ALL, ...args);
       }
       // Common helpers
       // --------------
@@ -6867,20 +6723,14 @@ var require_chokidar = __commonJS({
        * @returns the error if defined, otherwise the value of the FSWatcher instance's `closed` flag
        */
       async _emit(event, path5, val1, val2, val3) {
-        if (this.closed)
-          return;
+        if (this.closed) return;
         const opts = this.options;
-        if (isWindows)
-          path5 = sysPath.normalize(path5);
-        if (opts.cwd)
-          path5 = sysPath.relative(opts.cwd, path5);
+        if (isWindows) path5 = sysPath.normalize(path5);
+        if (opts.cwd) path5 = sysPath.relative(opts.cwd, path5);
         const args = [event, path5];
-        if (val3 !== void 0)
-          args.push(val1, val2, val3);
-        else if (val2 !== void 0)
-          args.push(val1, val2);
-        else if (val1 !== void 0)
-          args.push(val1);
+        if (val3 !== void 0) args.push(val1, val2, val3);
+        else if (val2 !== void 0) args.push(val1, val2);
+        else if (val1 !== void 0) args.push(val1);
         const awf = opts.awaitWriteFinish;
         let pw;
         if (awf && (pw = this._pendingWrites.get(path5))) {
@@ -6924,8 +6774,7 @@ var require_chokidar = __commonJS({
         }
         if (event === EV_CHANGE) {
           const isThrottled = !this._throttle(EV_CHANGE, path5, 50);
-          if (isThrottled)
-            return this;
+          if (isThrottled) return this;
         }
         if (opts.alwaysStat && val1 === void 0 && (event === EV_ADD || event === EV_ADD_DIR || event === EV_CHANGE)) {
           const fullPath = opts.cwd ? sysPath.join(opts.cwd, path5) : path5;
@@ -6934,8 +6783,7 @@ var require_chokidar = __commonJS({
             stats = await stat3(fullPath);
           } catch (err) {
           }
-          if (!stats || this.closed)
-            return;
+          if (!stats || this.closed) return;
           args.push(stats);
         }
         this.emitWithAll(event, args);
@@ -6976,8 +6824,7 @@ var require_chokidar = __commonJS({
           const count = item ? item.count : 0;
           action.delete(path5);
           clearTimeout(timeoutObject);
-          if (item)
-            clearTimeout(item.timeoutObject);
+          if (item) clearTimeout(item.timeoutObject);
           return count;
         };
         timeoutObject = setTimeout(clear, timeout);
@@ -7006,8 +6853,7 @@ var require_chokidar = __commonJS({
         const awaitWriteFinish = (prevStat) => {
           fs9.stat(fullPath, (err, curStat) => {
             if (err || !this._pendingWrites.has(path5)) {
-              if (err && err.code !== "ENOENT")
-                awfEmit(err);
+              if (err && err.code !== "ENOENT") awfEmit(err);
               return;
             }
             const now2 = Number(/* @__PURE__ */ new Date());
@@ -7053,8 +6899,7 @@ var require_chokidar = __commonJS({
        * @returns {Boolean}
        */
       _isIgnored(path5, stats) {
-        if (this.options.atomic && DOT_RE.test(path5))
-          return true;
+        if (this.options.atomic && DOT_RE.test(path5)) return true;
         if (!this._userIgnored) {
           const { cwd } = this.options;
           const ign = this.options.ignored;
@@ -7087,11 +6932,9 @@ var require_chokidar = __commonJS({
        * @returns {DirEntry} the directory's tracking object
        */
       _getWatchedDir(directory) {
-        if (!this._boundRemove)
-          this._boundRemove = this._remove.bind(this);
+        if (!this._boundRemove) this._boundRemove = this._remove.bind(this);
         const dir = sysPath.resolve(directory);
-        if (!this._watched.has(dir))
-          this._watched.set(dir, new DirEntry(dir, this._boundRemove));
+        if (!this._watched.has(dir)) this._watched.set(dir, new DirEntry(dir, this._boundRemove));
         return this._watched.get(dir);
       }
       // File helpers
@@ -7103,8 +6946,7 @@ var require_chokidar = __commonJS({
        * @returns {Boolean} indicates whether the file can be read
       */
       _hasReadPermissions(stats) {
-        if (this.options.ignorePermissionErrors)
-          return true;
+        if (this.options.ignorePermissionErrors) return true;
         const md = stats && Number.parseInt(stats.mode, 10);
         const st = md & 511;
         const it = Number.parseInt(st.toString(8)[0], 10);
@@ -7122,8 +6964,7 @@ var require_chokidar = __commonJS({
         const path5 = sysPath.join(directory, item);
         const fullPath = sysPath.resolve(path5);
         isDirectory = isDirectory != null ? isDirectory : this._watched.has(path5) || this._watched.has(fullPath);
-        if (!this._throttle("remove", path5, 100))
-          return;
+        if (!this._throttle("remove", path5, 100)) return;
         if (!isDirectory && !this.options.useFsEvents && this._watched.size === 1) {
           this.add(directory, item, true);
         }
@@ -7137,18 +6978,15 @@ var require_chokidar = __commonJS({
           this._symlinkPaths.delete(fullPath);
         }
         let relPath = path5;
-        if (this.options.cwd)
-          relPath = sysPath.relative(this.options.cwd, path5);
+        if (this.options.cwd) relPath = sysPath.relative(this.options.cwd, path5);
         if (this.options.awaitWriteFinish && this._pendingWrites.has(relPath)) {
           const event = this._pendingWrites.get(relPath).cancelWait();
-          if (event === EV_ADD)
-            return;
+          if (event === EV_ADD) return;
         }
         this._watched.delete(path5);
         this._watched.delete(fullPath);
         const eventName = isDirectory ? EV_UNLINK_DIR : EV_UNLINK;
-        if (wasTracked && !this._isIgnored(path5))
-          this._emit(eventName, path5);
+        if (wasTracked && !this._isIgnored(path5)) this._emit(eventName, path5);
         if (!this.options.useFsEvents) {
           this._closePath(path5);
         }
@@ -7168,8 +7006,7 @@ var require_chokidar = __commonJS({
        */
       _closeFile(path5) {
         const closers = this._closers.get(path5);
-        if (!closers)
-          return;
+        if (!closers) return;
         closers.forEach((closer) => closer());
         this._closers.delete(path5);
       }
@@ -7179,8 +7016,7 @@ var require_chokidar = __commonJS({
        * @param {Function} closer
        */
       _addPathCloser(path5, closer) {
-        if (!closer)
-          return;
+        if (!closer) return;
         let list = this._closers.get(path5);
         if (!list) {
           list = [];
@@ -7189,8 +7025,7 @@ var require_chokidar = __commonJS({
         list.push(closer);
       }
       _readdirp(root, opts) {
-        if (this.closed)
-          return;
+        if (this.closed) return;
         const options3 = { type: EV_ALL, alwaysStat: true, lstat: true, ...opts };
         let stream2 = readdirp(root, options3);
         this._streams.add(stream2);
@@ -7216,16 +7051,14 @@ var require_chokidar = __commonJS({
   }
 });
 
-// node_modules/balanced-match/index.js
+// node_modules/.pnpm/balanced-match@1.0.2/node_modules/balanced-match/index.js
 var require_balanced_match = __commonJS({
-  "node_modules/balanced-match/index.js"(exports, module2) {
+  "node_modules/.pnpm/balanced-match@1.0.2/node_modules/balanced-match/index.js"(exports, module2) {
     "use strict";
     module2.exports = balanced;
     function balanced(a, b, str) {
-      if (a instanceof RegExp)
-        a = maybeMatch(a, str);
-      if (b instanceof RegExp)
-        b = maybeMatch(b, str);
+      if (a instanceof RegExp) a = maybeMatch(a, str);
+      if (b instanceof RegExp) b = maybeMatch(b, str);
       var r = range(a, b, str);
       return r && {
         start: r[0],
@@ -7276,9 +7109,9 @@ var require_balanced_match = __commonJS({
   }
 });
 
-// node_modules/glob/node_modules/brace-expansion/index.js
+// node_modules/.pnpm/brace-expansion@2.0.1/node_modules/brace-expansion/index.js
 var require_brace_expansion = __commonJS({
-  "node_modules/glob/node_modules/brace-expansion/index.js"(exports, module2) {
+  "node_modules/.pnpm/brace-expansion@2.0.1/node_modules/brace-expansion/index.js"(exports, module2) {
     "use strict";
     var balanced = require_balanced_match();
     module2.exports = expandTop;
@@ -7339,8 +7172,7 @@ var require_brace_expansion = __commonJS({
     function expand2(str, isTop) {
       var expansions = [];
       var m = balanced("{", "}", str);
-      if (!m)
-        return [str];
+      if (!m) return [str];
       var pre = m.pre;
       var post = m.post.length ? expand2(m.post, false) : [""];
       if (/\$$/.test(m.pre)) {
@@ -7428,9 +7260,9 @@ var require_brace_expansion = __commonJS({
   }
 });
 
-// node_modules/dayjs/dayjs.min.js
+// node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/dayjs.min.js
 var require_dayjs_min = __commonJS({
-  "node_modules/dayjs/dayjs.min.js"(exports, module2) {
+  "node_modules/.pnpm/dayjs@1.11.13/node_modules/dayjs/dayjs.min.js"(exports, module2) {
     "use strict";
     !function(t, e) {
       "object" == typeof exports && "undefined" != typeof module2 ? module2.exports = e() : "function" == typeof define && define.amd ? define(e) : (t = "undefined" != typeof globalThis ? globalThis : t || self).dayjs = e();
@@ -7446,8 +7278,7 @@ var require_dayjs_min = __commonJS({
         var e2 = -t2.utcOffset(), n2 = Math.abs(e2), r2 = Math.floor(n2 / 60), i2 = n2 % 60;
         return (e2 <= 0 ? "+" : "-") + m(r2, 2, "0") + ":" + m(i2, 2, "0");
       }, m: function t2(e2, n2) {
-        if (e2.date() < n2.date())
-          return -t2(n2, e2);
+        if (e2.date() < n2.date()) return -t2(n2, e2);
         var r2 = 12 * (n2.year() - e2.year()) + (n2.month() - e2.month()), i2 = e2.clone().add(r2, c), s2 = n2 - i2 < 0, u2 = e2.clone().add(r2 + (s2 ? -1 : 1), c);
         return +(-(r2 + (n2 - i2) / (s2 ? i2 - u2 : u2 - i2)) || 0);
       }, a: function(t2) {
@@ -7462,22 +7293,19 @@ var require_dayjs_min = __commonJS({
         return t2 instanceof _ || !(!t2 || !t2[p]);
       }, w = function t2(e2, n2, r2) {
         var i2;
-        if (!e2)
-          return g;
+        if (!e2) return g;
         if ("string" == typeof e2) {
           var s2 = e2.toLowerCase();
           D[s2] && (i2 = s2), n2 && (D[s2] = n2, i2 = s2);
           var u2 = e2.split("-");
-          if (!i2 && u2.length > 1)
-            return t2(u2[0]);
+          if (!i2 && u2.length > 1) return t2(u2[0]);
         } else {
           var a2 = e2.name;
           D[a2] = e2, i2 = a2;
         }
         return !r2 && i2 && (g = i2), i2 || !r2 && g;
       }, O = function(t2, e2) {
-        if (S(t2))
-          return t2.clone();
+        if (S(t2)) return t2.clone();
         var n2 = "object" == typeof e2 ? e2 : {};
         return n2.date = t2, n2.args = arguments, new _(n2);
       }, b = v;
@@ -7492,12 +7320,9 @@ var require_dayjs_min = __commonJS({
         return m2.parse = function(t2) {
           this.$d = function(t3) {
             var e2 = t3.date, n2 = t3.utc;
-            if (null === e2)
-              return /* @__PURE__ */ new Date(NaN);
-            if (b.u(e2))
-              return /* @__PURE__ */ new Date();
-            if (e2 instanceof Date)
-              return new Date(e2);
+            if (null === e2) return /* @__PURE__ */ new Date(NaN);
+            if (b.u(e2)) return /* @__PURE__ */ new Date();
+            if (e2 instanceof Date) return new Date(e2);
             if ("string" == typeof e2 && !/Z$/i.test(e2)) {
               var r2 = e2.match($);
               if (r2) {
@@ -7561,8 +7386,7 @@ var require_dayjs_min = __commonJS({
           if (o2 === c || o2 === h) {
             var y2 = this.clone().set(d, 1);
             y2.$d[l2]($2), y2.init(), this.$d = y2.set(d, Math.min(this.$D, y2.daysInMonth())).$d;
-          } else
-            l2 && this.$d[l2]($2);
+          } else l2 && this.$d[l2]($2);
           return this.init(), this;
         }, m2.set = function(t2, e2) {
           return this.clone().$set(t2, e2);
@@ -7575,22 +7399,17 @@ var require_dayjs_min = __commonJS({
             var e2 = O(l2);
             return b.w(e2.date(e2.date() + Math.round(t2 * r2)), l2);
           };
-          if ($2 === c)
-            return this.set(c, this.$M + r2);
-          if ($2 === h)
-            return this.set(h, this.$y + r2);
-          if ($2 === a)
-            return y2(1);
-          if ($2 === o)
-            return y2(7);
+          if ($2 === c) return this.set(c, this.$M + r2);
+          if ($2 === h) return this.set(h, this.$y + r2);
+          if ($2 === a) return y2(1);
+          if ($2 === o) return y2(7);
           var M3 = (d2 = {}, d2[s] = e, d2[u] = n, d2[i] = t, d2)[$2] || 1, m3 = this.$d.getTime() + r2 * M3;
           return b.w(m3, this);
         }, m2.subtract = function(t2, e2) {
           return this.add(-1 * t2, e2);
         }, m2.format = function(t2) {
           var e2 = this, n2 = this.$locale();
-          if (!this.isValid())
-            return n2.invalidDate || l;
+          if (!this.isValid()) return n2.invalidDate || l;
           var r2 = t2 || "YYYY-MM-DDTHH:mm:ssZ", i2 = b.z(this), s2 = this.$H, u2 = this.$m, a2 = this.$M, o2 = n2.weekdays, c2 = n2.months, f2 = n2.meridiem, h2 = function(t3, n3, i3, s3) {
             return t3 && (t3[n3] || t3(e2, r2)) || i3[n3].slice(0, s3);
           }, d2 = function(t3) {
@@ -7694,8 +7513,7 @@ var require_dayjs_min = __commonJS({
         }, m2.$locale = function() {
           return D[this.$L];
         }, m2.locale = function(t2, e2) {
-          if (!t2)
-            return this.$L;
+          if (!t2) return this.$L;
           var n2 = this.clone(), r2 = w(t2, e2, true);
           return r2 && (n2.$L = r2), n2;
         }, m2.clone = function() {
@@ -7723,9 +7541,9 @@ var require_dayjs_min = __commonJS({
   }
 });
 
-// node_modules/commander/lib/error.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/error.js
 var require_error = __commonJS({
-  "node_modules/commander/lib/error.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/error.js"(exports) {
     "use strict";
     var CommanderError2 = class extends Error {
       /**
@@ -7733,7 +7551,6 @@ var require_error = __commonJS({
        * @param {number} exitCode suggested exit code which could be used with process.exit
        * @param {string} code an id string representing the error
        * @param {string} message human-readable description of the error
-       * @constructor
        */
       constructor(exitCode, code, message) {
         super(message);
@@ -7748,7 +7565,6 @@ var require_error = __commonJS({
       /**
        * Constructs the InvalidArgumentError class
        * @param {string} [message] explanation of why argument is invalid
-       * @constructor
        */
       constructor(message) {
         super(1, "commander.invalidArgument", message);
@@ -7761,9 +7577,9 @@ var require_error = __commonJS({
   }
 });
 
-// node_modules/commander/lib/argument.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/argument.js
 var require_argument = __commonJS({
-  "node_modules/commander/lib/argument.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/argument.js"(exports) {
     "use strict";
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Argument2 = class {
@@ -7810,7 +7626,7 @@ var require_argument = __commonJS({
         return this._name;
       }
       /**
-       * @api private
+       * @package
        */
       _concatValue(value, previous) {
         if (previous === this.defaultValue || !Array.isArray(previous)) {
@@ -7850,7 +7666,9 @@ var require_argument = __commonJS({
         this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
           if (!this.argChoices.includes(arg)) {
-            throw new InvalidArgumentError2(`Allowed choices are ${this.argChoices.join(", ")}.`);
+            throw new InvalidArgumentError2(
+              `Allowed choices are ${this.argChoices.join(", ")}.`
+            );
           }
           if (this.variadic) {
             return this._concatValue(arg, previous);
@@ -7861,6 +7679,8 @@ var require_argument = __commonJS({
       }
       /**
        * Make argument required.
+       *
+       * @returns {Argument}
        */
       argRequired() {
         this.required = true;
@@ -7868,6 +7688,8 @@ var require_argument = __commonJS({
       }
       /**
        * Make argument optional.
+       *
+       * @returns {Argument}
        */
       argOptional() {
         this.required = false;
@@ -7883,9 +7705,9 @@ var require_argument = __commonJS({
   }
 });
 
-// node_modules/commander/lib/help.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/help.js
 var require_help = __commonJS({
-  "node_modules/commander/lib/help.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/help.js"(exports) {
     "use strict";
     var { humanReadableArgName } = require_argument();
     var Help2 = class {
@@ -7903,12 +7725,8 @@ var require_help = __commonJS({
        */
       visibleCommands(cmd) {
         const visibleCommands = cmd.commands.filter((cmd2) => !cmd2._hidden);
-        if (cmd._hasImplicitHelpCommand()) {
-          const [, helpName, helpArgs] = cmd._helpCommandnameAndArgs.match(/([^ ]+) *(.*)/);
-          const helpCommand = cmd.createCommand(helpName).helpOption(false);
-          helpCommand.description(cmd._helpCommandDescription);
-          if (helpArgs)
-            helpCommand.arguments(helpArgs);
+        const helpCommand = cmd._getHelpCommand();
+        if (helpCommand && !helpCommand._hidden) {
           visibleCommands.push(helpCommand);
         }
         if (this.sortSubcommands) {
@@ -7923,7 +7741,7 @@ var require_help = __commonJS({
        *
        * @param {Option} a
        * @param {Option} b
-       * @returns number
+       * @returns {number}
        */
       compareOptions(a, b) {
         const getSortKey = (option) => {
@@ -7939,18 +7757,21 @@ var require_help = __commonJS({
        */
       visibleOptions(cmd) {
         const visibleOptions = cmd.options.filter((option) => !option.hidden);
-        const showShortHelpFlag = cmd._hasHelpOption && cmd._helpShortFlag && !cmd._findOption(cmd._helpShortFlag);
-        const showLongHelpFlag = cmd._hasHelpOption && !cmd._findOption(cmd._helpLongFlag);
-        if (showShortHelpFlag || showLongHelpFlag) {
-          let helpOption;
-          if (!showShortHelpFlag) {
-            helpOption = cmd.createOption(cmd._helpLongFlag, cmd._helpDescription);
-          } else if (!showLongHelpFlag) {
-            helpOption = cmd.createOption(cmd._helpShortFlag, cmd._helpDescription);
-          } else {
-            helpOption = cmd.createOption(cmd._helpFlags, cmd._helpDescription);
+        const helpOption = cmd._getHelpOption();
+        if (helpOption && !helpOption.hidden) {
+          const removeShort = helpOption.short && cmd._findOption(helpOption.short);
+          const removeLong = helpOption.long && cmd._findOption(helpOption.long);
+          if (!removeShort && !removeLong) {
+            visibleOptions.push(helpOption);
+          } else if (helpOption.long && !removeLong) {
+            visibleOptions.push(
+              cmd.createOption(helpOption.long, helpOption.description)
+            );
+          } else if (helpOption.short && !removeShort) {
+            visibleOptions.push(
+              cmd.createOption(helpOption.short, helpOption.description)
+            );
           }
-          visibleOptions.push(helpOption);
         }
         if (this.sortOptions) {
           visibleOptions.sort(this.compareOptions);
@@ -7964,11 +7785,12 @@ var require_help = __commonJS({
        * @returns {Option[]}
        */
       visibleGlobalOptions(cmd) {
-        if (!this.showGlobalOptions)
-          return [];
+        if (!this.showGlobalOptions) return [];
         const globalOptions = [];
         for (let ancestorCmd = cmd.parent; ancestorCmd; ancestorCmd = ancestorCmd.parent) {
-          const visibleOptions = ancestorCmd.options.filter((option) => !option.hidden);
+          const visibleOptions = ancestorCmd.options.filter(
+            (option) => !option.hidden
+          );
           globalOptions.push(...visibleOptions);
         }
         if (this.sortOptions) {
@@ -8123,7 +7945,9 @@ var require_help = __commonJS({
         if (option.defaultValue !== void 0) {
           const showDefault = option.required || option.optional || option.isBoolean() && typeof option.defaultValue === "boolean";
           if (showDefault) {
-            extraInfo.push(`default: ${option.defaultValueDescription || JSON.stringify(option.defaultValue)}`);
+            extraInfo.push(
+              `default: ${option.defaultValueDescription || JSON.stringify(option.defaultValue)}`
+            );
           }
         }
         if (option.presetArg !== void 0 && option.optional) {
@@ -8152,7 +7976,9 @@ var require_help = __commonJS({
           );
         }
         if (argument.defaultValue !== void 0) {
-          extraInfo.push(`default: ${argument.defaultValueDescription || JSON.stringify(argument.defaultValue)}`);
+          extraInfo.push(
+            `default: ${argument.defaultValueDescription || JSON.stringify(argument.defaultValue)}`
+          );
         }
         if (extraInfo.length > 0) {
           const extraDescripton = `(${extraInfo.join(", ")})`;
@@ -8178,7 +8004,11 @@ var require_help = __commonJS({
         function formatItem(term, description) {
           if (description) {
             const fullText = `${term.padEnd(termWidth + itemSeparatorWidth)}${description}`;
-            return helper.wrap(fullText, helpWidth - itemIndentWidth, termWidth + itemSeparatorWidth);
+            return helper.wrap(
+              fullText,
+              helpWidth - itemIndentWidth,
+              termWidth + itemSeparatorWidth
+            );
           }
           return term;
         }
@@ -8188,30 +8018,49 @@ var require_help = __commonJS({
         let output = [`Usage: ${helper.commandUsage(cmd)}`, ""];
         const commandDescription = helper.commandDescription(cmd);
         if (commandDescription.length > 0) {
-          output = output.concat([helper.wrap(commandDescription, helpWidth, 0), ""]);
+          output = output.concat([
+            helper.wrap(commandDescription, helpWidth, 0),
+            ""
+          ]);
         }
         const argumentList = helper.visibleArguments(cmd).map((argument) => {
-          return formatItem(helper.argumentTerm(argument), helper.argumentDescription(argument));
+          return formatItem(
+            helper.argumentTerm(argument),
+            helper.argumentDescription(argument)
+          );
         });
         if (argumentList.length > 0) {
           output = output.concat(["Arguments:", formatList(argumentList), ""]);
         }
         const optionList = helper.visibleOptions(cmd).map((option) => {
-          return formatItem(helper.optionTerm(option), helper.optionDescription(option));
+          return formatItem(
+            helper.optionTerm(option),
+            helper.optionDescription(option)
+          );
         });
         if (optionList.length > 0) {
           output = output.concat(["Options:", formatList(optionList), ""]);
         }
         if (this.showGlobalOptions) {
           const globalOptionList = helper.visibleGlobalOptions(cmd).map((option) => {
-            return formatItem(helper.optionTerm(option), helper.optionDescription(option));
+            return formatItem(
+              helper.optionTerm(option),
+              helper.optionDescription(option)
+            );
           });
           if (globalOptionList.length > 0) {
-            output = output.concat(["Global Options:", formatList(globalOptionList), ""]);
+            output = output.concat([
+              "Global Options:",
+              formatList(globalOptionList),
+              ""
+            ]);
           }
         }
         const commandList = helper.visibleCommands(cmd).map((cmd2) => {
-          return formatItem(helper.subcommandTerm(cmd2), helper.subcommandDescription(cmd2));
+          return formatItem(
+            helper.subcommandTerm(cmd2),
+            helper.subcommandDescription(cmd2)
+          );
         });
         if (commandList.length > 0) {
           output = output.concat(["Commands:", formatList(commandList), ""]);
@@ -8247,22 +8096,22 @@ var require_help = __commonJS({
       wrap(str, width, indent, minColumnWidth = 40) {
         const indents = " \\f\\t\\v\xA0\u1680\u2000-\u200A\u202F\u205F\u3000\uFEFF";
         const manualIndent = new RegExp(`[\\n][${indents}]+`);
-        if (str.match(manualIndent))
-          return str;
+        if (str.match(manualIndent)) return str;
         const columnWidth = width - indent;
-        if (columnWidth < minColumnWidth)
-          return str;
+        if (columnWidth < minColumnWidth) return str;
         const leadingStr = str.slice(0, indent);
         const columnText = str.slice(indent).replace("\r\n", "\n");
         const indentString = " ".repeat(indent);
         const zeroWidthSpace = "\u200B";
         const breaks = `\\s${zeroWidthSpace}`;
-        const regex = new RegExp(`
-|.{1,${columnWidth - 1}}([${breaks}]|$)|[^${breaks}]+?([${breaks}]|$)`, "g");
+        const regex = new RegExp(
+          `
+|.{1,${columnWidth - 1}}([${breaks}]|$)|[^${breaks}]+?([${breaks}]|$)`,
+          "g"
+        );
         const lines = columnText.match(regex) || [];
         return leadingStr + lines.map((line, i) => {
-          if (line === "\n")
-            return "";
+          if (line === "\n") return "";
           return (i > 0 ? indentString : "") + line.trimEnd();
         }).join("\n");
       }
@@ -8271,9 +8120,9 @@ var require_help = __commonJS({
   }
 });
 
-// node_modules/commander/lib/option.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/option.js
 var require_option = __commonJS({
-  "node_modules/commander/lib/option.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/option.js"(exports) {
     "use strict";
     var { InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var Option2 = class {
@@ -8342,7 +8191,7 @@ var require_option = __commonJS({
        * new Option('--rgb').conflicts('cmyk');
        * new Option('--js').conflicts(['ts', 'jsx']);
        *
-       * @param {string | string[]} names
+       * @param {(string | string[])} names
        * @return {Option}
        */
       conflicts(names) {
@@ -8359,7 +8208,7 @@ var require_option = __commonJS({
        *   .addOption(new Option('--log', 'write logging information to file'))
        *   .addOption(new Option('--trace', 'log extra details').implies({ log: 'trace.txt' }));
        *
-       * @param {Object} impliedOptionValues
+       * @param {object} impliedOptionValues
        * @return {Option}
        */
       implies(impliedOptionValues) {
@@ -8414,7 +8263,7 @@ var require_option = __commonJS({
         return this;
       }
       /**
-       * @api private
+       * @package
        */
       _concatValue(value, previous) {
         if (previous === this.defaultValue || !Array.isArray(previous)) {
@@ -8432,7 +8281,9 @@ var require_option = __commonJS({
         this.argChoices = values.slice();
         this.parseArg = (arg, previous) => {
           if (!this.argChoices.includes(arg)) {
-            throw new InvalidArgumentError2(`Allowed choices are ${this.argChoices.join(", ")}.`);
+            throw new InvalidArgumentError2(
+              `Allowed choices are ${this.argChoices.join(", ")}.`
+            );
           }
           if (this.variadic) {
             return this._concatValue(arg, previous);
@@ -8457,7 +8308,6 @@ var require_option = __commonJS({
        * as a object attribute key.
        *
        * @return {string}
-       * @api private
        */
       attributeName() {
         return camelcase(this.name().replace(/^no-/, ""));
@@ -8467,7 +8317,7 @@ var require_option = __commonJS({
        *
        * @param {string} arg
        * @return {boolean}
-       * @api private
+       * @package
        */
       is(arg) {
         return this.short === arg || this.long === arg;
@@ -8478,7 +8328,7 @@ var require_option = __commonJS({
        * Options are one of boolean, negated, required argument, or optional argument.
        *
        * @return {boolean}
-       * @api private
+       * @package
        */
       isBoolean() {
         return !this.required && !this.optional && !this.negate;
@@ -8514,8 +8364,7 @@ var require_option = __commonJS({
        */
       valueFromOption(value, option) {
         const optionKey = option.attributeName();
-        if (!this.dualOptions.has(optionKey))
-          return true;
+        if (!this.dualOptions.has(optionKey)) return true;
         const preset = this.negativeOptions.get(optionKey).presetArg;
         const negativeValue = preset !== void 0 ? preset : false;
         return option.negate === (negativeValue === value);
@@ -8540,14 +8389,13 @@ var require_option = __commonJS({
       return { shortFlag, longFlag };
     }
     exports.Option = Option2;
-    exports.splitOptionFlags = splitOptionFlags;
     exports.DualOptions = DualOptions;
   }
 });
 
-// node_modules/commander/lib/suggestSimilar.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/suggestSimilar.js
 var require_suggestSimilar = __commonJS({
-  "node_modules/commander/lib/suggestSimilar.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/suggestSimilar.js"(exports) {
     "use strict";
     var maxDistance = 3;
     function editDistance(a, b) {
@@ -8584,8 +8432,7 @@ var require_suggestSimilar = __commonJS({
       return d[a.length][b.length];
     }
     function suggestSimilar(word, candidates) {
-      if (!candidates || candidates.length === 0)
-        return "";
+      if (!candidates || candidates.length === 0) return "";
       candidates = Array.from(new Set(candidates));
       const searchingOptions = word.startsWith("--");
       if (searchingOptions) {
@@ -8596,8 +8443,7 @@ var require_suggestSimilar = __commonJS({
       let bestDistance = maxDistance;
       const minSimilarity = 0.4;
       candidates.forEach((candidate) => {
-        if (candidate.length <= 1)
-          return;
+        if (candidate.length <= 1) return;
         const distance = editDistance(word, candidate);
         const length = Math.max(word.length, candidate.length);
         const similarity = (length - distance) / length;
@@ -8628,21 +8474,21 @@ var require_suggestSimilar = __commonJS({
   }
 });
 
-// node_modules/commander/lib/command.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/command.js
 var require_command = __commonJS({
-  "node_modules/commander/lib/command.js"(exports) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/lib/command.js"(exports) {
     "use strict";
-    var EventEmitter2 = __require("events").EventEmitter;
-    var childProcess = __require("child_process");
-    var path5 = __require("path");
-    var fs9 = __require("fs");
-    var process2 = __require("process");
+    var EventEmitter3 = __require("node:events").EventEmitter;
+    var childProcess = __require("node:child_process");
+    var path5 = __require("node:path");
+    var fs9 = __require("node:fs");
+    var process2 = __require("node:process");
     var { Argument: Argument2, humanReadableArgName } = require_argument();
     var { CommanderError: CommanderError2 } = require_error();
     var { Help: Help2 } = require_help();
-    var { Option: Option2, splitOptionFlags, DualOptions } = require_option();
+    var { Option: Option2, DualOptions } = require_option();
     var { suggestSimilar } = require_suggestSimilar();
-    var Command2 = class _Command extends EventEmitter2 {
+    var Command2 = class _Command extends EventEmitter3 {
       /**
        * Initialize a new `Command`.
        *
@@ -8689,15 +8535,9 @@ var require_command = __commonJS({
           outputError: (str, write) => write(str)
         };
         this._hidden = false;
-        this._hasHelpOption = true;
-        this._helpFlags = "-h, --help";
-        this._helpDescription = "display help for command";
-        this._helpShortFlag = "-h";
-        this._helpLongFlag = "--help";
+        this._helpOption = void 0;
         this._addImplicitHelpCommand = void 0;
-        this._helpCommandName = "help";
-        this._helpCommandnameAndArgs = "help [command]";
-        this._helpCommandDescription = "display help for command";
+        this._helpCommand = void 0;
         this._helpConfiguration = {};
       }
       /**
@@ -8710,14 +8550,8 @@ var require_command = __commonJS({
        */
       copyInheritedSettings(sourceCommand) {
         this._outputConfiguration = sourceCommand._outputConfiguration;
-        this._hasHelpOption = sourceCommand._hasHelpOption;
-        this._helpFlags = sourceCommand._helpFlags;
-        this._helpDescription = sourceCommand._helpDescription;
-        this._helpShortFlag = sourceCommand._helpShortFlag;
-        this._helpLongFlag = sourceCommand._helpLongFlag;
-        this._helpCommandName = sourceCommand._helpCommandName;
-        this._helpCommandnameAndArgs = sourceCommand._helpCommandnameAndArgs;
-        this._helpCommandDescription = sourceCommand._helpCommandDescription;
+        this._helpOption = sourceCommand._helpOption;
+        this._helpCommand = sourceCommand._helpCommand;
         this._helpConfiguration = sourceCommand._helpConfiguration;
         this._exitCallback = sourceCommand._exitCallback;
         this._storeOptionsAsProperties = sourceCommand._storeOptionsAsProperties;
@@ -8730,7 +8564,7 @@ var require_command = __commonJS({
       }
       /**
        * @returns {Command[]}
-       * @api private
+       * @private
        */
       _getCommandAndAncestors() {
         const result = [];
@@ -8759,8 +8593,8 @@ var require_command = __commonJS({
        *   .command('stop [service]', 'stop named service, or all if no name supplied');
        *
        * @param {string} nameAndArgs - command name and arguments, args are `<required>` or `[optional]` and last may also be `variadic...`
-       * @param {Object|string} [actionOptsOrExecDesc] - configuration options (for action), or description (for executable)
-       * @param {Object} [execOpts] - configuration options (for executable)
+       * @param {(object | string)} [actionOptsOrExecDesc] - configuration options (for action), or description (for executable)
+       * @param {object} [execOpts] - configuration options (for executable)
        * @return {Command} returns new command for action handler, or `this` for executable command
        */
       command(nameAndArgs, actionOptsOrExecDesc, execOpts) {
@@ -8777,17 +8611,14 @@ var require_command = __commonJS({
           cmd.description(desc);
           cmd._executableHandler = true;
         }
-        if (opts.isDefault)
-          this._defaultCommandName = cmd._name;
+        if (opts.isDefault) this._defaultCommandName = cmd._name;
         cmd._hidden = !!(opts.noHelp || opts.hidden);
         cmd._executableFile = opts.executableFile || null;
-        if (args)
-          cmd.arguments(args);
-        this.commands.push(cmd);
+        if (args) cmd.arguments(args);
+        this._registerCommand(cmd);
         cmd.parent = this;
         cmd.copyInheritedSettings(this);
-        if (desc)
-          return this;
+        if (desc) return this;
         return cmd;
       }
       /**
@@ -8815,12 +8646,11 @@ var require_command = __commonJS({
        * You can customise the help by overriding Help properties using configureHelp(),
        * or with a subclass of Help by overriding createHelp().
        *
-       * @param {Object} [configuration] - configuration options
-       * @return {Command|Object} `this` command for chaining, or stored configuration
+       * @param {object} [configuration] - configuration options
+       * @return {(Command | object)} `this` command for chaining, or stored configuration
        */
       configureHelp(configuration) {
-        if (configuration === void 0)
-          return this._helpConfiguration;
+        if (configuration === void 0) return this._helpConfiguration;
         this._helpConfiguration = configuration;
         return this;
       }
@@ -8839,24 +8669,22 @@ var require_command = __commonJS({
        *     // functions based on what is being written out
        *     outputError(str, write) // used for displaying errors, and not used for displaying help
        *
-       * @param {Object} [configuration] - configuration options
-       * @return {Command|Object} `this` command for chaining, or stored configuration
+       * @param {object} [configuration] - configuration options
+       * @return {(Command | object)} `this` command for chaining, or stored configuration
        */
       configureOutput(configuration) {
-        if (configuration === void 0)
-          return this._outputConfiguration;
+        if (configuration === void 0) return this._outputConfiguration;
         Object.assign(this._outputConfiguration, configuration);
         return this;
       }
       /**
        * Display the help or a custom message after an error occurs.
        *
-       * @param {boolean|string} [displayHelp]
+       * @param {(boolean|string)} [displayHelp]
        * @return {Command} `this` command for chaining
        */
       showHelpAfterError(displayHelp = true) {
-        if (typeof displayHelp !== "string")
-          displayHelp = !!displayHelp;
+        if (typeof displayHelp !== "string") displayHelp = !!displayHelp;
         this._showHelpAfterError = displayHelp;
         return this;
       }
@@ -8876,7 +8704,7 @@ var require_command = __commonJS({
        * See .command() for creating an attached subcommand which inherits settings from its parent.
        *
        * @param {Command} cmd - new subcommand
-       * @param {Object} [opts] - configuration options
+       * @param {object} [opts] - configuration options
        * @return {Command} `this` command for chaining
        */
       addCommand(cmd, opts) {
@@ -8885,12 +8713,11 @@ var require_command = __commonJS({
 - specify the name in Command constructor or using .name()`);
         }
         opts = opts || {};
-        if (opts.isDefault)
-          this._defaultCommandName = cmd._name;
-        if (opts.noHelp || opts.hidden)
-          cmd._hidden = true;
-        this.commands.push(cmd);
+        if (opts.isDefault) this._defaultCommandName = cmd._name;
+        if (opts.noHelp || opts.hidden) cmd._hidden = true;
+        this._registerCommand(cmd);
         cmd.parent = this;
+        cmd._checkForBrokenPassThrough();
         return this;
       }
       /**
@@ -8918,7 +8745,7 @@ var require_command = __commonJS({
        *
        * @param {string} name
        * @param {string} [description]
-       * @param {Function|*} [fn] - custom argument processing function
+       * @param {(Function|*)} [fn] - custom argument processing function
        * @param {*} [defaultValue]
        * @return {Command} `this` command for chaining
        */
@@ -8958,45 +8785,79 @@ var require_command = __commonJS({
       addArgument(argument) {
         const previousArgument = this.registeredArguments.slice(-1)[0];
         if (previousArgument && previousArgument.variadic) {
-          throw new Error(`only the last argument can be variadic '${previousArgument.name()}'`);
+          throw new Error(
+            `only the last argument can be variadic '${previousArgument.name()}'`
+          );
         }
         if (argument.required && argument.defaultValue !== void 0 && argument.parseArg === void 0) {
-          throw new Error(`a default value for a required argument is never used: '${argument.name()}'`);
+          throw new Error(
+            `a default value for a required argument is never used: '${argument.name()}'`
+          );
         }
         this.registeredArguments.push(argument);
         return this;
       }
       /**
-       * Override default decision whether to add implicit help command.
+       * Customise or override default help command. By default a help command is automatically added if your command has subcommands.
        *
-       *    addHelpCommand() // force on
-       *    addHelpCommand(false); // force off
-       *    addHelpCommand('help [cmd]', 'display help for [cmd]'); // force on with custom details
+       * @example
+       *    program.helpCommand('help [cmd]');
+       *    program.helpCommand('help [cmd]', 'show help');
+       *    program.helpCommand(false); // suppress default help command
+       *    program.helpCommand(true); // add help command even if no subcommands
        *
+       * @param {string|boolean} enableOrNameAndArgs - enable with custom name and/or arguments, or boolean to override whether added
+       * @param {string} [description] - custom description
        * @return {Command} `this` command for chaining
        */
-      addHelpCommand(enableOrNameAndArgs, description) {
-        if (enableOrNameAndArgs === false) {
-          this._addImplicitHelpCommand = false;
-        } else {
-          this._addImplicitHelpCommand = true;
-          if (typeof enableOrNameAndArgs === "string") {
-            this._helpCommandName = enableOrNameAndArgs.split(" ")[0];
-            this._helpCommandnameAndArgs = enableOrNameAndArgs;
-          }
-          this._helpCommandDescription = description || this._helpCommandDescription;
+      helpCommand(enableOrNameAndArgs, description) {
+        if (typeof enableOrNameAndArgs === "boolean") {
+          this._addImplicitHelpCommand = enableOrNameAndArgs;
+          return this;
         }
+        enableOrNameAndArgs = enableOrNameAndArgs != null ? enableOrNameAndArgs : "help [command]";
+        const [, helpName, helpArgs] = enableOrNameAndArgs.match(/([^ ]+) *(.*)/);
+        const helpDescription = description != null ? description : "display help for command";
+        const helpCommand = this.createCommand(helpName);
+        helpCommand.helpOption(false);
+        if (helpArgs) helpCommand.arguments(helpArgs);
+        if (helpDescription) helpCommand.description(helpDescription);
+        this._addImplicitHelpCommand = true;
+        this._helpCommand = helpCommand;
         return this;
       }
       /**
-       * @return {boolean}
-       * @api private
+       * Add prepared custom help command.
+       *
+       * @param {(Command|string|boolean)} helpCommand - custom help command, or deprecated enableOrNameAndArgs as for `.helpCommand()`
+       * @param {string} [deprecatedDescription] - deprecated custom description used with custom name only
+       * @return {Command} `this` command for chaining
        */
-      _hasImplicitHelpCommand() {
-        if (this._addImplicitHelpCommand === void 0) {
-          return this.commands.length && !this._actionHandler && !this._findCommand("help");
+      addHelpCommand(helpCommand, deprecatedDescription) {
+        if (typeof helpCommand !== "object") {
+          this.helpCommand(helpCommand, deprecatedDescription);
+          return this;
         }
-        return this._addImplicitHelpCommand;
+        this._addImplicitHelpCommand = true;
+        this._helpCommand = helpCommand;
+        return this;
+      }
+      /**
+       * Lazy create help command.
+       *
+       * @return {(Command|null)}
+       * @package
+       */
+      _getHelpCommand() {
+        var _a5;
+        const hasImplicitHelpCommand = (_a5 = this._addImplicitHelpCommand) != null ? _a5 : this.commands.length && !this._actionHandler && !this._findCommand("help");
+        if (hasImplicitHelpCommand) {
+          if (this._helpCommand === void 0) {
+            this.helpCommand(void 0, void 0);
+          }
+          return this._helpCommand;
+        }
+        return null;
       }
       /**
        * Add hook for life cycle event.
@@ -9044,7 +8905,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * @param {string} code an id string representing the error
        * @param {string} message human-readable description of the error
        * @return never
-       * @api private
+       * @private
        */
       _exit(exitCode, code, message) {
         if (this._exitCallback) {
@@ -9097,11 +8958,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Wrap parseArgs to catch 'commander.invalidArgument'.
        *
-       * @param {Option | Argument} target
+       * @param {(Option | Argument)} target
        * @param {string} value
        * @param {*} previous
        * @param {string} invalidArgumentMessage
-       * @api private
+       * @private
        */
       _callParseArg(target, value, previous, invalidArgumentMessage) {
         try {
@@ -9115,23 +8976,66 @@ Expecting one of '${allowedValues.join("', '")}'`);
         }
       }
       /**
+       * Check for option flag conflicts.
+       * Register option if no conflicts found, or throw on conflict.
+       *
+       * @param {Option} option
+       * @private
+       */
+      _registerOption(option) {
+        const matchingOption = option.short && this._findOption(option.short) || option.long && this._findOption(option.long);
+        if (matchingOption) {
+          const matchingFlag = option.long && this._findOption(option.long) ? option.long : option.short;
+          throw new Error(`Cannot add option '${option.flags}'${this._name && ` to command '${this._name}'`} due to conflicting flag '${matchingFlag}'
+-  already used by option '${matchingOption.flags}'`);
+        }
+        this.options.push(option);
+      }
+      /**
+       * Check for command name and alias conflicts with existing commands.
+       * Register command if no conflicts found, or throw on conflict.
+       *
+       * @param {Command} command
+       * @private
+       */
+      _registerCommand(command) {
+        const knownBy = (cmd) => {
+          return [cmd.name()].concat(cmd.aliases());
+        };
+        const alreadyUsed = knownBy(command).find(
+          (name) => this._findCommand(name)
+        );
+        if (alreadyUsed) {
+          const existingCmd = knownBy(this._findCommand(alreadyUsed)).join("|");
+          const newCmd = knownBy(command).join("|");
+          throw new Error(
+            `cannot add command '${newCmd}' as already have command '${existingCmd}'`
+          );
+        }
+        this.commands.push(command);
+      }
+      /**
        * Add an option.
        *
        * @param {Option} option
        * @return {Command} `this` command for chaining
        */
       addOption(option) {
+        this._registerOption(option);
         const oname = option.name();
         const name = option.attributeName();
         if (option.negate) {
           const positiveLongFlag = option.long.replace(/^--no-/, "--");
           if (!this._findOption(positiveLongFlag)) {
-            this.setOptionValueWithSource(name, option.defaultValue === void 0 ? true : option.defaultValue, "default");
+            this.setOptionValueWithSource(
+              name,
+              option.defaultValue === void 0 ? true : option.defaultValue,
+              "default"
+            );
           }
         } else if (option.defaultValue !== void 0) {
           this.setOptionValueWithSource(name, option.defaultValue, "default");
         }
-        this.options.push(option);
         const handleOptionValue = (val, invalidValueMessage, valueSource) => {
           if (val == null && option.presetArg !== void 0) {
             val = option.presetArg;
@@ -9168,11 +9072,14 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Internal implementation shared by .option() and .requiredOption()
        *
-       * @api private
+       * @return {Command} `this` command for chaining
+       * @private
        */
       _optionEx(config, flags, description, fn, defaultValue) {
         if (typeof flags === "object" && flags instanceof Option2) {
-          throw new Error("To add an Option object use addOption() instead of option() or requiredOption()");
+          throw new Error(
+            "To add an Option object use addOption() instead of option() or requiredOption()"
+          );
         }
         const option = this.createOption(flags, description);
         option.makeOptionMandatory(!!config.mandatory);
@@ -9207,7 +9114,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        *
        * @param {string} flags
        * @param {string} [description]
-       * @param {Function|*} [parseArg] - custom option processing function or default value
+       * @param {(Function|*)} [parseArg] - custom option processing function or default value
        * @param {*} [defaultValue]
        * @return {Command} `this` command for chaining
        */
@@ -9215,19 +9122,25 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return this._optionEx({}, flags, description, parseArg, defaultValue);
       }
       /**
-      * Add a required option which must have a value after parsing. This usually means
-      * the option must be specified on the command line. (Otherwise the same as .option().)
-      *
-      * The `flags` string contains the short and/or long flags, separated by comma, a pipe or space.
-      *
-      * @param {string} flags
-      * @param {string} [description]
-      * @param {Function|*} [parseArg] - custom option processing function or default value
-      * @param {*} [defaultValue]
-      * @return {Command} `this` command for chaining
-      */
+       * Add a required option which must have a value after parsing. This usually means
+       * the option must be specified on the command line. (Otherwise the same as .option().)
+       *
+       * The `flags` string contains the short and/or long flags, separated by comma, a pipe or space.
+       *
+       * @param {string} flags
+       * @param {string} [description]
+       * @param {(Function|*)} [parseArg] - custom option processing function or default value
+       * @param {*} [defaultValue]
+       * @return {Command} `this` command for chaining
+       */
       requiredOption(flags, description, parseArg, defaultValue) {
-        return this._optionEx({ mandatory: true }, flags, description, parseArg, defaultValue);
+        return this._optionEx(
+          { mandatory: true },
+          flags,
+          description,
+          parseArg,
+          defaultValue
+        );
       }
       /**
        * Alter parsing of short flags with optional values.
@@ -9237,7 +9150,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * program.combineFlagAndOptionalValue(true);  // `-f80` is treated like `--flag=80`, this is the default behaviour
        * program.combineFlagAndOptionalValue(false) // `-fb` is treated like `-f -b`
        *
-       * @param {Boolean} [combine=true] - if `true` or omitted, an optional value can be specified directly after the flag.
+       * @param {boolean} [combine] - if `true` or omitted, an optional value can be specified directly after the flag.
+       * @return {Command} `this` command for chaining
        */
       combineFlagAndOptionalValue(combine = true) {
         this._combineFlagAndOptionalValue = !!combine;
@@ -9246,8 +9160,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Allow unknown options on the command line.
        *
-       * @param {Boolean} [allowUnknown=true] - if `true` or omitted, no error will be thrown
-       * for unknown options.
+       * @param {boolean} [allowUnknown] - if `true` or omitted, no error will be thrown for unknown options.
+       * @return {Command} `this` command for chaining
        */
       allowUnknownOption(allowUnknown = true) {
         this._allowUnknownOption = !!allowUnknown;
@@ -9256,8 +9170,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Allow excess command-arguments on the command line. Pass false to make excess arguments an error.
        *
-       * @param {Boolean} [allowExcess=true] - if `true` or omitted, no error will be thrown
-       * for excess arguments.
+       * @param {boolean} [allowExcess] - if `true` or omitted, no error will be thrown for excess arguments.
+       * @return {Command} `this` command for chaining
        */
       allowExcessArguments(allowExcess = true) {
         this._allowExcessArguments = !!allowExcess;
@@ -9268,7 +9182,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * subcommands reuse the same option names, and also enables subcommands to turn on passThroughOptions.
        * The default behaviour is non-positional and global options may appear anywhere on the command line.
        *
-       * @param {Boolean} [positional=true]
+       * @param {boolean} [positional]
+       * @return {Command} `this` command for chaining
        */
       enablePositionalOptions(positional = true) {
         this._enablePositionalOptions = !!positional;
@@ -9280,26 +9195,39 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * positional options to have been enabled on the program (parent commands).
        * The default behaviour is non-positional and options may appear before or after command-arguments.
        *
-       * @param {Boolean} [passThrough=true]
-       * for unknown options.
+       * @param {boolean} [passThrough] for unknown options.
+       * @return {Command} `this` command for chaining
        */
       passThroughOptions(passThrough = true) {
         this._passThroughOptions = !!passThrough;
-        if (!!this.parent && passThrough && !this.parent._enablePositionalOptions) {
-          throw new Error("passThroughOptions can not be used without turning on enablePositionalOptions for parent command(s)");
-        }
+        this._checkForBrokenPassThrough();
         return this;
       }
       /**
-        * Whether to store option values as properties on command object,
-        * or store separately (specify false). In both cases the option values can be accessed using .opts().
-        *
-        * @param {boolean} [storeAsProperties=true]
-        * @return {Command} `this` command for chaining
-        */
+       * @private
+       */
+      _checkForBrokenPassThrough() {
+        if (this.parent && this._passThroughOptions && !this.parent._enablePositionalOptions) {
+          throw new Error(
+            `passThroughOptions cannot be used for '${this._name}' without turning on enablePositionalOptions for parent command(s)`
+          );
+        }
+      }
+      /**
+       * Whether to store option values as properties on command object,
+       * or store separately (specify false). In both cases the option values can be accessed using .opts().
+       *
+       * @param {boolean} [storeAsProperties=true]
+       * @return {Command} `this` command for chaining
+       */
       storeOptionsAsProperties(storeAsProperties = true) {
         if (this.options.length) {
           throw new Error("call .storeOptionsAsProperties() before adding options");
+        }
+        if (Object.keys(this._optionValues).length) {
+          throw new Error(
+            "call .storeOptionsAsProperties() before setting option values"
+          );
         }
         this._storeOptionsAsProperties = !!storeAsProperties;
         return this;
@@ -9308,7 +9236,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Retrieve option value.
        *
        * @param {string} key
-       * @return {Object} value
+       * @return {object} value
        */
       getOptionValue(key) {
         if (this._storeOptionsAsProperties) {
@@ -9320,20 +9248,20 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Store option value.
        *
        * @param {string} key
-       * @param {Object} value
+       * @param {object} value
        * @return {Command} `this` command for chaining
        */
       setOptionValue(key, value) {
         return this.setOptionValueWithSource(key, value, void 0);
       }
       /**
-        * Store option value and where the value came from.
-        *
-        * @param {string} key
-        * @param {Object} value
-        * @param {string} source - expected values are default/config/env/cli/implied
-        * @return {Command} `this` command for chaining
-        */
+       * Store option value and where the value came from.
+       *
+       * @param {string} key
+       * @param {object} value
+       * @param {string} source - expected values are default/config/env/cli/implied
+       * @return {Command} `this` command for chaining
+       */
       setOptionValueWithSource(key, value, source) {
         if (this._storeOptionsAsProperties) {
           this[key] = value;
@@ -9344,22 +9272,22 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return this;
       }
       /**
-        * Get source of option value.
-        * Expected values are default | config | env | cli | implied
-        *
-        * @param {string} key
-        * @return {string}
-        */
+       * Get source of option value.
+       * Expected values are default | config | env | cli | implied
+       *
+       * @param {string} key
+       * @return {string}
+       */
       getOptionValueSource(key) {
         return this._optionValueSources[key];
       }
       /**
-        * Get source of option value. See also .optsWithGlobals().
-        * Expected values are default | config | env | cli | implied
-        *
-        * @param {string} key
-        * @return {string}
-        */
+       * Get source of option value. See also .optsWithGlobals().
+       * Expected values are default | config | env | cli | implied
+       *
+       * @param {string} key
+       * @return {string}
+       */
       getOptionValueSourceWithGlobals(key) {
         let source;
         this._getCommandAndAncestors().forEach((cmd) => {
@@ -9373,18 +9301,25 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Get user arguments from implied or explicit arguments.
        * Side-effects: set _scriptPath if args included script. Used for default program name, and subcommand searches.
        *
-       * @api private
+       * @private
        */
       _prepareUserArgs(argv, parseOptions) {
+        var _a5, _b3;
         if (argv !== void 0 && !Array.isArray(argv)) {
           throw new Error("first parameter to parse must be array or undefined");
         }
         parseOptions = parseOptions || {};
-        if (argv === void 0) {
-          argv = process2.argv;
-          if (process2.versions && process2.versions.electron) {
+        if (argv === void 0 && parseOptions.from === void 0) {
+          if ((_a5 = process2.versions) == null ? void 0 : _a5.electron) {
             parseOptions.from = "electron";
           }
+          const execArgv = (_b3 = process2.execArgv) != null ? _b3 : [];
+          if (execArgv.includes("-e") || execArgv.includes("--eval") || execArgv.includes("-p") || execArgv.includes("--print")) {
+            parseOptions.from = "eval";
+          }
+        }
+        if (argv === void 0) {
+          argv = process2.argv;
         }
         this.rawArgs = argv.slice();
         let userArgs;
@@ -9405,8 +9340,13 @@ Expecting one of '${allowedValues.join("', '")}'`);
           case "user":
             userArgs = argv.slice(0);
             break;
+          case "eval":
+            userArgs = argv.slice(1);
+            break;
           default:
-            throw new Error(`unexpected parse option { from: '${parseOptions.from}' }`);
+            throw new Error(
+              `unexpected parse option { from: '${parseOptions.from}' }`
+            );
         }
         if (!this._name && this._scriptPath)
           this.nameFromFilename(this._scriptPath);
@@ -9416,16 +9356,22 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Parse `argv`, setting options and invoking commands when defined.
        *
-       * The default expectation is that the arguments are from node and have the application as argv[0]
-       * and the script being run in argv[1], with user parameters after that.
+       * Use parseAsync instead of parse if any of your action handlers are async.
+       *
+       * Call with no parameters to parse `process.argv`. Detects Electron and special node options like `node --eval`. Easy mode!
+       *
+       * Or call with an array of strings to parse, and optionally where the user arguments start by specifying where the arguments are `from`:
+       * - `'node'`: default, `argv[0]` is the application and `argv[1]` is the script being run, with user arguments after that
+       * - `'electron'`: `argv[0]` is the application and `argv[1]` varies depending on whether the electron application is packaged
+       * - `'user'`: just user arguments
        *
        * @example
-       * program.parse(process.argv);
-       * program.parse(); // implicitly use process.argv and auto-detect node vs electron conventions
+       * program.parse(); // parse process.argv and auto-detect electron and special node flags
+       * program.parse(process.argv); // assume argv[0] is app and argv[1] is script
        * program.parse(my-args, { from: 'user' }); // just user supplied arguments, nothing special about argv[0]
        *
        * @param {string[]} [argv] - optional, defaults to process.argv
-       * @param {Object} [parseOptions] - optionally specify style of options with from: node/user/electron
+       * @param {object} [parseOptions] - optionally specify style of options with from: node/user/electron
        * @param {string} [parseOptions.from] - where the args are from: 'node', 'user', 'electron'
        * @return {Command} `this` command for chaining
        */
@@ -9437,18 +9383,20 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Parse `argv`, setting options and invoking commands when defined.
        *
-       * Use parseAsync instead of parse if any of your action handlers are async. Returns a Promise.
+       * Call with no parameters to parse `process.argv`. Detects Electron and special node options like `node --eval`. Easy mode!
        *
-       * The default expectation is that the arguments are from node and have the application as argv[0]
-       * and the script being run in argv[1], with user parameters after that.
+       * Or call with an array of strings to parse, and optionally where the user arguments start by specifying where the arguments are `from`:
+       * - `'node'`: default, `argv[0]` is the application and `argv[1]` is the script being run, with user arguments after that
+       * - `'electron'`: `argv[0]` is the application and `argv[1]` varies depending on whether the electron application is packaged
+       * - `'user'`: just user arguments
        *
        * @example
-       * await program.parseAsync(process.argv);
-       * await program.parseAsync(); // implicitly use process.argv and auto-detect node vs electron conventions
+       * await program.parseAsync(); // parse process.argv and auto-detect electron and special node flags
+       * await program.parseAsync(process.argv); // assume argv[0] is app and argv[1] is script
        * await program.parseAsync(my-args, { from: 'user' }); // just user supplied arguments, nothing special about argv[0]
        *
        * @param {string[]} [argv]
-       * @param {Object} [parseOptions]
+       * @param {object} [parseOptions]
        * @param {string} parseOptions.from - where the args are from: 'node', 'user', 'electron'
        * @return {Promise}
        */
@@ -9460,7 +9408,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Execute a sub-command executable.
        *
-       * @api private
+       * @private
        */
       _executeSubCommand(subcommand, args) {
         args = args.slice();
@@ -9468,13 +9416,12 @@ Expecting one of '${allowedValues.join("', '")}'`);
         const sourceExt = [".js", ".ts", ".tsx", ".mjs", ".cjs"];
         function findFile(baseDir, baseName) {
           const localBin = path5.resolve(baseDir, baseName);
-          if (fs9.existsSync(localBin))
-            return localBin;
-          if (sourceExt.includes(path5.extname(baseName)))
-            return void 0;
-          const foundExt = sourceExt.find((ext2) => fs9.existsSync(`${localBin}${ext2}`));
-          if (foundExt)
-            return `${localBin}${foundExt}`;
+          if (fs9.existsSync(localBin)) return localBin;
+          if (sourceExt.includes(path5.extname(baseName))) return void 0;
+          const foundExt = sourceExt.find(
+            (ext2) => fs9.existsSync(`${localBin}${ext2}`)
+          );
+          if (foundExt) return `${localBin}${foundExt}`;
           return void 0;
         }
         this._checkForMissingMandatoryOptions();
@@ -9488,14 +9435,23 @@ Expecting one of '${allowedValues.join("', '")}'`);
           } catch (err) {
             resolvedScriptPath = this._scriptPath;
           }
-          executableDir = path5.resolve(path5.dirname(resolvedScriptPath), executableDir);
+          executableDir = path5.resolve(
+            path5.dirname(resolvedScriptPath),
+            executableDir
+          );
         }
         if (executableDir) {
           let localFile = findFile(executableDir, executableFile);
           if (!localFile && !subcommand._executableFile && this._scriptPath) {
-            const legacyName = path5.basename(this._scriptPath, path5.extname(this._scriptPath));
+            const legacyName = path5.basename(
+              this._scriptPath,
+              path5.extname(this._scriptPath)
+            );
             if (legacyName !== this._name) {
-              localFile = findFile(executableDir, `${legacyName}-${subcommand._name}`);
+              localFile = findFile(
+                executableDir,
+                `${legacyName}-${subcommand._name}`
+              );
             }
           }
           executableFile = localFile || executableFile;
@@ -9526,13 +9482,20 @@ Expecting one of '${allowedValues.join("', '")}'`);
           });
         }
         const exitCallback = this._exitCallback;
-        if (!exitCallback) {
-          proc2.on("close", process2.exit.bind(process2));
-        } else {
-          proc2.on("close", () => {
-            exitCallback(new CommanderError2(process2.exitCode || 0, "commander.executeSubCommandAsync", "(close)"));
-          });
-        }
+        proc2.on("close", (code) => {
+          code = code != null ? code : 1;
+          if (!exitCallback) {
+            process2.exit(code);
+          } else {
+            exitCallback(
+              new CommanderError2(
+                code,
+                "commander.executeSubCommandAsync",
+                "(close)"
+              )
+            );
+          }
+        });
         proc2.on("error", (err) => {
           if (err.code === "ENOENT") {
             const executableDirMessage = executableDir ? `searched for local subcommand relative to directory '${executableDir}'` : "no directory for search for local subcommand, use .executableDir() to supply a custom directory";
@@ -9547,7 +9510,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
           if (!exitCallback) {
             process2.exit(1);
           } else {
-            const wrappedError = new CommanderError2(1, "commander.executeSubCommandAsync", "(error)");
+            const wrappedError = new CommanderError2(
+              1,
+              "commander.executeSubCommandAsync",
+              "(error)"
+            );
             wrappedError.nestedError = err;
             exitCallback(wrappedError);
           }
@@ -9555,14 +9522,17 @@ Expecting one of '${allowedValues.join("', '")}'`);
         this.runningCommand = proc2;
       }
       /**
-       * @api private
+       * @private
        */
       _dispatchSubcommand(commandName, operands, unknown) {
         const subCommand = this._findCommand(commandName);
-        if (!subCommand)
-          this.help({ error: true });
+        if (!subCommand) this.help({ error: true });
         let promiseChain;
-        promiseChain = this._chainOrCallSubCommandHook(promiseChain, subCommand, "preSubcommand");
+        promiseChain = this._chainOrCallSubCommandHook(
+          promiseChain,
+          subCommand,
+          "preSubcommand"
+        );
         promiseChain = this._chainOrCall(promiseChain, () => {
           if (subCommand._executableHandler) {
             this._executeSubCommand(subCommand, operands.concat(unknown));
@@ -9576,9 +9546,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Invoke help directly if possible, or dispatch if necessary.
        * e.g. help foo
        *
-       * @api private
+       * @private
        */
       _dispatchHelpCommand(subcommandName) {
+        var _a5, _b3, _c2, _d2;
         if (!subcommandName) {
           this.help();
         }
@@ -9586,14 +9557,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
         if (subCommand && !subCommand._executableHandler) {
           subCommand.help();
         }
-        return this._dispatchSubcommand(subcommandName, [], [
-          this._helpLongFlag || this._helpShortFlag
-        ]);
+        return this._dispatchSubcommand(
+          subcommandName,
+          [],
+          [(_d2 = (_c2 = (_a5 = this._getHelpOption()) == null ? void 0 : _a5.long) != null ? _c2 : (_b3 = this._getHelpOption()) == null ? void 0 : _b3.short) != null ? _d2 : "--help"]
+        );
       }
       /**
        * Check this.args against expected this.registeredArguments.
        *
-       * @api private
+       * @private
        */
       _checkNumberOfArguments() {
         this.registeredArguments.forEach((arg, i) => {
@@ -9611,14 +9584,19 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Process this.args using this.registeredArguments and save as this.processedArgs!
        *
-       * @api private
+       * @private
        */
       _processArguments() {
         const myParseArg = (argument, value, previous) => {
           let parsedValue = value;
           if (value !== null && argument.parseArg) {
             const invalidValueMessage = `error: command-argument value '${value}' is invalid for argument '${argument.name()}'.`;
-            parsedValue = this._callParseArg(argument, value, previous, invalidValueMessage);
+            parsedValue = this._callParseArg(
+              argument,
+              value,
+              previous,
+              invalidValueMessage
+            );
           }
           return parsedValue;
         };
@@ -9650,10 +9628,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Once we have a promise we chain, but call synchronously until then.
        *
-       * @param {Promise|undefined} promise
+       * @param {(Promise|undefined)} promise
        * @param {Function} fn
-       * @return {Promise|undefined}
-       * @api private
+       * @return {(Promise|undefined)}
+       * @private
        */
       _chainOrCall(promise, fn) {
         if (promise && promise.then && typeof promise.then === "function") {
@@ -9663,10 +9641,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       /**
        *
-       * @param {Promise|undefined} promise
+       * @param {(Promise|undefined)} promise
        * @param {string} event
-       * @return {Promise|undefined}
-       * @api private
+       * @return {(Promise|undefined)}
+       * @private
        */
       _chainOrCallHooks(promise, event) {
         let result = promise;
@@ -9688,11 +9666,11 @@ Expecting one of '${allowedValues.join("', '")}'`);
       }
       /**
        *
-       * @param {Promise|undefined} promise
+       * @param {(Promise|undefined)} promise
        * @param {Command} subCommand
        * @param {string} event
-       * @return {Promise|undefined}
-       * @api private
+       * @return {(Promise|undefined)}
+       * @private
        */
       _chainOrCallSubCommandHook(promise, subCommand, event) {
         let result = promise;
@@ -9709,7 +9687,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Process arguments in context of this command.
        * Returns action result, in case it is a promise.
        *
-       * @api private
+       * @private
        */
       _parseCommand(operands, unknown) {
         const parsed = this.parseOptions(unknown);
@@ -9721,17 +9699,21 @@ Expecting one of '${allowedValues.join("', '")}'`);
         if (operands && this._findCommand(operands[0])) {
           return this._dispatchSubcommand(operands[0], operands.slice(1), unknown);
         }
-        if (this._hasImplicitHelpCommand() && operands[0] === this._helpCommandName) {
+        if (this._getHelpCommand() && operands[0] === this._getHelpCommand().name()) {
           return this._dispatchHelpCommand(operands[1]);
         }
         if (this._defaultCommandName) {
-          outputHelpIfRequested(this, unknown);
-          return this._dispatchSubcommand(this._defaultCommandName, operands, unknown);
+          this._outputHelpIfRequested(unknown);
+          return this._dispatchSubcommand(
+            this._defaultCommandName,
+            operands,
+            unknown
+          );
         }
         if (this.commands.length && this.args.length === 0 && !this._actionHandler && !this._defaultCommandName) {
           this.help({ error: true });
         }
-        outputHelpIfRequested(this, parsed.unknown);
+        this._outputHelpIfRequested(parsed.unknown);
         this._checkForMissingMandatoryOptions();
         this._checkForConflictingOptions();
         const checkForUnknownOptions = () => {
@@ -9745,7 +9727,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
           this._processArguments();
           let promiseChain;
           promiseChain = this._chainOrCallHooks(promiseChain, "preAction");
-          promiseChain = this._chainOrCall(promiseChain, () => this._actionHandler(this.processedArgs));
+          promiseChain = this._chainOrCall(
+            promiseChain,
+            () => this._actionHandler(this.processedArgs)
+          );
           if (this.parent) {
             promiseChain = this._chainOrCall(promiseChain, () => {
               this.parent.emit(commandEvent, operands, unknown);
@@ -9781,19 +9766,21 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Find matching command.
        *
-       * @api private
+       * @private
+       * @return {Command | undefined}
        */
       _findCommand(name) {
-        if (!name)
-          return void 0;
-        return this.commands.find((cmd) => cmd._name === name || cmd._aliases.includes(name));
+        if (!name) return void 0;
+        return this.commands.find(
+          (cmd) => cmd._name === name || cmd._aliases.includes(name)
+        );
       }
       /**
        * Return an option matching `arg` if any.
        *
        * @param {string} arg
        * @return {Option}
-       * @api private
+       * @package
        */
       _findOption(arg) {
         return this.options.find((option) => option.is(arg));
@@ -9802,7 +9789,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Display an error message if a mandatory option does not have a value.
        * Called after checking for help flags in leaf subcommand.
        *
-       * @api private
+       * @private
        */
       _checkForMissingMandatoryOptions() {
         this._getCommandAndAncestors().forEach((cmd) => {
@@ -9816,18 +9803,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Display an error message if conflicting options are used together in this.
        *
-       * @api private
+       * @private
        */
       _checkForConflictingLocalOptions() {
-        const definedNonDefaultOptions = this.options.filter(
-          (option) => {
-            const optionKey = option.attributeName();
-            if (this.getOptionValue(optionKey) === void 0) {
-              return false;
-            }
-            return this.getOptionValueSource(optionKey) !== "default";
+        const definedNonDefaultOptions = this.options.filter((option) => {
+          const optionKey = option.attributeName();
+          if (this.getOptionValue(optionKey) === void 0) {
+            return false;
           }
-        );
+          return this.getOptionValueSource(optionKey) !== "default";
+        });
         const optionsWithConflicting = definedNonDefaultOptions.filter(
           (option) => option.conflictsWith.length > 0
         );
@@ -9844,7 +9829,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Display an error message if conflicting options are used together.
        * Called after checking for help flags in leaf subcommand.
        *
-       * @api private
+       * @private
        */
       _checkForConflictingOptions() {
         this._getCommandAndAncestors().forEach((cmd) => {
@@ -9863,8 +9848,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
        *     sub --unknown uuu op => [sub], [--unknown uuu op]
        *     sub -- --unknown uuu op => [sub --unknown uuu op], []
        *
-       * @param {String[]} argv
-       * @return {{operands: String[], unknown: String[]}}
+       * @param {string[]} argv
+       * @return {{operands: string[], unknown: string[]}}
        */
       parseOptions(argv) {
         const operands = [];
@@ -9878,8 +9863,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         while (args.length) {
           const arg = args.shift();
           if (arg === "--") {
-            if (dest === unknown)
-              dest.push(arg);
+            if (dest === unknown) dest.push(arg);
             dest.push(...args);
             break;
           }
@@ -9893,8 +9877,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
             if (option) {
               if (option.required) {
                 const value = args.shift();
-                if (value === void 0)
-                  this.optionMissingArgument(option);
+                if (value === void 0) this.optionMissingArgument(option);
                 this.emit(`option:${option.name()}`, value);
               } else if (option.optional) {
                 let value = null;
@@ -9935,25 +9918,21 @@ Expecting one of '${allowedValues.join("', '")}'`);
           if ((this._enablePositionalOptions || this._passThroughOptions) && operands.length === 0 && unknown.length === 0) {
             if (this._findCommand(arg)) {
               operands.push(arg);
-              if (args.length > 0)
-                unknown.push(...args);
+              if (args.length > 0) unknown.push(...args);
               break;
-            } else if (arg === this._helpCommandName && this._hasImplicitHelpCommand()) {
+            } else if (this._getHelpCommand() && arg === this._getHelpCommand().name()) {
               operands.push(arg);
-              if (args.length > 0)
-                operands.push(...args);
+              if (args.length > 0) operands.push(...args);
               break;
             } else if (this._defaultCommandName) {
               unknown.push(arg);
-              if (args.length > 0)
-                unknown.push(...args);
+              if (args.length > 0) unknown.push(...args);
               break;
             }
           }
           if (this._passThroughOptions) {
             dest.push(arg);
-            if (args.length > 0)
-              dest.push(...args);
+            if (args.length > 0) dest.push(...args);
             break;
           }
           dest.push(arg);
@@ -9963,7 +9942,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Return an object containing local option values as key-value pairs.
        *
-       * @return {Object}
+       * @return {object}
        */
       opts() {
         if (this._storeOptionsAsProperties) {
@@ -9980,7 +9959,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Return an object containing merged local and global option values as key-value pairs.
        *
-       * @return {Object}
+       * @return {object}
        */
       optsWithGlobals() {
         return this._getCommandAndAncestors().reduce(
@@ -9992,13 +9971,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Display error message and exit (or call exitOverride).
        *
        * @param {string} message
-       * @param {Object} [errorOptions]
+       * @param {object} [errorOptions]
        * @param {string} [errorOptions.code] - an id string representing the error
        * @param {number} [errorOptions.exitCode] - used with process.exit
        */
       error(message, errorOptions) {
-        this._outputConfiguration.outputError(`${message}
-`, this._outputConfiguration.writeErr);
+        this._outputConfiguration.outputError(
+          `${message}
+`,
+          this._outputConfiguration.writeErr
+        );
         if (typeof this._showHelpAfterError === "string") {
           this._outputConfiguration.writeErr(`${this._showHelpAfterError}
 `);
@@ -10015,13 +9997,15 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Apply any option related environment variables, if option does
        * not have a value from cli or client code.
        *
-       * @api private
+       * @private
        */
       _parseOptionsEnv() {
         this.options.forEach((option) => {
           if (option.envVar && option.envVar in process2.env) {
             const optionKey = option.attributeName();
-            if (this.getOptionValue(optionKey) === void 0 || ["default", "config", "env"].includes(this.getOptionValueSource(optionKey))) {
+            if (this.getOptionValue(optionKey) === void 0 || ["default", "config", "env"].includes(
+              this.getOptionValueSource(optionKey)
+            )) {
               if (option.required || option.optional) {
                 this.emit(`optionEnv:${option.name()}`, process2.env[option.envVar]);
               } else {
@@ -10034,16 +10018,25 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Apply any implied option values, if option is undefined or default value.
        *
-       * @api private
+       * @private
        */
       _parseOptionsImplied() {
         const dualHelper = new DualOptions(this.options);
         const hasCustomOptionValue = (optionKey) => {
           return this.getOptionValue(optionKey) !== void 0 && !["default", "implied"].includes(this.getOptionValueSource(optionKey));
         };
-        this.options.filter((option) => option.implied !== void 0 && hasCustomOptionValue(option.attributeName()) && dualHelper.valueFromOption(this.getOptionValue(option.attributeName()), option)).forEach((option) => {
+        this.options.filter(
+          (option) => option.implied !== void 0 && hasCustomOptionValue(option.attributeName()) && dualHelper.valueFromOption(
+            this.getOptionValue(option.attributeName()),
+            option
+          )
+        ).forEach((option) => {
           Object.keys(option.implied).filter((impliedKey) => !hasCustomOptionValue(impliedKey)).forEach((impliedKey) => {
-            this.setOptionValueWithSource(impliedKey, option.implied[impliedKey], "implied");
+            this.setOptionValueWithSource(
+              impliedKey,
+              option.implied[impliedKey],
+              "implied"
+            );
           });
         });
       }
@@ -10051,7 +10044,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Argument `name` is missing.
        *
        * @param {string} name
-       * @api private
+       * @private
        */
       missingArgument(name) {
         const message = `error: missing required argument '${name}'`;
@@ -10061,7 +10054,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * `Option` is missing an argument.
        *
        * @param {Option} option
-       * @api private
+       * @private
        */
       optionMissingArgument(option) {
         const message = `error: option '${option.flags}' argument missing`;
@@ -10071,7 +10064,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * `Option` does not have a value, and is a mandatory option.
        *
        * @param {Option} option
-       * @api private
+       * @private
        */
       missingMandatoryOptionValue(option) {
         const message = `error: required option '${option.flags}' not specified`;
@@ -10082,14 +10075,18 @@ Expecting one of '${allowedValues.join("', '")}'`);
        *
        * @param {Option} option
        * @param {Option} conflictingOption
-       * @api private
+       * @private
        */
       _conflictingOption(option, conflictingOption) {
         const findBestOptionFromValue = (option2) => {
           const optionKey = option2.attributeName();
           const optionValue = this.getOptionValue(optionKey);
-          const negativeOption = this.options.find((target) => target.negate && optionKey === target.attributeName());
-          const positiveOption = this.options.find((target) => !target.negate && optionKey === target.attributeName());
+          const negativeOption = this.options.find(
+            (target) => target.negate && optionKey === target.attributeName()
+          );
+          const positiveOption = this.options.find(
+            (target) => !target.negate && optionKey === target.attributeName()
+          );
           if (negativeOption && (negativeOption.presetArg === void 0 && optionValue === false || negativeOption.presetArg !== void 0 && optionValue === negativeOption.presetArg)) {
             return negativeOption;
           }
@@ -10111,11 +10108,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Unknown option `flag`.
        *
        * @param {string} flag
-       * @api private
+       * @private
        */
       unknownOption(flag) {
-        if (this._allowUnknownOption)
-          return;
+        if (this._allowUnknownOption) return;
         let suggestion = "";
         if (flag.startsWith("--") && this._showSuggestionAfterError) {
           let candidateFlags = [];
@@ -10134,11 +10130,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Excess arguments, more than expected.
        *
        * @param {string[]} receivedArgs
-       * @api private
+       * @private
        */
       _excessArguments(receivedArgs) {
-        if (this._allowExcessArguments)
-          return;
+        if (this._allowExcessArguments) return;
         const expected = this.registeredArguments.length;
         const s = expected === 1 ? "" : "s";
         const forSubcommand = this.parent ? ` for '${this.name()}'` : "";
@@ -10148,7 +10143,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
       /**
        * Unknown command.
        *
-       * @api private
+       * @private
        */
       unknownCommand() {
         const unknownName = this.args[0];
@@ -10157,8 +10152,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
           const candidateNames = [];
           this.createHelp().visibleCommands(this).forEach((command) => {
             candidateNames.push(command.name());
-            if (command.alias())
-              candidateNames.push(command.alias());
+            if (command.alias()) candidateNames.push(command.alias());
           });
           suggestion = suggestSimilar(unknownName, candidateNames);
         }
@@ -10175,17 +10169,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * @param {string} [str]
        * @param {string} [flags]
        * @param {string} [description]
-       * @return {this | string | undefined} `this` command for chaining, or version string if no arguments
+       * @return {(this | string | undefined)} `this` command for chaining, or version string if no arguments
        */
       version(str, flags, description) {
-        if (str === void 0)
-          return this._version;
+        if (str === void 0) return this._version;
         this._version = str;
         flags = flags || "-V, --version";
         description = description || "output the version number";
         const versionOption = this.createOption(flags, description);
         this._versionOptionName = versionOption.attributeName();
-        this.options.push(versionOption);
+        this._registerOption(versionOption);
         this.on("option:" + versionOption.name(), () => {
           this._outputConfiguration.writeOut(`${str}
 `);
@@ -10197,8 +10190,8 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Set the description.
        *
        * @param {string} [str]
-       * @param {Object} [argsDescription]
-       * @return {string|Command}
+       * @param {object} [argsDescription]
+       * @return {(string|Command)}
        */
       description(str, argsDescription) {
         if (str === void 0 && argsDescription === void 0)
@@ -10213,11 +10206,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Set the summary. Used when listed as subcommand of parent.
        *
        * @param {string} [str]
-       * @return {string|Command}
+       * @return {(string|Command)}
        */
       summary(str) {
-        if (str === void 0)
-          return this._summary;
+        if (str === void 0) return this._summary;
         this._summary = str;
         return this;
       }
@@ -10227,17 +10219,24 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * You may call more than once to add multiple aliases. Only the first alias is shown in the auto-generated help.
        *
        * @param {string} [alias]
-       * @return {string|Command}
+       * @return {(string|Command)}
        */
       alias(alias) {
-        if (alias === void 0)
-          return this._aliases[0];
+        var _a5;
+        if (alias === void 0) return this._aliases[0];
         let command = this;
         if (this.commands.length !== 0 && this.commands[this.commands.length - 1]._executableHandler) {
           command = this.commands[this.commands.length - 1];
         }
         if (alias === command._name)
           throw new Error("Command alias can't be the same as its name");
+        const matchingCommand = (_a5 = this.parent) == null ? void 0 : _a5._findCommand(alias);
+        if (matchingCommand) {
+          const existingCmd = [matchingCommand.name()].concat(matchingCommand.aliases()).join("|");
+          throw new Error(
+            `cannot add alias '${alias}' to command '${this.name()}' as already have command '${existingCmd}'`
+          );
+        }
         command._aliases.push(alias);
         return this;
       }
@@ -10247,11 +10246,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Only the first alias is shown in the auto-generated help.
        *
        * @param {string[]} [aliases]
-       * @return {string[]|Command}
+       * @return {(string[]|Command)}
        */
       aliases(aliases) {
-        if (aliases === void 0)
-          return this._aliases;
+        if (aliases === void 0) return this._aliases;
         aliases.forEach((alias) => this.alias(alias));
         return this;
       }
@@ -10259,17 +10257,16 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Set / get the command usage `str`.
        *
        * @param {string} [str]
-       * @return {String|Command}
+       * @return {(string|Command)}
        */
       usage(str) {
         if (str === void 0) {
-          if (this._usage)
-            return this._usage;
+          if (this._usage) return this._usage;
           const args = this.registeredArguments.map((arg) => {
             return humanReadableArgName(arg);
           });
           return [].concat(
-            this.options.length || this._hasHelpOption ? "[options]" : [],
+            this.options.length || this._helpOption !== null ? "[options]" : [],
             this.commands.length ? "[command]" : [],
             this.registeredArguments.length ? args : []
           ).join(" ");
@@ -10281,11 +10278,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * Get or set the name of the command.
        *
        * @param {string} [str]
-       * @return {string|Command}
+       * @return {(string|Command)}
        */
       name(str) {
-        if (str === void 0)
-          return this._name;
+        if (str === void 0) return this._name;
         this._name = str;
         return this;
       }
@@ -10314,11 +10310,10 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * program.executableDir('subcommands');
        *
        * @param {string} [path]
-       * @return {string|null|Command}
+       * @return {(string|null|Command)}
        */
       executableDir(path6) {
-        if (path6 === void 0)
-          return this._executableDir;
+        if (path6 === void 0) return this._executableDir;
         this._executableDir = path6;
         return this;
       }
@@ -10336,7 +10331,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
         return helper.formatHelp(this, helper);
       }
       /**
-       * @api private
+       * @private
        */
       _getHelpContext(contextOptions) {
         contextOptions = contextOptions || {};
@@ -10359,6 +10354,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * @param {{ error: boolean } | Function} [contextOptions] - pass {error:true} to write to stderr instead of stdout
        */
       outputHelp(contextOptions) {
+        var _a5;
         let deprecatedCallback;
         if (typeof contextOptions === "function") {
           deprecatedCallback = contextOptions;
@@ -10375,31 +10371,63 @@ Expecting one of '${allowedValues.join("', '")}'`);
           }
         }
         context.write(helpInformation);
-        if (this._helpLongFlag) {
-          this.emit(this._helpLongFlag);
+        if ((_a5 = this._getHelpOption()) == null ? void 0 : _a5.long) {
+          this.emit(this._getHelpOption().long);
         }
         this.emit("afterHelp", context);
-        this._getCommandAndAncestors().forEach((command) => command.emit("afterAllHelp", context));
+        this._getCommandAndAncestors().forEach(
+          (command) => command.emit("afterAllHelp", context)
+        );
       }
       /**
-       * You can pass in flags and a description to override the help
-       * flags and help description for your command. Pass in false to
-       * disable the built-in help option.
+       * You can pass in flags and a description to customise the built-in help option.
+       * Pass in false to disable the built-in help option.
        *
-       * @param {string | boolean} [flags]
+       * @example
+       * program.helpOption('-?, --help' 'show help'); // customise
+       * program.helpOption(false); // disable
+       *
+       * @param {(string | boolean)} flags
        * @param {string} [description]
        * @return {Command} `this` command for chaining
        */
       helpOption(flags, description) {
+        var _a5;
         if (typeof flags === "boolean") {
-          this._hasHelpOption = flags;
+          if (flags) {
+            this._helpOption = (_a5 = this._helpOption) != null ? _a5 : void 0;
+          } else {
+            this._helpOption = null;
+          }
           return this;
         }
-        this._helpFlags = flags || this._helpFlags;
-        this._helpDescription = description || this._helpDescription;
-        const helpFlags = splitOptionFlags(this._helpFlags);
-        this._helpShortFlag = helpFlags.shortFlag;
-        this._helpLongFlag = helpFlags.longFlag;
+        flags = flags != null ? flags : "-h, --help";
+        description = description != null ? description : "display help for command";
+        this._helpOption = this.createOption(flags, description);
+        return this;
+      }
+      /**
+       * Lazy create help option.
+       * Returns null if has been disabled with .helpOption(false).
+       *
+       * @returns {(Option | null)} the help option
+       * @package
+       */
+      _getHelpOption() {
+        if (this._helpOption === void 0) {
+          this.helpOption(void 0, void 0);
+        }
+        return this._helpOption;
+      }
+      /**
+       * Supply your own option to use for the built-in help option.
+       * This is an alternative to using helpOption() to customise the flags and description etc.
+       *
+       * @param {Option} option
+       * @return {Command} `this` command for chaining
+       */
+      addHelpOption(option) {
+        this._helpOption = option;
         return this;
       }
       /**
@@ -10424,7 +10452,7 @@ Expecting one of '${allowedValues.join("', '")}'`);
        * and 'beforeAll' or 'afterAll' to affect this command and all its subcommands.
        *
        * @param {string} position - before or after built-in help
-       * @param {string | Function} text - string to add, or a function returning a string
+       * @param {(string | Function)} text - string to add, or a function returning a string
        * @return {Command} `this` command for chaining
        */
       addHelpText(position, text) {
@@ -10448,14 +10476,21 @@ Expecting one of '${allowedValues.join("', '")}'`);
         });
         return this;
       }
-    };
-    function outputHelpIfRequested(cmd, args) {
-      const helpOption = cmd._hasHelpOption && args.find((arg) => arg === cmd._helpLongFlag || arg === cmd._helpShortFlag);
-      if (helpOption) {
-        cmd.outputHelp();
-        cmd._exit(0, "commander.helpDisplayed", "(outputHelp)");
+      /**
+       * Output help information if help flags specified
+       *
+       * @param {Array} args - array of options to search for help flags
+       * @private
+       */
+      _outputHelpIfRequested(args) {
+        const helpOption = this._getHelpOption();
+        const helpRequested = helpOption && args.find((arg) => helpOption.is(arg));
+        if (helpRequested) {
+          this.outputHelp();
+          this._exit(0, "commander.helpDisplayed", "(outputHelp)");
+        }
       }
-    }
+    };
     function incrementNodeInspectorPort(args) {
       return args.map((arg) => {
         if (!arg.startsWith("--inspect")) {
@@ -10489,17 +10524,19 @@ Expecting one of '${allowedValues.join("', '")}'`);
   }
 });
 
-// node_modules/commander/index.js
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/index.js
 var require_commander = __commonJS({
-  "node_modules/commander/index.js"(exports, module2) {
+  "node_modules/.pnpm/commander@12.1.0/node_modules/commander/index.js"(exports) {
     "use strict";
     var { Argument: Argument2 } = require_argument();
     var { Command: Command2 } = require_command();
     var { CommanderError: CommanderError2, InvalidArgumentError: InvalidArgumentError2 } = require_error();
     var { Help: Help2 } = require_help();
     var { Option: Option2 } = require_option();
-    exports = module2.exports = new Command2();
-    exports.program = exports;
+    exports.program = new Command2();
+    exports.createCommand = (name) => new Command2(name);
+    exports.createOption = (flags, description) => new Option2(flags, description);
+    exports.createArgument = (name, description) => new Argument2(name, description);
     exports.Command = Command2;
     exports.Option = Option2;
     exports.Argument = Argument2;
@@ -10526,12 +10563,9 @@ function merge(...objects) {
     Object.keys(obj || {}).forEach((key) => {
       const pVal = prev[key];
       const oVal = obj[key];
-      if (Array.isArray(pVal) && Array.isArray(oVal))
-        prev[key] = pVal.concat(...oVal);
-      else if (isObject(pVal) && isObject(oVal))
-        prev[key] = merge(pVal, oVal);
-      else
-        prev[key] = oVal;
+      if (Array.isArray(pVal) && Array.isArray(oVal)) prev[key] = pVal.concat(...oVal);
+      else if (isObject(pVal) && isObject(oVal)) prev[key] = merge(pVal, oVal);
+      else prev[key] = oVal;
     });
     return prev;
   }, {});
@@ -10556,8 +10590,7 @@ var results = () => {
     } catch (e) {
       json = { msg: line.msg };
     }
-    if (json.msg)
-      json.msg = json["msg"].replace(ansiRegex(), "");
+    if (json.msg) json.msg = json["msg"].replace(ansiRegex(), "");
     const facilityStr = line.msg.match(/(.*): /);
     const facilityExists = facilityStr && facilityStr.length > 1 ? facilityStr[1] : null;
     facility = facilityExists ? facilityExists.toLowerCase() : facility;
@@ -10572,12 +10605,13 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.26.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
 var import_promise_deferred2 = __toESM(require_dist2(), 1);
 import { spawn } from "child_process";
+import { EventEmitter } from "node:events";
 var __defProp2 = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
@@ -10599,7 +10633,6 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __markAsModule = (target) => __defProp2(target, "__esModule", { value: true });
 var __esm = (fn, res) => function __init() {
   return fn && (res = (0, fn[__getOwnPropNames2(fn)[0]])(fn = 0)), res;
 };
@@ -10610,19 +10643,15 @@ var __export = (target, all) => {
   for (var name in all)
     __defProp2(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module2, copyDefault, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames2(module2))
-      if (!__hasOwnProp2.call(target, key) && (copyDefault || key !== "default"))
-        __defProp2(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc2(module2, key)) || desc.enumerable });
+var __copyProps2 = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames2(from))
+      if (!__hasOwnProp2.call(to, key) && key !== except)
+        __defProp2(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc2(from, key)) || desc.enumerable });
   }
-  return target;
+  return to;
 };
-var __toCommonJS = /* @__PURE__ */ ((cache2) => {
-  return (module2, temp) => {
-    return cache2 && cache2.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache2 && cache2.set(module2, temp), temp);
-  };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
+var __toCommonJS = (mod) => __copyProps2(__defProp2({}, "__esModule", { value: true }), mod);
 var __async = (__this, __arguments, generator) => {
   return new Promise((resolve6, reject) => {
     var fulfilled = (value) => {
@@ -10657,12 +10686,14 @@ function toPaths(pathSpec) {
 var cache;
 var init_pathspec = __esm({
   "src/lib/args/pathspec.ts"() {
+    "use strict";
     cache = /* @__PURE__ */ new WeakMap();
   }
 });
 var GitError;
 var init_git_error = __esm({
   "src/lib/errors/git-error.ts"() {
+    "use strict";
     GitError = class extends Error {
       constructor(task, message) {
         super(message);
@@ -10675,6 +10706,7 @@ var init_git_error = __esm({
 var GitResponseError;
 var init_git_response_error = __esm({
   "src/lib/errors/git-response-error.ts"() {
+    "use strict";
     init_git_error();
     GitResponseError = class extends GitError {
       constructor(git3, message) {
@@ -10687,6 +10719,7 @@ var init_git_response_error = __esm({
 var TaskConfigurationError;
 var init_task_configuration_error = __esm({
   "src/lib/errors/task-configuration-error.ts"() {
+    "use strict";
     init_git_error();
     TaskConfigurationError = class extends GitError {
       constructor(message) {
@@ -10764,6 +10797,11 @@ function remove(target, item) {
 function asArray(source) {
   return Array.isArray(source) ? source : [source];
 }
+function asCamelCase(str) {
+  return str.replace(/[\s-]+(.)/g, (_all, chr) => {
+    return chr.toUpperCase();
+  });
+}
 function asStringArray(source) {
   return asArray(source).map(String);
 }
@@ -10785,16 +10823,26 @@ function bufferToString(input) {
   return (Array.isArray(input) ? Buffer.concat(input) : input).toString("utf-8");
 }
 function pick(source, properties) {
-  return Object.assign({}, ...properties.map((property) => property in source ? { [property]: source[property] } : {}));
+  return Object.assign(
+    {},
+    ...properties.map((property) => property in source ? { [property]: source[property] } : {})
+  );
 }
 function delay(duration = 0) {
   return new Promise((done) => setTimeout(done, duration));
+}
+function orVoid(input) {
+  if (input === false) {
+    return void 0;
+  }
+  return input;
 }
 var NULL;
 var NOOP;
 var objectToString;
 var init_util = __esm({
   "src/lib/utils/util.ts"() {
+    "use strict";
     NULL = "\0";
     NOOP = () => {
     };
@@ -10824,6 +10872,7 @@ var filterStringOrStringArray;
 var filterHasLength;
 var init_argument_filters = __esm({
   "src/lib/utils/argument-filters.ts"() {
+    "use strict";
     init_util();
     init_pathspec();
     filterArray = (input) => {
@@ -10849,6 +10898,7 @@ var init_argument_filters = __esm({
 var ExitCodes;
 var init_exit_codes = __esm({
   "src/lib/utils/exit-codes.ts"() {
+    "use strict";
     ExitCodes = /* @__PURE__ */ ((ExitCodes2) => {
       ExitCodes2[ExitCodes2["SUCCESS"] = 0] = "SUCCESS";
       ExitCodes2[ExitCodes2["ERROR"] = 1] = "ERROR";
@@ -10861,6 +10911,7 @@ var init_exit_codes = __esm({
 var GitOutputStreams;
 var init_git_output_streams = __esm({
   "src/lib/utils/git-output-streams.ts"() {
+    "use strict";
     GitOutputStreams = class {
       constructor(stdOut, stdErr) {
         this.stdOut = stdOut;
@@ -10876,6 +10927,7 @@ var LineParser;
 var RemoteLineParser;
 var init_line_parser = __esm({
   "src/lib/utils/line-parser.ts"() {
+    "use strict";
     LineParser = class {
       constructor(regExp, useMatches) {
         this.matches = [];
@@ -10925,7 +10977,10 @@ var init_line_parser = __esm({
 });
 function createInstanceConfig(...options3) {
   const baseDir = process.cwd();
-  const config = Object.assign(__spreadValues({ baseDir }, defaultOptions), ...options3.filter((o) => typeof o === "object" && o));
+  const config = Object.assign(
+    __spreadValues({ baseDir }, defaultOptions),
+    ...options3.filter((o) => typeof o === "object" && o)
+  );
   config.baseDir = config.baseDir || baseDir;
   config.trimmed = config.trimmed === true;
   return config;
@@ -10933,6 +10988,7 @@ function createInstanceConfig(...options3) {
 var defaultOptions;
 var init_simple_git_options = __esm({
   "src/lib/utils/simple-git-options.ts"() {
+    "use strict";
     defaultOptions = {
       binary: "git",
       maxConcurrentProcesses: 5,
@@ -10984,13 +11040,14 @@ function trailingFunctionArgument(args, includeNoop = true) {
 }
 var init_task_options = __esm({
   "src/lib/utils/task-options.ts"() {
+    "use strict";
     init_argument_filters();
     init_util();
     init_pathspec();
   }
 });
-function callTaskParser(parser3, streams) {
-  return parser3(streams.stdOut, streams.stdErr);
+function callTaskParser(parser4, streams) {
+  return parser4(streams.stdOut, streams.stdErr);
 }
 function parseStringResponse(result, parsers12, texts, trim = true) {
   asArray(texts).forEach((text) => {
@@ -11008,6 +11065,7 @@ function parseStringResponse(result, parsers12, texts, trim = true) {
 }
 var init_task_parser = __esm({
   "src/lib/utils/task-parser.ts"() {
+    "use strict";
     init_util();
   }
 });
@@ -11022,6 +11080,7 @@ __export(utils_exports, {
   append: () => append,
   appendTaskOptions: () => appendTaskOptions,
   asArray: () => asArray,
+  asCamelCase: () => asCamelCase,
   asFunction: () => asFunction,
   asNumber: () => asNumber,
   asStringArray: () => asStringArray,
@@ -11046,6 +11105,7 @@ __export(utils_exports, {
   isUserFunction: () => isUserFunction,
   last: () => last,
   objectToString: () => objectToString,
+  orVoid: () => orVoid,
   parseStringResponse: () => parseStringResponse,
   pick: () => pick,
   prefixedArray: () => prefixedArray,
@@ -11057,6 +11117,7 @@ __export(utils_exports, {
 });
 var init_utils = __esm({
   "src/lib/utils/index.ts"() {
+    "use strict";
     init_argument_filters();
     init_exit_codes();
     init_git_output_streams();
@@ -11117,6 +11178,7 @@ var onError;
 var parser;
 var init_check_is_repo = __esm({
   "src/lib/tasks/check-is-repo.ts"() {
+    "use strict";
     init_utils();
     CheckRepoActions = /* @__PURE__ */ ((CheckRepoActions2) => {
       CheckRepoActions2["BARE"] = "bare";
@@ -11151,6 +11213,7 @@ var dryRunRemovalRegexp;
 var isFolderRegexp;
 var init_CleanSummary = __esm({
   "src/lib/responses/CleanSummary.ts"() {
+    "use strict";
     init_utils();
     CleanResponse = class {
       constructor(dryRun) {
@@ -11175,11 +11238,11 @@ __export(task_exports, {
   straightThroughBufferTask: () => straightThroughBufferTask,
   straightThroughStringTask: () => straightThroughStringTask
 });
-function adhocExecTask(parser3) {
+function adhocExecTask(parser4) {
   return {
     commands: EMPTY_COMMANDS,
     format: "empty",
-    parser: parser3
+    parser: parser4
   };
 }
 function configurationErrorTask(error8) {
@@ -11218,6 +11281,7 @@ function isEmptyTask(task) {
 var EMPTY_COMMANDS;
 var init_task = __esm({
   "src/lib/tasks/task.ts"() {
+    "use strict";
     init_task_configuration_error();
     EMPTY_COMMANDS = [];
   }
@@ -11296,6 +11360,7 @@ var CleanOptions;
 var CleanOptionValues;
 var init_clean = __esm({
   "src/lib/tasks/clean.ts"() {
+    "use strict";
     init_CleanSummary();
     init_utils();
     init_task();
@@ -11367,6 +11432,7 @@ function* configParser(text, requestedKey = null) {
 var ConfigList;
 var init_ConfigList = __esm({
   "src/lib/responses/ConfigList.ts"() {
+    "use strict";
     init_utils();
     ConfigList = class {
       constructor() {
@@ -11452,23 +11518,38 @@ function listConfigTask(scope) {
 function config_default() {
   return {
     addConfig(key, value, ...rest) {
-      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(
-        rest[1],
-        "local"
-        /* local */
-      )), trailingFunctionArgument(arguments));
+      return this._runTask(
+        addConfigTask(
+          key,
+          value,
+          rest[0] === true,
+          asConfigScope(
+            rest[1],
+            "local"
+            /* local */
+          )
+        ),
+        trailingFunctionArgument(arguments)
+      );
     },
     getConfig(key, scope) {
-      return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), trailingFunctionArgument(arguments));
+      return this._runTask(
+        getConfigTask(key, asConfigScope(scope, void 0)),
+        trailingFunctionArgument(arguments)
+      );
     },
     listConfig(...rest) {
-      return this._runTask(listConfigTask(asConfigScope(rest[0], void 0)), trailingFunctionArgument(arguments));
+      return this._runTask(
+        listConfigTask(asConfigScope(rest[0], void 0)),
+        trailingFunctionArgument(arguments)
+      );
     }
   };
 }
 var GitConfigScope;
 var init_config = __esm({
   "src/lib/tasks/config.ts"() {
+    "use strict";
     init_ConfigList();
     init_utils();
     GitConfigScope = /* @__PURE__ */ ((GitConfigScope2) => {
@@ -11478,6 +11559,29 @@ var init_config = __esm({
       GitConfigScope2["worktree"] = "worktree";
       return GitConfigScope2;
     })(GitConfigScope || {});
+  }
+});
+function isDiffNameStatus(input) {
+  return diffNameStatus.has(input);
+}
+var DiffNameStatus;
+var diffNameStatus;
+var init_diff_name_status = __esm({
+  "src/lib/tasks/diff-name-status.ts"() {
+    "use strict";
+    DiffNameStatus = /* @__PURE__ */ ((DiffNameStatus2) => {
+      DiffNameStatus2["ADDED"] = "A";
+      DiffNameStatus2["COPIED"] = "C";
+      DiffNameStatus2["DELETED"] = "D";
+      DiffNameStatus2["MODIFIED"] = "M";
+      DiffNameStatus2["RENAMED"] = "R";
+      DiffNameStatus2["CHANGED"] = "T";
+      DiffNameStatus2["UNMERGED"] = "U";
+      DiffNameStatus2["UNKNOWN"] = "X";
+      DiffNameStatus2["BROKEN"] = "B";
+      return DiffNameStatus2;
+    })(DiffNameStatus || {});
+    diffNameStatus = new Set(Object.values(DiffNameStatus));
   }
 });
 function grepQueryBuilder(...params) {
@@ -11507,20 +11611,26 @@ function grep_default() {
       const options3 = getTrailingOptions(arguments);
       for (const option of disallowedOptions) {
         if (options3.includes(option)) {
-          return this._runTask(configurationErrorTask(`git.grep: use of "${option}" is not supported.`), then);
+          return this._runTask(
+            configurationErrorTask(`git.grep: use of "${option}" is not supported.`),
+            then
+          );
         }
       }
       if (typeof searchTerm === "string") {
         searchTerm = grepQueryBuilder().param(searchTerm);
       }
       const commands = ["grep", "--null", "-n", "--full-name", ...options3, ...searchTerm];
-      return this._runTask({
-        commands,
-        format: "utf-8",
-        parser(stdOut) {
-          return parseGrep(stdOut);
-        }
-      }, then);
+      return this._runTask(
+        {
+          commands,
+          format: "utf-8",
+          parser(stdOut) {
+            return parseGrep(stdOut);
+          }
+        },
+        then
+      );
     }
   };
 }
@@ -11530,6 +11640,7 @@ var _a;
 var GrepQuery;
 var init_grep = __esm({
   "src/lib/tasks/grep.ts"() {
+    "use strict";
     init_utils();
     init_task();
     disallowedOptions = ["-h"];
@@ -11586,6 +11697,7 @@ var ResetMode;
 var ResetModes;
 var init_reset = __esm({
   "src/lib/tasks/reset.ts"() {
+    "use strict";
     init_task();
     ResetMode = /* @__PURE__ */ ((ResetMode2) => {
       ResetMode2["MIXED"] = "mixed";
@@ -11632,7 +11744,10 @@ function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
   const key = childLoggerName(filterType(verbose, filterString), debugDebugger, infoDebugger);
   return step(initialStep);
   function sibling(name, initial) {
-    return append(spawned, createLogger(label, key.replace(/^[^:]+/, name), initial, infoDebugger));
+    return append(
+      spawned,
+      createLogger(label, key.replace(/^[^:]+/, name), initial, infoDebugger)
+    );
   }
   function step(phase) {
     const stepPrefix = phase && `[${phase}]` || "";
@@ -11648,6 +11763,7 @@ function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
 }
 var init_git_logger = __esm({
   "src/lib/git-logger.ts"() {
+    "use strict";
     init_utils();
     import_debug.default.formatters.L = (value) => String(filterHasLength(value) ? value.length : "-");
     import_debug.default.formatters.B = (value) => {
@@ -11662,6 +11778,7 @@ var _TasksPendingQueue;
 var TasksPendingQueue;
 var init_tasks_pending_queue = __esm({
   "src/lib/runners/tasks-pending-queue.ts"() {
+    "use strict";
     init_git_error();
     init_git_logger();
     _TasksPendingQueue = class {
@@ -11691,9 +11808,14 @@ var init_tasks_pending_queue = __esm({
         for (const [task, { logger }] of Array.from(this._queue.entries())) {
           if (task === err.task) {
             logger.info(`Failed %o`, err);
-            logger(`Fatal exception, any as-yet un-started tasks run through this executor will not be attempted`);
+            logger(
+              `Fatal exception, any as-yet un-started tasks run through this executor will not be attempted`
+            );
           } else {
-            logger.info(`A fatal exception occurred in a previous task, the queue has been purged: %o`, err.message);
+            logger.info(
+              `A fatal exception occurred in a previous task, the queue has been purged: %o`,
+              err.message
+            );
           }
           this.complete(task);
         }
@@ -11745,6 +11867,7 @@ function onDataReceived(target, name, logger, output) {
 var GitExecutorChain;
 var init_git_executor_chain = __esm({
   "src/lib/runners/git-executor-chain.ts"() {
+    "use strict";
     init_git_error();
     init_task();
     init_utils();
@@ -11756,9 +11879,6 @@ var init_git_executor_chain = __esm({
         this._plugins = _plugins;
         this._chain = Promise.resolve();
         this._queue = new TasksPendingQueue();
-      }
-      get binary() {
-        return this._executor.binary;
       }
       get cwd() {
         return this._cwd || this._executor.cwd;
@@ -11802,8 +11922,19 @@ var init_git_executor_chain = __esm({
       }
       attemptRemoteTask(task, logger) {
         return __async(this, null, function* () {
-          const args = this._plugins.exec("spawn.args", [...task.commands], pluginContext(task, task.commands));
-          const raw = yield this.gitResponse(task, this.binary, args, this.outputHandler, logger.step("SPAWN"));
+          const binary = this._plugins.exec("spawn.binary", "", pluginContext(task, task.commands));
+          const args = this._plugins.exec(
+            "spawn.args",
+            [...task.commands],
+            pluginContext(task, task.commands)
+          );
+          const raw = yield this.gitResponse(
+            task,
+            binary,
+            args,
+            this.outputHandler,
+            logger.step("SPAWN")
+          );
           const outputStreams = yield this.handleTaskData(task, args, raw, logger.step("HANDLE"));
           logger(`passing response to task's parser as a %s`, task.format);
           if (isBufferTask(task)) {
@@ -11822,17 +11953,36 @@ var init_git_executor_chain = __esm({
         const { exitCode, rejection, stdOut, stdErr } = result;
         return new Promise((done, fail) => {
           logger(`Preparing to handle process response exitCode=%d stdOut=`, exitCode);
-          const { error: error8 } = this._plugins.exec("task.error", { error: rejection }, __spreadValues(__spreadValues({}, pluginContext(task, args)), result));
+          const { error: error8 } = this._plugins.exec(
+            "task.error",
+            { error: rejection },
+            __spreadValues(__spreadValues({}, pluginContext(task, args)), result)
+          );
           if (error8 && task.onError) {
             logger.info(`exitCode=%s handling with custom error handler`);
-            return task.onError(result, error8, (newStdOut) => {
-              logger.info(`custom error handler treated as success`);
-              logger(`custom error returned a %s`, objectToString(newStdOut));
-              done(new GitOutputStreams(Array.isArray(newStdOut) ? Buffer.concat(newStdOut) : newStdOut, Buffer.concat(stdErr)));
-            }, fail);
+            return task.onError(
+              result,
+              error8,
+              (newStdOut) => {
+                logger.info(`custom error handler treated as success`);
+                logger(`custom error returned a %s`, objectToString(newStdOut));
+                done(
+                  new GitOutputStreams(
+                    Array.isArray(newStdOut) ? Buffer.concat(newStdOut) : newStdOut,
+                    Buffer.concat(stdErr)
+                  )
+                );
+              },
+              fail
+            );
           }
           if (error8) {
-            logger.info(`handling as error: exitCode=%s stdErr=%s rejection=%o`, exitCode, stdErr.length, rejection);
+            logger.info(
+              `handling as error: exitCode=%s stdErr=%s rejection=%o`,
+              exitCode,
+              stdErr.length,
+              rejection
+            );
             return fail(error8);
           }
           logger.info(`retrieving task output complete`);
@@ -11842,11 +11992,15 @@ var init_git_executor_chain = __esm({
       gitResponse(task, command, args, outputHandler, logger) {
         return __async(this, null, function* () {
           const outputLogger = logger.sibling("output");
-          const spawnOptions = this._plugins.exec("spawn.options", {
-            cwd: this.cwd,
-            env: this.env,
-            windowsHide: true
-          }, pluginContext(task, task.commands));
+          const spawnOptions = this._plugins.exec(
+            "spawn.options",
+            {
+              cwd: this.cwd,
+              env: this.env,
+              windowsHide: true
+            },
+            pluginContext(task, task.commands)
+          );
           return new Promise((done) => {
             const stdOut = [];
             const stdErr = [];
@@ -11867,8 +12021,14 @@ var init_git_executor_chain = __esm({
               }
             }));
             const spawned = spawn(command, args, spawnOptions);
-            spawned.stdout.on("data", onDataReceived(stdOut, "stdOut", logger, outputLogger.step("stdOut")));
-            spawned.stderr.on("data", onDataReceived(stdErr, "stdErr", logger, outputLogger.step("stdErr")));
+            spawned.stdout.on(
+              "data",
+              onDataReceived(stdOut, "stdOut", logger, outputLogger.step("stdOut"))
+            );
+            spawned.stderr.on(
+              "data",
+              onDataReceived(stdErr, "stdErr", logger, outputLogger.step("stdErr"))
+            );
             spawned.on("error", onErrorReceived(stdErr, logger));
             if (outputHandler) {
               logger(`Passing child process stdOut/stdErr to custom outputHandler`);
@@ -11914,10 +12074,10 @@ __export(git_executor_exports, {
 var GitExecutor;
 var init_git_executor = __esm({
   "src/lib/runners/git-executor.ts"() {
+    "use strict";
     init_git_executor_chain();
     GitExecutor = class {
-      constructor(binary = "git", cwd, _scheduler, _plugins) {
-        this.binary = binary;
+      constructor(cwd, _scheduler, _plugins) {
         this.cwd = cwd;
         this._scheduler = _scheduler;
         this._plugins = _plugins;
@@ -11938,14 +12098,19 @@ function taskCallback(task, response, callback = NOOP) {
   };
   const onError2 = (err) => {
     if ((err == null ? void 0 : err.task) === task) {
-      callback(err instanceof GitResponseError ? addDeprecationNoticeToError(err) : err, void 0);
+      callback(
+        err instanceof GitResponseError ? addDeprecationNoticeToError(err) : err,
+        void 0
+      );
     }
   };
   response.then(onSuccess, onError2);
 }
 function addDeprecationNoticeToError(err) {
   let log12 = (name) => {
-    console.warn(`simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`);
+    console.warn(
+      `simple-git deprecation notice: accessing GitResponseError.${name} should be GitResponseError.git.${name}, this will no longer be available in version 3`
+    );
     log12 = NOOP;
   };
   return Object.create(err, Object.getOwnPropertyNames(err.git).reduce(descriptorReducer, {}));
@@ -11966,6 +12131,7 @@ function addDeprecationNoticeToError(err) {
 }
 var init_task_callback = __esm({
   "src/lib/task-callback.ts"() {
+    "use strict";
     init_git_response_error();
     init_utils();
   }
@@ -11980,6 +12146,7 @@ function changeWorkingDirectoryTask(directory, root) {
 }
 var init_change_working_directory = __esm({
   "src/lib/tasks/change-working-directory.ts"() {
+    "use strict";
     init_utils();
     init_task();
   }
@@ -11994,20 +12161,71 @@ function checkoutTask(args) {
 function checkout_default() {
   return {
     checkout() {
-      return this._runTask(checkoutTask(getTrailingOptions(arguments, 1)), trailingFunctionArgument(arguments));
+      return this._runTask(
+        checkoutTask(getTrailingOptions(arguments, 1)),
+        trailingFunctionArgument(arguments)
+      );
     },
     checkoutBranch(branchName, startPoint) {
-      return this._runTask(checkoutTask(["-b", branchName, startPoint, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+      return this._runTask(
+        checkoutTask(["-b", branchName, startPoint, ...getTrailingOptions(arguments)]),
+        trailingFunctionArgument(arguments)
+      );
     },
     checkoutLocalBranch(branchName) {
-      return this._runTask(checkoutTask(["-b", branchName, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+      return this._runTask(
+        checkoutTask(["-b", branchName, ...getTrailingOptions(arguments)]),
+        trailingFunctionArgument(arguments)
+      );
     }
   };
 }
 var init_checkout = __esm({
   "src/lib/tasks/checkout.ts"() {
+    "use strict";
     init_utils();
     init_task();
+  }
+});
+function countObjectsResponse() {
+  return {
+    count: 0,
+    garbage: 0,
+    inPack: 0,
+    packs: 0,
+    prunePackable: 0,
+    size: 0,
+    sizeGarbage: 0,
+    sizePack: 0
+  };
+}
+function count_objects_default() {
+  return {
+    countObjects() {
+      return this._runTask({
+        commands: ["count-objects", "--verbose"],
+        format: "utf-8",
+        parser(stdOut) {
+          return parseStringResponse(countObjectsResponse(), [parser2], stdOut);
+        }
+      });
+    }
+  };
+}
+var parser2;
+var init_count_objects = __esm({
+  "src/lib/tasks/count-objects.ts"() {
+    "use strict";
+    init_utils();
+    parser2 = new LineParser(
+      /([a-z-]+): (\d+)$/,
+      (result, [key, value]) => {
+        const property = asCamelCase(key);
+        if (result.hasOwnProperty(property)) {
+          result[property] = asNumber(value);
+        }
+      }
+    );
   }
 });
 function parseCommitResult(stdOut) {
@@ -12027,6 +12245,7 @@ function parseCommitResult(stdOut) {
 var parsers;
 var init_parse_commit = __esm({
   "src/lib/parsers/parse-commit.ts"() {
+    "use strict";
     init_utils();
     parsers = [
       new LineParser(/^\[([^\s]+)( \([^)]+\))? ([^\]]+)/, (result, [branch, root, commit]) => {
@@ -12045,20 +12264,26 @@ var init_parse_commit = __esm({
           name: parts.join("<").trim()
         };
       }),
-      new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        result.summary.insertions = parseInt(insertions, 10) || 0;
-        result.summary.deletions = parseInt(deletions, 10) || 0;
-      }),
-      new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        const count = parseInt(lines, 10) || 0;
-        if (direction === "-") {
-          result.summary.deletions = count;
-        } else if (direction === "+") {
-          result.summary.insertions = count;
+      new LineParser(
+        /(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g,
+        (result, [changes, insertions, deletions]) => {
+          result.summary.changes = parseInt(changes, 10) || 0;
+          result.summary.insertions = parseInt(insertions, 10) || 0;
+          result.summary.deletions = parseInt(deletions, 10) || 0;
         }
-      })
+      ),
+      new LineParser(
+        /^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/,
+        (result, [changes, lines, direction]) => {
+          result.summary.changes = parseInt(changes, 10) || 0;
+          const count = parseInt(lines, 10) || 0;
+          if (direction === "-") {
+            result.summary.deletions = count;
+          } else if (direction === "+") {
+            result.summary.insertions = count;
+          }
+        }
+      )
     ];
   }
 });
@@ -12081,16 +12306,23 @@ function commit_default() {
   return {
     commit(message, ...rest) {
       const next = trailingFunctionArgument(arguments);
-      const task = rejectDeprecatedSignatures(message) || commitTask(asArray(message), asArray(filterType(rest[0], filterStringOrStringArray, [])), [...filterType(rest[1], filterArray, []), ...getTrailingOptions(arguments, 0, true)]);
+      const task = rejectDeprecatedSignatures(message) || commitTask(
+        asArray(message),
+        asArray(filterType(rest[0], filterStringOrStringArray, [])),
+        [...filterType(rest[1], filterArray, []), ...getTrailingOptions(arguments, 0, true)]
+      );
       return this._runTask(task, next);
     }
   };
   function rejectDeprecatedSignatures(message) {
-    return !filterStringOrStringArray(message) && configurationErrorTask(`git.commit: requires the commit message to be supplied as a string/string[]`);
+    return !filterStringOrStringArray(message) && configurationErrorTask(
+      `git.commit: requires the commit message to be supplied as a string/string[]`
+    );
   }
 }
 var init_commit = __esm({
   "src/lib/tasks/commit.ts"() {
+    "use strict";
     init_parse_commit();
     init_utils();
     init_task();
@@ -12099,12 +12331,16 @@ var init_commit = __esm({
 function first_commit_default() {
   return {
     firstCommit() {
-      return this._runTask(straightThroughStringTask(["rev-list", "--max-parents=0", "HEAD"], true), trailingFunctionArgument(arguments));
+      return this._runTask(
+        straightThroughStringTask(["rev-list", "--max-parents=0", "HEAD"], true),
+        trailingFunctionArgument(arguments)
+      );
     }
   };
 }
 var init_first_commit = __esm({
   "src/lib/tasks/first-commit.ts"() {
+    "use strict";
     init_utils();
     init_task();
   }
@@ -12118,6 +12354,7 @@ function hashObjectTask(filePath, write) {
 }
 var init_hash_object = __esm({
   "src/lib/tasks/hash-object.ts"() {
+    "use strict";
     init_task();
   }
 });
@@ -12146,6 +12383,7 @@ var initResponseRegex;
 var reInitResponseRegex;
 var init_InitSummary = __esm({
   "src/lib/responses/InitSummary.ts"() {
+    "use strict";
     InitSummary = class {
       constructor(bare, path5, existing, gitDir) {
         this.bare = bare;
@@ -12177,6 +12415,7 @@ function initTask(bare = false, path5, customArgs) {
 var bareCommand;
 var init_init = __esm({
   "src/lib/tasks/init.ts"() {
+    "use strict";
     init_InitSummary();
     bareCommand = "--bare";
   }
@@ -12196,12 +12435,14 @@ function isLogFormat(customArg) {
 var logFormatRegex;
 var init_log_format = __esm({
   "src/lib/args/log-format.ts"() {
+    "use strict";
     logFormatRegex = /^--(stat|numstat|name-only|name-status)(=|$)/;
   }
 });
 var DiffSummary;
 var init_DiffSummary = __esm({
   "src/lib/responses/DiffSummary.ts"() {
+    "use strict";
     DiffSummary = class {
       constructor() {
         this.changed = 0;
@@ -12213,8 +12454,8 @@ var init_DiffSummary = __esm({
   }
 });
 function getDiffParser(format = "") {
-  const parser3 = diffSummaryParsers[format];
-  return (stdOut) => parseStringResponse(new DiffSummary(), parser3, stdOut, false);
+  const parser4 = diffSummaryParsers[format];
+  return (stdOut) => parseStringResponse(new DiffSummary(), parser4, stdOut, false);
 }
 var statParser;
 var numStatParser;
@@ -12223,50 +12464,64 @@ var nameStatusParser;
 var diffSummaryParsers;
 var init_parse_diff_summary = __esm({
   "src/lib/parsers/parse-diff-summary.ts"() {
+    "use strict";
     init_log_format();
     init_DiffSummary();
+    init_diff_name_status();
     init_utils();
     statParser = [
-      new LineParser(/(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/, (result, [file, changes, alterations = ""]) => {
-        result.files.push({
-          file: file.trim(),
-          changes: asNumber(changes),
-          insertions: alterations.replace(/[^+]/g, "").length,
-          deletions: alterations.replace(/[^-]/g, "").length,
-          binary: false
-        });
-      }),
-      new LineParser(/(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)/, (result, [file, before, after]) => {
-        result.files.push({
-          file: file.trim(),
-          before: asNumber(before),
-          after: asNumber(after),
-          binary: true
-        });
-      }),
-      new LineParser(/(\d+) files? changed\s*((?:, \d+ [^,]+){0,2})/, (result, [changed, summary]) => {
-        const inserted = /(\d+) i/.exec(summary);
-        const deleted = /(\d+) d/.exec(summary);
-        result.changed = asNumber(changed);
-        result.insertions = asNumber(inserted == null ? void 0 : inserted[1]);
-        result.deletions = asNumber(deleted == null ? void 0 : deleted[1]);
-      })
+      new LineParser(
+        /^(.+)\s+\|\s+(\d+)(\s+[+\-]+)?$/,
+        (result, [file, changes, alterations = ""]) => {
+          result.files.push({
+            file: file.trim(),
+            changes: asNumber(changes),
+            insertions: alterations.replace(/[^+]/g, "").length,
+            deletions: alterations.replace(/[^-]/g, "").length,
+            binary: false
+          });
+        }
+      ),
+      new LineParser(
+        /^(.+) \|\s+Bin ([0-9.]+) -> ([0-9.]+) ([a-z]+)/,
+        (result, [file, before, after]) => {
+          result.files.push({
+            file: file.trim(),
+            before: asNumber(before),
+            after: asNumber(after),
+            binary: true
+          });
+        }
+      ),
+      new LineParser(
+        /(\d+) files? changed\s*((?:, \d+ [^,]+){0,2})/,
+        (result, [changed, summary]) => {
+          const inserted = /(\d+) i/.exec(summary);
+          const deleted = /(\d+) d/.exec(summary);
+          result.changed = asNumber(changed);
+          result.insertions = asNumber(inserted == null ? void 0 : inserted[1]);
+          result.deletions = asNumber(deleted == null ? void 0 : deleted[1]);
+        }
+      )
     ];
     numStatParser = [
-      new LineParser(/(\d+)\t(\d+)\t(.+)$/, (result, [changesInsert, changesDelete, file]) => {
-        const insertions = asNumber(changesInsert);
-        const deletions = asNumber(changesDelete);
-        result.changed++;
-        result.insertions += insertions;
-        result.deletions += deletions;
-        result.files.push({
-          file,
-          changes: insertions + deletions,
-          insertions,
-          deletions,
-          binary: false
-        });
-      }),
+      new LineParser(
+        /(\d+)\t(\d+)\t(.+)$/,
+        (result, [changesInsert, changesDelete, file]) => {
+          const insertions = asNumber(changesInsert);
+          const deletions = asNumber(changesDelete);
+          result.changed++;
+          result.insertions += insertions;
+          result.deletions += deletions;
+          result.files.push({
+            file,
+            changes: insertions + deletions,
+            insertions,
+            deletions,
+            binary: false
+          });
+        }
+      ),
       new LineParser(/-\t-\t(.+)$/, (result, [file]) => {
         result.changed++;
         result.files.push({
@@ -12290,16 +12545,20 @@ var init_parse_diff_summary = __esm({
       })
     ];
     nameStatusParser = [
-      new LineParser(/([ACDMRTUXB])\s*(.+)$/, (result, [_status, file]) => {
-        result.changed++;
-        result.files.push({
-          file,
-          changes: 0,
-          insertions: 0,
-          deletions: 0,
-          binary: false
-        });
-      })
+      new LineParser(
+        /([ACDMRTUXB])([0-9]{0,3})\t(.[^\t]*)(\t(.[^\t]*))?$/,
+        (result, [status, _similarity, from, _to, to]) => {
+          result.changed++;
+          result.files.push({
+            file: to != null ? to : from,
+            changes: 0,
+            status: orVoid(isDiffNameStatus(status) && status),
+            insertions: 0,
+            deletions: 0,
+            binary: false
+          });
+        }
+      )
     ];
     diffSummaryParsers = {
       [
@@ -12326,17 +12585,27 @@ var init_parse_diff_summary = __esm({
   }
 });
 function lineBuilder(tokens, fields) {
-  return fields.reduce((line, field, index) => {
-    line[field] = tokens[index] || "";
-    return line;
-  }, /* @__PURE__ */ Object.create({ diff: null }));
+  return fields.reduce(
+    (line, field, index) => {
+      line[field] = tokens[index] || "";
+      return line;
+    },
+    /* @__PURE__ */ Object.create({ diff: null })
+  );
 }
 function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames, logFormat = "") {
   const parseDiffResult = getDiffParser(logFormat);
   return function(stdOut) {
-    const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
+    const all = toLinesWithContent(
+      stdOut,
+      true,
+      START_BOUNDARY
+    ).map(function(item) {
       const lineDetail = item.trim().split(COMMIT_BOUNDARY);
-      const listLogLine = lineBuilder(lineDetail[0].trim().split(splitter), fields);
+      const listLogLine = lineBuilder(
+        lineDetail[0].trim().split(splitter),
+        fields
+      );
       if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
         listLogLine.diff = parseDiffResult(lineDetail[1]);
       }
@@ -12355,6 +12624,7 @@ var SPLITTER;
 var defaultFieldNames;
 var init_parse_list_log_summary = __esm({
   "src/lib/parsers/parse-list-log-summary.ts"() {
+    "use strict";
     init_utils();
     init_parse_diff_summary();
     init_log_format();
@@ -12386,14 +12656,19 @@ function diffSummaryTask(customArgs) {
 function validateLogFormatConfig(customArgs) {
   const flags = customArgs.filter(isLogFormat);
   if (flags.length > 1) {
-    return configurationErrorTask(`Summary flags are mutually exclusive - pick one of ${flags.join(",")}`);
+    return configurationErrorTask(
+      `Summary flags are mutually exclusive - pick one of ${flags.join(",")}`
+    );
   }
   if (flags.length && customArgs.includes("-z")) {
-    return configurationErrorTask(`Summary flag ${flags} parsing is not compatible with null termination option '-z'`);
+    return configurationErrorTask(
+      `Summary flag ${flags} parsing is not compatible with null termination option '-z'`
+    );
   }
 }
 var init_diff = __esm({
   "src/lib/tasks/diff.ts"() {
+    "use strict";
     init_log_format();
     init_parse_diff_summary();
     init_task();
@@ -12452,18 +12727,21 @@ function parseLogOptions(opt = {}, customArgs = []) {
   };
 }
 function logTask(splitter, fields, customArgs) {
-  const parser3 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
+  const parser4 = createListLogSummaryParser(splitter, fields, logFormatFromCommand(customArgs));
   return {
     commands: ["log", ...customArgs],
     format: "utf-8",
-    parser: parser3
+    parser: parser4
   };
 }
 function log_default() {
   return {
     log(...rest) {
       const next = trailingFunctionArgument(arguments);
-      const options3 = parseLogOptions(trailingOptionsArgument(arguments), filterType(arguments[0], filterArray));
+      const options3 = parseLogOptions(
+        trailingOptionsArgument(arguments),
+        filterType(arguments[0], filterArray)
+      );
       const task = rejectDeprecatedSignatures(...rest) || validateLogFormatConfig(options3.commands) || createLogTask(options3);
       return this._runTask(task, next);
     }
@@ -12472,12 +12750,15 @@ function log_default() {
     return logTask(options3.splitter, options3.fields, options3.commands);
   }
   function rejectDeprecatedSignatures(from, to) {
-    return filterString(from) && filterString(to) && configurationErrorTask(`git.log(string, string) should be replaced with git.log({ from: string, to: string })`);
+    return filterString(from) && filterString(to) && configurationErrorTask(
+      `git.log(string, string) should be replaced with git.log({ from: string, to: string })`
+    );
   }
 }
 var excludeOptions;
 var init_log = __esm({
   "src/lib/tasks/log.ts"() {
+    "use strict";
     init_log_format();
     init_pathspec();
     init_parse_list_log_summary();
@@ -12506,6 +12787,7 @@ var MergeSummaryConflict;
 var MergeSummaryDetail;
 var init_MergeSummary = __esm({
   "src/lib/responses/MergeSummary.ts"() {
+    "use strict";
     MergeSummaryConflict = class {
       constructor(reason, file = null, meta) {
         this.reason = reason;
@@ -12541,6 +12823,7 @@ var PullSummary;
 var PullFailedSummary;
 var init_PullSummary = __esm({
   "src/lib/responses/PullSummary.ts"() {
+    "use strict";
     PullSummary = class {
       constructor() {
         this.remoteMessages = {
@@ -12598,24 +12881,34 @@ function asObjectCount(source) {
 var remoteMessagesObjectParsers;
 var init_parse_remote_objects = __esm({
   "src/lib/parsers/parse-remote-objects.ts"() {
+    "use strict";
     init_utils();
     remoteMessagesObjectParsers = [
-      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: (\d+),/i, (result, [action, count]) => {
-        const key = action.toLowerCase();
-        const enumeration = objectEnumerationResult(result.remoteMessages);
-        Object.assign(enumeration, { [key]: asNumber(count) });
-      }),
-      new RemoteLineParser(/^remote:\s*(enumerating|counting|compressing) objects: \d+% \(\d+\/(\d+)\),/i, (result, [action, count]) => {
-        const key = action.toLowerCase();
-        const enumeration = objectEnumerationResult(result.remoteMessages);
-        Object.assign(enumeration, { [key]: asNumber(count) });
-      }),
-      new RemoteLineParser(/total ([^,]+), reused ([^,]+), pack-reused (\d+)/i, (result, [total, reused, packReused]) => {
-        const objects = objectEnumerationResult(result.remoteMessages);
-        objects.total = asObjectCount(total);
-        objects.reused = asObjectCount(reused);
-        objects.packReused = asNumber(packReused);
-      })
+      new RemoteLineParser(
+        /^remote:\s*(enumerating|counting|compressing) objects: (\d+),/i,
+        (result, [action, count]) => {
+          const key = action.toLowerCase();
+          const enumeration = objectEnumerationResult(result.remoteMessages);
+          Object.assign(enumeration, { [key]: asNumber(count) });
+        }
+      ),
+      new RemoteLineParser(
+        /^remote:\s*(enumerating|counting|compressing) objects: \d+% \(\d+\/(\d+)\),/i,
+        (result, [action, count]) => {
+          const key = action.toLowerCase();
+          const enumeration = objectEnumerationResult(result.remoteMessages);
+          Object.assign(enumeration, { [key]: asNumber(count) });
+        }
+      ),
+      new RemoteLineParser(
+        /total ([^,]+), reused ([^,]+), pack-reused (\d+)/i,
+        (result, [total, reused, packReused]) => {
+          const objects = objectEnumerationResult(result.remoteMessages);
+          objects.total = asObjectCount(total);
+          objects.reused = asObjectCount(reused);
+          objects.packReused = asNumber(packReused);
+        }
+      )
     ];
   }
 });
@@ -12626,6 +12919,7 @@ var parsers2;
 var RemoteMessageSummary;
 var init_parse_remote_messages = __esm({
   "src/lib/parsers/parse-remote-messages.ts"() {
+    "use strict";
     init_utils();
     init_parse_remote_objects();
     parsers2 = [
@@ -12634,16 +12928,22 @@ var init_parse_remote_messages = __esm({
         return false;
       }),
       ...remoteMessagesObjectParsers,
-      new RemoteLineParser([/create a (?:pull|merge) request/i, /\s(https?:\/\/\S+)$/], (result, [pullRequestUrl]) => {
-        result.remoteMessages.pullRequestUrl = pullRequestUrl;
-      }),
-      new RemoteLineParser([/found (\d+) vulnerabilities.+\(([^)]+)\)/i, /\s(https?:\/\/\S+)$/], (result, [count, summary, url]) => {
-        result.remoteMessages.vulnerabilities = {
-          count: asNumber(count),
-          summary,
-          url
-        };
-      })
+      new RemoteLineParser(
+        [/create a (?:pull|merge) request/i, /\s(https?:\/\/\S+)$/],
+        (result, [pullRequestUrl]) => {
+          result.remoteMessages.pullRequestUrl = pullRequestUrl;
+        }
+      ),
+      new RemoteLineParser(
+        [/found (\d+) vulnerabilities.+\(([^)]+)\)/i, /\s(https?:\/\/\S+)$/],
+        (result, [count, summary, url]) => {
+          result.remoteMessages.vulnerabilities = {
+            count: asNumber(count),
+            summary,
+            url
+          };
+        }
+      )
     ];
     RemoteMessageSummary = class {
       constructor() {
@@ -12665,6 +12965,7 @@ var parsePullDetail;
 var parsePullResult;
 var init_parse_pull = __esm({
   "src/lib/parsers/parse-pull.ts"() {
+    "use strict";
     init_PullSummary();
     init_utils();
     init_parse_remote_messages();
@@ -12698,18 +12999,25 @@ var init_parse_pull = __esm({
     errorParsers = [
       new LineParser(/^from\s(.+)$/i, (result, [remote]) => void (result.remote = remote)),
       new LineParser(/^fatal:\s(.+)$/, (result, [message]) => void (result.message = message)),
-      new LineParser(/([a-z0-9]+)\.\.([a-z0-9]+)\s+(\S+)\s+->\s+(\S+)$/, (result, [hashLocal, hashRemote, branchLocal, branchRemote]) => {
-        result.branch.local = branchLocal;
-        result.hash.local = hashLocal;
-        result.branch.remote = branchRemote;
-        result.hash.remote = hashRemote;
-      })
+      new LineParser(
+        /([a-z0-9]+)\.\.([a-z0-9]+)\s+(\S+)\s+->\s+(\S+)$/,
+        (result, [hashLocal, hashRemote, branchLocal, branchRemote]) => {
+          result.branch.local = branchLocal;
+          result.hash.local = hashLocal;
+          result.branch.remote = branchRemote;
+          result.hash.remote = hashRemote;
+        }
+      )
     ];
     parsePullDetail = (stdOut, stdErr) => {
       return parseStringResponse(new PullSummary(), parsers3, [stdOut, stdErr]);
     };
     parsePullResult = (stdOut, stdErr) => {
-      return Object.assign(new PullSummary(), parsePullDetail(stdOut, stdErr), parseRemoteMessages(stdOut, stdErr));
+      return Object.assign(
+        new PullSummary(),
+        parsePullDetail(stdOut, stdErr),
+        parseRemoteMessages(stdOut, stdErr)
+      );
     };
   }
 });
@@ -12718,6 +13026,7 @@ var parseMergeResult;
 var parseMergeDetail;
 var init_parse_merge = __esm({
   "src/lib/parsers/parse-merge.ts"() {
+    "use strict";
     init_MergeSummary();
     init_utils();
     init_parse_pull();
@@ -12728,9 +13037,12 @@ var init_parse_merge = __esm({
       new LineParser(/^CONFLICT\s+\((.+)\): Merge conflict in (.+)$/, (summary, [reason, file]) => {
         summary.conflicts.push(new MergeSummaryConflict(reason, file));
       }),
-      new LineParser(/^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/, (summary, [reason, file, deleteRef]) => {
-        summary.conflicts.push(new MergeSummaryConflict(reason, file, { deleteRef }));
-      }),
+      new LineParser(
+        /^CONFLICT\s+\((.+\/delete)\): (.+) deleted in (.+) and/,
+        (summary, [reason, file, deleteRef]) => {
+          summary.conflicts.push(new MergeSummaryConflict(reason, file, { deleteRef }));
+        }
+      ),
       new LineParser(/^CONFLICT\s+\((.+)\):/, (summary, [reason]) => {
         summary.conflicts.push(new MergeSummaryConflict(reason, null));
       }),
@@ -12764,6 +13076,7 @@ function mergeTask(customArgs) {
 }
 var init_merge = __esm({
   "src/lib/tasks/merge.ts"() {
+    "use strict";
     init_git_response_error();
     init_parse_merge();
     init_task();
@@ -12788,6 +13101,7 @@ var parsePushResult;
 var parsePushDetail;
 var init_parse_push = __esm({
   "src/lib/parsers/parse-push.ts"() {
+    "use strict";
     init_utils();
     init_parse_remote_messages();
     parsers5 = [
@@ -12802,25 +13116,31 @@ var init_parse_push = __esm({
       new LineParser(/^[=*-]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
         result.pushed.push(pushResultPushedItem(local, remote, type));
       }),
-      new LineParser(/^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/, (result, [local, remote, remoteName]) => {
-        result.branch = __spreadProps(__spreadValues({}, result.branch || {}), {
-          local,
-          remote,
-          remoteName
-        });
-      }),
-      new LineParser(/^([^:]+):(\S+)\s+([a-z0-9]+)\.\.([a-z0-9]+)$/, (result, [local, remote, from, to]) => {
-        result.update = {
-          head: {
+      new LineParser(
+        /^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/,
+        (result, [local, remote, remoteName]) => {
+          result.branch = __spreadProps(__spreadValues({}, result.branch || {}), {
             local,
-            remote
-          },
-          hash: {
-            from,
-            to
-          }
-        };
-      })
+            remote,
+            remoteName
+          });
+        }
+      ),
+      new LineParser(
+        /^([^:]+):(\S+)\s+([a-z0-9]+)\.\.([a-z0-9]+)$/,
+        (result, [local, remote, from, to]) => {
+          result.update = {
+            head: {
+              local,
+              remote
+            },
+            hash: {
+              from,
+              to
+            }
+          };
+        }
+      )
     ];
     parsePushResult = (stdOut, stdErr) => {
       const pushDetail = parsePushDetail(stdOut, stdErr);
@@ -12860,6 +13180,7 @@ function pushTask(ref = {}, customArgs) {
 }
 var init_push = __esm({
   "src/lib/tasks/push.ts"() {
+    "use strict";
     init_parse_push();
     init_utils();
   }
@@ -12871,16 +13192,23 @@ function show_default() {
       if (!commands.includes("--binary")) {
         commands.splice(1, 0, "--binary");
       }
-      return this._runTask(straightThroughBufferTask(commands), trailingFunctionArgument(arguments));
+      return this._runTask(
+        straightThroughBufferTask(commands),
+        trailingFunctionArgument(arguments)
+      );
     },
     show() {
       const commands = ["show", ...getTrailingOptions(arguments, 1)];
-      return this._runTask(straightThroughStringTask(commands), trailingFunctionArgument(arguments));
+      return this._runTask(
+        straightThroughStringTask(commands),
+        trailingFunctionArgument(arguments)
+      );
     }
   };
 }
 var init_show = __esm({
   "src/lib/tasks/show.ts"() {
+    "use strict";
     init_utils();
     init_task();
   }
@@ -12889,13 +13217,14 @@ var fromPathRegex;
 var FileStatusSummary;
 var init_FileStatusSummary = __esm({
   "src/lib/responses/FileStatusSummary.ts"() {
+    "use strict";
     fromPathRegex = /^(.+) -> (.+)$/;
     FileStatusSummary = class {
       constructor(path5, index, working_dir) {
         this.path = path5;
         this.index = index;
         this.working_dir = working_dir;
-        if (index + working_dir === "R") {
+        if ("R" === index + working_dir) {
           const detail = fromPathRegex.exec(path5) || [null, path5, path5];
           this.from = detail[1] || "";
           this.path = detail[2] || "";
@@ -12911,11 +13240,11 @@ function renamedFile(line) {
     to
   };
 }
-function parser2(indexX, indexY, handler) {
+function parser3(indexX, indexY, handler) {
   return [`${indexX}${indexY}`, handler];
 }
 function conflicts(indexX, ...indexY) {
-  return indexY.map((y) => parser2(indexX, y, (result, file) => append(result.conflicted, file)));
+  return indexY.map((y) => parser3(indexX, y, (result, file) => append(result.conflicted, file)));
 }
 function splitLine(result, lineStr) {
   const trimmed2 = lineStr.trim();
@@ -12943,6 +13272,7 @@ var parsers6;
 var parseStatusSummary;
 var init_StatusSummary = __esm({
   "src/lib/responses/StatusSummary.ts"() {
+    "use strict";
     init_utils();
     init_FileStatusSummary();
     StatusSummary = class {
@@ -12967,26 +13297,62 @@ var init_StatusSummary = __esm({
       }
     };
     parsers6 = new Map([
-      parser2(" ", "A", (result, file) => append(result.created, file)),
-      parser2(" ", "D", (result, file) => append(result.deleted, file)),
-      parser2(" ", "M", (result, file) => append(result.modified, file)),
-      parser2("A", " ", (result, file) => append(result.created, file) && append(result.staged, file)),
-      parser2("A", "M", (result, file) => append(result.created, file) && append(result.staged, file) && append(result.modified, file)),
-      parser2("D", " ", (result, file) => append(result.deleted, file) && append(result.staged, file)),
-      parser2("M", " ", (result, file) => append(result.modified, file) && append(result.staged, file)),
-      parser2("M", "M", (result, file) => append(result.modified, file) && append(result.staged, file)),
-      parser2("R", " ", (result, file) => {
+      parser3(
+        " ",
+        "A",
+        (result, file) => append(result.created, file)
+      ),
+      parser3(
+        " ",
+        "D",
+        (result, file) => append(result.deleted, file)
+      ),
+      parser3(
+        " ",
+        "M",
+        (result, file) => append(result.modified, file)
+      ),
+      parser3(
+        "A",
+        " ",
+        (result, file) => append(result.created, file) && append(result.staged, file)
+      ),
+      parser3(
+        "A",
+        "M",
+        (result, file) => append(result.created, file) && append(result.staged, file) && append(result.modified, file)
+      ),
+      parser3(
+        "D",
+        " ",
+        (result, file) => append(result.deleted, file) && append(result.staged, file)
+      ),
+      parser3(
+        "M",
+        " ",
+        (result, file) => append(result.modified, file) && append(result.staged, file)
+      ),
+      parser3(
+        "M",
+        "M",
+        (result, file) => append(result.modified, file) && append(result.staged, file)
+      ),
+      parser3("R", " ", (result, file) => {
         append(result.renamed, renamedFile(file));
       }),
-      parser2("R", "M", (result, file) => {
+      parser3("R", "M", (result, file) => {
         const renamed = renamedFile(file);
         append(result.renamed, renamed);
         append(result.modified, renamed.to);
       }),
-      parser2("!", "!", (_result, _file) => {
+      parser3("!", "!", (_result, _file) => {
         append(_result.ignored = _result.ignored || [], _file);
       }),
-      parser2("?", "?", (result, file) => append(result.not_added, file)),
+      parser3(
+        "?",
+        "?",
+        (result, file) => append(result.not_added, file)
+      ),
       ...conflicts(
         "A",
         "A",
@@ -13066,24 +13432,29 @@ function statusTask(customArgs) {
 var ignoredOptions;
 var init_status = __esm({
   "src/lib/tasks/status.ts"() {
+    "use strict";
     init_StatusSummary();
     ignoredOptions = ["--null", "-z"];
   }
 });
 function versionResponse(major2 = 0, minor2 = 0, patch = 0, agent = "", installed = true) {
-  return Object.defineProperty({
-    major: major2,
-    minor: minor2,
-    patch,
-    agent,
-    installed
-  }, "toString", {
-    value() {
-      return `${this.major}.${this.minor}.${this.patch}`;
+  return Object.defineProperty(
+    {
+      major: major2,
+      minor: minor2,
+      patch,
+      agent,
+      installed
     },
-    configurable: false,
-    enumerable: false
-  });
+    "toString",
+    {
+      value() {
+        return `${this.major}.${this.minor}.${this.patch}`;
+      },
+      configurable: false,
+      enumerable: false
+    }
+  );
 }
 function notInstalledResponse() {
   return versionResponse(0, 0, 0, "", false);
@@ -13115,15 +13486,25 @@ var NOT_INSTALLED;
 var parsers7;
 var init_version = __esm({
   "src/lib/tasks/version.ts"() {
+    "use strict";
     init_utils();
     NOT_INSTALLED = "installed=false";
     parsers7 = [
-      new LineParser(/version (\d+)\.(\d+)\.(\d+)(?:\s*\((.+)\))?/, (result, [major2, minor2, patch, agent = ""]) => {
-        Object.assign(result, versionResponse(asNumber(major2), asNumber(minor2), asNumber(patch), agent));
-      }),
-      new LineParser(/version (\d+)\.(\d+)\.(\D+)(.+)?$/, (result, [major2, minor2, patch, agent = ""]) => {
-        Object.assign(result, versionResponse(asNumber(major2), asNumber(minor2), patch, agent));
-      })
+      new LineParser(
+        /version (\d+)\.(\d+)\.(\d+)(?:\s*\((.+)\))?/,
+        (result, [major2, minor2, patch, agent = ""]) => {
+          Object.assign(
+            result,
+            versionResponse(asNumber(major2), asNumber(minor2), asNumber(patch), agent)
+          );
+        }
+      ),
+      new LineParser(
+        /version (\d+)\.(\d+)\.(\D+)(.+)?$/,
+        (result, [major2, minor2, patch, agent = ""]) => {
+          Object.assign(result, versionResponse(asNumber(major2), asNumber(minor2), patch, agent));
+        }
+      )
     ];
   }
 });
@@ -13134,9 +13515,11 @@ __export(simple_git_api_exports, {
 var SimpleGitApi;
 var init_simple_git_api = __esm({
   "src/lib/simple-git-api.ts"() {
+    "use strict";
     init_task_callback();
     init_change_working_directory();
     init_checkout();
+    init_count_objects();
     init_commit();
     init_config();
     init_first_commit();
@@ -13168,7 +13551,10 @@ var init_simple_git_api = __esm({
         });
       }
       add(files) {
-        return this._runTask(straightThroughStringTask(["add", ...asArray(files)]), trailingFunctionArgument(arguments));
+        return this._runTask(
+          straightThroughStringTask(["add", ...asArray(files)]),
+          trailingFunctionArgument(arguments)
+        );
       }
       cwd(directory) {
         const next = trailingFunctionArgument(arguments);
@@ -13176,44 +13562,89 @@ var init_simple_git_api = __esm({
           return this._runTask(changeWorkingDirectoryTask(directory, this._executor), next);
         }
         if (typeof (directory == null ? void 0 : directory.path) === "string") {
-          return this._runTask(changeWorkingDirectoryTask(directory.path, directory.root && this._executor || void 0), next);
+          return this._runTask(
+            changeWorkingDirectoryTask(
+              directory.path,
+              directory.root && this._executor || void 0
+            ),
+            next
+          );
         }
-        return this._runTask(configurationErrorTask("Git.cwd: workingDirectory must be supplied as a string"), next);
+        return this._runTask(
+          configurationErrorTask("Git.cwd: workingDirectory must be supplied as a string"),
+          next
+        );
       }
       hashObject(path5, write) {
-        return this._runTask(hashObjectTask(path5, write === true), trailingFunctionArgument(arguments));
+        return this._runTask(
+          hashObjectTask(path5, write === true),
+          trailingFunctionArgument(arguments)
+        );
       }
       init(bare) {
-        return this._runTask(initTask(bare === true, this._executor.cwd, getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+        return this._runTask(
+          initTask(bare === true, this._executor.cwd, getTrailingOptions(arguments)),
+          trailingFunctionArgument(arguments)
+        );
       }
       merge() {
-        return this._runTask(mergeTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+        return this._runTask(
+          mergeTask(getTrailingOptions(arguments)),
+          trailingFunctionArgument(arguments)
+        );
       }
       mergeFromTo(remote, branch) {
         if (!(filterString(remote) && filterString(branch))) {
-          return this._runTask(configurationErrorTask(`Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings`));
+          return this._runTask(
+            configurationErrorTask(
+              `Git.mergeFromTo requires that the 'remote' and 'branch' arguments are supplied as strings`
+            )
+          );
         }
-        return this._runTask(mergeTask([remote, branch, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments, false));
+        return this._runTask(
+          mergeTask([remote, branch, ...getTrailingOptions(arguments)]),
+          trailingFunctionArgument(arguments, false)
+        );
       }
       outputHandler(handler) {
         this._executor.outputHandler = handler;
         return this;
       }
       push() {
-        const task = pushTask({
-          remote: filterType(arguments[0], filterString),
-          branch: filterType(arguments[1], filterString)
-        }, getTrailingOptions(arguments));
+        const task = pushTask(
+          {
+            remote: filterType(arguments[0], filterString),
+            branch: filterType(arguments[1], filterString)
+          },
+          getTrailingOptions(arguments)
+        );
         return this._runTask(task, trailingFunctionArgument(arguments));
       }
       stash() {
-        return this._runTask(straightThroughStringTask(["stash", ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+        return this._runTask(
+          straightThroughStringTask(["stash", ...getTrailingOptions(arguments)]),
+          trailingFunctionArgument(arguments)
+        );
       }
       status() {
-        return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
+        return this._runTask(
+          statusTask(getTrailingOptions(arguments)),
+          trailingFunctionArgument(arguments)
+        );
       }
     };
-    Object.assign(SimpleGitApi.prototype, checkout_default(), commit_default(), config_default(), first_commit_default(), grep_default(), log_default(), show_default(), version_default());
+    Object.assign(
+      SimpleGitApi.prototype,
+      checkout_default(),
+      commit_default(),
+      config_default(),
+      count_objects_default(),
+      first_commit_default(),
+      grep_default(),
+      log_default(),
+      show_default(),
+      version_default()
+    );
   }
 });
 var scheduler_exports = {};
@@ -13224,6 +13655,7 @@ var createScheduledTask;
 var Scheduler;
 var init_scheduler = __esm({
   "src/lib/runners/scheduler.ts"() {
+    "use strict";
     init_utils();
     init_git_logger();
     createScheduledTask = /* @__PURE__ */ (() => {
@@ -13248,7 +13680,12 @@ var init_scheduler = __esm({
       }
       schedule() {
         if (!this.pending.length || this.running.length >= this.concurrency) {
-          this.logger(`Schedule attempt ignored, pending=%s running=%s concurrency=%s`, this.pending.length, this.running.length, this.concurrency);
+          this.logger(
+            `Schedule attempt ignored, pending=%s running=%s concurrency=%s`,
+            this.pending.length,
+            this.running.length,
+            this.concurrency
+          );
           return;
         }
         const task = append(this.running, this.pending.shift());
@@ -13277,6 +13714,7 @@ function applyPatchTask(patches, customArgs) {
 }
 var init_apply_patch = __esm({
   "src/lib/tasks/apply-patch.ts"() {
+    "use strict";
     init_task();
   }
 });
@@ -13297,6 +13735,7 @@ function branchDeletionFailure(branch) {
 var BranchDeletionBatch;
 var init_BranchDeleteSummary = __esm({
   "src/lib/responses/BranchDeleteSummary.ts"() {
+    "use strict";
     BranchDeletionBatch = class {
       constructor() {
         this.all = [];
@@ -13318,6 +13757,7 @@ var parsers8;
 var parseBranchDeletions;
 var init_parse_branch_delete = __esm({
   "src/lib/parsers/parse-branch-delete.ts"() {
+    "use strict";
     init_BranchDeleteSummary();
     init_utils();
     deleteSuccessRegex = /(\S+)\s+\(\S+\s([^)]+)\)/;
@@ -13343,6 +13783,7 @@ var init_parse_branch_delete = __esm({
 var BranchSummaryResult;
 var init_BranchSummary = __esm({
   "src/lib/responses/BranchSummary.ts"() {
+    "use strict";
     BranchSummaryResult = class {
       constructor() {
         this.all = [];
@@ -13376,15 +13817,22 @@ function parseBranchSummary(stdOut) {
 var parsers9;
 var init_parse_branch = __esm({
   "src/lib/parsers/parse-branch.ts"() {
+    "use strict";
     init_BranchSummary();
     init_utils();
     parsers9 = [
-      new LineParser(/^([*+]\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/, (result, [current, name, commit, label]) => {
-        result.push(branchStatus(current), true, name, commit, label);
-      }),
-      new LineParser(/^([*+]\s)?(\S+)\s+([a-z0-9]+)\s?(.*)$/s, (result, [current, name, commit, label]) => {
-        result.push(branchStatus(current), false, name, commit, label);
-      })
+      new LineParser(
+        /^([*+]\s)?\((?:HEAD )?detached (?:from|at) (\S+)\)\s+([a-z0-9]+)\s(.*)$/,
+        (result, [current, name, commit, label]) => {
+          result.push(branchStatus(current), true, name, commit, label);
+        }
+      ),
+      new LineParser(
+        new RegExp("^([*+]\\s)?(\\S+)\\s+([a-z0-9]+)\\s?(.*)$", "s"),
+        (result, [current, name, commit, label]) => {
+          result.push(branchStatus(current), false, name, commit, label);
+        }
+      )
     ];
   }
 });
@@ -13421,11 +13869,11 @@ function branchTask(customArgs) {
   };
 }
 function branchLocalTask() {
-  const parser3 = parseBranchSummary;
+  const parser4 = parseBranchSummary;
   return {
     format: "utf-8",
     commands: ["branch", "-v"],
-    parser: parser3
+    parser: parser4
   };
 }
 function deleteBranchesTask(branches, forceDelete = false) {
@@ -13454,13 +13902,17 @@ function deleteBranchTask(branch, forceDelete = false) {
       if (!hasBranchDeletionError(String(error8), exitCode)) {
         return fail(error8);
       }
-      throw new GitResponseError(task.parser(bufferToString(stdOut), bufferToString(stdErr)), String(error8));
+      throw new GitResponseError(
+        task.parser(bufferToString(stdOut), bufferToString(stdErr)),
+        String(error8)
+      );
     }
   };
   return task;
 }
 var init_branch = __esm({
   "src/lib/tasks/branch.ts"() {
+    "use strict";
     init_git_response_error();
     init_parse_branch_delete();
     init_parse_branch();
@@ -13470,6 +13922,7 @@ var init_branch = __esm({
 var parseCheckIgnore;
 var init_CheckIgnore = __esm({
   "src/lib/responses/CheckIgnore.ts"() {
+    "use strict";
     parseCheckIgnore = (text) => {
       return text.split(/\n/g).map((line) => line.trim()).filter((file) => !!file);
     };
@@ -13488,6 +13941,7 @@ function checkIgnoreTask(paths) {
 }
 var init_check_ignore = __esm({
   "src/lib/tasks/check-ignore.ts"() {
+    "use strict";
     init_CheckIgnore();
   }
 });
@@ -13515,6 +13969,7 @@ function cloneMirrorTask(repo, directory, customArgs) {
 }
 var init_clone = __esm({
   "src/lib/tasks/clone.ts"() {
+    "use strict";
     init_task();
     init_utils();
   }
@@ -13533,6 +13988,7 @@ function parseFetchResult(stdOut, stdErr) {
 var parsers10;
 var init_parse_fetch = __esm({
   "src/lib/parsers/parse-fetch.ts"() {
+    "use strict";
     init_utils();
     parsers10 = [
       new LineParser(/From (.+)$/, (result, [remote]) => {
@@ -13555,14 +14011,17 @@ var init_parse_fetch = __esm({
           tracking
         });
       }),
-      new LineParser(/\s*([^.]+)\.\.(\S+)\s+(\S+)\s*-> (.+)$/, (result, [from, to, name, tracking]) => {
-        result.updated.push({
-          name,
-          tracking,
-          to,
-          from
-        });
-      })
+      new LineParser(
+        /\s*([^.]+)\.\.(\S+)\s+(\S+)\s*-> (.+)$/,
+        (result, [from, to, name, tracking]) => {
+          result.updated.push({
+            name,
+            tracking,
+            to,
+            from
+          });
+        }
+      )
     ];
   }
 });
@@ -13590,6 +14049,7 @@ function fetchTask(remote, branch, customArgs) {
 }
 var init_fetch = __esm({
   "src/lib/tasks/fetch.ts"() {
+    "use strict";
     init_parse_fetch();
     init_task();
   }
@@ -13600,6 +14060,7 @@ function parseMoveResult(stdOut) {
 var parsers11;
 var init_parse_move = __esm({
   "src/lib/parsers/parse-move.ts"() {
+    "use strict";
     init_utils();
     parsers11 = [
       new LineParser(/^Renaming (.+) to (.+)$/, (result, [from, to]) => {
@@ -13621,6 +14082,7 @@ function moveTask(from, to) {
 }
 var init_move = __esm({
   "src/lib/tasks/move.ts"() {
+    "use strict";
     init_parse_move();
     init_utils();
   }
@@ -13641,7 +14103,10 @@ function pullTask(remote, branch, customArgs) {
       return parsePullResult(stdOut, stdErr);
     },
     onError(result, _error, _done, fail) {
-      const pullError = parsePullErrorResult(bufferToString(result.stdOut), bufferToString(result.stdErr));
+      const pullError = parsePullErrorResult(
+        bufferToString(result.stdOut),
+        bufferToString(result.stdErr)
+      );
       if (pullError) {
         return fail(new GitResponseError(pullError));
       }
@@ -13651,6 +14116,7 @@ function pullTask(remote, branch, customArgs) {
 }
 var init_pull = __esm({
   "src/lib/tasks/pull.ts"() {
+    "use strict";
     init_git_response_error();
     init_parse_pull();
     init_utils();
@@ -13681,6 +14147,7 @@ function forEach(text, handler) {
 }
 var init_GetRemoteSummary = __esm({
   "src/lib/responses/GetRemoteSummary.ts"() {
+    "use strict";
     init_utils();
   }
 });
@@ -13692,7 +14159,7 @@ __export(remote_exports, {
   remoteTask: () => remoteTask,
   removeRemoteTask: () => removeRemoteTask
 });
-function addRemoteTask(remoteName, remoteRepo, customArgs = []) {
+function addRemoteTask(remoteName, remoteRepo, customArgs) {
   return straightThroughStringTask(["remote", "add", ...customArgs, remoteName, remoteRepo]);
 }
 function getRemotesTask(verbose) {
@@ -13706,14 +14173,14 @@ function getRemotesTask(verbose) {
     parser: verbose ? parseGetRemotesVerbose : parseGetRemotes
   };
 }
-function listRemotesTask(customArgs = []) {
+function listRemotesTask(customArgs) {
   const commands = [...customArgs];
   if (commands[0] !== "ls-remote") {
     commands.unshift("ls-remote");
   }
   return straightThroughStringTask(commands);
 }
-function remoteTask(customArgs = []) {
+function remoteTask(customArgs) {
   const commands = [...customArgs];
   if (commands[0] !== "remote") {
     commands.unshift("remote");
@@ -13725,6 +14192,7 @@ function removeRemoteTask(remoteName) {
 }
 var init_remote = __esm({
   "src/lib/tasks/remote.ts"() {
+    "use strict";
     init_GetRemoteSummary();
     init_task();
   }
@@ -13736,15 +14204,20 @@ __export(stash_list_exports, {
 function stashListTask(opt = {}, customArgs) {
   const options3 = parseLogOptions(opt);
   const commands = ["stash", "list", ...options3.commands, ...customArgs];
-  const parser3 = createListLogSummaryParser(options3.splitter, options3.fields, logFormatFromCommand(commands));
+  const parser4 = createListLogSummaryParser(
+    options3.splitter,
+    options3.fields,
+    logFormatFromCommand(commands)
+  );
   return validateLogFormatConfig(commands) || {
     commands,
     format: "utf-8",
-    parser: parser3
+    parser: parser4
   };
 }
 var init_stash_list = __esm({
   "src/lib/tasks/stash-list.ts"() {
+    "use strict";
     init_log_format();
     init_parse_list_log_summary();
     init_diff();
@@ -13776,6 +14249,7 @@ function updateSubModuleTask(customArgs) {
 }
 var init_sub_module = __esm({
   "src/lib/tasks/sub-module.ts"() {
+    "use strict";
     init_task();
   }
 });
@@ -13803,6 +14277,7 @@ var TagList;
 var parseTagList;
 var init_TagList = __esm({
   "src/lib/responses/TagList.ts"() {
+    "use strict";
     TagList = class {
       constructor(all, latest) {
         this.all = all;
@@ -13868,11 +14343,13 @@ function addAnnotatedTagTask(name, tagMessage) {
 }
 var init_tag = __esm({
   "src/lib/tasks/tag.ts"() {
+    "use strict";
     init_TagList();
   }
 });
 var require_git = __commonJS2({
   "src/git.js"(exports, module2) {
+    "use strict";
     var { GitExecutor: GitExecutor2 } = (init_git_executor(), __toCommonJS(git_executor_exports));
     var { SimpleGitApi: SimpleGitApi2 } = (init_simple_git_api(), __toCommonJS(simple_git_api_exports));
     var { Scheduler: Scheduler2 } = (init_scheduler(), __toCommonJS(scheduler_exports));
@@ -13922,12 +14399,17 @@ var require_git = __commonJS2({
     var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS(tag_exports));
     var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS(task_exports));
     function Git2(options3, plugins) {
-      this._executor = new GitExecutor2(options3.binary, options3.baseDir, new Scheduler2(options3.maxConcurrentProcesses), plugins);
+      this._plugins = plugins;
+      this._executor = new GitExecutor2(
+        options3.baseDir,
+        new Scheduler2(options3.maxConcurrentProcesses),
+        plugins
+      );
       this._trimmed = options3.trimmed;
     }
     (Git2.prototype = Object.create(SimpleGitApi2.prototype)).constructor = Git2;
     Git2.prototype.customBinary = function(command) {
-      this._executor.binary = command;
+      this._plugins.reconfigure("binary", command);
       return this;
     };
     Git2.prototype.env = function(name, value) {
@@ -13939,7 +14421,13 @@ var require_git = __commonJS2({
       return this;
     };
     Git2.prototype.stashList = function(options3) {
-      return this._runTask(stashListTask2(trailingOptionsArgument2(arguments) || {}, filterArray2(options3) && options3 || []), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        stashListTask2(
+          trailingOptionsArgument2(arguments) || {},
+          filterArray2(options3) && options3 || []
+        ),
+        trailingFunctionArgument2(arguments)
+      );
     };
     function createCloneTask(api, task, repoPath, localPath) {
       if (typeof repoPath !== "string") {
@@ -13948,10 +14436,16 @@ var require_git = __commonJS2({
       return task(repoPath, filterType2(localPath, filterString2), getTrailingOptions2(arguments));
     }
     Git2.prototype.clone = function() {
-      return this._runTask(createCloneTask("clone", cloneTask2, ...arguments), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        createCloneTask("clone", cloneTask2, ...arguments),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.mirror = function() {
-      return this._runTask(createCloneTask("mirror", cloneMirrorTask2, ...arguments), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        createCloneTask("mirror", cloneMirrorTask2, ...arguments),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.mv = function(from, to) {
       return this._runTask(moveTask2(from, to), trailingFunctionArgument2(arguments));
@@ -13965,46 +14459,86 @@ var require_git = __commonJS2({
       });
     };
     Git2.prototype.pull = function(remote, branch, options3, then) {
-      return this._runTask(pullTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        pullTask2(
+          filterType2(remote, filterString2),
+          filterType2(branch, filterString2),
+          getTrailingOptions2(arguments)
+        ),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.fetch = function(remote, branch) {
-      return this._runTask(fetchTask2(filterType2(remote, filterString2), filterType2(branch, filterString2), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        fetchTask2(
+          filterType2(remote, filterString2),
+          filterType2(branch, filterString2),
+          getTrailingOptions2(arguments)
+        ),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.silent = function(silence) {
-      console.warn("simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3");
+      console.warn(
+        "simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3"
+      );
       return this;
     };
     Git2.prototype.tags = function(options3, then) {
-      return this._runTask(tagListTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        tagListTask2(getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.rebase = function() {
-      return this._runTask(straightThroughStringTask2(["rebase", ...getTrailingOptions2(arguments)]), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        straightThroughStringTask2(["rebase", ...getTrailingOptions2(arguments)]),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.reset = function(mode) {
-      return this._runTask(resetTask2(getResetMode2(mode), getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        resetTask2(getResetMode2(mode), getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.revert = function(commit) {
       const next = trailingFunctionArgument2(arguments);
       if (typeof commit !== "string") {
         return this._runTask(configurationErrorTask2("Commit must be a string"), next);
       }
-      return this._runTask(straightThroughStringTask2(["revert", ...getTrailingOptions2(arguments, 0, true), commit]), next);
+      return this._runTask(
+        straightThroughStringTask2(["revert", ...getTrailingOptions2(arguments, 0, true), commit]),
+        next
+      );
     };
     Git2.prototype.addTag = function(name) {
       const task = typeof name === "string" ? addTagTask2(name) : configurationErrorTask2("Git.addTag requires a tag name");
       return this._runTask(task, trailingFunctionArgument2(arguments));
     };
     Git2.prototype.addAnnotatedTag = function(tagName, tagMessage) {
-      return this._runTask(addAnnotatedTagTask2(tagName, tagMessage), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        addAnnotatedTagTask2(tagName, tagMessage),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.deleteLocalBranch = function(branchName, forceDelete, then) {
-      return this._runTask(deleteBranchTask2(branchName, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        deleteBranchTask2(branchName, typeof forceDelete === "boolean" ? forceDelete : false),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.deleteLocalBranches = function(branchNames, forceDelete, then) {
-      return this._runTask(deleteBranchesTask2(branchNames, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        deleteBranchesTask2(branchNames, typeof forceDelete === "boolean" ? forceDelete : false),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.branch = function(options3, then) {
-      return this._runTask(branchTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        branchTask2(getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.branchLocal = function(then) {
       return this._runTask(branchLocalTask2(), trailingFunctionArgument2(arguments));
@@ -14021,7 +14555,10 @@ var require_git = __commonJS2({
       command.push(...getTrailingOptions2(arguments, 0, true));
       var next = trailingFunctionArgument2(arguments);
       if (!command.length) {
-        return this._runTask(configurationErrorTask2("Raw: must supply one or more command to execute"), next);
+        return this._runTask(
+          configurationErrorTask2("Raw: must supply one or more command to execute"),
+          next
+        );
       }
       return this._runTask(straightThroughStringTask2(command, this._trimmed), next);
     };
@@ -14029,19 +14566,34 @@ var require_git = __commonJS2({
       return this._runTask(addSubModuleTask2(repo, path5), trailingFunctionArgument2(arguments));
     };
     Git2.prototype.submoduleUpdate = function(args, then) {
-      return this._runTask(updateSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        updateSubModuleTask2(getTrailingOptions2(arguments, true)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.submoduleInit = function(args, then) {
-      return this._runTask(initSubModuleTask2(getTrailingOptions2(arguments, true)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        initSubModuleTask2(getTrailingOptions2(arguments, true)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.subModule = function(options3, then) {
-      return this._runTask(subModuleTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        subModuleTask2(getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.listRemote = function() {
-      return this._runTask(listRemotesTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        listRemotesTask2(getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.addRemote = function(remoteName, remoteRepo, then) {
-      return this._runTask(addRemoteTask2(remoteName, remoteRepo, getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        addRemoteTask2(remoteName, remoteRepo, getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.removeRemote = function(remoteName, then) {
       return this._runTask(removeRemoteTask2(remoteName), trailingFunctionArgument2(arguments));
@@ -14050,7 +14602,10 @@ var require_git = __commonJS2({
       return this._runTask(getRemotesTask2(verbose === true), trailingFunctionArgument2(arguments));
     };
     Git2.prototype.remote = function(options3, then) {
-      return this._runTask(remoteTask2(getTrailingOptions2(arguments)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        remoteTask2(getTrailingOptions2(arguments)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.tag = function(options3, then) {
       const command = getTrailingOptions2(arguments);
@@ -14060,17 +14615,29 @@ var require_git = __commonJS2({
       return this._runTask(straightThroughStringTask2(command), trailingFunctionArgument2(arguments));
     };
     Git2.prototype.updateServerInfo = function(then) {
-      return this._runTask(straightThroughStringTask2(["update-server-info"]), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        straightThroughStringTask2(["update-server-info"]),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.pushTags = function(remote, then) {
-      const task = pushTagsTask2({ remote: filterType2(remote, filterString2) }, getTrailingOptions2(arguments));
+      const task = pushTagsTask2(
+        { remote: filterType2(remote, filterString2) },
+        getTrailingOptions2(arguments)
+      );
       return this._runTask(task, trailingFunctionArgument2(arguments));
     };
     Git2.prototype.rm = function(files) {
-      return this._runTask(straightThroughStringTask2(["rm", "-f", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        straightThroughStringTask2(["rm", "-f", ...asArray2(files)]),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.rmKeepLocal = function(files) {
-      return this._runTask(straightThroughStringTask2(["rm", "--cached", ...asArray2(files)]), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        straightThroughStringTask2(["rm", "--cached", ...asArray2(files)]),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.catFile = function(options3, then) {
       return this._catFile("utf-8", arguments);
@@ -14083,7 +14650,10 @@ var require_git = __commonJS2({
       var command = ["cat-file"];
       var options3 = args[0];
       if (typeof options3 === "string") {
-        return this._runTask(configurationErrorTask2("Git.catFile: options must be supplied as an array of strings"), handler);
+        return this._runTask(
+          configurationErrorTask2("Git.catFile: options must be supplied as an array of strings"),
+          handler
+        );
       }
       if (Array.isArray(options3)) {
         command.push.apply(command, options3);
@@ -14092,25 +14662,38 @@ var require_git = __commonJS2({
       return this._runTask(task, handler);
     };
     Git2.prototype.diff = function(options3, then) {
-      const task = filterString2(options3) ? configurationErrorTask2("git.diff: supplying options as a single string is no longer supported, switch to an array of strings") : straightThroughStringTask2(["diff", ...getTrailingOptions2(arguments)]);
+      const task = filterString2(options3) ? configurationErrorTask2(
+        "git.diff: supplying options as a single string is no longer supported, switch to an array of strings"
+      ) : straightThroughStringTask2(["diff", ...getTrailingOptions2(arguments)]);
       return this._runTask(task, trailingFunctionArgument2(arguments));
     };
     Git2.prototype.diffSummary = function() {
-      return this._runTask(diffSummaryTask2(getTrailingOptions2(arguments, 1)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        diffSummaryTask2(getTrailingOptions2(arguments, 1)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.applyPatch = function(patches) {
-      const task = !filterStringOrStringArray2(patches) ? configurationErrorTask2(`git.applyPatch requires one or more string patches as the first argument`) : applyPatchTask2(asArray2(patches), getTrailingOptions2([].slice.call(arguments, 1)));
+      const task = !filterStringOrStringArray2(patches) ? configurationErrorTask2(
+        `git.applyPatch requires one or more string patches as the first argument`
+      ) : applyPatchTask2(asArray2(patches), getTrailingOptions2([].slice.call(arguments, 1)));
       return this._runTask(task, trailingFunctionArgument2(arguments));
     };
     Git2.prototype.revparse = function() {
       const commands = ["rev-parse", ...getTrailingOptions2(arguments, true)];
-      return this._runTask(straightThroughStringTask2(commands, true), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        straightThroughStringTask2(commands, true),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.clean = function(mode, options3, then) {
       const usingCleanOptionsArray = isCleanOptionsArray2(mode);
       const cleanMode = usingCleanOptionsArray && mode.join("") || filterType2(mode, filterString2) || "";
       const customArgs = getTrailingOptions2([].slice.call(arguments, usingCleanOptionsArray ? 1 : 0));
-      return this._runTask(cleanWithOptionsTask2(cleanMode, customArgs), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        cleanWithOptionsTask2(cleanMode, customArgs),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.exec = function(then) {
       const task = {
@@ -14128,10 +14711,16 @@ var require_git = __commonJS2({
       return this;
     };
     Git2.prototype.checkIgnore = function(pathnames, then) {
-      return this._runTask(checkIgnoreTask2(asArray2(filterType2(pathnames, filterStringOrStringArray2, []))), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        checkIgnoreTask2(asArray2(filterType2(pathnames, filterStringOrStringArray2, []))),
+        trailingFunctionArgument2(arguments)
+      );
     };
     Git2.prototype.checkIsRepo = function(checkType, then) {
-      return this._runTask(checkIsRepoTask2(filterType2(checkType, filterString2)), trailingFunctionArgument2(arguments));
+      return this._runTask(
+        checkIsRepoTask2(filterType2(checkType, filterString2)),
+        trailingFunctionArgument2(arguments)
+      );
     };
     module2.exports = Git2;
   }
@@ -14159,6 +14748,7 @@ init_task_configuration_error();
 init_check_is_repo();
 init_clean();
 init_config();
+init_diff_name_status();
 init_grep();
 init_reset();
 function abortPlugin(signal) {
@@ -14195,17 +14785,33 @@ function preventProtocolOverride(arg, next) {
   if (!/^\s*protocol(.[a-z]+)?.allow/.test(next)) {
     return;
   }
-  throw new GitPluginError(void 0, "unsafe", "Configuring protocol.allow is not permitted without enabling allowUnsafeExtProtocol");
+  throw new GitPluginError(
+    void 0,
+    "unsafe",
+    "Configuring protocol.allow is not permitted without enabling allowUnsafeExtProtocol"
+  );
 }
 function preventUploadPack(arg, method) {
   if (/^\s*--(upload|receive)-pack/.test(arg)) {
-    throw new GitPluginError(void 0, "unsafe", `Use of --upload-pack or --receive-pack is not permitted without enabling allowUnsafePack`);
+    throw new GitPluginError(
+      void 0,
+      "unsafe",
+      `Use of --upload-pack or --receive-pack is not permitted without enabling allowUnsafePack`
+    );
   }
   if (method === "clone" && /^\s*-u\b/.test(arg)) {
-    throw new GitPluginError(void 0, "unsafe", `Use of clone with option -u is not permitted without enabling allowUnsafePack`);
+    throw new GitPluginError(
+      void 0,
+      "unsafe",
+      `Use of clone with option -u is not permitted without enabling allowUnsafePack`
+    );
   }
   if (method === "push" && /^\s*--exec\b/.test(arg)) {
-    throw new GitPluginError(void 0, "unsafe", `Use of push with option --exec is not permitted without enabling allowUnsafePack`);
+    throw new GitPluginError(
+      void 0,
+      "unsafe",
+      `Use of push with option --exec is not permitted without enabling allowUnsafePack`
+    );
   }
 }
 function blockUnsafeOperationsPlugin({
@@ -14279,12 +14885,12 @@ function completionDetectionPlugin({
     type: "spawn.after",
     action(_0, _1) {
       return __async(this, arguments, function* (_data, { spawned, close }) {
-        var _a22, _b2;
+        var _a32, _b3;
         const events = createEvents();
         let deferClose = true;
         let quickClose = () => void (deferClose = false);
-        (_a22 = spawned.stdout) == null ? void 0 : _a22.on("data", quickClose);
-        (_b2 = spawned.stderr) == null ? void 0 : _b2.on("data", quickClose);
+        (_a32 = spawned.stdout) == null ? void 0 : _a32.on("data", quickClose);
+        (_b3 = spawned.stderr) == null ? void 0 : _b3.on("data", quickClose);
         spawned.on("error", quickClose);
         spawned.on("close", (code) => events.close(code));
         spawned.on("exit", (code) => events.exit(code));
@@ -14300,6 +14906,42 @@ function completionDetectionPlugin({
       });
     }
   };
+}
+init_utils();
+var WRONG_NUMBER_ERR = `Invalid value supplied for custom binary, requires a single string or an array containing either one or two strings`;
+var WRONG_CHARS_ERR = `Invalid value supplied for custom binary, restricted characters must be removed or supply the unsafe.allowUnsafeCustomBinary option`;
+function isBadArgument(arg) {
+  return !arg || !/^([a-z]:)?([a-z0-9/.\\_-]+)$/i.test(arg);
+}
+function toBinaryConfig(input, allowUnsafe) {
+  if (input.length < 1 || input.length > 2) {
+    throw new GitPluginError(void 0, "binary", WRONG_NUMBER_ERR);
+  }
+  const isBad = input.some(isBadArgument);
+  if (isBad) {
+    if (allowUnsafe) {
+      console.warn(WRONG_CHARS_ERR);
+    } else {
+      throw new GitPluginError(void 0, "binary", WRONG_CHARS_ERR);
+    }
+  }
+  const [binary, prefix] = input;
+  return {
+    binary,
+    prefix
+  };
+}
+function customBinaryPlugin(plugins, input = ["git"], allowUnsafe = false) {
+  let config = toBinaryConfig(asArray(input), allowUnsafe);
+  plugins.on("binary", (input2) => {
+    config = toBinaryConfig(asArray(input2), allowUnsafe);
+  });
+  plugins.append("spawn.binary", () => {
+    return config.binary;
+  });
+  plugins.append("spawn.args", (data9) => {
+    return config.prefix ? [config.prefix, ...data9] : data9;
+  });
 }
 init_git_error();
 function isTaskError(result) {
@@ -14338,6 +14980,17 @@ init_utils();
 var PluginStore = class {
   constructor() {
     this.plugins = /* @__PURE__ */ new Set();
+    this.events = new EventEmitter();
+  }
+  on(type, listener) {
+    this.events.on(type, listener);
+  }
+  reconfigure(type, data9) {
+    this.events.emit(type, data9);
+  }
+  append(type, action) {
+    const plugin = append(this.plugins, { type, action });
+    return () => this.plugins.delete(plugin);
   }
   add(plugin) {
     const plugins = [];
@@ -14416,7 +15069,7 @@ function timeoutPlugin({
     return {
       type: "spawn.after",
       action(_data, context) {
-        var _a22, _b2;
+        var _a22, _b3;
         let timeout;
         function wait() {
           timeout && clearTimeout(timeout);
@@ -14435,7 +15088,7 @@ function timeoutPlugin({
           context.kill(new GitPluginError(void 0, "timeout", `block timeout reached`));
         }
         stdOut && ((_a22 = context.spawned.stdout) == null ? void 0 : _a22.on("data", wait));
-        stdErr && ((_b2 = context.spawned.stderr) == null ? void 0 : _b2.on("data", wait));
+        stdErr && ((_b3 = context.spawned.stderr) == null ? void 0 : _b3.on("data", wait));
         context.spawned.on("exit", stop);
         context.spawned.on("close", stop);
         wait();
@@ -14460,7 +15113,9 @@ function suffixPathsPlugin() {
           continue;
         }
         if (param === "--") {
-          append2(data9.slice(i + 1).flatMap((item) => isPathSpec(item) && toPaths(item) || item));
+          append2(
+            data9.slice(i + 1).flatMap((item) => isPathSpec(item) && toPaths(item) || item)
+          );
           break;
         }
         prefix.push(param);
@@ -14472,10 +15127,17 @@ function suffixPathsPlugin() {
 init_utils();
 var Git = require_git();
 function gitInstanceFactory(baseDir, options3) {
+  var _a22;
   const plugins = new PluginStore();
-  const config = createInstanceConfig(baseDir && (typeof baseDir === "string" ? { baseDir } : baseDir) || {}, options3);
+  const config = createInstanceConfig(
+    baseDir && (typeof baseDir === "string" ? { baseDir } : baseDir) || {},
+    options3
+  );
   if (!folderExists(config.baseDir)) {
-    throw new GitConstructError(config, `Cannot use simple-git on a directory that does not exist`);
+    throw new GitConstructError(
+      config,
+      `Cannot use simple-git on a directory that does not exist`
+    );
   }
   if (Array.isArray(config.config)) {
     plugins.add(commandConfigPrefixingPlugin(config.config));
@@ -14489,6 +15151,7 @@ function gitInstanceFactory(baseDir, options3) {
   config.spawnOptions && plugins.add(spawnOptionsPlugin(config.spawnOptions));
   plugins.add(errorDetectionPlugin(errorDetectionHandler(true)));
   config.errors && plugins.add(errorDetectionPlugin(config.errors));
+  customBinaryPlugin(plugins, config.binary, (_a22 = config.unsafe) == null ? void 0 : _a22.allowUnsafeCustomBinary);
   return new Git(config, plugins);
 }
 init_git_response_error();
@@ -14520,32 +15183,24 @@ var defaults = {
   }
 };
 async function run(config, entry) {
-  var _a4;
+  var _a5;
   try {
     const branch = await git.branchLocal();
-    if (branch && branch.current)
-      defaults.gitRevision = branch.current;
+    if (branch && branch.current) defaults.gitRevision = branch.current;
   } catch (e) {
   }
   const td = await TypeDoc.Application.bootstrap({ entryPoints: [entry.input] });
   td.options.addReader(new TypeDoc.TSConfigReader());
   td.options.addReader(new TypeDoc.TypeDocReader());
   const localTSdefaults = { ...config.typescript };
-  if (localTSdefaults.emitDeclarationOnly)
-    delete localTSdefaults.emitDeclarationOnly;
-  for (const [key, val] of Object.entries(localTSdefaults))
-    td.options._compilerOptions[key] = val;
-  for (const [key, val] of Object.entries(defaults))
-    td.options.setValue(key, val);
+  if (localTSdefaults.emitDeclarationOnly) delete localTSdefaults.emitDeclarationOnly;
+  for (const [key, val] of Object.entries(defaults)) td.options.setValue(key, val);
   td.options.setValue("entryPoints", [entry.input]);
   td.options.setValue("out", entry.typedoc);
-  if (td.options._fileNames.length === 0)
-    td.options._fileNames = [entry.input];
-  if (config.log.debug)
-    log2.data("TypeDoc Options:", td.options);
+  if (td.options._fileNames.length === 0) td.options._fileNames = [entry.input];
+  if (config.log.debug) log2.data("TypeDoc Options:", td.options);
   if (config.generate) {
-    if (fs.existsSync("typedoc.json"))
-      log2.warn("Generate config file exists:", ["typedoc.json"]);
+    if (fs.existsSync("typedoc.json")) log2.warn("Generate config file exists:", ["typedoc.json"]);
     else {
       fs.writeFileSync("typedoc.json", JSON.stringify(td.options._values, null, 2));
       log2.info("Generate config file:", ["typedoc.json"]);
@@ -14563,8 +15218,7 @@ async function run(config, entry) {
     log2.error("TypeDoc: convert returned empty project");
     return;
   }
-  if (td.logger.hasErrors() || td.logger.hasWarnings())
-    log2.warn("TypeDoc:", { errors: td.logger.errorCount, warnings: td.logger.warningCount });
+  if (td.logger.hasErrors() || td.logger.hasWarnings()) log2.warn("TypeDoc:", { errors: td.logger.errorCount, warnings: td.logger.warningCount });
   td.logger.log = () => {
   };
   const stdout = process.stdout.write;
@@ -14578,21 +15232,16 @@ async function run(config, entry) {
   process.stderr.write = stderr;
   for (const msg of errs) {
     const lines = typeof msg === "string" ? msg.split("\n") : [];
-    if (lines[0])
-      log2.warn("TypeDoc:", { msg: lines[0] });
+    if (lines[0]) log2.warn("TypeDoc:", { msg: lines[0] });
   }
   for (const msg of msgs) {
     const lines = typeof msg === "string" ? msg.split("\n") : [];
-    if (lines.length > 0 && lines[1].length > 0)
-      log2.warn(lines[1].replace(/\u001b[^m]*?m/g, ""));
+    if (lines.length > 0 && lines[1].length > 0) log2.warn(lines[1].replace(/\u001b[^m]*?m/g, ""));
   }
   const generated = fs.existsSync(path.join(entry.typedoc, "index.html"));
-  if (result)
-    log2.warn("TypeDoc:", result);
-  else
-    log2.state("TypeDoc:", { input: entry.input, output: entry.typedoc, objects: (_a4 = project.children) == null ? void 0 : _a4.length, generated });
-  if (typeof project.children === "undefined")
-    log2.warn("TypeDoc:", "no output generated");
+  if (result) log2.warn("TypeDoc:", result);
+  else log2.state("TypeDoc:", { input: entry.input, output: entry.typedoc, objects: (_a5 = project.children) == null ? void 0 : _a5.length, generated });
+  if (typeof project.children === "undefined") log2.warn("TypeDoc:", "no output generated");
 }
 
 // src/typings.ts
@@ -14602,7 +15251,7 @@ import * as path2 from "path";
 import * as ts from "typescript";
 var version3 = ts.version;
 async function run2(config, entry) {
-  var _a4, _b2;
+  var _a5, _b3;
   const configFileName = ts.findConfigFile("./", ts.sys.fileExists, "tsconfig.json") || "";
   const configFile = ts.readConfigFile(configFileName, ts.sys.readFile);
   const compilerOptions = ts.parseJsonConfigFileContent(configFile.config, ts.sys, "./");
@@ -14617,31 +15266,27 @@ async function run2(config, entry) {
   compilerOptions["include"] = [path2.dirname(entry.input)];
   compilerOptions["exclude"] = ["node_modules/", "dist/"];
   compilerOptions.errors = [];
-  if (config.log.debug)
-    log3.data("TypeScript Options:", compilerOptions);
+  if (config.log.debug) log3.data("TypeScript Options:", compilerOptions);
   const compilerHost = ts.createCompilerHost(compilerOptions.options);
   const program2 = ts.createProgram([entry.input], compilerOptions.options, compilerHost);
   if (config.generate) {
-    if (fs2.existsSync("tsconfig.json"))
-      log3.warn("Generate config file exists:", ["tsconfig.json"]);
+    if (fs2.existsSync("tsconfig.json")) log3.warn("Generate config file exists:", ["tsconfig.json"]);
     else {
       const tsconfig = { compilerOptions: compilerOptions.options, include: compilerOptions["include"], exclude: compilerOptions["exclude"] };
       delete tsconfig.compilerOptions.emitDeclarationOnly;
       delete tsconfig.compilerOptions.resolveJsonModule;
-      tsconfig.compilerOptions.lib = ((_a4 = tsconfig.compilerOptions.lib) == null ? void 0 : _a4.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""))) || [];
+      tsconfig.compilerOptions.lib = ((_a5 = tsconfig.compilerOptions.lib) == null ? void 0 : _a5.map((lib) => lib.replace("lib.", "").replace(".d.ts", ""))) || [];
       fs2.writeFileSync("tsconfig.json", JSON.stringify(tsconfig, null, 2));
       log3.info("Generate config file:", ["tsconfig.json"]);
     }
   }
   const emit = program2.emit();
   const diag = ts.getPreEmitDiagnostics(program2).concat(emit.diagnostics);
-  log3.state("Typings:", { input: entry.input, output: compilerOptions.options.outDir, files: (_b2 = emit.emittedFiles) == null ? void 0 : _b2.length });
-  if (config.log.debug)
-    log3.data("TypeScript Diag", { nodes: program2.getNodeCount(), identifiers: program2.getIdentifierCount(), symbols: program2.getSymbolCount(), types: program2.getTypeCount(), instances: program2.getInstantiationCount() });
+  log3.state("Typings:", { input: entry.input, output: compilerOptions.options.outDir, files: (_b3 = emit.emittedFiles) == null ? void 0 : _b3.length });
+  if (config.log.debug) log3.data("TypeScript Diag", { nodes: program2.getNodeCount(), identifiers: program2.getIdentifierCount(), symbols: program2.getSymbolCount(), types: program2.getTypeCount(), instances: program2.getInstantiationCount() });
   for (const info9 of diag) {
     const msg = info9.messageText["messageText"] || info9.messageText;
-    if (msg.includes("package.json"))
-      continue;
+    if (msg.includes("package.json")) continue;
     if (info9.file) {
       const pos = info9.file.getLineAndCharacterOfPosition(info9.start || 0);
       log3.error(`TSC: ${info9.file.fileName} [${pos.line + 1},${pos.character + 1}]:`, msg);
@@ -14655,9 +15300,9 @@ async function run2(config, entry) {
 var version5 = esbuild.version;
 var busy = false;
 async function getStats(json) {
-  var _a4, _b2;
+  var _a5, _b3;
   const stats = { modules: 0, moduleBytes: 0, imports: 0, importBytes: 0, outputBytes: 0, outputFiles: "" };
-  if (json && ((_a4 = json.metafile) == null ? void 0 : _a4.inputs) && ((_b2 = json.metafile) == null ? void 0 : _b2.outputs)) {
+  if (json && ((_a5 = json.metafile) == null ? void 0 : _a5.inputs) && ((_b3 = json.metafile) == null ? void 0 : _b3.outputs)) {
     for (const [key, val] of Object.entries(json.metafile.inputs)) {
       if (key.startsWith("node_modules")) {
         stats.modules += 1;
@@ -14708,29 +15353,22 @@ async function run3(config, steps, profile) {
     }
     options3.entryPoints = [entry.input];
     options3.outfile = entry.output;
-    if (!options3.platform)
-      options3.platform = options3.format === "cjs" ? "node" : "browser";
-    if (!options3.external)
-      options3.external = entry.external || [];
-    if (!options3.external.includes("@vladmandic/build"))
-      options3.external.push("@vladmandic/build");
-    if (config.log.debug)
-      log4.data("ESBuild Options:", options3);
+    if (!options3.platform) options3.platform = options3.format === "cjs" ? "node" : "browser";
+    if (!options3.external) options3.external = entry.external || [];
+    if (!options3.external.includes("@vladmandic/build")) options3.external.push("@vladmandic/build");
+    if (config.log.debug) log4.data("ESBuild Options:", options3);
     let ok = true;
     try {
       const meta = await esbuild.build(options3);
-      if (config.log.debug)
-        log4.data("ESBuild Metadata:", meta);
+      if (config.log.debug) log4.data("ESBuild Metadata:", meta);
       const stats = await getStats(meta);
       log4.state("Compile:", { name: entry.name || "", format: options3.format, platform: options3.platform, input: entry.input, output: stats.outputFiles, files: stats.imports, inputBytes: stats.importBytes, outputBytes: stats.outputBytes });
     } catch (err) {
       log4.error("Compile:", { name: entry.name || "", format: options3.format, platform: options3.platform, input: entry.input }, { errors: err["errors"] || err });
       ok = false;
     }
-    if (ok && steps.includes("typings") && entry.typings && entry.typings !== "")
-      await run2(config, entry);
-    if (ok && steps.includes("typedoc") && entry.typedoc && entry.typedoc !== "")
-      await run(config, entry);
+    if (ok && steps.includes("typings") && entry.typings && entry.typings !== "") await run2(config, entry);
+    if (ok && steps.includes("typedoc") && entry.typedoc && entry.typedoc !== "") await run(config, entry);
   }
   busy = false;
 }
@@ -14827,31 +15465,23 @@ function handle(url) {
     if (checkFolder(path3.join(process.cwd(), options.documentRoot, url)) && checkFile(path3.join(process.cwd(), options.documentRoot, url, options.defaultFile))) {
       result.redirect = path3.join(url, options.defaultFile);
       resolve6(result);
-    } else if (checkFile(path3.join(process.cwd(), options.documentRoot, url)))
-      resolve6(result);
-    else if (checkFile(path3.join(process.cwd(), options.documentRoot, url, options.defaultFile)))
-      resolve6(result);
-    else if (checkFile(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url)))
-      resolve6(result);
-    else if (checkFile(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile)))
-      resolve6(result);
-    else if (checkFolder(path3.join(process.cwd(), options.documentRoot, url)))
-      resolve6(result);
-    else if (checkFolder(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url)))
-      resolve6(result);
-    else if (checkFolder(path3.join(path3.dirname(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile, url)))))
-      resolve6(result);
-    else
-      resolve6(result);
+    } else if (checkFile(path3.join(process.cwd(), options.documentRoot, url))) resolve6(result);
+    else if (checkFile(path3.join(process.cwd(), options.documentRoot, url, options.defaultFile))) resolve6(result);
+    else if (checkFile(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url))) resolve6(result);
+    else if (checkFile(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile))) resolve6(result);
+    else if (checkFolder(path3.join(process.cwd(), options.documentRoot, url))) resolve6(result);
+    else if (checkFolder(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url))) resolve6(result);
+    else if (checkFolder(path3.join(path3.dirname(path3.join(process.cwd(), options.documentRoot, options.defaultFolder, url, options.defaultFile, url))))) resolve6(result);
+    else resolve6(result);
   });
 }
 async function httpRequest(req, res) {
   const url = decodeURI(req.url);
   handle(url).then((result) => {
-    var _a4, _b2, _c2;
+    var _a5, _b3, _c2;
     const forwarded = (req.headers["forwarded"] || "").match(/for="\[(.*)\]:/);
     const remote = (Array.isArray(forwarded) ? forwarded[1] : null) || req.headers["x-forwarded-for"] || req.ip || req.socket.remoteAddress;
-    const protocol = ((_a4 = req.headers[":scheme"]) == null ? void 0 : _a4.toUpperCase()) || "HTTP";
+    const protocol = ((_a5 = req.headers[":scheme"]) == null ? void 0 : _a5.toUpperCase()) || "HTTP";
     if (!result || !result.ok || !result.stat) {
       res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
       res.end("Error 404: Not Found\n", "utf-8");
@@ -14862,7 +15492,7 @@ async function httpRequest(req, res) {
       log6.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, url, redirect: result.redirect, remote });
     } else {
       const input = encodeURIComponent(result.file).replace(/\*/g, "").replace(/\?/g, "").replace(/%2F/g, "/").replace(/%40/g, "@").replace(/%20/g, " ").replace(/%3A/g, ":").replace(/%5C/g, "\\");
-      if ((_b2 = result == null ? void 0 : result.stat) == null ? void 0 : _b2.isFile()) {
+      if ((_b3 = result == null ? void 0 : result.stat) == null ? void 0 : _b3.isFile()) {
         const ext2 = String(path3.extname(input)).toLowerCase();
         const contentType = mime[ext2] || "application/octet-stream";
         const rangeRequest = req.headers["range"];
@@ -14897,10 +15527,8 @@ async function httpRequest(req, res) {
         });
         const compress = zlib.createBrotliCompress({ params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 } });
         const stream2 = !rangeRequest ? fs3.createReadStream(input) : fs3.createReadStream(input, { start: rangeStart, end: rangeEnd });
-        if (!acceptBrotli || rangeRequest)
-          stream2.pipe(res);
-        else
-          stream2.pipe(compress).pipe(res);
+        if (!acceptBrotli || rangeRequest) stream2.pipe(res);
+        else stream2.pipe(compress).pipe(res);
         const rangeJSON = rangeRequest ? { range: { start: rangeStart, end: rangeEnd, size: rangeEnd - rangeStart + 1 } } : {};
         log6.data(`${protocol}:`, { method: req.method, ver: req.httpVersion, status: res.statusCode, mime: contentType.replace("; charset=utf-8", ""), size: result.stat.size, ...rangeJSON, url, remote });
       }
@@ -14933,8 +15561,7 @@ async function start2(config) {
     } catch (e) {
     }
   }
-  if (!options.key || !options.cert)
-    log6.warn("Cannot read SSL certificate");
+  if (!options.key || !options.cert) log6.warn("Cannot read SSL certificate");
   const res = [];
   if (options.httpPort && options.httpPort > 0) {
     await new Promise((resolve6) => {
@@ -14988,11 +15615,9 @@ async function run4(config) {
     ignorePatterns: [.../* @__PURE__ */ new Set([...config.lint.ignorePatterns, ...json.ignorePatterns || []])]
   };
   const eslint = new ESLint({ overrideConfig: options3 });
-  if (config.log.debug)
-    log7.data("ESLint Options", options3, config.lint.locations);
+  if (config.log.debug) log7.data("ESLint Options", options3, config.lint.locations);
   if (config.generate) {
-    if (fs4.existsSync(".eslintrc.json"))
-      log7.warn("Generate config file exists:", [".eslintrc.json"]);
+    if (fs4.existsSync(".eslintrc.json")) log7.warn("Generate config file exists:", [".eslintrc.json"]);
     else {
       fs4.writeFileSync(".eslintrc.json", JSON.stringify(options3, null, 2));
       log7.info("Generate config file:", [".eslintrc.json"]);
@@ -15001,8 +15626,7 @@ async function run4(config) {
   const results2 = await eslint.lintFiles(config.lint.locations);
   const errors = results2.reduce((prev, curr) => prev += curr.errorCount, 0);
   const warnings = results2.reduce((prev, curr) => prev += curr.warningCount, 0);
-  if (config.log.debug)
-    log7.data("Lint Results:", results2);
+  if (config.log.debug) log7.data("Lint Results:", results2);
   log7.state("Lint:", { locations: config.lint.locations, files: results2.length, errors, warnings });
   if (errors > 0 || warnings > 0) {
     const formatter = await eslint.loadFormatter("stylish");
@@ -15147,10 +15771,10 @@ var defaults2 = {
 // src/clean.ts
 var log8 = __toESM(require_pilogger());
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/index.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/index.js
 var import_brace_expansion = __toESM(require_brace_expansion(), 1);
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/assert-valid-pattern.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/assert-valid-pattern.js
 var MAX_PATTERN_LENGTH = 1024 * 64;
 var assertValidPattern = (pattern) => {
   if (typeof pattern !== "string") {
@@ -15161,7 +15785,7 @@ var assertValidPattern = (pattern) => {
   }
 };
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/brace-expressions.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/brace-expressions.js
 var posixClasses = {
   "[:alnum:]": ["\\p{L}\\p{Nl}\\p{Nd}", true],
   "[:alpha:]": ["\\p{L}\\p{Nl}", true],
@@ -15195,66 +15819,65 @@ var parseClass = (glob2, position) => {
   let negate = false;
   let endPos = pos;
   let rangeStart = "";
-  WHILE:
-    while (i < glob2.length) {
-      const c = glob2.charAt(i);
-      if ((c === "!" || c === "^") && i === pos + 1) {
-        negate = true;
-        i++;
-        continue;
-      }
-      if (c === "]" && sawStart && !escaping) {
-        endPos = i + 1;
-        break;
-      }
-      sawStart = true;
-      if (c === "\\") {
-        if (!escaping) {
-          escaping = true;
-          i++;
-          continue;
-        }
-      }
-      if (c === "[" && !escaping) {
-        for (const [cls, [unip, u, neg]] of Object.entries(posixClasses)) {
-          if (glob2.startsWith(cls, i)) {
-            if (rangeStart) {
-              return ["$.", false, glob2.length - pos, true];
-            }
-            i += cls.length;
-            if (neg)
-              negs.push(unip);
-            else
-              ranges.push(unip);
-            uflag = uflag || u;
-            continue WHILE;
-          }
-        }
-      }
-      escaping = false;
-      if (rangeStart) {
-        if (c > rangeStart) {
-          ranges.push(braceEscape(rangeStart) + "-" + braceEscape(c));
-        } else if (c === rangeStart) {
-          ranges.push(braceEscape(c));
-        }
-        rangeStart = "";
-        i++;
-        continue;
-      }
-      if (glob2.startsWith("-]", i + 1)) {
-        ranges.push(braceEscape(c + "-"));
-        i += 2;
-        continue;
-      }
-      if (glob2.startsWith("-", i + 1)) {
-        rangeStart = c;
-        i += 2;
-        continue;
-      }
-      ranges.push(braceEscape(c));
+  WHILE: while (i < glob2.length) {
+    const c = glob2.charAt(i);
+    if ((c === "!" || c === "^") && i === pos + 1) {
+      negate = true;
       i++;
+      continue;
     }
+    if (c === "]" && sawStart && !escaping) {
+      endPos = i + 1;
+      break;
+    }
+    sawStart = true;
+    if (c === "\\") {
+      if (!escaping) {
+        escaping = true;
+        i++;
+        continue;
+      }
+    }
+    if (c === "[" && !escaping) {
+      for (const [cls, [unip, u, neg]] of Object.entries(posixClasses)) {
+        if (glob2.startsWith(cls, i)) {
+          if (rangeStart) {
+            return ["$.", false, glob2.length - pos, true];
+          }
+          i += cls.length;
+          if (neg)
+            negs.push(unip);
+          else
+            ranges.push(unip);
+          uflag = uflag || u;
+          continue WHILE;
+        }
+      }
+    }
+    escaping = false;
+    if (rangeStart) {
+      if (c > rangeStart) {
+        ranges.push(braceEscape(rangeStart) + "-" + braceEscape(c));
+      } else if (c === rangeStart) {
+        ranges.push(braceEscape(c));
+      }
+      rangeStart = "";
+      i++;
+      continue;
+    }
+    if (glob2.startsWith("-]", i + 1)) {
+      ranges.push(braceEscape(c + "-"));
+      i += 2;
+      continue;
+    }
+    if (glob2.startsWith("-", i + 1)) {
+      rangeStart = c;
+      i += 2;
+      continue;
+    }
+    ranges.push(braceEscape(c));
+    i++;
+  }
   if (endPos < i) {
     return ["", false, 0, false];
   }
@@ -15271,12 +15894,12 @@ var parseClass = (glob2, position) => {
   return [comb, uflag, endPos - pos, true];
 };
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/unescape.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/unescape.js
 var unescape = (s, { windowsPathsNoEscape = false } = {}) => {
   return windowsPathsNoEscape ? s.replace(/\[([^\/\\])\]/g, "$1") : s.replace(/((?!\\).|^)\[([^\/\\])\]/g, "$1$2").replace(/\\([^\/])/g, "$1");
 };
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/ast.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/ast.js
 var types = /* @__PURE__ */ new Set(["!", "?", "+", "*", "@"]);
 var isExtglobType = (c) => types.has(c);
 var startNoTraversal = "(?!(?:^|/)\\.\\.?(?:$|/))";
@@ -15288,22 +15911,21 @@ var regExpEscape = (s) => s.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 var qmark = "[^/]";
 var star = qmark + "*?";
 var starNoEmpty = qmark + "+?";
-var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs, _options, _toString, _emptyExt, _fillNegs, fillNegs_fn, _parseAST, parseAST_fn, _partsToRegExp, partsToRegExp_fn, _parseGlob, parseGlob_fn;
+var _root, _hasMagic, _uflag, _parts, _parent, _parentIndex, _negs, _filledNegs, _options, _toString, _emptyExt, _AST_instances, fillNegs_fn, _AST_static, parseAST_fn, partsToRegExp_fn, parseGlob_fn;
 var _AST = class _AST {
   constructor(type, parent, options3 = {}) {
-    __privateAdd(this, _fillNegs);
-    __privateAdd(this, _partsToRegExp);
+    __privateAdd(this, _AST_instances);
     __publicField(this, "type");
-    __privateAdd(this, _root, void 0);
-    __privateAdd(this, _hasMagic, void 0);
+    __privateAdd(this, _root);
+    __privateAdd(this, _hasMagic);
     __privateAdd(this, _uflag, false);
     __privateAdd(this, _parts, []);
-    __privateAdd(this, _parent, void 0);
-    __privateAdd(this, _parentIndex, void 0);
-    __privateAdd(this, _negs, void 0);
+    __privateAdd(this, _parent);
+    __privateAdd(this, _parentIndex);
+    __privateAdd(this, _negs);
     __privateAdd(this, _filledNegs, false);
-    __privateAdd(this, _options, void 0);
-    __privateAdd(this, _toString, void 0);
+    __privateAdd(this, _options);
+    __privateAdd(this, _toString);
     // set to true if it's an extglob with no children
     // (which really means one child of '')
     __privateAdd(this, _emptyExt, false);
@@ -15350,20 +15972,20 @@ var _AST = class _AST {
     }
   }
   toJSON() {
-    var _a4;
+    var _a5;
     const ret = this.type === null ? __privateGet(this, _parts).slice().map((p) => typeof p === "string" ? p : p.toJSON()) : [this.type, ...__privateGet(this, _parts).map((p) => p.toJSON())];
     if (this.isStart() && !this.type)
       ret.unshift([]);
-    if (this.isEnd() && (this === __privateGet(this, _root) || __privateGet(__privateGet(this, _root), _filledNegs) && ((_a4 = __privateGet(this, _parent)) == null ? void 0 : _a4.type) === "!")) {
+    if (this.isEnd() && (this === __privateGet(this, _root) || __privateGet(__privateGet(this, _root), _filledNegs) && ((_a5 = __privateGet(this, _parent)) == null ? void 0 : _a5.type) === "!")) {
       ret.push({});
     }
     return ret;
   }
   isStart() {
-    var _a4;
+    var _a5;
     if (__privateGet(this, _root) === this)
       return true;
-    if (!((_a4 = __privateGet(this, _parent)) == null ? void 0 : _a4.isStart()))
+    if (!((_a5 = __privateGet(this, _parent)) == null ? void 0 : _a5.isStart()))
       return false;
     if (__privateGet(this, _parentIndex) === 0)
       return true;
@@ -15377,12 +15999,12 @@ var _AST = class _AST {
     return true;
   }
   isEnd() {
-    var _a4, _b2, _c2;
+    var _a5, _b3, _c2;
     if (__privateGet(this, _root) === this)
       return true;
-    if (((_a4 = __privateGet(this, _parent)) == null ? void 0 : _a4.type) === "!")
+    if (((_a5 = __privateGet(this, _parent)) == null ? void 0 : _a5.type) === "!")
       return true;
-    if (!((_b2 = __privateGet(this, _parent)) == null ? void 0 : _b2.isEnd()))
+    if (!((_b3 = __privateGet(this, _parent)) == null ? void 0 : _b3.isEnd()))
       return false;
     if (!this.type)
       return (_c2 = __privateGet(this, _parent)) == null ? void 0 : _c2.isEnd();
@@ -15403,9 +16025,9 @@ var _AST = class _AST {
     return c;
   }
   static fromGlob(pattern, options3 = {}) {
-    var _a4;
+    var _a5;
     const ast = new _AST(null, void 0, options3);
-    __privateMethod(_a4 = _AST, _parseAST, parseAST_fn).call(_a4, pattern, ast, 0, options3);
+    __privateMethod(_a5 = _AST, _AST_static, parseAST_fn).call(_a5, pattern, ast, 0, options3);
     return ast;
   }
   // returns the regular expression if there's magic, or the unescaped
@@ -15424,6 +16046,9 @@ var _AST = class _AST {
       _src: re,
       _glob: glob2
     });
+  }
+  get options() {
+    return __privateGet(this, _options);
   }
   // returns the string match, the regexp source, whether there's magic
   // in the regexp (so a regular expression is required) and whether or
@@ -15495,15 +16120,15 @@ var _AST = class _AST {
   // is ^(?!\.), we can just prepend (?!\.) to the pattern (either root
   // or start or whatever) and prepend ^ or / at the Regexp construction.
   toRegExpSource(allowDot) {
-    var _a4;
+    var _a5;
     const dot = allowDot != null ? allowDot : !!__privateGet(this, _options).dot;
     if (__privateGet(this, _root) === this)
-      __privateMethod(this, _fillNegs, fillNegs_fn).call(this);
+      __privateMethod(this, _AST_instances, fillNegs_fn).call(this);
     if (!this.type) {
       const noEmpty = this.isStart() && this.isEnd();
       const src = __privateGet(this, _parts).map((p) => {
-        var _a5;
-        const [re, _, hasMagic2, uflag] = typeof p === "string" ? __privateMethod(_a5 = _AST, _parseGlob, parseGlob_fn).call(_a5, p, __privateGet(this, _hasMagic), noEmpty) : p.toRegExpSource(allowDot);
+        var _a6;
+        const [re, _, hasMagic2, uflag] = typeof p === "string" ? __privateMethod(_a6 = _AST, _AST_static, parseGlob_fn).call(_a6, p, __privateGet(this, _hasMagic), noEmpty) : p.toRegExpSource(allowDot);
         __privateSet(this, _hasMagic, __privateGet(this, _hasMagic) || hasMagic2);
         __privateSet(this, _uflag, __privateGet(this, _uflag) || uflag);
         return re;
@@ -15526,7 +16151,7 @@ var _AST = class _AST {
         }
       }
       let end = "";
-      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && ((_a4 = __privateGet(this, _parent)) == null ? void 0 : _a4.type) === "!") {
+      if (this.isEnd() && __privateGet(__privateGet(this, _root), _filledNegs) && ((_a5 = __privateGet(this, _parent)) == null ? void 0 : _a5.type) === "!") {
         end = "(?:$|\\/)";
       }
       const final2 = start4 + src + end;
@@ -15539,7 +16164,7 @@ var _AST = class _AST {
     }
     const repeated = this.type === "*" || this.type === "+";
     const start3 = this.type === "!" ? "(?:(?!(?:" : "(?:";
-    let body = __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, dot);
+    let body = __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, dot);
     if (this.isStart() && this.isEnd() && !body && this.type !== "!") {
       const s = this.toString();
       __privateSet(this, _parts, [s]);
@@ -15547,7 +16172,7 @@ var _AST = class _AST {
       __privateSet(this, _hasMagic, void 0);
       return [s, unescape(this.toString()), false, false];
     }
-    let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ? "" : __privateMethod(this, _partsToRegExp, partsToRegExp_fn).call(this, true);
+    let bodyDotAllowed = !repeated || allowDot || dot || !startNoDot ? "" : __privateMethod(this, _AST_instances, partsToRegExp_fn).call(this, true);
     if (bodyDotAllowed === body) {
       bodyDotAllowed = "";
     }
@@ -15583,7 +16208,7 @@ _filledNegs = new WeakMap();
 _options = new WeakMap();
 _toString = new WeakMap();
 _emptyExt = new WeakMap();
-_fillNegs = new WeakSet();
+_AST_instances = new WeakSet();
 fillNegs_fn = function() {
   if (this !== __privateGet(this, _root))
     throw new Error("should only call on root");
@@ -15612,9 +16237,9 @@ fillNegs_fn = function() {
   }
   return this;
 };
-_parseAST = new WeakSet();
+_AST_static = new WeakSet();
 parseAST_fn = function(str, ast, pos, opt) {
-  var _a4, _b2;
+  var _a5, _b3;
   let escaping = false;
   let inBrace = false;
   let braceStart = -1;
@@ -15650,7 +16275,7 @@ parseAST_fn = function(str, ast, pos, opt) {
         ast.push(acc2);
         acc2 = "";
         const ext2 = new _AST(c, ast);
-        i2 = __privateMethod(_a4 = _AST, _parseAST, parseAST_fn).call(_a4, str, ext2, i2, opt);
+        i2 = __privateMethod(_a5 = _AST, _AST_static, parseAST_fn).call(_a5, str, ext2, i2, opt);
         ast.push(ext2);
         continue;
       }
@@ -15692,7 +16317,7 @@ parseAST_fn = function(str, ast, pos, opt) {
       acc = "";
       const ext2 = new _AST(c, part);
       part.push(ext2);
-      i = __privateMethod(_b2 = _AST, _parseAST, parseAST_fn).call(_b2, str, ext2, i, opt);
+      i = __privateMethod(_b3 = _AST, _AST_static, parseAST_fn).call(_b3, str, ext2, i, opt);
       continue;
     }
     if (c === "|") {
@@ -15718,7 +16343,6 @@ parseAST_fn = function(str, ast, pos, opt) {
   __privateSet(ast, _parts, [str.substring(pos - 1)]);
   return i;
 };
-_partsToRegExp = new WeakSet();
 partsToRegExp_fn = function(dot) {
   return __privateGet(this, _parts).map((p) => {
     if (typeof p === "string") {
@@ -15729,7 +16353,6 @@ partsToRegExp_fn = function(dot) {
     return re;
   }).filter((p) => !(this.isStart() && this.isEnd()) || !!p).join("|");
 };
-_parseGlob = new WeakSet();
 parseGlob_fn = function(glob2, hasMagic2, noEmpty = false) {
   let escaping = false;
   let re = "";
@@ -15776,16 +16399,15 @@ parseGlob_fn = function(glob2, hasMagic2, noEmpty = false) {
   }
   return [re, unescape(glob2), !!hasMagic2, uflag];
 };
-__privateAdd(_AST, _parseAST);
-__privateAdd(_AST, _parseGlob);
+__privateAdd(_AST, _AST_static);
 var AST = _AST;
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/escape.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/escape.js
 var escape = (s, { windowsPathsNoEscape = false } = {}) => {
   return windowsPathsNoEscape ? s.replace(/[?*()[\]]/g, "[$&]") : s.replace(/[?*()[\]\\]/g, "\\$&");
 };
 
-// node_modules/glob/node_modules/minimatch/dist/mjs/index.js
+// node_modules/.pnpm/minimatch@10.0.1/node_modules/minimatch/dist/esm/index.js
 var minimatch = (p, pattern, options3 = {}) => {
   assertValidPattern(pattern);
   if (!options3.nocomment && pattern.charAt(0) === "#") {
@@ -16206,10 +16828,11 @@ var Minimatch = class {
     for (let i = 0; i < globParts.length - 1; i++) {
       for (let j = i + 1; j < globParts.length; j++) {
         const matched = this.partsMatch(globParts[i], globParts[j], !this.preserveMultipleSlashes);
-        if (!matched)
-          continue;
-        globParts[i] = matched;
-        globParts[j] = [];
+        if (matched) {
+          globParts[i] = [];
+          globParts[j] = matched;
+          break;
+        }
       }
     }
     return globParts.filter((gs) => gs.length);
@@ -16384,7 +17007,10 @@ var Minimatch = class {
       fastTest = dotStarTest;
     }
     const re = AST.fromGlob(pattern, this.options).toMMPattern();
-    return fastTest ? Object.assign(re, { test: fastTest }) : re;
+    if (fastTest && typeof re === "object") {
+      Reflect.defineProperty(re, "test", { value: fastTest });
+    }
+    return re;
   }
   makeRe() {
     if (this.regexp || this.regexp === false)
@@ -16499,7 +17125,10 @@ minimatch.Minimatch = Minimatch;
 minimatch.escape = escape;
 minimatch.unescape = unescape;
 
-// node_modules/lru-cache/dist/esm/index.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/glob.js
+import { fileURLToPath as fileURLToPath2 } from "node:url";
+
+// node_modules/.pnpm/lru-cache@11.0.1/node_modules/lru-cache/dist/esm/index.js
 var perf = typeof performance === "object" && performance && typeof performance.now === "function" ? performance : Date;
 var warned = /* @__PURE__ */ new Set();
 var PROCESS = typeof process === "object" && !!process ? process : {};
@@ -16527,7 +17156,7 @@ if (typeof AC === "undefined") {
       warnACPolyfill();
     }
     abort(reason) {
-      var _a4, _b2;
+      var _a5, _b3;
       if (this.signal.aborted)
         return;
       this.signal.reason = reason;
@@ -16535,7 +17164,7 @@ if (typeof AC === "undefined") {
       for (const fn of this.signal._onabort) {
         fn(reason);
       }
-      (_b2 = (_a4 = this.signal).onabort) == null ? void 0 : _b2.call(_a4, reason);
+      (_b3 = (_a5 = this.signal).onabort) == null ? void 0 : _b3.call(_a5, reason);
     }
   };
   let printACPolyfillWarning = ((_a2 = PROCESS.env) == null ? void 0 : _a2.LRU_CACHE_IGNORE_AC_WARNING) !== "1";
@@ -16587,27 +17216,17 @@ _constructing = new WeakMap();
 // private constructor
 __privateAdd(_Stack, _constructing, false);
 var Stack = _Stack;
-var _max, _maxSize, _dispose, _disposeAfter, _fetchMethod, _size, _calculatedSize, _keyMap, _keyList, _valList, _next, _prev, _head, _tail, _free, _disposed, _sizes, _starts, _ttls, _hasDispose, _hasFetchMethod, _hasDisposeAfter, _initializeTTLTracking, initializeTTLTracking_fn, _updateItemAge, _statusTTL, _setItemTTL, _isStale, _initializeSizeTracking, initializeSizeTracking_fn, _removeItemSize, _addItemSize, _requireSize, _indexes, indexes_fn, _rindexes, rindexes_fn, _isValidIndex, isValidIndex_fn, _evict, evict_fn, _backgroundFetch, backgroundFetch_fn, _isBackgroundFetch, isBackgroundFetch_fn, _connect, connect_fn, _moveToTail, moveToTail_fn;
+var _a3, _b, _max, _maxSize, _dispose, _disposeAfter, _fetchMethod, _memoMethod, _size, _calculatedSize, _keyMap, _keyList, _valList, _next, _prev, _head, _tail, _free, _disposed, _sizes, _starts, _ttls, _hasDispose, _hasFetchMethod, _hasDisposeAfter, _LRUCache_instances, initializeTTLTracking_fn, _updateItemAge, _statusTTL, _setItemTTL, _isStale, initializeSizeTracking_fn, _removeItemSize, _addItemSize, _requireSize, indexes_fn, rindexes_fn, isValidIndex_fn, evict_fn, backgroundFetch_fn, isBackgroundFetch_fn, connect_fn, moveToTail_fn, delete_fn, clear_fn;
 var _LRUCache = class _LRUCache {
   constructor(options3) {
-    __privateAdd(this, _initializeTTLTracking);
-    __privateAdd(this, _initializeSizeTracking);
-    __privateAdd(this, _indexes);
-    __privateAdd(this, _rindexes);
-    __privateAdd(this, _isValidIndex);
-    __privateAdd(this, _evict);
-    __privateAdd(this, _backgroundFetch);
-    __privateAdd(this, _isBackgroundFetch);
-    __privateAdd(this, _connect);
-    __privateAdd(this, _moveToTail);
-    // properties coming in from the options of these, only max and maxSize
-    // really *need* to be protected. The rest can be modified, as they just
-    // set defaults for various methods.
-    __privateAdd(this, _max, void 0);
-    __privateAdd(this, _maxSize, void 0);
-    __privateAdd(this, _dispose, void 0);
-    __privateAdd(this, _disposeAfter, void 0);
-    __privateAdd(this, _fetchMethod, void 0);
+    __privateAdd(this, _LRUCache_instances);
+    // options that cannot be changed without disaster
+    __privateAdd(this, _max);
+    __privateAdd(this, _maxSize);
+    __privateAdd(this, _dispose);
+    __privateAdd(this, _disposeAfter);
+    __privateAdd(this, _fetchMethod);
+    __privateAdd(this, _memoMethod);
     /**
      * {@link LRUCache.OptionsBase.ttl}
      */
@@ -16669,23 +17288,23 @@ var _LRUCache = class _LRUCache {
      */
     __publicField(this, "ignoreFetchAbort");
     // computed properties
-    __privateAdd(this, _size, void 0);
-    __privateAdd(this, _calculatedSize, void 0);
-    __privateAdd(this, _keyMap, void 0);
-    __privateAdd(this, _keyList, void 0);
-    __privateAdd(this, _valList, void 0);
-    __privateAdd(this, _next, void 0);
-    __privateAdd(this, _prev, void 0);
-    __privateAdd(this, _head, void 0);
-    __privateAdd(this, _tail, void 0);
-    __privateAdd(this, _free, void 0);
-    __privateAdd(this, _disposed, void 0);
-    __privateAdd(this, _sizes, void 0);
-    __privateAdd(this, _starts, void 0);
-    __privateAdd(this, _ttls, void 0);
-    __privateAdd(this, _hasDispose, void 0);
-    __privateAdd(this, _hasFetchMethod, void 0);
-    __privateAdd(this, _hasDisposeAfter, void 0);
+    __privateAdd(this, _size);
+    __privateAdd(this, _calculatedSize);
+    __privateAdd(this, _keyMap);
+    __privateAdd(this, _keyList);
+    __privateAdd(this, _valList);
+    __privateAdd(this, _next);
+    __privateAdd(this, _prev);
+    __privateAdd(this, _head);
+    __privateAdd(this, _tail);
+    __privateAdd(this, _free);
+    __privateAdd(this, _disposed);
+    __privateAdd(this, _sizes);
+    __privateAdd(this, _starts);
+    __privateAdd(this, _ttls);
+    __privateAdd(this, _hasDispose);
+    __privateAdd(this, _hasFetchMethod);
+    __privateAdd(this, _hasDisposeAfter);
     // conditionally set private methods related to TTL
     __privateAdd(this, _updateItemAge, () => {
     });
@@ -16705,7 +17324,13 @@ var _LRUCache = class _LRUCache {
       }
       return 0;
     });
-    const { max = 0, ttl, ttlResolution = 1, ttlAutopurge, updateAgeOnGet, updateAgeOnHas, allowStale, dispose, disposeAfter, noDisposeOnSet, noUpdateTTL, maxSize = 0, maxEntrySize = 0, sizeCalculation, fetchMethod, noDeleteOnFetchRejection, noDeleteOnStaleGet, allowStaleOnFetchRejection, allowStaleOnFetchAbort, ignoreFetchAbort } = options3;
+    /**
+     * A String value that is used in the creation of the default string
+     * description of an object. Called by the built-in method
+     * `Object.prototype.toString`.
+     */
+    __publicField(this, _a3, "LRUCache");
+    const { max = 0, ttl, ttlResolution = 1, ttlAutopurge, updateAgeOnGet, updateAgeOnHas, allowStale, dispose, disposeAfter, noDisposeOnSet, noUpdateTTL, maxSize = 0, maxEntrySize = 0, sizeCalculation, fetchMethod, memoMethod, noDeleteOnFetchRejection, noDeleteOnStaleGet, allowStaleOnFetchRejection, allowStaleOnFetchAbort, ignoreFetchAbort } = options3;
     if (max !== 0 && !isPosInt(max)) {
       throw new TypeError("max option must be a nonnegative integer");
     }
@@ -16725,6 +17350,10 @@ var _LRUCache = class _LRUCache {
         throw new TypeError("sizeCalculation set to non-function");
       }
     }
+    if (memoMethod !== void 0 && typeof memoMethod !== "function") {
+      throw new TypeError("memoMethod must be a function if defined");
+    }
+    __privateSet(this, _memoMethod, memoMethod);
     if (fetchMethod !== void 0 && typeof fetchMethod !== "function") {
       throw new TypeError("fetchMethod must be a function if specified");
     }
@@ -16767,7 +17396,7 @@ var _LRUCache = class _LRUCache {
       if (!isPosInt(this.maxEntrySize)) {
         throw new TypeError("maxEntrySize must be a positive integer if specified");
       }
-      __privateMethod(this, _initializeSizeTracking, initializeSizeTracking_fn).call(this);
+      __privateMethod(this, _LRUCache_instances, initializeSizeTracking_fn).call(this);
     }
     this.allowStale = !!allowStale;
     this.noDeleteOnStaleGet = !!noDeleteOnStaleGet;
@@ -16780,7 +17409,7 @@ var _LRUCache = class _LRUCache {
       if (!isPosInt(this.ttl)) {
         throw new TypeError("ttl must be a positive integer if specified");
       }
-      __privateMethod(this, _initializeTTLTracking, initializeTTLTracking_fn).call(this);
+      __privateMethod(this, _LRUCache_instances, initializeTTLTracking_fn).call(this);
     }
     if (__privateGet(this, _max) === 0 && this.ttl === 0 && __privateGet(this, _maxSize) === 0) {
       throw new TypeError("At least one of max, maxSize, or ttl is required");
@@ -16823,28 +17452,28 @@ var _LRUCache = class _LRUCache {
       free: __privateGet(c, _free),
       // methods
       isBackgroundFetch: (p) => {
-        var _a4;
-        return __privateMethod(_a4 = c, _isBackgroundFetch, isBackgroundFetch_fn).call(_a4, p);
+        var _a5;
+        return __privateMethod(_a5 = c, _LRUCache_instances, isBackgroundFetch_fn).call(_a5, p);
       },
       backgroundFetch: (k, index, options3, context) => {
-        var _a4;
-        return __privateMethod(_a4 = c, _backgroundFetch, backgroundFetch_fn).call(_a4, k, index, options3, context);
+        var _a5;
+        return __privateMethod(_a5 = c, _LRUCache_instances, backgroundFetch_fn).call(_a5, k, index, options3, context);
       },
       moveToTail: (index) => {
-        var _a4;
-        return __privateMethod(_a4 = c, _moveToTail, moveToTail_fn).call(_a4, index);
+        var _a5;
+        return __privateMethod(_a5 = c, _LRUCache_instances, moveToTail_fn).call(_a5, index);
       },
       indexes: (options3) => {
-        var _a4;
-        return __privateMethod(_a4 = c, _indexes, indexes_fn).call(_a4, options3);
+        var _a5;
+        return __privateMethod(_a5 = c, _LRUCache_instances, indexes_fn).call(_a5, options3);
       },
       rindexes: (options3) => {
-        var _a4;
-        return __privateMethod(_a4 = c, _rindexes, rindexes_fn).call(_a4, options3);
+        var _a5;
+        return __privateMethod(_a5 = c, _LRUCache_instances, rindexes_fn).call(_a5, options3);
       },
       isStale: (index) => {
-        var _a4;
-        return __privateGet(_a4 = c, _isStale).call(_a4, index);
+        var _a5;
+        return __privateGet(_a5 = c, _isStale).call(_a5, index);
       }
     };
   }
@@ -16879,6 +17508,9 @@ var _LRUCache = class _LRUCache {
   get fetchMethod() {
     return __privateGet(this, _fetchMethod);
   }
+  get memoMethod() {
+    return __privateGet(this, _memoMethod);
+  }
   /**
    * {@link LRUCache.OptionsBase.dispose} (read-only)
    */
@@ -16892,7 +17524,8 @@ var _LRUCache = class _LRUCache {
     return __privateGet(this, _disposeAfter);
   }
   /**
-   * Return the remaining TTL time for a given entry key
+   * Return the number of ms left in the item's TTL. If item is not in cache,
+   * returns `0`. Returns `Infinity` if item is in cache without a defined TTL.
    */
   getRemainingTTL(key) {
     return __privateGet(this, _keyMap).has(key) ? Infinity : 0;
@@ -16902,8 +17535,8 @@ var _LRUCache = class _LRUCache {
    * in order from most recently used to least recently used.
    */
   *entries() {
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this)) {
-      if (__privateGet(this, _valList)[i] !== void 0 && __privateGet(this, _keyList)[i] !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this)) {
+      if (__privateGet(this, _valList)[i] !== void 0 && __privateGet(this, _keyList)[i] !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield [__privateGet(this, _keyList)[i], __privateGet(this, _valList)[i]];
       }
     }
@@ -16915,8 +17548,8 @@ var _LRUCache = class _LRUCache {
    * in order from least recently used to most recently used.
    */
   *rentries() {
-    for (const i of __privateMethod(this, _rindexes, rindexes_fn).call(this)) {
-      if (__privateGet(this, _valList)[i] !== void 0 && __privateGet(this, _keyList)[i] !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+    for (const i of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this)) {
+      if (__privateGet(this, _valList)[i] !== void 0 && __privateGet(this, _keyList)[i] !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield [__privateGet(this, _keyList)[i], __privateGet(this, _valList)[i]];
       }
     }
@@ -16926,9 +17559,9 @@ var _LRUCache = class _LRUCache {
    * in order from most recently used to least recently used.
    */
   *keys() {
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this)) {
       const k = __privateGet(this, _keyList)[i];
-      if (k !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+      if (k !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield k;
       }
     }
@@ -16940,9 +17573,9 @@ var _LRUCache = class _LRUCache {
    * in order from least recently used to most recently used.
    */
   *rkeys() {
-    for (const i of __privateMethod(this, _rindexes, rindexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this)) {
       const k = __privateGet(this, _keyList)[i];
-      if (k !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+      if (k !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield k;
       }
     }
@@ -16952,9 +17585,9 @@ var _LRUCache = class _LRUCache {
    * in order from most recently used to least recently used.
    */
   *values() {
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this)) {
       const v = __privateGet(this, _valList)[i];
-      if (v !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+      if (v !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield __privateGet(this, _valList)[i];
       }
     }
@@ -16966,9 +17599,9 @@ var _LRUCache = class _LRUCache {
    * in order from least recently used to most recently used.
    */
   *rvalues() {
-    for (const i of __privateMethod(this, _rindexes, rindexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this)) {
       const v = __privateGet(this, _valList)[i];
-      if (v !== void 0 && !__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
+      if (v !== void 0 && !__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, __privateGet(this, _valList)[i])) {
         yield __privateGet(this, _valList)[i];
       }
     }
@@ -16977,17 +17610,17 @@ var _LRUCache = class _LRUCache {
    * Iterating over the cache itself yields the same results as
    * {@link LRUCache.entries}
    */
-  [Symbol.iterator]() {
+  [(_b = Symbol.iterator, _a3 = Symbol.toStringTag, _b)]() {
     return this.entries();
   }
   /**
    * Find a value for which the supplied fn method returns a truthy value,
-   * similar to Array.find().  fn is called as fn(value, key, cache).
+   * similar to `Array.find()`. fn is called as `fn(value, key, cache)`.
    */
   find(fn, getOptions = {}) {
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this)) {
       const v = __privateGet(this, _valList)[i];
-      const value = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+      const value = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
       if (value === void 0)
         continue;
       if (fn(value, __privateGet(this, _keyList)[i], this)) {
@@ -16996,15 +17629,20 @@ var _LRUCache = class _LRUCache {
     }
   }
   /**
-   * Call the supplied function on each item in the cache, in order from
-   * most recently used to least recently used.  fn is called as
-   * fn(value, key, cache).  Does not update age or recenty of use.
-   * Does not iterate over stale values.
+   * Call the supplied function on each item in the cache, in order from most
+   * recently used to least recently used.
+   *
+   * `fn` is called as `fn(value, key, cache)`.
+   *
+   * If `thisp` is provided, function will be called in the `this`-context of
+   * the provided object, or the cache if no `thisp` object is provided.
+   *
+   * Does not update age or recenty of use, or iterate over stale values.
    */
   forEach(fn, thisp = this) {
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this)) {
       const v = __privateGet(this, _valList)[i];
-      const value = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+      const value = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
       if (value === void 0)
         continue;
       fn.call(thisp, value, __privateGet(this, _keyList)[i], this);
@@ -17015,9 +17653,9 @@ var _LRUCache = class _LRUCache {
    * reverse order.  (ie, less recently used items are iterated over first.)
    */
   rforEach(fn, thisp = this) {
-    for (const i of __privateMethod(this, _rindexes, rindexes_fn).call(this)) {
+    for (const i of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this)) {
       const v = __privateGet(this, _valList)[i];
-      const value = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+      const value = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
       if (value === void 0)
         continue;
       fn.call(thisp, value, __privateGet(this, _keyList)[i], this);
@@ -17029,9 +17667,9 @@ var _LRUCache = class _LRUCache {
    */
   purgeStale() {
     let deleted = false;
-    for (const i of __privateMethod(this, _rindexes, rindexes_fn).call(this, { allowStale: true })) {
+    for (const i of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this, { allowStale: true })) {
       if (__privateGet(this, _isStale).call(this, i)) {
-        this.delete(__privateGet(this, _keyList)[i]);
+        __privateMethod(this, _LRUCache_instances, delete_fn).call(this, __privateGet(this, _keyList)[i], "expire");
         deleted = true;
       }
     }
@@ -17039,16 +17677,22 @@ var _LRUCache = class _LRUCache {
   }
   /**
    * Get the extended info about a given entry, to get its value, size, and
-   * TTL info simultaneously. Like {@link LRUCache#dump}, but just for a
-   * single key. Always returns stale values, if their info is found in the
-   * cache, so be sure to check for expired TTLs if relevant.
+   * TTL info simultaneously. Returns `undefined` if the key is not present.
+   *
+   * Unlike {@link LRUCache#dump}, which is designed to be portable and survive
+   * serialization, the `start` value is always the current timestamp, and the
+   * `ttl` is a calculated remaining time to live (negative if expired).
+   *
+   * Always returns stale values, if their info is found in the cache, so be
+   * sure to check for expirations (ie, a negative {@link LRUCache.Entry#ttl})
+   * if relevant.
    */
   info(key) {
     const i = __privateGet(this, _keyMap).get(key);
     if (i === void 0)
       return void 0;
     const v = __privateGet(this, _valList)[i];
-    const value = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+    const value = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
     if (value === void 0)
       return void 0;
     const entry = { value };
@@ -17068,14 +17712,23 @@ var _LRUCache = class _LRUCache {
   }
   /**
    * Return an array of [key, {@link LRUCache.Entry}] tuples which can be
-   * passed to cache.load()
+   * passed to {@link LRLUCache#load}.
+   *
+   * The `start` fields are calculated relative to a portable `Date.now()`
+   * timestamp, even if `performance.now()` is available.
+   *
+   * Stale entries are always included in the `dump`, even if
+   * {@link LRUCache.OptionsBase.allowStale} is false.
+   *
+   * Note: this returns an actual array, not a generator, so it can be more
+   * easily passed around.
    */
   dump() {
     const arr = [];
-    for (const i of __privateMethod(this, _indexes, indexes_fn).call(this, { allowStale: true })) {
+    for (const i of __privateMethod(this, _LRUCache_instances, indexes_fn).call(this, { allowStale: true })) {
       const key = __privateGet(this, _keyList)[i];
       const v = __privateGet(this, _valList)[i];
-      const value = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+      const value = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
       if (value === void 0 || key === void 0)
         continue;
       const entry = { value };
@@ -17093,8 +17746,12 @@ var _LRUCache = class _LRUCache {
   }
   /**
    * Reset the cache and load in the items in entries in the order listed.
-   * Note that the shape of the resulting cache may be different if the
-   * same options are not used in both caches.
+   *
+   * The shape of the resulting cache may be different if the same options are
+   * not used in both caches.
+   *
+   * The `start` fields are assumed to be calculated relative to a portable
+   * `Date.now()` timestamp, even if `performance.now()` is available.
    */
   load(arr) {
     this.clear();
@@ -17111,9 +17768,33 @@ var _LRUCache = class _LRUCache {
    *
    * Note: if `undefined` is specified as a value, this is an alias for
    * {@link LRUCache#delete}
+   *
+   * Fields on the {@link LRUCache.SetOptions} options param will override
+   * their corresponding values in the constructor options for the scope
+   * of this single `set()` operation.
+   *
+   * If `start` is provided, then that will set the effective start
+   * time for the TTL calculation. Note that this must be a previous
+   * value of `performance.now()` if supported, or a previous value of
+   * `Date.now()` if not.
+   *
+   * Options object may also include `size`, which will prevent
+   * calling the `sizeCalculation` function and just use the specified
+   * number if it is a positive integer, and `noDisposeOnSet` which
+   * will prevent calling a `dispose` function in the case of
+   * overwrites.
+   *
+   * If the `size` (or return value of `sizeCalculation`) for a given
+   * entry is greater than `maxEntrySize`, then the item will not be
+   * added to the cache.
+   *
+   * Will update the recency of the entry.
+   *
+   * If the value is `undefined`, then this is an alias for
+   * `cache.delete(key)`. `undefined` is never stored in the cache.
    */
   set(k, v, setOptions = {}) {
-    var _a4, _b2, _c2, _d2, _e2;
+    var _a5, _b3, _c2, _d2, _e2;
     if (v === void 0) {
       this.delete(k);
       return this;
@@ -17126,12 +17807,12 @@ var _LRUCache = class _LRUCache {
         status.set = "miss";
         status.maxEntrySizeExceeded = true;
       }
-      this.delete(k);
+      __privateMethod(this, _LRUCache_instances, delete_fn).call(this, k, "set");
       return this;
     }
     let index = __privateGet(this, _size) === 0 ? void 0 : __privateGet(this, _keyMap).get(k);
     if (index === void 0) {
-      index = __privateGet(this, _size) === 0 ? __privateGet(this, _tail) : __privateGet(this, _free).length !== 0 ? __privateGet(this, _free).pop() : __privateGet(this, _size) === __privateGet(this, _max) ? __privateMethod(this, _evict, evict_fn).call(this, false) : __privateGet(this, _size);
+      index = __privateGet(this, _size) === 0 ? __privateGet(this, _tail) : __privateGet(this, _free).length !== 0 ? __privateGet(this, _free).pop() : __privateGet(this, _size) === __privateGet(this, _max) ? __privateMethod(this, _LRUCache_instances, evict_fn).call(this, false) : __privateGet(this, _size);
       __privateGet(this, _keyList)[index] = k;
       __privateGet(this, _valList)[index] = v;
       __privateGet(this, _keyMap).set(k, index);
@@ -17144,18 +17825,18 @@ var _LRUCache = class _LRUCache {
         status.set = "add";
       noUpdateTTL = false;
     } else {
-      __privateMethod(this, _moveToTail, moveToTail_fn).call(this, index);
+      __privateMethod(this, _LRUCache_instances, moveToTail_fn).call(this, index);
       const oldVal = __privateGet(this, _valList)[index];
       if (v !== oldVal) {
-        if (__privateGet(this, _hasFetchMethod) && __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, oldVal)) {
+        if (__privateGet(this, _hasFetchMethod) && __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, oldVal)) {
           oldVal.__abortController.abort(new Error("replaced"));
           const { __staleWhileFetching: s } = oldVal;
           if (s !== void 0 && !noDisposeOnSet) {
             if (__privateGet(this, _hasDispose)) {
-              (_a4 = __privateGet(this, _dispose)) == null ? void 0 : _a4.call(this, s, k, "set");
+              (_a5 = __privateGet(this, _dispose)) == null ? void 0 : _a5.call(this, s, k, "set");
             }
             if (__privateGet(this, _hasDisposeAfter)) {
-              (_b2 = __privateGet(this, _disposed)) == null ? void 0 : _b2.push([s, k, "set"]);
+              (_b3 = __privateGet(this, _disposed)) == null ? void 0 : _b3.push([s, k, "set"]);
             }
           }
         } else if (!noDisposeOnSet) {
@@ -17171,7 +17852,7 @@ var _LRUCache = class _LRUCache {
         __privateGet(this, _valList)[index] = v;
         if (status) {
           status.set = "replace";
-          const oldValue = oldVal && __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, oldVal) ? oldVal.__staleWhileFetching : oldVal;
+          const oldValue = oldVal && __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, oldVal) ? oldVal.__staleWhileFetching : oldVal;
           if (oldValue !== void 0)
             status.oldValue = oldValue;
         }
@@ -17180,7 +17861,7 @@ var _LRUCache = class _LRUCache {
       }
     }
     if (ttl !== 0 && !__privateGet(this, _ttls)) {
-      __privateMethod(this, _initializeTTLTracking, initializeTTLTracking_fn).call(this);
+      __privateMethod(this, _LRUCache_instances, initializeTTLTracking_fn).call(this);
     }
     if (__privateGet(this, _ttls)) {
       if (!noUpdateTTL) {
@@ -17203,12 +17884,12 @@ var _LRUCache = class _LRUCache {
    * `undefined` if cache is empty.
    */
   pop() {
-    var _a4;
+    var _a5;
     try {
       while (__privateGet(this, _size)) {
         const val = __privateGet(this, _valList)[__privateGet(this, _head)];
-        __privateMethod(this, _evict, evict_fn).call(this, true);
-        if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, val)) {
+        __privateMethod(this, _LRUCache_instances, evict_fn).call(this, true);
+        if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, val)) {
           if (val.__staleWhileFetching) {
             return val.__staleWhileFetching;
           }
@@ -17221,7 +17902,7 @@ var _LRUCache = class _LRUCache {
         const dt = __privateGet(this, _disposed);
         let task;
         while (task = dt == null ? void 0 : dt.shift()) {
-          (_a4 = __privateGet(this, _disposeAfter)) == null ? void 0 : _a4.call(this, ...task);
+          (_a5 = __privateGet(this, _disposeAfter)) == null ? void 0 : _a5.call(this, ...task);
         }
       }
     }
@@ -17231,6 +17912,14 @@ var _LRUCache = class _LRUCache {
    * Will return false if the item is stale, even though it is technically
    * in the cache.
    *
+   * Check if a key is in the cache, without updating the recency of
+   * use. Age is updated if {@link LRUCache.OptionsBase.updateAgeOnHas} is set
+   * to `true` in either the options or the constructor.
+   *
+   * Will return `false` if the item is stale, even though it is technically in
+   * the cache. The difference can be determined (if it matters) by using a
+   * `status` argument, and inspecting the `has` field.
+   *
    * Will not update item age unless
    * {@link LRUCache.OptionsBase.updateAgeOnHas} is set.
    */
@@ -17239,7 +17928,7 @@ var _LRUCache = class _LRUCache {
     const index = __privateGet(this, _keyMap).get(k);
     if (index !== void 0) {
       const v = __privateGet(this, _valList)[index];
-      if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) && v.__staleWhileFetching === void 0) {
+      if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) && v.__staleWhileFetching === void 0) {
         return false;
       }
       if (!__privateGet(this, _isStale).call(this, index)) {
@@ -17274,7 +17963,7 @@ var _LRUCache = class _LRUCache {
       return;
     }
     const v = __privateGet(this, _valList)[index];
-    return __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
+    return __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v) ? v.__staleWhileFetching : v;
   }
   async fetch(k, fetchOptions = {}) {
     const {
@@ -17328,11 +18017,11 @@ var _LRUCache = class _LRUCache {
     if (index === void 0) {
       if (status)
         status.fetch = "miss";
-      const p = __privateMethod(this, _backgroundFetch, backgroundFetch_fn).call(this, k, index, options3, context);
+      const p = __privateMethod(this, _LRUCache_instances, backgroundFetch_fn).call(this, k, index, options3, context);
       return p.__returned = p;
     } else {
       const v = __privateGet(this, _valList)[index];
-      if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
+      if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
         const stale = allowStale && v.__staleWhileFetching !== void 0;
         if (status) {
           status.fetch = "inflight";
@@ -17345,7 +18034,7 @@ var _LRUCache = class _LRUCache {
       if (!forceRefresh && !isStale) {
         if (status)
           status.fetch = "hit";
-        __privateMethod(this, _moveToTail, moveToTail_fn).call(this, index);
+        __privateMethod(this, _LRUCache_instances, moveToTail_fn).call(this, index);
         if (updateAgeOnGet) {
           __privateGet(this, _updateItemAge).call(this, index);
         }
@@ -17353,7 +18042,7 @@ var _LRUCache = class _LRUCache {
           __privateGet(this, _statusTTL).call(this, status, index);
         return v;
       }
-      const p = __privateMethod(this, _backgroundFetch, backgroundFetch_fn).call(this, k, index, options3, context);
+      const p = __privateMethod(this, _LRUCache_instances, backgroundFetch_fn).call(this, k, index, options3, context);
       const hasStale = p.__staleWhileFetching !== void 0;
       const staleVal = hasStale && allowStale;
       if (status) {
@@ -17363,6 +18052,28 @@ var _LRUCache = class _LRUCache {
       }
       return staleVal ? p.__staleWhileFetching : p.__returned = p;
     }
+  }
+  async forceFetch(k, fetchOptions = {}) {
+    const v = await this.fetch(k, fetchOptions);
+    if (v === void 0)
+      throw new Error("fetch() returned undefined");
+    return v;
+  }
+  memo(k, memoOptions = {}) {
+    const memoMethod = __privateGet(this, _memoMethod);
+    if (!memoMethod) {
+      throw new Error("no memoMethod provided to constructor");
+    }
+    const { context, forceRefresh, ...options3 } = memoOptions;
+    const v = this.get(k, options3);
+    if (!forceRefresh && v !== void 0)
+      return v;
+    const vv = memoMethod(k, v, {
+      options: options3,
+      context
+    });
+    this.set(k, vv, options3);
+    return vv;
   }
   /**
    * Return a value from the cache. Will update the recency of the cache
@@ -17375,7 +18086,7 @@ var _LRUCache = class _LRUCache {
     const index = __privateGet(this, _keyMap).get(k);
     if (index !== void 0) {
       const value = __privateGet(this, _valList)[index];
-      const fetching = __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, value);
+      const fetching = __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, value);
       if (status)
         __privateGet(this, _statusTTL).call(this, status, index);
       if (__privateGet(this, _isStale).call(this, index)) {
@@ -17383,7 +18094,7 @@ var _LRUCache = class _LRUCache {
           status.get = "stale";
         if (!fetching) {
           if (!noDeleteOnStaleGet) {
-            this.delete(k);
+            __privateMethod(this, _LRUCache_instances, delete_fn).call(this, k, "expire");
           }
           if (status && allowStale)
             status.returnedStale = true;
@@ -17400,7 +18111,7 @@ var _LRUCache = class _LRUCache {
         if (fetching) {
           return value.__staleWhileFetching;
         }
-        __privateMethod(this, _moveToTail, moveToTail_fn).call(this, index);
+        __privateMethod(this, _LRUCache_instances, moveToTail_fn).call(this, index);
         if (updateAgeOnGet) {
           __privateGet(this, _updateItemAge).call(this, index);
         }
@@ -17412,98 +18123,17 @@ var _LRUCache = class _LRUCache {
   }
   /**
    * Deletes a key out of the cache.
+   *
    * Returns true if the key was deleted, false otherwise.
    */
   delete(k) {
-    var _a4, _b2, _c2, _d2;
-    let deleted = false;
-    if (__privateGet(this, _size) !== 0) {
-      const index = __privateGet(this, _keyMap).get(k);
-      if (index !== void 0) {
-        deleted = true;
-        if (__privateGet(this, _size) === 1) {
-          this.clear();
-        } else {
-          __privateGet(this, _removeItemSize).call(this, index);
-          const v = __privateGet(this, _valList)[index];
-          if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
-            v.__abortController.abort(new Error("deleted"));
-          } else if (__privateGet(this, _hasDispose) || __privateGet(this, _hasDisposeAfter)) {
-            if (__privateGet(this, _hasDispose)) {
-              (_a4 = __privateGet(this, _dispose)) == null ? void 0 : _a4.call(this, v, k, "delete");
-            }
-            if (__privateGet(this, _hasDisposeAfter)) {
-              (_b2 = __privateGet(this, _disposed)) == null ? void 0 : _b2.push([v, k, "delete"]);
-            }
-          }
-          __privateGet(this, _keyMap).delete(k);
-          __privateGet(this, _keyList)[index] = void 0;
-          __privateGet(this, _valList)[index] = void 0;
-          if (index === __privateGet(this, _tail)) {
-            __privateSet(this, _tail, __privateGet(this, _prev)[index]);
-          } else if (index === __privateGet(this, _head)) {
-            __privateSet(this, _head, __privateGet(this, _next)[index]);
-          } else {
-            const pi = __privateGet(this, _prev)[index];
-            __privateGet(this, _next)[pi] = __privateGet(this, _next)[index];
-            const ni = __privateGet(this, _next)[index];
-            __privateGet(this, _prev)[ni] = __privateGet(this, _prev)[index];
-          }
-          __privateWrapper(this, _size)._--;
-          __privateGet(this, _free).push(index);
-        }
-      }
-    }
-    if (__privateGet(this, _hasDisposeAfter) && ((_c2 = __privateGet(this, _disposed)) == null ? void 0 : _c2.length)) {
-      const dt = __privateGet(this, _disposed);
-      let task;
-      while (task = dt == null ? void 0 : dt.shift()) {
-        (_d2 = __privateGet(this, _disposeAfter)) == null ? void 0 : _d2.call(this, ...task);
-      }
-    }
-    return deleted;
+    return __privateMethod(this, _LRUCache_instances, delete_fn).call(this, k, "delete");
   }
   /**
    * Clear the cache entirely, throwing away all values.
    */
   clear() {
-    var _a4, _b2, _c2;
-    for (const index of __privateMethod(this, _rindexes, rindexes_fn).call(this, { allowStale: true })) {
-      const v = __privateGet(this, _valList)[index];
-      if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
-        v.__abortController.abort(new Error("deleted"));
-      } else {
-        const k = __privateGet(this, _keyList)[index];
-        if (__privateGet(this, _hasDispose)) {
-          (_a4 = __privateGet(this, _dispose)) == null ? void 0 : _a4.call(this, v, k, "delete");
-        }
-        if (__privateGet(this, _hasDisposeAfter)) {
-          (_b2 = __privateGet(this, _disposed)) == null ? void 0 : _b2.push([v, k, "delete"]);
-        }
-      }
-    }
-    __privateGet(this, _keyMap).clear();
-    __privateGet(this, _valList).fill(void 0);
-    __privateGet(this, _keyList).fill(void 0);
-    if (__privateGet(this, _ttls) && __privateGet(this, _starts)) {
-      __privateGet(this, _ttls).fill(0);
-      __privateGet(this, _starts).fill(0);
-    }
-    if (__privateGet(this, _sizes)) {
-      __privateGet(this, _sizes).fill(0);
-    }
-    __privateSet(this, _head, 0);
-    __privateSet(this, _tail, 0);
-    __privateGet(this, _free).length = 0;
-    __privateSet(this, _calculatedSize, 0);
-    __privateSet(this, _size, 0);
-    if (__privateGet(this, _hasDisposeAfter) && __privateGet(this, _disposed)) {
-      const dt = __privateGet(this, _disposed);
-      let task;
-      while (task = dt == null ? void 0 : dt.shift()) {
-        (_c2 = __privateGet(this, _disposeAfter)) == null ? void 0 : _c2.call(this, ...task);
-      }
-    }
+    return __privateMethod(this, _LRUCache_instances, clear_fn).call(this, "delete");
   }
 };
 _max = new WeakMap();
@@ -17511,6 +18141,7 @@ _maxSize = new WeakMap();
 _dispose = new WeakMap();
 _disposeAfter = new WeakMap();
 _fetchMethod = new WeakMap();
+_memoMethod = new WeakMap();
 _size = new WeakMap();
 _calculatedSize = new WeakMap();
 _keyMap = new WeakMap();
@@ -17528,7 +18159,7 @@ _ttls = new WeakMap();
 _hasDispose = new WeakMap();
 _hasFetchMethod = new WeakMap();
 _hasDisposeAfter = new WeakMap();
-_initializeTTLTracking = new WeakSet();
+_LRUCache_instances = new WeakSet();
 initializeTTLTracking_fn = function() {
   const ttls = new ZeroArray(__privateGet(this, _max));
   const starts = new ZeroArray(__privateGet(this, _max));
@@ -17540,7 +18171,7 @@ initializeTTLTracking_fn = function() {
     if (ttl !== 0 && this.ttlAutopurge) {
       const t = setTimeout(() => {
         if (__privateGet(this, _isStale).call(this, index)) {
-          this.delete(__privateGet(this, _keyList)[index]);
+          __privateMethod(this, _LRUCache_instances, delete_fn).call(this, __privateGet(this, _keyList)[index], "expire");
         }
       }, ttl + 1);
       if (t.unref) {
@@ -17599,7 +18230,6 @@ _updateItemAge = new WeakMap();
 _statusTTL = new WeakMap();
 _setItemTTL = new WeakMap();
 _isStale = new WeakMap();
-_initializeSizeTracking = new WeakSet();
 initializeSizeTracking_fn = function() {
   const sizes = new ZeroArray(__privateGet(this, _max));
   __privateSet(this, _calculatedSize, 0);
@@ -17609,7 +18239,7 @@ initializeSizeTracking_fn = function() {
     sizes[index] = 0;
   });
   __privateSet(this, _requireSize, (k, v, size, sizeCalculation) => {
-    if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
+    if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
       return 0;
     }
     if (!isPosInt(size)) {
@@ -17632,7 +18262,7 @@ initializeSizeTracking_fn = function() {
     if (__privateGet(this, _maxSize)) {
       const maxSize = __privateGet(this, _maxSize) - sizes[index];
       while (__privateGet(this, _calculatedSize) > maxSize) {
-        __privateMethod(this, _evict, evict_fn).call(this, true);
+        __privateMethod(this, _LRUCache_instances, evict_fn).call(this, true);
       }
     }
     __privateSet(this, _calculatedSize, __privateGet(this, _calculatedSize) + sizes[index]);
@@ -17645,11 +18275,10 @@ initializeSizeTracking_fn = function() {
 _removeItemSize = new WeakMap();
 _addItemSize = new WeakMap();
 _requireSize = new WeakMap();
-_indexes = new WeakSet();
 indexes_fn = function* ({ allowStale = this.allowStale } = {}) {
   if (__privateGet(this, _size)) {
     for (let i = __privateGet(this, _tail); true; ) {
-      if (!__privateMethod(this, _isValidIndex, isValidIndex_fn).call(this, i)) {
+      if (!__privateMethod(this, _LRUCache_instances, isValidIndex_fn).call(this, i)) {
         break;
       }
       if (allowStale || !__privateGet(this, _isStale).call(this, i)) {
@@ -17663,11 +18292,10 @@ indexes_fn = function* ({ allowStale = this.allowStale } = {}) {
     }
   }
 };
-_rindexes = new WeakSet();
 rindexes_fn = function* ({ allowStale = this.allowStale } = {}) {
   if (__privateGet(this, _size)) {
     for (let i = __privateGet(this, _head); true; ) {
-      if (!__privateMethod(this, _isValidIndex, isValidIndex_fn).call(this, i)) {
+      if (!__privateMethod(this, _LRUCache_instances, isValidIndex_fn).call(this, i)) {
         break;
       }
       if (allowStale || !__privateGet(this, _isStale).call(this, i)) {
@@ -17681,24 +18309,22 @@ rindexes_fn = function* ({ allowStale = this.allowStale } = {}) {
     }
   }
 };
-_isValidIndex = new WeakSet();
 isValidIndex_fn = function(index) {
   return index !== void 0 && __privateGet(this, _keyMap).get(__privateGet(this, _keyList)[index]) === index;
 };
-_evict = new WeakSet();
 evict_fn = function(free) {
-  var _a4, _b2;
+  var _a5, _b3;
   const head = __privateGet(this, _head);
   const k = __privateGet(this, _keyList)[head];
   const v = __privateGet(this, _valList)[head];
-  if (__privateGet(this, _hasFetchMethod) && __privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
+  if (__privateGet(this, _hasFetchMethod) && __privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
     v.__abortController.abort(new Error("evicted"));
   } else if (__privateGet(this, _hasDispose) || __privateGet(this, _hasDisposeAfter)) {
     if (__privateGet(this, _hasDispose)) {
-      (_a4 = __privateGet(this, _dispose)) == null ? void 0 : _a4.call(this, v, k, "evict");
+      (_a5 = __privateGet(this, _dispose)) == null ? void 0 : _a5.call(this, v, k, "evict");
     }
     if (__privateGet(this, _hasDisposeAfter)) {
-      (_b2 = __privateGet(this, _disposed)) == null ? void 0 : _b2.push([v, k, "evict"]);
+      (_b3 = __privateGet(this, _disposed)) == null ? void 0 : _b3.push([v, k, "evict"]);
     }
   }
   __privateGet(this, _removeItemSize).call(this, head);
@@ -17717,10 +18343,9 @@ evict_fn = function(free) {
   __privateWrapper(this, _size)._--;
   return head;
 };
-_backgroundFetch = new WeakSet();
 backgroundFetch_fn = function(k, index, options3, context) {
   const v = index === void 0 ? void 0 : __privateGet(this, _valList)[index];
-  if (__privateMethod(this, _isBackgroundFetch, isBackgroundFetch_fn).call(this, v)) {
+  if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
     return v;
   }
   const ac = new AC();
@@ -17755,7 +18380,7 @@ backgroundFetch_fn = function(k, index, options3, context) {
         if (bf2.__staleWhileFetching) {
           __privateGet(this, _valList)[index] = bf2.__staleWhileFetching;
         } else {
-          this.delete(k);
+          __privateMethod(this, _LRUCache_instances, delete_fn).call(this, k, "fetch");
         }
       } else {
         if (options3.status)
@@ -17781,7 +18406,7 @@ backgroundFetch_fn = function(k, index, options3, context) {
     if (__privateGet(this, _valList)[index] === p) {
       const del = !noDelete || bf2.__staleWhileFetching === void 0;
       if (del) {
-        this.delete(k);
+        __privateMethod(this, _LRUCache_instances, delete_fn).call(this, k, "fetch");
       } else if (!allowStaleAborted) {
         __privateGet(this, _valList)[index] = bf2.__staleWhileFetching;
       }
@@ -17796,8 +18421,8 @@ backgroundFetch_fn = function(k, index, options3, context) {
     }
   };
   const pcall = (res, rej) => {
-    var _a4;
-    const fmp = (_a4 = __privateGet(this, _fetchMethod)) == null ? void 0 : _a4.call(this, k, v, fetchOpts);
+    var _a5;
+    const fmp = (_a5 = __privateGet(this, _fetchMethod)) == null ? void 0 : _a5.call(this, k, v, fetchOpts);
     if (fmp && fmp instanceof Promise) {
       fmp.then((v2) => res(v2 === void 0 ? void 0 : v2), rej);
     }
@@ -17826,51 +18451,136 @@ backgroundFetch_fn = function(k, index, options3, context) {
   }
   return bf;
 };
-_isBackgroundFetch = new WeakSet();
 isBackgroundFetch_fn = function(p) {
   if (!__privateGet(this, _hasFetchMethod))
     return false;
   const b = p;
   return !!b && b instanceof Promise && b.hasOwnProperty("__staleWhileFetching") && b.__abortController instanceof AC;
 };
-_connect = new WeakSet();
 connect_fn = function(p, n) {
   __privateGet(this, _prev)[n] = p;
   __privateGet(this, _next)[p] = n;
 };
-_moveToTail = new WeakSet();
 moveToTail_fn = function(index) {
   if (index !== __privateGet(this, _tail)) {
     if (index === __privateGet(this, _head)) {
       __privateSet(this, _head, __privateGet(this, _next)[index]);
     } else {
-      __privateMethod(this, _connect, connect_fn).call(this, __privateGet(this, _prev)[index], __privateGet(this, _next)[index]);
+      __privateMethod(this, _LRUCache_instances, connect_fn).call(this, __privateGet(this, _prev)[index], __privateGet(this, _next)[index]);
     }
-    __privateMethod(this, _connect, connect_fn).call(this, __privateGet(this, _tail), index);
+    __privateMethod(this, _LRUCache_instances, connect_fn).call(this, __privateGet(this, _tail), index);
     __privateSet(this, _tail, index);
+  }
+};
+delete_fn = function(k, reason) {
+  var _a5, _b3, _c2, _d2;
+  let deleted = false;
+  if (__privateGet(this, _size) !== 0) {
+    const index = __privateGet(this, _keyMap).get(k);
+    if (index !== void 0) {
+      deleted = true;
+      if (__privateGet(this, _size) === 1) {
+        __privateMethod(this, _LRUCache_instances, clear_fn).call(this, reason);
+      } else {
+        __privateGet(this, _removeItemSize).call(this, index);
+        const v = __privateGet(this, _valList)[index];
+        if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
+          v.__abortController.abort(new Error("deleted"));
+        } else if (__privateGet(this, _hasDispose) || __privateGet(this, _hasDisposeAfter)) {
+          if (__privateGet(this, _hasDispose)) {
+            (_a5 = __privateGet(this, _dispose)) == null ? void 0 : _a5.call(this, v, k, reason);
+          }
+          if (__privateGet(this, _hasDisposeAfter)) {
+            (_b3 = __privateGet(this, _disposed)) == null ? void 0 : _b3.push([v, k, reason]);
+          }
+        }
+        __privateGet(this, _keyMap).delete(k);
+        __privateGet(this, _keyList)[index] = void 0;
+        __privateGet(this, _valList)[index] = void 0;
+        if (index === __privateGet(this, _tail)) {
+          __privateSet(this, _tail, __privateGet(this, _prev)[index]);
+        } else if (index === __privateGet(this, _head)) {
+          __privateSet(this, _head, __privateGet(this, _next)[index]);
+        } else {
+          const pi = __privateGet(this, _prev)[index];
+          __privateGet(this, _next)[pi] = __privateGet(this, _next)[index];
+          const ni = __privateGet(this, _next)[index];
+          __privateGet(this, _prev)[ni] = __privateGet(this, _prev)[index];
+        }
+        __privateWrapper(this, _size)._--;
+        __privateGet(this, _free).push(index);
+      }
+    }
+  }
+  if (__privateGet(this, _hasDisposeAfter) && ((_c2 = __privateGet(this, _disposed)) == null ? void 0 : _c2.length)) {
+    const dt = __privateGet(this, _disposed);
+    let task;
+    while (task = dt == null ? void 0 : dt.shift()) {
+      (_d2 = __privateGet(this, _disposeAfter)) == null ? void 0 : _d2.call(this, ...task);
+    }
+  }
+  return deleted;
+};
+clear_fn = function(reason) {
+  var _a5, _b3, _c2;
+  for (const index of __privateMethod(this, _LRUCache_instances, rindexes_fn).call(this, { allowStale: true })) {
+    const v = __privateGet(this, _valList)[index];
+    if (__privateMethod(this, _LRUCache_instances, isBackgroundFetch_fn).call(this, v)) {
+      v.__abortController.abort(new Error("deleted"));
+    } else {
+      const k = __privateGet(this, _keyList)[index];
+      if (__privateGet(this, _hasDispose)) {
+        (_a5 = __privateGet(this, _dispose)) == null ? void 0 : _a5.call(this, v, k, reason);
+      }
+      if (__privateGet(this, _hasDisposeAfter)) {
+        (_b3 = __privateGet(this, _disposed)) == null ? void 0 : _b3.push([v, k, reason]);
+      }
+    }
+  }
+  __privateGet(this, _keyMap).clear();
+  __privateGet(this, _valList).fill(void 0);
+  __privateGet(this, _keyList).fill(void 0);
+  if (__privateGet(this, _ttls) && __privateGet(this, _starts)) {
+    __privateGet(this, _ttls).fill(0);
+    __privateGet(this, _starts).fill(0);
+  }
+  if (__privateGet(this, _sizes)) {
+    __privateGet(this, _sizes).fill(0);
+  }
+  __privateSet(this, _head, 0);
+  __privateSet(this, _tail, 0);
+  __privateGet(this, _free).length = 0;
+  __privateSet(this, _calculatedSize, 0);
+  __privateSet(this, _size, 0);
+  if (__privateGet(this, _hasDisposeAfter) && __privateGet(this, _disposed)) {
+    const dt = __privateGet(this, _disposed);
+    let task;
+    while (task = dt == null ? void 0 : dt.shift()) {
+      (_c2 = __privateGet(this, _disposeAfter)) == null ? void 0 : _c2.call(this, ...task);
+    }
   }
 };
 var LRUCache = _LRUCache;
 
-// node_modules/path-scurry/dist/mjs/index.js
-import { posix, win32 } from "path";
-import { fileURLToPath } from "url";
-import * as actualFS from "fs";
+// node_modules/.pnpm/path-scurry@2.0.0/node_modules/path-scurry/dist/esm/index.js
+import { posix, win32 } from "node:path";
+import { fileURLToPath } from "node:url";
 import { lstatSync, readdir as readdirCB, readdirSync, readlinkSync, realpathSync as rps } from "fs";
-import { lstat, readdir, readlink, realpath } from "fs/promises";
+import * as actualFS from "node:fs";
+import { lstat, readdir, readlink, realpath } from "node:fs/promises";
 
-// node_modules/minipass/dist/esm/index.js
-import { EventEmitter } from "events";
-import Stream from "stream";
-import { StringDecoder } from "string_decoder";
+// node_modules/.pnpm/minipass@7.1.2/node_modules/minipass/dist/esm/index.js
+import { EventEmitter as EventEmitter2 } from "node:events";
+import Stream from "node:stream";
+import { StringDecoder } from "node:string_decoder";
 var proc = typeof process === "object" && process ? process : {
   stdout: null,
   stderr: null
 };
 var isStream = (s) => !!s && typeof s === "object" && (s instanceof Minipass || s instanceof Stream || isReadable(s) || isWritable(s));
-var isReadable = (s) => !!s && typeof s === "object" && s instanceof EventEmitter && typeof s.pipe === "function" && // node core Writable streams have a pipe() method, but it throws
+var isReadable = (s) => !!s && typeof s === "object" && s instanceof EventEmitter2 && typeof s.pipe === "function" && // node core Writable streams have a pipe() method, but it throws
 s.pipe !== Stream.Writable.prototype.pipe;
-var isWritable = (s) => !!s && typeof s === "object" && s instanceof EventEmitter && typeof s.write === "function" && typeof s.end === "function";
+var isWritable = (s) => !!s && typeof s === "object" && s instanceof EventEmitter2 && typeof s.write === "function" && typeof s.end === "function";
 var EOF = Symbol("EOF");
 var MAYBE_EMIT_END = Symbol("maybeEmitEnd");
 var EMITTED_END = Symbol("emittedEnd");
@@ -17946,8 +18656,8 @@ var PipeProxyErrors = class extends Pipe {
 };
 var isObjectModeOptions = (o) => !!o.objectMode;
 var isEncodingOptions = (o) => !o.objectMode && !!o.encoding && o.encoding !== "buffer";
-var _a3, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s;
-var Minipass = class extends EventEmitter {
+var _a4, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s;
+var Minipass = class extends EventEmitter2 {
   /**
    * If `RType` is Buffer, then options do not need to be provided.
    * Otherwise, an options object must be provided to specify either
@@ -17957,25 +18667,25 @@ var Minipass = class extends EventEmitter {
   constructor(...args) {
     const options3 = args[0] || {};
     super();
-    __publicField(this, _a3, false);
-    __publicField(this, _b, false);
-    __publicField(this, _c, []);
-    __publicField(this, _d, []);
-    __publicField(this, _e);
-    __publicField(this, _f);
-    __publicField(this, _g);
-    __publicField(this, _h);
-    __publicField(this, _i, false);
-    __publicField(this, _j, false);
-    __publicField(this, _k, false);
-    __publicField(this, _l, false);
-    __publicField(this, _m, null);
-    __publicField(this, _n, 0);
-    __publicField(this, _o, false);
-    __publicField(this, _p);
-    __publicField(this, _q, false);
-    __publicField(this, _r, 0);
     __publicField(this, _s, false);
+    __publicField(this, _r, false);
+    __publicField(this, _q, []);
+    __publicField(this, _p, []);
+    __publicField(this, _o);
+    __publicField(this, _n);
+    __publicField(this, _m);
+    __publicField(this, _l);
+    __publicField(this, _k, false);
+    __publicField(this, _j, false);
+    __publicField(this, _i, false);
+    __publicField(this, _h, false);
+    __publicField(this, _g, null);
+    __publicField(this, _f, 0);
+    __publicField(this, _e, false);
+    __publicField(this, _d);
+    __publicField(this, _c, false);
+    __publicField(this, _b2, 0);
+    __publicField(this, _a4, false);
     /**
      * true if the stream can be written
      */
@@ -18074,11 +18784,11 @@ var Minipass = class extends EventEmitter {
     this[ASYNC] = this[ASYNC] || !!a;
   }
   // drop everything and get out of the flow completely
-  [(_a3 = FLOWING, _b = PAUSED, _c = PIPES, _d = BUFFER, _e = OBJECTMODE, _f = ENCODING, _g = ASYNC, _h = DECODER, _i = EOF, _j = EMITTED_END, _k = EMITTING_END, _l = CLOSED, _m = EMITTED_ERROR, _n = BUFFERLENGTH, _o = DESTROYED, _p = SIGNAL, _q = ABORTED, _r = DATALISTENERS, _s = DISCARDED, ABORT)]() {
-    var _a4, _b2;
+  [(_s = FLOWING, _r = PAUSED, _q = PIPES, _p = BUFFER, _o = OBJECTMODE, _n = ENCODING, _m = ASYNC, _l = DECODER, _k = EOF, _j = EMITTED_END, _i = EMITTING_END, _h = CLOSED, _g = EMITTED_ERROR, _f = BUFFERLENGTH, _e = DESTROYED, _d = SIGNAL, _c = ABORTED, _b2 = DATALISTENERS, _a4 = DISCARDED, ABORT)]() {
+    var _a5, _b3;
     this[ABORTED] = true;
-    this.emit("abort", (_a4 = this[SIGNAL]) == null ? void 0 : _a4.reason);
-    this.destroy((_b2 = this[SIGNAL]) == null ? void 0 : _b2.reason);
+    this.emit("abort", (_a5 = this[SIGNAL]) == null ? void 0 : _a5.reason);
+    this.destroy((_b3 = this[SIGNAL]) == null ? void 0 : _b3.reason);
   }
   /**
    * True if the stream has been aborted.
@@ -18093,7 +18803,7 @@ var Minipass = class extends EventEmitter {
   set aborted(_) {
   }
   write(chunk, encoding, cb) {
-    var _a4;
+    var _a5;
     if (this[ABORTED])
       return false;
     if (this[EOF])
@@ -18139,7 +18849,7 @@ var Minipass = class extends EventEmitter {
       return this[FLOWING];
     }
     if (typeof chunk === "string" && // unless it is a string already ready for us to use
-    !(encoding === this[ENCODING] && !((_a4 = this[DECODER]) == null ? void 0 : _a4.lastNeed))) {
+    !(encoding === this[ENCODING] && !((_a5 = this[DECODER]) == null ? void 0 : _a5.lastNeed))) {
       chunk = Buffer.from(chunk, encoding);
     }
     if (Buffer.isBuffer(chunk) && this[ENCODING]) {
@@ -18740,7 +19450,7 @@ var Minipass = class extends EventEmitter {
   }
 };
 
-// node_modules/path-scurry/dist/mjs/index.js
+// node_modules/.pnpm/path-scurry@2.0.0/node_modules/path-scurry/dist/esm/index.js
 var realpathSync = rps.native;
 var defaultFS = {
   lstatSync,
@@ -18818,7 +19528,7 @@ var ChildrenCache = class extends LRUCache {
   }
 };
 var setAsCwd = Symbol("PathScurry setAsCwd");
-var _fs, _dev, _mode, _nlink, _uid, _gid, _rdev, _blksize, _ino, _size2, _blocks, _atimeMs, _mtimeMs, _ctimeMs, _birthtimeMs, _atime, _mtime, _ctime, _birthtime, _matchName, _depth, _fullpath, _fullpathPosix, _relative, _relativePosix, _type, _children, _linkTarget, _realpath, _resolveParts, resolveParts_fn, _readdirSuccess, readdirSuccess_fn, _markENOENT, markENOENT_fn, _markChildrenENOENT, markChildrenENOENT_fn, _markENOREALPATH, markENOREALPATH_fn, _markENOTDIR, markENOTDIR_fn, _readdirFail, readdirFail_fn, _lstatFail, lstatFail_fn, _readlinkFail, readlinkFail_fn, _readdirAddChild, readdirAddChild_fn, _readdirAddNewChild, readdirAddNewChild_fn, _readdirMaybePromoteChild, readdirMaybePromoteChild_fn, _readdirPromoteChild, readdirPromoteChild_fn, _applyStat, applyStat_fn, _onReaddirCB, _readdirCBInFlight, _callOnReaddirCB, callOnReaddirCB_fn, _asyncReaddirInFlight;
+var _fs, _dev, _mode, _nlink, _uid, _gid, _rdev, _blksize, _ino, _size2, _blocks, _atimeMs, _mtimeMs, _ctimeMs, _birthtimeMs, _atime, _mtime, _ctime, _birthtime, _matchName, _depth, _fullpath, _fullpathPosix, _relative, _relativePosix, _type, _children, _linkTarget, _realpath, _PathBase_instances, resolveParts_fn, readdirSuccess_fn, markENOENT_fn, markChildrenENOENT_fn, markENOREALPATH_fn, markENOTDIR_fn, readdirFail_fn, lstatFail_fn, readlinkFail_fn, readdirAddChild_fn, readdirAddNewChild_fn, readdirMaybePromoteChild_fn, readdirPromoteChild_fn, applyStat_fn, _onReaddirCB, _readdirCBInFlight, callOnReaddirCB_fn, _asyncReaddirInFlight;
 var PathBase = class {
   /**
    * Do not create new Path objects directly.  They should always be accessed
@@ -18827,22 +19537,7 @@ var PathBase = class {
    * @internal
    */
   constructor(name, type = UNKNOWN, root, roots, nocase, children, opts) {
-    __privateAdd(this, _resolveParts);
-    __privateAdd(this, _readdirSuccess);
-    __privateAdd(this, _markENOENT);
-    __privateAdd(this, _markChildrenENOENT);
-    __privateAdd(this, _markENOREALPATH);
-    // save the information when we know the entry is not a dir
-    __privateAdd(this, _markENOTDIR);
-    __privateAdd(this, _readdirFail);
-    __privateAdd(this, _lstatFail);
-    __privateAdd(this, _readlinkFail);
-    __privateAdd(this, _readdirAddChild);
-    __privateAdd(this, _readdirAddNewChild);
-    __privateAdd(this, _readdirMaybePromoteChild);
-    __privateAdd(this, _readdirPromoteChild);
-    __privateAdd(this, _applyStat);
-    __privateAdd(this, _callOnReaddirCB);
+    __privateAdd(this, _PathBase_instances);
     /**
      * the basename of this path
      *
@@ -18876,40 +19571,45 @@ var PathBase = class {
      * @internal
      */
     __publicField(this, "nocase");
+    /**
+     * boolean indicating that this path is the current working directory
+     * of the PathScurry collection that contains it.
+     */
+    __publicField(this, "isCWD", false);
     // potential default fs override
-    __privateAdd(this, _fs, void 0);
+    __privateAdd(this, _fs);
     // Stats fields
-    __privateAdd(this, _dev, void 0);
-    __privateAdd(this, _mode, void 0);
-    __privateAdd(this, _nlink, void 0);
-    __privateAdd(this, _uid, void 0);
-    __privateAdd(this, _gid, void 0);
-    __privateAdd(this, _rdev, void 0);
-    __privateAdd(this, _blksize, void 0);
-    __privateAdd(this, _ino, void 0);
-    __privateAdd(this, _size2, void 0);
-    __privateAdd(this, _blocks, void 0);
-    __privateAdd(this, _atimeMs, void 0);
-    __privateAdd(this, _mtimeMs, void 0);
-    __privateAdd(this, _ctimeMs, void 0);
-    __privateAdd(this, _birthtimeMs, void 0);
-    __privateAdd(this, _atime, void 0);
-    __privateAdd(this, _mtime, void 0);
-    __privateAdd(this, _ctime, void 0);
-    __privateAdd(this, _birthtime, void 0);
-    __privateAdd(this, _matchName, void 0);
-    __privateAdd(this, _depth, void 0);
-    __privateAdd(this, _fullpath, void 0);
-    __privateAdd(this, _fullpathPosix, void 0);
-    __privateAdd(this, _relative, void 0);
-    __privateAdd(this, _relativePosix, void 0);
-    __privateAdd(this, _type, void 0);
-    __privateAdd(this, _children, void 0);
-    __privateAdd(this, _linkTarget, void 0);
-    __privateAdd(this, _realpath, void 0);
+    __privateAdd(this, _dev);
+    __privateAdd(this, _mode);
+    __privateAdd(this, _nlink);
+    __privateAdd(this, _uid);
+    __privateAdd(this, _gid);
+    __privateAdd(this, _rdev);
+    __privateAdd(this, _blksize);
+    __privateAdd(this, _ino);
+    __privateAdd(this, _size2);
+    __privateAdd(this, _blocks);
+    __privateAdd(this, _atimeMs);
+    __privateAdd(this, _mtimeMs);
+    __privateAdd(this, _ctimeMs);
+    __privateAdd(this, _birthtimeMs);
+    __privateAdd(this, _atime);
+    __privateAdd(this, _mtime);
+    __privateAdd(this, _ctime);
+    __privateAdd(this, _birthtime);
+    __privateAdd(this, _matchName);
+    __privateAdd(this, _depth);
+    __privateAdd(this, _fullpath);
+    __privateAdd(this, _fullpathPosix);
+    __privateAdd(this, _relative);
+    __privateAdd(this, _relativePosix);
+    __privateAdd(this, _type);
+    __privateAdd(this, _children);
+    __privateAdd(this, _linkTarget);
+    __privateAdd(this, _realpath);
     __privateAdd(this, _onReaddirCB, []);
     __privateAdd(this, _readdirCBInFlight, false);
-    __privateAdd(this, _asyncReaddirInFlight, void 0);
+    __privateAdd(this, _asyncReaddirInFlight);
     this.name = name;
     __privateSet(this, _matchName, nocase ? normalizeNocase(name) : normalize(name));
     __privateSet(this, _type, type & TYPEMASK);
@@ -18983,13 +19683,21 @@ var PathBase = class {
   }
   /**
    * This property is for compatibility with the Dirent class as of
-   * Node v20, where Dirent['path'] refers to the path of the directory
-   * that was passed to readdir.  So, somewhat counterintuitively, this
-   * property refers to the *parent* path, not the path object itself.
-   * For root entries, it's the path to the entry itself.
+   * Node v20, where Dirent['parentPath'] refers to the path of the
+   * directory that was passed to readdir. For root entries, it's the path
+   * to the entry itself.
+   */
+  get parentPath() {
+    return (this.parent || this).fullpath();
+  }
+  /**
+   * Deprecated alias for Dirent['parentPath'] Somewhat counterintuitively,
+   * this property refers to the *parent* path, not the path object itself.
+   *
+   * @deprecated
    */
   get path() {
-    return (this.parent || this).fullpath();
+    return this.parentPath;
   }
   /**
    * Returns the depth of the Path object from its root.
@@ -19013,14 +19721,14 @@ var PathBase = class {
    * Get the Path object referenced by the string path, resolved from this Path
    */
   resolve(path5) {
-    var _a4;
+    var _a5;
     if (!path5) {
       return this;
     }
     const rootPath = this.getRootString(path5);
     const dir = path5.substring(rootPath.length);
     const dirParts = dir.split(this.splitSep);
-    const result = rootPath ? __privateMethod(_a4 = this.getRoot(rootPath), _resolveParts, resolveParts_fn).call(_a4, dirParts) : __privateMethod(this, _resolveParts, resolveParts_fn).call(this, dirParts);
+    const result = rootPath ? __privateMethod(_a5 = this.getRoot(rootPath), _PathBase_instances, resolveParts_fn).call(_a5, dirParts) : __privateMethod(this, _PathBase_instances, resolveParts_fn).call(this, dirParts);
     return result;
   }
   /**
@@ -19086,6 +19794,8 @@ var PathBase = class {
    * the cwd, then this ends up being equivalent to the fullpath()
    */
   relative() {
+    if (this.isCWD)
+      return "";
     if (__privateGet(this, _relative) !== void 0) {
       return __privateGet(this, _relative);
     }
@@ -19106,6 +19816,8 @@ var PathBase = class {
   relativePosix() {
     if (this.sep === "/")
       return this.relative();
+    if (this.isCWD)
+      return "";
     if (__privateGet(this, _relativePosix) !== void 0)
       return __privateGet(this, _relativePosix);
     const name = this.name;
@@ -19314,6 +20026,7 @@ var PathBase = class {
    * Result is cached, and thus may be outdated if the filesystem is mutated.
    */
   async readlink() {
+    var _a5;
     const target = __privateGet(this, _linkTarget);
     if (target) {
       return target;
@@ -19326,12 +20039,12 @@ var PathBase = class {
     }
     try {
       const read = await __privateGet(this, _fs).promises.readlink(this.fullpath());
-      const linkTarget = this.parent.resolve(read);
+      const linkTarget = (_a5 = await this.parent.realpath()) == null ? void 0 : _a5.resolve(read);
       if (linkTarget) {
         return __privateSet(this, _linkTarget, linkTarget);
       }
     } catch (er) {
-      __privateMethod(this, _readlinkFail, readlinkFail_fn).call(this, er.code);
+      __privateMethod(this, _PathBase_instances, readlinkFail_fn).call(this, er.code);
       return void 0;
     }
   }
@@ -19339,6 +20052,7 @@ var PathBase = class {
    * Synchronous {@link PathBase.readlink}
    */
   readlinkSync() {
+    var _a5;
     const target = __privateGet(this, _linkTarget);
     if (target) {
       return target;
@@ -19351,12 +20065,12 @@ var PathBase = class {
     }
     try {
       const read = __privateGet(this, _fs).readlinkSync(this.fullpath());
-      const linkTarget = this.parent.resolve(read);
+      const linkTarget = (_a5 = this.parent.realpathSync()) == null ? void 0 : _a5.resolve(read);
       if (linkTarget) {
         return __privateSet(this, _linkTarget, linkTarget);
       }
     } catch (er) {
-      __privateMethod(this, _readlinkFail, readlinkFail_fn).call(this, er.code);
+      __privateMethod(this, _PathBase_instances, readlinkFail_fn).call(this, er.code);
       return void 0;
     }
   }
@@ -19378,10 +20092,10 @@ var PathBase = class {
   async lstat() {
     if ((__privateGet(this, _type) & ENOENT) === 0) {
       try {
-        __privateMethod(this, _applyStat, applyStat_fn).call(this, await __privateGet(this, _fs).promises.lstat(this.fullpath()));
+        __privateMethod(this, _PathBase_instances, applyStat_fn).call(this, await __privateGet(this, _fs).promises.lstat(this.fullpath()));
         return this;
       } catch (er) {
-        __privateMethod(this, _lstatFail, lstatFail_fn).call(this, er.code);
+        __privateMethod(this, _PathBase_instances, lstatFail_fn).call(this, er.code);
       }
     }
   }
@@ -19391,10 +20105,10 @@ var PathBase = class {
   lstatSync() {
     if ((__privateGet(this, _type) & ENOENT) === 0) {
       try {
-        __privateMethod(this, _applyStat, applyStat_fn).call(this, __privateGet(this, _fs).lstatSync(this.fullpath()));
+        __privateMethod(this, _PathBase_instances, applyStat_fn).call(this, __privateGet(this, _fs).lstatSync(this.fullpath()));
         return this;
       } catch (er) {
-        __privateMethod(this, _lstatFail, lstatFail_fn).call(this, er.code);
+        __privateMethod(this, _PathBase_instances, lstatFail_fn).call(this, er.code);
       }
     }
   }
@@ -19439,15 +20153,15 @@ var PathBase = class {
     const fullpath = this.fullpath();
     __privateGet(this, _fs).readdir(fullpath, { withFileTypes: true }, (er, entries) => {
       if (er) {
-        __privateMethod(this, _readdirFail, readdirFail_fn).call(this, er.code);
+        __privateMethod(this, _PathBase_instances, readdirFail_fn).call(this, er.code);
         children.provisional = 0;
       } else {
         for (const e of entries) {
-          __privateMethod(this, _readdirAddChild, readdirAddChild_fn).call(this, e, children);
+          __privateMethod(this, _PathBase_instances, readdirAddChild_fn).call(this, e, children);
         }
-        __privateMethod(this, _readdirSuccess, readdirSuccess_fn).call(this, children);
+        __privateMethod(this, _PathBase_instances, readdirSuccess_fn).call(this, children);
       }
-      __privateMethod(this, _callOnReaddirCB, callOnReaddirCB_fn).call(this, children.slice(0, children.provisional));
+      __privateMethod(this, _PathBase_instances, callOnReaddirCB_fn).call(this, children.slice(0, children.provisional));
       return;
     });
   }
@@ -19479,11 +20193,11 @@ var PathBase = class {
         for (const e of await __privateGet(this, _fs).promises.readdir(fullpath, {
           withFileTypes: true
         })) {
-          __privateMethod(this, _readdirAddChild, readdirAddChild_fn).call(this, e, children);
+          __privateMethod(this, _PathBase_instances, readdirAddChild_fn).call(this, e, children);
         }
-        __privateMethod(this, _readdirSuccess, readdirSuccess_fn).call(this, children);
+        __privateMethod(this, _PathBase_instances, readdirSuccess_fn).call(this, children);
       } catch (er) {
-        __privateMethod(this, _readdirFail, readdirFail_fn).call(this, er.code);
+        __privateMethod(this, _PathBase_instances, readdirFail_fn).call(this, er.code);
         children.provisional = 0;
       }
       __privateSet(this, _asyncReaddirInFlight, void 0);
@@ -19507,11 +20221,11 @@ var PathBase = class {
       for (const e of __privateGet(this, _fs).readdirSync(fullpath, {
         withFileTypes: true
       })) {
-        __privateMethod(this, _readdirAddChild, readdirAddChild_fn).call(this, e, children);
+        __privateMethod(this, _PathBase_instances, readdirAddChild_fn).call(this, e, children);
       }
-      __privateMethod(this, _readdirSuccess, readdirSuccess_fn).call(this, children);
+      __privateMethod(this, _PathBase_instances, readdirSuccess_fn).call(this, children);
     } catch (er) {
-      __privateMethod(this, _readdirFail, readdirFail_fn).call(this, er.code);
+      __privateMethod(this, _PathBase_instances, readdirFail_fn).call(this, er.code);
       children.provisional = 0;
     }
     return children.slice(0, children.provisional);
@@ -19546,7 +20260,7 @@ var PathBase = class {
       const rp = await __privateGet(this, _fs).promises.realpath(this.fullpath());
       return __privateSet(this, _realpath, this.resolve(rp));
     } catch (_) {
-      __privateMethod(this, _markENOREALPATH, markENOREALPATH_fn).call(this);
+      __privateMethod(this, _PathBase_instances, markENOREALPATH_fn).call(this);
     }
   }
   /**
@@ -19561,7 +20275,7 @@ var PathBase = class {
       const rp = __privateGet(this, _fs).realpathSync(this.fullpath());
       return __privateSet(this, _realpath, this.resolve(rp));
     } catch (_) {
-      __privateMethod(this, _markENOREALPATH, markENOREALPATH_fn).call(this);
+      __privateMethod(this, _PathBase_instances, markENOREALPATH_fn).call(this);
     }
   }
   /**
@@ -19573,6 +20287,8 @@ var PathBase = class {
   [setAsCwd](oldCwd) {
     if (oldCwd === this)
       return;
+    oldCwd.isCWD = false;
+    this.isCWD = true;
     const changed = /* @__PURE__ */ new Set([]);
     let rp = [];
     let p = this;
@@ -19620,7 +20336,7 @@ _type = new WeakMap();
 _children = new WeakMap();
 _linkTarget = new WeakMap();
 _realpath = new WeakMap();
-_resolveParts = new WeakSet();
+_PathBase_instances = new WeakSet();
 resolveParts_fn = function(dirParts) {
   let p = this;
   for (const part of dirParts) {
@@ -19628,36 +20344,34 @@ resolveParts_fn = function(dirParts) {
   }
   return p;
 };
-_readdirSuccess = new WeakSet();
 readdirSuccess_fn = function(children) {
-  var _a4;
+  var _a5;
   __privateSet(this, _type, __privateGet(this, _type) | READDIR_CALLED);
   for (let p = children.provisional; p < children.length; p++) {
-    __privateMethod(_a4 = children[p], _markENOENT, markENOENT_fn).call(_a4);
+    const c = children[p];
+    if (c)
+      __privateMethod(_a5 = c, _PathBase_instances, markENOENT_fn).call(_a5);
   }
 };
-_markENOENT = new WeakSet();
 markENOENT_fn = function() {
   if (__privateGet(this, _type) & ENOENT)
     return;
   __privateSet(this, _type, (__privateGet(this, _type) | ENOENT) & IFMT_UNKNOWN);
-  __privateMethod(this, _markChildrenENOENT, markChildrenENOENT_fn).call(this);
+  __privateMethod(this, _PathBase_instances, markChildrenENOENT_fn).call(this);
 };
-_markChildrenENOENT = new WeakSet();
 markChildrenENOENT_fn = function() {
-  var _a4;
+  var _a5;
   const children = this.children();
   children.provisional = 0;
   for (const p of children) {
-    __privateMethod(_a4 = p, _markENOENT, markENOENT_fn).call(_a4);
+    __privateMethod(_a5 = p, _PathBase_instances, markENOENT_fn).call(_a5);
   }
 };
-_markENOREALPATH = new WeakSet();
 markENOREALPATH_fn = function() {
   __privateSet(this, _type, __privateGet(this, _type) | ENOREALPATH);
-  __privateMethod(this, _markENOTDIR, markENOTDIR_fn).call(this);
+  __privateMethod(this, _PathBase_instances, markENOTDIR_fn).call(this);
 };
-_markENOTDIR = new WeakSet();
+// save the information when we know the entry is not a dir
 markENOTDIR_fn = function() {
   if (__privateGet(this, _type) & ENOTDIR)
     return;
@@ -19665,31 +20379,28 @@ markENOTDIR_fn = function() {
   if ((t & IFMT) === IFDIR)
     t &= IFMT_UNKNOWN;
   __privateSet(this, _type, t | ENOTDIR);
-  __privateMethod(this, _markChildrenENOENT, markChildrenENOENT_fn).call(this);
+  __privateMethod(this, _PathBase_instances, markChildrenENOENT_fn).call(this);
 };
-_readdirFail = new WeakSet();
 readdirFail_fn = function(code = "") {
   if (code === "ENOTDIR" || code === "EPERM") {
-    __privateMethod(this, _markENOTDIR, markENOTDIR_fn).call(this);
+    __privateMethod(this, _PathBase_instances, markENOTDIR_fn).call(this);
   } else if (code === "ENOENT") {
-    __privateMethod(this, _markENOENT, markENOENT_fn).call(this);
+    __privateMethod(this, _PathBase_instances, markENOENT_fn).call(this);
   } else {
     this.children().provisional = 0;
   }
 };
-_lstatFail = new WeakSet();
 lstatFail_fn = function(code = "") {
-  var _a4;
+  var _a5;
   if (code === "ENOTDIR") {
     const p = this.parent;
-    __privateMethod(_a4 = p, _markENOTDIR, markENOTDIR_fn).call(_a4);
+    __privateMethod(_a5 = p, _PathBase_instances, markENOTDIR_fn).call(_a5);
   } else if (code === "ENOENT") {
-    __privateMethod(this, _markENOENT, markENOENT_fn).call(this);
+    __privateMethod(this, _PathBase_instances, markENOENT_fn).call(this);
   }
 };
-_readlinkFail = new WeakSet();
 readlinkFail_fn = function(code = "") {
-  var _a4;
+  var _a5;
   let ter = __privateGet(this, _type);
   ter |= ENOREADLINK;
   if (code === "ENOENT")
@@ -19699,14 +20410,12 @@ readlinkFail_fn = function(code = "") {
   }
   __privateSet(this, _type, ter);
   if (code === "ENOTDIR" && this.parent) {
-    __privateMethod(_a4 = this.parent, _markENOTDIR, markENOTDIR_fn).call(_a4);
+    __privateMethod(_a5 = this.parent, _PathBase_instances, markENOTDIR_fn).call(_a5);
   }
 };
-_readdirAddChild = new WeakSet();
 readdirAddChild_fn = function(e, c) {
-  return __privateMethod(this, _readdirMaybePromoteChild, readdirMaybePromoteChild_fn).call(this, e, c) || __privateMethod(this, _readdirAddNewChild, readdirAddNewChild_fn).call(this, e, c);
+  return __privateMethod(this, _PathBase_instances, readdirMaybePromoteChild_fn).call(this, e, c) || __privateMethod(this, _PathBase_instances, readdirAddNewChild_fn).call(this, e, c);
 };
-_readdirAddNewChild = new WeakSet();
 readdirAddNewChild_fn = function(e, c) {
   const type = entToType(e);
   const child = this.newChild(e.name, type, { parent: this });
@@ -19718,7 +20427,6 @@ readdirAddNewChild_fn = function(e, c) {
   c.provisional++;
   return child;
 };
-_readdirMaybePromoteChild = new WeakSet();
 readdirMaybePromoteChild_fn = function(e, c) {
   for (let p = c.provisional; p < c.length; p++) {
     const pchild = c[p];
@@ -19726,10 +20434,9 @@ readdirMaybePromoteChild_fn = function(e, c) {
     if (name !== __privateGet(pchild, _matchName)) {
       continue;
     }
-    return __privateMethod(this, _readdirPromoteChild, readdirPromoteChild_fn).call(this, e, pchild, p, c);
+    return __privateMethod(this, _PathBase_instances, readdirPromoteChild_fn).call(this, e, pchild, p, c);
   }
 };
-_readdirPromoteChild = new WeakSet();
 readdirPromoteChild_fn = function(e, p, index, c) {
   const v = p.name;
   __privateSet(p, _type, __privateGet(p, _type) & IFMT_UNKNOWN | entToType(e));
@@ -19745,7 +20452,6 @@ readdirPromoteChild_fn = function(e, p, index, c) {
   c.provisional++;
   return p;
 };
-_applyStat = new WeakSet();
 applyStat_fn = function(st) {
   const { atime, atimeMs, birthtime, birthtimeMs, blksize, blocks, ctime, ctimeMs, dev, gid, ino, mode, mtime, mtimeMs, nlink, rdev, size, uid } = st;
   __privateSet(this, _atime, atime);
@@ -19774,7 +20480,6 @@ applyStat_fn = function(st) {
 };
 _onReaddirCB = new WeakMap();
 _readdirCBInFlight = new WeakMap();
-_callOnReaddirCB = new WeakSet();
 callOnReaddirCB_fn = function(children) {
   __privateSet(this, _readdirCBInFlight, false);
   const cbs = __privateGet(this, _onReaddirCB).slice();
@@ -19898,16 +20603,16 @@ var PathScurryBase = class {
      * The Path entry corresponding to this PathScurry's current working directory.
      */
     __publicField(this, "cwd");
-    __privateAdd(this, _resolveCache, void 0);
-    __privateAdd(this, _resolvePosixCache, void 0);
-    __privateAdd(this, _children2, void 0);
+    __privateAdd(this, _resolveCache);
+    __privateAdd(this, _resolvePosixCache);
+    __privateAdd(this, _children2);
     /**
      * Perform path comparisons case-insensitively.
      *
      * Defaults true on Darwin and Windows systems, false elsewhere.
      */
     __publicField(this, "nocase");
-    __privateAdd(this, _fs2, void 0);
+    __privateAdd(this, _fs2);
     __privateSet(this, _fs2, fsFromOption(fs9));
     if (cwd instanceof URL || cwd.startsWith("file://")) {
       cwd = fileURLToPath(cwd);
@@ -20518,25 +21223,22 @@ var PathScurryDarwin = class extends PathScurryPosix {
 var Path = process.platform === "win32" ? PathWin32 : PathPosix;
 var PathScurry = process.platform === "win32" ? PathScurryWin32 : process.platform === "darwin" ? PathScurryDarwin : PathScurryPosix;
 
-// node_modules/glob/dist/esm/glob.js
-import { fileURLToPath as fileURLToPath2 } from "url";
-
-// node_modules/glob/dist/esm/pattern.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/pattern.js
 var isPatternList = (pl) => pl.length >= 1;
 var isGlobList = (gl) => gl.length >= 1;
 var _patternList, _globList, _index, _platform, _rest, _globString, _isDrive, _isUNC, _isAbsolute, _followGlobstar;
 var _Pattern = class _Pattern {
   constructor(patternList, globList, index, platform) {
-    __privateAdd(this, _patternList, void 0);
-    __privateAdd(this, _globList, void 0);
-    __privateAdd(this, _index, void 0);
+    __privateAdd(this, _patternList);
+    __privateAdd(this, _globList);
+    __privateAdd(this, _index);
     __publicField(this, "length");
-    __privateAdd(this, _platform, void 0);
-    __privateAdd(this, _rest, void 0);
-    __privateAdd(this, _globString, void 0);
-    __privateAdd(this, _isDrive, void 0);
-    __privateAdd(this, _isUNC, void 0);
-    __privateAdd(this, _isAbsolute, void 0);
+    __privateAdd(this, _platform);
+    __privateAdd(this, _rest);
+    __privateAdd(this, _globString);
+    __privateAdd(this, _isDrive);
+    __privateAdd(this, _isUNC);
+    __privateAdd(this, _isAbsolute);
     __privateAdd(this, _followGlobstar, true);
     if (!isPatternList(patternList)) {
       throw new TypeError("empty pattern list");
@@ -20698,7 +21400,7 @@ _isAbsolute = new WeakMap();
 _followGlobstar = new WeakMap();
 var Pattern = _Pattern;
 
-// node_modules/glob/dist/esm/ignore.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/ignore.js
 var defaultPlatform2 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
 var Ignore = class {
   constructor(ignored, { nobrace, nocase, noext, noglobstar, platform = defaultPlatform2 }) {
@@ -20706,11 +21408,14 @@ var Ignore = class {
     __publicField(this, "relativeChildren");
     __publicField(this, "absolute");
     __publicField(this, "absoluteChildren");
+    __publicField(this, "platform");
+    __publicField(this, "mmopts");
     this.relative = [];
     this.absolute = [];
     this.relativeChildren = [];
     this.absoluteChildren = [];
-    const mmopts = {
+    this.platform = platform;
+    this.mmopts = {
       dot: true,
       nobrace,
       nocase,
@@ -20721,28 +21426,34 @@ var Ignore = class {
       nocomment: true,
       nonegate: true
     };
-    for (const ign of ignored) {
-      const mm = new Minimatch(ign, mmopts);
-      for (let i = 0; i < mm.set.length; i++) {
-        const parsed = mm.set[i];
-        const globParts = mm.globParts[i];
-        if (!parsed || !globParts) {
-          throw new Error("invalid pattern object");
-        }
-        const p = new Pattern(parsed, globParts, 0, platform);
-        const m = new Minimatch(p.globString(), mmopts);
-        const children = globParts[globParts.length - 1] === "**";
-        const absolute = p.isAbsolute();
+    for (const ign of ignored)
+      this.add(ign);
+  }
+  add(ign) {
+    const mm = new Minimatch(ign, this.mmopts);
+    for (let i = 0; i < mm.set.length; i++) {
+      const parsed = mm.set[i];
+      const globParts = mm.globParts[i];
+      if (!parsed || !globParts) {
+        throw new Error("invalid pattern object");
+      }
+      while (parsed[0] === "." && globParts[0] === ".") {
+        parsed.shift();
+        globParts.shift();
+      }
+      const p = new Pattern(parsed, globParts, 0, this.platform);
+      const m = new Minimatch(p.globString(), this.mmopts);
+      const children = globParts[globParts.length - 1] === "**";
+      const absolute = p.isAbsolute();
+      if (absolute)
+        this.absolute.push(m);
+      else
+        this.relative.push(m);
+      if (children) {
         if (absolute)
-          this.absolute.push(m);
+          this.absoluteChildren.push(m);
         else
-          this.relative.push(m);
-        if (children) {
-          if (absolute)
-            this.absoluteChildren.push(m);
-          else
-            this.relativeChildren.push(m);
-        }
+          this.relativeChildren.push(m);
       }
     }
   }
@@ -20776,7 +21487,7 @@ var Ignore = class {
   }
 };
 
-// node_modules/glob/dist/esm/processor.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/processor.js
 var HasWalkedCache = class _HasWalkedCache {
   constructor(store = /* @__PURE__ */ new Map()) {
     __publicField(this, "store");
@@ -20786,8 +21497,8 @@ var HasWalkedCache = class _HasWalkedCache {
     return new _HasWalkedCache(new Map(this.store));
   }
   hasWalked(target, pattern) {
-    var _a4;
-    return (_a4 = this.store.get(target.fullpath())) == null ? void 0 : _a4.has(pattern.globString());
+    var _a5;
+    return (_a5 = this.store.get(target.fullpath())) == null ? void 0 : _a5.has(pattern.globString());
   }
   storeWalked(target, pattern) {
     const fullpath = target.fullpath();
@@ -21002,13 +21713,12 @@ var Processor = class _Processor {
   }
 };
 
-// node_modules/glob/dist/esm/walker.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/walker.js
 var makeIgnore = (ignore, opts) => typeof ignore === "string" ? new Ignore([ignore], opts) : Array.isArray(ignore) ? new Ignore(ignore, opts) : ignore;
-var _onResume, _ignore, _sep, _ignored, ignored_fn, _childrenIgnored, childrenIgnored_fn;
+var _onResume, _ignore, _sep, _GlobUtil_instances, ignored_fn, childrenIgnored_fn;
 var GlobUtil = class {
   constructor(patterns, path5, opts) {
-    __privateAdd(this, _ignored);
-    __privateAdd(this, _childrenIgnored);
+    __privateAdd(this, _GlobUtil_instances);
     __publicField(this, "path");
     __publicField(this, "patterns");
     __publicField(this, "opts");
@@ -21016,16 +21726,23 @@ var GlobUtil = class {
     __publicField(this, "paused", false);
     __publicField(this, "aborted", false);
     __privateAdd(this, _onResume, []);
-    __privateAdd(this, _ignore, void 0);
-    __privateAdd(this, _sep, void 0);
+    __privateAdd(this, _ignore);
+    __privateAdd(this, _sep);
     __publicField(this, "signal");
     __publicField(this, "maxDepth");
+    __publicField(this, "includeChildMatches");
+    var _a5;
     this.patterns = patterns;
     this.path = path5;
     this.opts = opts;
     __privateSet(this, _sep, !opts.posix && opts.platform === "win32" ? "\\" : "/");
-    if (opts.ignore) {
-      __privateSet(this, _ignore, makeIgnore(opts.ignore, opts));
+    this.includeChildMatches = opts.includeChildMatches !== false;
+    if (opts.ignore || !this.includeChildMatches) {
+      __privateSet(this, _ignore, makeIgnore((_a5 = opts.ignore) != null ? _a5 : [], opts));
+      if (!this.includeChildMatches && typeof __privateGet(this, _ignore).add !== "function") {
+        const m = "cannot ignore child matches, ignore lacks add() method.";
+        throw new Error(m);
+      }
     }
     this.maxDepth = opts.maxDepth || Infinity;
     if (opts.signal) {
@@ -21040,8 +21757,8 @@ var GlobUtil = class {
     this.paused = true;
   }
   resume() {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       return;
     this.paused = false;
     let fn = void 0;
@@ -21050,8 +21767,8 @@ var GlobUtil = class {
     }
   }
   onResume(fn) {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       return;
     if (!this.paused) {
       fn();
@@ -21072,10 +21789,18 @@ var GlobUtil = class {
       e = rpc;
     }
     const needStat = e.isUnknown() || this.opts.stat;
-    return this.matchCheckTest(needStat ? await e.lstat() : e, ifDir);
+    const s = needStat ? await e.lstat() : e;
+    if (this.opts.follow && this.opts.nodir && (s == null ? void 0 : s.isSymbolicLink())) {
+      const target = await s.realpath();
+      if (target && (target.isUnknown() || this.opts.stat)) {
+        await target.lstat();
+      }
+    }
+    return this.matchCheckTest(s, ifDir);
   }
   matchCheckTest(e, ifDir) {
-    return e && (this.maxDepth === Infinity || e.depth() <= this.maxDepth) && (!ifDir || e.canReaddir()) && (!this.opts.nodir || !e.isDirectory()) && !__privateMethod(this, _ignored, ignored_fn).call(this, e) ? e : void 0;
+    var _a5;
+    return e && (this.maxDepth === Infinity || e.depth() <= this.maxDepth) && (!ifDir || e.canReaddir()) && (!this.opts.nodir || !e.isDirectory()) && (!this.opts.nodir || !this.opts.follow || !e.isSymbolicLink() || !((_a5 = e.realpathCached()) == null ? void 0 : _a5.isDirectory())) && !__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, e) ? e : void 0;
   }
   matchCheckSync(e, ifDir) {
     if (ifDir && this.opts.nodir)
@@ -21088,11 +21813,23 @@ var GlobUtil = class {
       e = rpc;
     }
     const needStat = e.isUnknown() || this.opts.stat;
-    return this.matchCheckTest(needStat ? e.lstatSync() : e, ifDir);
+    const s = needStat ? e.lstatSync() : e;
+    if (this.opts.follow && this.opts.nodir && (s == null ? void 0 : s.isSymbolicLink())) {
+      const target = s.realpathSync();
+      if (target && ((target == null ? void 0 : target.isUnknown()) || this.opts.stat)) {
+        target.lstatSync();
+      }
+    }
+    return this.matchCheckTest(s, ifDir);
   }
   matchFinish(e, absolute) {
-    if (__privateMethod(this, _ignored, ignored_fn).call(this, e))
+    var _a5;
+    if (__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, e))
       return;
+    if (!this.includeChildMatches && ((_a5 = __privateGet(this, _ignore)) == null ? void 0 : _a5.add)) {
+      const ign = `${e.relativePosix()}/**`;
+      __privateGet(this, _ignore).add(ign);
+    }
     const abs = this.opts.absolute === void 0 ? absolute : this.opts.absolute;
     this.seen.add(e);
     const mark = this.opts.mark && e.isDirectory() ? __privateGet(this, _sep) : "";
@@ -21118,16 +21855,16 @@ var GlobUtil = class {
       this.matchFinish(p, absolute);
   }
   walkCB(target, patterns, cb) {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       cb();
     this.walkCB2(target, patterns, new Processor(this.opts), cb);
   }
   walkCB2(target, patterns, processor, cb) {
-    var _a4;
-    if (__privateMethod(this, _childrenIgnored, childrenIgnored_fn).call(this, target))
+    var _a5;
+    if (__privateMethod(this, _GlobUtil_instances, childrenIgnored_fn).call(this, target))
       return cb();
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       cb();
     if (this.paused) {
       this.onResume(() => this.walkCB2(target, patterns, processor, cb));
@@ -21140,7 +21877,7 @@ var GlobUtil = class {
         cb();
     };
     for (const [m, absolute, ifDir] of processor.matches.entries()) {
-      if (__privateMethod(this, _ignored, ignored_fn).call(this, m))
+      if (__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, m))
         continue;
       tasks++;
       this.match(m, absolute, ifDir).then(() => next());
@@ -21167,7 +21904,7 @@ var GlobUtil = class {
         cb();
     };
     for (const [m, absolute, ifDir] of processor.matches.entries()) {
-      if (__privateMethod(this, _ignored, ignored_fn).call(this, m))
+      if (__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, m))
         continue;
       tasks++;
       this.match(m, absolute, ifDir).then(() => next());
@@ -21179,16 +21916,16 @@ var GlobUtil = class {
     next();
   }
   walkCBSync(target, patterns, cb) {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       cb();
     this.walkCB2Sync(target, patterns, new Processor(this.opts), cb);
   }
   walkCB2Sync(target, patterns, processor, cb) {
-    var _a4;
-    if (__privateMethod(this, _childrenIgnored, childrenIgnored_fn).call(this, target))
+    var _a5;
+    if (__privateMethod(this, _GlobUtil_instances, childrenIgnored_fn).call(this, target))
       return cb();
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       cb();
     if (this.paused) {
       this.onResume(() => this.walkCB2Sync(target, patterns, processor, cb));
@@ -21201,7 +21938,7 @@ var GlobUtil = class {
         cb();
     };
     for (const [m, absolute, ifDir] of processor.matches.entries()) {
-      if (__privateMethod(this, _ignored, ignored_fn).call(this, m))
+      if (__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, m))
         continue;
       this.matchSync(m, absolute, ifDir);
     }
@@ -21223,7 +21960,7 @@ var GlobUtil = class {
         cb();
     };
     for (const [m, absolute, ifDir] of processor.matches.entries()) {
-      if (__privateMethod(this, _ignored, ignored_fn).call(this, m))
+      if (__privateMethod(this, _GlobUtil_instances, ignored_fn).call(this, m))
         continue;
       this.matchSync(m, absolute, ifDir);
     }
@@ -21237,36 +21974,34 @@ var GlobUtil = class {
 _onResume = new WeakMap();
 _ignore = new WeakMap();
 _sep = new WeakMap();
-_ignored = new WeakSet();
+_GlobUtil_instances = new WeakSet();
 ignored_fn = function(path5) {
-  var _a4, _b2;
-  return this.seen.has(path5) || !!((_b2 = (_a4 = __privateGet(this, _ignore)) == null ? void 0 : _a4.ignored) == null ? void 0 : _b2.call(_a4, path5));
+  var _a5, _b3;
+  return this.seen.has(path5) || !!((_b3 = (_a5 = __privateGet(this, _ignore)) == null ? void 0 : _a5.ignored) == null ? void 0 : _b3.call(_a5, path5));
 };
-_childrenIgnored = new WeakSet();
 childrenIgnored_fn = function(path5) {
-  var _a4, _b2;
-  return !!((_b2 = (_a4 = __privateGet(this, _ignore)) == null ? void 0 : _a4.childrenIgnored) == null ? void 0 : _b2.call(_a4, path5));
+  var _a5, _b3;
+  return !!((_b3 = (_a5 = __privateGet(this, _ignore)) == null ? void 0 : _a5.childrenIgnored) == null ? void 0 : _b3.call(_a5, path5));
 };
 var GlobWalker = class extends GlobUtil {
   constructor(patterns, path5, opts) {
     super(patterns, path5, opts);
-    __publicField(this, "matches");
-    this.matches = /* @__PURE__ */ new Set();
+    __publicField(this, "matches", /* @__PURE__ */ new Set());
   }
   matchEmit(e) {
     this.matches.add(e);
   }
   async walk() {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       throw this.signal.reason;
     if (this.path.isUnknown()) {
       await this.path.lstat();
     }
     await new Promise((res, rej) => {
       this.walkCB(this.path, this.patterns, () => {
-        var _a5;
-        if ((_a5 = this.signal) == null ? void 0 : _a5.aborted) {
+        var _a6;
+        if ((_a6 = this.signal) == null ? void 0 : _a6.aborted) {
           rej(this.signal.reason);
         } else {
           res(this.matches);
@@ -21276,15 +22011,15 @@ var GlobWalker = class extends GlobUtil {
     return this.matches;
   }
   walkSync() {
-    var _a4;
-    if ((_a4 = this.signal) == null ? void 0 : _a4.aborted)
+    var _a5;
+    if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
       throw this.signal.reason;
     if (this.path.isUnknown()) {
       this.path.lstatSync();
     }
     this.walkCBSync(this.path, this.patterns, () => {
-      var _a5;
-      if ((_a5 = this.signal) == null ? void 0 : _a5.aborted)
+      var _a6;
+      if ((_a6 = this.signal) == null ? void 0 : _a6.aborted)
         throw this.signal.reason;
     });
     return this.matches;
@@ -21326,7 +22061,7 @@ var GlobStream = class extends GlobUtil {
   }
 };
 
-// node_modules/glob/dist/esm/glob.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/glob.js
 var defaultPlatform3 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
 var Glob = class {
   /**
@@ -21366,6 +22101,7 @@ var Glob = class {
     __publicField(this, "signal");
     __publicField(this, "windowsPathsNoEscape");
     __publicField(this, "withFileTypes");
+    __publicField(this, "includeChildMatches");
     /**
      * The options provided to the constructor.
      */
@@ -21395,6 +22131,7 @@ var Glob = class {
     this.noext = !!opts.noext;
     this.realpath = !!opts.realpath;
     this.absolute = opts.absolute;
+    this.includeChildMatches = opts.includeChildMatches !== false;
     this.noglobstar = !!opts.noglobstar;
     this.matchBase = !!opts.matchBase;
     this.maxDepth = typeof opts.maxDepth === "number" ? opts.maxDepth : Infinity;
@@ -21468,7 +22205,8 @@ var Glob = class {
         ...this.opts,
         maxDepth: this.maxDepth !== Infinity ? this.maxDepth + this.scurry.cwd.depth() : Infinity,
         platform: this.platform,
-        nocase: this.nocase
+        nocase: this.nocase,
+        includeChildMatches: this.includeChildMatches
       }).walk()
     ];
   }
@@ -21478,7 +22216,8 @@ var Glob = class {
         ...this.opts,
         maxDepth: this.maxDepth !== Infinity ? this.maxDepth + this.scurry.cwd.depth() : Infinity,
         platform: this.platform,
-        nocase: this.nocase
+        nocase: this.nocase,
+        includeChildMatches: this.includeChildMatches
       }).walkSync()
     ];
   }
@@ -21487,7 +22226,8 @@ var Glob = class {
       ...this.opts,
       maxDepth: this.maxDepth !== Infinity ? this.maxDepth + this.scurry.cwd.depth() : Infinity,
       platform: this.platform,
-      nocase: this.nocase
+      nocase: this.nocase,
+      includeChildMatches: this.includeChildMatches
     }).stream();
   }
   streamSync() {
@@ -21495,7 +22235,8 @@ var Glob = class {
       ...this.opts,
       maxDepth: this.maxDepth !== Infinity ? this.maxDepth + this.scurry.cwd.depth() : Infinity,
       platform: this.platform,
-      nocase: this.nocase
+      nocase: this.nocase,
+      includeChildMatches: this.includeChildMatches
     }).streamSync();
   }
   /**
@@ -21520,7 +22261,7 @@ var Glob = class {
   }
 };
 
-// node_modules/glob/dist/esm/has-magic.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/has-magic.js
 var hasMagic = (pattern, options3 = {}) => {
   if (!Array.isArray(pattern)) {
     pattern = [pattern];
@@ -21532,7 +22273,7 @@ var hasMagic = (pattern, options3 = {}) => {
   return false;
 };
 
-// node_modules/glob/dist/esm/index.js
+// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/index.js
 function globStreamSync(pattern, options3 = {}) {
   return new Glob(pattern, options3).streamSync();
 }
@@ -21580,7 +22321,7 @@ var glob = Object.assign(glob_, {
 });
 glob.glob = glob;
 
-// node_modules/rimraf/dist/esm/opt-arg.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/opt-arg.js
 var typeOrUndef = (val, t) => typeof val === "undefined" || typeof val === t;
 var isRimrafOptions = (o) => !!o && typeof o === "object" && typeOrUndef(o.preserveRoot, "boolean") && typeOrUndef(o.tmp, "string") && typeOrUndef(o.maxRetries, "number") && typeOrUndef(o.retryDelay, "number") && typeOrUndef(o.backoff, "number") && typeOrUndef(o.maxBackoff, "number") && (typeOrUndef(o.glob, "boolean") || o.glob && typeof o.glob === "object") && typeOrUndef(o.filter, "function");
 var assertRimrafOptions = (o) => {
@@ -21612,14 +22353,14 @@ var optArgT = (opt) => {
 var optArg = (opt = {}) => optArgT(opt);
 var optArgSync = (opt = {}) => optArgT(opt);
 
-// node_modules/rimraf/dist/esm/path-arg.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/path-arg.js
 import { parse, resolve } from "path";
 import { inspect } from "util";
 
-// node_modules/rimraf/dist/esm/platform.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/platform.js
 var platform_default = process.env.__TESTING_RIMRAF_PLATFORM__ || process.platform;
 
-// node_modules/rimraf/dist/esm/path-arg.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/path-arg.js
 var pathArg = (path5, opt = {}) => {
   const type = typeof path5;
   if (type !== "string") {
@@ -21661,7 +22402,7 @@ var pathArg = (path5, opt = {}) => {
 };
 var path_arg_default = pathArg;
 
-// node_modules/rimraf/dist/esm/fs.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/fs.js
 import fs5 from "fs";
 import { chmodSync, mkdirSync, renameSync, rmdirSync, rmSync, statSync, lstatSync as lstatSync2, unlinkSync } from "fs";
 import { readdirSync as rdSync } from "fs";
@@ -21687,10 +22428,10 @@ var promises = {
   unlink
 };
 
-// node_modules/rimraf/dist/esm/rimraf-posix.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-posix.js
 import { parse as parse2, resolve as resolve2 } from "path";
 
-// node_modules/rimraf/dist/esm/readdir-or-error.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/readdir-or-error.js
 var { readdir: readdir3 } = promises;
 var readdirOrError = (path5) => readdir3(path5).catch((er) => er);
 var readdirOrErrorSync = (path5) => {
@@ -21701,7 +22442,7 @@ var readdirOrErrorSync = (path5) => {
   }
 };
 
-// node_modules/rimraf/dist/esm/ignore-enoent.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/ignore-enoent.js
 var ignoreENOENT = async (p) => p.catch((er) => {
   if (er.code !== "ENOENT") {
     throw er;
@@ -21717,11 +22458,11 @@ var ignoreENOENTSync = (fn) => {
   }
 };
 
-// node_modules/rimraf/dist/esm/rimraf-posix.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-posix.js
 var { lstat: lstat3, rmdir: rmdir2, unlink: unlink2 } = promises;
 var rimrafPosix = async (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -21733,8 +22474,8 @@ var rimrafPosix = async (path5, opt) => {
   }
 };
 var rimrafPosixSync = (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -21746,8 +22487,8 @@ var rimrafPosixSync = (path5, opt) => {
   }
 };
 var rimrafPosixDir = async (path5, opt, ent) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   const entries = ent.isDirectory() ? await readdirOrError(path5) : null;
@@ -21780,8 +22521,8 @@ var rimrafPosixDir = async (path5, opt, ent) => {
   return true;
 };
 var rimrafPosixDirSync = (path5, opt, ent) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   const entries = ent.isDirectory() ? readdirOrErrorSync(path5) : null;
@@ -21818,10 +22559,10 @@ var rimrafPosixDirSync = (path5, opt, ent) => {
   return true;
 };
 
-// node_modules/rimraf/dist/esm/rimraf-windows.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-windows.js
 import { parse as parse5, resolve as resolve5 } from "path";
 
-// node_modules/rimraf/dist/esm/fix-eperm.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/fix-eperm.js
 var { chmod: chmod2 } = promises;
 var fixEPERM = (fn) => async (path5) => {
   try {
@@ -21870,7 +22611,7 @@ var fixEPERMSync = (fn) => (path5) => {
   }
 };
 
-// node_modules/rimraf/dist/esm/retry-busy.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/retry-busy.js
 var MAXBACKOFF = 200;
 var RATE = 1.2;
 var MAXRETRIES = 10;
@@ -21927,10 +22668,10 @@ var retryBusySync = (fn) => {
   return method;
 };
 
-// node_modules/rimraf/dist/esm/rimraf-move-remove.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-move-remove.js
 import { basename, parse as parse4, resolve as resolve4 } from "path";
 
-// node_modules/rimraf/dist/esm/default-tmp.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/default-tmp.js
 import { tmpdir } from "os";
 import { parse as parse3, resolve as resolve3 } from "path";
 var { stat: stat2 } = promises;
@@ -21973,7 +22714,7 @@ var posixDefaultTmpSync = () => tmpdir();
 var defaultTmp = platform_default === "win32" ? win32DefaultTmp : posixDefaultTmp;
 var defaultTmpSync = platform_default === "win32" ? win32DefaultTmpSync : posixDefaultTmpSync;
 
-// node_modules/rimraf/dist/esm/rimraf-move-remove.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-move-remove.js
 var { lstat: lstat4, rename: rename2, unlink: unlink3, rmdir: rmdir3, chmod: chmod3 } = promises;
 var uniqueFilename = (path5) => `.${basename(path5)}.${Math.random()}`;
 var unlinkFixEPERM = async (path5) => unlink3(path5).catch((er) => {
@@ -22009,8 +22750,8 @@ var unlinkFixEPERMSync = (path5) => {
   }
 };
 var rimrafMoveRemove = async (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -22022,8 +22763,8 @@ var rimrafMoveRemove = async (path5, opt) => {
   }
 };
 var rimrafMoveRemoveDir = async (path5, opt, ent) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   if (!opt.tmp) {
@@ -22067,8 +22808,8 @@ var tmpUnlink = async (path5, tmp, rm3) => {
   return await rm3(tmpFile);
 };
 var rimrafMoveRemoveSync = (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -22080,8 +22821,8 @@ var rimrafMoveRemoveSync = (path5, opt) => {
   }
 };
 var rimrafMoveRemoveDirSync = (path5, opt, ent) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   if (!opt.tmp) {
@@ -22130,15 +22871,15 @@ var tmpUnlinkSync = (path5, tmp, rmSync2) => {
   return rmSync2(tmpFile);
 };
 
-// node_modules/rimraf/dist/esm/rimraf-windows.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-windows.js
 var { unlink: unlink4, rmdir: rmdir4, lstat: lstat5 } = promises;
 var rimrafWindowsFile = retryBusy(fixEPERM(unlink4));
 var rimrafWindowsFileSync = retryBusySync(fixEPERMSync(unlinkSync));
 var rimrafWindowsDirRetry = retryBusy(fixEPERM(rmdir4));
 var rimrafWindowsDirRetrySync = retryBusySync(fixEPERMSync(rmdirSync));
 var rimrafWindowsDirMoveRemoveFallback = async (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   const { filter: filter2, ...options3 } = opt;
@@ -22152,8 +22893,8 @@ var rimrafWindowsDirMoveRemoveFallback = async (path5, opt) => {
   }
 };
 var rimrafWindowsDirMoveRemoveFallbackSync = (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   const { filter: filter2, ...options3 } = opt;
@@ -22171,8 +22912,8 @@ var START = Symbol("start");
 var CHILD = Symbol("child");
 var FINISH = Symbol("finish");
 var rimrafWindows = async (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -22184,8 +22925,8 @@ var rimrafWindows = async (path5, opt) => {
   }
 };
 var rimrafWindowsSync = (path5, opt) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   try {
@@ -22197,8 +22938,8 @@ var rimrafWindowsSync = (path5, opt) => {
   }
 };
 var rimrafWindowsDir = async (path5, opt, ent, state9 = START) => {
-  var _a4;
-  if ((_a4 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a4.aborted) {
+  var _a5;
+  if ((_a5 = opt == null ? void 0 : opt.signal) == null ? void 0 : _a5.aborted) {
     throw opt.signal.reason;
   }
   const entries = ent.isDirectory() ? await readdirOrError(path5) : null;
@@ -22277,11 +23018,11 @@ var rimrafWindowsDirSync = (path5, opt, ent, state9 = START) => {
   return true;
 };
 
-// node_modules/rimraf/dist/esm/rimraf-manual.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-manual.js
 var rimrafManual = platform_default === "win32" ? rimrafWindows : rimrafPosix;
 var rimrafManualSync = platform_default === "win32" ? rimrafWindowsSync : rimrafPosixSync;
 
-// node_modules/rimraf/dist/esm/rimraf-native.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/rimraf-native.js
 var { rm: rm2 } = promises;
 var rimrafNative = async (path5, opt) => {
   await rm2(path5, {
@@ -22300,7 +23041,7 @@ var rimrafNativeSync = (path5, opt) => {
   return true;
 };
 
-// node_modules/rimraf/dist/esm/use-native.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/use-native.js
 var version7 = process.env.__TESTING_RIMRAF_NODE_VERSION__ || process.version;
 var versArr = version7.replace(/^v/, "").split(".");
 var [major = 0, minor = 0] = versArr.map((v) => parseInt(v, 10));
@@ -22308,7 +23049,7 @@ var hasNative = major > 14 || major === 14 && minor >= 14;
 var useNative = !hasNative || platform_default === "win32" ? () => false : (opt) => !(opt == null ? void 0 : opt.signal) && !(opt == null ? void 0 : opt.filter);
 var useNativeSync = !hasNative || platform_default === "win32" ? () => false : (opt) => !(opt == null ? void 0 : opt.signal) && !(opt == null ? void 0 : opt.filter);
 
-// node_modules/rimraf/dist/esm/index.js
+// node_modules/.pnpm/rimraf@6.0.1/node_modules/rimraf/dist/esm/index.js
 var wrap = (fn) => async (path5, opt) => {
   const options3 = optArg(opt);
   if (options3.glob) {
@@ -22366,11 +23107,8 @@ rimraf.rimraf = rimraf;
 // src/clean.ts
 function run5(config) {
   log8.state("Clean:", { locations: config.clean.locations });
-  if (!config.clean.locations)
-    log8.warn("Clean called, but locations are not set");
-  else
-    for (const loc of config.clean.locations)
-      sync2(loc);
+  if (!config.clean.locations) log8.warn("Clean called, but locations are not set");
+  else for (const loc of config.clean.locations) sync2(loc);
 }
 
 // src/changelog.ts
@@ -22391,29 +23129,25 @@ var header = (app, url) => `# ${app.name}
   `;
 async function run6(config, packageJson) {
   if (!fs6.existsSync(".git")) {
-    if (config.log.debug)
-      log9.warn("No valid git repository:", ".git");
+    if (config.log.debug) log9.warn("No valid git repository:", ".git");
     return;
   }
   let gitLog;
   try {
     gitLog = await git2.log();
   } catch (e) {
-    if (config.log.debug)
-      log9.warn("Git repository is empty");
+    if (config.log.debug) log9.warn("Git repository is empty");
   }
   let gitRemote = "localhost";
   try {
     gitRemote = await git2.listRemote(["--get-url"]) || "";
   } catch (e) {
-    if (config.log.debug)
-      log9.warn("No remote git repository");
+    if (config.log.debug) log9.warn("No remote git repository");
   }
   const gitUrl = gitRemote.replace("\n", "");
   const branch = await git2.branchLocal();
   const entries = gitLog ? [...gitLog.all].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) : [];
-  if (config.log.debug)
-    log9.data("Git Log:", entries);
+  if (config.log.debug) log9.data("Git Log:", entries);
   let previous = "";
   let text = header(packageJson, gitUrl);
   const headings = [];
@@ -22445,7 +23179,7 @@ async function run6(config, packageJson) {
 var log10 = __toESM(require_pilogger());
 import * as fs7 from "fs";
 
-// node_modules/commander/esm.mjs
+// node_modules/.pnpm/commander@12.1.0/node_modules/commander/esm.mjs
 var import_index = __toESM(require_commander(), 1);
 var {
   program,
@@ -22466,8 +23200,7 @@ var {
 function run7() {
   const build3 = new Build();
   log10.header();
-  if (build3.environment.tsconfig)
-    build3.config.build.global["tsconfig"] = "tsconfig.json";
+  if (build3.environment.tsconfig) build3.config.build.global["tsconfig"] = "tsconfig.json";
   program.option("-c, --config <file>", "specify config file");
   program.option("-d, --debug", "enable debug output");
   program.option("-g, --generate", "generate config files from templates");
@@ -22490,8 +23223,7 @@ function run7() {
       try {
         const parsedConfig = JSON.parse(data9.toString());
         build3.config = merge(build3.config, parsedConfig);
-        if (build3.params.debug)
-          log10.info("Parsed config file:", build3.params.config, parsedConfig);
+        if (build3.params.debug) log10.info("Parsed config file:", build3.params.config, parsedConfig);
       } catch (e) {
         log10.error("Error parsing config file:", build3.params.config);
       }
@@ -22515,7 +23247,7 @@ function run7() {
 }
 
 // package.json
-var version8 = "0.9.2";
+var version8 = "0.10.1";
 
 // src/build.ts
 var Build = class {
@@ -22578,26 +23310,22 @@ var Build = class {
     // @ts-ignore ignore string enum mismatches when reading from json file
     __publicField(this, "config", { ...defaults2 });
     __publicField(this, "updateConfig", (config, options3 = {}) => {
-      var _a4, _b2;
+      var _a5, _b3;
       let local = merge(config);
       if (fs8.existsSync(".build.json")) {
         const data9 = fs8.readFileSync(".build.json");
-        if ((_a4 = local.build) == null ? void 0 : _a4.targets)
-          local.build.targets = [];
+        if ((_a5 = local.build) == null ? void 0 : _a5.targets) local.build.targets = [];
         local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = ".build.json";
       }
       if (fs8.existsSync("build.json")) {
         const data9 = fs8.readFileSync("build.json");
-        if ((_b2 = local.build) == null ? void 0 : _b2.targets)
-          local.build.targets = [];
+        if ((_b3 = local.build) == null ? void 0 : _b3.targets) local.build.targets = [];
         local = merge(local, JSON.parse(data9.toString()));
         this.environment.config = "build.json";
       }
-      if (Object.keys(options3).length)
-        local = merge(local, options3);
-      for (const profile of Object.keys(local.profiles))
-        local.profiles[profile] = [.../* @__PURE__ */ new Set([...Object.values(local.profiles[profile])])];
+      if (Object.keys(options3).length) local = merge(local, options3);
+      for (const profile of Object.keys(local.profiles)) local.profiles[profile] = [.../* @__PURE__ */ new Set([...Object.values(local.profiles[profile])])];
       return local;
     });
     __publicField(this, "packageJson", () => {
@@ -22625,8 +23353,7 @@ var Build = class {
     this.application = { name: this.package["name"], version: this.package["version"] };
     log11.configure({ inspect: { breakLength: 265 } });
     log11.options.console = this.config.log.console;
-    if (this.config.log.enabled && this.config.log.output && this.config.log.output !== "")
-      log11.logFile(this.config.log.output);
+    if (this.config.log.enabled && this.config.log.output && this.config.log.output !== "") log11.logFile(this.config.log.output);
   }
   /**
    * Runs build pipeline for specified profile
@@ -22644,8 +23371,7 @@ var Build = class {
     }
     const steps = Object.values(this.config.profiles[profile]);
     log11.info("Build:", { profile, steps });
-    if (this.config.log.debug)
-      log11.data("Configuration:", this.config);
+    if (this.config.log.debug) log11.data("Configuration:", this.config);
     let urls = [];
     for (const step of steps) {
       switch (step) {
@@ -22669,16 +23395,16 @@ var Build = class {
           break;
         case "typings":
           break;
+        // triggered as compile step per target
         case "typedoc":
           break;
+        // triggered as compile step per target
         default:
           log11.warn("Build: unknown step", step);
       }
     }
-    if (steps.includes("serve"))
-      log11.info("Listening...", urls);
-    else
-      log11.info("Done...");
+    if (steps.includes("serve")) log11.info("Listening...", urls);
+    else log11.info("Done...");
     return results();
   }
   async clean() {
