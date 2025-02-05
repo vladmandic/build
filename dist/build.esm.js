@@ -23219,7 +23219,7 @@ function run7() {
 }
 
 // package.json
-var version8 = "0.10.1";
+var version8 = "0.10.2";
 
 // src/build.ts
 var Build = class {
