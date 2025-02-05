@@ -1195,9 +1195,9 @@ var require_ms = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/common.js
+// node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/common.js
 var require_common = __commonJS({
-  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/common.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/common.js"(exports, module2) {
     "use strict";
     function setup(env) {
       createDebug.debug = createDebug;
@@ -1299,49 +1299,63 @@ var require_common = __commonJS({
         createDebug.namespaces = namespaces;
         createDebug.names = [];
         createDebug.skips = [];
-        let i;
-        const split = (typeof namespaces === "string" ? namespaces : "").split(/[\s,]+/);
-        const len = split.length;
-        for (i = 0; i < len; i++) {
-          if (!split[i]) {
-            continue;
-          }
-          namespaces = split[i].replace(/\*/g, ".*?");
-          if (namespaces[0] === "-") {
-            createDebug.skips.push(new RegExp("^" + namespaces.slice(1) + "$"));
+        const split = (typeof namespaces === "string" ? namespaces : "").trim().replace(" ", ",").split(",").filter(Boolean);
+        for (const ns of split) {
+          if (ns[0] === "-") {
+            createDebug.skips.push(ns.slice(1));
           } else {
-            createDebug.names.push(new RegExp("^" + namespaces + "$"));
+            createDebug.names.push(ns);
           }
         }
       }
+      function matchesTemplate(search, template) {
+        let searchIndex = 0;
+        let templateIndex = 0;
+        let starIndex = -1;
+        let matchIndex = 0;
+        while (searchIndex < search.length) {
+          if (templateIndex < template.length && (template[templateIndex] === search[searchIndex] || template[templateIndex] === "*")) {
+            if (template[templateIndex] === "*") {
+              starIndex = templateIndex;
+              matchIndex = searchIndex;
+              templateIndex++;
+            } else {
+              searchIndex++;
+              templateIndex++;
+            }
+          } else if (starIndex !== -1) {
+            templateIndex = starIndex + 1;
+            matchIndex++;
+            searchIndex = matchIndex;
+          } else {
+            return false;
+          }
+        }
+        while (templateIndex < template.length && template[templateIndex] === "*") {
+          templateIndex++;
+        }
+        return templateIndex === template.length;
+      }
       function disable() {
         const namespaces = [
-          ...createDebug.names.map(toNamespace),
-          ...createDebug.skips.map(toNamespace).map((namespace) => "-" + namespace)
+          ...createDebug.names,
+          ...createDebug.skips.map((namespace) => "-" + namespace)
         ].join(",");
         createDebug.enable("");
         return namespaces;
       }
       function enabled(name) {
-        if (name[name.length - 1] === "*") {
-          return true;
-        }
-        let i;
-        let len;
-        for (i = 0, len = createDebug.skips.length; i < len; i++) {
-          if (createDebug.skips[i].test(name)) {
+        for (const skip of createDebug.skips) {
+          if (matchesTemplate(name, skip)) {
             return false;
           }
         }
-        for (i = 0, len = createDebug.names.length; i < len; i++) {
-          if (createDebug.names[i].test(name)) {
+        for (const ns of createDebug.names) {
+          if (matchesTemplate(name, ns)) {
             return true;
           }
         }
         return false;
-      }
-      function toNamespace(regexp) {
-        return regexp.toString().substring(2, regexp.toString().length - 2).replace(/\.\*\?$/, "*");
       }
       function coerce(val) {
         if (val instanceof Error) {
@@ -1359,9 +1373,9 @@ var require_common = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/browser.js
+// node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/browser.js
 var require_browser = __commonJS({
-  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/browser.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/browser.js"(exports, module2) {
     "use strict";
     exports.formatArgs = formatArgs;
     exports.save = save;
@@ -1645,9 +1659,9 @@ var require_supports_color = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/node.js
+// node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/node.js
 var require_node = __commonJS({
-  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/node.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/node.js"(exports, module2) {
     "use strict";
     var tty = __require("tty");
     var util = __require("util");
@@ -1820,9 +1834,9 @@ var require_node = __commonJS({
   }
 });
 
-// node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/index.js
+// node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/index.js
 var require_src = __commonJS({
-  "node_modules/.pnpm/debug@4.3.7/node_modules/debug/src/index.js"(exports, module2) {
+  "node_modules/.pnpm/debug@4.4.0/node_modules/debug/src/index.js"(exports, module2) {
     "use strict";
     if (typeof process === "undefined" || process.type === "renderer" || process.browser === true || process.__nwjs) {
       module2.exports = require_browser();
@@ -10564,7 +10578,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as TypeDoc from "typedoc";
 
-// node_modules/.pnpm/simple-git@3.26.0/node_modules/simple-git/dist/esm/index.js
+// node_modules/.pnpm/simple-git@3.27.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
@@ -12506,15 +12520,17 @@ var init_parse_diff_summary = __esm({
     nameStatusParser = [
       new LineParser(
         /([ACDMRTUXB])([0-9]{0,3})\t(.[^\t]*)(\t(.[^\t]*))?$/,
-        (result, [status, _similarity, from, _to, to]) => {
+        (result, [status, similarity, from, _to, to]) => {
           result.changed++;
           result.files.push({
             file: to != null ? to : from,
             changes: 0,
-            status: orVoid(isDiffNameStatus(status) && status),
             insertions: 0,
             deletions: 0,
-            binary: false
+            binary: false,
+            status: orVoid(isDiffNameStatus(status) && status),
+            from: orVoid(!!to && from !== to && from),
+            similarity: asNumber(similarity)
           });
         }
       )
@@ -12556,15 +12572,12 @@ function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNa
   const parseDiffResult = getDiffParser(logFormat);
   return function(stdOut) {
     const all = toLinesWithContent(
-      stdOut,
-      true,
+      stdOut.trim(),
+      false,
       START_BOUNDARY
     ).map(function(item) {
-      const lineDetail = item.trim().split(COMMIT_BOUNDARY);
-      const listLogLine = lineBuilder(
-        lineDetail[0].trim().split(splitter),
-        fields
-      );
+      const lineDetail = item.split(COMMIT_BOUNDARY);
+      const listLogLine = lineBuilder(lineDetail[0].split(splitter), fields);
       if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
         listLogLine.diff = parseDiffResult(lineDetail[1]);
       }
@@ -13177,16 +13190,16 @@ var FileStatusSummary;
 var init_FileStatusSummary = __esm({
   "src/lib/responses/FileStatusSummary.ts"() {
     "use strict";
-    fromPathRegex = /^(.+) -> (.+)$/;
+    fromPathRegex = /^(.+)\0(.+)$/;
     FileStatusSummary = class {
       constructor(path5, index, working_dir) {
         this.path = path5;
         this.index = index;
         this.working_dir = working_dir;
-        if ("R" === index + working_dir) {
+        if (index === "R" || working_dir === "R") {
           const detail = fromPathRegex.exec(path5) || [null, path5, path5];
-          this.from = detail[1] || "";
-          this.path = detail[2] || "";
+          this.from = detail[2] || "";
+          this.path = detail[1] || "";
         }
       }
     };
@@ -13222,7 +13235,7 @@ function splitLine(result, lineStr) {
       handler(result, path5);
     }
     if (raw !== "##" && raw !== "!!") {
-      result.files.push(new FileStatusSummary(path5.replace(/\0.+$/, ""), index, workingDir));
+      result.files.push(new FileStatusSummary(path5, index, workingDir));
     }
   }
 }
@@ -17084,10 +17097,10 @@ minimatch.Minimatch = Minimatch;
 minimatch.escape = escape;
 minimatch.unescape = unescape;
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/glob.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/glob.js
 import { fileURLToPath as fileURLToPath2 } from "node:url";
 
-// node_modules/.pnpm/lru-cache@11.0.1/node_modules/lru-cache/dist/esm/index.js
+// node_modules/.pnpm/lru-cache@11.0.2/node_modules/lru-cache/dist/esm/index.js
 var perf = typeof performance === "object" && performance && typeof performance.now === "function" ? performance : Date;
 var warned = /* @__PURE__ */ new Set();
 var PROCESS = typeof process === "object" && !!process ? process : {};
@@ -17671,7 +17684,7 @@ var _LRUCache = class _LRUCache {
   }
   /**
    * Return an array of [key, {@link LRUCache.Entry}] tuples which can be
-   * passed to {@link LRLUCache#load}.
+   * passed to {@link LRUCache#load}.
    *
    * The `start` fields are calculated relative to a portable `Date.now()`
    * timestamp, even if `performance.now()` is available.
@@ -21182,7 +21195,7 @@ var PathScurryDarwin = class extends PathScurryPosix {
 var Path = process.platform === "win32" ? PathWin32 : PathPosix;
 var PathScurry = process.platform === "win32" ? PathScurryWin32 : process.platform === "darwin" ? PathScurryDarwin : PathScurryPosix;
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/pattern.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/pattern.js
 var isPatternList = (pl) => pl.length >= 1;
 var isGlobList = (gl) => gl.length >= 1;
 var _patternList, _globList, _index, _platform, _rest, _globString, _isDrive, _isUNC, _isAbsolute, _followGlobstar;
@@ -21359,7 +21372,7 @@ _isAbsolute = new WeakMap();
 _followGlobstar = new WeakMap();
 var Pattern = _Pattern;
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/ignore.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/ignore.js
 var defaultPlatform2 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
 var Ignore = class {
   constructor(ignored, { nobrace, nocase, noext, noglobstar, platform = defaultPlatform2 }) {
@@ -21446,7 +21459,7 @@ var Ignore = class {
   }
 };
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/processor.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/processor.js
 var HasWalkedCache = class _HasWalkedCache {
   constructor(store = /* @__PURE__ */ new Map()) {
     __publicField(this, "store");
@@ -21672,7 +21685,7 @@ var Processor = class _Processor {
   }
 };
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/walker.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/walker.js
 var makeIgnore = (ignore, opts) => typeof ignore === "string" ? new Ignore([ignore], opts) : Array.isArray(ignore) ? new Ignore(ignore, opts) : ignore;
 var _onResume, _ignore, _sep, _GlobUtil_instances, ignored_fn, childrenIgnored_fn;
 var GlobUtil = class {
@@ -22020,7 +22033,7 @@ var GlobStream = class extends GlobUtil {
   }
 };
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/glob.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/glob.js
 var defaultPlatform3 = typeof process === "object" && process && typeof process.platform === "string" ? process.platform : "linux";
 var Glob = class {
   /**
@@ -22220,7 +22233,7 @@ var Glob = class {
   }
 };
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/has-magic.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/has-magic.js
 var hasMagic = (pattern, options3 = {}) => {
   if (!Array.isArray(pattern)) {
     pattern = [pattern];
@@ -22232,7 +22245,7 @@ var hasMagic = (pattern, options3 = {}) => {
   return false;
 };
 
-// node_modules/.pnpm/glob@11.0.0/node_modules/glob/dist/esm/index.js
+// node_modules/.pnpm/glob@11.0.1/node_modules/glob/dist/esm/index.js
 function globStreamSync(pattern, options3 = {}) {
   return new Glob(pattern, options3).streamSync();
 }
