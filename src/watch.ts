@@ -25,7 +25,6 @@ export async function start(options, steps) {
     ignoreInitial: true,
     followSymlinks: true,
     usePolling: false,
-    useFsEvents: false,
     atomic: true,
   });
   // single event handler for file add/change/delete
